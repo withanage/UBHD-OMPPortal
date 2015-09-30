@@ -1,0 +1,30 @@
+{{extend 'layout.html'}}
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12" style="min-height: 20em;">
+            <h3>  {{if session.forced_language =='de': }}
+                Plagiatskontrolle
+                {{elif session.forced_language =='en': }}
+                Plagiarism Control 
+            {{pass}}
+            </h3>
+
+            <p>
+                {{if session.forced_language =='de': }}
+Heidelberg University Publishing übernimmt die Verantwortung für die Plagiatsprüfung. Wir setzen dazu eine moderne professionelle Plagiatssoftware ein, die den Originaltext mit Quellentexten einer umfangreichen Datenbank vergleicht. Zudem überprüfen wir Textpassagen, die auffallend vom sonstigen Stil des Autors abweichen.
+                {{elif session.forced_language =='en': }}
+Heidelberg University Publishing conducts a plagiarism check for each work in progress. We utilize modern, professional-grade plagiarism software that compares a given text with original source texts taken from an extensive database. We also check text passages that differ significantly from the author’s usual style.
+                {{pass}}
+
+
+            </p>
+
+        </div>
+    </div>
+</div>
+
+

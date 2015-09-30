@@ -1,0 +1,63 @@
+{{extend 'layout.html'}}
+
+            
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+
+            
+            <h3>  {{if session.forced_language =='de': }}
+                Impressum
+                {{elif session.forced_language =='en': }}
+                Legal Notice
+            {{pass}}
+            </h3>
+
+            <p>
+                {{if session.forced_language =='de': }}
+            
+            <h4>Heidelberg University Publishing</h4>
+
+
+            <h5>Postanschrift</h5>
+            <p>Plöck 107-109<br>
+              Postfach: 10 57 49<br>
+            D-69047 Heidelberg</p> 
+            <p>Telefon: +49 6221 54 2380<br>
+            Fax: +49 6221 54 2623</p>
+            <p>E-Mail: <a href="mailto:heiup@ub.uni-heidelberg.de" title="E-Mail senden an Heidelberg University Publishing">heiup@ub.uni-heidelberg.de</a><br>  
+            Internet: <a href="http://heiup.uni-heidelberg.de/" title="Homepage Heidelberg University Publishing">http://heiup.uni-heidelberg.de/</a></p> 
+            <p>Direktor: Dr. Veit Probst</p>
+
+<p>Heidelberg University Publishing ist Teil der <a href="http://ub.uni-heidelberg.de" title="Homepage Universitätsbibliothek Heidelberg">Universitätsbibliothek Heidelberg</a>. Die Universitätsbibliothek Heidelberg ist als zentrale Betriebseinheit eine organisatorische, rechtlich nicht selbständige Einheit der Universität Heidelberg, die als rechtsfähige Körperschaft des öffentlichen Rechts Diensteanbieter i. S. des <a href="http://bundesrecht.juris.de/tmg/__2.html" title="Homepage Bundesministerium der Justiz und für Verbraucherschutz, Telemediengesetz § 2">§ 2 Nr. 1 TMG</a> ist und durch ihren <a href="http://www.rektorat.uni-heidelberg.de/index.html" title="Homepage Universität Heidelberg, Informationen zum Rektor">Rektor</a> vertreten wird. Vgl. daher zu Haftungsfragen, zum Urheberrecht und zum Datenschutz das <a href="http://www.uni-heidelberg.de/kontakt.html#impressum" title="Homepage der Universität Heidelberg: Impressum">Impressum der Universität</a>.</p>
+{{elif session.forced_language =='en': }}
+<h4>Heidelberg University Publishing</h4>
+
+
+            <h5>Contact</h5>
+            <p>Plöck 107-109<br>
+            Post office box: 10 57 49<br>
+            69047 Heidelberg<br>
+            Germany</p> 
+            <p>Telephone: +49 6221 54 2380<br>
+            Fax: +49 6221 54 2623</p>
+            <p>E-Mail: <a href="mailto:heiup@ub.uni-heidelberg.de" title="E-Mail to Heidelberg University Publishing">heiup@ub.uni-heidelberg.de</a><br>  
+            Internet: <a href="http://heiup.uni-heidelberg.de/" title="Homepage Heidelberg University Publishing">http://heiup.uni-heidelberg.de/</a></p> 
+            <p>Publishing Director: Dr. Veit Probst</p>
+
+<p>Heidelberg University Publishing is part of <a href="http://ub.uni-heidelberg.de" title="Homepage Heidelberg University Library">Heidelberg University Library</a>. Heidelberg University Library is a central unit and as such organizationally and legally dependent on the University of Heidelberg, in terms of <a href="http://bundesrecht.juris.de/tmg/__2.html" title="Homepage Bundesministerium der Justiz und für Verbraucherschutz, Telemediengesetz § 2">§ 2 Nr. 1 TMG</a>  and is represented by its <a href="http://www.uni-heidelberg.de/institutions/rectorate/index.html" title="Homepage Heidelberg University, information on President's Office">president</a>. For questions of liability, copyright and data protection see the <a href="http://www.uni-heidelberg.de/legalnotice.html" title="Homepage Heidelberg University - legal notice">legal notice of Heidelberg University</a>.</p>
+
+                {{pass}}
+
+
+            
+        </div>
+    </div>
+  </div>  
+                    
+
+        </div>
+    </div>
+</div>

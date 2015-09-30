@@ -1,0 +1,55 @@
+{{extend 'layout.html'}}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>  {{if session.forced_language =='de': }}
+                Peer Review bei Heidelberg University Publishing
+                {{elif session.forced_language =='en': }}
+                Peer Review at Heidelberg University Publishing
+               {{pass}}
+            </h3>
+
+            <p>
+                {{if session.forced_language =='de': }}
+<p>Eingereichte Publikationsprojekte werden zunächst von der Redaktion geprüft und dem  Beirat vorgelegt. Manuskripte, die den Annahmekriterien  entsprechen, leitet dieser zur Begutachtung weiter. Der Begutachtungsprozess ist als  Double-blind-Peer-Review-Verfahren konzipiert und erfolgt  auf der Grundlage der unten genannten Richtlinien.  Anschließend folgen – falls erforderlich – die Überarbeitung durch die Autoren sowie die abschließende Entscheidung der Herausgeber anhand der vorliegenden Gutachten. Zuletzt durchläuft das Manuskript Lektorat, Satz  und  Schlusskorrektur.</p>
+
+<h4>Richtlinien für die Begutachtung</h4>
+<p>Heidelberg University Publishing steht für die Publikation hervorragender Forschungsergebnisse im Open Access. Um die Einhaltung unseres Qualitätsstandards sichern zu können, sind wir auf hochwertige Gutachten angewiesen. Folgende Punkte sind uns bei der Bewertung der eingereichten Manuskripte besonders wichtig und sollten im Gutachten erörtert werden:</p>
+  <ul class="standard">
+    <li>fachliche Relevanz und Aktualität des Themas</li>
+    <li>Originalität des gewählten Ansatzes</li>
+    <li>Transparenz der Vorgehensweise, Methoden und Ergebnisse</li>
+    <li>Nachvollziehbarkeit der Ergebnisse</li>
+    <li>Strukturiertheit und Kohärenz der Arbeit</li>
+    <li>sprachliche Qualität des Textes in Bezug auf Orthographie, Grammatik, Stil</li>
+  </ul>
+<p>Gutachten für Heidelberg University Publishing sollte bei 1,5-fachem Zeilenabstand einen Umfang von ein bis zwei Seiten haben. Gutachter werden gebeten, zur Erstellung des Gutachtens das Formular zu verwenden, das wir ihnen nach Zustimmung zur Begutachtung übersenden. Das Gutachten ist dreiteilig. Es enthält (1) einem frei formulierten Text, in dem die wissenschaftliche Qualität des Manuskripts und ggf. seine Relevanz im Hinblick auf die fachliche Ausrichtung der Reihe einzuschätzen ist, (2) einer Zusammenfassung der Bewertung auf einer fünfstufigen Skala, (3) eine abschließende Empfehlung.</p>
+
+
+                {{elif session.forced_language =='en': }}
+
+<p>All submissions are initially evaluated by the editors and presented to the advisory board. Manuscripts that meet the acceptance criteria then move forward to peer review. Our double-blind peer review process is based on the guidelines mentioned below. Following review, further revisions may be required of the author before a final decision can be made. The advisory board’s final decision is based on both the work itself and the reviewers’ reports. Finally, the manuscript enters the copyediting phase, after which it is proofed and then formatted into its final version. </p>
+<h4>Reviewer Guidelines</h4>
+<p>Heidelberg University Publishing stands for the publication of high-quality, open access academic texts. In order to ensure compliance with our quality standards, we must rely on expert advice. The following points, which should be discussed in the reviewer’s final report, are particularly important when assessing submitted manuscripts:</p>
+  <ul class="standard">
+    <li>Factual relevance and timeliness of the topic</li>
+    <li>Originality of the approach</li>
+    <li>Transparency of the procedures, methods, and results (if applicable)</li>
+    <li>Traceability of results (if applicable)</li>
+    <li>Structural coherence and logical progression within the work</li>
+    <li>Linguistic quality in terms of spelling, grammar, and appropriate style / register</li>
+  </ul>
+<p>Evaluators are asked to complete a review form, which is sent to them at the time they agree to review the manuscript. The review form consists of three parts, which together comprise the reviewer’s final report: 1) a free-form text box, in which reviewers can assess the overall quality of the manuscript and, if necessary, its relevance and applicability to a particular series,2) a five-point assessment scale, and 3) a final recommendation. The text portion of the report should be 1-2 pages (1.5 spacing) in length.</p>
+
+
+
+
+                {{pass}}
+
+
+            </p>
+
+        </div>
+    </div>
+  </div>  
