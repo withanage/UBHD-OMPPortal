@@ -1,15 +1,15 @@
 # UBHD-OMPPortal
-UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp's](https://pkp.sfu.ca/) [Open Monograph Press](https://pkp.sfu.ca/omp/) and [OJS](https://pkp.sfu.ca/ojs/) written in python programming language and  based on the python web framework [web2py](http://www.web2py.com).
+UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp's](https://pkp.sfu.ca/) [Open Monograph Press](https://pkp.sfu.ca/omp/) and [Open Jouranl Systems](https://pkp.sfu.ca/ojs/) written in python programming language and  based on the python web framework [web2py](http://www.web2py.com).
 
 # Demo
-[Heidelberg University Publishing - Webpage] (http://heiup.uni-heidelberg.de/)
- Customized HTML Viewer [Full book](http://heiup.uni-heidelberg.de/reader/index/43/heiUP_habenstein_abwesenheit_2015.xml) [Chapter](http://heiup.uni-heidelberg.de/reader/index/43/43-69-209-1-10-20150717.xml) [Chapter with images](http://heiup.uni-heidelberg.de/reader/index/43/43-69-220-1-10-20150723.xml#figures)
+- Heidelberg University Publishing  [Web](http://heiup.uni-heidelberg.de/)
+- Customized HTML Viewer [Full book](http://heiup.uni-heidelberg.de/reader/index/43/heiUP_habenstein_abwesenheit_2015.xml) ,  [Chapter ](http://heiup.uni-heidelberg.de/reader/index/43/43-69-209-1-10-20150717.xml) ,  [Chapter with images](http://heiup.uni-heidelberg.de/reader/index/43/43-69-220-1-10-20150723.xml#figures)
 
 
 # Features
 - Responsive design (based on twitter bootstrap)
 - Easy multilingual support
-- Intergrated - HTML viewer (based on [lens](http://lens.elifesciences.org/))
+- Intergrated - HTML viewer (based on [lens](https://github.com/elifesciences/lens/)
 - Native [JATS](http://jats.nlm.nih.gov/) XML support for OMP
 - Chapter level metadata for monographs and edited volumes
 - Social sharing
@@ -29,7 +29,9 @@ UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp's](https://pkp
  4. mount or link the files folder of the OMP  <WEB2PY_INSTALLATION>/applications/<PRESS_NAME>/static/monographs/
    e.g. [OMP_INSTALLATION]/files/presses/6/monographs  = <WEB2PY_INSTALL>/applications/<PRESS_NAME>/static/monographs/
 
-# Further customization
+# For developers
+1. The OJS intergration is work in progress
+2. We have included a minified [lens](https://github.com/elifesciences/lens/) viewer. If you want to customize it, either use the [git](https://github.com/elifesciences/lens/)  or either contact [withanage](mailto:dulip.withanage@gmail.com). We will be happy to help you.
 
 
 #License
