@@ -26,6 +26,8 @@ UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp's](https://pkp
 - Install UBHD-OMPPortal
      1. cd  **web2py_folder**/applications/
      2. git clone https://github.com/UB-Heidelberg/UBHD-OMPPortal.git **press_name**
+     Notice:  **press_name** *should* contain only characters, numbers or _ : don not user ***press-name***
+
      3. Change the settings for your local omp installation private/appconfig.ini
        1. **username** and **password** for the OMP database
        2. **press_id** of the local omp press
