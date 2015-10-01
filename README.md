@@ -4,7 +4,7 @@ UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp's](https://pkp
 # Demo
 - Heidelberg University Publishing  [Web](http://heiup.uni-heidelberg.de/)
 - Customized HTML Viewer [Full book](http://heiup.uni-heidelberg.de/reader/index/43/heiUP_habenstein_abwesenheit_2015.xml) ,  [Chapter ](http://heiup.uni-heidelberg.de/reader/index/43/43-69-209-1-10-20150717.xml) ,  [Chapter with images](http://heiup.uni-heidelberg.de/reader/index/43/43-69-220-1-10-20150723.xml#figures)
-
+![alt tag](http://heiup.uni-heidelberg.de/heiup/en/static/images/press/slideshow/01_claim_tablet.de.jpg)
 
 # Features
 - Responsive design (based on twitter bootstrap)
@@ -21,7 +21,7 @@ UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp's](https://pkp
  2. Unzip it
  3. python2.7 web2py.py
 3. Install UBHD-OMPPortal
- 1. cd <WEB2PY_INSTALLATION_FOLDER>/applications/
+ 1. cd <WEB2PY_INSTALLATION>/applications/
  2. git clone https://github.com/UB-Heidelberg/UBHD-OMPPortal.git <PRESS_NAME>
  3. Change the settings for your local omp installation private/appconfig.ini
    1. username and password for the OMP Database
