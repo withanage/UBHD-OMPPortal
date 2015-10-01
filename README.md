@@ -4,7 +4,7 @@ UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp's](https://pkp
 # Demo
 - Heidelberg University Publishing  [Web](http://heiup.uni-heidelberg.de/)
 - Customized HTML Viewer [Full book](http://heiup.uni-heidelberg.de/reader/index/43/heiUP_habenstein_abwesenheit_2015.xml) ,  [Chapter ](http://heiup.uni-heidelberg.de/reader/index/43/43-69-209-1-10-20150717.xml) ,  [Chapter with images](http://heiup.uni-heidelberg.de/reader/index/43/43-69-220-1-10-20150723.xml#figures)
-![alt tag](http://heiup.uni-heidelberg.de/heiup/en/static/images/press/slideshow/01_claim_tablet.de.jpg)
+![alt tag](static/images/UBHD-OMPPortal.png)
 
 # Features
 - Responsive design (based on twitter bootstrap)
