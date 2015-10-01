@@ -6,9 +6,9 @@
     <title>{{=T('heiUP Habenstein')}}</title>
 
 
-    <link rel="stylesheet" href="{{=URL('static','css/font-awesome.css')}}"/>
-    <link rel="stylesheet" href="{{=URL('static','css/lens.css')}}"/>
-    <script src="{{=URL('static','js/jquery.js')}}"></script>
+    <link rel="stylesheet" href="{{=URL(myconf.take('web.application'),'static','css/font-awesome.css')}}"/>
+    <link rel="stylesheet" href="{{=URL(myconf.take('web.application'),'static','css/lens.css')}}"/>
+    <script src="{{=URL(myconf.take('web.application'),'static','js/jquery.js')}}"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <!-- MathJax Configuration -->
     <script type="text/x-mathjax-config">
@@ -20,8 +20,8 @@
       });
     </script>
 
-    <!--script src="{{=URL('static','js/MathJax.js?config=TeX-AMS-MML_HTMLorMML')}}"></script-->
-    <script src="{{=URL('static','js/lens2.js')}}"></script>
+    <!--script src="{{=URL(myconf.take('web.application'),'static','js/MathJax.js?config=TeX-AMS-MML_HTMLorMML')}}"></script-->
+    <script src="{{=URL(myconf.take('web.application'),'static','js/lens2.js')}}"></script>
     
 
     <script>

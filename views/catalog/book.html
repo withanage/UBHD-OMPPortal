@@ -81,7 +81,7 @@
 
                         <div class="btn-group" role="group" aria-label="1">
 
-	                        <li type="button" class="btn btn-default"><a href="{{=URL('reader','index','43/heiUP_habenstein_abwesenheit_2015.xml')}}"target="_blank">{{=T('Read')}}</a></li>
+	                        <li type="button" class="btn btn-default"><a href="{{=URL(myconf.take('web.application'),'reader','index','43/heiUP_habenstein_abwesenheit_2015.xml')}}"target="_blank">{{=T('Read')}}</a></li>
 
                         </div>
 
@@ -97,7 +97,7 @@
 
                           <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{{=URL('reader','download/43/heiUP_habenstein_abwesenheit_2015.pdf')}}">PDF</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{{=URL(myconf.take('web.application'),'reader','download/43/heiUP_habenstein_abwesenheit_2015.pdf')}}">PDF</a></li>
 
                           </ul>
 

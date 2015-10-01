@@ -11,7 +11,7 @@
             <div class="col-lg-3">
                 <article>
                     <div class="post-image">
-		 	{{=IMG(_src=URL('heiup','static','monographs/'+ str(entry)+'/simple/cover.jpg'))}}
+		 	{{=IMG(_src=URL(myconf.take('web.application'),'static','monographs/'+ str(entry)+'/simple/cover.jpg'))}}
                   </div>
 
                 </article>
@@ -35,10 +35,10 @@
                         <h5 class="widgetheading"></h5>
                         <ul class="tags">
              {{if session.forced_language =='de': }}
-                            <li><a href="{{=URL('catalog','book',str(entry))}}">{{=T('Mehr' )}}</a></li>
+                            <li><a href="{{=URL(myconf.take('web.application'),'catalog','book/'+str(entry))}}">{{=T('Mehr' )}}</a></li>
 
              {{elif session.forced_language =='en': }}           
-                            <li><a href="{{=URL('catalog','book',str(entry))}}">{{=T('More Information' )}}</a></li>
+                            <li><a href="{{=URL(myconf.take('web.application'),'catalog','book/'+str(entry))}}">{{=T('More Information' )}}</a></li>
              {{pass}}               
 
                         </ul>

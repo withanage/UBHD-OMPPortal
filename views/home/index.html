@@ -26,7 +26,7 @@
                         <ul class="slides">                
                             <li>
                             {{if session.forced_language =='de': }}  
-                                <img id="hup-logo" src="{{=URL('static','images/press/slideshow/01_claim_tablet.de.jpg')}}" />
+                                <img id="hup-logo" src="{{=URL(myconf.take('web.application'),'static','images/press/slideshow/01_claim_tablet.de.jpg')}}" />
                                 <div class="flex-caption hidden-xs hidden-sm">
                                     <h3>{{=T('Das Profil von heiUP')}}</h3>
                                     <p></p>
@@ -34,7 +34,7 @@
                                        class="btn btn-theme">Mehr</a>
                                 </div>
                             {{elif session.forced_language =='en': }}                                
-                                 <img id="hup-logo" src="{{=URL('static','images/press/slideshow/01_claim_tablet.en.jpg')}}" />
+                                 <img id="hup-logo" src="{{=URL(myconf.take('web.application'),'static','images/press/slideshow/01_claim_tablet.en.jpg')}}" />
                                 <div class="flex-caption hidden-xs hidden-sm">
                                     <h3>{{=T('heiUP Profile')}}</h3>
                                     <p></p>
@@ -44,7 +44,7 @@
                             {{pass}}
                             </li>
                             <li>
-                                <img id="hup-logo2" src="{{=URL('static','images/press/slideshow/02_cover_habenstein.jpg')}}" />
+                                <img id="hup-logo2" src="{{=URL(myconf.take('web.application'),'static','images/press/slideshow/02_cover_habenstein.jpg')}}" />
                             {{if session.forced_language =='de': }}  
                                 <div class="flex-caption  hidden-xs hidden-sm">
                                     <h3>{{=T('A. Habenstein Abwesenheit von Rom')}}</h3>
@@ -62,7 +62,7 @@
                             {{pass}}
                             </li>
                             <li>
-                                <img id="hup-logo3" src="{{=URL('static','images/press/slideshow/03_ub_treppenhaus.jpg')}}" />
+                                <img id="hup-logo3" src="{{=URL(myconf.take('web.application'),'static','images/press/slideshow/03_ub_treppenhaus.jpg')}}" />
                                 {{if session.forced_language =='de': }}  
                                 <div class="flex-caption  hidden-xs hidden-sm">
                                     <h3>{{=T('UB Heidelberg Digitale Informations- versorgung')}}</h3>
@@ -80,7 +80,7 @@
                             {{pass}}
                             </li>
                             <li>
-                                <img id="hup-logo4" src="{{=URL('static','images/press/slideshow/04_alte_universitaet.jpg')}}" />
+                                <img id="hup-logo4" src="{{=URL(myconf.take('web.application'),'static','images/press/slideshow/04_alte_universitaet.jpg')}}" />
                                 {{if session.forced_language =='de': }}  
                                 <div class="flex-caption  hidden-xs hidden-sm">
                                     <h3>{{=T('heiUP Der Beirat')}}</h3>
@@ -98,7 +98,7 @@
                             {{pass}}
                             </li>
                             <li>
-                                <img id="hup-logo5" src="{{=URL('static','images/press/slideshow/05_dem_lebendigen_geist.jpg')}}" />
+                                <img id="hup-logo5" src="{{=URL(myconf.take('web.application'),'static','images/press/slideshow/05_dem_lebendigen_geist.jpg')}}" />
                                 {{if session.forced_language =='de': }}  
                                 <!--<div class="flex-caption  hidden-xs hidden-sm">
                                     <h3>{{=T('"Dem lebendigen Geist" Motto der Universität')}}</h3>
@@ -149,7 +149,7 @@
 
                                     <h4>Neuerscheinung</h4>
 
-				   {{=IMG(_src=URL('heiup','static','monographs/43/simple/cover.jpg'),_width='145px')}}
+				   {{=IMG(_src=URL(myconf.take('web.application'),'static','monographs/43/simple/cover.jpg'),_width='145px')}}
                                 </div>
 
                                 <div class="box-bottom">
@@ -164,7 +164,7 @@
                         <div class="box-gray aligncenter">
    
    <h4>New Titles</h4>
-				   {{=IMG(_src=URL('heiup','static','monographs/43/simple/cover.jpg'),_width='145px')}}
+				   {{=IMG(_src=URL(myconf.take('web.application'),'static','monographs/43/simple/cover.jpg'),_width='145px')}}
                                 </div>
 
                                <div class="box-bottom">
@@ -236,7 +236,7 @@
                             
                             <div class="media">
                                     <div class="media-left pull-left">
-                                        <img src="{{=URL('static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
+                                        <img src="{{=URL(myconf.take('web.application'),'static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
                                     </div>                        
                                     <div class="media-body">      
                                         <p class="media-heading">
@@ -261,7 +261,7 @@
                                 <div class="media">
                                     <div class="media-left pull-left">
                                         <a href="http://open-access.net/community/open_access_tage/">
-                                            <img src="{{=URL('static','images/press/home/oa.svg')}}" width="50px" />
+                                            <img src="{{=URL(myconf.take('web.application'),'static','images/press/home/oa.svg')}}" width="50px" />
                                         </a>
                                     </div>                        
                                     <div class="media-body">      
@@ -288,7 +288,7 @@ Open Access Days 2015: The 9th annual Open Access Days conference, which is cent
                                 <!--<div class="media">
                                     <div class="media-left pull-left">
                                         <a href="#">
-                                            <img src="{{=URL('static','images/press/home/cluster.jpg')}}" width="50px"/>
+                                            <img src="{{=URL(myconf.take('web.application'),'static','images/press/home/cluster.jpg')}}" width="50px"/>
                                         </a>
                                     </div>
                                     <div class="media-body">
@@ -334,7 +334,7 @@ Open Access Days 2015: The 9th annual Open Access Days conference, which is cent
                                        {{pass}}                                    
 
                   
-                                    <img src="{{=URL('static','images/press/home/Cover2English.jpg')}}" width="145px"/>
+                                    <img src="{{=URL(myconf.take('web.application'),'static','images/press/home/Cover2English.jpg')}}" width="145px"/>
 
                                 </div>
 

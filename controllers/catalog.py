@@ -52,6 +52,6 @@ def book():
       subtitle = i.setting_value
     if i.setting_name =='cleanTitle':
       cleanTitle =  i.setting_value
-  cover_image = URL('heiup','static','monographs/'+ book_id+'/simple/cover.jpg')
+  cover_image = URL(myconf.take('web.application'),'static','monographs/'+ book_id+'/simple/cover.jpg')
   return dict(abstract=abstract,authors=authors, author_bio=author_bio, chapters=chapters,  cleanTitle=cleanTitle,cover_image=cover_image,publication_formats=publication_formats,  subtitle=subtitle)
 
