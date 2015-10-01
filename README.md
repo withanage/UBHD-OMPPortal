@@ -23,14 +23,14 @@ UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp's](https://pkp
  2. Unzip it
  3. run python2.7 web2py.py
 3. Install UBHD-OMPPortal
- 1. cd [WEB2PY_INSTALLATION]/applications/
- 2. git clone https://github.com/UB-Heidelberg/UBHD-OMPPortal.git <PRESS_NAME>
+ 1. cd  *WEB2PY_INSTALLATION*/applications/
+ 2. git clone https://github.com/UB-Heidelberg/UBHD-OMPPortal.git *PRESS_NAME*
  3. Change the settings for your local omp installation private/appconfig.ini
-   1. username and password for the OMP Database
-   2. press_id of the local omp press
-   3. define the application name
- 4. mount or link the files folder of the OMP  [WEB2PY_INSTALLATION]/applications/[PRESS_NAME]/static/monographs/
-   e.g. [OMP_INSTALLATION]/files/presses/6/monographs  = [WEB2PY_INSTALL]/applications/[PRESS_NAME]/static/monographs/
+   1. *username* and *password* for the OMP database
+   2. *press_id* of the local omp press
+   3. define the *PRESS_NAME*
+ 4. mount or link the files folder of the OMP  *WEB2PY_INSTALLATION*/applications/*PRESS_NAME*/static/monographs/
+   - e.g. ln -s *WEB2PY_INSTALL*/applications/*PRESS_NAME*/static/monographs/ *OMP_INSTALLATION*/files/presses/*press_id*/monographs
 
 
 
