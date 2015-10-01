@@ -7,13 +7,10 @@ LICENSE.md
 
 def index():
 	abstract, author, cleanTitle, subtitle  = '', '', '', ''
-	press_id =  6 
-	if request.args:
-		press_id = request.args[0]
 	locale = 'de_DE'
 	if session.forced_language=='en':
 		locale= 'en_US'
-	query =  ((db.submissions.context_id == press_id) & (db.submissions.status == 3)  & (db.submission_settings.submission_id == db.submissions.submission_id) & (db.submission_settings.locale==locale))
+	query =  ((db.submissions.context_id == myconf.take('omp.press_id')) & (db.submissions.status == 3)  & (db.submission_settings.submission_id == db.submissions.submission_id) & (db.submission_settings.locale==locale))
 	submissions = db(query).select(db.submission_settings.ALL, orderby = db.submissions.submission_id)
         subs = {} 
         for  i in submissions:
