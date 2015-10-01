@@ -1,5 +1,5 @@
 # UBHD-OMPPortal
-UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp's](https://pkp.sfu.ca/) [Open Monograph Press](https://pkp.sfu.ca/omp/) and [Open Jouranl Systems](https://pkp.sfu.ca/ojs/) written in python programming language and  based on the python web framework [web2py](http://www.web2py.com).
+UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp's](https://pkp.sfu.ca/) [Open Monograph Press](https://pkp.sfu.ca/omp/) and [Open Journal Systems](https://pkp.sfu.ca/ojs/) written in python programming language and  based on the python web framework [web2py](http://www.web2py.com).
 
 # Demo
 - Heidelberg University Publishing  [Web](http://heiup.uni-heidelberg.de/)
@@ -9,7 +9,7 @@ UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp's](https://pkp
 # Features
 - Responsive design (based on twitter bootstrap)
 - Easy multilingual support
-- Intergrated - HTML viewer (based on [lens](https://github.com/elifesciences/lens/))
+- Intergrated-HTML viewer (based on [lens](https://github.com/elifesciences/lens/))
 - Native [JATS](http://jats.nlm.nih.gov/) XML support for OMP
 - Chapter level metadata for monographs and edited volumes
 - Social sharing  (without using external plugins)
@@ -24,14 +24,17 @@ UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp's](https://pkp
      2. Unzip it
      3. run python2.7 web2py.py
 - Install UBHD-OMPPortal
-     1. cd  **WEB2PY_INSTALLATION**/applications/
-     2. git clone https://github.com/UB-Heidelberg/UBHD-OMPPortal.git **PRESS_NAME**
+     1. cd  **web2py_folder**/applications/
+     2. git clone https://github.com/UB-Heidelberg/UBHD-OMPPortal.git **press_name**
      3. Change the settings for your local omp installation private/appconfig.ini
        1. **username** and **password** for the OMP database
        2. **press_id** of the local omp press
-       3. define the **PRESS_NAME**
-     4. mount or link the files folder of the OMP  **WEB2PY_INSTALLATION**/applications/**PRESS_NAME**/static/monographs/
-       - e.g. ln -s **WEB2PY_INSTALL**/applications/**PRESS_NAME**/static/monographs/ **OMP_INSTALLATION**/files/presses/**press_id**/monographs
+       3. define the **press_name**
+     4. mount or link the files folder of the OMP  **web2py_folder**/applications/**press_name**/static/monographs/
+       e.g.
+        ```
+        ln -s **web2py_folder**/applications/**press_name**/static/monographs/ **omp_folder**/files/presses/**press_id**/monographs
+        ```
 
 
 
@@ -46,16 +49,16 @@ UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp's](https://pkp
 
 
 ##Folder structure
-(strictly follows MVC (Model-View-Control) design principle)
+**strictly follows MVC (Model-View-Control) design principle**
 
-- Controllers - contains all the functions for  enabling pages.
-- cron - automated tasks
-- languages -  language files. Web2py generates automatic entries for any word written as {{=T('my-word')}}. Default language is english.
-- models - database models for Open monograph press. Web2py uses a  data abstraction layer.
-- private - all the files, which contain sensitive information and configuration files
-- modules - define your own modules, to be imported to your application
-- static - all the static files as such as javascript files and css files.
-- views - for each controller file, you have to  add a folder  with the same name and a html file for each function in the controller file.
+- **controllers** - contains all the functions for  enabling pages.
+- **cron** - automated tasks
+- **languages** -  language files. Web2py generates automatic entries for any word written as {{=T('my-word')}}. Default language is english.
+- **models** - database models for Open monograph press. Web2py uses a  data abstraction layer.
+- **private** - all the files, which contain sensitive information and configuration files
+- **modules** - define your own modules, to be imported to your application
+- **static** - all the static files as such as javascript files and css files.
+- **views** - for each controller file, you have to  add a folder  with the same name and a html file for each function in the controller file.
 
 
 
