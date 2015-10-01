@@ -17,20 +17,21 @@ UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp's](https://pkp
 - Easy migration using web2py app structure
 
 # Installation
-1. Install Open Monograph Press. See [documentation](http://pkp.sfu.ca/omp/README)
-2. Install web2py
- 1. [Download] (http://web2py.com/init/default/download) web2py
- 2. Unzip it
- 3. run python2.7 web2py.py
-3. Install UBHD-OMPPortal
- 1. cd  **WEB2PY_INSTALLATION**/applications/
- 2. git clone https://github.com/UB-Heidelberg/UBHD-OMPPortal.git **PRESS_NAME**
- 3. Change the settings for your local omp installation private/appconfig.ini
-   1. **username** and **password** for the OMP database
-   2. **press_id** of the local omp press
-   3. define the **PRESS_NAME**
- 4. mount or link the files folder of the OMP  **WEB2PY_INSTALLATION**/applications/**PRESS_NAME**/static/monographs/
-   - e.g. ln -s **WEB2PY_INSTALL**/applications/**PRESS_NAME**/static/monographs/ **OMP_INSTALLATION**/files/presses/**press_id**/monographs
+- Prerequisites
+    1. Install Open Monograph Press. See [documentation](http://pkp.sfu.ca/omp/README)
+    2. Install web2py
+     1. [Download] (http://web2py.com/init/default/download) web2py
+     2. Unzip it
+     3. run python2.7 web2py.py
+- Install UBHD-OMPPortal
+     1. cd  **WEB2PY_INSTALLATION**/applications/
+     2. git clone https://github.com/UB-Heidelberg/UBHD-OMPPortal.git **PRESS_NAME**
+     3. Change the settings for your local omp installation private/appconfig.ini
+       1. **username** and **password** for the OMP database
+       2. **press_id** of the local omp press
+       3. define the **PRESS_NAME**
+     4. mount or link the files folder of the OMP  **WEB2PY_INSTALLATION**/applications/**PRESS_NAME**/static/monographs/
+       - e.g. ln -s **WEB2PY_INSTALL**/applications/**PRESS_NAME**/static/monographs/ **OMP_INSTALLATION**/files/presses/**press_id**/monographs
 
 
 
@@ -44,7 +45,9 @@ UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp's](https://pkp
 - We have included a minified [lens](https://github.com/elifesciences/lens/) viewer. If you want to customize it, either use the [lens git](https://github.com/elifesciences/lens/)  or  [contact](mailto:dulip.withanage@gmail.com) us. We will be happy to help you.
 
 
-##Folder structure (strictly follows MVC (Model-View-Control) design principle)
+##Folder structure
+(strictly follows MVC (Model-View-Control) design principle)
+
 - Controllers - contains all the functions for  enabling pages.
 - cron - automated tasks
 - languages -  language files. Web2py generates automatic entries for any word written as {{=T('my-word')}}. Default language is english.
