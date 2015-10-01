@@ -41,7 +41,7 @@ n
 databases/*
 .idea/*
 sessions/*
-#private/*
+private/*
 static/monographs/*
 
 
