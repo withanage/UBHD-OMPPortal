@@ -22,11 +22,12 @@ UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp's](https://pkp
     2. Install web2py
      1. [Download] (http://web2py.com/init/default/download) web2py
      2. Unzip it
-     3. run ```python2.7 web2py.py```
+     3. change directory to the the unzipped folder
+     4. If you have python installed : run ```python2.7 web2py.py``` or install [python](https://www.python.org/downloads/release/python-2710/) for your distribution
 - Install UBHD-OMPPortal
-     1. ```cd  **web2py_folder**/applications/```
-     2. ```git clone https://github.com/UB-Heidelberg/UBHD-OMPPortal.git **press_name**```
-       - Notice:  **press_name** *should* contain only characters, numbers or _
+     1. ```cd  web2py_folder/applications/```
+     2. ```git clone https://github.com/UB-Heidelberg/UBHD-OMPPortal.git press_name```
+       - Notice:  press_name *should* contain only characters, numbers or _
        - Please do not use **-** in the **press_name**
      3. Change the settings for your local omp installation private/appconfig.ini
        1. **username** and **password** for the OMP database
