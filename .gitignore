@@ -41,7 +41,7 @@ Thumbs.db
 databases/*
 .idea/*
 sessions/*
-private/*
+#private/*
 static/monographs/*
 
 

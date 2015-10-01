@@ -9,15 +9,16 @@ UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp's](https://pkp
 # Features
 - Responsive design (based on twitter bootstrap)
 - Easy multilingual support
-- Intergrated - HTML viewer (based on [lens](https://github.com/elifesciences/lens/)
+- Intergrated - HTML viewer (based on [lens](https://github.com/elifesciences/lens/))
 - Native [JATS](http://jats.nlm.nih.gov/) XML support for OMP
 - Chapter level metadata for monographs and edited volumes
-- Social sharing
+- Social sharing  (without using external plugins)
+- Detailed usage statistics
 
 # Installation
 1. Install Open Monograph Press. See [documentation](http://pkp.sfu.ca/omp/README)
 2. Install web2py
- 1. [Download] (http://web2py.com/init/default/download) web2py.
+ 1. [Download] (http://web2py.com/init/default/download) web2py
  2. Unzip it
  3. python2.7 web2py.py
 3. Install UBHD-OMPPortal
@@ -30,8 +31,9 @@ UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp's](https://pkp
    e.g. [OMP_INSTALLATION]/files/presses/6/monographs  = <WEB2PY_INSTALL>/applications/<PRESS_NAME>/static/monographs/
 
 # For developers
-1. The OJS intergration is work in progress
-2. We have included a minified [lens](https://github.com/elifesciences/lens/) viewer. If you want to customize it, either use the [git](https://github.com/elifesciences/lens/)  or either contact [withanage](mailto:dulip.withanage@gmail.com). We will be happy to help you.
+- Although OMP is needed, the front-end uses only the OMP database.
+- The OJS intergration is work in progress.
+- We have included a minified [lens](https://github.com/elifesciences/lens/) viewer. If you want to customize it, either use the [git](https://github.com/elifesciences/lens/)  or either [contact](mailto:dulip.withanage@gmail.com) us. We will be happy to help you.
 
 
 #License
