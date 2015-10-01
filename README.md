@@ -31,7 +31,7 @@ UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp's](https://pkp
      3. Change the settings for your local omp installation private/appconfig.ini
        1. **username** and **password** for the OMP database
        2. **press_id** of the local omp press
-       3. define the **press_name**
+       3. define the **press_name** you selected when cloning from git
      4. mount or link the files folder of the OMP  to **web2py_folder**/applications/**press_name**/static/monographs/
 
        ```
