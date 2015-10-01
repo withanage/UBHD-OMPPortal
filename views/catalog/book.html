@@ -176,7 +176,7 @@
 				
 				{{num=0}}
 				{{for i in chapters:}}
-					{{if len(publication_formats)==0: }}
+					{{if num%len(publication_formats)==0: }}
 						{{=TR()}}
 						{{=TD(str(i.submission_chapter_settings.setting_value))}} 
 					{{pass}}
