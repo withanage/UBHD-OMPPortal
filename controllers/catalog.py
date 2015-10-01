@@ -32,7 +32,9 @@ def book():
   
   query =  ((db.submission_settings.submission_id == int(book_id)) & (db.submission_settings.locale==locale))
   book = db(query).select(db.submission_settings.ALL)
-  
+  if len(book) ==0:
+     raise HTTP(404,T('book not found'))
+
   author_q = ((db.authors.submission_id==book_id)) 
   authors_list = db(author_q).select(db.authors.first_name,db.authors.last_name)
   for i in authors_list:

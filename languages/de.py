@@ -60,6 +60,7 @@
 'bei PB: ': 'bei PB: ',
 'Belletristik': 'Belletristik',
 'Bindeart': 'Bindeart',
+'book not found': 'book not found',
 'Book Proposal': 'Book Proposal',
 'book_id': 'book_id',
 'Books': 'Bücher',
