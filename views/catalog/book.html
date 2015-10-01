@@ -81,7 +81,7 @@
 
                         <div class="btn-group" role="group" aria-label="1">
 
-	                        <li type="button" class="btn btn-default"><a href="{{=URL('reader','index','43/heiUP_habenstein_abwesenheit_2015.xml')}}"target="_blank">{{=T('Read')}}</a></li>
+	                        <li type="button" class="btn btn-default"><a href="{{=URL(myconf.table('web.application'),'reader','index/43/heiUP_habenstein_abwesenheit_2015.xml')}}"target="_blank">{{=T('Read')}}</a></li>
 
                         </div>
 
@@ -97,7 +97,7 @@
 
                           <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{{=URL('reader','download/43/heiUP_habenstein_abwesenheit_2015.pdf')}}">PDF</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{{=URL(myconf.table('web.application'),'reader/download/43/heiUP_habenstein_abwesenheit_2015.pdf')}}">PDF</a></li>
 
                           </ul>
 
@@ -182,9 +182,9 @@
 					{{pass}}
 						 {{if str(type_dict[i.submission_files.assoc_id]).lower() == 'xml': }}
 							
-                                                {{=TD(A(I(_class="fa fa-html5"), _href=URL('reader', 'index/'+str(i.submission_files.submission_id)+'/'+str(i.submission_files.submission_id)+'-'+str(i.submission_files.genre_id)+'-'+str(i.submission_files.file_id)+'-'+str(i.submission_files.revision)+'-'+str(i.submission_files.file_stage)+'-'+str(i.submission_files.date_uploaded.strftime('%Y%m%d'))+'.'+str(type_dict[i.submission_files.assoc_id]).lower())))}}
+                                                {{=TD(A(I(_class="fa fa-html5"), _href=URL(myconf.table('web.application'),'reader', 'index/'+str(i.submission_files.submission_id)+'/'+str(i.submission_files.submission_id)+'-'+str(i.submission_files.genre_id)+'-'+str(i.submission_files.file_id)+'-'+str(i.submission_files.revision)+'-'+str(i.submission_files.file_stage)+'-'+str(i.submission_files.date_uploaded.strftime('%Y%m%d'))+'.'+str(type_dict[i.submission_files.assoc_id]).lower())))}}
 						{{else:}}
-                                                {{=TD(A(I(_class="fa fa-file-text-o"), _href=URL('reader', 'download/'+str(i.submission_files.submission_id)+'/'+str(i.submission_files.submission_id)+'-'+str(i.submission_files.genre_id)+'-'+str(i.submission_files.file_id)+'-'+str(i.submission_files.revision)+'-'+str(i.submission_files.file_stage)+'-'+str(i.submission_files.date_uploaded.strftime('%Y%m%d'))+'.'+str(type_dict[i.submission_files.assoc_id]).lower())))}}
+                                                {{=TD(A(I(_class="fa fa-file-text-o"), _href=URL(myconf.table('web.application'),'reader', 'download/'+str(i.submission_files.submission_id)+'/'+str(i.submission_files.submission_id)+'-'+str(i.submission_files.genre_id)+'-'+str(i.submission_files.file_id)+'-'+str(i.submission_files.revision)+'-'+str(i.submission_files.file_stage)+'-'+str(i.submission_files.date_uploaded.strftime('%Y%m%d'))+'.'+str(type_dict[i.submission_files.assoc_id]).lower())))}}
 						{{pass}}
 				{{num = num +1 }}
 				{{pass}}
