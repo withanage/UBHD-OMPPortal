@@ -6,22 +6,33 @@ LICENSE.md
 '''
 
 def index():
-	abstract, author, cleanTitle, subtitle  = '', '', '', ''
-	locale = 'de_DE'
-	if session.forced_language=='en':
-		locale= 'en_US'
-	query =  ((db.submissions.context_id == myconf.take('omp.press_id')) & (db.submissions.status == 3)  & (db.submission_settings.submission_id == db.submissions.submission_id) & (db.submission_settings.locale==locale))
-	submissions = db(query).select(db.submission_settings.ALL, orderby = db.submissions.submission_id)
-        subs = {} 
-        for  i in submissions:
-		if i.setting_name=='abstract':
-			subs.setdefault(i.submission_id,{})['abstract'] = i.setting_value
-		if i.setting_name=='subtitle':
-			subs.setdefault(i.submission_id,{})['subtitle'] = i.setting_value
-		if i.setting_name =='cleanTitle':
-			subs.setdefault(i.submission_id, {})['cleanTitle'] =  i.setting_value
-		
-	return dict(abstract=abstract,  author=author, cleanTitle=cleanTitle, submissions=submissions, subtitle=subtitle, subs=subs )
+    abstract, author, cleanTitle, subtitle  = '', '', '', ''
+    locale = 'de_DE'
+    if session.forced_language=='en':
+        locale= 'en_US'
+    query =  ((db.submissions.context_id == myconf.take('omp.press_id')) & (db.submissions.status == 3)  & (db.submission_settings.submission_id == db.submissions.submission_id) & (db.submission_settings.locale==locale))
+    submissions = db(query).select(db.submission_settings.ALL, orderby = db.submissions.submission_id)
+    subs={}
+
+    for  i in submissions:
+
+        if i.setting_name=='abstract':
+            subs.setdefault(i.submission_id,{})['abstract'] = i.setting_value
+        if i.setting_name=='subtitle':
+            subs.setdefault(i.submission_id,{})['subtitle'] = i.setting_value
+        if i.setting_name =='cleanTitle':
+            subs.setdefault(i.submission_id, {})['cleanTitle'] =  i.setting_value
+        authors=''
+        author_q = ((db.authors.submission_id==i.submission_id))
+        authors_list = db(author_q).select(db.authors.first_name,db.authors.last_name)
+
+        for j in authors_list:
+          authors += j.first_name +' '+ j.last_name+', '
+          if authors.endswith(', '):
+            authors = authors[:-2]
+        subs.setdefault(i.submission_id, {})['authors'] = authors
+
+    return dict(submissions=submissions, subs=subs, authors=authors)
 
 def book():
   abstract, authors, cleanTitle, subtitle  = '', '', '', ''
