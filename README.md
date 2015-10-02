@@ -1,5 +1,5 @@
 # UBHD-OMPPortal
-UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp's](https://pkp.sfu.ca/) [Open Monograph Press](https://pkp.sfu.ca/omp/) and [Open Journal Systems](https://pkp.sfu.ca/ojs/) written in python programming language and  based on the python web framework [web2py](http://www.web2py.com).
+UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp](https://pkp.sfu.ca/) 's [Open Monograph Press](https://pkp.sfu.ca/omp/)  written in python programming language and  based on the python web framework [web2py](http://www.web2py.com).
 
 # Demo
 - Heidelberg University Publishing  [Web](http://heiup.uni-heidelberg.de/)
@@ -41,11 +41,13 @@ UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp's](https://pkp
 
 
 # For developers
+
 ##General information
 - A general knowledge in python  and sql is necessary for further development.
 - Some  basic knowledge in web2y is helpful. See [docs](http://web2py.com)
 - The OJS intergration is  in progress.
 - We have included a minified [lens](https://github.com/elifesciences/lens/) viewer. If you want to customize it, either use the [lens git](https://github.com/elifesciences/lens/)  or  [contact us](mailto:dulip.withanage@gmail.com). We will be happy to help you.
+
 
 ##Folder structure
 **strictly follows MVC (Model-View-Control) design principle**
@@ -59,6 +61,13 @@ UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp's](https://pkp
 - **modules** - table mappings of omp and varibales that are globally accessible from the application.
 - **static** - all the static files as such as javascript files and css files.
 - **views** - for each controller (e.g. catalog.py) file, you have to  add a folder  with the same name   (e.g. catalog) and a html file  (index.html) for each function in the controller file.
+
+##Additional information for customizations
+-Book view
+    - Current book details page views/catalog/book.html  displays xml files in  the lens viewer, if you name the category into  XML. But this can ba changed in private/appconfig.ini
+    - We use the omp category names PDF for softcover by default, and HARDCover for hardcover books. This is only a general rule. You may use your own rules
+    -
+
 
 #License
 This software is released under the the [GNU General Public License](LICENSE.md).
