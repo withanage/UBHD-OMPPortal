@@ -1,207 +1,208 @@
 {{extend 'layout.html'}}
 <section id="content">
 
-        <div style="height: 20px"></div>
-	<div class="container">
+<div style="height: 20px"></div>
+<div class="container">
 
-		<div class="row">
+    <div class="row">
 
-			<div class="col-lg-3">
+        <div class="col-lg-3">
 
-				<article>
+           <article>
+                <div class="post-image">
 
-						<div class="post-image">
+                    {{=IMG(_src=cover_image)}}
 
-							<!--div class="post-heading">
+                </div>
 
-								<h3><a href="#">Book1</a></h3>
+            </article>
 
-							</div-->
-
-							{{=IMG(_src=cover_image)}}
-
-						</div>
-
-			</article>
-
-                <div class="box">
+            <div class="box">
 
 
-			<div class="box-gray alignleft" style="height: auto;">
+                <div class="box-gray alignleft" style="height: auto;">
 
-                 {{if session.forced_language =='de': }}
+                    {{if session.forced_language =='de': }}
 
 
-                            <h5 style="color: #656565; margin-bottom: 0.5em;">Empfohlene Zitierweise</h5>
+                    <h5 style="color: #656565; margin-bottom: 0.5em;">Empfohlene Zitierweise</h5>
 
-                            <p>Habenstein, Astrid.<br>
-                            <i>Abwesenheit von Rom: Aristokratische Interaktion in der späten römischen Republik und in der frühen Kaiserzeit.</i>
-                            Heidelberg: Heidelberg University Publishing, 2015. DOI: <a href="http://dx.doi.org/10.17885/heiup.43.32" title="DOI: Habenstein, Astrid, Abwesenheit von Rom, Heidelberg University Publishing, 2015">10.17885/heiup.43.32</a></p>
+                    <p>{{=authors}}<br>
+                        <i>{{=cleanTitle}}
+                           {{if len(subtitle)>0:}}
+                            : {{=subtitle}}
+                            {{pass}}
+                        </i>
+                        Heidelberg: Heidelberg University Publishing, 2015.
+                    </p>
+                    <p>
+                        DOI: <a href="http://dx.doi.org/10.17885/heiup.43.32" title="DOI: Habenstein, Astrid, Abwesenheit von Rom, Heidelberg University Publishing, 2015">10.17885/heiup.43.32</a>
+                    </p>
 
-                            <h5 style="color: #656565; margin-bottom: 0.3em;">Lizenz</h5>
+                    <h5 style="color: #656565; margin-bottom: 0.3em;">Lizenz</h5>
 
-                            <p>Dieses Werk ist unter der<br> <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons-Lizenz 4.0<br /> (CC BY-SA 4.0)</a> veröffentlicht.<br>
-                            <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0"><img alt="Creative Commons Lizenz BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p>
-                            <h5 style="color: #656565; margin-bottom: 0.3em; margin-top: 1.2em;">ISBN</h5>
-                            <p>978-3-946054-00-9 (Hardcover)<br>
-                            978-3-946054-01-6 (PDF)</p>
+                    <p>Dieses Werk ist unter der<br> <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons-Lizenz 4.0<br/> (CC BY-SA 4.0)</a> veröffentlicht.<br>
+                        <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0"><img alt="Creative Commons Lizenz BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p>
+                    <h5 style="color: #656565; margin-bottom: 0.3em; margin-top: 1.2em;">ISBN</h5>
+                    <p>978-3-946054-00-9 (Hardcover)<br>
+                        978-3-946054-01-6 (PDF)</p>
 
-                            <!--<p><B>Statistik</B></p>-->
+                    <!--<p><B>Statistik</B></p>-->
 
-                             <p>Veröffentlicht am 23.07.2015</p>
+                    <p>Veröffentlicht am 23.07.2015</p>
 
-             {{elif session.forced_language =='en': }}
-                            <h5 style="color: #656565; margin-bottom: 0.3em;">How to cite this title</h5>
+                    {{elif session.forced_language =='en': }}
+                    <h5 style="color: #656565; margin-bottom: 0.3em;">How to cite this title</h5>
 
-                            <p>Habenstein, Astrid.<br>
-                            <i>Abwesenheit von Rom: Aristokratische Interaktion in der späten römischen Republik und in der frühen Kaiserzeit.</i> Heidelberg: Heidelberg University Publishing, 2015. DOI: <a href="http://dx.doi.org/10.17885/heiup.43.32" title="DOI: Habenstein, Astrid, Abwesenheit von Rom, Heidelberg University Publishing, 2015">10.17885/heiup.43.32</a></p>
+                    <p>Habenstein, Astrid.<br>
+                        <i>Abwesenheit von Rom: Aristokratische Interaktion in der späten römischen Republik und in der frühen Kaiserzeit.</i> Heidelberg: Heidelberg University Publishing, 2015. DOI: <a href="http://dx.doi.org/10.17885/heiup.43.32" title="DOI: Habenstein, Astrid, Abwesenheit von Rom, Heidelberg University Publishing, 2015">10.17885/heiup.43.32</a></p>
 
-                            <h5 style="color: #656565; margin-bottom: 0.3em;">Licenses</h5>
+                    <h5 style="color: #656565; margin-bottom: 0.3em;">Licenses</h5>
 
-                            <p>This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; License CC BY-SA 4.0">Creative Commons License 4.0<br /> (CC BY-SA 4.0)</a> .<br>
-                            <a href="https://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0"><img alt="Creative Commons License BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p>
-                            <h5 style="color: #656565; margin-bottom: 0.3em; margin-top: 1.2em;">ISBN</h5>
-                            <p>978-3-946054-00-9 (Hardcover)<br>
-                            978-3-946054-01-6 (PDF)</p>
+                    <p>This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; License CC BY-SA 4.0">Creative Commons License 4.0<br/> (CC BY-SA 4.0)</a> .<br>
+                        <a href="https://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0"><img alt="Creative Commons License BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p>
+                    <h5 style="color: #656565; margin-bottom: 0.3em; margin-top: 1.2em;">ISBN</h5>
+                    <p>978-3-946054-00-9 (Hardcover)<br>
+                        978-3-946054-01-6 (PDF)</p>
 
-                            <!--<p><B>Statistik</B></p>-->
-                             <p>Published 23.07.2015</p>
+                    <!--<p><B>Statistik</B></p>-->
+                    <p>Published 23.07.2015</p>
 
-{{pass}}
-                        </div>
+                    {{pass}}
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-lg-9">
+
+            <article>
+
+                <div class="">
+
+                    <div class="btn-group" role="group" aria-label="1">
+
+                        <li type="button" class="btn btn-default"><a href= "{{=URL(myconf.take('web.application'), 'reader','index/43/heiUP_habenstein_abwesenheit_2015.xml')}}"target="_blank">{{=T('Read')}}</a></li>
 
                     </div>
 
-            </div>
-			<div class="col-lg-9">
+                    <div class="btn-group" role="group" aria-label="2">
 
-              <article>
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
 
-                    <div class="">
-
-                        <div class="btn-group" role="group" aria-label="1">
-
-	                        <li type="button" class="btn btn-default"><a href="{{=URL(myconf.take('web.application'), 'reader','index/43/heiUP_habenstein_abwesenheit_2015.xml')}}"target="_blank">{{=T('Read')}}</a></li>
-
-                        </div>
-
-                        <div class="btn-group" role="group" aria-label="2">
-
-                          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-
-                           {{=T('Download')}}
+                            {{=T('Download')}}
 
                             <span class="caret"></span>
 
-                          </button>
+                        </button>
 
-                          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="{{=URL(myconf.take('web.application'), myconf.take('web.application'), 'reader/download/43/heiUP_habenstein_abwesenheit_2015.pdf')}}">PDF</a></li>
-
-                          </ul>
-
-                	</div>
-
-                        <div class="btn-group" role="group" aria-label="2">
-
-                          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                           {{=T('Print On Demand')}}
-                            <span class="caret"></span>
-
-                          </button>
-
-                          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.buchhandel.de/buch/Abwesenheit-von-Rom-9783946054009" target='_blank'>buchhandel.de</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="0" href="https://www.amazon.de/Abwesenheit-von-Rom-Aristokratische-Interaktion/dp/3946054005/" target='_blank'> Amazon.de </a></li>
-
-                          </ul>
-
-                	</div>
-
-                        <div class="post-heading">
-			<br/>
-                        <h5><a href="#">{{=authors}}</a></h5>
-
-                        </div>
-
-                            <h3>{{=cleanTitle}}</h3>
-
-                        <h4>{{=subtitle}}</h4>
-
-                        <p>
-
-                            <i class="icon-quote-left"></i>
-{{=XML(abstract)}}
-
-                        </p>
-
-			 <p>{{=XML(author_bio['setting_value'])}}</p>
- 			</div>
-
-                    <div class="widget">
-
-                        <h5 class="widgetheading"></h5>
-
-                        <ul class="tags">
 
                         </ul>
 
                     </div>
 
-                    <div class="widget">
+                    <div class="btn-group" role="group" aria-label="2">
 
-                        <!---a class="btn btn-default" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"-->
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                            {{=T('Print On Demand')}}
+                            <span class="caret"></span>
+
+                        </button>
+
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.buchhandel.de/buch/Abwesenheit-von-Rom-9783946054009" target='_blank'>buchhandel.de</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="0" href="https://www.amazon.de/Abwesenheit-von-Rom-Aristokratische-Interaktion/dp/3946054005/" target='_blank'> Amazon.de </a></li>
+
+                        </ul>
+
+                    </div>
+
+                    <div class="post-heading">
+                        <br/>
+                        <h5><a href="#">{{=authors}}</a></h5>
+
+                    </div>
+
+                    <h3>{{=cleanTitle}}</h3>
+
+                    <h4>{{=subtitle}}</h4>
+
+                    <p>
+
+                        <i class="icon-quote-left"></i>
+                        {{=XML(abstract)}}
+
+                    </p>
+
+                    <p>{{=XML(author_bio['setting_value'])}}</p>
+                </div>
+
+                <div class="widget">
+
+                    <h5 class="widgetheading"></h5>
+
+                    <ul class="tags">
+
+                    </ul>
+
+                </div>
+
+                <div class="widget">
+
+                    <!---a class="btn btn-default" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"-->
 
 
-			<h4>{{=T('Contents')}} </h4>
+                    <h4>{{=T('Contents')}} </h4>
 
 
-			<div  id="collapseExample">
+                    <div  id="collapseExample">
 
-                        	<table class="table">
-					{{type_dict={} }}
-					{{=TR()}}
-					{{=TD()}}
-					{{for i  in publication_formats:}}
-						{{if i.publication_format_settings.setting_value == 'XML':}}
-						{{=TD('HTML')}}
-						{{else:}}
-						{{=TD(i.publication_format_settings.setting_value)}}
-						{{pass}}
-						{{type_dict[i.publication_formats.publication_format_id]=i.publication_format_settings.setting_value}}
+                        <table class="table">
+                            {{type_dict={} }}
+                            {{=TR()}}
+                            {{=TD()}}
+                            {{for i  in publication_formats:}}
+                            {{if i.publication_format_settings.setting_value == 'XML':}}
+                            {{=TD('HTML')}}
+                            {{else:}}
+                            {{=TD(i.publication_format_settings.setting_value)}}
+                            {{pass}}
+                            {{type_dict[i.publication_formats.publication_format_id]=i.publication_format_settings.setting_value}}
 
-					{{pass}}
+                            {{pass}}
 
-				{{num=0}}
-				{{for i in chapters:}}
-					{{if num%len(publication_formats)==0: }}
-						{{=TR()}}
-						{{=TD(str(i.submission_chapter_settings.setting_value))}}
-					{{pass}}
-						 {{if str(type_dict[i.submission_files.assoc_id]).lower() == 'xml': }}
+                            {{num=0}}
+                            {{for i in chapters:}}
+                            {{if num%len(publication_formats)==0: }}
+                            {{=TR()}}
+                            {{=TD(str(i.submission_chapter_settings.setting_value))}}
+                            {{pass}}
+                            {{if str(type_dict[i.submission_files.assoc_id]).lower() == 'xml': }}
 
-                                                {{=TD(A(I(_class="fa fa-html5"), _href=URL(myconf.take('web.application'), 'reader', 'index/'+str(i.submission_files.submission_id)+'/'+str(i.submission_files.submission_id)+'-'+str(i.submission_files.genre_id)+'-'+str(i.submission_files.file_id)+'-'+str(i.submission_files.revision)+'-'+str(i.submission_files.file_stage)+'-'+str(i.submission_files.date_uploaded.strftime('%Y%m%d'))+'.'+str(type_dict[i.submission_files.assoc_id]).lower())))}}
-						{{else:}}
-                                                {{=TD(A(I(_class="fa fa-file-text-o"), _href=URL(myconf.take('web.application'), 'reader', 'download/'+str(i.submission_files.submission_id)+'/'+str(i.submission_files.submission_id)+'-'+str(i.submission_files.genre_id)+'-'+str(i.submission_files.file_id)+'-'+str(i.submission_files.revision)+'-'+str(i.submission_files.file_stage)+'-'+str(i.submission_files.date_uploaded.strftime('%Y%m%d'))+'.'+str(type_dict[i.submission_files.assoc_id]).lower())))}}
-						{{pass}}
-				{{num = num +1 }}
-				{{pass}}
+                            {{=TD(A(I(_class="fa fa-html5"), _href=URL(myconf.take('web.application'), 'reader', 'index/'+str(i.submission_files.submission_id)+'/'+str(i.submission_files.submission_id)+'-'+str(i.submission_files.genre_id)+'-'+str(i.submission_files.file_id)+'-'+str(i.submission_files.revision)+'-'+str(i.submission_files.file_stage)+'-'+str(i.submission_files.date_uploaded.strftime('%Y%m%d'))+'.'+str(type_dict[i.submission_files.assoc_id]).lower())))}}
+                            {{else:}}
+                            {{=TD(A(I(_class="fa fa-file-text-o"), _href=URL(myconf.take('web.application'), 'reader', 'download/'+str(i.submission_files.submission_id)+'/'+str(i.submission_files.submission_id)+'-'+str(i.submission_files.genre_id)+'-'+str(i.submission_files.file_id)+'-'+str(i.submission_files.revision)+'-'+str(i.submission_files.file_stage)+'-'+str(i.submission_files.date_uploaded.strftime('%Y%m%d'))+'.'+str(type_dict[i.submission_files.assoc_id]).lower())))}}
+                            {{pass}}
+                            {{num = num +1 }}
+                            {{pass}}
 
-			</table>
+                        </table>
 
-                        </div>
+                    </div>
 
-                   </div>
+                </div>
 
-                </article>
+            </article>
 
-                   </div>
+        </div>
 
-             </div>
+    </div>
 
-         </div>
+</div>
 
-        </section>
+</section>
 
