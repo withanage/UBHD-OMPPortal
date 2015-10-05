@@ -54,8 +54,9 @@ def book():
   press_settings = db(db.press_settings.press_id==myconf.take('omp.press_id')).select(db.press_settings.setting_name, db.press_settings.setting_value)
   publication_format_settings = db((db.publication_format_settings.setting_name=='name')  & (db.publication_format_settings.locale==locale) & (db.publication_formats.submission_id== book_id) & (db.publication_formats.publication_format_id == db.publication_format_settings.publication_format_id)).select(db.publication_format_settings.publication_format_id, db.publication_format_settings.setting_value)
   if publication_format_settings:
-    publication_format_settings_doi =  db( (db.publication_format_settings.setting_name=='pub-id::doi') & (db.publication_format_settings.publication_format_id == publication_format_settings.first()['publication_format_id']) &  (publication_format_settings.first()['setting_value']==myconf.take('omp.doi_format_name'))).select(db.publication_format_settings.setting_value).first()
+    publication_format_settings_doi = db((db.publication_format_settings.setting_name=='pub-id::doi') & (db.publication_format_settings.publication_format_id == publication_format_settings.first()['publication_format_id']) &  (publication_format_settings.first()['setting_value']==myconf.take('omp.doi_format_name'))).select(db.publication_format_settings.setting_value).first()
   identification_codes = db(pub_query & (db.publication_format_settings.publication_format_id==db.identification_codes.publication_format_id)).select(db.identification_codes.value, db.publication_format_settings.setting_value)
+  published_date = db(pub_query & (db.publication_format_settings.setting_value== myconf.take('omp.doi_format_name')) & (db.publication_dates.publication_format_id == db.publication_format_settings.publication_format_id )).select(db.publication_dates.date)
   for j in press_settings:
     if j.setting_name=='name':
         press_name = j.setting_value
@@ -67,4 +68,4 @@ def book():
     if i.setting_name =='cleanTitle':
       cleanTitle =  i.setting_value
   cover_image = URL(myconf.take('web.application'),'static','monographs/'+ book_id+'/simple/cover.jpg')
-  return dict( abstract=abstract,authors=authors, author_bio=author_bio, chapters=chapters,  cleanTitle=cleanTitle,cover_image=cover_image, identification_codes=identification_codes, publication_formats=publication_formats,  publication_format_settings_doi=publication_format_settings_doi, subtitle=subtitle, press_name=press_name)
+  return dict( abstract=abstract,authors=authors, author_bio=author_bio, chapters=chapters,  cleanTitle=cleanTitle,cover_image=cover_image, identification_codes=identification_codes, publication_formats=publication_formats,  publication_format_settings_doi=publication_format_settings_doi, published_date=published_date,  subtitle=subtitle, press_name=press_name)

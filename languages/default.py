@@ -110,6 +110,7 @@
 'Hello World## comment': 'Hello World',
 'Home': 'Home',
 'How did you get here?': 'How did you get here?',
+'How to cite this title': 'How to cite this title',
 'HTML': 'HTML',
 'HTML export of visible columns': 'HTML export of visible columns',
 'Id': 'Id',

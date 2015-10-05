@@ -69,6 +69,14 @@ db.define_table("presses",
      primarykey=['press_id'],
      migrate = False
 )
+db.define_table("publication_dates",
+      Field("publication_date_id","integer"),
+      Field("publication_format_id","integer"),
+      Field("role","string"),
+      Field("date","string"),
+      Field("date_format","string"),
+      migrate = False
+)
 
 db.define_table("published_submissions",
      Field("pub_id","integer"),
