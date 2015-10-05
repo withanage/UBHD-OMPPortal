@@ -38,8 +38,6 @@ UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp](https://pkp.s
        ```
         ln -s web2py_folder/applications/press_name/static/monographs/ omp_folder/files/presses/press_id/monographs
         ```
-
-
 # For developers
 
 ##General information
@@ -47,7 +45,6 @@ UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp](https://pkp.s
 - Some  basic knowledge in web2y is helpful. See [docs](http://web2py.com)
 - The OJS intergration is  in progress.
 - We have included a minified [lens](https://github.com/elifesciences/lens/) viewer. If you want to customize it, either use the [lens git](https://github.com/elifesciences/lens/)  or  [contact us](mailto:dulip.withanage@gmail.com). We will be happy to help you.
-
 
 ##Folder structure
 **strictly follows MVC (Model-View-Control) design principle**
