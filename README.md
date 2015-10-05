@@ -67,19 +67,6 @@ UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp](https://pkp.s
   - Current book details page views/catalog/book.html  displays xml files in  the lens viewer, if you name the category into  XML. But this can ba changed in private/appconfig.ini
   - We use the omp category names PDF for softcover by default, and HARDCover for hardcover books. This is only a general rule. You may use your own rules
 
-
-
 #License
 This software is released under the the [GNU General Public License](LICENSE.md).
 See the file [LICENSE.md](LICENSE.md) included with this distribution for the terms of this license.
-
-
-
-
-
-
-
-
-
-
-
