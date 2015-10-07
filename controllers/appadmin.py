@@ -35,7 +35,7 @@ except:
 if request.is_https:
     session.secure()
 elif (remote_addr not in hosts) and (remote_addr != "127.0.0.1") and \
-    (request.function != 'manage'):
+        (request.function != 'manage'):
     raise HTTP(200, T('appadmin is disabled because insecure channel'))
 
 if request.function == 'manage':
@@ -63,10 +63,10 @@ ignore_rw = True
 response.view = 'appadmin.html'
 if menu:
     response.menu = [[T('design'), False, URL('admin', 'default', 'design',
-                 args=[request.application])], [T('db'), False,
-                 URL('index')], [T('state'), False,
-                 URL('state')], [T('cache'), False,
-                 URL('ccache')]]
+                                              args=[request.application])], [T('db'), False,
+                                                                             URL('index')], [T('state'), False,
+                                                                                             URL('state')], [T('cache'), False,
+                                                                                                             URL('ccache')]]
 
 # ##########################################################
 # ## auxiliary functions
@@ -76,6 +76,7 @@ if False and request.tickets_db:
     from gluon.restricted import TicketStorage
     ts = TicketStorage()
     ts._get_table(request.tickets_db, ts.tablename, request.application)
+
 
 def get_databases(request):
     dbs = {}
@@ -91,6 +92,7 @@ def get_databases(request):
 
 databases = get_databases(None)
 
+
 def eval_in_global_env(text):
     exec ('_ret=%s' % text, {}, global_env)
     return global_env['_ret']
@@ -102,6 +104,7 @@ def get_database(request):
     else:
         session.flash = T('invalid request')
         redirect(URL('index'))
+
 
 def get_table(request):
     db = get_database(request)
@@ -196,7 +199,8 @@ def select():
         match = regex.match(request.vars.query)
         if match:
             request.vars.query = '%s.%s.%s==%s' % (request.args[0],
-                                                   match.group('table'), match.group('field'),
+                                                   match.group('table'), match.group(
+                                                       'field'),
                                                    match.group('value'))
     else:
         request.vars.query = session.last_query
@@ -212,7 +216,7 @@ def select():
 
     if is_imap:
         step = 3
- 
+
     stop = start + step
 
     table = None
@@ -228,15 +232,15 @@ def select():
     session.last_orderby = orderby
     session.last_query = request.vars.query
     form = FORM(TABLE(TR(T('Query:'), '', INPUT(_style='width:400px',
-                _name='query', _value=request.vars.query or '',
-                requires=IS_NOT_EMPTY(
-                    error_message=T("Cannot be empty")))), TR(T('Update:'),
-                INPUT(_name='update_check', _type='checkbox',
-                value=False), INPUT(_style='width:400px',
-                _name='update_fields', _value=request.vars.update_fields
-                                    or '')), TR(T('Delete:'), INPUT(_name='delete_check',
-                _class='delete', _type='checkbox', value=False), ''),
-                TR('', '', INPUT(_type='submit', _value=T('submit')))),
+                                                _name='query', _value=request.vars.query or '',
+                                                requires=IS_NOT_EMPTY(
+                                                    error_message=T("Cannot be empty")))), TR(T('Update:'),
+                                                                                              INPUT(_name='update_check', _type='checkbox',
+                                                                                                    value=False), INPUT(_style='width:400px',
+                                                                                                                        _name='update_fields', _value=request.vars.update_fields
+                                                                                                                        or '')), TR(T('Delete:'), INPUT(_name='delete_check',
+                                                                                                                                                        _class='delete', _type='checkbox', value=False), ''),
+                      TR('', '', INPUT(_type='submit', _value=T('submit')))),
                 _action=URL(r=request, args=request.args))
 
     tb = None
@@ -258,12 +262,12 @@ def select():
 
             if is_imap:
                 fields = [db[table][name] for name in
-                    ("id", "uid", "created", "to",
-                     "sender", "subject")]
+                          ("id", "uid", "created", "to",
+                           "sender", "subject")]
             if orderby:
                 rows = db(query, ignore_common_filters=True).select(
-                              *fields, limitby=(start, stop),
-                              orderby=eval_in_global_env(orderby))
+                    *fields, limitby=(start, stop),
+                    orderby=eval_in_global_env(orderby))
             else:
                 rows = db(query, ignore_common_filters=True).select(
                     *fields, limitby=(start, stop))
@@ -344,7 +348,7 @@ def update():
         session.flash = T('done!')
         qry = query_by_table_type(table, db)
         redirect(URL('select', args=request.args[:1],
-                 vars=dict(query=qry)))
+                     vars=dict(query=qry)))
     return dict(form=form, table=db[table])
 
 
@@ -439,10 +443,11 @@ def ccache():
         gae_stats = cache.ram.client.get_stats()
         try:
             gae_stats['ratio'] = ((gae_stats['hits'] * 100) /
-                (gae_stats['hits'] + gae_stats['misses']))
+                                  (gae_stats['hits'] + gae_stats['misses']))
         except ZeroDivisionError:
             gae_stats['ratio'] = T("?")
-        gae_stats['oldest'] = GetInHMS(time.time() - gae_stats['oldest_item_age'])
+        gae_stats['oldest'] = GetInHMS(
+            time.time() - gae_stats['oldest_item_age'])
         total.update(gae_stats)
     else:
         for key, value in cache.ram.storage.iteritems():
@@ -488,7 +493,7 @@ def ccache():
         total['keys'] = ram['keys'] + disk['keys']
         try:
             total['ratio'] = total['hits'] * 100 / (total['hits'] +
-                                                total['misses'])
+                                                    total['misses'])
         except (KeyError, ZeroDivisionError):
             total['ratio'] = 0
 
@@ -525,7 +530,7 @@ def table_template(table):
 
     def types(field):
         f_type = field.type
-        if not isinstance(f_type,str):
+        if not isinstance(f_type, str):
             return ' '
         elif f_type == 'string':
             return field.length
@@ -547,29 +552,30 @@ def table_template(table):
     border = 0
 
     rows.append(TR(TD(FONT(table, _face=face_bold, _color=bgcolor),
-                           _colspan=3, _cellpadding=cellpadding,
-                           _align="center", _bgcolor=color)))
+                      _colspan=3, _cellpadding=cellpadding,
+                      _align="center", _bgcolor=color)))
     for row in db[table]:
         rows.append(TR(TD(FONT(row.name, _color=color, _face=face_bold),
-                              _align="left", _cellpadding=cellpadding,
-                              _border=border),
+                          _align="left", _cellpadding=cellpadding,
+                          _border=border),
                        TD(FONT(row.type, _color=color, _face=face),
-                               _align="left", _cellpadding=cellpadding,
-                               _border=border),
+                          _align="left", _cellpadding=cellpadding,
+                          _border=border),
                        TD(FONT(types(row), _color=color, _face=face),
-                               _align="center", _cellpadding=cellpadding,
-                               _border=border)))
+                          _align="center", _cellpadding=cellpadding,
+                          _border=border)))
     return "< %s >" % TABLE(*rows, **dict(_bgcolor=bgcolor, _border=1,
                                           _cellborder=0, _cellspacing=0)
-                             ).xml()
+                            ).xml()
 
 
 def bg_graph_model():
-    graph = pgv.AGraph(layout='dot',  directed=True,  strict=False,  rankdir='LR')
+    graph = pgv.AGraph(layout='dot',  directed=True,
+                       strict=False,  rankdir='LR')
 
     subgraphs = dict()
     for tablename in db.tables:
-        if hasattr(db[tablename],'_meta_graphmodel'):
+        if hasattr(db[tablename], '_meta_graphmodel'):
             meta_graphmodel = db[tablename]._meta_graphmodel
         else:
             meta_graphmodel = dict(group=request.application, color='#ECECEC')
@@ -586,17 +592,17 @@ def bg_graph_model():
 
     for n, key in enumerate(subgraphs.iterkeys()):
         graph.subgraph(nbunch=subgraphs[key]['tables'],
-                    name='cluster%d' % n,
-                    style='filled',
-                    color=subgraphs[key]['meta']['color'],
-                    label=subgraphs[key]['meta']['group'])
+                       name='cluster%d' % n,
+                       style='filled',
+                       color=subgraphs[key]['meta']['color'],
+                       label=subgraphs[key]['meta']['group'])
 
     for tablename in db.tables:
         for field in db[tablename]:
             f_type = field.type
-            if isinstance(f_type,str) and (
-                f_type.startswith('reference') or
-                f_type.startswith('list:reference')):
+            if isinstance(f_type, str) and (
+                    f_type.startswith('reference') or
+                    f_type.startswith('list:reference')):
                 referenced_table = f_type.split()[1].split('.')[0]
                 n1 = graph.get_node(tablename)
                 n2 = graph.get_node(referenced_table)
@@ -607,14 +613,17 @@ def bg_graph_model():
         response.headers['Content-Type'] = 'image/png'
         return graph.draw(format='png', prog='dot')
     else:
-        response.headers['Content-Disposition']='attachment;filename=graph.%s'%request.args(0)
+        response.headers[
+            'Content-Disposition'] = 'attachment;filename=graph.%s' % request.args(0)
         if request.args(0) == 'dot':
             return graph.string()
         else:
             return graph.draw(format=request.args(0), prog='dot')
 
+
 def graph_model():
     return dict(databases=databases, pgv=pgv)
+
 
 def manage():
     tables = manager_action['tables']
@@ -629,7 +638,7 @@ def manage():
         auth.table_permission()._plural = T('Permissions')
     if request.extension != 'load':
         return dict(heading=manager_action.get('heading',
-                    T('Manage %(action)s') % dict(action=request.args(0).replace('_', ' ').title())),
+                                               T('Manage %(action)s') % dict(action=request.args(0).replace('_', ' ').title())),
                     tablenames=[table._tablename for table in tables],
                     labels=[table._plural.title() for table in tables])
 
@@ -638,16 +647,17 @@ def manage():
     linked_tables = orderby = None
     if request.args(0) == 'auth':
         auth.table_group()._id.readable = \
-        auth.table_membership()._id.readable = \
-        auth.table_permission()._id.readable = False
+            auth.table_membership()._id.readable = \
+            auth.table_permission()._id.readable = False
         auth.table_membership().user_id.label = T('User')
         auth.table_membership().group_id.label = T('Role')
         auth.table_permission().group_id.label = T('Role')
         auth.table_permission().name.label = T('Permission')
         if table == auth.table_user():
-            linked_tables=[auth.settings.table_membership_name]
+            linked_tables = [auth.settings.table_membership_name]
         elif table == auth.table_group():
-            orderby = 'role' if not request.args(3) or '.group_id' not in request.args(3) else None
+            orderby = 'role' if not request.args(
+                3) or '.group_id' not in request.args(3) else None
         elif table == auth.table_permission():
             orderby = 'group_id'
     kwargs = dict(user_signature=True, maxtextlength=1000,
@@ -655,19 +665,22 @@ def manage():
     smartgrid_args = manager_action.get('smartgrid_args', {})
     kwargs.update(**smartgrid_args.get('DEFAULT', {}))
     kwargs.update(**smartgrid_args.get(table._tablename, {}))
-    grid = SQLFORM.smartgrid(table, args=request.args[:2], formname=formname, **kwargs)
+    grid = SQLFORM.smartgrid(table, args=request.args[
+                             :2], formname=formname, **kwargs)
     return grid
+
 
 def hooks():
     import functools
     import inspect
-    list_op=['_%s_%s' %(h,m) for h in ['before', 'after'] for m in ['insert','update','delete']]
-    tables=[]
-    with_build_it=False
+    list_op = ['_%s_%s' % (h, m) for h in ['before', 'after']
+               for m in ['insert', 'update', 'delete']]
+    tables = []
+    with_build_it = False
     for db_str in sorted(databases):
         db = databases[db_str]
         for t in db.tables:
-            method_hooks=[]
+            method_hooks = []
             for op in list_op:
                 functions = []
                 for f in getattr(db[t], op):
@@ -676,27 +689,34 @@ def hooks():
                             if isinstance(f, (functools.partial)):
                                 f = f.func
                             filename = inspect.getsourcefile(f)
-                            details = {'funcname':f.__name__,
-                                       'filename':filename[len(request.folder):] if request.folder in filename else None,
+                            details = {'funcname': f.__name__,
+                                       'filename': filename[len(request.folder):] if request.folder in filename else None,
                                        'lineno': inspect.getsourcelines(f)[1]}
-                            if details['filename']: # Built in functions as delete_uploaded_files are not editable
-                                details['url'] = URL(a='admin',c='default',f='edit', args=[request['application'], details['filename']],vars={'lineno':details['lineno']})
+                            # Built in functions as delete_uploaded_files are
+                            # not editable
+                            if details['filename']:
+                                details['url'] = URL(a='admin', c='default', f='edit', args=[request[
+                                                     'application'], details['filename']], vars={'lineno': details['lineno']})
                             if details['filename'] or with_build_it:
                                 functions.append(details)
-                        # compiled app and windows build don't support code inspection
+                        # compiled app and windows build don't support code
+                        # inspection
                         except:
                             pass
                 if len(functions):
-                    method_hooks.append({'name':op, 'functions':functions})
+                    method_hooks.append({'name': op, 'functions': functions})
             if len(method_hooks):
-                tables.append({'name':"%s.%s" % (db_str,t), 'slug': IS_SLUG()("%s.%s" % (db_str,t))[0], 'method_hooks':method_hooks})
+                tables.append({'name': "%s.%s" % (db_str, t), 'slug': IS_SLUG()(
+                    "%s.%s" % (db_str, t))[0], 'method_hooks': method_hooks})
     # Render
     ul_main = UL(_class='nav nav-list')
     for t in tables:
         ul_main.append(A(t['name'], _onclick="collapse('a_%s')" % t['slug']))
-        ul_t = UL(_class='nav nav-list', _id="a_%s" % t['slug'], _style='display:none')
+        ul_t = UL(_class='nav nav-list', _id="a_%s" %
+                  t['slug'], _style='display:none')
         for op in t['method_hooks']:
-            ul_t.append(LI (op['name']))
-            ul_t.append(UL([LI(A(f['funcname'], _class="editor_filelink", _href=f['url']if 'url' in f else None, **{'_data-lineno':f['lineno']-1})) for f in op['functions']]))
+            ul_t.append(LI(op['name']))
+            ul_t.append(UL([LI(A(f['funcname'], _class="editor_filelink", _href=f[
+                        'url']if 'url' in f else None, **{'_data-lineno': f['lineno'] - 1})) for f in op['functions']]))
         ul_main.append(ul_t)
     return ul_main
