@@ -1,8 +1,10 @@
 def index():
-  return dict()
+    return dict()
+
 
 def tcs():
-  return dict()
+    return dict()
+
 
 def home():
-  return dict()
+    return dict()
