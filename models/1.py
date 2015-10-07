@@ -6,10 +6,9 @@ LICENSE.md
 '''
 import re
 if re.compile('\w{2}(\-\w{2})?').match(request.vars.lang or ''):
-    session.forced_language=request.vars.lang
+    session.forced_language = request.vars.lang
 if session.forced_language:
-   T.force(session.forced_language)
-else :
+    T.force(session.forced_language)
+else:
     session.forced_language = 'de'
     T.force(session.forced_language)
-
