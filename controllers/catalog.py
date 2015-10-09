@@ -47,9 +47,9 @@ def book():
     query = ((db.submission_settings.submission_id == int(book_id))
              & (db.submission_settings.locale == locale))
     book = db(query).select(db.submission_settings.ALL)
-
+    
     if len(book) == 0:
-        raise HTTP(404, T('book not found'))
+        redirect(URL('catalog', 'index'))
 
     author_q = ((db.authors.submission_id == book_id))
     authors_list = db(author_q).select(
@@ -90,7 +90,7 @@ def book():
     published_date = db(pub_query & (db.publication_format_settings.setting_value == myconf.take('omp.doi_format_name')) & (
         db.publication_dates.publication_format_id == db.publication_format_settings.publication_format_id)).select(db.publication_dates.date)
         
-    full_files = db((db.submission_files.submission_id==book_id) & (db.submission_files.genre_id == 68)).select(db.submission_files.original_file_name, db.submission_files.submission_id, db.submission_files.genre_id,
+    full_files = db((db.submission_files.submission_id==book_id) & (db.submission_files.genre_id ==  myconf.take('omp.monograph_type_id'))).select(db.submission_files.original_file_name, db.submission_files.submission_id, db.submission_files.genre_id,
                                         db.submission_files.file_id, db.submission_files.revision, db.submission_files.file_stage, db.submission_files.date_uploaded)
 
     for j in press_settings:
