@@ -136,6 +136,7 @@ db.define_table("publication_format_settings",
                 primarykey=['publication_format_id', 'locale', 'setting_name'],
                 migrate=False
                 )
+
 db.define_table("series_settings",
                 Field("series_id", "integer"),
                 Field("locale", "string"),
@@ -144,7 +145,20 @@ db.define_table("series_settings",
                 Field("setting_type", "string"),
                 migrate=False
                 )
-
+db.define_table("representatives",
+                Field("representative_id", "integer"),
+                Field("submission_id", "integer"),
+                Field("role","string"),
+                Field("representative_id_type", "integer"),
+                Field("representative_id_value", "string"),
+                Field("name", "string"),
+                Field("phone", "string"),
+                Field("fax", "string"),
+                Field("email", "string"),
+                Field("url", "string"),
+                Field("is_supplier", "integer"),
+                migrate=False
+                )
 
 db.define_table("submissions",
                 Field("submission_id", "integer"),

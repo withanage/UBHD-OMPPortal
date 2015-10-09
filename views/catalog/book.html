@@ -38,7 +38,7 @@
             <h5 style="color: #656565; margin-bottom: 0.3em; margin-top: 1.2em;">ISBN</h5>
             <p>
               {{for i in identification_codes:}}
-              {{=i['identification_codes']['value']}} ({{=i['publication_format_settings']['setting_value']}})
+                {{=i}} ({{=identification_codes[i]}})
               <br>
               {{pass}}
             </p>
@@ -80,8 +80,9 @@
                 <span class="caret"></span>
               </button>
               <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.buchhandel.de/buch/Abwesenheit-von-Rom-9783946054009" target='_blank'>buchhandel.de</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="0" href="https://www.amazon.de/Abwesenheit-von-Rom-Aristokratische-Interaktion/dp/3946054005/" target='_blank'> Amazon.de </a></li>
+                {{for i in representatives:}}
+                <li role="presentation"><a role="menuitem"  href="{{=i['url']}}" target='_blank'>{{=i['name']}}</a></li>
+                {{pass}}
               </ul>
             </div>
             <div class="post-heading">
