@@ -10,8 +10,8 @@
 
     <!-- A combined lens.css will be generated in the bundling process -->
     <!-- While in development, separate links for each CSS file are added, so we don't need a source map -->
-    <link rel="stylesheet" href="{{=URL(myconf.take('web.application'),'static','css/lens.css')}}"/>
-    <script src="{{=URL(myconf.take('web.application'),'static','js/jquery.js')}}"></script>
+    <link rel="stylesheet" href="{{=URL('static','css/lens.css')}}"/>
+    <script src="{{=URL('static','js/jquery.js')}}"></script>
 
 
     <!-- MathJax Configuration -->
@@ -38,12 +38,12 @@
         var submission_file = '{{=request.args[1]}}';
     </script>
     {{if session.forced_language =='de': }}
-    <script src="{{=URL(myconf.take('web.application'),'static','js/lens-locales-de.js')}}"></script>
+    <script src="{{=URL('static','js/lens-locales-de.js')}}"></script>
     {{elif session.forced_language =='en': }}
-    <script src="{{=URL(myconf.take('web.application'),'static','js/lens-locales-en.js')}}"></script>
+    <script src="{{=URL('static','js/lens-locales-en.js')}}"></script>
     {{pass}}
 
-    <script src="{{=URL(myconf.take('web.application'),'static','js/lens2.js')}}"></script>
+    <script src="{{=URL('static','js/lens2.js')}}"></script>
 
 </head>
 <body class="loading">
