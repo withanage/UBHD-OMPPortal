@@ -305,6 +305,7 @@
     'Speicherung': 'Speicherung',
     'Sprache': 'Sprache',
     'state': 'Status',
+    'Series': 'Series',
     'Statistics': 'Statistik',
     'Status': 'Status',
     'Straße und Nr.': 'Straße und Nr.',
