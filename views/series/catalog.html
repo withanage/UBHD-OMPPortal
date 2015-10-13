@@ -1,0 +1,157 @@
+{{extend 'layout.html'}}
+{{import re}}
+
+<section id="content">
+    <div style="height: 20px"></div>
+
+{{for entry in subs:}}
+    <div class="container" height="400px">
+        <div class="row">
+	
+            <div class="col-lg-3">
+                <article>
+                    <div class="post-image">
+		 	{{=IMG(_src=URL('heiup','static','monographs/'+ str(entry)+'/simple/cover.jpg'))}}
+                  </div>
+
+                </article>
+
+            </div>
+            <div class="col-lg-9">
+               <article>
+                        <div class="post-heading">
+			            <h3>Astrid Habenstein</h3>
+                  <h3>{{=author}}</h3>                        
+                  <h4>{{=subs[entry]['cleanTitle']}}<br />
+                  {{=subs[entry]['subtitle']}}</h4>
+                        </div>
+                        <p>
+                            <i class="icon-quote-left"></i>
+			{{=re.compile(r'<[^>]+>').sub('',subs[entry]['abstract'])}}
+
+                        </p>
+			  
+                    <div class="widget">
+                        <h5 class="widgetheading"></h5>
+                        <ul class="tags">
+             {{if session.forced_language =='de': }}
+                            <li><a href="{{=URL('catalog','book',str(entry))}}">{{=T('Mehr' )}}</a></li>
+
+             {{elif session.forced_language =='en': }}           
+                            <li><a href="{{=URL('catalog','book',str(entry))}}">{{=T('More Information' )}}</a></li>
+             {{pass}}               
+
+                        </ul>
+                    </div>
+
+			
+			
+                </article>
+            </div>
+
+        </div>
+</div>
+
+{{pass}}
+<div class="container">	
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="solidline">
+                        </div>
+                        <div class="post-heading">
+             {{if session.forced_language =='de': }}
+                          
+                            <h4>Erscheint demnächst</h4>
+             {{elif session.forced_language =='en': }}
+                            <h4>Forthcoming</h4>                        
+                         {{pass}}
+                        </div>
+                        <div class="solidline">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-3">
+                <article>
+                    <div class="post-image">
+                        <img src="http://heiup.uni-heidelberg.de/static/images/press/home/Cover2English.jpg"/>
+                    </div>
+
+                </article>
+
+            </div>
+            
+            <div class="col-lg-9">
+             {{if session.forced_language =='de': }}
+                          <article>
+                       <div class="post-heading">
+                       
+                        
+                        <h3><!--<a href="#" Link auskommentiert, solange Bio unter Abstract steht - evtl. später andere Lösung? 13.07. voe-->Marie Sander</h3>
+                        <h4>Passing through Shanghai.<br />
+                        Ethnographic Insights into the Mobile Lives of Expatriate Youths</h4>
+                                 
+                        </div>
+                        
+                        <p>
+                            <i class="icon-quote-left"></i>
+                          <i>Passing through Shanghai</i> untersucht das Erleben internationaler Mobilität aus der Sicht von Kindern und Jugendlichen. Im Fokus des Buches stehen Kinder von Firmenentsandten – sogenannten Expats – die einen Teil ihrer Jugend im gegenwärtigen Shanghai verbringen: Eine an sich heterogene Gruppe, deren Lebensstil jedoch aufgrund der internationalen Karrieren der Eltern bestimmte gemeinsame Privilegien, aber auch Herausforderungen aufweist.</p> 
+<p>Das Buch geht der Frage nach, wie Kinder und Jugendliche kulturelle Identität unter den Bedingungen hoher Mobilität empfinden und aushandeln. Gestützt auf die Ergebnisse ethnographischer Feldforschung aus den Jahren 2010 bis 2012 nimmt <i>Passing through Shanghai</i> den Alltag der Expat-Teenager an internationalen Schulen, ihr Erleben und Nutzen der Stadt, ihre Träume und Hoffnungen sowie ihre Fragen nach Zugehörigkeit und Heimat in den Blick. Der ethnographische Ansatz erfasst den permanenten Schwebezustand des häufigen Umziehens, der diese Jugendlichen beim Aufwachsen begleitet, und erforscht ihre persönlichen Sichtweisen auf den "Transitraum" Shanghai. Die Perspektiven der Teenager und ihre Erfahrungen in einer Gemeinschaft aus Expats bieten Einblicke in die Zusammenhänge und Widersprüche zwischen der erstrebten Flexibilität von Identitäten im 21. Jahrhundert und der gleichzeitigen Starrheit kultureller Grenzen, die auf Nationalität, Ethnizität, Geschlecht und sozialer Herkunft basieren.</p>
+                        <p>Die Ethnologin <strong>Marie Sander</strong> studierte Kulturwissenschaft mit Schwerpunkt Kulturanthropologie sowie Anglistik an den Universität Bremen und Tours. 2013 promovierte sie an der Universität Heidelberg. Ihr Forschungsinteresse gilt Fragen der Identität, Migration, urbaner Kultur und Jugend.</p>
+        <div class="widget">
+                        <h5 class="widgetheading"></h5>
+                        <!--<ul class="tags">
+                            <li><a href="{{=URL('catalog','book',str(entry))}}">{{=T('More')}}</a></li>
+                        </ul>-->
+                    </div>
+
+			
+			
+                </article>
+             
+             {{elif session.forced_language =='en': }}
+                            
+                <article>
+                       <div class="post-heading">
+                       
+                        <h3><!--<a href="#" Link auskommentiert, solange Bio unter Abstract steht - evtl. später andere Lösung? 13.07. voe-->Marie Sander</h3>
+                            <h4>Passing through Shanghai<br />
+                        Ethnographic Insights into the Mobile Lives of Expatriate Youths</h4>
+                                 
+                        </div>
+                        
+                        <p>
+                            <i class="icon-quote-left"></i>
+
+                          <i>Passing through Shanghai</i> examines how children experience international mobility. Focusing on a specific yet diverse group of expatriate youths in contemporary Shanghai, the book investigates how children negotiate cultural identity when they are subject to the highly mobile and often privileged lifestyle associated with their parent’s international careers. The ethnographic fieldwork that informs the book was carried out in Shanghai from 2010 to 2012 and focused on expatriate teenagers’ everyday practices, their lives at international schools, their engagement with the city, their dreams and aspirations, as well as their questions of belonging. The book’s ethnographic approach captures the “in-between” state of moving while growing up and explores teenage practices and positionings in this transitory situation. The teenagers’ own perspectives and experiences of living in expatriate communities contribute to a larger view of the interdependence and contradictions between the aspired flexibility of twenty-first century identities and the rigidity of cultural divisions based on nationality, ethnicity, gender, and class.</p>
+
+                        </p>
+                        <p><strong>Marie Sander</strong> is an anthropologist who completed her doctoral degree at Heidelberg University in 2013. She previously read Cultural Studies with a focus on Cultural Anthropology as well as English Studies at Bremen University and the University of Tours. Her general research interests include questions of identity, migration, urban culture, and youth.</p>
+        <div class="widget">
+                        <h5 class="widgetheading"></h5>
+                        <!--<ul class="tags">
+                            <li><a href="{{=URL('catalog','book',str(entry))}}">{{=T('More')}}</a></li>
+                        </ul>-->
+                    </div>
+
+			
+			
+                </article>
+{{pass}}                
+            </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+</section>
+

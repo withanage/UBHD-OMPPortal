@@ -197,6 +197,7 @@
     'Rows in Table': 'Rows in Table',
     'Search': 'Search',
     'Semantic': 'Semantic',
+    'Series': 'Series',
     'Services': 'Services',
     'Sign Up': 'Sign Up',
     'Spreadsheet-optimised export of tab-separated content including hidden columns. May be slow': 'Spreadsheet-optimised export of tab-separated content including hidden columns. May be slow',
