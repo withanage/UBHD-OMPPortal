@@ -279,6 +279,7 @@
                          <li><a href="{{=URL(myconf.take('web.application'),'home','index')}}">{{=T('Home')}}</a></li>
                          <li>{{=T('About us')}} | <a href="{{=URL(myconf.take('web.application'),'about_us','mission_statement')}}">Mission Statement</a></li>
                          <li><a href="{{=URL(myconf.take('web.application'),'catalog','index')}}">{{=T('Books')}}</a></li>
+                         <li><a href="{{=URL(myconf.take('web.application'),'journals','index')}}">{{=T('Journals')}}</a></li>                         
                    {{if session.forced_language=='de':}}
                          <li>{{=T('Publishing')}} | <a href="{{=URL(myconf.take('web.application'),'publishing','for_authors')}}">Informationen für Autoren</a></li>
                    {{elif session.forced_language=='en':}}
