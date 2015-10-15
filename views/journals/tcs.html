@@ -87,12 +87,10 @@
 
                 <div class="box">
                   <div class="box-gray"  style="height: auto;">
-                 {{if session.forced_language =='de': }}
-                <p class="boxText"><b>Hinweise für Autoren</b></p>
-                {{elif session.forced_language =='en': }}
-                <p class="boxText"><b>Information for authors</b></p>
+                 
+                <p class="boxText"><b>{{=T('Information for authors')}}</b></p>
 
-{{pass}}                                          
+                                 
 
                     <ul class="standard">
                       <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/about/submissions#authorGuidelines">Author Guidelines</a></li>
@@ -102,11 +100,8 @@
                 
           <div class="box">
             <div class="box-gray"  style="height: auto;">
-                 {{if session.forced_language =='de': }}
-                <p class="boxText"><b>Kontakt</b></p>
-                {{elif session.forced_language =='en': }}
-                <p class="boxText"><b>Contanct</b></p>
-{{pass}}                                          
+                 
+                <p class="boxText"><b>{{=T('Contact')}}</b></p>
                     <ul class="standard">
                       <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/about/contact">Andrea Hacker</a></li>
                     </ul>

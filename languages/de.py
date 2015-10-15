@@ -158,7 +158,7 @@
 'Import/Export': 'Importieren/Exportieren',
 'in OMP nicht angegeben': 'in OMP nicht angegeben',
 'Index': 'Index',
-'Information for Authors': 'Informationen für Autoren',
+'Information for authors': 'Hinweise für Autoren',
 'Inhaltsverzeichnis': 'Inhaltsverzeichnis',
 'Internal State': 'Innerer Zustand',
 'Introduction': 'Einführung',
