@@ -1,0 +1,56 @@
+{{extend 'layout.html'}}
+
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+	
+            <div class="col-lg-3">
+                <article>
+                    <div class="post-image">
+		 	<img src="/UBHD_OMPPortal/static/images/series/hst.jpg">
+                  </div>
+
+                </article>
+
+            </div>
+            <div class="col-lg-9">
+               <article>
+                        <div class="post-heading">
+			            <h3>Heidelberg Studies in Transculturality </h3>
+          
+                        </div>
+                       {{if session.forced_language=='de':}}
+                       <p>
+                        <i class="icon-quote-left"></i>
+                        HST ist eine peer-review-geprüfte Open-Access-Schriftenreihe zum Thema Transkulturalität. Sie untersucht kulturelle, soziale und regionale Formationen, die sich durch den Kontakt mit anderen Regionen und Kulturen konstituierten und durch ihn transformiert wurden.
+                       </p> 
+                       
+                       
+                       {{elif session.forced_language=='en':}} 
+                        <p>
+                            <i class="icon-quote-left"></i>
+HST is a peer-reviewed, open access book series promoting research on transcultuality. The series features works that investigate cultural, social, and regional formations that have themselves been constituted and transformed through contact with other regions and cultures.
+                        </p>
+                {{pass}} 			  
+                    <div class="widget">
+                        <h5 class="widgetheading"></h5>
+                        <ul class="tags">
+             
+                            <li><a href="series/hst.html">Mehr</a></li><br>
+
+                            <!--<li><a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/index">zur Zeitschrift</a></li>-->
+
+                            
+
+                        </ul>
+                    </div>
+
+			
+			
+                </article>
+            </div>
+
+        </div>
+</div>
+</section>

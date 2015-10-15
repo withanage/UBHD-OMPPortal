@@ -1,0 +1,32 @@
+{{extend 'layout.html'}}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12" style="min-height: 20em;">
+            <h3>  {{if session.forced_language =='de': }}
+                Rechte und Lizenzen
+                {{elif session.forced_language =='en': }}
+                Rights and Licenses
+
+            {{pass}}
+            </h3>
+
+            <p>
+                {{if session.forced_language =='de': }}
+                
+<p>Der Verlag betreibt eine autorenfreundliche Rechtepolitik, die die Einräumung eines zeitlich und räumlich nicht eingeschränkten einfachen Nutzungsrechts zur Online-Veröffentlichung und zur Verbreitung der Druckausgabe umfasst. Autoren behalten das Urheberrecht an dem Werk und gewähren dem Verlag das Recht zu dessen Erstveröffentlichung. Parallel dazu wird das Werk unter eine <a href="https://creativecommons.org/licenses/?lang=de" title="Homepage der Initiative Creative Commons">Creative-Commons-Lizenz</a> gestellt. Diese erlaubt es anderen, das Werk weiterzuverbreiten, unter der Bedingung, dass der Autor/die Autorin benannt und auf die Erstveröffentlichung in diesem Verlag hingewiesen wird.</p>                 
+                
+                
+
+<p>Autoren/Autorinnen können weitere, gesonderte Verträge für eine nicht exklusive Verbreitung einer vom Verlag veröffentlichten Version des Buches abschließen, sie können es zum Beispiel auf einem institutionellen Repositorium einstellen oder in einem Buch veröffentlichen, müssen jedoch auf die Erstveröffentlichung in diesem Verlag hinweisen.</p>        
+
+
+{{elif session.forced_language =='en': }}
+
+<p>heiUP maintains an author-friendly rights policy, which includes granting authors exclusive, unrestricted rights to both the online publication and the dissemination of the final printed version. Authors retain copyright of the work and simply grant heiUP the right to initial publication. Works are placed under a <a href="https://creativecommons.org/licenses/?lang=en" title="Homepage Creative Commons">Creative Commons license</a>, which allows for future redistribution of the work, under the condition that the author is named and heiUP is given due credit as the first place of publication.</p> 
+<p>Authors can also enter into separate contracts for the non-exclusive distribution of later editions of the work. For example, books may be placed in an institutional repository, or published in print form through another press, provided the author acknowledges heiUP as the original publisher.</p> 
+
+
+                {{pass}}
+        </div>
+    </div>
+  </div>  
