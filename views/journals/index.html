@@ -8,7 +8,7 @@
             <div class="col-lg-3">
                 <article>
                     <div class="post-image">
-		 	<img src="/UBHD_OMPPortal/static/images/journals/tcs_hintergrund.jpg">
+		 	<img src="/UBHD_OMPPortal/static/images/journals/tcs.jpg">
                   </div>
 
                 </article>
@@ -22,18 +22,32 @@
                         </div>
                         <p>
                             <i class="icon-quote-left"></i>
+             {{if session.forced_language =='de': }}
+<i>Transcultural Studies</i> ist eine peer-reviewed Open-Access-Zeitschrift, die sich als Forum zur  Verbreitung von Wissen und Forschung zur Transkulturalität in allen Disziplinen versteht. Sie wird vom Cluster of Excellence „Asia and Europe in a Global Context: The Dynamics of Transculturality“ der Ruprecht-Karls-Universität Heidelberg herausgegeben.
+             
+             {{elif session.forced_language =='en': }}
+
+
 <i>Transcultural Studies</i> is a peer-reviewed, open-access journal committed to promoting the knowledge and research of transculturality in all disciplines. It is published by the Cluster of Excellence “Asia and Europe in a Global Context: The Dynamics of Transculturality” of the Ruprecht-Karls-Universität Heidelberg.
+{{pass}}     
 
                         </p>
 			  
                     <div class="widget">
                         <h5 class="widgetheading"></h5>
                         <ul class="tags">
+                 {{if session.forced_language =='de': }}
              
                             <li><a href="/UBHD_OMPPortal/journals/tcs.html">Mehr</a></li><br>
 
                             <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/index">zur Zeitschrift</a></li>
+             {{elif session.forced_language =='en': }}
+                            <li><a href="/UBHD_OMPPortal/journals/tcs.html">More</a></li><br>
 
+                            <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/index">View Journal</a></li>
+             
+
+{{pass}}     
                             
 
                         </ul>
