@@ -1,0 +1,25 @@
+{{extend 'layout.html'}}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>  {{if session.forced_language =='de': }}
+                Erklärung zu Interessenkonflikten
+                {{elif session.forced_language =='en': }}
+
+            {{pass}}
+            </h3>
+
+            <p>
+                {{if session.forced_language =='de': }}
+<p>Alle Autoren, Herausgeber und Gutachter werden vor der Veröffentlichung der Publikation bzw. vor Beginn des Peer-Review-Verfahrens gebeten, sich über eventuell bestehende Interessenkonflikte zu erklären. Interessenkonflikte können beispielsweise durch  Beratungstätigkeiten oder durch ein bestehendes Beschäftigungsverhältnis mit einem anderen Verlag hervorgerufen werden oder durch die Zugehörigkeit zu einer Institution bzw. Organisation, die Gegenstand eines der eingereichten Manuskripte ist.</p>
+
+{{elif session.forced_language =='en': }}
+
+                {{pass}}
+
+
+            </p>
+
+        </div>
+    </div>
+  </div>  

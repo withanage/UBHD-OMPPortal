@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.IndexError'> list index out of range"
+p3
+sS'layer'
+p4
+S'/usr/local/web2py/applications/UBHD_OMPPortal/controllers/reader.py'
+p5
+sS'code'
+p6
+S'# -*- coding: utf-8 -*-\n\'\'\'\nCopyright (c) 2015 Heidelberg University Library\nDistributed under the GNU GPL v3. For full terms see the file\nLICENSE.md\n\'\'\'\n\n# required - do no delete\nimport os\n\n\ndef user(): return dict(form=auth())\n# ef download(): return response.download(request,db)\n\n\ndef call():\n    session.forget()\n    return service()\n# end requires\n\n\ndef index():\n    from gluon.serializers import json\n    json_list = dict(xml_url=\'\')\n    locale = \'de_DE\'\n    if session.forced_language == \'en\':\n        locale = \'en_US\'\n    book_id = request.args[0]\n    file_id = request.args[1]\n\n    # check if it is xml\n    if str(file_id).endswith(\'.xml\'):\n        query = ((db.submission_settings.submission_id == int(book_id))\n                 & (db.submission_settings.locale == locale))\n        author_q = ((db.authors.submission_id == book_id))\n        authors_list = db(author_q).select(\n            db.authors.first_name, db.authors.last_name)\n        authors = \'\'\n        for i in authors_list:\n            authors += i.first_name + \' \' + i.last_name + \', \'\n        if authors.endswith(\', \'):\n            authors = authors[:-2]\n        return dict(json_list=XML(json(json_list)), authors=authors)\n    else:\n        path = os.path.join(request.folder, \'static/monographs\',\n                            book_id, \'submission/\', file_id)\n        return response.stream(path)\n\n\ndef home():\n    return dict()\n\n\ndef index2():\n    from gluon.serializers import json\n    json_list = dict(xml_url=\'\')\n    return dict(json_list=XML(json(json_list)))\n\n\ndef download():\n    submission_id = request.args[0]\n    submission_file = request.args[1]\n    path = os.path.join(request.folder, \'static/monographs\',\n                        submission_id, \'submission/proof\', submission_file)\n    response.headers[\'ContentType\'] = "application/octet-stream"\n    response.headers[\n        \'Content-Disposition\'] = "attachment; filename=" + submission_file\n    db.t_usage_statistics.insert()\n    db.commit()\n    return response.stream(path, chunk_size=4096)\n\n\ndef download_image():\n    submission_id = request.args[0]\n    submission_file = request.args[1]\n    path = os.path.join(request.folder, \'static/monographs\',\n                        submission_id, \'submission/\', submission_file)\n    return response.stream(path)\n\nresponse._vars=response._caller(index)\n'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/usr/local/web2py/gluon/restricted.py", line 227, in restricted\n    exec ccode in environment\n  File "/usr/local/web2py/applications/UBHD_OMPPortal/controllers/reader.py", line 80, in <module>\n  File "/usr/local/web2py/gluon/globals.py", line 412, in <lambda>\n    self._caller = lambda f: f()\n  File "/usr/local/web2py/applications/UBHD_OMPPortal/controllers/reader.py", line 29, in index\n    file_id = request.args[1]\nIndexError: list index out of range\n'
+p11
+s.

@@ -1,0 +1,423 @@
+{{extend 'layout.html'}}
+<script type="text/javascript" charset="utf-8">
+    $(window).load(function() {
+        $('.flexslider').flexslider();
+    });
+</script>
+<div class="container">
+
+
+    <!-- end header -->
+
+    <section id="featured">
+
+        <!-- start slider -->
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-12">
+
+                    <!-- Slider -->
+
+                    <div id="main-slider" class="flexslider">
+
+                        <ul class="slides">                
+                            <li>
+                            {{if session.forced_language =='de': }}  
+                                <img id="hup-logo" src="{{=URL(myconf.take('web.application'),'static','images/press/slideshow/01_claim_tablet.de.jpg')}}" />
+                                <div class="flex-caption hidden-xs hidden-sm">
+                                    <h3>{{=T('Das Profil von heiUP')}}</h3>
+                                    <p></p>
+                                    <a href="./about_us/profile.html"
+                                       class="btn btn-theme">Mehr</a>
+                                </div>
+                            {{elif session.forced_language =='en': }}                                
+                                 <img id="hup-logo" src="{{=URL(myconf.take('web.application'),'static','images/press/slideshow/01_claim_tablet.en.jpg')}}" />
+                                <div class="flex-caption hidden-xs hidden-sm">
+                                    <h3>{{=T('heiUP Profile')}}</h3>
+                                    <p></p>
+                                    <a href="./about_us/profile.html"
+                                       class="btn btn-theme">More Information</a>
+                                </div>
+                            {{pass}}
+                            </li>
+                            <li>
+                                <img id="hup-logo2" src="{{=URL(myconf.take('web.application'),'static','images/press/slideshow/02_cover_habenstein.jpg')}}" />
+                            {{if session.forced_language =='de': }}  
+                                <div class="flex-caption  hidden-xs hidden-sm">
+                                    <h3>{{=T('A. Habenstein Abwesenheit von Rom')}}</h3>
+                                    <p></p>
+                                    <a href="./catalog/index.html"
+                                       class="btn btn-theme">Mehr</a>
+                                </div>
+                            {{elif session.forced_language =='en': }}                                
+                                <div class="flex-caption  hidden-xs hidden-sm">
+                                    <h3>{{=T('A. Habenstein Abwesenheit von Rom')}}</h3>
+                                    <p></p>
+                                    <a href="./catalog/index.html"
+                                       class="btn btn-theme">More Information</a>
+                                </div>
+                            {{pass}}
+                            </li>
+                            <li>
+                                <img id="hup-logo3" src="{{=URL(myconf.take('web.application'),'static','images/press/slideshow/03_ub_treppenhaus.jpg')}}" />
+                                {{if session.forced_language =='de': }}  
+                                <div class="flex-caption  hidden-xs hidden-sm">
+                                    <h3>{{=T('UB Heidelberg Digitale Informations- versorgung')}}</h3>
+                                    <p></p>
+                                    <a href="http://www.ub.uni-heidelberg.de/Welcome.html"
+                                       class="btn btn-theme">Mehr</a>
+                                </div>
+                            {{elif session.forced_language =='en': }}                                
+                                <div class="flex-caption  hidden-xs hidden-sm">
+                                    <h3>{{=T('Heidelberg University Library - Digital Information Supply')}}</h3>
+                                    <p></p>
+                                    <a href="http://www.ub.uni-heidelberg.de/Englisch/Welcome.html?lang=en"
+                                       class="btn btn-theme">More Information</a>
+                                </div>
+                            {{pass}}
+                            </li>
+                            <li>
+                                <img id="hup-logo4" src="{{=URL(myconf.take('web.application'),'static','images/press/slideshow/04_alte_universitaet.jpg')}}" />
+                                {{if session.forced_language =='de': }}  
+                                <div class="flex-caption  hidden-xs hidden-sm">
+                                    <h3>{{=T('heiUP Der Beirat')}}</h3>
+                                    <p></p>
+                                    <a href="./about_us/advisory_board.html"
+                                       class="btn btn-theme">Mehr</a>
+                                </div>
+                            {{elif session.forced_language =='en': }}                                
+                                <div class="flex-caption  hidden-xs hidden-sm">
+                                    <h3>{{=T('heiUP Advisory Board')}}</h3>
+                                    <p></p>
+                                    <a href="./about_us/advisory_board.html"
+                                       class="btn btn-theme">More Information</a>
+                                </div>
+                            {{pass}}
+                            </li>
+                            <li>
+                                <img id="hup-logo5" src="{{=URL(myconf.take('web.application'),'static','images/press/slideshow/05_dem_lebendigen_geist.jpg')}}" />
+                                {{if session.forced_language =='de': }}  
+                                <!--<div class="flex-caption  hidden-xs hidden-sm">
+                                    <h3>{{=T('"Dem lebendigen Geist" Motto der Universität')}}</h3>
+                                    <p></p>
+                                    <a href="./about_us/advisory_board.html"
+                                       class="btn btn-theme">Mehr</a>
+                                </div>-->
+                            {{elif session.forced_language =='en': }}                                
+                                <!--<div class="flex-caption  hidden-xs hidden-sm">
+                                    <h3>{{=T('"Dem lebendigen Geist"  Motto der Universität')}}</h3>
+                                    <p></p>
+                                    <a href="./about_us/advisory_board.html"
+                                       class="btn btn-theme">More Information</a>
+                                </div>-->
+                            {{pass}}
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    <!-- end slider -->
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section id="content">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-12">
+
+                    <div class="row">
+
+                        <div class="col-lg-3">
+
+                            <div class="box">
+                                {{if session.forced_language =='de': }}                
+                                <div class="box-gray aligncenter">
+
+                                    <h4>Neuerscheinung</h4>
+
+				   {{=IMG(_src=URL(myconf.take('web.application'),'static','monographs/43/simple/cover.jpg'),_width='145px')}}
+                                </div>
+
+                                <div class="box-bottom">
+
+                                    {{=A(T('More'),_href=URL('catalog','book/43'))}}
+
+                                </div>
+
+
+                            
+                            {{elif session.forced_language =='en': }}
+                        <div class="box-gray aligncenter">
+   
+   <h4>New Titles</h4>
+				   {{=IMG(_src=URL(myconf.take('web.application'),'static','monographs/43/simple/cover.jpg'),_width='145px')}}
+                                </div>
+
+                               <div class="box-bottom">
+
+                                    {{=A(T('More Information'),_href=URL('catalog','book/43'))}}
+
+                                </div>
+                                 {{pass}}  
+                            </div>                                    
+                                       
+                            
+
+                        </div>
+
+                        <div class="col-lg-3">
+                        
+
+                            <div class="box">
+
+                                <div class="box-gray aligncenter">
+                                {{if session.forced_language =='de': }}  
+                                    <p class="boxText">
+
+                                        <b>Heidelberg University Publishing</b> ist ein Open-Access-Verlag für qualitätsgeprüfte
+
+                                        wissenschaftliche Publikationen. Wir unterstützen Open Access als Publikationsmodell
+
+                                        für die Verbreitung hervorragender Forschungsergebnisse und setzen
+
+                                        Open-Source-Software für die gemeinsame Entwicklung der zugrunde liegenden
+
+                                        Publikationstechnologien ein.
+
+                                    </p>
+                            {{elif session.forced_language =='en': }}
+                            
+                                   <p class="boxText">
+
+                                        <b>Heidelberg University Publishing</b> is an open-access publisher of high-quality, peer-reviewed academic works. We endorse open access as a publishing model to distribute outstanding research results and use open-source software for the collaborative development of underlying publishing technologies.
+
+                                    </p>
+                                  {{pass}}  
+                                </div>
+
+                                <div class="box-bottom">
+                                
+                                {{if session.forced_language =='de': }}        
+                                    <a href="http://heiup.uni-heidelberg.de/about_us/mission_statement/">Mehr</a>
+                                {{elif session.forced_language =='en': }}
+                                    <a href="http://heiup.uni-heidelberg.de/about_us/mission_statement/">More Information</a>
+                                      {{pass}}                                  
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div id="boxAktuelles" class="col-lg-6">
+
+                            <div class="box">
+                          <div class="box-gray aligncenter">
+
+                            {{if session.forced_language =='de': }}       
+                                <h4>Aktuelles</h4>
+                            {{elif session.forced_language =='en': }}
+                                <h4>News</h4>
+                            {{pass}}
+                            
+                            <div class="media">
+                                    <div class="media-left pull-left">
+                                        <img src="{{=URL(myconf.take('web.application'),'static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
+                                    </div>                        
+                                    <div class="media-body">      
+                                        <p class="media-heading">
+                          {{if session.forced_language =='de': }}  
+                              <h5>Heidelberg University Publishing ist online</h5>
+                          {{elif session.forced_language =='en': }}
+                              <h5>Now online: Heidelberg University Publishing</h5>        
+                          {{pass}}   
+                                        </p>
+                                    <p class="boxText">
+                          {{if session.forced_language =='de': }}  
+                             Mit dem Werk &bdquo;Abwesenheit von Rom&rdquo; der Autorin Astrid Habenstein geht der Verlag &bdquo;Heidelberg University Publishing&rdquo; am 23. Juli 2015 online. Die Universität Heidelberg verfolgt mit ihrem jetzt gegründeten Verlag das Ziel, über innovative digitale Publikationsformen freien Zugang zu herausragenden wissenschaftlichen Publikationen zu ermöglichen und neue Wege in der wissenschaftlichen Kommunikation zu eröffnen. 
+                          {{elif session.forced_language =='en': }}
+                             Heidelberg University Publishing will launch its first title, <i>Abwesenheit von Rom</i>, by Astrid Habenstein, on July 23, 2015. With this work, Heidelberg University realizes its goal of providing open access to outstanding academic publications in innovative digital formats, thus forwarding new modes of scientific communication.
+                             {{pass}}                                   
+                              <!--<a href="http://open-access.net/community/open_access_tage/ " target="_blank">&nbsp;<i class="fa fa-external-link"></i></a>-->
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="media">
+                                    <div class="media-left pull-left">
+                                        <a href="http://open-access.net/community/open_access_tage/">
+                                            <img src="{{=URL(myconf.take('web.application'),'static','images/press/home/oa.svg')}}" width="50px" />
+                                        </a>
+                                    </div>                        
+                                    <div class="media-body">      
+                                        <p class="media-heading">
+                          {{if session.forced_language =='de': }}  
+                              <h5>Open-Access-Tage 2015</h5>
+                          {{elif session.forced_language =='en': }}
+                              <h5>Open-Access-Days 2015</h5> 
+                          {{pass}}          
+                                        </p>
+                                    <p class="boxText">
+                          {{if session.forced_language =='de': }}  
+                              Die Open-Access-Tage sind die zentrale jährliche Konferenz zum Thema Open Access und Open Science im deutschsprachigen Raum.  In diesem Jahr fanden am 7.-8. September 2015 in Zürich die 9. Open-Access-Tage statt.
+                          {{elif session.forced_language =='en': }}
+Open Access Days 2015: The 9th annual Open Access Days conference, which is central to the Open Access and Open Science movements in German-speaking countries, took place this year from September 7th to 8th, in Zurich, Switzerland. 
+                          {{pass}}                                   
+                              <a href="http://open-access.net/community/open_access_tage/" target="_blank">&nbsp;<i class="fa fa-external-link"></i></a>
+                                      </p>
+                                    </div>
+                                </div>
+                                
+                                </div>
+                                
+                                <!--<div class="media">
+                                    <div class="media-left pull-left">
+                                        <a href="#">
+                                            <img src="{{=URL(myconf.take('web.application'),'static','images/press/home/cluster.jpg')}}" width="50px"/>
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <p class="media-heading"><strong>DFG-Projekt: Entwicklung eines Geschäftsmodells für Open-Access-Bücher</strong> </p>
+                                        <p>Der Exzellenzcluster „Asien und Europa im globalen Kontext“ der Universität Heidelberg und die Universitätsbibliothek Heidelberg planen die Entwicklung eines innovativen Geschäftsmodells für die frei zugängliche Veröffentlichung wissenschaftlicher Bücher im Internet.
+                                            <a href="http://www.asia-europe.uni-heidelberg.de/en/research/publishing/heidelberg-studies-in-transculturality-an-open-access-book-series.html"  target="_blank">&nbsp;<i class="fa fa-external-link"></i></a>
+                                        </p>
+                                    </div>
+                                </div>-->
+                                                                <div class="box-bottom">&nbsp;
+   <!--{{if session.forced_language =='de': }}
+                                    <a href="http://heiup.uni-heidelberg.de/#"><span style="color: #EFEFEF;">Mehr</span>
+      {{elif session.forced_language =='en': }}
+                                    <a href="http://heiup.uni-heidelberg.de/#"><span style="color: #EFEFEF;">More</span>
+                                      {{pass}}-->         
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-12">
+
+                    <div class="row">
+
+                        <div class="col-lg-3">
+
+                            <div class="box">
+
+                                <div class="box-gray aligncenter">
+   {{if session.forced_language =='de': }}
+                                    <h4>Demnächst</h4>
+   {{elif session.forced_language =='en': }}
+   <h4>Forthcoming</h4>                                    
+                                       {{pass}}                                    
+
+                  
+                                    <img src="{{=URL(myconf.take('web.application'),'static','images/press/home/Cover2English.jpg')}}" width="145px"/>
+
+                                </div>
+
+                                <div class="box-bottom">
+   {{if session.forced_language =='de': }}
+                                    <a href="http://heiup.uni-heidelberg.de/catalog">Mehr</a>
+      {{elif session.forced_language =='en': }}
+                                    <a href="http://heiup.uni-heidelberg.de/catalog">More Information</a>
+                                      {{pass}}         
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-3">
+
+                            <div class="box">
+
+                                <div class="box-gray">
+                                    
+                                    <b><span style="text-align: left">Heidelberg Studies in Transculturality</span></b>
+                                                                       
+                                    {{if session.forced_language =='de': }}
+                                    
+                                    <p class="boxText">
+                                    HST ist eine peer-review-geprüfte Open-Access-Schriftenreihe zum Thema Transkulturalität. Sie untersucht kulturelle, soziale und regionale Formationen, die sich durch den Kontakt mit anderen Regionen und Kulturen konstituierten und durch ihn transformiert wurden.                             </p>
+                                    {{elif session.forced_language =='en': }}
+                                    <p class="boxText">
+                                    HST is a peer-reviewed, open access book series promoting research on transcultuality. The series features works that investigate cultural, social, and regional formations that have themselves been constituted and transformed through contact with other regions and cultures.                           </p>
+                                    {{pass}}
+
+
+                                </div>
+
+                                <div class="box-bottom">&nbsp;
+   <!--{{if session.forced_language =='de': }}
+                                    <a href="http://heiup.uni-heidelberg.de/#"><span style="color: #EFEFEF;">Mehr</span>
+      {{elif session.forced_language =='en': }}
+                                    <a href="http://heiup.uni-heidelberg.de/#"><span style="color: #EFEFEF;">More</span>
+                                      {{pass}}-->         
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-6" >
+
+                            <!--<div>-->
+
+                                <!-- TWITTER TIMELINE-->
+
+ 				<div class="">
+                                    <a class="twitter-timeline"  href="https://twitter.com/UniHeidelberg" data-widget-id="521961404698341376"  height='350'>{{=T('Tweets by @UniHeidelberg')}}</a>
+                                    <script>!function (d, s, id) {
+                                        var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                                        if (!d.getElementById(id)) {
+                                            js = d.createElement(s);
+                                            js.id = id;
+                                            js.src = p + "://platform.twitter.com/widgets.js";
+                                            fjs.parentNode.insertBefore(js, fjs);
+                                        }
+                                    }(document, "script", "twitter-wjs");</script>
+                                </div>
+
+                                <!-- /TWITTER TIMELINE -->
+
+                            <!--</div>-->
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+</div>
+

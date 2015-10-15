@@ -1,0 +1,303 @@
+{{extend 'layout.html'}}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>  {{if session.forced_language =='de': }}
+                Beirat
+                {{elif session.forced_language =='en': }}
+                Advisory Board
+            {{pass}}
+            </h3>
+
+            <p>
+                {{if session.forced_language =='de': }}
+
+  <div class="box">
+ <div class="media">
+      <div class="media-left pull-left">
+        <img src="../static/images/about_us/board/funke.jpg" class="pull-left media-object beiratPortrait" alt="" />
+      </div>
+      <div class="media-body">
+          <p class="media-heading"><strong>Prof. Dr. Joachim Funke</strong> </p>
+          <p class="beiratBeschreibung">Professor für Allgemeine und Theoretische Psychologie am Psychologischen Institut der Universität Heidelberg
+              <a href="http://www.psychologie.uni-heidelberg.de/ae/allg/mitarb/jf/index.html" target="_self">&nbsp;<i class="fa fa-external-link"></i></a>
+          </p>
+      </div>
+  </div>
+  
+  <div class="media">
+      <div class="media-left pull-left">
+         <img src="../static/images/about_us/board/heermann.jpg" class="pull-left media-object beiratPortrait" alt=""/>
+      </div>
+      <div class="media-body">
+          <p class="media-heading"><strong>Prof. Dr. Dieter Heermann</strong> </p>
+          <p class="beiratBeschreibung">Professor für Theoretische Physik an der Universität Heidelberg; Prorektor für Internationale Angelegenheiten
+              <a href="https://www.uni-heidelberg.de/einrichtungen/rektorat/dieter_heermann.html" target="_self">&nbsp;<i class="fa fa-external-link"></i></a>
+          </p>
+      </div>
+  </div>
+ <div class="media">
+      <div class="media-left pull-left">
+       <img src="../static/images/about_us/board/heuveline.jpg" class="pull-left media-object beiratPortrait"  alt="" />
+      </div>
+      <div class="media-body">
+          <p class="media-heading"><strong>Prof. Dr. Vincent Heuveline</strong> </p>
+          <p class="beiratBeschreibung"> Professor für Angewandte und Numerische Mathematik; Geschäftsführender Direktor des Rechenzentrums der Universität Heidelberg (URZ); Leiter des „Engineering Mathematics and Computing Lab (EMCL)“ am Interdisziplinären Zentrum für Wissenschaftliches Rechnen (IWR) der Universität Heidelberg
+              <a href="http://www.urz.uni-heidelberg.de/orginfo/mitarbeiter_details.html?pid=23001&eid=704000" target="_self">&nbsp;<i class="fa fa-external-link"></i></a>
+          </p>
+      </div>
+  </div>
+ <div class="media">
+      <div class="media-left pull-left">
+        <img src="../static/images/about_us/board/kirsch.jpg" class="pull-left media-object beiratPortrait" alt="" />
+      </div>
+      <div class="media-body">
+          <p class="media-heading"><strong>Prof. Dr. Joachim Kirsch</strong> </p>
+          <p class="beiratBeschreibung">Professor für Anatomie; Direktor der Abteilung medizinische Zellbiologie am Institut für Anatomie und Zellbiologie
+              <a href= "http://www.uni-heidelberg.de/izn/researchgroups/kirsch/" target="_self">&nbsp;<i class="fa fa-external-link"></i></a>
+          </p>
+      </div>
+  </div>
+  
+  
+  <div class="media">
+      <div class="media-left pull-left"> 
+              <img src="../static/images/about_us/board/michaels.jpg" class="pull-left media-object beiratPortrait" alt="" />
+      </div>
+      <div class="media-body">
+          <p class="media-heading"><strong>Prof. Dr. Axel Michaels</strong> </p>
+          <p class="beiratBeschreibung">Professor für Klassische Indologie; Direktor des Exzellenzclusters „Asia und Europa im globalen Kontext“; Leiter der Abteilung Kultur- und Religionsgeschichte Südasiens (Klassische Indologie), Südasien-Institut der Universität Heidelberg
+              <a href="http://www.sai.uni-heidelberg.de/abt/IND/mitarbeiter/michaels/michaels.php" target="_self">&nbsp;<i class="fa fa-external-link"></i></a>
+          </p>
+      </div>
+  </div>
+  
+    <div class="media">
+      <div class="media-left pull-left"> 
+              <img src="../static/images/about_us/board/nuessel.jpg" class="pull-left media-object beiratPortrait" alt="" />
+      </div>
+      <div class="media-body">
+          <p class="media-heading"><strong>Prof. Dr. Friederike Nüssel</strong> </p>
+          <p class="beiratBeschreibung">Professorin für Systematische Theologie; Direktorin des Ökumenischen Instituts; Ephora des Ökumenischen Wohnheims für Studierende
+              <a href="http://www.uni-heidelberg.de/fakultaeten/theologie/fakultaet/personen/nuessel.html" target="_self">&nbsp;<i class="fa fa-external-link"></i></a>
+          </p>
+      </div>
+  </div>
+  
+  
+ <div class="media">
+      <div class="media-left pull-left">
+              <img src="../static/images/about_us/board/pfeiffer.jpg" class="pull-left media-object beiratPortrait" alt="" />
+      </div>
+      <div class="media-body">
+          <p class="media-heading"><strong>Prof. Dr. Dr. h.c. Thomas Pfeiffer</strong> </p>
+          <p class="beiratBeschreibung">
+              Professor für Bürgerliches Recht, Internationales Privatrecht, Rechtsvergleichung und Internationales Verfahrensrecht; Geschäftsführender Institutsdirektor des Instituts für ausländisches und internationales Privat- und Wirtschaftsrecht
+              <a href= "http://www.ipr.uni-heidelberg.de/personen/pfeiffer/" target="_self">&nbsp;<i class="fa fa-external-link"></i></a>
+          </p>
+      </div>
+  </div>
+  
+ <div class="media">
+      <div class="media-left pull-left">
+        <img src="../static/images/about_us/board/rausch.jpg" class="pull-left media-object beiratPortrait" alt="" />
+      </div>
+      <div class="media-body">
+          <p class="media-heading"><strong>Prof. Dr. Thomas Rausch</strong> </p>
+          <p class="beiratBeschreibung">
+              Professor für Molekulare Ökophysiologie der Pflanzen; Leiter des Centre for Organismal Studies; Direktor des Marsilius-Kollegs der Universität Heidelberg
+              <a href="http://www.cos.uni-heidelberg.de/index.php/t.rausch" target="_self">&nbsp;<i class="fa fa-external-link"></i></a>
+          </p>
+      </div>
+ 
+    </div>    
+  
+ <div class="media">
+      <div class="media-left pull-left">
+        <img src="../static/images/about_us/board/schneidmueller.jpg" class="pull-left media-object beiratPortrait" alt="" />
+      </div>
+      <div class="media-body">
+          <p class="media-heading"><strong>Prof. Dr. Bernd Schneidmüller</strong> </p>
+          <p class="beiratBeschreibung">
+              Professor für Mittelalterliche Geschichte; Direktor des Instituts für Fränkisch-Pfälzische Geschichte und Landeskunde (FPI); Direktor des Marsilius-Kollegs der Universität Heidelberg
+              <a href= "http://www.uni-heidelberg.de/fakultaeten/philosophie/zegk/histsem/mitglieder/ls_schneidmueller_kontakt.html" target="_self">&nbsp;<i class="fa fa-external-link"></i></a>
+          </p>
+      </div>
+ 
+    </div>  
+    
+    
+     <div class="media" style="margin: 10em 0 1em 0;">
+            <div class="media-left pull-left">
+              <img src="../static/images/about_us/board/probst.jpg" class="pull-left media-object beiratPortrait" alt="" />
+      </div>        
+          <div class="media-body">
+        <p class="media-heading"><strong>Dr. Veit Probst</strong></p>
+        <p class="beiratBeschreibung">Universitätsbibliothek Heidelberg, Verlagsleitung <a href="http://www.ub.uni-heidelberg.de/allg/Mitarbeiter/dir.html">&nbsp;<i class="fa fa-external-link"></i></a>
+        </p>
+        </div>
+      </div>  
+    
+
+   <div class="media" style="margin-bottom: 1em">
+            <div class="media-left pull-left">
+              <img src="../static/images/about_us/board/fuhrmann_koch.jpg" class="pull-left media-object beiratPortrait" alt="" />
+      </div>        
+      <div class="media-body">
+        <p class="media-heading"><strong>Marietta Fuhrmann-Koch</strong> </p>
+          <p class="beiratBeschreibung">
+              Kommunikation und Marketing Universität Heidelberg
+              <a href="https://www.uni-heidelberg.de/einrichtungen/rektorat/kum/leitung.html" target="_self">&nbsp;<i class="fa fa-external-link"></i></a>
+          </p>
+      </div>
+</div>      
+          
+  </div>    
+{{elif session.forced_language =='en': }}
+<div class="box">
+ <div class="media">
+      <div class="media-left pull-left">
+        <img src="../static/images/about_us/board/funke.jpg" class="pull-left media-object beiratPortrait" alt="" />
+      </div>
+      <div class="media-body">
+          <p class="media-heading"><strong>Joachim Funke</strong> </p>
+          <p class="beiratBeschreibung">Professor of Experimental and Theoretical Psychology, Institute of Psychology, Heidelberg University
+              <a href="http://www.psychologie.uni-heidelberg.de/ae/allg/mitarb/jf/index.html" target="_self">&nbsp;<i class="fa fa-external-link"></i></a>
+          </p>
+      </div>
+  </div>
+  
+  <div class="media">
+      <div class="media-left pull-left">
+         <img src="../static/images/about_us/board/heermann.jpg" class="pull-left media-object beiratPortrait" alt=""/>
+      </div>
+      <div class="media-body">
+          <p class="media-heading"><strong>Dieter Heermann</strong> </p>
+          <p class="beiratBeschreibung">Professor of Theoretical Physics; Prorector for International Affairs, Heidelberg University
+              <a href="https://www.uni-heidelberg.de/einrichtungen/rektorat/dieter_heermann.html" target="_self">&nbsp;<i class="fa fa-external-link"></i></a>
+          </p>
+      </div>
+  </div>
+ <div class="media">
+      <div class="media-left pull-left">
+       <img src="../static/images/about_us/board/heuveline.jpg" class="pull-left media-object beiratPortrait"  alt="" />
+      </div>
+      <div class="media-body">
+          <p class="media-heading"><strong>Vincent Heuveline</strong> </p>
+          <p class="beiratBeschreibung">Professor of Applied and Numerical Mathematics; Director, Heidelberg University Computing Center (URZ); Head of “Engineering Mathematics and Computing Lab” (EMCL) at the Interdisciplinary Center for Scientific Computing (IWR), Heidelberg University
+              <a href="http://www.urz.uni-heidelberg.de/orginfo/mitarbeiter_details.html?pid=23001&eid=704000" target="_self">&nbsp;<i class="fa fa-external-link"></i></a>
+          </p>
+      </div>
+  </div>
+ <div class="media">
+      <div class="media-left pull-left">
+        <img src="../static/images/about_us/board/kirsch.jpg" class="pull-left media-object beiratPortrait" alt="" />
+      </div>
+      <div class="media-body">
+          <p class="media-heading"><strong>Joachim Kirsch</strong> </p>
+          <p class="beiratBeschreibung">Professor of Molecular Ecophysiology of Plants; Director, Centre for Organismal Studies; Director, Marsilius Kolleg, Heidelberg University
+              <a href= "http://www.uni-heidelberg.de/izn/researchgroups/kirsch/" target="_self">&nbsp;<i class="fa fa-external-link"></i></a>
+          </p>
+      </div>
+  </div>
+  <div class="media">
+      <div class="media-left pull-left"> 
+              <img src="../static/images/about_us/board/michaels.jpg" class="pull-left media-object beiratPortrait" alt="" />
+      </div>
+      <div class="media-body">
+          <p class="media-heading"><strong>Axel Michaels</strong> </p>
+          <p class="beiratBeschreibung">Professor of Classical Indology and Religious Studies; Director, Cluster of Excellence “Asia and Europe in a Global Context.” Director, Department of Cultural and Religious History of South Asia (Classical Indology), South Asia Institute, Heidelberg University
+              <a href="http://www.sai.uni-heidelberg.de/abt/IND/mitarbeiter/michaels/michaels.php" target="_self">&nbsp;<i class="fa fa-external-link"></i></a>
+          </p>
+      </div>
+  </div>
+  
+      <div class="media">
+      <div class="media-left pull-left"> 
+              <img src="../static/images/about_us/board/nuessel.jpg" class="pull-left media-object beiratPortrait" alt="" />
+      </div>
+      <div class="media-body">
+          <p class="media-heading"><strong>Friederike Nüssel</strong> </p>
+          <p class="beiratBeschreibung">Professor of Systematic Theology; Director, Ecumenical Institute and Ecumenical Dormitory
+              <a href="http://www.uni-heidelberg.de/fakultaeten/theologie/fakultaet/personen/nuessel.html" target="_self">&nbsp;<i class="fa fa-external-link"></i></a>
+          </p>
+      </div>
+  </div>
+  
+  
+ <div class="media">
+      <div class="media-left pull-left">
+              <img src="../static/images/about_us/board/pfeiffer.jpg" class="pull-left media-object beiratPortrait" alt="" />
+      </div>
+      <div class="media-body">
+          <p class="media-heading"><strong>Thomas Pfeiffer</strong> </p>
+          <p class="beiratBeschreibung">Professor of Civil Law, International Private Lay, and International Procedural Law, Heidelberg University; Director, Institute for Foreign and International Private and Business Law, Heidelberg University
+          <a href= "http://www.ipr.uni-heidelberg.de/personen/pfeiffer/" target="_self">&nbsp;<i class="fa fa-external-link"></i></a>
+          </p>
+      </div>
+  </div>
+ <div class="media">
+      <div class="media-left pull-left">
+        <img src="../static/images/about_us/board/rausch.jpg" class="pull-left media-object beiratPortrait" alt="" />
+      </div>
+      <div class="media-body">
+          <p class="media-heading"><strong>Thomas Rausch </strong> </p>
+          <p class="beiratBeschreibung">
+              Professor of Plant Molecular Physiology; Director Marsilius-Kolleg (MK); Deputy Managing Director, Centre for Organismal Studies (COS) 
+              <a href="http://www.cos.uni-heidelberg.de/index.php/t.rausch?l=_e" target="_self">&nbsp;<i class="fa fa-external-link"></i></a>
+          </p>
+      </div>
+ 
+    </div>  
+
+ <div class="media">
+      <div class="media-left pull-left">
+        <img src="../static/images/about_us/board/schneidmueller.jpg" class="pull-left media-object beiratPortrait" alt="" />
+      </div>
+      <div class="media-body">
+          <p class="media-heading"><strong>Bernd Schneidmüller</strong> </p>
+          <p class="beiratBeschreibung">
+              Professor of Medieval History; Director, Institute of Frankish-Palatine History and Regional Studies (FPI); Director, Marsilius-Kolleg, Heidelberg University
+              <a href="http://www.uni-heidelberg.de/fakultaeten/philosophie/zegk/histsem/mitglieder/ls_schneidmueller_kontakt.html" target="_self">&nbsp;<i class="fa fa-external-link"></i></a>
+          </p>
+      </div>
+ 
+    </div>  
+    
+    
+     <div class="media" style="margin: 10em 0 1em 0;">
+            <div class="media-left pull-left">
+              <img src="../static/images/about_us/board/probst.jpg" class="pull-left media-object beiratPortrait" alt="" />
+      </div>        
+          <div class="media-body">
+        <p class="media-heading"><strong>Veit Probst</strong></p>
+        <p class="beiratBeschreibung">Director, Heidelberg University Library<a href="http://www.ub.uni-heidelberg.de/allg/Mitarbeiter/dir.html">&nbsp;<i class="fa fa-external-link"></i></a>
+        </p>
+        </div>
+      </div>  
+    
+
+   <div class="media" style="margin-bottom: 1em">
+            <div class="media-left pull-left">
+              <img src="../static/images/about_us/board/fuhrmann_koch.jpg" class="pull-left media-object beiratPortrait" alt="" />
+      </div>        
+      <div class="media-body">
+        <p class="media-heading"><strong>Marietta Fuhrmann-Koch</strong> </p>
+          <p class="beiratBeschreibung">
+              Head of Communications and Marketing, Heidelberg University
+              <a href="https://www.uni-heidelberg.de/einrichtungen/rektorat/kum/leitung.html" target="_self">&nbsp;<i class="fa fa-external-link"></i></a>
+          </p>
+      </div>
+</div>      
+</div>
+
+                {{pass}}
+
+
+            </p>
+
+        </div>
+    </div>
+  </div>  
+                    
