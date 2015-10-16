@@ -353,6 +353,7 @@
     'Verpackungsangaben In mm': 'Verpackungsangaben In mm',
     'Videos': 'Videos',
     'View': 'Ansicht',
+    'View Journal': 'Zur Zeitschrift',
     'Vorbestelldatum': 'Vorbestelldatum',
     'Vorbestellpreis EURO AT': 'Vorbestellpreis EURO AT',
     'Vorbestellpreis EURO DE': 'Vorbestellpreis EURO DE',
