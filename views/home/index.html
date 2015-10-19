@@ -6,7 +6,6 @@
 </script>
 <div class="container">
 
-
     <!-- end header -->
 
     <section id="featured">
@@ -129,8 +128,6 @@
 
     </section>
 
-
-
     <section id="content">
 
         <div class="container">
@@ -158,8 +155,6 @@
 
                                 </div>
 
-
-                            
                             {{elif session.forced_language =='en': }}
                         <div class="box-gray aligncenter">
    
@@ -167,121 +162,118 @@
 				   {{=IMG(_src=URL(myconf.take('web.application'),'static','monographs/43/simple/cover.jpg'),_width='145px')}}
                                 </div>
 
-                               <div class="box-bottom">
+             <div class="box-bottom">
 
-                                    {{=A(T('More Information'),_href=URL('catalog','book/43'))}}
+                  {{=A(T('More Information'),_href=URL('catalog','book/43'))}}
 
-                                </div>
-                                 {{pass}}  
-                            </div>                                    
-                                       
-                            
+              </div>
+               {{pass}}  
+          </div>                                    
+                     
+      </div>
 
-                        </div>
+      <div class="col-lg-3">
+      
+          <div class="box">
 
-                        <div class="col-lg-3">
-                        
+              <div class="box-gray aligncenter">
+              {{if session.forced_language =='de': }}  
+                  <p class="boxText">
 
-                            <div class="box">
+                      <b>Heidelberg University Publishing</b> ist ein Open-Access-Verlag für qualitätsgeprüfte
 
-                                <div class="box-gray aligncenter">
-                                {{if session.forced_language =='de': }}  
-                                    <p class="boxText">
+                      wissenschaftliche Publikationen. Wir unterstützen Open Access als Publikationsmodell
 
-                                        <b>Heidelberg University Publishing</b> ist ein Open-Access-Verlag für qualitätsgeprüfte
+                      für die Verbreitung hervorragender Forschungsergebnisse und setzen
 
-                                        wissenschaftliche Publikationen. Wir unterstützen Open Access als Publikationsmodell
+                      Open-Source-Software für die gemeinsame Entwicklung der zugrunde liegenden
 
-                                        für die Verbreitung hervorragender Forschungsergebnisse und setzen
+                      Publikationstechnologien ein.
 
-                                        Open-Source-Software für die gemeinsame Entwicklung der zugrunde liegenden
+                  </p>
+          {{elif session.forced_language =='en': }}
+          
+                 <p class="boxText">
 
-                                        Publikationstechnologien ein.
+                      <b>Heidelberg University Publishing</b> is an open-access publisher of high-quality, peer-reviewed academic works. We endorse open access as a publishing model to distribute outstanding research results and use open-source software for the collaborative development of underlying publishing technologies.
 
-                                    </p>
-                            {{elif session.forced_language =='en': }}
-                            
-                                   <p class="boxText">
+                  </p>
+                {{pass}}  
+              </div>
 
-                                        <b>Heidelberg University Publishing</b> is an open-access publisher of high-quality, peer-reviewed academic works. We endorse open access as a publishing model to distribute outstanding research results and use open-source software for the collaborative development of underlying publishing technologies.
+              <div class="box-bottom">
+              
+              {{if session.forced_language =='de': }}        
+                  <a href="http://heiup.uni-heidelberg.de/about_us/mission_statement/">Mehr</a>
+              {{elif session.forced_language =='en': }}
+                  <a href="http://heiup.uni-heidelberg.de/about_us/mission_statement/">More Information</a>
+                    {{pass}}                                  
 
-                                    </p>
-                                  {{pass}}  
-                                </div>
+              </div>
 
-                                <div class="box-bottom">
-                                
-                                {{if session.forced_language =='de': }}        
-                                    <a href="http://heiup.uni-heidelberg.de/about_us/mission_statement/">Mehr</a>
-                                {{elif session.forced_language =='en': }}
-                                    <a href="http://heiup.uni-heidelberg.de/about_us/mission_statement/">More Information</a>
-                                      {{pass}}                                  
+          </div>
 
-                                </div>
+      </div>
 
-                            </div>
+      <div id="boxAktuelles" class="col-lg-6">
 
-                        </div>
+          <div class="box">
+        <div class="box-gray aligncenter" style="overflow-y: scroll">
 
-                        <div id="boxAktuelles" class="col-lg-6">
-
-                            <div class="box">
-                          <div class="box-gray aligncenter">
-
-                            {{if session.forced_language =='de': }}       
-                                <h4>Aktuelles</h4>
-                            {{elif session.forced_language =='en': }}
-                                <h4>News</h4>
-                            {{pass}}
-                            
-                            <div class="media">
-                                    <div class="media-left pull-left">
-                                        <img src="{{=URL(myconf.take('web.application'),'static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
-                                    </div>                        
-                                    <div class="media-body">      
-                                        <p class="media-heading">
-                          {{if session.forced_language =='de': }}  
-                              <h5>Heidelberg University Publishing ist online</h5>
+          {{if session.forced_language =='de': }}       
+              <h4>Aktuelles</h4>
+          {{elif session.forced_language =='en': }}
+              <h4>News</h4>
+          {{pass}}
+          
+          
+              <div class="media">
+                  <div class="media-left pull-left">
+                      <a href="http://open-access.net/community/open_access_tage/">
+                          <img src="{{=URL(myconf.take('web.application'),'static','images/press/home/oa.svg')}}" width="50px" />
+                      </a>
+                  </div>                        
+                  <div class="media-body">      
+                      <p class="media-heading">
+        {{if session.forced_language =='de': }}  
+            <h5>Die Internationale Open-Access-Woche hat begonnen</h5>
+        {{elif session.forced_language =='en': }}
+            <h5></h5> 
+        {{pass}}          
+                      </p>
+                  <p class="boxText">
+        {{if session.forced_language =='de': }}  
+                              Vom 19.-25. Oktober findet die <a href="http://openaccessweek.org/" title="Homepage der Internationalen Open Access Woche">Internationale Open Access Woche</a>  statt. Ziel dieser Aktionswoche ist es, für freien Zugang zu wissenschaftlichen Publikationen zu werben. Die Universität Heidelberg unterstützt Open Access seit vielen Jahren durch vielfältige Publikationsangebote wie der Herausgabe <a href="http://journals.ub.uni-heidelberg.de" title="Homepage UB Heidelberg; heiJOURNALS - Open Access Zeitschriften">frei zugänglicher Zeitschriften</a>, Veröffentlichung von E-Books, Publikation von <a href="http://data.uni-heidelberg.de/" title="Homepage Kompetenzzentrum Forschungsdaten der Universität Heidelberg">Forschungsdaten</a> und vielem mehr. Die Gründung des Universitätsverlages heiUP in diesem Jahr bildet einen weiteren wichtigen Meilenstein in den Bemühungen der Universität um freien Zugang zu wissenschaftlicher Forschung. 
                           {{elif session.forced_language =='en': }}
-                              <h5>Now online: Heidelberg University Publishing</h5>        
-                          {{pass}}   
-                                        </p>
-                                    <p class="boxText">
-                          {{if session.forced_language =='de': }}  
-                             Mit dem Werk &bdquo;Abwesenheit von Rom&rdquo; der Autorin Astrid Habenstein geht der Verlag &bdquo;Heidelberg University Publishing&rdquo; am 23. Juli 2015 online. Die Universität Heidelberg verfolgt mit ihrem jetzt gegründeten Verlag das Ziel, über innovative digitale Publikationsformen freien Zugang zu herausragenden wissenschaftlichen Publikationen zu ermöglichen und neue Wege in der wissenschaftlichen Kommunikation zu eröffnen. 
-                          {{elif session.forced_language =='en': }}
-                             Heidelberg University Publishing will launch its first title, <i>Abwesenheit von Rom</i>, by Astrid Habenstein, on July 23, 2015. With this work, Heidelberg University realizes its goal of providing open access to outstanding academic publications in innovative digital formats, thus forwarding new modes of scientific communication.
-                             {{pass}}                                   
-                              <!--<a href="http://open-access.net/community/open_access_tage/ " target="_blank">&nbsp;<i class="fa fa-external-link"></i></a>-->
-                                        </p>
-                                    </div>
-                                </div>
-                                
-                                
-                                <div class="media">
-                                    <div class="media-left pull-left">
-                                        <a href="http://open-access.net/community/open_access_tage/">
-                                            <img src="{{=URL(myconf.take('web.application'),'static','images/press/home/oa.svg')}}" width="50px" />
-                                        </a>
-                                    </div>                        
-                                    <div class="media-body">      
-                                        <p class="media-heading">
-                          {{if session.forced_language =='de': }}  
-                              <h5>Open-Access-Tage 2015</h5>
-                          {{elif session.forced_language =='en': }}
-                              <h5>Open-Access-Days 2015</h5> 
-                          {{pass}}          
-                                        </p>
-                                    <p class="boxText">
-                          {{if session.forced_language =='de': }}  
-                              Die Open-Access-Tage sind die zentrale jährliche Konferenz zum Thema Open Access und Open Science im deutschsprachigen Raum.  In diesem Jahr fanden am 7.-8. September 2015 in Zürich die 9. Open-Access-Tage statt.
-                          {{elif session.forced_language =='en': }}
-Open Access Days 2015: The 9th annual Open Access Days conference, which is central to the Open Access and Open Science movements in German-speaking countries, took place this year from September 7th to 8th, in Zurich, Switzerland. 
                           {{pass}}                                   
-                              <a href="http://open-access.net/community/open_access_tage/" target="_blank">&nbsp;<i class="fa fa-external-link"></i></a>
                                       </p>
                                     </div>
-                                </div>
+                                </div>          
+          
+          <div class="media">
+                  <div class="media-left pull-left">
+                      <img src="{{=URL(myconf.take('web.application'),'static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
+                  </div>                        
+                  <div class="media-body">      
+                      <p class="media-heading">
+        {{if session.forced_language =='de': }}  
+            <h5>Heidelberg University Publishing ist online</h5>
+        {{elif session.forced_language =='en': }}
+            <h5>Now online: Heidelberg University Publishing</h5>        
+        {{pass}}   
+                      </p>
+                  <p class="boxText">
+        {{if session.forced_language =='de': }}  
+           Mit dem Werk &bdquo;Abwesenheit von Rom&rdquo; der Autorin Astrid Habenstein geht der Verlag &bdquo;Heidelberg University Publishing&rdquo; am 23. Juli 2015 online. Die Universität Heidelberg verfolgt mit ihrem jetzt gegründeten Verlag das Ziel, über innovative digitale Publikationsformen freien Zugang zu herausragenden wissenschaftlichen Publikationen zu ermöglichen und neue Wege in der wissenschaftlichen Kommunikation zu eröffnen. 
+        {{elif session.forced_language =='en': }}
+           Heidelberg University Publishing will launch its first title, <i>Abwesenheit von Rom</i>, by Astrid Habenstein, on July 23, 2015. With this work, Heidelberg University realizes its goal of providing open access to outstanding academic publications in innovative digital formats, thus forwarding new modes of scientific communication.
+           {{pass}}                                   
+            <!--<a href="http://open-access.net/community/open_access_tage/ " target="_blank">&nbsp;<i class="fa fa-external-link"></i></a>-->
+                      </p>
+                  </div>
+              </div>
+              
+
                                 
                                 </div>
                                 
@@ -333,7 +325,6 @@ Open Access Days 2015: The 9th annual Open Access Days conference, which is cent
    <h4>Forthcoming</h4>                                    
                                        {{pass}}                                    
 
-                  
                                     <img src="{{=URL(myconf.take('web.application'),'static','images/press/home/Cover2English.jpg')}}" width="145px"/>
 
                                 </div>
@@ -361,12 +352,11 @@ Open Access Days 2015: The 9th annual Open Access Days conference, which is cent
                                     {{if session.forced_language =='de': }}
                                     
                                     <p class="boxText">
-                                    HST ist eine peer-review-geprüfte Open-Access-Schriftenreihe zum Thema Transkulturalität. Sie untersucht kulturelle, soziale und regionale Formationen, die sich durch den Kontakt mit anderen Regionen und Kulturen konstituierten und durch ihn transformiert wurden.                             </p>
+                                    HST ist eine Peer-Review-geprüfte Open-Access-Schriftenreihe zum Thema Transkulturalität. Sie untersucht kulturelle, soziale und regionale Formationen, die sich durch den Kontakt mit anderen Regionen und Kulturen konstituierten und durch ihn transformiert wurden.                             </p>
                                     {{elif session.forced_language =='en': }}
                                     <p class="boxText">
                                     HST is a peer-reviewed, open access book series promoting research on transcultuality. The series features works that investigate cultural, social, and regional formations that have themselves been constituted and transformed through contact with other regions and cultures.                           </p>
                                     {{pass}}
-
 
                                 </div>
 
@@ -388,7 +378,7 @@ Open Access Days 2015: The 9th annual Open Access Days conference, which is cent
 
                                 <!-- TWITTER TIMELINE-->
 
- 				<div class="">
+ 				<div>
                                     <a class="twitter-timeline"  href="https://twitter.com/UniHeidelberg" data-widget-id="521961404698341376"  height='350'>{{=T('Tweets by @UniHeidelberg')}}</a>
                                     <script>!function (d, s, id) {
                                         var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
@@ -413,11 +403,8 @@ Open Access Days 2015: The 9th annual Open Access Days conference, which is cent
 
             </div>
 
-
         </div>
 
     </section>
 
-
 </div>
-
