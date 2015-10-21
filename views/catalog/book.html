@@ -95,7 +95,9 @@
               <i class="icon-quote-left"></i>
               {{=XML(abstract)}}
             </p>
+            {{if author_bio:}}
             <p>{{=XML(author_bio['setting_value'])}}</p>
+            {{pass}}
           </div>
           <div class="widget">
             <h5 class="widgetheading"></h5>
