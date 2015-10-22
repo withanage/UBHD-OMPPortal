@@ -13,34 +13,37 @@ def index():
         locale = 'en_US'
     query = ((db.submissions.context_id == myconf.take('omp.press_id')) & (db.submissions.status == 3) & (
         db.submission_settings.submission_id == db.submissions.submission_id) & (db.submission_settings.locale == locale))
-    submissions = db(query).select(db.submission_settings.ALL,
-                                   orderby=db.submissions.submission_id)
+    submissions = db(query).select(db.submission_settings.ALL,orderby=db.submissions.submission_id)
     subs = {}
     for i in submissions:
-        if i.setting_name == 'abstract':
-            subs.setdefault(i.submission_id, {})['abstract'] = i.setting_value
-        if i.setting_name == 'subtitle':
-            subs.setdefault(i.submission_id, {})['subtitle'] = i.setting_value
-        if i.setting_name == 'cleanTitle':
-            subs.setdefault(i.submission_id, {})[
-                'cleanTitle'] = i.setting_value
-        authors = ''
-        author_q = ((db.authors.submission_id == i.submission_id))
-        authors_list = db(author_q).select(
-            db.authors.first_name, db.authors.last_name)
-        for j in authors_list:
-            authors += j.first_name + ' ' + j.last_name + ', '
-            if authors.endswith(', '):
-                authors = authors[:-2]
-        subs.setdefault(i.submission_id, {})['authors'] = authors
-    return dict(submissions=submissions, subs=subs, authors=authors)
+      authors=''
+      if i.setting_name == 'abstract':
+          subs.setdefault(i.submission_id, {})['abstract'] = i.setting_value
+      if i.setting_name == 'subtitle':
+          subs.setdefault(i.submission_id, {})['subtitle'] = i.setting_value
+      if i.setting_name == 'title':
+          subs.setdefault(i.submission_id, {})[
+              'title'] = i.setting_value
+      author_q = ((db.authors.submission_id == i.submission_id))
+      authors_list = db(author_q).select(
+          db.authors.first_name, db.authors.last_name)
+      for j in authors_list:
+          authors += j.first_name + ' ' + j.last_name + ', '
+      if authors.endswith(', '):
+        authors = authors[:-2]
+          
+      subs.setdefault(i.submission_id, {})['authors'] = authors
+    return dict(submissions=submissions, subs=subs)
 
 
 def book():
     abstract, authors, cleanTitle, publication_format_settings_doi, press_name, subtitle = '', '', '', '', '', ''
-    locale = 'de_DE'
+    locale = ''
     if session.forced_language == 'en':
         locale = 'en_US'
+
+    if session.forced_language == 'de':
+        locale = 'de_DE'
     book_id = request.args[0] if request.args else redirect(
         URL('home', 'index'))
 
@@ -48,8 +51,8 @@ def book():
              & (db.submission_settings.locale == locale))
     book = db(query).select(db.submission_settings.ALL)
 
-    if len(book) == 0:
-        redirect(URL('catalog', 'index'))
+    #if len(book) == 0:
+    #    redirect(URL('catalog', 'index'))
 
     author_q = ((db.authors.submission_id == book_id))
     authors_list = db(author_q).select(
@@ -115,7 +118,8 @@ def book():
         db.representatives.url,
         orderby=db.representatives.representative_id)
 
-    full_files = db((db.submission_files.submission_id == book_id) & (db.submission_files.genre_id == myconf.take('omp.monograph_type_id'))).select(db.submission_files.original_file_name, db.submission_files.submission_id, db.submission_files.genre_id,
+    #full_files = db((db.submission_files.submission_id == book_id) & (db.submission_files.genre_id == myconf.take('omp.monograph_type_id'))).select(db.submission_files.original_file_name, db.submission_files.submission_id, db.submission_files.genre_id,
+    full_files = db((db.submission_files.submission_id == book_id) & (db.submission_files.file_stage >= 5)).select(db.submission_files.original_file_name, db.submission_files.submission_id, db.submission_files.genre_id,
                                                                                                                                                     db.submission_files.file_id, db.submission_files.revision, db.submission_files.file_stage, db.submission_files.date_uploaded)
 
     for j in press_settings:
@@ -127,7 +131,7 @@ def book():
             abstract = i.setting_value
         if i.setting_name == 'subtitle':
             subtitle = i.setting_value
-        if i.setting_name == 'cleanTitle':
+        if i.setting_name == 'title':
             cleanTitle = i.setting_value
 
     cover_image = URL(myconf.take('web.application'), 'static',

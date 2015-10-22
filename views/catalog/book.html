@@ -75,10 +75,12 @@
               {{pass}}
             </div>
             <div class="btn-group" role="group" aria-label="2">
+	       {{if representatives:}}
               <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
                 {{=T('Print On Demand')}}
                 <span class="caret"></span>
               </button>
+		{{pass}}
               <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                 {{for i in representatives:}}
                 <li role="presentation"><a role="menuitem"  href="{{=i['url']}}" target='_blank'>{{=i['name']}}</a></li>
@@ -89,15 +91,15 @@
               <br/>
               <h5><a href="#">{{=authors}}</a></h5>
             </div>
-            <h3>{{=cleanTitle}}</h3>
+            <h3>{{=XML(cleanTitle)}}</h3>
             <h4>{{=subtitle}}</h4>
             <p>
               <i class="icon-quote-left"></i>
               {{=XML(abstract)}}
             </p>
-            {{if author_bio:}}
+	   {{if author_bio:}}
             <p>{{=XML(author_bio['setting_value'])}}</p>
-            {{pass}}
+          {{pass}}
           </div>
           <div class="widget">
             <h5 class="widgetheading"></h5>
