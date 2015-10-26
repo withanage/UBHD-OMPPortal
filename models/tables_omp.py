@@ -43,6 +43,15 @@ db.define_table("submission_chapters",
                 )
 
 
+db.define_table("submission_chapter_authors",
+                Field("author_id", "integer"),
+                Field("chapter_id", "integer"),
+                Field("submission_id", 'integer'),
+                Field("primaty_contact", 'integer'),
+                Field("seq", 'integer'),
+                migrate=False
+                )
+
 db.define_table("submission_chapter_settings",
                 Field("chapter_id", "integer"),
                 Field("locale", "string"),

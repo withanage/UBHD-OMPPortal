@@ -21,7 +21,6 @@
                     </div>
                     <p>
                         <i class="icon-quote-left"></i>
-                        {{#=re.compile(r'<[^>]+>').sub('',subs[entry]['abstract'])}}
                         {{=XML(subs[entry]['abstract'])}}
                     </p>
                     <div class="widget">
