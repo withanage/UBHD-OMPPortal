@@ -48,22 +48,22 @@
             <p>{{=T('Published')}} {{=published_date.first()['date'][6:8]}}.{{=published_date.first()['date'][4:6]}}.{{=published_date.first()['date'][0:4]}}</p>
             {{pass}}
             
-           <a data-toggle="modal" class="btn btn-info" href="../../../cgi-bin/oastats.cgi?repo=omphp&id=43-206-xml" data-target="#myModal">Click me !</a>
+           <a data-toggle="modal" class="btn btn-info" href="../../../cgi-bin/oastats.cgi?repo=omphp" data-target="#myModal">{{=T('Statistik')}}</a>
            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-        </div> <!-- /.modal-content -->
-    </div> <!-- /.modal-dialog -->
-</div>
+          <div class="modal-dialog">
+              <div class="modal-content">
+              </div> <!-- /.modal-content -->
+          </div> <!-- /.modal-dialog -->
+      </div>
 						
-             <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+             <!--button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
               {{=T('Statistik')}}
               </button>
               <div class="collapse" id="collapseExample">
                 <div class="well">
                   ...
                 </div>
-              </div>
+              </div-->
              
           </div>
 						
