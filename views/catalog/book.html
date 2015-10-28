@@ -47,6 +47,42 @@
             {{if published_date:}}
             <p>{{=T('Published')}} {{=published_date.first()['date'][6:8]}}.{{=published_date.first()['date'][4:6]}}.{{=published_date.first()['date'][0:4]}}</p>
             {{pass}}
+            
+           
+						 <h5 style="color: #656565; margin-bottom: 0.3em; margin-top: 1.2em;">{{=T('Statistik')}}</h5>
+             
+						<ul class="nav nav-tabs">
+							<li class="active"><a href="#one" data-toggle="tab"><i class="icon-briefcase"></i> {{=T('Book')}}</a></li>
+							<li class=""><a href="#two" data-toggle="tab">{{=T('Capitals')}}</a></li>
+						
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane active" id="one">
+                <table width="100">
+                  <tr>
+                    <td><b>XML</b></td><td>3</td>
+                  </tr>
+                  <tr>
+                    <td><b>PDF</b></td><td>3</td>
+
+                  </tr>
+                </table>
+							</div>
+							<div class="tab-pane " id="two">
+                <tr><td> Widmung 		</td><td>3</td></tr>
+                <tr><td> Vorwort und Dank 		</td><td>3</td></tr>
+                <tr><td> Einleitung 		</td><td>3</td></tr>
+                <tr><td> Absenz und aristokratische Lebensführung: Die römische Villa 		</td><td>3</td></tr>
+                <tr><td> Rückzug, Absenz und aristokratische Politik in der späten Republik und frühen Kaiserzeit 		</td><td>3</td></tr>
+                <tr><td> ‚Rückzug‘ und Herrschaft: Der Kaiser 		</td><td>3</td></tr>
+                <tr><td> Zusammenfassung 		</td><td>3</td></tr>
+                <tr><td> Quellen- und Literaturverzeichnis 		</td><td>3</td></tr>
+                <tr><td> Anhang</td><td>3</td></tr>
+                </table>
+							</div>
+							
+						</div>
+					
 
           </div>
         </div>
