@@ -51,7 +51,7 @@
            <!---a data-toggle="modal" class="btn btn-info" href="../../../cgi-bin/oastats.cgi?repo=omphp" data-target="#myModal">{{=T('')}}</a-->
          
 <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
- Statistik
+ Statistik Dropdown
 </button>
            <div class="collapse" id="collapseExample">
              <ul class="nav nav-tabs">
@@ -60,11 +60,13 @@
                    </ul>
                    <div class="tab-content" >
                      <div class="tab-pane active" id="one2">
-                       <table class="table">                 <tr>                   <td><b>XML</b></td><td>3</td>                 </tr>                 <tr>                   <td><b>PDF</b></td><td>3</td> </tr>
+                       <table class="table"> 
+                         <tr><td><b>XML</b></td><td>3</td> </tr>       
+                         <tr> <td><b>PDF</b></td><td>3</td> </tr>
                        </table>
                      </div>
-                     <div class="tab-pane " id="two2">
-                       <table class="table">
+                     <div class="tab-pane " id="two2" width="100%">
+                       <table class="table-bordered">
                          <tr><td></td><td><b>XML</b></td><td><b>PDF</b></td></tr>
                          <tr><td> Widmung 		</td><td>10</td><td>3</td></tr>
                          <tr><td> Vorwort und Dank 		</td><td>10</td><td>3</td></tr>
@@ -83,7 +85,7 @@
 
 <br>
 
-           <button class="btn btn-default btn" data-toggle="modal" data-target="#myModal">Statistik</button>
+           <button class="btn btn-default btn" data-toggle="modal" data-target="#myModal">Statistik modal</button>
            <!-- Modal -->
            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
              <div class="modal-dialog custom-class">
@@ -103,7 +105,7 @@
                        </table>
                      </div>
                      <div class="tab-pane " id="two">
-                       <table class="table">
+                       <table class="table" width="100%">
                          <tr><td></td><td><b>XML</b></td><td><b>PDF</b></td></tr>
                          <tr><td> Widmung 		</td><td>10</td><td>3</td></tr>
                          <tr><td> Vorwort und Dank 		</td><td>10</td><td>3</td></tr>
