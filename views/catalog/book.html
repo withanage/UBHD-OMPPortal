@@ -47,15 +47,92 @@
             {{if published_date:}}
             <p>{{=T('Published')}} {{=published_date.first()['date'][6:8]}}.{{=published_date.first()['date'][4:6]}}.{{=published_date.first()['date'][0:4]}}</p>
             {{pass}}
-            
-           <a data-toggle="modal" class="btn btn-info" href="../../../cgi-bin/oastats.cgi?repo=omphp" data-target="#myModal">{{=T('Statistik')}}</a>
+
+           <!---a data-toggle="modal" class="btn btn-info" href="../../../cgi-bin/oastats.cgi?repo=omphp" data-target="#myModal">{{=T('')}}</a-->
+         
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+ Statistik
+</button>
+           <div class="collapse" id="collapseExample">
+             <ul class="nav nav-tabs">
+                     <li class="active"><a href="#one2" data-toggle="tab"><i class="icon-briefcase"></i> {{=T('Book')}}</a></li>
+                     <li class=""><a href="#two2" data-toggle="tab">{{=T('Capitals')}}</a></li>
+                   </ul>
+                   <div class="tab-content" >
+                     <div class="tab-pane active" id="one2">
+                       <table class="table">                 <tr>                   <td><b>XML</b></td><td>3</td>                 </tr>                 <tr>                   <td><b>PDF</b></td><td>3</td> </tr>
+                       </table>
+                     </div>
+                     <div class="tab-pane " id="two2">
+                       <table class="table">
+                         <tr><td></td><td><b>XML</b></td><td><b>PDF</b></td></tr>
+                         <tr><td> Widmung 		</td><td>10</td><td>3</td></tr>
+                         <tr><td> Vorwort und Dank 		</td><td>10</td><td>3</td></tr>
+                         <tr><td> Einleitung 		</td><td>10</td><td>3</td></tr>
+                         <tr><td> Absenz und aristokratische Lebensführung: Die römische Villa 		</td><td>10</td><td>3</td></tr>
+                         <tr><td> Rückzug, Absenz und aristokratische Politik in der späten Republik und frühen Kaiserzeit 		</td><td>10</td><td>3</td></tr>
+                         <tr><td> ‚Rückzug‘ und Herrschaft: Der Kaiser 		</td><td>10</td><td>3</td></tr>
+                         <tr><td> Zusammenfassung 		</td><td>10</td><td>3</td></tr>
+                         <tr><td> Quellen- und Literaturverzeichnis 		</td><td>10</td><td>3</td></tr>
+                         <tr><td> Anhang</td><td>10</td><td>3</td></tr>
+                        </table>
+                     </div>
+                    </div>
+             
+           </div>
+
+<br>
+
+           <button class="btn btn-default btn" data-toggle="modal" data-target="#myModal">Statistik</button>
+           <!-- Modal -->
            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-              <div class="modal-content">
-              </div> <!-- /.modal-content -->
-          </div> <!-- /.modal-dialog -->
-      </div>
-						
+             <div class="modal-dialog custom-class">
+               <div class="modal-content">
+                 <div class="modal-header">
+                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                   <h4 class="modal-title" id="myModalLabel">Statistik</h4>
+                 </div>
+                 <div class="modal-body">
+                   <ul class="nav nav-tabs">
+                     <li class="active"><a href="#one" data-toggle="tab"><i class="icon-briefcase"></i> {{=T('Book')}}</a></li>
+                     <li class=""><a href="#two" data-toggle="tab">{{=T('Capitals')}}</a></li>
+                   </ul>
+                   <div class="tab-content" >
+                     <div class="tab-pane active" id="one">
+                       <table class="table">                 <tr>                   <td><b>XML</b></td><td>3</td>                 </tr>                 <tr>                   <td><b>PDF</b></td><td>3</td> </tr>
+                       </table>
+                     </div>
+                     <div class="tab-pane " id="two">
+                       <table class="table">
+                         <tr><td></td><td><b>XML</b></td><td><b>PDF</b></td></tr>
+                         <tr><td> Widmung 		</td><td>10</td><td>3</td></tr>
+                         <tr><td> Vorwort und Dank 		</td><td>10</td><td>3</td></tr>
+                         <tr><td> Einleitung 		</td><td>10</td><td>3</td></tr>
+                         <tr><td> Absenz und aristokratische Lebensführung: Die römische Villa 		</td><td>10</td><td>3</td></tr>
+                         <tr><td> Rückzug, Absenz und aristokratische Politik in der späten Republik und frühen Kaiserzeit 		</td><td>10</td><td>3</td></tr>
+                         <tr><td> ‚Rückzug‘ und Herrschaft: Der Kaiser 		</td><td>10</td><td>3</td></tr>
+                         <tr><td> Zusammenfassung 		</td><td>10</td><td>3</td></tr>
+                         <tr><td> Quellen- und Literaturverzeichnis 		</td><td>10</td><td>3</td></tr>
+                         <tr><td> Anhang</td><td>10</td><td>3</td></tr>
+                        </table>
+                     </div>
+                    </div>
+                  </div>
+                 <div class="modal-footer">
+                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                 </div>
+               </div>
+
+             </div>
+
+           </div>
+           
+
+
+
+
+
              <!--button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
               {{=T('Statistik')}}
               </button>
@@ -64,9 +141,9 @@
                   ...
                 </div>
               </div-->
-             
+
           </div>
-						
+
         </div>
       </div>
       <div class="col-lg-9">
@@ -126,7 +203,7 @@
           </div>
           <div class="widget">
             <!---a class="btn btn-default" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"-->
-            
+
             {{if len(chapters)>0:}}
             <h4>{{=T('Contents')}} </h4>
             <div  id="collapseExample">
