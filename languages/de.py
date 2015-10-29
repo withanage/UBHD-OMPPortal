@@ -312,6 +312,7 @@
 'state': 'Status',
 'Statistics': 'Statistik',
 'Statistik': 'Statistik',
+'Statistik alte Methode': 'Statistik alte Methode',
 'Status': 'Status',
 'Straße und Nr.': 'Straße und Nr.',
 'Stylesheet': 'Stylesheet',
