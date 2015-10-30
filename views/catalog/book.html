@@ -49,26 +49,23 @@
             {{if published_date:}}
             <p>{{=T('Published')}} {{=published_date.first()['date'][6:8]}}.{{=published_date.first()['date'][4:6]}}.{{=published_date.first()['date'][0:4]}}</p>
             {{pass}}
-
-           <!---a data-toggle="modal" class="btn btn-info" href="../../../cgi-bin/oastats.cgi?repo=omphp" data-target="#myModal">{{=T('')}}</a-->
+             <!---a data-toggle="modal" class="btn btn-info" href="../../../cgi-bin/oastats.cgi?repo=omphp" data-target="#myModal">{{=T('')}}</a-->
+           <div id="oas-widget" class="applied-to-ojs">
            <div class="btn btn-default" id="statistik-button">{{=T('Statistik')}}</div>
-           
-            
-            
-           <div id="success" style="display: none"></div>
+           <div style="display:block " class="oas-overlay" id="oas"></div>
            <div id="error"></div>
+            </div>
 
            <script>
-              // $( "#success" ).load( "../../api/oastatistik.json?ids=43", function( response, status, xhr ) {
-              $( "#success" ).load( "./../../cgi-bin/oastats.cgi?repo=omphp", function( response, status, xhr ) {
-.
+              $("#oas").load( "../../../cgi-bin/oastats.cgi?repo=omphp", function( response, status, xhr ) {
               if ( status == "error" ) {
               var msg = "Statistiken wurden nicht geladen";
               $( "#error" ).html( msg + xhr.status + " " + xhr.statusText );
               }
               });
-              jQuery('#statistik-button').click(function(){jQuery('#success').slideToggle()});
+              jQuery('#statistik-button').click(function(){jQuery('#oas').slideToggle()});
            </script>
+
 
           </div>
 
