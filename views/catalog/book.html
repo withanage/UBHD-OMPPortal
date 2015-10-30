@@ -1,4 +1,6 @@
 {{extend 'layout.html'}}
+
+
 <section id="content">
   <div style="height: 20px"></div>
   <div class="container">
@@ -49,109 +51,24 @@
             {{pass}}
 
            <!---a data-toggle="modal" class="btn btn-info" href="../../../cgi-bin/oastats.cgi?repo=omphp" data-target="#myModal">{{=T('')}}</a-->
-         
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
- Statistik Dropdown
-</button>
-           <div class="collapse" id="collapseExample">
-             <ul class="nav nav-tabs">
-                     <li class="active"><a href="#one2" data-toggle="tab"><i class="icon-briefcase"></i> {{=T('Book')}}</a></li>
-                     <li class=""><a href="#two2" data-toggle="tab">{{=T('Capitals')}}</a></li>
-                   </ul>
-                   <div class="tab-content" >
-                     <div class="tab-pane active" id="one2">
-                       <table class="table"> 
-                         <tr><td><b>XML</b></td><td>3</td> </tr>       
-                         <tr> <td><b>PDF</b></td><td>3</td> </tr>
-                       </table>
-                     </div>
-                     <div class="tab-pane " id="two2" width="100%">
-                       <table class="table-bordered">
-                         <tr><td></td><td><b>XML</b></td><td><b>PDF</b></td></tr>
-                         <tr><td> Widmung 		</td><td>10</td><td>3</td></tr>
-                         <tr><td> Vorwort und Dank 		</td><td>10</td><td>3</td></tr>
-                         <tr><td> Einleitung 		</td><td>10</td><td>3</td></tr>
-                         <tr><td> Absenz und aristokratische Lebensführung: Die römische Villa 		</td><td>10</td><td>3</td></tr>
-                         <tr><td> Rückzug, Absenz und aristokratische Politik in der späten Republik und frühen Kaiserzeit 		</td><td>10</td><td>3</td></tr>
-                         <tr><td> ‚Rückzug‘ und Herrschaft: Der Kaiser 		</td><td>10</td><td>3</td></tr>
-                         <tr><td> Zusammenfassung 		</td><td>10</td><td>3</td></tr>
-                         <tr><td> Quellen- und Literaturverzeichnis 		</td><td>10</td><td>3</td></tr>
-                         <tr><td> Anhang</td><td>10</td><td>3</td></tr>
-                        </table>
-                     </div>
-                    </div>
-             
-           </div>
-
-<br>
-
-           <button class="btn btn-default btn" data-toggle="modal" data-target="#myModal">Statistik modal</button>
-           <!-- Modal -->
-           <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-             <div class="modal-dialog custom-class">
-               <div class="modal-content">
-                 <div class="modal-header">
-                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                   <h4 class="modal-title" id="myModalLabel">Statistik</h4>
-                 </div>
-                 <div class="modal-body">
-                   <ul class="nav nav-tabs">
-                     <li class="active"><a href="#one" data-toggle="tab"><i class="icon-briefcase"></i> {{=T('Book')}}</a></li>
-                     <li class=""><a href="#two" data-toggle="tab">{{=T('Capitals')}}</a></li>
-                   </ul>
-                   <div class="tab-content" >
-                     <div class="tab-pane active" id="one">
-                       <table class="table">                 <tr>                   <td><b>XML</b></td><td>3</td>                 </tr>                 <tr>                   <td><b>PDF</b></td><td>3</td> </tr>
-                       </table>
-                     </div>
-                     <div class="tab-pane " id="two">
-                       <table class="table" width="100%">
-                         <tr><td></td><td><b>XML</b></td><td><b>PDF</b></td></tr>
-                         <tr><td> Widmung 		</td><td>10</td><td>3</td></tr>
-                         <tr><td> Vorwort und Dank 		</td><td>10</td><td>3</td></tr>
-                         <tr><td> Einleitung 		</td><td>10</td><td>3</td></tr>
-                         <tr><td> Absenz und aristokratische Lebensführung: Die römische Villa 		</td><td>10</td><td>3</td></tr>
-                         <tr><td> Rückzug, Absenz und aristokratische Politik in der späten Republik und frühen Kaiserzeit 		</td><td>10</td><td>3</td></tr>
-                         <tr><td> ‚Rückzug‘ und Herrschaft: Der Kaiser 		</td><td>10</td><td>3</td></tr>
-                         <tr><td> Zusammenfassung 		</td><td>10</td><td>3</td></tr>
-                         <tr><td> Quellen- und Literaturverzeichnis 		</td><td>10</td><td>3</td></tr>
-                         <tr><td> Anhang</td><td>10</td><td>3</td></tr>
-                        </table>
-                     </div>
-                    </div>
-                  </div>
-                 <div class="modal-footer">
-                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-                 </div>
-               </div>
-
-             </div>
-
-           </div>
+           <div class="btn btn-default" id="statistik-button">{{=T('Statistik')}}</div>
            
-            <br>
-           <a data-toggle="modal" class="btn btn-default" href="../../../cgi-bin/oastats.cgi?repo=omphp" data-target="#myModal2">{{=T('Statistik alte Methode')}}</a>
-           <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
-          <div class="modal-dialog">
-              <div class="modal-content">
-              </div> <!-- /.modal-content -->
-          </div> <!-- /.modal-dialog -->
-      </div>
-           
+            
+            
+           <div id="success" style="display: none"></div>
+           <div id="error"></div>
 
-
-
-
-
-             <!--button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-              {{=T('Statistik')}}
-              </button>
-              <div class="collapse" id="collapseExample">
-                <div class="well">
-                  ...
-                </div>
-              </div-->
+           <script>
+              // $( "#success" ).load( "../../api/oastatistik.json?ids=43", function( response, status, xhr ) {
+              $( "#success" ).load( "./../../cgi-bin/oastats.cgi?repo=omphp", function( response, status, xhr ) {
+.
+              if ( status == "error" ) {
+              var msg = "Statistiken wurden nicht geladen";
+              $( "#error" ).html( msg + xhr.status + " " + xhr.statusText );
+              }
+              });
+              jQuery('#statistik-button').click(function(){jQuery('#success').slideToggle()});
+           </script>
 
           </div>
 
