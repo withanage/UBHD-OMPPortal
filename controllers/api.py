@@ -41,7 +41,7 @@ def oastatistik():
       fullbook["type"] = "volume"
       if publication_format_settings_doi :
         fullbook["norm_id"] = publication_format_settings_doi['setting_value']
-      fullbook["associate_via_hierarchy"] = authors
+      fullbook["associate_via_hierarchy"] = [authors]
       
       if request.vars.ids:
         for j in filter_ids:
@@ -81,8 +81,8 @@ def oastatistik():
                 part_authors.append({'name': author_name['first_name'] + " "+ author_name['last_name']})
 
 
-            subs[file_id]["associate_via_hierarchy"] = part_authors
-            subs[file_id]["associate_via_hierarchy"] = fullbook
+            subs[file_id]["associate_via_hierarchy"] = [part_authors]
+            subs[file_id]["associate_via_hierarchy"] = [fullbook]
     
   
   return sj.dumps(subs, separators=(',', ':'), sort_keys=True)
