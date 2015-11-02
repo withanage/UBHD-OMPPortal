@@ -51,19 +51,50 @@
             {{pass}}
              <!---a data-toggle="modal" class="btn btn-info" href="../../../cgi-bin/oastats.cgi?repo=omphp" data-target="#myModal">{{=T('')}}</a-->
            <div id="oas-widget" class="applied-to-ojs">
-           <div class="btn btn-default" id="statistik-button">{{=T('Statistik')}}</div>
-           <div style="display:none" class="oas-overlay" id="oas"></div>
+           <div class="btn btn-default" id="statistik-button">{{=T('Statistik')}}</div> <br/>
+           <div style="display:none" class="table" id="oas">
+             
+              <ul class="nav nav-tabs">
+                     <li class="active"><a href="#one2" data-toggle="tab"><i class="icon-briefcase"></i> {{=T('Book')}}</a></li>
+                     <li class=""><a href="#two2" data-toggle="tab">{{=T('Capitals')}}</a></li>
+                   </ul>
+                   <div class="tab-content" >
+                     <div class="tab-pane active" id="one2">
+                       <table class="table">                 <tr>                   <td><b>XML</b></td><td>3</td>                 </tr>                 <tr>                   <td><b>PDF</b></td><td>3</td> </tr>
+                       </table>
+                     </div>
+                     <div class="tab-pane " id="two2">
+                       <table class="table">
+                         <tr><td></td><td><b>XML</b></td><td><b>PDF</b></td></tr>
+                         <tr><td> Widmung 		</td><td>10</td><td>3</td></tr>
+                         <tr><td> Vorwort und Dank 		</td><td>10</td><td>3</td></tr>
+                         <tr><td> Einleitung 		</td><td>10</td><td>3</td></tr>
+                         <tr><td> Absenz und aristokratische Lebensführung: Die römische Villa 		</td><td>10</td><td>3</td></tr>
+                         <tr><td> Rückzug, Absenz und aristokratische Politik in der späten Republik und frühen Kaiserzeit 		</td><td>10</td><td>3</td></tr>
+                         <tr><td> ‚Rückzug‘ und Herrschaft: Der Kaiser 		</td><td>10</td><td>3</td></tr>
+                         <tr><td> Zusammenfassung 		</td><td>10</td><td>3</td></tr>
+                         <tr><td> Quellen- und Literaturverzeichnis 		</td><td>10</td><td>3</td></tr>
+                         <tr><td> Anhang</td><td>10</td><td>3</td></tr>
+                        </table>
+                     </div>
+                    </div>
+             
+           </div>
+           
            <div id="error"></div>
             </div>
 
            <script>
+             /**
               $("#oas").load( "../../../cgi-bin/oastats.cgi?repo=omphp", function( response, status, xhr ) {
               if ( status == "error" ) {
               var msg = "Statistiken wurden nicht geladen";
               $( "#error" ).html( msg + xhr.status + " " + xhr.statusText );
               }
               });
+               **/
               jQuery('#statistik-button').click(function(){jQuery('#oas').slideToggle()});
+             
            </script>
 
 
