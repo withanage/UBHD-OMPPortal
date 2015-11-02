@@ -35,7 +35,7 @@ def oastatistik():
           authors['type'] = 'person'
           authors['relation'] = 'creators'
           authors['name'] = i.first_name + " "+ i.last_name
-      fullbook = {}
+      
       fullbook =  {}
       fullbook["label"] = title
       fullbook["type"] = "volume"
@@ -46,10 +46,10 @@ def oastatistik():
       if request.vars.ids:
         for j in filter_ids:
           if str(j) == str(book_id.submission_id):
-            subs[book_id.submission_id] = fullbook
+            subs[book_id.submission_id] = [fullbook]
          
       else:
-          subs[book_id.submission_id] = fullbook
+          subs[book_id.submission_id] = [fullbook]
 
     
       # chapters
@@ -65,12 +65,13 @@ def oastatistik():
               if str(file_id) == str(j):
                 part_filter = True
           if  part_filter or request.vars.ids == None:
-            subs[file_id]= {}
+            subs[file_id]= []
             part_title = db((db.submission_chapter_settings.chapter_id ==  int(c['submission_chapters']['chapter_id'])) & (db.submission_chapter_settings.locale == locale) & (db.submission_chapter_settings.setting_name == 'title')).select(db.submission_chapter_settings.setting_value).first()
+            bookpart= {}
             if part_title:
-              subs[file_id]["label"] = part_title['setting_value']
-            subs[file_id]["norm_id"] =  myconf.take('oastatistik.id')+':'+chapter_id
-            subs[file_id]["type"] = "part"
+              bookpart["label"]=part_title['setting_value']
+            bookpart["norm_id"] =  myconf.take('oastatistik.id')+':'+chapter_id
+            bookpart["type"] = "part"
             part_authors = []
             author_id_list = db(db.submission_chapter_authors.chapter_id ==int(c['submission_chapters']['chapter_id']) ).select (db.submission_chapter_authors.author_id, orderby = db.submission_chapter_authors.seq)
             for author in author_id_list :
@@ -79,10 +80,11 @@ def oastatistik():
               author_name = db((db.authors.author_id == author['author_id'])).select( db.authors.first_name, db.authors.last_name).first()
               if author_name:
                 part_authors.append({'name': author_name['first_name'] + " "+ author_name['last_name']})
-
-
-            subs[file_id]["associate_via_hierarchy"] = [part_authors]
-            subs[file_id]["associate_via_hierarchy"] = [fullbook]
+            if part_authors:
+              bookpart["associate_via_hierarchy"] = [part_authors]
+            
+            subs[file_id] = [bookpart]     
+            subs[file_id].append([{"associate_via_hierarchy":[fullbook]}])
     
   
   return sj.dumps(subs, separators=(',', ':'), sort_keys=True)
