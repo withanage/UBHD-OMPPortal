@@ -39,6 +39,7 @@ def oastatistik():
       fullbook =  {}
       fullbook["label"] = title
       fullbook["type"] = "volume"
+      
       if publication_format_settings_doi :
         fullbook["norm_id"] = publication_format_settings_doi['setting_value']
       fullbook["associate_via_hierarchy"] = [authors]
@@ -46,11 +47,10 @@ def oastatistik():
       if request.vars.ids:
         for j in filter_ids:
           if str(j) == str(book_id.submission_id):
-            subs[book_id.submission_id] = [fullbook]
+            subs[book_id.submission_id] = fullbook
          
       else:
-          subs[book_id.submission_id] = [fullbook]
-
+          subs[book_id.submission_id] = fullbook
     
       # chapters
       
@@ -83,8 +83,10 @@ def oastatistik():
             if part_authors:
               bookpart["associate_via_hierarchy"] = [part_authors]
             
-            subs[file_id] = [bookpart]     
-            subs[file_id].append([{"associate_via_hierarchy":[fullbook]}])
+            subs[file_id] = bookpart     
+            subs[file_id]["associate_via_hierarchy"]=[fullbook]
     
   
   return sj.dumps(subs, separators=(',', ':'), sort_keys=True)
+
+{"43":{"associate_via_hierarchy":[{"name":"Astrid Habenstein","relation":"creators","type":"person"}],"label":"Abwesenheit von Rom","norm_id":"10.17885/heiup.43.32","type":"volume"},"43-219":{"associate_via_hierarchy":[{"associate_via_hierarchy":[{"name":"Astrid Habenstein","relation":"creators","type":"person"}],"label":"Abwesenheit von Rom","norm_id":"10.17885/heiup.43.32","type":"volume"}],"label":"Anhang","norm_id":"_omphp:43-49","type":"part"}}
