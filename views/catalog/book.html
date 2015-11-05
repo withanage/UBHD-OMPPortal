@@ -58,23 +58,38 @@
                      <li class="active"><a href="#one2" data-toggle="tab"><i class="icon-briefcase"></i> {{=T('Book')}}</a></li>
                      <li class=""><a href="#two2" data-toggle="tab">{{=T('Capitals')}}</a></li>
                    </ul>
-                   <div class="tab-content" >
+                   <div class="tab-content" style="padding: 0 0 0 0">
                      <div class="tab-pane active" id="one2">
-                       <table class="table">                 <tr>                   <td><b>XML</b></td><td>3</td>                 </tr>                 <tr>                   <td><b>PDF</b></td><td>3</td> </tr>
+                       <table class="table">                 <tr>                   <td><b>HTML</b></td><td>3</td>                 </tr>                 <tr>                   <td><b>PDF</b></td><td>3</td> </tr>
                        </table>
                      </div>
                      <div class="tab-pane " id="two2">
-                       <table class="table">
-                         <tr><td></td><td><b>XML</b></td><td><b>PDF</b></td></tr>
-                         <tr><td> Widmung 		</td><td>10</td><td>3</td></tr>
-                         <tr><td> Vorwort und Dank 		</td><td>10</td><td>3</td></tr>
-                         <tr><td> Einleitung 		</td><td>10</td><td>3</td></tr>
-                         <tr><td> Absenz und aristokratische Lebensführung: Die römische Villa 		</td><td>10</td><td>3</td></tr>
-                         <tr><td> Rückzug, Absenz und aristokratische Politik in der späten Republik und frühen Kaiserzeit 		</td><td>10</td><td>3</td></tr>
-                         <tr><td> ‚Rückzug‘ und Herrschaft: Der Kaiser 		</td><td>10</td><td>3</td></tr>
-                         <tr><td> Zusammenfassung 		</td><td>10</td><td>3</td></tr>
-                         <tr><td> Quellen- und Literaturverzeichnis 		</td><td>10</td><td>3</td></tr>
-                         <tr><td> Anhang</td><td>10</td><td>3</td></tr>
+                       <table class="table" style="width: inherit">
+                          {{type_dict={} }}
+                          {{=TR()}}
+                          {{=TD()}}
+                          {{for i  in publication_formats:}}
+                          {{if i.publication_format_settings.setting_value == myconf.take('omp.xml_category_name'):}}
+                          {{=TD(XML('HTML'),_style="padding:0")}}
+                          {{else:}}
+                          {{=TD(i.publication_format_settings.setting_value, _style="padding:0")}}
+                          {{pass}}
+                          {{type_dict[i.publication_formats.publication_format_id]=i.publication_format_settings.setting_value}}
+                          {{pass}}
+                          {{num=0}}
+                          {{for i in chapters:}}
+                          {{if num%len(publication_formats)==0: }}
+                          {{=TR()}}
+                          {{chapter=str(i.submission_chapter_settings.setting_value)}}
+                          {{=TD(chapter,_style="padding:0; font-size:12px")}}
+                          {{pass}}
+                          {{if str(type_dict[i.submission_files.assoc_id]).lower() ==  myconf.take('omp.xml_category_name').lower(): }}
+                          {{=TD(100,_width="5px")}}
+                          {{else:}}
+                          {{=TD(100,_width="5px")}}
+                          {{pass}}
+                          {{num = num +1 }}
+                          {{pass}}
                         </table>
                      </div>
                     </div>
@@ -162,7 +177,7 @@
 
             {{if len(chapters)>0:}}
             <h4>{{=T('Contents')}} </h4>
-            <div  id="collapseExample">
+            <div  id="downloadTable">
               <table class="table">
                 {{type_dict={} }}
                 {{=TR()}}
