@@ -1,0 +1,200 @@
+{
+  "43-pdf": {
+    "maximum_for": {},
+    "object_id": "omphp:43-pdf",
+    "last_year": [],
+    "all_years": [
+      {
+        "volltext": "25",
+        "frontdoor": "0",
+        "zeitraum": "15",
+        "id": "43-pdf"
+      }
+    ],
+    "last_weeks": [
+      {
+        "id": "43-pdf",
+        "zeitraum": "15W45",
+        "frontdoor": "0",
+        "volltext": "5",
+        "from_until": "02.-08.11.2015"
+      },
+      {
+        "id": "43-pdf",
+        "from_until": "26.10.-01.11.2015",
+        "volltext": "2",
+        "frontdoor": "0",
+        "zeitraum": "15W44"
+      },
+      {
+        "zeitraum": "15W43",
+        "from_until": "19.-25.10.2015",
+        "frontdoor": "0",
+        "volltext": "5",
+        "id": "43-pdf"
+      },
+      {
+        "zeitraum": "15W42",
+        "volltext": "3",
+        "frontdoor": "0",
+        "from_until": "12.-18.10.2015",
+        "id": "43-pdf"
+      },
+      {
+        "from_until": "05.-11.10.2015",
+        "volltext": "4",
+        "frontdoor": "0",
+        "zeitraum": "15W41",
+        "id": "43-pdf"
+      },
+      {
+        "from_until": "28.09.-04.10.2015",
+        "volltext": "6",
+        "frontdoor": "0",
+        "zeitraum": "15W40",
+        "id": "43-pdf"
+      }
+    ],
+    "this_year": [
+      {
+        "zeitraum": "1511",
+        "volltext": "5",
+        "frontdoor": "0",
+        "id": "43-pdf"
+      },
+      {
+        "frontdoor": "0",
+        "volltext": "17",
+        "zeitraum": "1510",
+        "id": "43-pdf"
+      },
+      {
+        "zeitraum": "1509",
+        "frontdoor": "0",
+        "volltext": "3",
+        "id": "43-pdf"
+      }
+    ]
+  },
+  "43-208-xml": {
+    "all_years": [
+      {
+        "id": "43-208-xml",
+        "zeitraum": "15",
+        "frontdoor": "0",
+        "volltext": "9"
+      }
+    ],
+    "last_year": [],
+    "this_year": [
+      {
+        "zeitraum": "1509",
+        "frontdoor": "0",
+        "volltext": "9",
+        "id": "43-208-xml"
+      }
+    ],
+    "last_weeks": [
+      {
+        "from_until": "28.09.-04.10.2015",
+        "frontdoor": "0",
+        "volltext": "1",
+        "zeitraum": "15W40",
+        "id": "43-208-xml"
+      },
+      {
+        "zeitraum": "15W39",
+        "from_until": "21.-27.09.2015",
+        "frontdoor": "0",
+        "volltext": "5",
+        "id": "43-208-xml"
+      },
+      {
+        "id": "43-208-xml",
+        "from_until": "14.-20.09.2015",
+        "volltext": "3",
+        "frontdoor": "0",
+        "zeitraum": "15W38"
+      }
+    ],
+    "object_id": "omphp:43-208-xml",
+    "maximum_for": {}
+  },
+  "43-xml": {
+    "maximum_for": {},
+    "all_years": [
+      {
+        "zeitraum": "15",
+        "volltext": "143",
+        "frontdoor": "0",
+        "id": "43-xml"
+      }
+    ],
+    "last_year": [],
+    "this_year": [
+      {
+        "zeitraum": "1511",
+        "frontdoor": "0",
+        "volltext": "6",
+        "id": "43-xml"
+      },
+      {
+        "zeitraum": "1510",
+        "volltext": "124",
+        "frontdoor": "0",
+        "id": "43-xml"
+      },
+      {
+        "zeitraum": "1509",
+        "volltext": "13",
+        "frontdoor": "0",
+        "id": "43-xml"
+      }
+    ],
+    "last_weeks": [
+      {
+        "id": "43-xml",
+        "frontdoor": "0",
+        "volltext": "6",
+        "from_until": "02.-08.11.2015",
+        "zeitraum": "15W45"
+      },
+      {
+        "id": "43-xml",
+        "from_until": "26.10.-01.11.2015",
+        "frontdoor": "0",
+        "volltext": "10",
+        "zeitraum": "15W44"
+      },
+      {
+        "id": "43-xml",
+        "frontdoor": "0",
+        "volltext": "26",
+        "from_until": "19.-25.10.2015",
+        "zeitraum": "15W43"
+      },
+      {
+        "from_until": "12.-18.10.2015",
+        "frontdoor": "0",
+        "volltext": "21",
+        "zeitraum": "15W42",
+        "id": "43-xml"
+      },
+      {
+        "id": "43-xml",
+        "zeitraum": "15W41",
+        "frontdoor": "0",
+        "volltext": "53",
+        "from_until": "05.-11.10.2015"
+      },
+      {
+        "volltext": "27",
+        "frontdoor": "0",
+        "from_until": "28.09.-04.10.2015",
+        "zeitraum": "15W40",
+        "id": "43-xml"
+      }
+    ],
+    "object_id": "omphp:43-xml"
+  }
+}
