@@ -232,7 +232,7 @@
    ids += "{{=x}}"+',';
   {{pass}}
   
-  var url = "../../../cgi-bin/oastats.cgi?repo=omphp&type=json&?ids="+ids;
+  var url = "../../../cgi-bin/oastats.cgi?repo=omphp&type=json&ids="+ids;
   var count;
   $.getJSON( url, function( data ) {
    $.each(data, function(index,value) {
