@@ -62,10 +62,11 @@
                      <div class="tab-pane active" id="one2">
                        <table class="table">                
                          
-                         
+                         {{file_ids=[]}}
                          
                           {{for i  in publication_formats:}}
                           {{full_file =str(book_id)+'-'+str(i.publication_format_settings.setting_value).lower()}}
+                          {{file_ids.append(full_file)}}
                           {{if i.publication_format_settings.setting_value == myconf.take('omp.xml_category_name'):}}
                           {{=TR()}}
                           {{=TD(B(XML('HTML')))}}
@@ -83,6 +84,7 @@
                      <div class="tab-pane " id="two2">
                        <table class="table" style="width: inherit">
                           {{type_dict={} }}
+                          
                           {{=TR()}}
                           {{=TD()}}
                           {{for i  in publication_formats:}}
@@ -91,7 +93,6 @@
                           {{else:}}
                           {{=TD(i.publication_format_settings.setting_value, _style="padding:0")}}
                           {{pass}}
-                          {{type_dict[i.publication_formats.publication_format_id]=i.publication_format_settings.setting_value}}
                           {{pass}}
                           {{num=0}}
                           {{for i in chapters:}}
@@ -99,10 +100,12 @@
                           {{if num%len(publication_formats)==0: }}
                           {{=TR()}}
                           {{chapter=str(i.submission_chapter_settings.setting_value)}}
+                          
                           {{=TD(chapter,_style="padding:0; font-size:12px")}}
                           {{for type in publication_formats:
                            chapter_file =str(i.submission_files.submission_id)+'-'+str(i.submission_files.file_id)+'-'+str(type.publication_format_settings.setting_value).lower()
                            =TD(DIV("",_id=chapter_file),_style="padding:1; font-size:12px")
+                           file_ids.append(chapter_file)
                           pass
                           }}
                           {{pass}}
@@ -222,18 +225,22 @@
 </section>
 <script>
    $('#statistik-button').click(function(){
-     $('#oas').slideToggle()});
+     $('#oas').slideToggle()
+   });
+   var ids=''
+  {{for x in file_ids:}} 
+   ids += "{{=x}}"+',';
+  {{pass}}
   
-  var url = "../../static/js/oastats.json";
-  var count, file_id, statistics;
+  var url = "../../cgi-bin/oastats.cgi?repo=omphp&type=json&?ids="+ids;
+  var count;
   $.getJSON( url, function( data ) {
    $.each(data, function(index,value) {
-     file_id = index;
-     count = 0;
+    count = 0;
      $.each(value.all_years, function(index2,value2) {
        count += value2.volltext;
      });
-      $('#'+file_id).text(count);
+      $('#'+index).text(count);
    });
   });
  
