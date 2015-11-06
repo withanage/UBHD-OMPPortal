@@ -334,6 +334,7 @@
 'Timestamp': 'Zeitstempel',
 'Titel': 'Titel',
 'Titel der Original Ausgabe': 'Titel der Original Ausgabe',
+ 'Total':'Summe',
 'Traceback': 'Traceback',
 'Tracklist bei Musik': 'Tracklist bei Musik',
 'Transcultural Studies': 'Transcultural Studies',

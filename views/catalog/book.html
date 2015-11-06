@@ -112,6 +112,11 @@
                           
                           {{num = num +1 }}
                           {{pass}}
+                          <tr>
+                            <td>{{=B(T('Total'))}}</td>
+                           {{=TD(DIV("",_id="chapter_pdf"))}}
+                           {{=TD(DIV("",_id="chapter_xml"))}}
+                          </tr>
                         </table>
                      </div>
                     </div>
@@ -121,7 +126,46 @@
            <div id="error"></div>
             </div>
 
-           
+<script>
+   $('#statistik-button').click(function(){
+     $('#oas').slideToggle()
+   });
+   var script = 'oastats-plus.cgi';
+   var ids=''
+  {{for x in file_ids:}} 
+   ids += "{{=x}}"+',';
+  {{pass}}
+  if (window.location.protocol == "https:") {
+         script = 'oastats.cgi';
+  }
+  var url = "../../../cgi-bin/"+script+"?repo=omphp&type=json&ids="+ids;
+  var count, chapter_pdf, chapter_xml;
+  $.getJSON( url, function( data ) {
+   $.each(data, function(index,value) {
+    count = 0;
+    chapter_pdf = 0;
+    chapter_xml = 0;
+     $.each(value.all_years, function(index2,value2) {
+       count += value2.volltext;
+       var full_file = {{=book_id}}+'-xml';
+       if (index.indexOf(full_file)  > -1 ){
+       }
+         else {
+          chapter_xml+= value2.volltext;
+        }
+      
+     });
+      $('#'+index).text(parseInt(count));
+      $('#chapter_pdf').text(parseInt(chapter_pdf));
+      $('#chapter_xml').text(parseInt(chapter_xml));
+       
+  });
+    });
+    
+
+</script>
+  
+ 
 
 
           </div>
@@ -223,29 +267,3 @@
     </div>
   </div>
 </section>
-<script>
-   $('#statistik-button').click(function(){
-     $('#oas').slideToggle()
-   });
-   var script = 'oastats-plus.cgi';
-   var ids=''
-  {{for x in file_ids:}} 
-   ids += "{{=x}}"+',';
-  {{pass}}
-  if (window.location.protocol == "https:") {
-         script = 'oastats.cgi';
-  }
-  var url = "../../../cgi-bin/"+script+"?repo=omphp&type=json&ids="+ids;
-  var count;
-  $.getJSON( url, function( data ) {
-   $.each(data, function(index,value) {
-    count = 0;
-     $.each(value.all_years, function(index2,value2) {
-       count += value2.volltext;
-     });
-      $('#'+index).text(parseInt(count));
-   });
-  });
- 
-</script>
-  

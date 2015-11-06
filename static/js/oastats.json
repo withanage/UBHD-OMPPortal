@@ -120,6 +120,50 @@
     "object_id": "omphp:43-208-xml",
     "maximum_for": {}
   },
+ "43-207-pdf": {
+    "all_years": [
+      {
+        "id": "43-208-xml",
+        "zeitraum": "15",
+        "frontdoor": "0",
+        "volltext": "9"
+      }
+    ],
+    "last_year": [],
+    "this_year": [
+      {
+        "zeitraum": "1509",
+        "frontdoor": "0",
+        "volltext": "9",
+        "id": "43-208-xml"
+      }
+    ],
+    "last_weeks": [
+      {
+        "from_until": "28.09.-04.10.2015",
+        "frontdoor": "0",
+        "volltext": "1",
+        "zeitraum": "15W40",
+        "id": "43-208-xml"
+      },
+      {
+        "zeitraum": "15W39",
+        "from_until": "21.-27.09.2015",
+        "frontdoor": "0",
+        "volltext": "5",
+        "id": "43-208-xml"
+      },
+      {
+        "id": "43-208-xml",
+        "from_until": "14.-20.09.2015",
+        "volltext": "3",
+        "frontdoor": "0",
+        "zeitraum": "15W38"
+      }
+    ],
+    "object_id": "omphp:43-208-xml",
+    "maximum_for": {}
+  },
   "43-xml": {
     "maximum_for": {},
     "all_years": [
