@@ -234,8 +234,9 @@
   {{pass}}
   {{if request.is_https:}}
         script = 'oastats.cgi';
+        console.log(script);
   {{pass}}
-  console.log(script);
+  //console.log(script);
   var url = "../../../cgi-bin/"+script+"?repo=omphp&type=json&ids="+ids;
   var count;
   $.getJSON( url, function( data ) {
