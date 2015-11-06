@@ -227,12 +227,15 @@
    $('#statistik-button').click(function(){
      $('#oas').slideToggle()
    });
+   var script = 'oastats-plus.cgi';
    var ids=''
   {{for x in file_ids:}} 
    ids += "{{=x}}"+',';
   {{pass}}
-  
-  var url = "../../../cgi-bin/oastats.cgi?repo=omphp&type=json&ids="+ids;
+  {{if request.is_https:}}
+        script = 'oastats';
+  {{pass  }}
+  var url = "../../../cgi-bin/"+script+"?repo=omphp&type=json&ids="+ids;
   var count;
   $.getJSON( url, function( data ) {
    $.each(data, function(index,value) {
