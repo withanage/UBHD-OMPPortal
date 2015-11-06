@@ -87,29 +87,32 @@
                           
                           {{=TR()}}
                           {{=TD()}}
-                          {{for i  in publication_formats:}}
-                          {{if i.publication_format_settings.setting_value == myconf.take('omp.xml_category_name'):}}
+                          {{for ix  in publication_formats:}}
+                          {{type_dict[i.publication_formats.publication_format_id]=i.publication_format_settings.setting_value}}
+                          {{if ix.publication_format_settings.setting_value == myconf.take('omp.xml_category_name'):}}
                           {{=TD(XML('HTML'),_style="padding:0")}}
                           {{else:}}
-                          {{=TD(i.publication_format_settings.setting_value, _style="padding:0")}}
+                          {{type_dict[ix.publication_formats.publication_format_id]=ix.publication_format_settings.setting_value}}
+                          {{=TD(ix.publication_format_settings.setting_value, _style="padding:0")}}
                           {{pass}}
                           {{pass}}
                           {{num=0}}
                           {{for i in chapters:}}
                           
-                          {{if num%len(publication_formats)==0: }}
+                           {{if num%len(publication_formats)==0: }}
                           {{=TR()}}
                           {{chapter=str(i.submission_chapter_settings.setting_value)}}
-                          
                           {{=TD(chapter,_style="padding:0; font-size:12px")}}
-                          {{for type in publication_formats:
-                           chapter_file =str(i.submission_files.submission_id)+'-'+str(i.submission_files.file_id)+'-'+str(type.publication_format_settings.setting_value).lower()
-                           =TD(DIV("",_id=chapter_file),_style="padding:1; font-size:12px")
-                           file_ids.append(chapter_file)
-                          pass
-                          }}
                           {{pass}}
                           
+                           {{
+                            chapter_file =str(i.submission_files.submission_id)+'-'+str(i.submission_files.file_id)+'-'+str(type_dict[i.submission_files.assoc_id]).lower() 
+                           =TD(DIV("",_id=chapter_file),_style="padding:1; font-size:12px")
+                           file_ids.append(chapter_file)
+                         
+                           }}
+                         
+                     
                           {{num = num +1 }}
                           {{pass}}
                           <tr>
@@ -138,7 +141,9 @@
   if (window.location.protocol == "https:") {
          script = 'oastats.cgi';
   }
+  //var url="../../static/js/oastats.json";
   var url = "../../../cgi-bin/"+script+"?repo=omphp&type=json&ids="+ids;
+  
   var count, chapter_pdf, chapter_xml;
   $.getJSON( url, function( data ) {
    $.each(data, function(index,value) {
