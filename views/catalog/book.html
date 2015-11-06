@@ -233,7 +233,7 @@
    ids += "{{=x}}"+',';
   {{pass}}
   {{if request.is_https:}}
-        script = 'oastats';
+        script = 'oastats.cgi';
   {{pass  }}
   var url = "../../../cgi-bin/"+script+"?repo=omphp&type=json&ids="+ids;
   var count;
