@@ -232,11 +232,9 @@
   {{for x in file_ids:}} 
    ids += "{{=x}}"+',';
   {{pass}}
-  {{if request.is_https:}}
-        script = 'oastats.cgi';
-        console.log(script);
-  {{pass}}
-  //console.log(script);
+  if (window.location.protocol == "https:") {
+         script = 'oastats.cgi';
+  }
   var url = "../../../cgi-bin/"+script+"?repo=omphp&type=json&ids="+ids;
   var count;
   $.getJSON( url, function( data ) {
