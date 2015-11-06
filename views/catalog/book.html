@@ -145,27 +145,38 @@
   var url = "../../../cgi-bin/"+script+"?repo=omphp&type=json&ids="+ids;
   
   var count, chapter_pdf, chapter_xml;
+  chapter_pdf = 0;
+  chapter_xml = 0;
   $.getJSON( url, function( data ) {
    $.each(data, function(index,value) {
     count = 0;
-    chapter_pdf = 0;
-    chapter_xml = 0;
+    
      $.each(value.all_years, function(index2,value2) {
        count += value2.volltext;
-       var full_file = {{=book_id}}+'-xml';
-       if (index.indexOf(full_file)  > -1 ){
+       var full_file = {{=book_id}};
+       if ((index.indexOf(full_file+'-xml')  > -1)  || (index.indexOf(full_file+'-pdf') > -1)){
+        
        }
-         else {
-          chapter_xml+= value2.volltext;
+       else {
+         console.log(index);
+         if (index.indexOf('xml') > -1 ) {
+           chapter_xml+= parseInt(value2.volltext);
+         }
+          if (index.indexOf('pdf') > -1) {
+           chapter_pdf+= parseInt(value2.volltext);
+         }
+          $('#chapter_pdf').text(parseInt(chapter_pdf));
+          $('#chapter_xml').text(parseInt(chapter_xml));
+          
         }
       
      });
       $('#'+index).text(parseInt(count));
-      $('#chapter_pdf').text(parseInt(chapter_pdf));
-      $('#chapter_xml').text(parseInt(chapter_xml));
        
   });
-    });
+  });
+  
+  
     
 
 </script>
