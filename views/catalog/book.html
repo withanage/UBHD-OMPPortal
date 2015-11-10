@@ -257,13 +257,23 @@
     count = 0;
     $.each(value.all_years, function(index2,value2) {
           count += value2.volltext;
-          
           if (index.indexOf('xml') > -1 ) {
-            
-             chapter_xml+= parseInt(value2.volltext);
+            {{ for fi in full_file_ids:}}
+              var fi = {{=fi}};
+              if (fi !== index) {
+                  chapter_xml+= parseInt(value2.volltext);
+                }
+                {{pass}}
+             
            }
           if (index.indexOf('pdf') > -1) {
-             chapter_pdf+= parseInt(value2.volltext);
+          {{ for fi in full_file_ids:}}
+              var fi = {{=fi}};
+              if (fi !== index) {
+                  chapter_pdf += parseInt(value2.volltext);
+                }
+                {{pass}}
+             
           }
          
         $('#chapter_pdf').text(parseInt(chapter_pdf));
