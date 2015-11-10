@@ -64,19 +64,18 @@
                          
                          {{file_ids=[]}}
                          
-                          {{for i  in publication_formats:}}
-                          {{full_file =str(book_id)+'-'+str(i.publication_format_settings.setting_value).lower()}}
-                          {{file_ids.append(full_file)}}
-                          {{if i.publication_format_settings.setting_value == myconf.take('omp.xml_category_name'):}}
-                          {{=TR()}}
-                          {{=TD(B(XML('HTML')))}}
-                           {{=TD(DIV("",_id=full_file))}}
+                          {{for fullbook in full_files:}}
+                          {{file_id=str(fullbook['submission_id'])+'-'+str(fullbook['file_id'])+'-'+fullbook['original_file_name'].rsplit('.')[1].lower()}}
+                          {{if fullbook['original_file_name'].rsplit('.')[1].lower()==myconf.take('omp.xml_category_name').lower():}}     
+                            {{=TR()}}
+                              {{=TD(B(XML('HTML')))}}
+                              
+                              {{=TD(DIV("",_id=file_id))}}
                           {{else:}}
-                           {{=TR()}}
-                          {{=TD(B(i.publication_format_settings.setting_value))}}
-                           {{=TD(DIV("",_id=full_file))}}
+                            {{=TR()}}
+                              {{=TD(B('PDF'))}}
+                              {{=TD(DIV("",_id=file_id))}}
                           {{pass}}
-
                           {{pass}}
                          
                        </table>
@@ -88,7 +87,7 @@
                           {{=TR()}}
                           {{=TD()}}
                           {{for ix  in publication_formats:}}
-                          {{type_dict[i.publication_formats.publication_format_id]=i.publication_format_settings.setting_value}}
+                          {{type_dict[ix.publication_formats.publication_format_id]=ix.publication_format_settings.setting_value}}
                           {{if ix.publication_format_settings.setting_value == myconf.take('omp.xml_category_name'):}}
                           {{=TD(XML('HTML'),_style="padding:0")}}
                           {{else:}}
@@ -129,61 +128,6 @@
            <div id="error"></div>
             </div>
 
-<script>
-   $('#statistik-button').click(function(){
-     $('#oas').slideToggle()
-   });
-   var script = 'oastats-plus.cgi';
-   var ids=''
-  {{for x in file_ids:}} 
-   ids += "{{=x}}"+',';
-  {{pass}}
-  if (window.location.protocol == "https:") {
-         script = 'oastats.cgi';
-  }
-  //var url="../../static/js/oastats.json";
-  var url = "../../../cgi-bin/"+script+"?repo=omphp&type=json&ids="+ids;
-  
-  var count, chapter_pdf, chapter_xml;
-  chapter_pdf = 0;
-  chapter_xml = 0;
-  $.getJSON( url, function( data ) {
-   $.each(data, function(index,value) {
-    count = 0;
-    
-     $.each(value.all_years, function(index2,value2) {
-       count += value2.volltext;
-       var full_file = {{=book_id}};
-       if ((index.indexOf(full_file+'-xml')  > -1)  || (index.indexOf(full_file+'-pdf') > -1)){
-        
-       }
-       else {
-         console.log(index);
-         if (index.indexOf('xml') > -1 ) {
-           chapter_xml+= parseInt(value2.volltext);
-         }
-          if (index.indexOf('pdf') > -1) {
-           chapter_pdf+= parseInt(value2.volltext);
-         }
-          $('#chapter_pdf').text(parseInt(chapter_pdf));
-          $('#chapter_xml').text(parseInt(chapter_xml));
-          
-        }
-      
-     });
-      $('#'+index).text(parseInt(count));
-       
-  });
-  });
-  
-  
-    
-
-</script>
-  
- 
-
-
           </div>
 
         </div>
@@ -194,6 +138,7 @@
             <div class="btn-group" role="group" aria-label="1">
               {{for fullbook in full_files:}}
                 {{if fullbook['original_file_name'].rsplit('.')[1].lower()==myconf.take('omp.xml_category_name').lower():}}
+              
                 <li type="button" class="btn btn-default"><a href="{{=URL(myconf.take('web.application'), 'reader', 'index/'+str(fullbook['submission_id'])+'/'+str(fullbook['submission_id'])+'-'+str(fullbook['genre_id'])+'-'+str(fullbook['file_id'])+'-'+str(fullbook['revision'])+'-'+str(fullbook['file_stage'])+'-'+str(fullbook["date_uploaded"].strftime('%Y%m%d'))+'.'+str(fullbook['original_file_name']).rsplit('.')[1])}}" target="_blank">{{=T('Read')}}</a></li>
                 {{pass}}
               {{pass}}
@@ -201,6 +146,7 @@
             <div class="btn-group" role="group" aria-label="2">
               {{for fullbook in full_files:}}
               {{if fullbook['original_file_name'].rsplit('.')[1].lower()==myconf.take('omp.doi_format_name').lower():}}
+              
               <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
                 {{=T('Download')}}
                 <span class="caret"></span>
@@ -283,3 +229,47 @@
     </div>
   </div>
 </section>
+
+<script>
+   $('#statistik-button').click(function(){
+     $('#oas').slideToggle()
+   });
+   var script = 'oastats-plus.cgi';
+   var ids=''
+  {{for x in file_ids:}} 
+   ids += "{{=x}}"+',';
+  {{pass}}
+  if (window.location.protocol == "https:") {
+         script = 'oastats.cgi';
+  }
+  //var url="../../static/js/oastats.json";
+  var url = "../../../cgi-bin/"+script+"?repo=omphp&type=json&ids="+ids;
+  
+  var count, chapter_pdf, chapter_xml;
+  chapter_pdf = 0;
+  chapter_xml = 0;
+  
+  $.getJSON( url, function( data ) {
+   $.each(data, function(index,value) {
+    count = 0;
+    $.each(value.all_years, function(index2,value2) {
+       count += value2.volltext;
+       var full_file = {{=book_id}};
+       if (index.indexOf('xml') > -1 ) {
+           chapter_xml+= parseInt(value2.volltext);
+         }
+          if (index.indexOf('pdf') > -1) {
+           chapter_pdf+= parseInt(value2.volltext);
+         }
+          $('#chapter_pdf').text(parseInt(chapter_pdf));
+          $('#chapter_xml').text(parseInt(chapter_xml));
+      });
+      $('#'+index).text(parseInt(count));
+       
+  });
+  });
+  
+  
+    
+
+</script>
