@@ -261,12 +261,11 @@
     $.each(value.all_years, function(index2,value2) {
           count += value2.volltext;
           if (index.indexOf('xml') > -1 ) {
-            for (var i = 0; i < full_file_ids.length; i++) {
              if (index != "{{=full_xml}}") {
              chapter_xml+= parseInt(value2.volltext);
            }
            }
-           }
+           
           if (index.indexOf('pdf') > -1) {
              if (index != "{{=full_pdf}}") {
              chapter_pdf+= parseInt(value2.volltext);
