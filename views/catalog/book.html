@@ -63,6 +63,7 @@
                        <table class="table">                
                          
                          {{file_ids=[]}}
+                         {{full_file_ids=[]}}
                          
                           {{for fullbook in full_files:}}
                           {{file_id=str(fullbook['submission_id'])+'-'+str(fullbook['file_id'])+'-'+fullbook['original_file_name'].rsplit('.')[1].lower()}}
@@ -77,6 +78,7 @@
                               {{=TD(DIV("",_id=file_id))}}
                           {{pass}}
                           {{file_ids.append(file_id)}}
+                          {{full_file_ids.append(file_id)}}
                           {{pass}}
                          
                        </table>
@@ -254,16 +256,21 @@
    $.each(data, function(index,value) {
     count = 0;
     $.each(value.all_years, function(index2,value2) {
-       count += value2.volltext;
-       var full_file = {{=book_id}};
-       if (index.indexOf('xml') > -1 ) {
-           chapter_xml+= parseInt(value2.volltext);
-         }
+          count += value2.volltext;
+          {{for f in full_file_ids:}}
+          var f = {{=str(f)}};
+          if (f != index) {
+          if (index.indexOf('xml') > -1 ) {
+            
+             chapter_xml+= parseInt(value2.volltext);
+           }
           if (index.indexOf('pdf') > -1) {
-           chapter_pdf+= parseInt(value2.volltext);
+             chapter_pdf+= parseInt(value2.volltext);
+          }
          }
-          $('#chapter_pdf').text(parseInt(chapter_pdf));
-          $('#chapter_xml').text(parseInt(chapter_xml));
+          {{pass}}
+        $('#chapter_pdf').text(parseInt(chapter_pdf));
+        $('#chapter_xml').text(parseInt(chapter_xml));
       });
       $('#'+index).text(parseInt(count));
        
