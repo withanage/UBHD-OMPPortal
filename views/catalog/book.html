@@ -63,7 +63,7 @@
                        <table class="table">                
                          
                          {{file_ids=[]}}
-                         {{full_file_ids=[]}}
+                       
                          
                           {{for fullbook in full_files:}}
                           {{file_id=str(fullbook['submission_id'])+'-'+str(fullbook['file_id'])+'-'+fullbook['original_file_name'].rsplit('.')[1].lower()}}
@@ -72,13 +72,15 @@
                               {{=TD(B(XML('HTML')))}}
                               
                               {{=TD(DIV("",_id=file_id))}}
+                              {{full_xml=file_id}}
                           {{else:}}
                             {{=TR()}}
                               {{=TD(B('PDF'))}}
                               {{=TD(DIV("",_id=file_id))}}
+                              {{full_pdf=file_id}}
                           {{pass}}
                           {{file_ids.append(file_id)}}
-                          {{full_file_ids.append(file_id)}}
+                        
                           {{pass}}
                          
                        </table>
@@ -252,30 +254,23 @@
   chapter_pdf = 0;
   chapter_xml = 0;
   var full_file_ids = [];
-  {{for f in full_file_ids:}}
-  full_file_ids.push("{{=f}}");
-  {{pass}}
   
   $.getJSON( url, function( data ) {
    $.each(data, function(index,value) {
     count = 0;
     $.each(value.all_years, function(index2,value2) {
           count += value2.volltext;
-          
-           for (var i = 0; i < full_file_ids.length; i++) {
-             if (index.indexOf('xml') > -1 ) {
-              if (full_file_ids[i]!==index) {
-                chapter_xml+= parseInt(value2.volltext);
-              }
+          if (index.indexOf('xml') > -1 ) {
+            for (var i = 0; i < full_file_ids.length; i++) {
+             if (index !== {{=full_xml}}) {
+             chapter_xml+= parseInt(value2.volltext);
            }
            }
-          
-          for (var i = 0; i < full_file_ids.length; i++) {
-            if (index.indexOf('pdf') > -1) {
-              if (full_file_ids[i]!==index) {
-                chapter_pdf+= parseInt(value2.volltext);
-              }
-            }
+           }
+          if (index.indexOf('pdf') > -1) {
+             if (index !== {{=full_pdfl}}) {
+             chapter_pdf+= parseInt(value2.volltext);
+           }
           }
          
         $('#chapter_pdf').text(parseInt(chapter_pdf));
