@@ -261,15 +261,17 @@
     count = 0;
     $.each(value.all_years, function(index2,value2) {
           count += value2.volltext;
-          if (index.indexOf('xml') > -1 ) {
-            for (var i = 0; i < full_file_ids.length; i++) {
+          
+           for (var i = 0; i < full_file_ids.length; i++) {
+             if (index.indexOf('xml') > -1 ) {
               if (full_file_ids[i]!==index) {
                 chapter_xml+= parseInt(value2.volltext);
               }
            }
            }
-          if (index.indexOf('pdf') > -1) {
-            for (var i = 0; i < full_file_ids.length; i++) {
+          
+          for (var i = 0; i < full_file_ids.length; i++) {
+            if (index.indexOf('pdf') > -1) {
               if (full_file_ids[i]!==index) {
                 chapter_pdf+= parseInt(value2.volltext);
               }
