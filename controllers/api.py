@@ -34,7 +34,7 @@ def oastatistik():
       for i in authors_list:
           authors['type'] = 'person'
           authors['relation'] = 'creators'
-          authors['name'] = i.first_name + " "+ i.last_name
+          authors['label'] = i.first_name + " "+ i.last_name
       
       fullbook =  {}
       fullbook["label"] = title
@@ -89,4 +89,3 @@ def oastatistik():
   
   return sj.dumps(subs, separators=(',', ':'), sort_keys=True)
 
-{"43":{"associate_via_hierarchy":[{"name":"Astrid Habenstein","relation":"creators","type":"person"}],"label":"Abwesenheit von Rom","norm_id":"10.17885/heiup.43.32","type":"volume"},"43-219":{"associate_via_hierarchy":[{"associate_via_hierarchy":[{"name":"Astrid Habenstein","relation":"creators","type":"person"}],"label":"Abwesenheit von Rom","norm_id":"10.17885/heiup.43.32","type":"volume"}],"label":"Anhang","norm_id":"_omphp:43-49","type":"part"}}
