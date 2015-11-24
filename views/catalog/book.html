@@ -278,6 +278,9 @@
       $('#'+index).text(parseInt(count));
        
   });
+  }).fail(function() {
+      $('#statistik-button').hide();
+      console.log("statistik service unavaliable");
   });
   
   
