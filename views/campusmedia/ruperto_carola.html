@@ -1,0 +1,174 @@
+{{extend 'layout.html'}}
+
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+	
+            <div class="col-lg-3">
+                <article>
+                    <div class="post-image" style="border: 1px solid #f5f5f5;">
+		 	<img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/ruperto_carola.jpg')}} ">
+                  </div>
+
+                </article>
+                
+                <div class="box">
+			             <div class="box-gray alignleft" style="height: auto;">
+                 {{if session.forced_language =='de': }}
+                            <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographische Angaben</h5>
+                            <p>Ruperto Carola<br>
+                            
+                            <p>Herausgeber<br />
+                            Universität Heidelberg<br />
+                              Der Rektor<br />
+                              Kommunikation und Marketing
+                            </p>
+                            <p>Wissenschaftlicher Beirat</p>
+                            <ul>
+                              <li>Prof. Dr. Peter Comba (Vorsitz)</li>
+                              <li>Prof. Dr. Beatrix Busse</li>
+                              <li>Prof. Dr. Markus Hilgert</li>
+                              <li>Prof. Dr. Nikolas Jaspert</li>
+                              <li>Prof. Dr. Marcus A. Koch</li>
+                              <li>Prof. Dr. Carsten Könneker</li>
+                              <li>Prof. Dr. Alexander Marx</li>
+                              <li>Prof. Dr. Thomas Pfeiffer</li>
+                              <li>Prof. Dr. Joachim Wambsganß</li>
+                              <li>Prof. Dr. Reimut Zohlnhöfer</li>
+                            </ul>
+                            <p>Redaktion</p>
+                              <ul>
+                                <li>Marietta Fuhrmann-Koch (verantwortlich)</li>
+                                <li>Ute von Figura (Leitung)</li>
+                              </ul>  
+                            <p>Heidelberg University Publishing, Heidelberg</p>
+                            <p>ISSN: 0035-998-X</p>  
+
+                            <p>Dieses Werk ist unter der<br> <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons-Lizenz 4.0<br /> (CC BY-SA 4.0)</a> veröffentlicht.<br>
+                            <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0"><img alt="Creative Commons Lizenz BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p>
+
+                             
+             {{elif session.forced_language =='en': }}
+             
+<!--<h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographic details</h5>
+                            <p>Transcultural Studies<br>
+                            
+                            <p>Editors</p>
+                            <ul>
+                              <li>Universität Heidelberg</li>
+                              <li>Der Rektor</li>
+                              <li>Kommunikation und Marketing</li>
+                            </ul>
+                            <p>Editorial Team</p>
+                              <ul>
+                                <li>Marietta Fuhrmann-Koch (verantwortlich)</li>
+                                <li>Ute von Figura (Leitung)</li>
+                                <li>Claudia Eberhard-Metzger</li>
+                              </ul>  
+                            <p>Heidelberg University Publishing, Heidelberg</p>
+                            <p>ISSN: 0035-998-X</p>  
+
+                            <p>This work is licensed under a <br> <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons License 4.0<br> (CC BY-SA 4.0)</a>.<br>
+                            <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; License CC BY-SA 4.0"><img alt="Creative Commons License BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p>-->             
+
+{{pass}}                  
+                   </div>
+
+
+             
+                                         
+                  </div>
+ </div>   
+
+            
+            <div class="col-lg-9">
+               <article>
+        <div id="infoBoxRechts" class="col-lg-3">
+          <div class="box">
+            <div class="box-gray"  style="height: auto;">
+                 {{if session.forced_language =='de': }}
+                <p class="boxText"><b>RSS für die aktuelle Ausgabe</b></p>
+             {{elif session.forced_language =='en': }}
+                <p class="boxText"><b>RSS for current issue</b></p>
+{{pass}}                                          
+
+                    <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/gateway/plugin/WebFeedGatewayPlugin/atom"><img src="http://heiup.uni-heidelberg.de/journals/plugins/generic/webFeed/templates/images/atom10_logo.gif" alt="Atom logo" border="0" /></a><br />
+	<a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/gateway/plugin/WebFeedGatewayPlugin/rss2"><img src="http://heiup.uni-heidelberg.de/journals/plugins/generic/webFeed/templates/images/rss20_logo.gif" alt="RSS2 logo" border="0" /></a><br />
+	<a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/gateway/plugin/WebFeedGatewayPlugin/rss"><img src="http://heiup.uni-heidelberg.de/journals/plugins/generic/webFeed/templates/images/rss10_logo.gif" alt="RSS1 logo" border="0" /></a>
+                  </div>
+                </div>
+             
+
+                <div class="box">
+                  <div class="box-gray"  style="height: auto;">
+                 
+               <p class="boxText"><b>{{=T('Contact')}}</b></p>
+                     <ul class="standard">
+                      <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/about/contact">Marietta Fuhrmann-Koch</a></li>
+                      <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/about/contact">Ute von Figura</a></li>
+                     </ul>
+                     <!--p class="standard">
+                      Kommunikation und Marketing<br>
+                      Marietta Fuhrmann-Koch<br>
+                      Ute von Figura<br>
+                      Grabengasse 1<br>
+                      69117 Heidelberg<br>
+                      Tel. +49 6221 54-19026<br>
+                      Fax +49 6221 54-19020<br>
+                      <a href="mailto:ute.vonfigura@rektorat.uni-heidelberg.de">ute.vonfigura@rektorat.uni-heidelberg.de</a>
+</p-->
+                  </div>
+                </div>                
+              </div>
+
+              
+     <div class="post-heading">
+     
+     
+                  <h3>Ruperto Carola</h3>
+        </div>
+
+                 {{if session.forced_language =='de': }}
+                 
+                        <p><i class="icon-quote-left"></i>
+<p>Das Forschungsmagazin „Ruperto Carola“ berichtet über wissenschaftliche Erkenntnisse und laufende Forschungsvorhaben der Universität Heidelberg. Jede seiner Ausgaben ist einem gesellschaftlich relevanten Schwerpunktthema gewidmet, zu dem Heidelberger Forscherinnen und Forscher über Disziplinen und Fächer hinweg ihre wissenschaftliche Arbeit vorstellen. In allgemein verständlicher Sprache zeigen die Autoren, auf wie vielfältige Weise an der Universität geforscht wird.</p>
+<p>Mit dem Format des Themenmagazins will die Universität Heidelberg ihr besonderes Potential und ihren Anspruch erfahrbar machen, als Volluniversität einen wesentlichen Beitrag zum Verständnis der komplexen Herausforderungen und großen Fragestellungen unserer Zeit zu leisten.</p>
+<p>Die „Ruperto Carola“ erscheint zweimal jährlich in deutscher Sprache mit englischsprachigen Abstracts und wendet sich an die Mitglieder der Universität, an ihre Partner in Wissenschaft, Politik, Wirtschaft und Gesellschaft sowie insbesondere auch an Alumni, Freunde und eine interessierte Öffentlichkeit im In- und Ausland.</p>
+<p>Herausgeber des Magazins ist der Rektor der Universität Heidelberg, die redaktionelle Verantwortung liegt bei der Stabsstelle „Kommunikation und Marketing“. Die jeweils aktuelle Ausgabe ist in der Abteilung Kommunikation und Marketing der Universität Heidelberg (Alte Universität, Grabengasse 1) erhältlich.</p>
+                 
+                 
+
+
+
+             {{elif session.forced_language =='en': }}
+
+                       
+
+{{pass}}     
+
+
+                    <div class="widget">
+                        <h5 class="widgetheading"></h5>
+                        <ul class="tags">
+                 {{if session.forced_language =='de': }}
+             
+                            <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index">zur Zeitschrift</a></li>
+             {{elif session.forced_language =='en': }}
+                            <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index">View Journal</a></li>
+             
+{{pass}}     
+                       
+
+                        </ul>
+                    </div>
+
+                     			
+			
+                </article>
+ 
+            </div>
+ </div>
+        </div>
+
+</section>

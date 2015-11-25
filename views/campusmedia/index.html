@@ -1,0 +1,45 @@
+{{extend 'layout.html'}}
+
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+	
+            <div class="col-lg-2">
+                <article>
+                    <div class="post-image" style="border: 1px solid #f5f5f5;">
+                      <img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/ruperto_carola.jpg')}} ">
+                  </div>
+                </article>
+            </div>
+            <div class="col-lg-10">
+               <article>
+                        <div class="post-heading">
+			            <h3>Ruperto Carola</h3>
+                        </div>
+                        <p>
+                            <i class="icon-quote-left"></i>
+             {{if session.forced_language =='de': }}
+Das Forschungsmagazin „Ruperto Carola“ berichtet über wissenschaftliche Erkenntnisse und laufende Forschungsvorhaben der Universität Heidelberg. Jede seiner Ausgaben ist einem gesellschaftlich relevanten Schwerpunktthema gewidmet, zu dem Heidelberger Forscherinnen und Forscher über Disziplinen und Fächer hinweg ihre wissenschaftliche Arbeit vorstellen. Herausgeber des Magazins ist der Rektor der Universität Heidelberg, die redaktionelle Verantwortung liegt bei der Stabsstelle „Kommunikation und Marketing“.
+             
+             {{elif session.forced_language =='en': }}
+
+Das Forschungsmagazin „Ruperto Carola“ berichtet über wissenschaftliche Erkenntnisse und laufende Forschungsvorhaben der Universität Heidelberg. Jede seiner Ausgaben ist einem gesellschaftlich relevanten Schwerpunktthema gewidmet, zu dem Heidelberger Forscherinnen und Forscher über Disziplinen und Fächer hinweg ihre wissenschaftliche Arbeit vorstellen. Herausgeber des Magazins ist der Rektor der Universität Heidelberg, die redaktionelle Verantwortung liegt bei der Stabsstelle „Kommunikation und Marketing“.
+{{pass}}     
+
+                        </p>
+			  
+                    <div class="widget">
+                        <h5 class="widgetheading"></h5>
+                        <ul class="tags">
+        	       	   <li><a href="{{=URL(myconf.take('web.application'),'campusmedia','ruperto_carola')}}">{{=T('More' )}}</a></li><br>
+	                   <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index">{{=T('View Journal')}}</a></li>
+
+                        </ul>
+                    </div>
+			
+                </article>
+            </div>
+        </div>
+</div>
+</section>
