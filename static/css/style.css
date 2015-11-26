@@ -2252,14 +2252,19 @@ footer {
 }
 
 @media (max-width: 991px) /*verhindert, dass die Hauptnavi zweizeilig umbricht*/ {
- .navbar .nav > li > a {
- padding-right: 5px;
- padding-left: 5px;
- font-size: 14px;
+.navbar .nav > li > a {
+  padding-right: 5px;
+  padding-left: 5px;
+   font-size: 13px;
 }
 }
 
+@media (max-width: 1200px) /*verhindert, dass die Hauptnavi zweizeilig umbricht*/ {
+.navbar .nav > li > a {
+  margin-left: 10px; 
+}
 
+} 
 
 @media print {
 
