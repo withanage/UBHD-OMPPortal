@@ -274,16 +274,13 @@
                      <h5 class="widgetheading">Sitemap</h5>
                 {{pass}}     
                      <ul class="link-list">
-                         <li><a href="{{=URL(myconf.take('web.application'),'home','index')}}">{{=T('Home')}}</a></li>
-                         <li>{{=T('About us')}} | <a href="{{=URL(myconf.take('web.application'),'about_us','mission_statement')}}">Mission Statement</a></li>
-                         <li><a href="{{=URL(myconf.take('web.application'),'catalog','index')}}">{{=T('Books')}}</a></li>
-                         <li><a href="{{=URL(myconf.take('web.application'),'journals','index')}}">{{=T('Journals')}}</a></li>                         
-                   {{if session.forced_language=='de':}}
-                         <li>{{=T('Publishing')}} | <a href="{{=URL(myconf.take('web.application'),'publishing','for_authors')}}">Informationen für Autoren</a></li>
-                   {{elif session.forced_language=='en':}}
-                         <li>{{=T('Publishing')}} | <a href="{{=URL(myconf.take('web.application'),'publishing','for_authors')}}">Information for Authors</a></li>
-                   {{pass}}
-                         <li>{{=T('Quality Control')}} | <a href="{{=URL(myconf.take('web.application'),'quality_control','peer_review')}}">Peer Review</a></li>
+                        <li><a href="{{=URL(myconf.take('web.application'),'home','index')}}">{{=T('Home')}}</a></li>
+                        <li>{{=T('About us')}} | <a href="{{=URL(myconf.take('web.application'),'about_us','mission_statement')}}">Mission Statement</a></li>
+                        <li><a href="{{=URL(myconf.take('web.application'),'catalog','index')}}">{{=T('Books')}}</a></li>
+                        <li><a href="{{=URL(myconf.take('web.application'),'journals','index')}}">{{=T('Journals')}}</a></li>                         
+                        <li><a href="{{=URL(myconf.take('web.application'),'campusmedia','index')}}">Campus Media</a></li>
+                        <li>{{=T('Publishing')}} | <a href="{{=URL(myconf.take('web.application'),'publishing','for_authors')}}">{{=T('Information for Authors')}}</a></li>
+                        <li>{{=T('Quality Control')}} | <a href="{{=URL(myconf.take('web.application'),'quality_control','peer_review')}}">Peer Review</a></li>
                      </ul>
                  </div>
              </div>
