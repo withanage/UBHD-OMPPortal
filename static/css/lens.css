@@ -1420,6 +1420,10 @@ body.loading .spinner-wrapper {
 #MathJax_Message {
   display: none; }
 
+@media print {
+  .resources * {
+    display: none !important; } }
+
 .content-node.speech > .content {
   padding: 20px; }
 

@@ -2,11 +2,11 @@
 <html>
 <head>
     <title>heiUP {{=authors}}</title>
-    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic' rel='stylesheet'
-          type='text/css'>
+    <!--http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic -->
+    <link href="{{=URL('static','css/fonts.css')}}" rel='stylesheet'   type='text/css'>
 
     <link rel="stylesheet" type="text/css" media="all"
-          href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"/>
+          href="{{=URL('static','css/font-awesome.min.css')}}"/>
 
     <!-- A combined lens.css will be generated in the bundling process -->
     <!-- While in development, separate links for each CSS file are added, so we don't need a source map -->
@@ -15,7 +15,7 @@
 
 
     <!-- MathJax Configuration -->
-    <script type="text/x-mathjax-config">
+    <!--script type="text/x-mathjax-config">
        MathJax.Hub.Config({
          jax: ["input/TeX", "input/MathML","output/HTML-CSS"],
          extensions: ["MathMenu.js","MathZoom.js", "CHTML-preview.js"],
@@ -28,10 +28,9 @@
          styles: {".MathJax_Display": {padding: "0em 0em 0em 3em" },".MathJax_SVG_Display": {padding: "0em 0em 0em 3em" },}
       });
 
-    </script>
-    <script type="text/javascript"
-            src="http://beta.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML-full">
-     </script>
+    </script-->
+    <!--script type="text/javascript"   src="http://beta.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML-full"-->
+    <!--script type="text/javascript"   src="{{=URL('static','js/MathJax.js')}}"></script-->
     <script type="text/javascript">
         //web2py variables
         var submission_id = '{{=request.args[0]}}';
