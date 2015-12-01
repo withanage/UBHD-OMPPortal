@@ -11,7 +11,8 @@ def index():
     locale = 'de_DE'
     if session.forced_language == 'en':
         locale = 'en_US'
-    query = ((db.submissions.context_id == myconf.take('omp.press_id')) & (db.submissions.status == 3) & (
+    ignored_submissions =  myconf.take('omp.ignore_submissions') if myconf.take('omp.ignore_submissions') else -1
+    query = ((db.submissions.context_id == myconf.take('omp.press_id')) &  (db.submissions.submission_id!=ignored_submissions) & (db.submissions.status == 3) & (
         db.submission_settings.submission_id == db.submissions.submission_id) & (db.submission_settings.locale == locale))
     submissions = db(query).select(db.submission_settings.ALL,orderby=db.submissions.submission_id)
     subs = {}
@@ -33,6 +34,8 @@ def index():
         authors = authors[:-2]
           
       subs.setdefault(i.submission_id, {})['authors'] = authors
+    if len(subs) == 0:
+      redirect( URL('home', 'index'))  
     return dict(submissions=submissions, subs=subs)
 
 
