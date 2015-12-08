@@ -250,9 +250,20 @@
   //var url="../../static/js/oastats.json";
   var url = "../../../cgi-bin/"+script+"?repo=omphp&type=json&ids="+ids;
   
-  var count, chapter_pdf, chapter_xml;
+  var count, chapter_pdf, chapter_xml,full_xml, full_pdf;
+  full_xml = 0;
+  full_pdf = 0;
   chapter_pdf = 0;
   chapter_xml = 0;
+  
+  {{ if 'full_xml' in  locals():}}
+    full_xml = {{=full_xml}}
+  {{pass}}
+  {{ if 'full_pdf' in  locals():}}
+    full_pdf= {{=full_pdf}}
+  {{pass}}
+  
+  
   var full_file_ids = [];
   
   $.getJSON( url, function( data ) {
@@ -261,13 +272,13 @@
     $.each(value.all_years, function(index2,value2) {
           count += value2.volltext;
           if (index.indexOf('xml') > -1 ) {
-             if (index != "{{=full_xml}}") {
-             chapter_xml+= parseInt(value2.volltext);
-           }
+               if (index != full_xml) {
+                  chapter_xml+= parseInt(value2.volltext);
+                }
            }
            
           if (index.indexOf('pdf') > -1) {
-             if (index != "{{=full_pdf}}") {
+              if (index != full_pdf) {
              chapter_pdf+= parseInt(value2.volltext);
            }
           }

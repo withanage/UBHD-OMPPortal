@@ -51,10 +51,6 @@ def oastatistik():
          
       else:
           subs[book_id.submission_id] = fullbook
-    
-      # chapters
-      
-      
       chapters = db ((db.submission_chapters.submission_id == book_id['submission_id']) & (db.submission_file_settings.setting_name=='chapterID') & (db.submission_file_settings.setting_value==db.submission_chapters.chapter_id)).select(db.submission_chapters.chapter_id,db.submission_file_settings.file_id, orderby = db.submission_chapters.chapter_seq)
       for c in chapters:
           chapter_id = str(book_id['submission_id'])+'-'+str(c['submission_chapters']['chapter_id'])
@@ -82,10 +78,7 @@ def oastatistik():
                 part_authors.append({'name': author_name['first_name'] + " "+ author_name['last_name']})
             if part_authors:
               bookpart["associate_via_hierarchy"] = [part_authors]
-            
-            subs[file_id] = bookpart     
+            subs[file_id] = bookpart
             subs[file_id]["associate_via_hierarchy"]=[fullbook]
-    
   
   return sj.dumps(subs, separators=(',', ':'), sort_keys=True)
-
