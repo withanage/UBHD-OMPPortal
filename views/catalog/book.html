@@ -257,10 +257,10 @@
   chapter_xml = 0;
   
   {{ if 'full_xml' in  locals():}}
-    full_xml = {{=full_xml}}
+    full_xml = "{{=full_xml}}";
   {{pass}}
   {{ if 'full_pdf' in  locals():}}
-    full_pdf= {{=full_pdf}}
+    full_pdf= "{{=full_pdf}};";
   {{pass}}
   
   
