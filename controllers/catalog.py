@@ -139,6 +139,7 @@ def book():
 
     cover_image = URL(myconf.take('web.application'), 'static',
                       'monographs/' + book_id + '/simple/cover.jpg')
-
+    if len(publication_formats) == 0:
+      redirect(URL(request.application,'catalog','index'))
     return dict(abstract=abstract, authors=authors, author_bio=author_bio, book_id=book_id, chapters=chapters, cleanTitle=cleanTitle, cover_image=cover_image, full_files=full_files, identification_codes=identification_codes,
                 publication_formats=publication_formats, publication_format_settings_doi=publication_format_settings_doi, published_date=published_date, subtitle=subtitle, press_name=press_name, representatives=representatives)
