@@ -257,17 +257,11 @@
   chapter_xml = 0;
   
   {{ if 'full_xml' in  locals():}}
-<<<<<<< HEAD
-    full_xml = "{=full_xml}}"
-  {{pass}}
-  {{ if 'full_pdf' in  locals():}}
-    full_pdf= "{{=full_pdf}}"
-=======
     full_xml = "{{=full_xml}}";
   {{pass}}
   {{ if 'full_pdf' in  locals():}}
     full_pdf= "{{=full_pdf}};";
->>>>>>> 41d6c81e57b53d260057c57bc85e77b5c9b8d9f1
+
   {{pass}}
  console.log(url); 
   
