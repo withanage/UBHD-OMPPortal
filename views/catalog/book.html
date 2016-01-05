@@ -260,7 +260,7 @@
     full_xml = "{{=full_xml}}";
   {{pass}}
   {{ if 'full_pdf' in  locals():}}
-    full_pdf= "{{=full_pdf}};";
+    full_pdf= "{{=full_pdf}}";
 
   {{pass}}
  //console.log(full_xml);
@@ -280,12 +280,11 @@
            }
            
           if (index.indexOf('pdf') > -1) {
-      		if (index != full_pdf) {
+      		if (index !=full_pdf) {
 	      chapter_pdf+= parseInt(value2.volltext);
            }
           }
          
-       console.log(index2,value2);
         $('#chapter_pdf').text(parseInt(chapter_pdf));
         $('#chapter_xml').text(parseInt(chapter_xml));
       });
