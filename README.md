@@ -3,7 +3,7 @@ UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp](https://pkp.s
 
 # Demo
 - Heidelberg University Publishing  [Web](http://heiup.uni-heidelberg.de/)
-- Customized lens based HTML Viewer [Full book](http://heiup.uni-heidelberg.de/reader/index/43/heiUP_habenstein_abwesenheit_2015.xml) ,  [Chapter ](http://heiup.uni-heidelberg.de/reader/index/43/43-69-209-1-10-20150717.xml) ,  [Chapter with images](http://heiup.uni-heidelberg.de/reader/index/43/43-69-220-1-10-20150723.xml#figures)
+- Customized lens based HTML Viewer [Full book](http://heiup.uni-heidelberg.de/UBHD_OMPPortal/reader/index/43/43-68-231-1-10-20151008.xml) ,  [Chapter ](http://heiup.uni-heidelberg.de/reader/index/43/43-69-209-1-10-20150717.xml) ,  [Chapter with images](http://heiup.uni-heidelberg.de/reader/index/43/43-69-220-1-10-20150723.xml#figures)
 ![alt tag](static/images/UBHD-OMPPortal.png)
 
 # Features
