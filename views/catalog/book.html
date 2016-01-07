@@ -243,7 +243,50 @@
     full_xml = "{{=full_xml}}";
   {{pass}}
   {{ if 'full_pdf' in  locals():}}
+<<<<<<< HEAD
     full_pdf= "{{=full_pdf}};";
   {{pass}}
+=======
+    full_pdf= "{{=full_pdf}}";
+
+  {{pass}}
+ //console.log(full_xml);
+  
+  var full_file_ids = [];
+  
+  $.getJSON( url, function( data ) {
+   $.each(data, function(index,value) {
+    //console.log(index,value);
+    count = 0;
+    $.each(value.all_years, function(index2,value2) {
+          count += parseInt(value2.volltext);
+          if (index.indexOf('xml') > -1 ) {
+               if (index !=full_xml ) {
+                  chapter_xml+= parseInt(value2.volltext);
+                }
+           }
+           
+          if (index.indexOf('pdf') > -1) {
+      		if (index !=full_pdf) {
+	      chapter_pdf+= parseInt(value2.volltext);
+           }
+          }
+         
+        $('#chapter_pdf').text(parseInt(chapter_pdf));
+        $('#chapter_xml').text(parseInt(chapter_xml));
+      });
+	//console.log(index,count);
+      $('#'+index).text(parseInt(count));
+       
+  });
+  }).fail(function() {
+      $('#statistik-button').hide();
+      console.log("statistik service unavaliable");
+  });
+  
+  
+    
+
+>>>>>>> ubhd/master
 </script>
  <script src="{{=URL(myconf.take('web.application'),'static','js/stats.js')}}"></script>
