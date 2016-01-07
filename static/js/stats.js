@@ -22,6 +22,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
+
+/** statistics  * */
     $('#statistik-button').click(function(){
      $('#oas').slideToggle()
    });
@@ -42,7 +45,7 @@
    $.each(data, function(index,value) {
     count = 0;
     $.each(value.all_years, function(index2,value2) {
-          count += value2.volltext;
+          count += parseInt(value2.volltext);
           if (index.indexOf('xml') > -1 ) {
                if (index != full_xml) {
                   chapter_xml+= parseInt(value2.volltext);

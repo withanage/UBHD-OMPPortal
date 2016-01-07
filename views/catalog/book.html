@@ -1,5 +1,30 @@
 {{extend 'layout.html'}}
+<script>
+var vgwort_server1,vgwort_server2,vgwort_enable
+ {{if int(myconf.take('omp.vgwort_enable'))==1 : }}
+        vgwort_enable=1;
+        {{if myconf.take('web.vgwort_server1'): }}
+                vgwort_server1="{{=myconf.take('web.vgwort_server1')}}";
+        {{pass}}
+        {{if myconf.take('web.vgwort_server2'): }}
+                vgwort_server2="{{=myconf.take('web.vgwort_server2')}}";
+        {{pass}}
+  {{pass}}
 
+var vgwort_server;
+/**
+ $.getJSON(vgwort_server1, function( data ) {
+   vgwort_server=vgwort_server1;
+  }).fail(function() {
+     $.getJSON( vgwort_server2, function( data ) {
+     vgwort_server=vgwort_server2;
+  }).fail(function() {
+    console.log("no vgwort server accessible");
+     });
+    
+  });
+**/
+</script>
 
 <section id="content">
   <div style="height: 20px"></div>
@@ -220,7 +245,13 @@
                 
                 {{pass}}
                 {{if str(type_dict[i.submission_files.assoc_id]).lower() ==  myconf.take('omp.xml_category_name').lower(): }}
-                {{=TD(A(I(_class="fa fa-html5"), _href=URL(myconf.take('web.application'), 'reader', 'index/'+str(i.submission_files.submission_id)+'/'+str(i.submission_files.submission_id)+'-'+str(i.submission_files.genre_id)+'-'+str(i.submission_files.file_id)+'-'+str(i.submission_files.revision)+'-'+str(i.submission_files.file_stage)+'-'+str(i.submission_files.date_uploaded.strftime('%Y%m%d'))+'.'+str(type_dict[i.submission_files.assoc_id]).lower())))}}
+		{{link=URL(request, 'reader', 'index/'+str(i.submission_files.submission_id)+'/'+str(i.submission_files.submission_id)+'-'+str(i.submission_files.genre_id)+'-'+str(i.submission_files.file_id)+'-'+str(i.submission_files.revision)+'-'+str(i.submission_files.file_stage)+'-'+str(i.submission_files.date_uploaded.strftime('%Y%m%d'))+'.'+str(type_dict[i.submission_files.assoc_id]).lower())}}
+                {{if int(myconf.take('omp.vgwort_enable'))==1 : }}
+		{{code=db((db.submission_file_settings.setting_name=="vgWortPublic") & (db.submission_file_settings.file_id==i.submission_files.file_id)).select(db.submission_file_settings.setting_value).first()['setting_value']}}
+                {{link = myconf.take("web.vgwort_server1")+code+'?l='+link}}
+                {{pass}}
+
+                {{=TD(A(I(_class="fa fa-html5"), _href=link))}}
                 {{else:}}
                 {{=TD(A(I(_class="fa fa-file-text-o"), _href=URL(myconf.take('web.application'), 'reader', 'download/'+str(i.submission_files.submission_id)+'/'+str(i.submission_files.submission_id)+'-'+str(i.submission_files.genre_id)+'-'+str(i.submission_files.file_id)+'-'+str(i.submission_files.revision)+'-'+str(i.submission_files.file_stage)+'-'+str(i.submission_files.date_uploaded.strftime('%Y%m%d'))+'.'+str(type_dict[i.submission_files.assoc_id]).lower())))}}
                 {{pass}}
@@ -243,50 +274,9 @@
     full_xml = "{{=full_xml}}";
   {{pass}}
   {{ if 'full_pdf' in  locals():}}
-<<<<<<< HEAD
-    full_pdf= "{{=full_pdf}};";
-  {{pass}}
-=======
     full_pdf= "{{=full_pdf}}";
-
   {{pass}}
- //console.log(full_xml);
-  
-  var full_file_ids = [];
-  
-  $.getJSON( url, function( data ) {
-   $.each(data, function(index,value) {
-    //console.log(index,value);
-    count = 0;
-    $.each(value.all_years, function(index2,value2) {
-          count += parseInt(value2.volltext);
-          if (index.indexOf('xml') > -1 ) {
-               if (index !=full_xml ) {
-                  chapter_xml+= parseInt(value2.volltext);
-                }
-           }
-           
-          if (index.indexOf('pdf') > -1) {
-      		if (index !=full_pdf) {
-	      chapter_pdf+= parseInt(value2.volltext);
-           }
-          }
-         
-        $('#chapter_pdf').text(parseInt(chapter_pdf));
-        $('#chapter_xml').text(parseInt(chapter_xml));
-      });
-	//console.log(index,count);
-      $('#'+index).text(parseInt(count));
-       
-  });
-  }).fail(function() {
-      $('#statistik-button').hide();
-      console.log("statistik service unavaliable");
-  });
-  
-  
-    
 
->>>>>>> ubhd/master
+
 </script>
- <script src="{{=URL(myconf.take('web.application'),'static','js/stats.js')}}"></script>
+<script src="{{=URL(myconf.take('web.application'),'static','js/stats.js')}}" data-ids="{{=XML(file_ids)}}" data-full_pdf=full_pdf data-full_xml=full_xml ></script>
