@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import urllib
 '''
 Copyright (c) 2015 Heidelberg University Library
 Distributed under the GNU GPL v3. For full terms see the file
@@ -137,8 +138,16 @@ def book():
         if i.setting_name == 'title':
             cleanTitle = i.setting_value
 
-    cover_image = URL(myconf.take('web.application'), 'static',
-                      'monographs/' + book_id + '/simple/cover.jpg')
-    
+    cover_image = URL(myconf.take('web.application'), 'static','monographs/' + book_id + '/simple/cover.jpg')
+    if  int(myconf.take('omp.vgwort_enable')) == 1 :
+	vgwort_server=myconf.take('web.vgwort_server1')
+    	if urllib.urlopen(vgwort_server).getcode()!=200:
+		gwort_server=myconf.take('web.vgwort_server2')
+		if urllib.urlopen(vgwort_server).getcode()!=200:
+			vgwort_server= None
+    else:
+	vgwort_server= None
+
+
     return dict(abstract=abstract, authors=authors, author_bio=author_bio, book_id=book_id, chapters=chapters, cleanTitle=cleanTitle, cover_image=cover_image, full_files=full_files, identification_codes=identification_codes,
-                publication_formats=publication_formats, publication_format_settings_doi=publication_format_settings_doi, published_date=published_date, subtitle=subtitle, press_name=press_name, representatives=representatives)
+                publication_formats=publication_formats, publication_format_settings_doi=publication_format_settings_doi, published_date=published_date, subtitle=subtitle, press_name=press_name, representatives=representatives,vgwort_server=vgwort_server)
