@@ -2213,6 +2213,14 @@ li > h5 {
   margin-top: 1em;
 }
 
+/** Bildunterschrift Galerie Ruperto Carola **/
+figcaption {
+  font-size: 0.8em;
+  line-height: 1.4em;
+  margin-top: 0.2em;
+}
+
+
 /*** Footer - Änderungen voe ****/
 footer {
   padding-left: 10px;

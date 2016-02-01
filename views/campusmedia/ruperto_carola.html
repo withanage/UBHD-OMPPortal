@@ -1,6 +1,72 @@
 {{extend 'layout.html'}}
+{{if request.args:}}
+{{if request.args[0]:}}
+{{if request.args[0]=='contact':}}
 
 
+{{if session.forced_language =='de': }}
+        <div class="row">
+    <div class="container">
+<h3>Ruperto Carola</h3>
+<h4>Adresse</h4>
+<p>Universität Heidelberg<br />
+Kommunikation und Marketing<br />
+Grabengasse 1<br />
+69117 Heidelberg<br />
+Tel. +49 6221 54-19012<br />
+Fax +49 6221 54-19020<br />
+E-Mail: <a href="kum@uni-heidelberg.de" title="E-Mail senden an 'Kommunikation und Marketing' der Universität Heidelberg">kum@uni-heidelberg.de</a></p>
+
+<h4>Hauptkontakt</h4>
+<ul class="standard">
+<li>Marietta Fuhrmann-Koch (verantwortlich)</li>
+<li>Ute von Figura (Leitung)</li>
+</ul>
+ 
+<p>Phone: +49 6221 54-19026<br />
+Fax: +49 6221 54-19020<br />
+Email: <a href="mailto:ute.vonfigura@rektorat.uni-heidelberg.de" title="E-Mail senden an Frau von Figura">ute.vonfigura@rektorat.uni-heidelberg.de</a></p>
+
+
+     </div>
+     </div>
+{{elif session.forced_language =='en': }}
+
+
+        <div class="row">
+    <div class="container">
+<h3>Ruperto Carola</h3>
+<h4>Mailing Address</h4>
+<p>Universität Heidelberg<br />
+Kommunikation und Marketing<br />
+Grabengasse 1<br />
+69117 Heidelberg<br />
+Tel. +49 6221 54-19012<br />
+Fax +49 6221 54-19020<br />
+<a href="kum@uni-heidelberg.de" title="Send email to 'Kommunikation und Marketing' of Heidelberg University">kum@uni-heidelberg.de</a></p>
+
+<h4>Principal Contact</h4>
+<ul class="standard">
+<li>Marietta Fuhrmann-Koch (responsible)</li>
+<li>Ute von Figura (executive)</li>
+</ul>
+ 
+<p>Phone: +49 6221 54-19026<br />
+Fax: +49 6221 54-19020<br />
+Email: <a href="mailto:ute.vonfigura@rektorat.uni-heidelberg.de" title="Send email to Ms. von Figura">ute.vonfigura@rektorat.uni-heidelberg.de</a></p>
+
+     </div>
+     </diV
+
+
+
+{{pass}}
+
+
+{{pass}}
+
+{{pass}}
+{{else:}}
 <section id="content">
     <div class="container">
         <div class="row">
@@ -114,20 +180,8 @@
                 <div class="box">
                   <div class="box-gray"  style="height: auto;">
                  
-               <p class="boxText"><b>{{=T('Contact')}}</b></p>
-                     <ul class="standard">
-                      <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/about/contact">Marietta Fuhrmann-Koch</a></li>
-                      <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/about/contact">Ute von Figura</a></li>
-                     </ul>
-                     <!--p class="standard">
-                      Kommunikation und Marketing<br>
-                      Marietta Fuhrmann-Koch<br>
-                      Ute von Figura<br>
-                      Grabengasse 1<br>
-                      69117 Heidelberg<br>
-                      Tel. +49 6221 54-19026<br>
-                      Fax +49 6221 54-19020<br>
-                      <a href="mailto:ute.vonfigura@rektorat.uni-heidelberg.de">ute.vonfigura@rektorat.uni-heidelberg.de</a></p-->
+               <p class="boxText"><b><a href="http://heiup.uni-heidelberg.de/UBHD_OMPPortal/campusmedia/ruperto_carola/contact">{{=T('Contact')}}</a></b></p>
+                     
                   </div>
                 </div>                
               </div>
@@ -170,9 +224,12 @@
                         <ul class="tags">
                  {{if session.forced_language =='de': }}
              
-                            <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index">zur Zeitschrift</a></li>
+                    <li style="display: inline"><a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index">zur aktuellen Ausgabe</a></li>
+                            <li style="display: inline"><a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/archive">Archiv</a></li>
              {{elif session.forced_language =='en': }}
-                            <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index">View Journal</a></li>
+                            <li style="display: inline"><a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index">View Current Issue</a></li>
+                            <li style="display: inline"><a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/archive">Archive</a></li>
+             
              
 {{pass}}     
                        
@@ -180,12 +237,103 @@
                         </ul>
                     </div>
 
-                     			
-			
                 </article>
+                
+        <div class="row">
+            <section id="projects">
+            <ul id="thumbs" class="portfolio">
+                <li class="col-lg-2 design">
+                  <div class="item-thumbs">
+                  <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/view/1134" title="Online-Ausgabe Ruperto Carola, 'Alt & Jung', Oktober 2012"><figure>
+                     <img alt="" src="/static/images/campusmedia/cover_01_2012.jpg" />
+                     <figcaption>
+                     Alt & Jung<br />
+                     Ausgabe 1<br />
+                     Oktober 2012
+                     </figcaption>
+                  </figure></a>
+                  </div>  
+                </li>
+                <li class="col-lg-2 design">
+                  <div class="item-thumbs">
+                  <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/view/1239" title="Online-Ausgabe Ruperto Carola, 'Himmel & Hölle', April 2013"><figure>
+                     <img alt="" src="/static/images/campusmedia/cover_02_2013.jpg" />
+                     <figcaption>
+                     Himmel & Hölle<br />
+                     Ausgabe 2<br />
+                     April 2013
+                     </figcaption>
+                  </figure></a>
+                  </div>  
+                </li>
+                <li class="col-lg-2 design">
+                  <div class="item-thumbs">
+                  <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/view/1358" title="Online-Ausgabe Ruperto Carola, 'Ordnung & Chaos', November 2013"><figure>
+                     <img alt="" src="/static/images/campusmedia/cover_03_2013.jpg" />
+                     <figcaption>
+                     Ordnung & Chaos<br />
+                     Ausgabe 3<br />
+                     November 2013
+                     </figcaption>
+                  </figure></a>
+                  </div>  
+                </li>
+                <li class="col-lg-2 design">
+                  <div class="item-thumbs">
+                  <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/view/1545" title="Online-Ausgabe Ruperto Carola, 'Krieg & Frieden', Mai 2014"><figure>
+                     <img alt="" src="/static/images/campusmedia/cover_04_2014.jpg" />
+                     <figcaption>
+                     Krieg & Frieden<br />
+                     Ausgabe 4<br />
+                     Mai 2014
+                     </figcaption>
+                  </figure></a>
+                  </div>  
+                </li>
+                <li class="col-lg-2 design">
+                  <div class="item-thumbs">
+                  <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/view/1813" title="Online-Ausgabe Ruperto Carola, 'Draußen & Drinnen', Dezember 2014"><figure>
+                     <img alt="" src="/static/images/campusmedia/cover_05_2014.jpg" />
+                     <figcaption>
+                     Draußen & Drinnen<br />
+                     Ausgabe 5<br />
+                     November 2014
+                     </figcaption>
+                  </figure></a>
+                  </div>  
+                </li>
+                <li class="col-lg-2 design">
+                  <div class="item-thumbs">
+                  <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/view/2172" title="Online-Ausgabe Ruperto Carola, 'Gesund & Krank', Juni 2015"><figure>
+                     <img alt="" src="/static/images/campusmedia/cover_06_2015.jpg" />
+                     <figcaption>
+                     Gesund & Krank<br />
+                     Ausgabe 6<br />
+                     Juni 2015
+                     </figcaption>
+                  </figure></a>
+                  </div>  
+                </li>
+                <!--<li class="col-lg-2 design">
+                  <div class="item-thumbs">
+                  <figure>
+                     <img alt="" src="/static/images/campusmedia/cover_07_2015.jpg" />
+                     <figcaption>
+                     Schatten & Licht<br />
+                     Ausgabe 7<br />
+                     Dezmber 2015
+                     </figcaption>
+                  </figure>
+                  </div>  
+                </li>-->
+            </ul>
+            </section>
+        </div>
  
             </div>
  </div>
         </div>
 
 </section>
+
+{{pass}}
