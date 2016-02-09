@@ -3,6 +3,48 @@
 
 <section id="content">
     <div class="container">
+
+                <div class="row">
+	
+            <div class="col-lg-2">
+                <article>
+                    <div class="post-image">
+		 	<img src="{{=URL(myconf.take('web.application'),'static','images/journals/religions.jpg')}} ">
+                  </div>
+                </article>
+            </div>
+            <div class="col-lg-10">
+               <article>
+                        <div class="post-heading">
+			            <h3>Online &ndash; Heidelberg Journal of Religions on the Internet</h3>
+                        </div>
+                        <p>
+                            <i class="icon-quote-left"></i>
+             {{if session.forced_language =='de': }}
+<i>Online</i> ist eine interntionale, Peer-Review-geprüfte Open-Access-Zeitschrift, die am Institut für Religionswissenschaft der Universität Heidelberg erscheint. Die Herausgeber haben sich zum Ziel gesetzt, wissenschaftliche Forschung an der Schnittstelle von Religion und Internet zu fördern und die Forschung in diesem Feld theoretisch und methodisch voranzubringen.
+             
+             {{elif session.forced_language =='en': }}
+
+<i>Online</i> is an international open-access, peer-reviewed academic journal published by the Institute of Religious Studies  at the University of Heidelberg (Germany). The journal is committed to promoting and (theoretically and methodically) advancing  scientific research at the interface between religion and the internet.
+
+{{pass}}     
+
+                        </p>
+			  
+                    <div class="widget">
+                        <h5 class="widgetheading"></h5>
+                        <ul class="tags">
+        	       	   <li><a href="{{=URL(myconf.take('web.application'),'journals','religions')}}">{{=T('More' )}}</a></li><br>
+	                   <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/religions/index">{{=T('View Journal')}}</a></li>
+
+                        </ul>
+                    </div>
+			
+                </article>
+            </div>
+        </div>
+
+
         <div class="row">
 	
             <div class="col-lg-2">
@@ -41,5 +83,6 @@
                 </article>
             </div>
         </div>
+
 </div>
 </section>

@@ -5,6 +5,10 @@ def index():
 def tcs():
     return dict()
 
+def religions():
+    return dict()
+    
+
 
 def home():
     return dict()

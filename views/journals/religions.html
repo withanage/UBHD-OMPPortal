@@ -1,0 +1,186 @@
+{{extend 'layout.html'}}
+
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+	
+            <div class="col-lg-3">
+                <article>
+                    <div class="post-image">
+		 	<img src="{{=URL(myconf.take('web.application'),'static','images/journals/religions.jpg')}} ">
+                  </div>
+
+                </article>
+                
+                <div class="box">
+			             <div class="box-gray alignleft" style="height: auto;">
+                 {{if session.forced_language =='de': }}
+                            <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographische Angaben</h5>
+                            <p>Online &ndash; Heidelberg Journal of Religions on the Internet<br>
+                            
+                            <p>Editor in Chief</p>
+                            <ul>
+                              <li>Gregor Ahn</li>
+                            </ul>
+                            <p>Editorial Board</p>
+                            <ul>
+                              <li>Frank Bosman</li>
+                              <li>Oliver Krüger</li>
+                              <li>Gernot Meier</li>
+                            </ul>  
+                            <p>Managing Editor</p>
+                              <ul>
+                                <li>Simone Heidbrink</li>
+                              </ul>  
+                            <p>Editorial Assistant</p>
+                            <ul>
+                              <li>Tobias Knoll</li>
+                            </ul>    
+
+                            <p>Dieses Werk ist unter der<br> <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons-Lizenz 4.0<br /> (CC BY-SA 4.0)</a> veröffentlicht.<br>
+                            <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0"><img alt="Creative Commons Lizenz BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p>
+
+                             
+             {{elif session.forced_language =='en': }}
+             
+<h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographic details</h5>
+                            <p>Online &ndash; Heidelberg Journal of Religions on the Internet<br>
+                            
+                            <p>Editor in Chief</p>
+                            <ul>
+                              <li>Gregor Ahn</li>
+                            </ul>
+                            <p>Editorial Board</p>
+                            <ul>
+                              <li>Frank Bosman</li>
+                              <li>Oliver Krüger</li>
+                              <li>Gernot Meier</li>
+                            </ul>  
+                            <p>Managing Editor</p>
+                              <ul>
+                                <li>Simone Heidbrink</li>
+                              </ul>  
+                            <p>Editorial Assistang</p>
+                            <ul>
+                              <li>Tobias Knoll</li>
+                            </ul>    
+
+                            <p>This work is licensed under a <br> <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons License 4.0<br> (CC BY-SA 4.0)</a>.<br>
+                            <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; License CC BY-SA 4.0"><img alt="Creative Commons License BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p>             
+
+{{pass}}                  
+                   </div>
+
+
+             
+                                         
+                  </div>
+ </div>   
+
+            
+            <div class="col-lg-9">
+               <article>
+        <div id="infoBoxRechts" class="col-lg-3">
+          <!--<div class="box">
+            <div class="box-gray"  style="height: auto;">
+                 {{if session.forced_language =='de': }}
+                <p class="boxText"><b>RSS für die aktuelle Ausgabe</b></p>
+             {{elif session.forced_language =='en': }}
+                <p class="boxText"><b>RSS for current issue</b></p>
+{{pass}}                                          
+
+                    <a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/gateway/plugin/WebFeedGatewayPlugin/atom"><img src="http://heiup.uni-heidelberg.de/journals/plugins/generic/webFeed/templates/images/atom10_logo.gif" alt="Atom logo" border="0" /></a><br />
+	<a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/gateway/plugin/WebFeedGatewayPlugin/rss2"><img src="http://heiup.uni-heidelberg.de/journals/plugins/generic/webFeed/templates/images/rss20_logo.gif" alt="RSS2 logo" border="0" /></a><br />
+	<a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/gateway/plugin/WebFeedGatewayPlugin/rss"><img src="http://heiup.uni-heidelberg.de/journals/plugins/generic/webFeed/templates/images/rss10_logo.gif" alt="RSS1 logo" border="0" /></a>
+                  </div>
+                </div>-->
+             
+
+                <div class="box">
+                  <div class="box-gray"  style="height: auto;">
+                 
+                <p class="boxText"><b>{{=T('Information for authors')}}</b></p>
+
+                                 
+
+                    <ul class="standard">
+                      <li><a href="http://heiup.uni-heidelberg.de/media/religions/GuidelinesforAuthors.pdf">Author Guidelines</a></li>
+                    </ul>
+                  </div>
+                </div>
+                
+          <div class="box">
+            <div class="box-gray"  style="height: auto;">
+                 
+                <p class="boxText"><b>{{=T('Contact')}}</b></p>
+                    <ul class="standard">
+                      <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/religions/about/contact">Simone Heidbrink</a></li>
+                    </ul>
+                  </div>
+                </div>                
+              </div>
+
+              
+     <div class="post-heading">
+     
+     
+                  <h3>Online &ndash; Heidelberg Journal of Religions on the Internet</h3>
+        </div>
+
+                 {{if session.forced_language =='de': }}
+                 
+                        <p><i class="icon-quote-left"></i>
+<p><i>Online</i> ist eine interntionale, Peer-Review-geprüfte Open-Access-Zeitschrift, die am Institut für Religionswissenschaft der Universität Heidelberg erscheint. Die Herausgeber haben sich zum Ziel gesetzt, wissenschaftliche Forschung an der Schnittstelle von Religion und Internet zu fördern und die Forschung in diesem Feld theoretisch und methodisch voranzubringen.</p>
+
+<p>Autoren aus allen wissenschaftlichen Disziplinen wie beispielsweise Religionswisssenschaft, Soziologie, Kulturwissenschaft, Medienwissenschaft, Theologie, Ethnologie, die innerhalb des Diskursfelds Religion(en) und digitale Medien forschen und publizieren, sind aufgerufen, Abstracts und/oder Artikel einzureichen. Darüber hinaus werden auch Buchrezensionen zum Themenfeld des Journals gesucht und angenommen. Das Journal möchte eine große, jedoch hauptsächlich akademische Leserschaft erreichen. Von den Autoren wird deshalb erwartet, ihre Forschung in den Kontext rezenter theoretischer und methodischer Diskussionen zu stellen und diese in ihrer Forschung zu reflektieren.</p>
+
+<p>Neben unregelmäßig erscheinenden Sonderausgaben zu bestimmten Themen gibt es mehrmals im Jahr reguläre Ausgaben. Artikel können unabhängig von &bdquo;Calls for Papers&rdquo; jederzeit zur Begutachtung eingereicht werden.</p>
+
+<p>Nach dem Prinzip, dass freier Zugang zu wissenschaftlichen Materialien den globalen akademischen Diskurs fördert und unterstützt, erscheint <i>Online</i> ganz bewusst als Open-Access-Zeitschrift.  </p>
+                 
+                 
+
+
+
+             {{elif session.forced_language =='en': }}
+
+                        <p><i class="icon-quote-left"></i>
+<i>Online</i> is an international open-access, peer-reviewed academic journal published by the Institute of Religious Studies  at the University of Heidelberg (Germany). The journal is committed to promoting and (theoretically and methodically) advancing  scientific research at the interface between religion and the internet.</p>
+
+<p>The editors welcome submissions from all academic disciplines and perspectives (e.g. Religious Studies, Social Studies, Cultural Studies, Media Studies, Theology, Anthropology, etc.) focussing on general and specific issues of religion and new digital media. Additionally, we encourage authors to review (new) books dealing with subjects relevant  to the journal’s scopes.</p>
+
+<p>Authors are expected to present their research in terms of relevant theoretical and / or methodological discussions and to be of interest to a wide, but mainly academic audience in a manner intelligible not only to specialists. <i>Online</i> is looking forward to submissions and inquiries of any kind.</p>
+
+<p>In addition to special issues published at irregular intervals, the journal will most often publish articles and reviews as they are approved. We will gather this material into formal issues every six months or once a year (depending on the number of special issues). We are planning to publish two numbers for every calendar year.</p>
+
+<p>This journal provides immediate open access to its content on the principle that making research freely available to the public supports a greater global exchange of knowledge. </p>
+
+
+{{pass}}     
+
+
+                    <div class="widget">
+                        <h5 class="widgetheading"></h5>
+                        <ul class="tags">
+                 {{if session.forced_language =='de': }}
+             
+                            <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/index">zur Zeitschrift</a></li>
+             {{elif session.forced_language =='en': }}
+                            <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/index">View Journal</a></li>
+             
+{{pass}}     
+                       
+
+                        </ul>
+                    </div>
+
+                     			
+			
+                </article>
+ 
+            </div>
+ </div>
+        </div>
+
+</section>
