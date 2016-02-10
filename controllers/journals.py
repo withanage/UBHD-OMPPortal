@@ -5,6 +5,7 @@ def index():
 def religions():
     return dict()
 
+
 def tcs():
     return dict()
 
