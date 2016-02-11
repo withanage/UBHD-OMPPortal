@@ -13,6 +13,3 @@ def index():
 def imprint():
     return dict()
     
-def religions():
-    return dict()
-    
