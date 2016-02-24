@@ -42,9 +42,6 @@ def index():
       redirect( URL('home', 'index'))  
     return dict(submissions=submissions, subs=subs, order=order)
 
-
->>>>>>> b4d39d1... Order books in catalog by submission date
-
 def book():
     abstract, authors, cleanTitle, publication_format_settings_doi, press_name, subtitle = '', '', '', '', '', ''
     locale = ''
