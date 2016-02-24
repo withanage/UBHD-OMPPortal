@@ -15,9 +15,12 @@ def index():
     ignored_submissions =  myconf.take('omp.ignore_submissions') if myconf.take('omp.ignore_submissions') else -1
     query = ((db.submissions.context_id == myconf.take('omp.press_id')) &  (db.submissions.submission_id!=ignored_submissions) & (db.submissions.status == 3) & (
         db.submission_settings.submission_id == db.submissions.submission_id) & (db.submission_settings.locale == locale))
-    submissions = db(query).select(db.submission_settings.ALL,orderby=db.submissions.submission_id)
+    submissions = db(query).select(db.submission_settings.ALL,orderby=~db.submissions.date_submitted)
     subs = {}
+    order = []
     for i in submissions:
+      if not i.submission_id in order:
+	order.append(i.submission_id)
       authors=''
       if i.setting_name == 'abstract':
           subs.setdefault(i.submission_id, {})['abstract'] = i.setting_value
@@ -37,8 +40,10 @@ def index():
       subs.setdefault(i.submission_id, {})['authors'] = authors
     if len(subs) == 0:
       redirect( URL('home', 'index'))  
-    return dict(submissions=submissions, subs=subs)
+    return dict(submissions=submissions, subs=subs, order=order)
 
+
+>>>>>>> b4d39d1... Order books in catalog by submission date
 
 def book():
     abstract, authors, cleanTitle, publication_format_settings_doi, press_name, subtitle = '', '', '', '', '', ''
