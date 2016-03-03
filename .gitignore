@@ -40,7 +40,7 @@ Thumbs.db
 databases/*
 .idea/*
 sessions/*
-static/monographs/*
+static/monographs
+static/series
 private/*
 errors/*
-
