@@ -44,3 +44,4 @@ static/monographs
 static/series
 private/*
 errors/*
+*.swp
