@@ -154,6 +154,49 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-lg-3">
+                <article>
+                    <div class="post-image">
+                 <!--       <img src="./static/images/catalog/not_available.png"/>-->
+                    </div>
+                </article>
+            </div>
+            <div class="col-lg-9">
+                {{if session.forced_language =='de': }}
+                <article>
+                    <div class="post-heading">
+                        <h3><!--<a href="#" Link auskommentiert, solange Bio unter Abstract steht - evtl. später andere Lösung? 13.07. voe-->Felix Michl</h3>
+                        <h4>Die limitierte Auflage</h4>
+                    </div>
+                    <p>Die Fotografie hat sich in den letzten Jahrzehnten zu einer der populärsten Kunstgattungen entwickelt. Dies zeigt sich nicht zuletzt auch am Erfolg der zeitgenössischen Fotografie auf dem Kunstmarkt, wo einzelne Abzüge mittlerweile für Millionenbeträge gehandelt werden. Diese hohe finanzielle Wertschätzung einzelner Fotografien wäre undenkbar, würde das Potenzial der Fotografie zur nahezu unendlichen Reproduktion tatsächlich ausgeschöpft. Im Gegenteil hat sich im Bereich der zeitgenössischen Fotokunst die Praxis etabliert, Fotografien nur in sogenannten „limitierten Auflagen“ aufzulegen, bei denen teilweise sogar mit einstelligen Auflagenhöhen gearbeitet wird. Die vorliegende Dissertation untersucht die rechtlichen Fragen im Zusammenhang mit solchen Auflagenlimitierungen und geht dabei insbesondere der Frage nach, ob solche „Exklusivitätsversprechen“ rechtlich bindend sind und somit beispielsweise von einem Sammler eingeklagt werden könnten.</p>
+                    <p><strong>Erscheint im Sommer 2016</strong></p>
+                    <div class="widget">
+                        <h5 class="widgetheading"></h5>
+                        <!--<ul class="tags">
+                            <li><a href="{{=URL('catalog','book',str(entry))}}">{{=T('More')}}</a></li>
+                        </ul>-->
+                    </div>
+                </article>
+                {{elif session.forced_language =='en': }}
+                <article>
+                    <div class="post-heading">
+                        <h3><!--<a href="#" Link auskommentiert, solange Bio unter Abstract steht - evtl. später andere Lösung? 13.07. voe-->Felix Michl</h3>
+                        <h4>Die limitierte Auflage</h4>
+                    </div>
+                    <p>Die Fotografie hat sich in den letzten Jahrzehnten zu einer der populärsten Kunstgattungen entwickelt. Dies zeigt sich nicht zuletzt auch am Erfolg der zeitgenössischen Fotografie auf dem Kunstmarkt, wo einzelne Abzüge mittlerweile für Millionenbeträge gehandelt werden. Diese hohe finanzielle Wertschätzung einzelner Fotografien wäre undenkbar, würde das Potenzial der Fotografie zur nahezu unendlichen Reproduktion tatsächlich ausgeschöpft. Im Gegenteil hat sich im Bereich der zeitgenössischen Fotokunst die Praxis etabliert, Fotografien nur in sogenannten „limitierten Auflagen“ aufzulegen, bei denen teilweise sogar mit einstelligen Auflagenhöhen gearbeitet wird. Die vorliegende Dissertation untersucht die rechtlichen Fragen im Zusammenhang mit solchen Auflagenlimitierungen und geht dabei insbesondere der Frage nach, ob solche „Exklusivitätsversprechen“ rechtlich bindend sind und somit beispielsweise von einem Sammler eingeklagt werden könnten.</p>
+                    <p><strong>Coming in Summer 2016</strong></p>
+                    <div class="widget">
+                        <h5 class="widgetheading"></h5>
+                        <!--<ul class="tags">
+                            <li><a href="{{=URL('catalog','book',str(entry))}}">{{=T('More')}}</a></li>
+                        </ul>-->
+                    </div>
+                </article>
+                {{pass}}
+            </div>
+        </div>
+
     </div>
     
     
