@@ -36,6 +36,21 @@ def oastatistik():
           authors['relation'] = 'creators'
           authors['label'] = i.first_name + " "+ i.last_name
       
+      ##
+      full_files = db (db.submission_files.genre_id==myconf.take('omp.monograph_type_id')).select(db.submission_files.submission_id,db.submission_files.file_id, db.submission_files.original_file_name )
+      
+      for f in full_files:
+        full = {}
+        full["label"] = title
+        full["type"] = "volume"
+        full["associate_via_hierarchy"] = [authors]
+        full["norm_id"] = str(book_id.submission_id)
+        subs[str(book_id.submission_id)+'-'+str(f.file_id)+'-'+str(f.original_file_name.rsplit('.')[1])] = full
+        
+        
+        
+      
+      ##
       fullbook =  {}
       fullbook["label"] = title
       fullbook["type"] = "volume"
@@ -44,6 +59,7 @@ def oastatistik():
         fullbook["norm_id"] = publication_format_settings_doi['setting_value']
       fullbook["associate_via_hierarchy"] = [authors]
       
+      '''
       if request.vars.ids:
         for j in filter_ids:
           if str(j) == str(book_id.submission_id):
@@ -51,6 +67,9 @@ def oastatistik():
          
       else:
           subs[book_id.submission_id] = fullbook
+      '''
+      
+      
       chapters = db ((db.submission_chapters.submission_id == book_id['submission_id']) & (db.submission_file_settings.setting_name=='chapterID') & (db.submission_file_settings.setting_value==db.submission_chapters.chapter_id)).select(db.submission_chapters.chapter_id,db.submission_file_settings.file_id, orderby = db.submission_chapters.chapter_seq)
       for c in chapters:
           chapter_id = str(book_id['submission_id'])+'-'+str(c['submission_chapters']['chapter_id'])
