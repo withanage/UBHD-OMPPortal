@@ -220,20 +220,22 @@
                 {{pass}}
                 {{if str(type_dict[i.submission_files.assoc_id]).lower() ==  myconf.take('omp.xml_category_name').lower(): }}
 		{{link=URL(myconf.take('web.application'), 'reader', 'index/'+str(i.submission_files.submission_id)+'/'+str(i.submission_files.submission_id)+'-'+str(i.submission_files.genre_id)+'-'+str(i.submission_files.file_id)+'-'+str(i.submission_files.revision)+'-'+str(i.submission_files.file_stage)+'-'+str(i.submission_files.date_uploaded.strftime('%Y%m%d'))+'.'+str(type_dict[i.submission_files.assoc_id]).lower())}}
-                {{if vgwort_server : }}
-		{{code=db((db.submission_file_settings.setting_name=="vgWortPublic") & (db.submission_file_settings.file_id==i.submission_files.file_id)).select(db.submission_file_settings.setting_value).first()['setting_value']}}
-                {{link = vgwort_server+code+'?l='+myconf.take("web.url")+link}}
-                {{pass}}
+    {{code=db((db.submission_file_settings.setting_name=="vgWortPublic") & (db.submission_file_settings.file_id==i.submission_files.file_id)).select(db.submission_file_settings.setting_value).first()}}
+                {{if (vgwort_server is not None) & (code is not None): }}
+                  {{code= code['setting_value']}}
+                  {{link = vgwort_server+code+'?l='+myconf.take("web.url")+link}}
+                  {{pass}}
 
                 {{=TD(A(I(_class="fa fa-html5"), _href=link))}}
                 {{else:}}
 		{{link=URL(myconf.take('web.application'), 'reader', 'download/'+str(i.submission_files.submission_id)+'/'+str(i.submission_files.submission_id)+'-'+str(i.submission_files.genre_id)+'-'+str(i.submission_files.file_id)+'-'+str(i.submission_files.revision)+'-'+str(i.submission_files.file_stage)+'-'+str(i.submission_files.date_uploaded.strftime('%Y%m%d'))+'.'+str(type_dict[i.submission_files.assoc_id]).lower())}}
-		{{if vgwort_server : }}
+    {{code=db((db.submission_file_settings.setting_name=="vgWortPublic") & (db.submission_file_settings.file_id==i.submission_files.file_id)).select(db.submission_file_settings.setting_value).first()}}
+		
+		{{if (vgwort_server is not None) & (code is not None): }}
+      {{code= code['setting_value']}}
+      {{link = vgwort_server+code+'?l='+myconf.take("web.url")+link}}
 
-		{{code=db((db.submission_file_settings.setting_name=="vgWortPublic") & (db.submission_file_settings.file_id==i.submission_files.file_id)).select(db.submission_file_settings.setting_value).first()['setting_value']}}
-		{{link = vgwort_server+code+'?l='+myconf.take("web.url")+link}}
-
-		 {{pass}}
+		{{pass}}
                 {{=TD(A(I(_class="fa fa-file-text-o"), _href=link))}}
                 {{pass}}
                 {{num = num +1 }}
