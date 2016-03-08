@@ -54,7 +54,8 @@ def oastatistik():
       chapters = db ((db.submission_chapters.submission_id == book_id['submission_id']) & (db.submission_file_settings.setting_name=='chapterID') & (db.submission_file_settings.setting_value==db.submission_chapters.chapter_id)).select(db.submission_chapters.chapter_id,db.submission_file_settings.file_id, orderby = db.submission_chapters.chapter_seq)
       for c in chapters:
           chapter_id = str(book_id['submission_id'])+'-'+str(c['submission_chapters']['chapter_id'])
-          file_id = str(book_id['submission_id'])+'-'+str(c['submission_file_settings']['file_id'])
+          type= db(db.submission_files.file_id==c['submission_file_settings']['file_id']).select(db.submission_files.original_file_name).first()['original_file_name'].rsplit('.')[1]
+          file_id = str(book_id['submission_id'])+'-'+str(c['submission_file_settings']['file_id'])+'-'+str(type)
           part_filter = False
           if request.vars.ids:
             for j in filter_ids:
