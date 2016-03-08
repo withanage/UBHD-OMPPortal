@@ -37,7 +37,7 @@ def oastatistik():
           authors['label'] = i.first_name + " "+ i.last_name
       
       ##
-      full_files = db (db.submission_files.genre_id==myconf.take('omp.monograph_type_id')).select(db.submission_files.submission_id,db.submission_files.file_id, db.submission_files.original_file_name )
+      full_files = db ((db.submission_files.genre_id==myconf.take('omp.monograph_type_id')) & (db.submission_files.file_stage > 5 ) & (db.submission_files.submission_id==book_id.submission_id)).select(db.submission_files.submission_id,db.submission_files.file_id, db.submission_files.original_file_name )
       
       for f in full_files:
         full = {}
