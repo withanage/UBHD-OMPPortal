@@ -341,6 +341,34 @@ The new edition of the <a href="http://heiup.uni-heidelberg.de/journals/index.ph
 
                             <div class="box">
 
+                                <div class="box-gray aligncenter">
+   {{if session.forced_language =='de': }}
+                                    <h4>Demnächst</h4>
+   {{elif session.forced_language =='en': }}
+   <h4>Forthcoming</h4>                                    
+                                       {{pass}}                                    
+
+                                    <img src="{{=URL(myconf.take('web.application'),'static','images/catalog/Cover_Kemp_OMP.jpg')}}" width="145px"/>
+
+                                </div>
+
+                                <div class="box-bottom">
+   {{if session.forced_language =='de': }}
+                                    <a href="http://heiup.uni-heidelberg.de/catalog/index.html#kemp">Mehr</a>
+      {{elif session.forced_language =='en': }}
+                                    <a href="http://heiup.uni-heidelberg.de/catalog/index.html#kemp_en">More Information</a>
+                                      {{pass}}         
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- <div class="col-lg-3">
+
+                            <div class="box">
+
                                 <div class="box-gray">
                                     
                                     <b><span style="text-align: left">Heidelberg Studies in Transculturality</span></b>
@@ -357,16 +385,16 @@ The new edition of the <a href="http://heiup.uni-heidelberg.de/journals/index.ph
                                 </div>
 
                                 <div class="box-bottom">&nbsp;
-   <!--{{if session.forced_language =='de': }}
+  {{if session.forced_language =='de': }}
                                     <a href="http://heiup.uni-heidelberg.de/#"><span style="color: #EFEFEF;">Mehr</span>
       {{elif session.forced_language =='en': }}
                                     <a href="http://heiup.uni-heidelberg.de/#"><span style="color: #EFEFEF;">More</span>
-                                      {{pass}}-->         
+                                      {{pass}}        
                                 </div>
 
                             </div>
 
-                        </div>
+                        </div>  -->
 
                         <div class="col-lg-6" >
 
