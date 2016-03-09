@@ -113,7 +113,7 @@
             <div class="col-lg-3">
                 <article>
                     <div class="post-image">
-                       <img src="./static/images/catalog/Cover_Kemp_OMP.jpg"/>
+                       <img src="{{=URL(myconf.take('web.application'),'static','images/catalog/Cover_Kemp_OMP.jpg')}} />
                     </div>
                 </article>
             </div>
@@ -121,7 +121,7 @@
                 {{if session.forced_language =='de': }}
                 <article>
                     <div class="post-heading">
-                        <h3><!--<a href="#" Link auskommentiert, solange Bio unter Abstract steht - evtl. später andere Lösung? 13.07. voe-->Wolfgang Kemp</h3>
+                        <h3>Wolfgang Kemp</h3>
                         <h4><a id="kemp"></a>Wir haben ja alle Deutschland nicht gekannt<br />
                             Das Deutschlandbild der Deutschen in der Zeit der Weimarer Republik</h4>
                     </div>
@@ -137,7 +137,7 @@
                 {{elif session.forced_language =='en': }}
                 <article>
                     <div class="post-heading">
-                        <h3><!--<a href="#" Link auskommentiert, solange Bio unter Abstract steht - evtl. später andere Lösung? 13.07. voe-->Wolfgang Kemp</h3>
+                        <h3>Wolfgang Kemp</h3>
                         <h4><a id="kemp_en"></a>Wir haben ja alle Deutschland nicht gekannt<br />
                             Das Deutschlandbild der Deutschen in der Zeit der Weimarer Republik</h4>
                     </div>
