@@ -1,0 +1,91 @@
+{{extend 'layout.html'}}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>  {{ if session.forced_language =='de': }}
+              Unsere Partner
+                {{elif session.forced_language =='en': }}
+              Our Partners
+            {{pass}}
+            </h3>
+
+<div class="box">
+ 
+    <div class="media">
+            <div class="media-left pull-left partner-logo">
+              <img src="../static/images/about_us/partners/aeup.gif" class="pull-left media-object" style="width: 150px" alt="" />
+      </div>        
+      <div class="media-body">
+        <p class="media-heading"><a href="http://www.aeup.eu/aeup/" target="_self"><strong>Association of European University Presses</strong>&nbsp;<i class="fa fa-external-link"></i></a> </p>
+          {{ if session.forced_language =='de': }}
+        
+          <p class="beiratBeschreibung">AEUP ist ein Verband für Universitätsverlage aus ganz Europa, der zum Ziel hat, die Beziehungen der Verlage untereinander zu stärken, ihre Zusammenarbeit zu fördern, die Kommunikation untereinander anzustoßen bzw. zu verbessern und den Austausch von Erfahrungen zu erleichtern. 
+          </p>
+          
+          {{elif session.forced_language =='en': }}
+          <p class="beiratBeschreibung">AEUP is an organisation of and for University Presses across Europe to help them build stronger relationships between them, to co-operate and share knowledge in order to reach common goals and to jointly address important issues in a currently dynamic time in publishing.
+          </p>
+          {{pass}}
+      </div>
+</div>  
+ 
+ <div class="media">
+      <div class="media-left pull-left partner-logo">
+        <img src="../static/images/about_us/partners/ag_univerlage.jpg" class="pull-left media-object" style="width: 150px" alt="" />
+      </div>
+      <div class="media-body">
+          <p class="media-heading"><a href="https://blog.bibliothek.kit.edu/ag_univerlage/" target="_self"><strong>AG Universitätsverlage</strong>&nbsp;<i class="fa fa-external-link"></i></a> </p>
+          {{ if session.forced_language =='de': }}
+
+          <p class="beiratBeschreibung">Die Arbeitsgemeinschaft der Universitätsverlage verbindet seit 2004 zahlreiche Verlage aus Deutschland, Österreich und Italien. Ziel der Arbeitsgemeinschaft ist es, die Verlage bei der Vertretung ihrer Interessen nach außen zu unterstützen und den Erfahrungsaustausch zu fördern.
+          </p>
+          {{elif session.forced_language =='en': }}
+          <p class="beiratBeschreibung">Since 2004 the Arbeitsgemeinschaft der Universitätsverlage (University Publisher Working Group) has been bringing together many university publishing houses based in Germany, Austria and Italy. Their aim is to support publishers' interests and to promote exchange of experience.
+          </p>
+
+
+          {{pass}}
+      </div>
+  </div>
+  
+   <div class="media">
+      <div class="media-left pull-left partner-logo">
+        <img src="../static/images/about_us/partners/OpenAccess.jpg" class="pull-left media-object" style="height: 80px" alt="" />
+      </div>
+      <div class="media-body">
+          <p class="media-heading"><a href="http://open-access.net/startseite/" target="_self"><strong>Open Access</strong>&nbsp;<i class="fa fa-external-link"></i></a> </p>
+          {{ if session.forced_language =='de': }}
+          <p class="beiratBeschreibung">Die Plattform open-access.net informiert umfassend über das Thema Open Access und bietet praktische Umsetzungshilfen an.            
+          </p>
+          {{elif session.forced_language =='en': }}
+          <p class="beiratBeschreibung">The open-access.net platform provides comprehensive information on the subject of Open Access (OA) and offers practical advice on its implementation.           
+          </p>
+          {{pass}}
+
+      </div>
+  </div>
+  
+     <div class="media">
+      <div class="media-left pull-left partner-logo">
+        <img src="../static/images/about_us/partners/pkp_logo.png" class="pull-left media-object" style="height: 80px" alt="" />
+      </div>
+      <div class="media-body">
+          <p class="media-heading"><a href="https://pkp.sfu.ca" target="_self"><strong>PKP Public Knowledge Project</strong>&nbsp;<i class="fa fa-external-link"></i></a> </p>
+          {{ if session.forced_language =='de': }}
+          
+          <p class="beiratBeschreibung">„Public Knowledge Project“ (PKP) ist eine von mehreren international renommierten Universitäten getragene Forschungs- und Softwareorganisation, die Open-Source-Publikationsplattformen entwickelt und damit einen wichtigen Beitrag zur Steigerung der Qualität und der Vergrößerung der Reichweite wissenschaftlichen Publizierens leistet.</p> 
+          {{elif session.forced_language =='en': }}
+          <p class="beiratBeschreibung">PKP is a multi-university initiative developing (free) open source software and conducting research to improve the quality and reach of scholarly publishing.
+          </p>
+          {{pass}}
+      </div>
+  </div>
+  
+          
+  
+  </div>  
+
+
+        </div>
+    </div>
+  </div>  

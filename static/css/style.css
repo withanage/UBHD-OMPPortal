@@ -2205,6 +2205,10 @@ img.beiratPortrait {
   margin: 0 20px 0 0;
 }
 
+/** Partner **/
+.partner-logo {
+  width: 12em;
+}
 
 /** Info für Autoren **/
 

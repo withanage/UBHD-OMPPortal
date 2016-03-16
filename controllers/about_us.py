@@ -20,3 +20,7 @@ def advisory_board():
 
 def team():
     return dict()
+
+
+def partners():
+    return dict()

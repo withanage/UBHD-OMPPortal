@@ -222,10 +222,36 @@
           {{pass}}
           
           
+          <div class="media">
+                  <div class="media-left pull-left">
+                      <img src="{{=URL(myconf.take('web.application'),'static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
+                  </div>                        
+                  <div class="media-body">      
+                      <p class="media-heading">
+        {{if session.forced_language =='de': }}  
+            <h5>Heidelberg University Publishing ist Mitglied in der Association of European Publishers (AEUP).</h5>
+        {{elif session.forced_language =='en': }}
+            <h5>Heidelberg University Publishing is a member of the Association of
+European Publishers (AEUP).</h5>        
+        {{pass}}   
+                      </p>
+                  <p class="boxText">
+        {{if session.forced_language =='de': }}      
+<a href="http://www.aeup.eu/aeup/" title="Homepage Associaten of European University Presses">AEUP</a> ist eine Organisation von und für europäische Universitätsverlage. Darin vertreten sind zahlreiche namhafte Verlage unter anderem aus Belgien, Finnland, Großbritannien, den Niederlanden und Deutschland. Wir freuen uns, dass unser Aufnahmeantrag vor wenigen Tagen angenommen wurde!  
+        {{elif session.forced_language =='en': }}
+        The <a href="http://www.aeup.eu/aeup/" title="Homepage Associaten of European University Presses">AEUP</a> is an organization of and for European university presses. Numerous well-known publishers as for example from Belgium, Finland, Great
+Britain, the Netherlands and Germany are represented in this association. We are pleased that, a few days ago, our application for admission has been accepted!
+           {{pass}}                                   
+           
+                      </p>
+                  </div>
+              </div>
+              
+              
               <div class="media">
                   <div class="media-left pull-left">
                       <a href="http://open-access.net/community/open_access_tage/">
-                          <img src="{{=URL(myconf.take('web.application'),'static','images/press/home/uni_aktuelles.png')}}" width="50px" />
+                          <img src="{{=URL(myconf.take('web.application'),'static','images/press/home/uni_aktuelles.png')}}" style="width:50px;" />
                       </a>
                   </div>                        
                   <div class="media-body">      
@@ -244,30 +270,9 @@ The new edition of the <a href="http://heiup.uni-heidelberg.de/journals/index.ph
                           {{pass}}                                   
                                       </p>
                                     </div>
-                                </div>          
+           </div>          
           
-          <div class="media">
-                  <div class="media-left pull-left">
-                      <img src="{{=URL(myconf.take('web.application'),'static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
-                  </div>                        
-                  <div class="media-body">      
-                      <p class="media-heading">
-        {{if session.forced_language =='de': }}  
-            <h5>Heidelberg University Publishing ist online</h5>
-        {{elif session.forced_language =='en': }}
-            <h5>Now online: Heidelberg University Publishing</h5>        
-        {{pass}}   
-                      </p>
-                  <p class="boxText">
-        {{if session.forced_language =='de': }}  
-           Mit dem Werk &bdquo;Abwesenheit von Rom&rdquo; der Autorin Astrid Habenstein geht der Verlag &bdquo;Heidelberg University Publishing&rdquo; am 23. Juli 2015 online. Die Universität Heidelberg verfolgt mit ihrem jetzt gegründeten Verlag das Ziel, über innovative digitale Publikationsformen freien Zugang zu herausragenden wissenschaftlichen Publikationen zu ermöglichen und neue Wege in der wissenschaftlichen Kommunikation zu eröffnen. 
-        {{elif session.forced_language =='en': }}
-           Heidelberg University Publishing will launch its first title, <i>Abwesenheit von Rom</i>, by Astrid Habenstein, on July 23, 2015. With this work, Heidelberg University realizes its goal of providing open access to outstanding academic publications in innovative digital formats, thus forwarding new modes of scientific communication.
-           {{pass}}                                   
-            <!--<a href="http://open-access.net/community/open_access_tage/ " target="_blank">&nbsp;<i class="fa fa-external-link"></i></a>-->
-                      </p>
-                  </div>
-              </div>
+
               
 
                                 
@@ -321,7 +326,7 @@ The new edition of the <a href="http://heiup.uni-heidelberg.de/journals/index.ph
    <h4>Forthcoming</h4>                                    
                                        {{pass}}                                    
 
-                                    <img src="{{=URL(myconf.take('web.application'),'static','images/press/home/Cover2English.jpg')}}" width="145px"/>
+                                    <img src="{{=URL(myconf.take('web.application'),'static','images/press/home/Cover2English.jpg')}}" style="width: 145px;"/>
 
                                 </div>
 
@@ -348,7 +353,7 @@ The new edition of the <a href="http://heiup.uni-heidelberg.de/journals/index.ph
    <h4>Forthcoming</h4>                                    
                                        {{pass}}                                    
 
-                                    <img src="{{=URL(myconf.take('web.application'),'static','images/catalog/Cover_Kemp_OMP.jpg')}}" width="145px"/>
+                                    <img src="{{=URL(myconf.take('web.application'),'static','images/catalog/Cover_Kemp_OMP.jpg')}}" style="width: 145px;"/>
 
                                 </div>
 
@@ -403,7 +408,7 @@ The new edition of the <a href="http://heiup.uni-heidelberg.de/journals/index.ph
                                 <!-- TWITTER TIMELINE-->
 
  				<div>
-                                    <a class="twitter-timeline"  href="https://twitter.com/UniHeidelberg" data-widget-id="521961404698341376"  height='350'>{{=T('Tweets by @UniHeidelberg')}}</a>
+                                    <a class="twitter-timeline"  href="https://twitter.com/UniHeidelberg" data-widget-id="521961404698341376"  style="height: 350px;">{{=T('Tweets by @UniHeidelberg')}}</a>
                                     <script>!function (d, s, id) {
                                         var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
                                         if (!d.getElementById(id)) {
