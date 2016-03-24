@@ -978,10 +978,10 @@ span.annotation.formula_reference, span.publication_reference {
 /* For the main content area
 ----------------------------------------------------------------------- */
 .surface.content .nodes > .content-node {
-  padding-top: 10px;
-  padding-bottom: 15px;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-top: 0px;
+  padding-bottom: px;
+  padding-left: 0px;
+  padding-right: 0px;
   word-wrap: break-word; }
 
 /* Some extra cover spacing */
@@ -1425,16 +1425,32 @@ body.loading .spinner-wrapper {
     display: none !important; } }
 
 .content-node.speech > .content {
-  padding: 20px; }
+  padding: 0px; }
 
-.document .content-node.speech .content-node.paragraph {
+.document .content-node.speech .content-node.speeches {
   padding: 0px;
   /** padding: 0px 40px 10px 40px; **/
   border-left: 3px solid #000; }
 
-.surface.content .content-node.speech > .content > .label {
-  font-weight: 600;
-  padding-bottom: 20px; }
+.surface.content .nodes > .content-node.speech > .content > .speeches > .speech {
+  display: table; }
 
+.surface.content .nodes > .content-node.speech > .content > .speeches > .speech > .speech-row {
+  display: table-row; }
+
+.surface.content .nodes > .content-node.speech > .content > .speeches > .speech > .speech-row > .speech-speaker {
+  display: table-cell;
+  max-width: 100px !important;
+  min-width: 100px !important; }
+
+.surface.content .nodes > .content-node.speech > .content > .speeches > .speech > .speech-row > .speech-text {
+  display: table-cell; }
+
+/**
+.rTableHeading    { display: table-header-group; }
+.rTableBody    { display: table-row-group; }
+.rTableFoot    { display: table-footer-group; }
+.rTableCell, .rTableHead  { display: table-cell; }
+*/
 .altmetrics-panel .altmetrics {
   padding: 20px; }
