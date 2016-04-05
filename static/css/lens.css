@@ -980,7 +980,7 @@ span.annotation.formula_reference, span.publication_reference {
 .surface.content .nodes > .content-node {
   padding-top: 0px;
   padding-bottom: px;
-  padding-left: 0px;
+  padding-left: 10px;
   padding-right: 0px;
   word-wrap: break-word; }
 
