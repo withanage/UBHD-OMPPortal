@@ -1,5 +1,5 @@
 {{extend 'layout.html'}}
-{{import re}}
+{{import re, os}}
 <section id="content">
     <div style="height: 20px"></div>
     {{for entry in order:}}
@@ -8,7 +8,16 @@
             <div class="col-lg-3">
                 <article>
                     <div class="post-image">
-                        {{=IMG(_src=URL(myconf.take('web.application'),'static','monographs/'+ str(entry)+'/simple/cover.jpg'))}}
+                        {{
+                                cover_image=''
+                                path=request.folder+'static/monographs/'+str(entry)+'/simple/cover.'
+                                for t in ['jpg','png','gif']:
+                                        if os.path.exists(path+str(t)):
+                                                cover_image= URL(myconf.take('web.application'), 'static','monographs/' + str(entry) + '/simple/cover.'+str(t))
+                                        pass
+                                pass
+                        }}
+                        {{=IMG(_src=cover_image)}}
                     </div>
                 </article>
             </div>

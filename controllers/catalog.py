@@ -5,7 +5,7 @@ Copyright (c) 2015 Heidelberg University Library
 Distributed under the GNU GPL v3. For full terms see the file
 LICENSE.md
 '''
-
+import os
 
 def index():
     abstract, author, cleanTitle, subtitle = '', '', '', ''
@@ -140,7 +140,12 @@ def book():
         if i.setting_name == 'title':
             cleanTitle = i.setting_value
 
-    cover_image = URL(myconf.take('web.application'), 'static','monographs/' + book_id + '/simple/cover.jpg')
+    cover_image=''
+    path=request.folder+'static/monographs/'+book_id+'/simple/cover.'
+    for t in ['jpg','png','gif']:
+        if os.path.exists(path+t):
+                cover_image= URL(myconf.take('web.application'), 'static','monographs/' + book_id + '/simple/cover.'+t)
+
     if  int(myconf.take('omp.vgwort_enable')) == 1 :
 	vgwort_server=myconf.take('web.vgwort_server1')
     	if urllib.urlopen(vgwort_server).getcode()!=200:
