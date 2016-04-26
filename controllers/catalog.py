@@ -60,6 +60,7 @@ def index():
 
 
 def book():
+    ompdal = OMPDAL(db, myconf)
     abstract, authors, cleanTitle, publication_format_settings_doi, press_name, subtitle = '', '', '', '', '', ''
     locale = ''
     if session.forced_language == 'en':
@@ -77,14 +78,15 @@ def book():
     #if len(book) == 0:
     #    redirect(URL('catalog', 'index'))
 
-    author_q = ((db.authors.submission_id == book_id))
-    authors_list = db(author_q).select(
-        db.authors.first_name, db.authors.last_name)
+    authors_list = ompdal.getAuthors(book_id)
 
-    for i in authors_list:
-        authors += i.first_name + ' ' + i.last_name + ', '
-    if authors.endswith(', '):
-        authors = authors[:-2]
+    authors = ", ".join([authors_list[0].last_name, authors_list[0].first_name])
+    if len(authors_list) > 1:
+        authors += " {} {}".format(authors_list[1].first_name, authors_list[1].last_name)
+    if len(authors_list) > 2:
+        authors += " {} {} {}".format(T("and"), authors_list[2].first_name, authors_list[2].last_name)
+    if len(authors_list) > 3:
+        authors += " et al."
 
     author_bio = db((db.authors.submission_id == book_id) & (db.authors.author_id == db.author_settings.author_id) & (
         db.author_settings.locale == locale) & (db.author_settings.setting_name == 'biography')).select(db.author_settings.setting_value).first()
@@ -148,6 +150,8 @@ def book():
     for j in press_settings:
         if j.setting_name == 'name':
             press_name = j.setting_value
+        if j.setting_name == 'location':
+            press_location = j.setting_value
 
     for i in book:
         if i.setting_name == 'abstract':
@@ -173,5 +177,8 @@ def book():
 	vgwort_server= None
 
 
-    return dict(abstract=abstract, authors=authors, author_bio=author_bio, book_id=book_id, chapters=chapters, cleanTitle=cleanTitle, cover_image=cover_image, full_files=full_files, identification_codes=identification_codes,
-                publication_formats=publication_formats, publication_format_settings_doi=publication_format_settings_doi, published_date=published_date, subtitle=subtitle, press_name=press_name, representatives=representatives,vgwort_server=vgwort_server)
+    return dict(abstract=abstract, authors=authors, author_bio=author_bio, book_id=book_id, chapters=chapters,
+                cleanTitle=cleanTitle, cover_image=cover_image, full_files=full_files, identification_codes=identification_codes,
+                publication_formats=publication_formats, publication_format_settings_doi=publication_format_settings_doi,
+                published_date=published_date, subtitle=subtitle, press_name=press_name, press_location=press_location,
+                representatives=representatives,vgwort_server=vgwort_server)
