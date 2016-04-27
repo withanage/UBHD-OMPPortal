@@ -80,13 +80,10 @@ def book():
 
     authors_list = ompdal.getAuthors(book_id)
 
-    authors = ", ".join([authors_list[0].last_name, authors_list[0].first_name])
-    if len(authors_list) > 1:
-        authors += " {} {}".format(authors_list[1].first_name, authors_list[1].last_name)
-    if len(authors_list) > 2:
-        authors += " {} {} {}".format(T("and"), authors_list[2].first_name, authors_list[2].last_name)
     if len(authors_list) > 3:
-        authors += " et al."
+        authors = ", ".join([authors_list[0].last_name, authors_list[0].first_name]) + " et al."
+    else:
+        authors = " / ".join(map(lambda a: ", ".join([a.last_name, a.first_name]), authors_list))
 
     author_bio = db((db.authors.submission_id == book_id) & (db.authors.author_id == db.author_settings.author_id) & (
         db.author_settings.locale == locale) & (db.author_settings.setting_name == 'biography')).select(db.author_settings.setting_value).first()

@@ -17,7 +17,7 @@
             <p>{{=authors}}: <br>
               <i>{{=cleanTitle}}{{if len(subtitle)>0:}}: {{=subtitle}}{{pass}}</i>, {{=press_location}}: {{=press_name}}, {{=published_date.first()['date'][0:4]}}.
             {{if publication_format_settings_doi:}}
-              DOI: <a href="http://dx.doi.org/{{=publication_format_settings_doi['setting_value']}}" title="DOI: {{=authors}}, {{=cleanTitle}}, {{=press_name}}, {{=published_date.first()['date'][0:4]}}">{{=publication_format_settings_doi['setting_value']}}</a>
+              DOI: <a href="http://dx.doi.org/{{=publication_format_settings_doi['setting_value']}}" title="DOI: {{=authors}}: {{=cleanTitle}}, {{=press_location}}: {{=press_name}}, {{=published_date.first()['date'][0:4]}}">{{=publication_format_settings_doi['setting_value']}}</a>
             {{pass}}
             </p>
             <h5 style="color: #656565; margin-bottom: 0.3em;">{{=T('Licenses')}}</h5>
