@@ -1,0 +1,11 @@
+{
+    "mysql":{
+        "host":"localhost",
+        "user":"testuser",
+        "passwd":"testuser",
+        "db":"omp"
+    },
+    "filters":["147.142.85.0","147.142.84.0"]
+    
+    
+}
