@@ -42,6 +42,7 @@ databases/*
 sessions/*
 static/monographs
 static/series
+staric/utils
 private/*
 errors/*
 *.swp
