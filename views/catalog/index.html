@@ -42,10 +42,10 @@
 								{{pass}}
                         {{pass}}
                         </h4>
-                        <h4>{{=subs[entry]['title']}}<br/>
+                        <h4>{{=subs[entry]['title']}}<br />
                         {{=subs[entry]['subtitle']}}</h4>
                         <p>
-                        {{if 'publication_date' in subs[entry]:}}{{=subs[entry]['publication_date'][:4]}}<br/>{{pass}}
+                        {{if 'publication_date' in subs[entry]:}}{{=subs[entry]['publication_date'][:4]}}<br />{{pass}}
                         {{if subs[entry].has_key('series_id'):
                             series_subtitle = series_info[subs[entry]['series_id']]['subtitle']
                             series_title = series_info[subs[entry]['series_id']]['title']
@@ -93,7 +93,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <!--<div class="row">
             <div class="col-lg-3">
                 <article>
                     <div class="post-image">
@@ -105,7 +105,7 @@
                 {{if session.forced_language =='de': }}
                 <article>
                     <div class="post-heading">
-                        <h3><!--<a href="#" Link auskommentiert, solange Bio unter Abstract steht - evtl. später andere Lösung? 13.07. voe-->Marie Sander</h3>
+                        <h3>Marie Sander</h3>
                         <h4>Passing Through Shanghai.<br />
                             Ethnographic Insights into the Mobile Lives of Expatriate Youths</h4>
                     </div>
@@ -116,15 +116,15 @@
                     <p>Die Ethnologin <strong>Marie Sander</strong> studierte Kulturwissenschaft mit Schwerpunkt Kulturanthropologie sowie Anglistik an den Universitäten Bremen und Tours. 2013 promovierte sie an der Universität Heidelberg. Ihr Forschungsinteresse gilt Fragen der Identität, Migration, urbaner Kultur und Jugend.</p>
                     <div class="widget">
                         <h5 class="widgetheading"></h5>
-                        <!--<ul class="tags">
+                        /*<ul class="tags">
                             <li><a href="{{=URL('catalog','book',str(entry))}}">{{=T('More')}}</a></li>
-                        </ul>-->
+                        </ul>*/
                     </div>
                 </article>
                 {{elif session.forced_language =='en': }}
                 <article>
                     <div class="post-heading">
-                        <h3><!--<a href="#" Link auskommentiert, solange Bio unter Abstract steht - evtl. später andere Lösung? 13.07. voe-->Marie Sander</h3>
+                        <h3>Marie Sander</h3>
                         <h4>Passing Through Shanghai<br />
                             Ethnographic Insights into the Mobile Lives of Expatriate Youths</h4>
                     </div>
@@ -135,14 +135,14 @@
                     <p><strong>Marie Sander</strong> is an anthropologist who completed her doctoral degree at Heidelberg University in 2013. She previously read Cultural Studies with a focus on Cultural Anthropology as well as English Studies at Bremen University and the University of Tours. Her general research interests include questions of identity, migration, urban culture, and youth.</p>
                     <div class="widget">
                         <h5 class="widgetheading"></h5>
-                        <!--<ul class="tags">
+                        /*<ul class="tags">
                             <li><a href="{{=URL('catalog','book',str(entry))}}">{{=T('More')}}</a></li>
-                        </ul>-->
+                        </ul>*/
                     </div>
                 </article>
                 {{pass}}
             </div>
-        </div>
+        </div> -->
 
         <div class="row">
             <div class="col-lg-3">
@@ -171,9 +171,9 @@
                 </article>
                 {{elif session.forced_language =='en': }}
                 <article>
-                    <div class="post-heading"><a id="kemp_en">
+                    <div class="post-heading"><a id="kemp_en"></a>
                         <h3>Wolfgang Kemp</h3>
-                        <h4></a>Wir haben ja alle Deutschland nicht gekannt<br />
+                        <h4>Wir haben ja alle Deutschland nicht gekannt<br />
                             Das Deutschlandbild der Deutschen in der Zeit der Weimarer Republik</h4>
                     </div>
                     <p>After 1918 Germany had to find a new definition for its identity on a political and social level as well as to rediscover itself as a unity in terms of geography and culture. This process can be described as „Inner colonisation“. Scientists and artists began to compensate the many losses by tapping into the dimension of the „inner“ Germany - its unique cultural density - which in France would be called „la France profonde“. The pressure to be economical was converted into an economy of abundance of spiritual and material wealth. The newly discovered virtue of variety could be explained in short by phrases and slogans. However, this book addresses all those texts and images which emerged from an „Arbeit im Material“ (Siegfried Kracauer) and from a fresh, authentic experience - „Nähe der Anschauung“ (Ernst Glaeser).</p>
@@ -200,8 +200,8 @@
             <div class="col-lg-9">
                 {{if session.forced_language =='de': }}
                 <article>
-                    <div class="post-heading">
-                        <h3><!--<a href="#" Link auskommentiert, solange Bio unter Abstract steht - evtl. später andere Lösung? 13.07. voe-->Felix Michl</h3>
+                    <div class="post-heading"><a id="michl"></a>
+                        <h3>Felix Michl</h3>
                         <h4>Die limitierte Auflage<br />
                         Rechtsfragen der zeitgenössischen Fotokunst</h4>
                     </div>
@@ -216,8 +216,8 @@
                 </article>
                 {{elif session.forced_language =='en': }}
                 <article>
-                    <div class="post-heading">
-                        <h3><!--<a href="#" Link auskommentiert, solange Bio unter Abstract steht - evtl. später andere Lösung? 13.07. voe-->Felix Michl</h3>
+                    <div class="post-heading"><a id="michl_en"></a>
+                        <h3>Felix Michl</h3>
                         <h4>Limited Editions in Contemporary Photography &ndash;<br />
                         A Legal Analysis</h4>
                     </div>
