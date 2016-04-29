@@ -146,12 +146,12 @@
 
                                     <h4>Neuerscheinung</h4>
 
-				   {{=IMG(_src=URL(myconf.take('web.application'),'static','monographs/43/simple/cover.jpg'),_width='145px')}}
+				   {{=IMG(_src=URL(myconf.take('web.application'),'static','monographs/48/simple/cover.jpg'),_width='145px')}}
                                 </div>
 
                                 <div class="box-bottom">
 
-                                    {{=A(T('More'),_href=URL('catalog','book/43'))}}
+                                    {{=A(T('More'),_href=URL('catalog','book/48'))}}
 
                                 </div>
 
@@ -159,12 +159,12 @@
                         <div class="box-gray aligncenter">
    
    <h4>New Titles</h4>
-				   {{=IMG(_src=URL(myconf.take('web.application'),'static','monographs/43/simple/cover.jpg'),_width='145px')}}
+				   {{=IMG(_src=URL(myconf.take('web.application'),'static','monographs/48/simple/cover.jpg'),_width='145px')}}
                                 </div>
 
              <div class="box-bottom">
 
-                  {{=A(T('More Information'),_href=URL('catalog','book/43'))}}
+                  {{=A(T('More Information'),_href=URL('catalog','book/48'))}}
 
               </div>
                {{pass}}  
@@ -221,6 +221,30 @@
               <h4>News</h4>
           {{pass}}
           
+          <div class="media">
+                  <div class="media-left pull-left">
+                      <img src="{{=URL(myconf.take('web.application'),'static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
+                  </div>
+                  <div class="media-body">
+                      <p class="media-heading">
+                      <span class="aktuelles_datum" style="float:left;">21.04.2016</span><br>
+        {{if session.forced_language =='de': }}
+            <h5>Neue Ausgabe von "online - Heidelberg Journal of Religions on the Internet"</h5>
+        {{elif session.forced_language =='en': }}
+            <h5>New issue of "online - Heidelberg Journal of Religions on the Internet"</h5>
+        {{pass}}
+                      </p>
+                  <p class="boxText">
+        {{if session.forced_language =='de': }}
+Die neue Ausgabe von <a title="Homepage von online - Heidelberg Journal of Religions on the Internet" href="http://heiup.uni-heidelberg.de/journals/index.php/religions/index">online - Heidelberg Journal of Religions on the Internet 10 (2016)</a> widmet sich erneut dem Thema "Religion in digitalen Spielen (RESPAWNED)". Gamer kennen den Begriff sicherlich: Von <i>respawn</i> spricht man, wenn in Computerspielen virtuelle Gegner wieder zum Leben erweckt werden. Was im Spiel Nerven kostet, ist in diesem Fall ein Gewinn: Diese Ausgabe ist das - sehr positive - Ergebnis einer Art <i>respawn</i>, nämlich der Einreichung zahlreicher großartiger und hochinnovativer Artikel aus dem Themenfeld "Religion und digitale Spiele". Viel Spaß beim Lesen!
+        {{elif session.forced_language =='en': }}
+The new special issue of <a title="Homepage von online - Heidelberg Journal of Religions on the Internet" href="http://heiup.uni-heidelberg.de/journals/index.php/religions/index">online - Heidelberg Journal of Religions on the Internet 10 (2016)</a> is - once more - dedicated to "Religion in Digital Games (RESPAWNED)".  As the "gamers" among our readers will be very well aware of, <i>respawn</i> is a constant occurence in most videogames. However, while in-game it usually is rather annoying,  this issue is the - very positive - result of some kind of <i>respawn</i>, namely the submission of many great papers by highly innovative authors doing research in the field of digital games and gaming. Enjoy!
+           {{pass}}
+
+                      </p>
+                  </div>
+              </div>
+
           
           <div class="media">
                   <div class="media-left pull-left">
@@ -326,15 +350,15 @@ The new edition of the <a href="http://heiup.uni-heidelberg.de/journals/index.ph
    <h4>Forthcoming</h4>                                    
                                        {{pass}}                                    
 
-                                    <img src="{{=URL(myconf.take('web.application'),'static','images/press/home/Cover2English.jpg')}}" style="width: 145px;"/>
+                                    <img src="{{=URL(myconf.take('web.application'),'static','images/catalog/Cover_Kemp_OMP.jpg')}}" style="width: 145px;"/>
 
                                 </div>
 
                                 <div class="box-bottom">
    {{if session.forced_language =='de': }}
-                                    <a href="http://heiup.uni-heidelberg.de/catalog">Mehr</a>
+                                    <a href="http://heiup.uni-heidelberg.de/catalog/index.html#kemp">Mehr</a>
       {{elif session.forced_language =='en': }}
-                                    <a href="http://heiup.uni-heidelberg.de/catalog">More Information</a>
+                                    <a href="http://heiup.uni-heidelberg.de/catalog/index.html#kemp_en">More Information</a>
                                       {{pass}}         
                                 </div>
 
@@ -353,15 +377,15 @@ The new edition of the <a href="http://heiup.uni-heidelberg.de/journals/index.ph
    <h4>Forthcoming</h4>                                    
                                        {{pass}}                                    
 
-                                    <img src="{{=URL(myconf.take('web.application'),'static','images/catalog/Cover_Kemp_OMP.jpg')}}" style="width: 145px;"/>
+                                    <img src="{{=URL(myconf.take('web.application'),'static','images/catalog/01_Cover_Limitierte_Auflage.jpg')}}" style="width: 145px;"/>
 
                                 </div>
 
                                 <div class="box-bottom">
    {{if session.forced_language =='de': }}
-                                    <a href="http://heiup.uni-heidelberg.de/catalog/index.html#kemp">Mehr</a>
+                                    <a href="http://heiup.uni-heidelberg.de/catalog/index.html#michl">Mehr</a>
       {{elif session.forced_language =='en': }}
-                                    <a href="http://heiup.uni-heidelberg.de/catalog/index.html#kemp_en">More Information</a>
+                                    <a href="http://heiup.uni-heidelberg.de/catalog/index.html#michl_en">More Information</a>
                                       {{pass}}         
                                 </div>
 
