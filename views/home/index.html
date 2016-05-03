@@ -225,9 +225,37 @@
                   <div class="media-left pull-left">
                       <img src="{{=URL(myconf.take('web.application'),'static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
                   </div>
+
+<div class="media-body">
+                      <p class="media-heading">
+                      <span class="aktuelles_datum">03.05.2016</span><br>
+        {{if session.forced_language =='de': }}
+            <h5>Neu erschienen: <i>Passing Through Shanghai</i> von Marie Sander</h5>
+        {{elif session.forced_language =='en': }}
+            <h5>New release: <i>Passing Through Shanghai</i> by Marie Sander</h5>
+        {{pass}}
+                      </p>
+                  <p class="boxText">
+        {{if session.forced_language =='de': }}
+{{=A(T('Passing Through Shangai'),_href=URL('catalog','book/48'))}} untersucht das Erleben internationaler Mobilität aus der Sicht von Kindern und Jugendlichen. Im Fokus dieser ethnographischen Studie stehen Kinder von Firmenentsandten – sogenannten Expats – die einen Teil ihrer Jugend im gegenwärtigen Shanghai verbringen. Marie Sander untersucht ihren Alltag, ihre Träume und Hoffnungen sowie ihre Fragen nach Zugehörigkeit und Heimat. {{=A(T('Passing Through Shangai'),_href=URL('catalog','book/48'))}} eröffnet die Reihe {{=A(T('Heidelberg Studies in Transculturality'),_href=URL('series','hst'))}}, die vom Exzellenzcluster „Asien und Europa im globalen Kontext“ herausgegeben wird.
+        {{elif session.forced_language =='en': }}
+{{=A(T('Passing Through Shangai'),_href=URL('catalog','book/48'))}} examines how children experience international mobility. Focusing on a specific yet diverse group of expatriate youths in contemporary Shanghai. Marie Sander investigates expatriate teenagers’ everyday practices, their lives at international schools, their engagement with the city, their dreams and aspirations, as well as their questions of belonging {{=A(T('Passing Through Shangai'),_href=URL('catalog','book/48'))}} is the first issue of the series {{=A(T('Heidelberg Studies in Transculturality'),_href=URL('series','hst'))}}, which is edited by the Cluster of Excellence “Asia and Europe in a Global Context”.
+           {{pass}}
+
+                      </p>
+                  </div>
+           
+           
+
+          <div class="media">
+                  <div class="media-left pull-left">
+                      <img src="{{=URL(myconf.take('web.application'),'static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
+                  </div>
+
+
                   <div class="media-body">
                       <p class="media-heading">
-                      <span class="aktuelles_datum" style="float:left;">21.04.2016</span><br>
+                      <span class="aktuelles_datum">21.04.2016</span><br>
         {{if session.forced_language =='de': }}
             <h5>Neue Ausgabe von "online - Heidelberg Journal of Religions on the Internet"</h5>
         {{elif session.forced_language =='en': }}
