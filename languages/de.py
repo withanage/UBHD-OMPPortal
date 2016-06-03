@@ -370,6 +370,7 @@
 'Videos': 'Videos',
 'View': 'Ansicht',
 'View Journal': 'Zur Zeitschrift',
+'Vol.': 'Vol.',
 'Volumes': 'Volumes',
 'Vorbestelldatum': 'Vorbestelldatum',
 'Vorbestellpreis EURO AT': 'Vorbestellpreis EURO AT',
