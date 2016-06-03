@@ -99,7 +99,8 @@ def book():
 
     publication_formats = db(pub_query & (db.publication_format_settings.setting_value != myconf.take('omp.ignore_format'))).select(db.publication_format_settings.setting_name, db.publication_format_settings.setting_value,
                                                                                                                                     db.publication_formats.publication_format_id, groupby=db.publication_formats.publication_format_id, orderby=db.publication_formats.publication_format_id)
-
+    pq = (pub_query  & (db.submission_files.assoc_id == db.publication_formats.publication_format_id))
+    formats_with_files = db(pq).select(db.publication_formats.publication_format_id,  groupby=db.publication_formats.publication_format_id).as_dict(key='publication_format_id').keys()
     press_settings = db(db.press_settings.press_id == myconf.take('omp.press_id')).select(
         db.press_settings.setting_name, db.press_settings.setting_value)
 
@@ -174,8 +175,4 @@ def book():
 	vgwort_server= None
 
 
-    return dict(abstract=abstract, authors=authors, author_bio=author_bio, book_id=book_id, chapters=chapters,
-                cleanTitle=cleanTitle, cover_image=cover_image, full_files=full_files, identification_codes=identification_codes,
-                publication_formats=publication_formats, publication_format_settings_doi=publication_format_settings_doi,
-                published_date=published_date, subtitle=subtitle, press_name=press_name, press_location=press_location,
-                representatives=representatives,vgwort_server=vgwort_server)
+    return locals()
