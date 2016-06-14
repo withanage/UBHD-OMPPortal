@@ -7,6 +7,9 @@ def ruperto_carola():
 
 def heidelberger_jahrbuecher():
     return dict()
+    
+def generale():
+    return dict()    
 
 def home():
     return dict()                           
