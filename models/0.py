@@ -5,6 +5,7 @@ Distributed under the GNU GPL v3. For full terms see the file
 LICENSE.md
 '''
 from gluon.storage import Storage
+from gluon.custom_import import track_changes
 settings = Storage()
 
 settings.migrate = True
@@ -23,3 +24,5 @@ settings.email_login = ''
 settings.login_method = 'local'
 settings.login_config = ''
 settings.plugins = []
+
+track_changes(True)
