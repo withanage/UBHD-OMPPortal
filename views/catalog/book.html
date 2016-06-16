@@ -32,6 +32,14 @@
 	            {{=formatCitation(cleanTitle, subtitle, authors, editors, citation_year, press_settings.getLocalizedValue('location', ''), press_settings.getLocalizedValue('publisher', ''), doi, locale, series_name=series_name, series_pos=submission.series_position, max_contrib=3)}}
 	            {{=A(doi, _href="http://dx.doi.org/"+doi)}}
 	            </p>
+				<h5 style="color: #656565; margin-bottom: 0.3em;">{{=T('Licenses')}}</h5>
+				{{if session.forced_language =='de': }}
+					<p>Dieses Werk ist unter der<br> <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons-Lizenz 4.0<br/> (CC BY-SA 4.0)</a> veröffentlicht.<br>
+					<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0"><img alt="Creative Commons Lizenz BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p>
+				{{elif session.forced_language =='en': }}
+					<p>This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; License CC BY-SA 4.0">Creative Commons License 4.0<br/> (CC BY-SA 4.0)</a> .<br>
+					<a href="https://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0"><img alt="Creative Commons License BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p>
+				{{pass}}
 	            {{identification_codes = [i for i in [pf.associated_items.get('identification_codes', []) for pf in digital_publication_formats+physical_publication_formats] if i]}}
 	            {{if identification_codes:}}
 	            	<h5 style="color: #656565; margin-bottom: 0.5em; margin-top: 1.2em;">ISBN</h5>
