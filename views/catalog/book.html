@@ -97,7 +97,7 @@
 	              		</div>
 	              	{{pass}}
 	              {{pass}}
-	              {{if [pf.associated_items.get('full_file', None).file_type != "text/html" for pf in digital_publication_formats if pf.associated_items.get('full_file', None)].count(True):}}
+	              {{if [(pf.associated_items.get('full_file', None).file_type != "text/html" or pf.associated_items.get('full_file', None).file_type != "text/xml") for pf in digital_publication_formats if pf.associated_items.get('full_file', None)].count(True):}}
 	              	<div class="btn-group" role="group" aria-label="2">
 	              	  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
 	                	{{=T('Download')}}
@@ -105,9 +105,9 @@
 	              	  </button>
 		              {{for pf in digital_publication_formats:}}
 		              	{{full_file = pf.associated_items.get('full_file')}}
-		              	{{if full_file and not "html" in full_file.file_type:}}
+		              	{{if full_file and not "html" in full_file.file_type and not "xml" in full_file.file_type:}}
 		             		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-		                		<li role="presentation"><a role="menuitem" tabindex="-1" href={{=downloadLink(request.application, full_file)}}>PDF</a></li>
+		                		<li role="presentation"><a role="menuitem" tabindex="-1" href={{=downloadLink(request.application, full_file)}}>{{=pf.settings.getLocalizedValue('name', locale)}}</a></li>
 		              		</ul>
 		              	{{pass}}
 		              {{pass}}
