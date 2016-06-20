@@ -11,5 +11,14 @@ def profile():
 def our_service():
     return dict()
 
-def technology():
+def mission_statement():
+    return dict()
+
+def advisory_board():
+    return dict()
+
+def team():
+    return dict()
+
+def partners():
     return dict()
