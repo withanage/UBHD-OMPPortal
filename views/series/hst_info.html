@@ -41,12 +41,8 @@
 
                     <div class="widget">
                         <h5 class="widgetheading"></h5>
-                        <ul class="tags">
-      {{if session.forced_language =='de': }}                        
-                            <li><a href="{{=URL(myconf.take('web.application'),'series','hst/volumes')}}">{{=T('Bände')}}</a></li>
-      {{elif session.forced_language =='en': }}                               
-                            <li><a href="{{=URL(myconf.take('web.application'),'series','hst/volumes')}}">{{=T('Volumes')}}</a></li>
-      {{pass}}
+                        <ul class="tags">          
+                            <li>{{=A(T('Volumes'),_href=URL('catalog','series/hst'))}}
                         </ul>
                     </div>
 
