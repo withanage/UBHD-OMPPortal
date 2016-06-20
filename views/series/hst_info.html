@@ -1,76 +1,5 @@
 {{extend 'layout.html'}}
-{{if request.args:}}
-{{if request.args[0]:}}
-{{if request.args[0]=='volumes':}}
 
-     <div id="main" class="container">
-     <section id="content">
-     <div class="row">   
-      <div class="col-lg-12">
-         <article>   
-            <div class="post-heading">
-             {{if session.forced_language =='de': }}
-            <h4>Bände dieser Reihe</h4>
-            <h5>Band 1</h5>
-             {{elif session.forced_language =='en': }}
-            <h4>Volumes</h4>
-            <h5>Volume 1</h5>
-
-             {{pass}} 
-             
-            </div>
-            
-            <div class="col-lg-3">
-              <article>
-                  <div class="post-image">
-                  <img src="http://heiup.uni-heidelberg.de/UBHD_OMPPortal/en/static/images/press/home/Cover2English.jpg" alt="Marie Sander: Passing Through Shanghai" />  
-                  </div>
-              </article>
-            </div>      
-            <div class="col-lg-9">         
-              <div class="post-heading">
-			            <p><strong>Marie Sander<br>
-                  Passing Through Shanghai<br>
-Ethnographic Insights into the Mobile Lives of Expatriate Youths</strong></p>
-                        </div>
-                {{if session.forced_language =='de': }}         
-                        <p>
-                            <i class="icon-quote-left"></i>
-		<i>Passing Through Shanghai</i> untersucht das Erleben internationaler Mobilität aus der Sicht von Kindern und Jugendlichen. Im Fokus des Buches stehen Kinder von Firmenentsandten – sogenannten Expats – die einen Teil ihrer Jugend im gegenwärtigen Shanghai verbringen: Eine an sich heterogene Gruppe, deren Lebensstil jedoch aufgrund der internationalen Karrieren der Eltern bestimmte gemeinsame Privilegien, aber auch Herausforderungen aufweist.
-                        </p>                        
-                        
-               {{elif session.forced_language =='en': }}
-                        <p>
-                            <i class="icon-quote-left"></i>
-		<i>Passing Through Shanghai</i> examines how children experience international mobility. Focusing on a specific yet diverse group of expatriate youths in contemporary Shanghai, the book investigates how children negotiate cultural identity when they are subject to the highly mobile and often privileged lifestyle associated with their parent’s international careers.
-                        </p>
-               {{pass}}         
-			  
-                    <div class="widget">
-                        <h5 class="widgetheading"></h5>
-                        <ul class="tags">
-             {{if session.forced_language =='de': }}
-                          <!--BSP für falschen Basispfad!<li><a href="{{=URL(myconf.take('web.application'),'series')}}" title="Informationen zu Marie Sander: Passing Through Shanghai">{{=T('Mehr')}}</a></li-->
-                          <li><a href="http://heiup.uni-heidelberg.de/catalog?lang=de" title="Information zu Marie Sander: Passing Through Shanghai">{{=T('Mehr')}}</a></li>   
-             {{elif session.forced_language =='en': }}           
-                            <li><a href="http://heiup.uni-heidelberg.de/catalog?lang=en" title="Information on Marie Sander: Passing Through Shanghai">{{=T('More')}}</a></li>
-             {{pass}}               
-
-                        </ul>
-                    </div>
-             </div>       
-
-                </article>
-      </div>
-      </div>
-      </section>
-      </div>
-      
-      
-
-{{pass}}
-{{pass}}
-{{else:}}
 <section id="content">
     <div class="container">
         <div class="row">
@@ -195,7 +124,7 @@ Ethnographic Insights into the Mobile Lives of Expatriate Youths</strong></p>
                             <p>This work is licensed under a<br> <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons License 4.0<br /> (CC BY-SA 4.0)</a>.<br>
                             <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; License CC BY-SA 4.0"><img alt="Creative Commons License BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p> -->
 
-{{pass}}     
+        	{{pass}}
         </div>   
       </div>     
     </article>                                     
@@ -246,17 +175,10 @@ Ethnographic Insights into the Mobile Lives of Expatriate Youths</strong></p>
                       <li><a href="http://www.asia-europe.uni-heidelberg.de/en/people/administration/details/persdetail/hacker.html">Andrea Hacker</a></li>
                     </ul>
                   </div>
-                </div>                  
-             
-{{pass}}                                        
+                </div>
               </div>
            </article>   
-     </div>  
-
-
-
+           {{pass}}
+     </div>
    </div>
-  
-
 </section>
-{{pass}}
