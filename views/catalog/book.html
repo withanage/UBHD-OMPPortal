@@ -101,7 +101,7 @@
 	              	{{full_file = pf.associated_items.get('full_file')}}
 	              	{{if full_file and ("xml" in full_file.attributes.file_type or "html" in full_file.attributes.file_type):}}
 	              		<div class="btn-group" role="group" aria-label="1">
-	              			<li type="button" class="btn btn-default"><a href={{=downloadLink(request, full_file.attributes, full_file.settings.getLocalizedValue("vgWortPublic", ""))}} target="_blank">{{=T('Read')}}</a></li>
+	              			<li type="button" class="btn btn-default"><a href={{=downloadLink(request, full_file.attributes, myconf.get('url'), full_file.settings.getLocalizedValue("vgWortPublic", ""))}} target="_blank">{{=T('Read')}}</a></li>
 	              		</div>
 	              	{{pass}}
 	              {{pass}}
@@ -115,7 +115,7 @@
 		              	{{full_file = pf.associated_items.get('full_file')}}
 		              	{{if full_file and not "html" in full_file.attributes.file_type and not "xml" in full_file.attributes.file_type:}}
 		             		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-		                		<li role="presentation"><a role="menuitem" tabindex="-1" href={{=downloadLink(request, full_file.attributes, full_file.settings.getLocalizedValue("vgWortPublic", ""))}}>{{=pf.settings.getLocalizedValue('name', locale)}}</a></li>
+		                		<li role="presentation"><a role="menuitem" tabindex="-1" href={{=downloadLink(request, full_file.attributes, myconf.get('url'), full_file.settings.getLocalizedValue("vgWortPublic", ""))}}>{{=pf.settings.getLocalizedValue('name', locale)}}</a></li>
 		              		</ul>
 		              	{{pass}}
 		              {{pass}}
@@ -218,7 +218,7 @@
 	            							{{css_class="fa fa-file-text-o"}}
 	            						{{pass}}
 	            						<div class="chapter_file">
-	            							{{=A(I(_class=css_class), _href=downloadLink(request, c_file.attributes, c_file.settings.getLocalizedValue('vgWortPublic', '')))}}
+	            							{{=A(I(_class=css_class), _href=downloadLink(request, c_file.attributes, myconf.get('url'), c_file.settings.getLocalizedValue('vgWortPublic', '')))}}
 	            						</div>
 	            					{{pass}}
 	            				{{pass}}
