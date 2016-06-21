@@ -141,16 +141,20 @@ def book():
     # Get digital publication formats, settings, files, and identification codes
     digital_publication_formats = []
     for pf in ompdal.getDigitalPublicationFormats(submission_id, available=True, approved=True):
-        digital_publication_formats.append(OMPItem(pf, 
+        publication_format = OMPItem(pf, 
             OMPSettings(ompdal.getPublicationFormatSettings(pf.publication_format_id)),
-            {'full_file': ompdal.getLatestRevisionOfFullBookFileByPublicationFormat(submission_id, pf.publication_format_id),
-             'identification_codes': ompdal.getIdentificationCodesByPublicationFormat(pf.publication_format_id),
-             'publication_dates': ompdal.getPublicationDatesByPublicationFormat(pf.publication_format_id)})
+            {'identification_codes': ompdal.getIdentificationCodesByPublicationFormat(pf.publication_format_id),
+             'publication_dates': ompdal.getPublicationDatesByPublicationFormat(pf.publication_format_id)}
         )
+        full_file = ompdal.getLatestRevisionOfFullBookFileByPublicationFormat(submission_id, pf.publication_format_id)
+        if full_file:
+            publication_format.associated_items['full_file'] = OMPItem(full_file, OMPSettings(ompdal.getSubmissionFileSettings(full_file.file_id)))
+        digital_publication_formats.append(publication_format)
+        
         for chapter in chapters:
             chapter_file = ompdal.getLatestRevisionOfChapterFileByPublicationFormat(chapter.attributes.chapter_id, pf.publication_format_id)
             if chapter_file:
-                chapter.associated_items.setdefault('files', {})[pf.publication_format_id] = chapter_file
+                chapter.associated_items.setdefault('files', {})[pf.publication_format_id] = OMPItem(chapter_file, OMPSettings(ompdal.getSubmissionFileSettings(chapter_file.file_id)))
             
     # Get physical publication formats, settings, and identification codes
     physical_publication_formats = []
