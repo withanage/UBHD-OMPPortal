@@ -102,7 +102,6 @@
 	              	{{if full_file and ("xml" in full_file.attributes.file_type or "html" in full_file.attributes.file_type):}}
 	              		<div class="btn-group" role="group" aria-label="1">
 	              			<li type="button" class="btn btn-default"><a href={{=downloadLink(request, full_file.attributes, full_file.settings.getLocalizedValue("vgWortPublic", ""))}} target="_blank">{{=T('Read')}}</a></li>
-	              			{{=full_file.settings.getLocalizedValue("vgWortPublic", "")}}
 	              		</div>
 	              	{{pass}}
 	              {{pass}}
