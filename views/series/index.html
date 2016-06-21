@@ -1,51 +1,64 @@
 {{extend 'layout.html'}}
+{{import json}}
+{{from ompformat import formatContributors, getSeriesImageLink}}
 
-
-<section id="content">
-    <div class="container">
-        <div class="row">
-	
-            <div class="col-lg-2">
-                <article>
-                    <div class="post-image">
-		 	                <img src="/UBHD_OMPPortal/static/images/series/hst.jpg">
-                  </div>
-
-                </article>
-
-            </div>
-            <div class="col-lg-10">
-               <article>
-                        <div class="post-heading">
-			            <h3>Heidelberg Studies in Transculturality </h3>
-          
-                        </div>
-                       {{if session.forced_language=='de':}}
-                       <p>
-                        <i class="icon-quote-left"></i>
-                        HST ist eine peer-review-geprüfte Open-Access-Schriftenreihe zum Thema Transkulturalität. Sie untersucht kulturelle, soziale und regionale Formationen, die sich durch den Kontakt mit anderen Regionen und Kulturen konstituierten und durch ihn transformiert wurden.
-                       </p> 
-                       
-                       
-                       {{elif session.forced_language=='en':}} 
-                        <p>
-                            <i class="icon-quote-left"></i>
-HST is a peer-reviewed, open access book series promoting research on transcultuality. The series features works that investigate cultural, social, and regional formations that have themselves been constituted and transformed through contact with other regions and cultures.
-                        </p>
-                {{pass}} 			  
-                    <div class="widget">
-                        <h5 class="widgetheading"></h5>
-                        <ul class="tags">
-                            <li><a href="{{=URL(myconf.take('web.application'),'series','hst')}}">{{=T('More')}}</a></li><br>
-	                          <!--<li><a href="{{=URL(myconf.take('web.application'),'series','hst_titel')}}">{{=T('Volumes')}}</a></li>-->
-
-                    </div>
-
-			
-			
-                </article>
-            </div>
-
-        </div>
+<div id="main" class="container">
+	<section id="content">
+		<div class="container">
+		  {{for series in all_series:}}
+		  	<div class="row">
+		  		<div class="col-lg-2">
+		  			<article>
+		  				<div class="post-image">
+		  					{{if len(row['image']) > 7 :}}
+		  						{{=IMG(_src=getSeriesImageLink(request, press.press_id, series.attributes.image))}}
+							{{pass}}
+						</div>
+					</article>
+				</div>
+				<div class="col-lg-10">
+					<article>
+						<div class="post-heading">
+							{{series_title = " ".join([series.settings.getLocalizedValue('prefix', locale), series.settings.getLocalizedValue('title', locale)])}}
+							{{series_subtitle = series.settings.getLocalizedValue('subtitle', locale)}}
+							<h3>{{=series_title}}</h3>
+							<h4>{{=series_subtitle}}</h4>
+							{{series_editors = series.associated_items.get('series_editors')}}
+							{{if series_editors:}}
+								{{num_editors = len(series_editors)}}
+								<p>
+									{{if num_editors > 1:}}
+										{{=T('Editors')}}:
+									{{else:}}
+										{{=T('Editor')}}:
+									{{pass}}
+									{{=formatContributors(series_editors, max_contributors=3, et_al=True)}}
+								</p>
+							{{pass}}
+						</div>
+		                <p>
+							<i class="icon-quote-left"></i>
+							{{if len(series.settings.getLocalizedValue('description', locale)) > 1000:}}
+								{{=XML(html2text(series.settings.getLocalizedValue('description', locale)))[0:999]+'...'}}
+							{{else:}}
+								{{=XML(series.settings.getLocalizedValue('description', locale))}}
+							{{pass}}
+		                </p>
+		                <div class="widget">
+		                    <h5 class="widgetheading"></h5>
+		                    <ul class="tags">
+								<li>
+									<a href="{{=URL('catalog','series/'+str(series.attributes.path))}}">{{=T('Volumes')}}</a>
+									<a href="{{=URL('series','info/'+str(series.attributes.path))}}">{{=T('Information about the series')}}</a>
+								</li>
+							</ul>
+		                </div>
+		            </article>
+		        </div>
+		    </div>
+		  {{pass}}
+		</div>
+	</section>
 </div>
-</section>
+{{db.t_usage_statistics.insert()}}
+{{db.commit()}}
