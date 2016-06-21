@@ -281,6 +281,7 @@
 'Overview': 'Überblick',
 'Papiertyp': 'Papiertyp',
 'Partner': 'Partner',
+'Partners': 'Partner',
 'Password': 'Passwort',
 "Password fields don't match": 'Passwortfelder sind nicht gleich',
 'PB: cov-4 = einseitig gestrichener Sulfatkarton / 240 gr , cov-5 / beidseitig halbmatt gestrichener Karton / 300 gr. , bei HB: cov-1: halbmatt / 150 gr.': 'PB: cov-4 = einseitig gestrichener Sulfatkarton / 240 gr , cov-5 / beidseitig halbmatt gestrichener Karton / 300 gr. , bei HB: cov-1: halbmatt / 150 gr.',
