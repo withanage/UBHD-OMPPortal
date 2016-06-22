@@ -36,7 +36,6 @@
         var submission_id = '{{=request.args[0]}}';
         var submission_file = '{{=request.args[1]}}';
         var application = '{{=request.application}}';
-        var press_id = '{{=myconf.take("omp.press_id")}}';;
     </script>
     {{if session.forced_language =='de': }}
     <script src="{{=URL('static','js/lens-locales-de.js')}}"></script>
@@ -48,7 +47,6 @@
 
 </head>
 <body class="loading">
-
 </body>
 </html>
 {{db.t_usage_statistics.insert()}}
