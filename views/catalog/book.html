@@ -60,7 +60,7 @@
 	            {{pass}}
 				<!--stats block begin-->
 				{{if stats.checkOASService():}}
-					{{file_types= ['pdf','xml']}}
+					{{file_types= ['pdf','html']}}
 					{{chapter_html = stats.getChapterHTMLTable(submission_id, file_types,"width: inherit; padding:0; font-size:11px")}}
 					<div id="oas-widget" class="applied-to-ojs" style="margin-top: 1.2em">
 						<div class="btn btn-default" id="statistik-button">{{=T('Statistics')}}</div> <br/>
