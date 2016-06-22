@@ -20,10 +20,8 @@
          http://google.com/webmasters -->
   <meta name="google-site-verification" content="Fe1egWKUFNNSp3IYTaGTmvQ_nZKTZK6L5q7QetXMfa4" />
     <!-- include stylesheets -->
-
-    <!---link rel="stylesheet" href="{{=URL('static','css/bootstrap-theme.min.css')}}"/>
+    <!-- link rel="stylesheet" href="{{=URL('static','css/bootstrap-theme.min.css')}}"/>
     <link rel="stylesheet" href="{{=URL('static','css/web2py-bootstrap3.css')}}"/-->
-
       <!-- new -->
       <link rel="stylesheet" href="{{=URL('static','css/bootstrap.min.css')}}"/>
       <link rel="stylesheet" href="{{=URL('static','css/fancybox/jquery.fancybox.css')}}"/>
@@ -32,11 +30,8 @@
       <link rel="stylesheet" href="{{=URL('static','css/default.css')}}"/>
       <link rel="stylesheet" href="{{=URL('static','css/font-awesome.css' )}}"/>
       <!-- end -->
-
     <link rel="shortcut icon" href="{{=URL('static','images/favicon.ico')}}" type="image/x-icon">
     <link rel="apple-touch-icon" href="{{=URL('static','images/favicon.png')}}">
-
-
     <!-- All JavaScript at the bottom, except for Modernizr which enables
          HTML5 elements & feature detects -->
     <script src="{{=URL('static','js/modernizr-2.8.3.min.js')}}"></script>
@@ -56,20 +51,15 @@
     middle_column = {0: mc0, 1: mc1, 2: mc2}[
     (left_sidebar_enabled and 1 or 0)+(right_sidebar_enabled and 1 or 0)]
     }}
-
   </head>
   <body>
     <!--[if lt IE 8]><p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]-->
     <div class="flash alert alert-dismissable">{{=response.flash or ''}}</div>
     <!-- Navbar ======================================= -->
     <!-- start header -->
-
     <div id="service-navi" class="container">
-
         <div class="row">
-
             <div class="col-lg-12 col-sm-12 col-xs-12">
-
                 <ul class="nav nav-pills pull-right">
                      <li><a href="{{=URL('contact','index')}}" style="padding-right: 0;">{{=T('Contact')}} | </a></li>
          <!--<li><a href="suche.html">{{=T('Search')}} |</a></li>-->
@@ -80,32 +70,25 @@
                     <li><a href="{{=request.url}}?lang=en" style="padding-left: 5px;">EN</a></li>
                     {{pass}}
                 </ul>
-
             </div>
-
         </div>
-
     </div>
        <div class="container">
        <div id="headerLogo" class="col-lg-12 print-url">
-         <img id="heiup-logo" class="screen" src="{{=URL('static','images/press/schriftzug_header.png')}}" />
-         <img id="heiup-logo-print" class="print" src="{{=URL('static','images/press/schriftzug_header_print.png')}}" />
+         <img alt="" id="heiup-logo" class="screen" src="{{=URL('static','images/press/schriftzug_header.png')}}" />
+         <img alt="" id="heiup-logo-print" class="print" src="{{=URL('static','images/press/schriftzug_header_print.png')}}" />
        </div> 
        </div>
-       
     <div class="container">
-
         <header>
-            <div class="col-lg-12 ">
+            <div class="col-lg-12">
                 <div class="navbar navbar-default navbar-static-top" style="width: 100%">
                     <div class="container">
                         <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">4
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">7
                                 <span class="icon-bar"></span>
-
                             </button>
                             <a class="navbar-brand" href="index.html">
-
                             </a>
                         </div>
                         <div class="navbar-collapse collapse pull-left ">
@@ -120,29 +103,21 @@
                                         <li><a href="{{=URL('about_us','advisory_board')}}"> {{=T('Advisory Board')}}</a></li>
                                         <li><a href="{{=URL('about_us','team')}}">{{=T('Team')}}</a></li>
                                         <li><a href="{{=URL('about_us','partners')}}">{{=T('Partners')}}</a></li>
-
-
                                     </ul>
                                 </li>
                                 <li><a href="{{=URL('catalog','index')}}">{{=T('Books')}}</a></li>
                                 <li><a href="{{=URL('series','index')}}">{{=T('Series')}}</a></li>
                                 <li><a href="{{=URL('journals','index')}}">{{=T('Journals')}}</a></li>
                                 <li><a href="{{=URL('campusmedia','index')}}">{{=T('Campus Media')}}</a></li>
-                                
-
-
                                 <li class="dropdown">
-
                                     <a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown"
                                        data-delay="0" data-close-others="false">{{=T('Publishing')}} <b class="icon-angle-down"></b></a>
                                     <ul class="dropdown-menu">
                                         <li><a href="{{=URL('publishing','for_authors')}}">{{=T('Information for Authors')}} </a></li>
                                         <!--li><a href="{{=URL('publishing','book_proposal')}}">{{=T('Book Proposal')}}</a></li-->
                                         <li><a href="{{=URL('publishing','rights_and_licences')}}">{{=T('Rights and Licences')}} </a></li>
-
                                     </ul>
                                 </li>
-
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown"
                                        data-delay="0" data-close-others="false">{{=T('Quality Control')}} <b class=" icon-angle-down"></b></a>
@@ -150,25 +125,15 @@
                                         <li><a href="{{=URL('quality_control','peer_review')}}"> {{=T('Peer Review')}}</a></li>
                                         <li><a href="{{=URL('quality_control','plagiarism')}}"> {{=T('Plagiarism')}}</a></li>
                                         <li><a href="{{=URL('quality_control','data_privacy')}}">{{=T('Data Privacy')}} </a></li>
-
-
                                     </ul>
                                 </li>
-
-
                             </ul>
                         </div>
-
                         <!-- second -->
                         <div class="navbar-collapse collapse pull-right visible-lg hidden-md">
                             <ul class="nav navbar-nav">
-
-
                                 <li>
-                                    <a>
-                                    <img id="nav-social-media" src="{{=URL('static','images/press/social-media-icons.png')}}" height="30px"  alt="Planets" usemap="#socialmap">
-
-
+                                  <img id="nav-social-media" src="{{=URL('static','images/press/social-media-icons.png')}}" style="height: 30px"  alt="Planets" usemap="#socialmap">
                                     <map name="socialmap">
 					{{if request.url=='/': }}
 					{{request.url=request.url+myconf.take('web.application')}}
@@ -177,30 +142,16 @@
                                         <area shape="rect" coords="30,0,60,30" alt="twitter" href="http://twitter.com/home?status={{=myconf.take('web.url')+request.url}}">
                                         <area shape="rect" coords="60,0,90,30" alt="twitter" href="https://www.linkedin.com/shareArticle?mini=true&url={{=myconf.take('web.url')+request.url}}">
                                         <area shape="rect" coords="90,0,120,30" alt="twitter" href="https://plus.google.com/share?url={{=myconf.take('web.url')+request.url}}">
-
-
                                     </map>
-
-
-                                </a></li>
+                               </li>
                                 <!-- https://www.addthis.com/get/responsive-sharing-buttons -->
-
-
                             </ul>
                         </div>
-
-
                     </div>
                 </div>
             </div>
-
-
         </header>
-
-
     </div>
-
-
         <!-- end header -->
     <!-- Masthead ===================================== -->
     {{block header}}
@@ -216,13 +167,11 @@
             {{end}}
         </div>
       {{pass}}
-
       <div class="{{=middle_column}}">
         {{block center}}
         {{include}}
         {{end}}
       </div>
-
       {{if right_sidebar_enabled:}}
         <div class="col-md-3">
             {{block right_sidebar}}
@@ -231,17 +180,13 @@
             {{end}}
         </div>
       {{pass}}
-
     </div>
-
     {{block footer}} <!-- this is default footer -->
-
       <div class="container">
          <footer>
-
      <div class="container">
          <div class="row">
-             <div class="col-lg-4" class="print">
+             <div class="col-lg-4 print">
                  <div class="widget">
                      <h5 class="widgetheading">{{=T('Contact')}}
                      </h5>
@@ -265,11 +210,10 @@
                          E-Mail: heiup@ub.uni-heidelberg.de
                      </address>
                 {{pass}} 
-                     </p>
                  </div>
              </div>
              <div class="col-lg-4" >
-                 <div class="widget" class="screen">
+                 <div class="widget screen">
                 {{if session.forced_language=='de':}}
                      <h5 class="widgetheading">Seiten</h5>
                 {{elif session.forced_language=='en':}}
@@ -289,7 +233,6 @@
              <div class="col-lg-4">
                <div id="footer_logo_ub" class="widget"><a href="http://www.uni-heidelberg.de" title="Homepage Universität Heidelberg"><img alt="Logo - Universität Heidelberg - Universitätsbibliothek Heidelberg" src="{{=URL('static','/images/press/logo_footer_grau.png')}}" /></a>
                </div>
-
              </div>                        
          </div>
      </div>
@@ -308,7 +251,6 @@
                          </li>
                      </ul>
                  </div>
-                 
                  <div class="col-lg-4">
                 {{if session.forced_language=='de':}}
                      <a href="/contact/imprint.html">Impressum</a>
@@ -322,10 +264,7 @@
                </div>
 -->
                <a href="https://pkp.sfu.ca/" title="Homepage PKP - Public Knowledge Project"><img class="" alt="Public Knowledge Project" src="http://books.ub.uni-heidelberg.de/lib/pkp/templates/images/pkp_brand.png"></a>
-
                  </div>
-             
-                 
              </div>
          </div>
      </div>
