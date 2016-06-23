@@ -1,208 +1,122 @@
-{{extend 'layout.html'}}
-{{if request.args:}}
-{{if request.args[0]:}}
-{{if request.args[0]=='contact':}}
-
-
-{{if session.forced_language =='de': }}
+{{extend 'layout.html'}} {{if request.args:}} {{if request.args[0]:}} {{if request.args[0]=='contact':}} {{if session.forced_language =='de': }} 
+<div class="row">
+  <div class="container"><h3>Heidelberger Jahrbücher Online</h3><h4>Kontakt</h4>
+    <p>Universität Heidelberg<br />Gesellschaft der Freunde Universität Heidelberg e.V.<br />Geschäftstelle<br />Sabine zu Putlitz<br />Marstallstraße 6, 69117 Heidelberg<br />Tel.: 0049-(0)6221-54-3446<br />Fax: 0049-(0)6221-54-3447<br />
+      <a href="http://www.freunde.uni-hd.de" title="Homepage der Gesellschaft">http://www.freunde.uni-hd.de</a><br />
+      <a href="https://www.facebook.com/GdFUniHD" title="Facebook-Auftritt">https://www.facebook.com/GdFUniHD</a><br />
+    </p>
+    <p>Prof. Dr. Dr. h.c. Joachim Funke<br />Vorstandsvorsitzender der Gesellschaft der Freunde Universität Heidelberg e.V.<br />Gesellschaft der Freunde Universität Heidelberg<br />Marstallstr. 6<br />69117 Heidelberg, Deutschland<br />Telefon: 06221 54 7305<br />Fax: 06221 54 7273<br />E-Mail: 
+      <a href="mailto:joachim.funke@psychologie.uni-heidelberg.de" title="Email schicken an Herrn Joachim Funke">mailto:joachim.funke@psychologie.uni-heidelberg.de</a>
+    </p>
+  </div>
+</div>{{elif session.forced_language =='en': }} 
+<div class="row">
+  <div class="container"><h3>Heidelberger Jahrbücher Online</h3><h4>Kontakt</h4>
+    <p>Universität Heidelberg<br />Gesellschaft der Freunde Universität Heidelberg e.V.<br />Geschäftstelle<br />Sabine zu Putlitz<br />Marstallstraße 6, 69117 Heidelberg<br />Tel.: 0049-(0)6221-54-3446<br />Fax: 0049-(0)6221-54-3447<br />
+      <a href="http://www.freunde.uni-hd.de" title="Homepage der Gesellschaft">http://www.freunde.uni-hd.de</a><br />
+      <a href="https://www.facebook.com/GdFUniHD" title="Facebook-Auftritt">https://www.facebook.com/GdFUniHD</a><br />
+    </p>
+    <p>Prof. Dr. Dr. h.c. Joachim Funke<br />Vorstandsvorsitzender der Gesellschaft der Freunde Universität Heidelberg e.V.<br />Gesellschaft der Freunde Universität Heidelberg<br />Marstallstr. 6<br />69117 Heidelberg, Deutschland<br />Telefon: 06221 54 7305<br />Fax: 06221 54 7273<br />E-Mail: 
+      <a href="mailto:joachim.funke@psychologie.uni-heidelberg.de" title="send email to Mr Joachim Funke">mailto:joachim.funke@psychologie.uni-heidelberg.de</a>
+    </p>
+  </div>
+  </diV {{pass}} {{pass}} {{pass}} {{else:}} <section id="content">
+  <div class="container">
     <div class="row">
-    <div class="container">
-      <h3>Heidelberger Jahrbücher Online</h3>
-      <h4>Kontakt</h4>
-      <p>Universität Heidelberg<br />
-      Gesellschaft der Freunde Universität Heidelberg e.V.<br />
-      Geschäftstelle<br />
-      Sabine zu Putlitz<br />
-      Marstallstraße 6, 69117 Heidelberg<br />
-      Tel.: 0049-(0)6221-54-3446<br />
-      Fax: 0049-(0)6221-54-3447<br />
-      <a href="http://www.freunde.uni-hd.de" title="Homepage der Gesellschaft">http://www.freunde.uni-hd.de</a><br />
-      <a href="https://www.facebook.com/GdFUniHD" title="Facebook-Auftritt">https://www.facebook.com/GdFUniHD</a><br />
-      </p>
-      <p>Prof. Dr. Dr. h.c. Joachim Funke<br />
-      Vorstandsvorsitzender der Gesellschaft der Freunde Universität Heidelberg e.V.<br />
-      Gesellschaft der Freunde Universität Heidelberg<br />
-      Marstallstr. 6<br />
-      69117 Heidelberg, Deutschland<br />
-      Telefon: 06221 54 7305<br />
-      Fax: 06221 54 7273<br />
-      E-Mail: <a href="mailto:joachim.funke@psychologie.uni-heidelberg.de" title="Email schicken an Herrn Joachim Funke">mailto:joachim.funke@psychologie.uni-heidelberg.de</a></p>
-
-     </div>
-     </div>
-{{elif session.forced_language =='en': }}
-
-
-      <div class="row">
-    <div class="container">
-      <h3>Heidelberger Jahrbücher Online</h3>
-      <h4>Kontakt</h4>
-      <p>Universität Heidelberg<br />
-      Gesellschaft der Freunde Universität Heidelberg e.V.<br />
-      Geschäftstelle<br />
-      Sabine zu Putlitz<br />
-      Marstallstraße 6, 69117 Heidelberg<br />
-      Tel.: 0049-(0)6221-54-3446<br />
-      Fax: 0049-(0)6221-54-3447<br />
-      <a href="http://www.freunde.uni-hd.de" title="Homepage der Gesellschaft">http://www.freunde.uni-hd.de</a><br />
-      <a href="https://www.facebook.com/GdFUniHD" title="Facebook-Auftritt">https://www.facebook.com/GdFUniHD</a><br />
-      </p>
-      <p>Prof. Dr. Dr. h.c. Joachim Funke<br />
-      Vorstandsvorsitzender der Gesellschaft der Freunde Universität Heidelberg e.V.<br />
-      Gesellschaft der Freunde Universität Heidelberg<br />
-      Marstallstr. 6<br />
-      69117 Heidelberg, Deutschland<br />
-      Telefon: 06221 54 7305<br />
-      Fax: 06221 54 7273<br />
-      E-Mail: <a href="mailto:joachim.funke@psychologie.uni-heidelberg.de" title="send email to Mr Joachim Funke">mailto:joachim.funke@psychologie.uni-heidelberg.de</a></p>
-
-
-     </div>
-     </diV
-
-
-
-{{pass}}
-
-
-{{pass}}
-
-{{pass}}
-{{else:}}
-<section id="content">
-    <div class="container">
-        <div class="row">
-
-            <div class="col-lg-3">
-                <article>
-                    <div class="post-image" style="border: 1px solid #f5f5f5;">
-                        <img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/heidelberger_jahrbuecher.jpg')}} ">
-                  </div>
-
-                </article>
-
-                <div class="box">
-                                     <div class="box-gray alignleft" style="height: auto;">
-                 {{if session.forced_language =='de': }}
-                            <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographische Angaben</h5>
-                            <p>Heidelberger Jahrbücher Online<br>
-
-                            <p>Herausgeber<br />
-                            Gesellschaft der Freunde Universität Heidelberg e.V.<br />
-                              Geschäftstelle<br />
-                              Sabine zu Putlitz<br /><br />
-                              Prof. Dr. Dr. h.c. Joachim Funke
-                              Vorstandsvorsitzender der Gesellschaft der Freunde Universität Heidelberg e.V.<br />
-                              Gesellschaft der Freunde Universität Heidelberg
-                            </p>
-                            <p>Heidelberg University Publishing, Heidelberg</p>
-                            <p>eISSN: 2509-2464</p>
-
-                            <p>Dieses Werk ist unter der<br> <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons-Lizenz 4.0<br /> (CC BY-SA 4.0)</a> veröffentlicht.<br>
-                            <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0"><img alt="Creative Commons Lizenz BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p>
-
-
-             {{elif session.forced_language =='en': }}
-
-<h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographic details</h5>
-                            <p>Heidelberger Jahrbücher Online<br>
-                            Gesellschaft der Freunde Universität Heidelberg e.V.<br />
-                              Geschäftstelle<br />
-                              Sabine zu Putlitz<br /><br />
-                              Prof. Dr. Dr. h.c. Joachim Funke
-                              Vorstandsvorsitzender der Gesellschaft der Freunde Universität Heidelberg e.V.<br />
-                              Gesellschaft der Freunde Universität Heidelberg
-                            </p>
-
-                            <p>Heidelberg University Publishing, Heidelberg</p>
-                            <p>eISSN: 2509-2464</p>
-
-                            <p>This work is licensed under a <br> <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons License 4.0<br> (CC BY-SA 4.0)</a>.<br>
-                            <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; License CC BY-SA 4.0"><img alt="Creative Commons License BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p>            
-
-{{pass}}
-                   </div>
-
-
-
-
-                  </div>
- </div>
-
-
-            <div class="col-lg-9">
-               <article>
-        <div id="infoBoxRechts" class="col-lg-3">
-          <div class="box">
-            <div class="box-gray"  style="height: auto;">
-                 {{if session.forced_language =='de': }}
-                <p class="boxText"><b>RSS für die aktuelle Ausgabe</b></p>
-             {{elif session.forced_language =='en': }}
-                <p class="boxText"><b>RSS for current issue</b></p>
-{{pass}}
-
-                    <a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/gateway/plugin/WebFeedGatewayPlugin/atom"><img src="http://heiup.uni-heidelberg.de/journals/plugins/generic/webFeed/templates/images/atom10_logo.gif" alt="Atom logo" border="0" /></a><br />
-        <a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/gateway/plugin/WebFeedGatewayPlugin/rss2"><img src="http://heiup.uni-heidelberg.de/journals/plugins/generic/webFeed/templates/images/rss20_logo.gif" alt="RSS2 logo" border="0" /></a><br />
-        <a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/gateway/plugin/WebFeedGatewayPlugin/rss"><img src="http://heiup.uni-heidelberg.de/journals/plugins/generic/webFeed/templates/images/rss10_logo.gif" alt="RSS1 logo" border="0" /></a>
-                  </div>
-                </div>
-
-
-                <div class="box">
-                  <div class="box-gray"  style="height: auto;">
-
-               <p class="boxText"><b><a href="http://heiup.uni-heidelberg.de/UBHD_OMPPortal/campusmedia/heidelberger_jahrbuecher/contact">{{=T('Contact')}}</a></b></p>
-
-                  </div>
-                </div>
+      <div class="col-lg-3">
+        <article>
+          <div class="post-image" style="border: 1px solid #f5f5f5;">
+            <img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/heidelberger_jahrbuecher.jpg')}} ">
+          </div>
+        </article>
+        <div class="box">
+          <div class="box-gray alignleft" style="height: auto;">{{if session.forced_language =='de': }} 
+            <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographische Angaben</h5>
+            <p>Heidelberger Jahrbücher Online
+              <br>
+              <p>Herausgeber<br />Gesellschaft der Freunde Universität Heidelberg e.V.<br />Geschäftstelle<br />Sabine zu Putlitz<br /><br />Prof. Dr. Dr. h.c. Joachim Funke Vorstandsvorsitzender der Gesellschaft der Freunde Universität Heidelberg e.V.<br />Gesellschaft der Freunde Universität Heidelberg 
+              </p>
+              <p>Heidelberg University Publishing, Heidelberg
+              </p>
+              <p>eISSN: 2509-2464
+              </p>
+              <p>Dieses Werk ist unter der
+                <br> 
+                <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons-Lizenz 4.0<br /> (CC BY-SA 4.0)</a> veröffentlicht.
+                <br>
+                <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">
+                  <img alt="Creative Commons Lizenz BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a>
+              </p>{{elif session.forced_language =='en': }} 
+              <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographic details</h5>
+              <p>Heidelberger Jahrbücher Online
+                <br>Gesellschaft der Freunde Universität Heidelberg e.V.<br />Geschäftstelle<br />Sabine zu Putlitz<br /><br />Prof. Dr. Dr. h.c. Joachim Funke Vorstandsvorsitzender der Gesellschaft der Freunde Universität Heidelberg e.V.<br />Gesellschaft der Freunde Universität Heidelberg 
+              </p>
+              <p>Heidelberg University Publishing, Heidelberg
+              </p>
+              <p>eISSN: 2509-2464
+              </p>
+              <p>This work is licensed under a 
+                <br> 
+                <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons License 4.0
+                  <br> (CC BY-SA 4.0)</a>.
+                <br>
+                <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; License CC BY-SA 4.0">
+                  <img alt="Creative Commons License BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a>
+              </p>{{pass}} 
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <article>
+          <div id="infoBoxRechts" class="col-lg-3">
+            <div class="box">
+              <div class="box-gray" style="height: auto;">{{if session.forced_language =='de': }} 
+                <p class="boxText"><b>RSS für die aktuelle Ausgabe</b>
+                </p>{{elif session.forced_language =='en': }} 
+                <p class="boxText"><b>RSS for current issue</b>
+                </p>{{pass}} 
+                <a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/gateway/plugin/WebFeedGatewayPlugin/atom">
+                  <img src="http://heiup.uni-heidelberg.de/journals/plugins/generic/webFeed/templates/images/atom10_logo.gif" alt="Atom logo" border="0" /></a><br />
+                <a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/gateway/plugin/WebFeedGatewayPlugin/rss2">
+                  <img src="http://heiup.uni-heidelberg.de/journals/plugins/generic/webFeed/templates/images/rss20_logo.gif" alt="RSS2 logo" border="0" /></a><br />
+                <a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/gateway/plugin/WebFeedGatewayPlugin/rss">
+                  <img src="http://heiup.uni-heidelberg.de/journals/plugins/generic/webFeed/templates/images/rss10_logo.gif" alt="RSS1 logo" border="0" /></a>
               </div>
-
-
-     <div class="post-heading">
-
-
-                  <h3>Heidelberger Jahrbücher Online</h3>
-        </div>
-
-                 {{if session.forced_language =='de': }}
-
-                        <p><i class="icon-quote-left"></i>
-<p>In den Heidelberger Jahrbüchern Online soll der wissenschaftliche Geist und der geschichtliche Raum der Universität zur Darstellung gelangen. Die Heidelberger Jahrbücher, die im Auftrag der Gesellschaft der Freunde Universität Heidelberg e.V. herausgegeben werden, beleuchten in jedem Band ein fachübergreifendes Thema aus unterschiedlichen Positionen. Ihr Ziel ist es, das Gespräch und den Kontakt der Wissenschaften an der Universität Heidelberg untereinander zu fördern.</p>
-
-
-
-
-             {{elif session.forced_language =='en': }}
-
-<p>In den Heidelberger Jahrbüchern Online soll der wissenschaftliche Geist und der geschichtliche Raum der Universität zur Darstellung gelangen. Die Heidelberger Jahrbücher, die im Auftrag der Gesellschaft der Freunde Universität Heidelberg e.V. herausgegeben werden, beleuchten in jedem Band ein fachübergreifendes Thema aus unterschiedlichen Positionen. Ihr Ziel ist es, das Gespräch und den Kontakt der Wissenschaften an der Universität Heidelberg untereinander zu fördern.</p>
-
-
-{{pass}}
-
-
-                    <div class="widget">
-                        <h5 class="widgetheading"></h5>
-                        <ul class="tags">
-                 {{if session.forced_language =='de': }}
-
-                    <li style="display: inline"><a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/index">zur aktuellen Ausgabe</a></li>
-                            <li style="display: inline"><a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/issue/archive">Archiv</a></li>
-             {{elif session.forced_language =='en': }}
-                            <li style="display: inline"><a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/index">View Current Issue</a></li>
-                            <li style="display: inline"><a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/issue/archive">Archive</a></li>
-
-
-{{pass}}
-
-
-                        </ul>
-                    </div>
-
-                </article>
-
-        </div>
-
             </div>
- </div>
-{{pass}}
-
+            <div class="box">
+              <div class="box-gray" style="height: auto;">
+                <p class="boxText"><b>
+                    <a href="http://heiup.uni-heidelberg.de/UBHD_OMPPortal/campusmedia/heidelberger_jahrbuecher/contact">{{=T('Contact')}}</a></b>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="post-heading"><h3>Heidelberger Jahrbücher Online</h3>
+          </div>{{if session.forced_language =='de': }} 
+          <p>
+            <i class="icon-quote-left"></i>
+            <p>In den Heidelberger Jahrbüchern Online soll der wissenschaftliche Geist und der geschichtliche Raum der Universität zur Darstellung gelangen. Die Heidelberger Jahrbücher, die im Auftrag der Gesellschaft der Freunde Universität Heidelberg e.V. herausgegeben werden, beleuchten in jedem Band ein fachübergreifendes Thema aus unterschiedlichen Positionen. Ihr Ziel ist es, das Gespräch und den Kontakt der Wissenschaften an der Universität Heidelberg untereinander zu fördern.
+            </p>{{elif session.forced_language =='en': }} 
+            <p>Heidelberg Yearbooks Online is a platform for the scientific spirit and the historic dimension of Heidelberg University. The Yearbooks are hosted by the Friends of the University, a non-commercial organization in support of Heidelberg University. Each yearbook focuses on an overarching thematic issue that will be interpreted by heterogenous points of view. The yearbooks are intended to foster communication and contact between scientists from different disciplines.
+            </p>{{pass}} 
+            <div class="widget">
+              <h5 class="widgetheading"></h5>
+              <ul class="tags">{{if session.forced_language =='de': }} 
+                <li style="display: inline">
+                  <a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/index">zur aktuellen Ausgabe</a>
+                </li>
+                <li style="display: inline">
+                  <a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/issue/archive">Archiv</a>
+                </li>{{elif session.forced_language =='en': }} 
+                <li style="display: inline">
+                  <a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/index">View Current Issue</a>
+                </li>
+                <li style="display: inline">
+                  <a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/issue/archive">Archive</a>
+                </li>{{pass}} 
+              </ul>
+            </div>
+        </article>
+      </div>
+    </div>
+  </div>{{pass}}
