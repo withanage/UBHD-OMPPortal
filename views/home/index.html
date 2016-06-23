@@ -79,16 +79,29 @@ $('.flexslider').flexslider();
         <div class="col-lg-12">
           <div class="row">
             <div class="col-lg-3">
-              <div class="box">{{if session.forced_language =='de': }} 
-                <div class="box-gray aligncenter"><h4>Neuerscheinung</h4>{{=IMG(_src=URL('static','files/presses/6/monographs/48/simple/cover.jpg'),_alt='',_style='width:145px')}} 
+              <div class="box">
+                <div class="box-gray aligncenter">
+              {{if session.forced_language =='de': }} 
+                <h4>Neuerscheinung</h4>
+              {{elif session.forced_language =='en': }} 
+                <h4>New Titles</h4>
+                {{pass}}
+                <img alt="" src="{{=URL('static','images/catalog/Cover_Kemp_OMP.jpg')}}" style="width: 145px;" />
+                  </div>
+                  <div class="box-bottom">
+              {{if session.forced_language =='de': }} 
+                    <a href="http://heiup.uni-heidelberg.de/catalog/index.html#kemp">Mehr</a>
+              {{elif session.forced_language =='en': }} 
+                    <a href="http://heiup.uni-heidelberg.de/catalog/index.html#kemp_en">More Information</a>
+              {{pass}} 
+                  </div>
+                <!--{{=IMG(_src=URL('static','files/presses/6/monographs/48/simple/cover.jpg'),_alt='',_style='width:145px')}} 
                 </div>
                 <div class="box-bottom">{{=A(T('More'),_href=URL('catalog','book/48'))}} 
-                </div>{{elif session.forced_language =='en': }} 
                 <div class="box-gray aligncenter"><h4>New Titles</h4>{{=IMG(_src=URL('static','files/presses/6/monographs/48/simple/cover.jpg'),_alt='',_style='width:145px')}} 
                 </div>
-                <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/48'))}} 
-                </div>{{pass}} 
-              </div>
+                <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/48'))}}--> 
+                </div>
             </div>
             <div class="col-lg-3">
               <div class="box">
@@ -176,13 +189,17 @@ $('.flexslider').flexslider();
             <div class="row">
               <div class="col-lg-3">
                 <div class="box">
-                  <div class="box-gray aligncenter">{{if session.forced_language =='de': }} <h4>Demnächst</h4>{{elif session.forced_language =='en': }} <h4>Forthcoming</h4>{{pass}} 
-                    <img alt="" src="{{=URL('static','images/catalog/Cover_Kemp_OMP.jpg')}}" style="width: 145px;"/>
-                  </div>
-                  <div class="box-bottom">{{if session.forced_language =='de': }} 
-                    <a href="http://heiup.uni-heidelberg.de/catalog/index.html#kemp">Mehr</a>{{elif session.forced_language =='en': }} 
-                    <a href="http://heiup.uni-heidelberg.de/catalog/index.html#kemp_en">More Information</a>{{pass}} 
-                  </div>
+                  <div class="box-gray aligncenter">
+                  {{if session.forced_language =='de': }}
+                  <h4>Neuerscheinung</h4>
+                  {{elif session.forced_language =='en': }}
+                  <h4>New Titles</h4>
+                  {{pass}} 
+                    {{=IMG(_src=URL('static','files/presses/6/monographs/48/simple/cover.jpg'),_alt='',_style='width:145px')}} 
+                </div>
+                <div class="box-bottom">{{=A(T('More'),_href=URL('catalog','book/48'))}} 
+                </div>
+
                 </div>
               </div>
               <div class="col-lg-3">
