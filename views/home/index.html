@@ -25,12 +25,12 @@ $('.flexslider').flexslider();
               </div>{{pass}} 
               </li>
               <li>
-              <img alt="" id="hup-logo2" src="{{=URL('static','images/press/slideshow/02_cover_habenstein.jpg')}}" />{{if session.forced_language =='de': }} 
-              <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('A. Habenstein Abwesenheit von Rom')}}</h3>
-                <a href="./catalog/index.html" class="btn btn-theme">Mehr</a>
+              <img alt="" id="hup-logo2" src="{{=URL('static','images/press/slideshow/02_cover_kemp.jpg')}}" />{{if session.forced_language =='de': }} 
+              <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('Wolfgang Kemp Wir haben ja alle Deutschland nicht gekannt')}}</h3>
+                <a href="./catalog/book/90" class="btn btn-theme">Mehr</a>
               </div>{{elif session.forced_language =='en': }} 
-              <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('A. Habenstein Abwesenheit von Rom')}}</h3>
-                <a href="./catalog/index.html" class="btn btn-theme">More Information</a>
+              <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('Wolfgang Kemp Wir haben ja alle Deutschland nicht gekannt')}}</h3>
+                <a href="./catalog/book/90" class="btn btn-theme">More Information</a>
               </div>{{pass}} 
               </li>
               <li>
@@ -83,24 +83,19 @@ $('.flexslider').flexslider();
                 <div class="box-gray aligncenter">
               {{if session.forced_language =='de': }} 
                 <h4>Neuerscheinung</h4>
-              {{elif session.forced_language =='en': }} 
+              {{elif session.forced_language =='en': }}                       
                 <h4>New Titles</h4>
                 {{pass}}
-                <img alt="" src="{{=URL('static','images/catalog/Cover_Kemp_OMP.jpg')}}" style="width: 145px;" />
+                <img alt="" src="{{=URL('static','images/catalog/Cover_Kemp_OMP.jpg')}}" style="border: 1px solid #e8e8e8; width: 145px;" />
                   </div>
                   <div class="box-bottom">
               {{if session.forced_language =='de': }} 
-                    <a href="http://heiup.uni-heidelberg.de/catalog/index.html#kemp">Mehr</a>
+                    <a href="http://heiup.uni-heidelberg.de/catalog/book/90">Mehr</a>
               {{elif session.forced_language =='en': }} 
-                    <a href="http://heiup.uni-heidelberg.de/catalog/index.html#kemp_en">More Information</a>
+                    <a href="http://heiup.uni-heidelberg.de/catalog/book/90">More Information</a>
               {{pass}} 
                   </div>
-                <!--{{=IMG(_src=URL('static','files/presses/6/monographs/48/simple/cover.jpg'),_alt='',_style='width:145px')}} 
-                </div>
-                <div class="box-bottom">{{=A(T('More'),_href=URL('catalog','book/48'))}} 
-                <div class="box-gray aligncenter"><h4>New Titles</h4>{{=IMG(_src=URL('static','files/presses/6/monographs/48/simple/cover.jpg'),_alt='',_style='width:145px')}} 
-                </div>
-                <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/48'))}}--> 
+                
                 </div>
             </div>
             <div class="col-lg-3">
@@ -177,7 +172,7 @@ $('.flexslider').flexslider();
                     <!--{{if session.forced_language =='de': }} 
                     <a href="http://heiup.uni-heidelberg.de/#"><span style="color: #EFEFEF;">Mehr</span>
                     {{elif session.forced_language =='en': }} 
-                    <a href="http://heiup.uni-heidelberg.de/#"><span style="color: #EFEFEF;">More</span>
+                    <a href="http://heiup.uni-heidelberg.de/#"><span style="color: #EFEFEF;">More Information</span>
                     {{pass}}--> 
               </div>
             </div>
@@ -197,7 +192,7 @@ $('.flexslider').flexslider();
                   {{pass}} 
                     {{=IMG(_src=URL('static','files/presses/6/monographs/48/simple/cover.jpg'),_alt='',_style='width:145px')}} 
                 </div>
-                <div class="box-bottom">{{=A(T('More'),_href=URL('catalog','book/48'))}} 
+                <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/48'))}} 
                 </div>
 
                 </div>
@@ -205,7 +200,7 @@ $('.flexslider').flexslider();
               <div class="col-lg-3">
                 <div class="box">
                   <div class="box-gray aligncenter">{{if session.forced_language =='de': }} <h4>Demnächst</h4>{{elif session.forced_language =='en': }} <h4>Forthcoming</h4>{{pass}} 
-                    <img alt="" src="{{=URL('static','images/catalog/01_Cover_Limitierte_Auflage.jpg')}}" style="width: 145px;"/>
+                    <img alt="" src="{{=URL('static','images/catalog/01_Cover_Limitierte_Auflage.jpg')}}" style="border: 1px solid #e8e8e8; width: 145px;"/>
                   </div>
                   <div class="box-bottom">{{if session.forced_language =='de': }} 
                     <a href="http://heiup.uni-heidelberg.de/catalog/index.html#michl">Mehr</a>{{elif session.forced_language =='en': }} 
