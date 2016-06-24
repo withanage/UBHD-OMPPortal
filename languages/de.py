@@ -430,6 +430,7 @@
 'Welcome': 'Willkommen',
 'Welcome to web2py!': 'Willkommen bei web2py!',
 'Which called the function %s located in the file %s': 'Welche die Funktion %s in der Datei %s aufrief',
+'Wir haben ja alle Deutschland nicht gekannt': 'Wir haben ja alle Deutschland nicht gekannt',
 'Wolfgang Kemp Wir haben ja alle Deutschland nicht gekannt': 'Wolfgang Kemp Wir haben ja alle Deutschland nicht gekannt',
 'Working...': 'Arbeite...',
 'yes setzt voraus, dass im PDF die Trimbox gesetzt ist. Bei no wird innerhalb der Mediabox zentriert.': 'yes setzt voraus, dass im PDF die Trimbox gesetzt ist. Bei no wird innerhalb der Mediabox zentriert.',
