@@ -90,9 +90,9 @@ $('.flexslider').flexslider();
                   </div>
                   <div class="box-bottom">
               {{if session.forced_language =='de': }} 
-                    <a href="http://heiup.uni-heidelberg.de/catalog/book/90">Mehr</a>
+                    {{=A(T('Mehr'),_href=URL('catalog','book/90'))}}
               {{elif session.forced_language =='en': }} 
-                    <a href="http://heiup.uni-heidelberg.de/catalog/book/90">More Information</a>
+                    {{=A(T('More Information'),_href=URL('catalog','book/90'))}}<a href="http://heiup.uni-heidelberg.de/catalog/book/90">
               {{pass}} 
                   </div>
                 
