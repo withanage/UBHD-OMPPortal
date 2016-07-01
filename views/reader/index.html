@@ -15,7 +15,7 @@
 
 
     <!-- MathJax Configuration -->
-    <!--script type="text/x-mathjax-config">
+    <script type="text/x-mathjax-config">
        MathJax.Hub.Config({
          jax: ["input/TeX", "input/MathML","output/HTML-CSS"],
          extensions: ["MathMenu.js","MathZoom.js", "CHTML-preview.js"],
@@ -27,16 +27,15 @@
          "displayAlign": "left",
          styles: {".MathJax_Display": {padding: "0em 0em 0em 3em" },".MathJax_SVG_Display": {padding: "0em 0em 0em 3em" },}
       });
-
-    </script-->
-    <!--script type="text/javascript"   src="http://beta.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML-full"-->
-    <!--script type="text/javascript"   src="{{=URL('static','js/MathJax.js')}}"></script-->
+    </script>
+    <script type="text/javascript" src="http://beta.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML-full"></script>
+    <!--script type="text/javascript" src="{{=URL('static','js/MathJax.js')}}"/-->
     <script type="text/javascript">
         //web2py variables
         var submission_id = '{{=request.args[0]}}';
         var submission_file = '{{=request.args[1]}}';
         var application = '{{=request.application}}';
-        var press_id = '{{=myconf.take("omp.press_id")}}';;
+        var press_id = '{{=myconf.take("omp.press_id")}}';
     </script>
     {{if session.forced_language =='de': }}
     <script src="{{=URL('static','js/lens-locales-de.js')}}"></script>
