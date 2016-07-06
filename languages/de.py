@@ -389,6 +389,7 @@
 'Tracklist bei Musik': 'Tracklist bei Musik',
 'Transcultural Studies': 'Transcultural Studies',
 'Tweets by @UniHeidelberg': 'Tweets by @UniHeidelberg',
+'Tweets by heiUP_HD': 'Tweets by heiUP_HD',
 'Twitter': 'Twitter',
 'UB Heidelberg Digitale Informations- versorgung': 'UB Heidelberg Digitale Informations- versorgung',
 'Umfang': 'Umfang',

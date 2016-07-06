@@ -13,3 +13,7 @@ def generale():
 
 def home():
     return dict()                           
+
+def alte_aula():
+    return dict()
+

@@ -228,6 +228,32 @@ $('.flexslider').flexslider();
                   </div>
                 </div>
               </div>
+              <div class="col-lg-3">
+                <div class="box">
+                  <div class="box-gray aligncenter">
+                  {{if session.forced_language =='de': }}
+                  <h4>Zeitschrift</h4>
+                  {{elif session.forced_language =='en': }}
+                  <h4>Magazine</h4>
+                  {{pass}}
+                    {{=IMG(_src=URL('static','images/journals/tcs.jpg'),_alt='',_style='width:145px')}}
+                </div>
+                <div class="box-bottom">{{=A(T('More Information'),_href=URL('journals','tcs'))}}
+                </div>
+
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="box">
+                  <div class="box-gray aligncenter">
+                    <h4>Campus Media</h4>
+                    <img alt="" src="{{=URL('static','images/campusmedia/ruperto_carola.jpg')}}" style="width: 145px;"/>
+                  </div>
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('campusmedia','ruperto_carola'))}}
+                  </div>
+                </div>
+              </div>
+
               <!-- <div class="col-lg-3">
               <div class="box">
               <div class="box-gray">
@@ -246,14 +272,14 @@ $('.flexslider').flexslider();
               {{elif session.forced_language =='en': }}
               <a href="http://heiup.uni-heidelberg.de/#"><span style="color: #EFEFEF;">More</span>
               {{pass}}
-              </div>
+              </div>         
               </div>
               </div> -->
-              <div class="col-lg-6" >
                 <!--<div>-->
                 <!-- TWITTER TIMELINE-->
+<!--
                 <div>
-                  <a class="twitter-timeline" href="https://twitter.com/UniHeidelberg" data-widget-id="521961404698341376" style="height: 350px;">{{=T('Tweets by @UniHeidelberg')}}</a>
+                  <a class="twitter-timeline" href="https://twitter.com/heiUP_HD" data-widget-id="747699256207773697" style="height: 350px;">{{=T('Tweets by heiUP_HD')}}</a>
               <script>!function (d, s, id) {
               var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
               if (!d.getElementById(id)) {
@@ -264,6 +290,7 @@ $('.flexslider').flexslider();
               }
               }(document, "script", "twitter-wjs");</script>
                 </div>
+-->
                 <!-- /TWITTER TIMELINE -->
                 <!--</div>-->
               </div>

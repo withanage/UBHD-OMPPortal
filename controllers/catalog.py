@@ -12,6 +12,7 @@ from ompformat import dateFromRow, seriesPositionCompare
 from ompstats import OMPStats
 from datetime import datetime
 
+
 def series():
     if session.forced_language == 'en':
         locale = 'en_US'
