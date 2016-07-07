@@ -581,7 +581,7 @@ out (on iOS 5.1), or flicker (on iOS 6). */
 .article .document .surface.content .nodes {
   min-height: 100%;
   padding-left: 20px;
-  padding-right: 3px;
+  padding-right: 0px;
   background: #FFFFFF;
   padding-bottom: 50px; }
 
@@ -682,6 +682,9 @@ out (on iOS 5.1), or flicker (on iOS 6). */
 .article .resources .nodes > .content-node > .content {
   border-top: none; }
 
+.article .resources .nodes > .content-node > .content .citation-italic {
+  font-style: italic; }
+
 /* Clickable header */
 .article .resources .content-node .resource-header {
   padding-top: 15px;
@@ -747,13 +750,13 @@ out (on iOS 5.1), or flicker (on iOS 6). */
 
 .article .resources .figures .content-node.highlighted .resource-header .toggle.toggle-res,
 .article .resources .math .content-node.highlighted .resource-header .toggle.toggle-res {
-  color: #990000; }
+  color: #91bb04; }
 
 .article .resources .citations .content-node.highlighted .resource-header .toggle.toggle-res {
-  color: #990000; }
+  color: #0b9dd9; }
 
 article .resources .footnotes .content-node.highlighted .resource-header .toggle.toggle-res {
-  color: #990000; }
+  color: #0b9dd9; }
 
 .article .resources .info .content-node.highlighted .resource-header .toggle.toggle-res {
   color: #5c6570; }
@@ -769,7 +772,7 @@ article .resources .footnotes .content-node.highlighted .resource-header .toggle
 /* Styles for fullscreen toggle on resource cards */
 .article .resources .figures .content-node.fullscreen .resource-header .toggle.toggle-fullscreen,
 .article .resources .math .content-node.fullscreen .resource-header .toggle.toggle-fullscreen {
-  color: #990000; }
+  color: #91bb04; }
 
 #container .article .content-node.fullscreen {
   position: fixed;
@@ -897,9 +900,9 @@ span.annotation.formula_reference, span.publication_reference {
   font-weight: bold; }
 
 .content-node .figure_reference {
-  background: rgba(153, 0, 0, 0.15);
-  border-bottom: 1px solid rgba(153, 0, 0, 0.6);
-  color: #505050;
+  background: rgba(145, 187, 4, 0.15);
+  border-bottom: 1px solid rgba(145, 187, 4, 0.6);
+  color: #495A11;
   cursor: pointer; }
 
 .content-node .contributor_reference {
@@ -907,17 +910,17 @@ span.annotation.formula_reference, span.publication_reference {
   cursor: pointer; }
 
 .content-node .citation_reference {
-  background: rgba(153, 0, 0, 0.15);
-  border-bottom: 1px solid rgba(153, 0, 0, 0.6);
-  color: #505050;
+  background: rgba(11, 157, 217, 0.075);
+  color: #1B6685;
+  border-bottom: 1px solid rgba(11, 157, 217, 0.4);
   cursor: pointer;
   padding-right: 3px;
   padding-left: 3px; }
 
 .content-node .footnote_reference {
-  background: rgba(153, 0, 0, 0.15);
-  border-bottom: 1px solid rgba(153, 0, 0, 0.6);
-  color: #505050;
+  background: rgba(11, 157, 217, 0.075);
+  color: #1B6685;
+  border-bottom: 1px solid rgba(11, 157, 217, 0.4);
   cursor: pointer;
   padding-right: 3px;
   padding-left: 3px;
@@ -937,37 +940,37 @@ span.annotation.formula_reference, span.publication_reference {
 
 /* Hover states */
 .content-node .figure_reference:hover {
-  background-color: rgba(255, 255, 255, 0.35); }
+  background-color: rgba(145, 187, 4, 0.35); }
 
 .content-node .citation_reference:hover {
-  background-color: rgba(255, 255, 255, 0.35); }
+  background-color: rgba(11, 157, 217, 0.3); }
 
 .content-node .contributor_reference:hover {
-  background-color: rgba(255, 255, 255, 0.35); }
+  background-color: rgba(0, 0, 0, 0.05); }
 
 .content-node .definition_reference:hover {
-  background-color: rgba(255, 255, 255, 0.35); }
+  background-color: rgba(0, 0, 0, 0.1); }
 
 .content-node .footnote_reference:hover {
-  background-color: rgba(255, 255, 255, 0.35); }
+  background-color: rgba(11, 157, 217, 0.3); }
 
 /* Highlighted states */
 .content-node .figure_reference.highlighted {
-  background: rgba(153, 0, 0, 0.7); }
+  background: rgba(145, 187, 4, 0.7); }
 
 .content-node .citation_reference.highlighted {
-  background: rgba(153, 0, 0, 0.7); }
+  background: rgba(11, 157, 217, 0.6); }
 
 .content-node .contributor_reference.highlighted {
   background-color: #5c6570;
-  color: rgba(153, 0, 0, 0.7); }
+  color: white; }
 
 .content-node .definition_reference.highlighted {
   background-color: #5c6570;
-  color: rgba(153, 0, 0, 0.7); }
+  color: white; }
 
 .content-node .footnote_reference.highlighted {
-  background: rgba(153, 0, 0, 0.7); }
+  background: rgba(11, 157, 217, 0.6); }
 
 /* Cross Reference */
 .content-node .cross_reference:hover {
@@ -978,10 +981,10 @@ span.annotation.formula_reference, span.publication_reference {
 /* For the main content area
 ----------------------------------------------------------------------- */
 .surface.content .nodes > .content-node {
-  padding-top: 0px;
-  padding-bottom: px;
-  padding-left: 10px;
-  padding-right: 0px;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
   word-wrap: break-word; }
 
 /* Some extra cover spacing */
@@ -1081,20 +1084,20 @@ as we have a plugin concept for functionality / panels */
 
 /* active citation */
 .article .resources .citations .content-node.highlighted {
-  border-left: 1px solid #990000;
-  border-right: 1px solid #990000;
-  border-top: 1px solid #990000;
-  border-bottom: 1px solid #990000; }
+  border-left: 1px solid #0b9dd9;
+  border-right: 1px solid #0b9dd9;
+  border-top: 1px solid #0b9dd9;
+  border-bottom: 1px solid #0b9dd9; }
 
 .article .resources .figures .content-node.highlighted {
-  border-left: 3px solid #990000; }
+  border-left: 3px solid #91bb04; }
 
 /* active footnote */
 .article .resources .footnotes .content-node.highlighted {
-  border-left: 1px solid #990000;
-  border-right: 1px solid #990000;
-  border-top: 1px solid #990000;
-  border-bottom: 1px solid #990000; }
+  border-left: 1px solid #0b9dd9;
+  border-right: 1px solid #0b9dd9;
+  border-top: 1px solid #0b9dd9;
+  border-bottom: 1px solid #0b9dd9; }
 
 /* active definition */
 .article .resources .definitions .content-node.highlighted {
@@ -1150,6 +1153,26 @@ TOC
   padding-left: 80px;
   font-size: 14px; }
 
+.resource-view.toc .heading-ref.level-6 {
+  padding-left: 100px;
+  font-size: 14px; }
+
+.resource-view.toc .heading-ref.level-7 {
+  padding-left: 120px;
+  font-size: 14px; }
+
+.resource-view.toc .heading-ref.level-8 {
+  padding-left: 140px;
+  font-size: 14px; }
+
+.resource-view.toc .heading-ref.level-9 {
+  padding-left: 160px;
+  font-size: 14px; }
+
+.resource-view.toc .heading-ref.level-10 {
+  padding-left: 180px;
+  font-size: 14px; }
+
 .resource-view.toc .heading-ref:hover {
   color: black; }
 
@@ -1195,11 +1218,11 @@ TOC
 /* Colors for scroll-bar overlays */
 .article .resources .figures .surface-scrollbar .highlighted,
 .article .content .surface-scrollbar .highlighted.figure_reference {
-  background-color: #990000; }
+  background-color: #91bb04; }
 
 .article .resources .footnotes .surface-scrollbar .highlighted,
 .article .content .surface-scrollbar .highlighted.footnote_reference {
-  background-color: #990000; }
+  background-color: #0b9dd9; }
 
 .article .resources .definitions .surface-scrollbar .highlighted,
 .article .content .surface-scrollbar .highlighted.definition_reference {
@@ -1207,7 +1230,7 @@ TOC
 
 .article .resources .citations .surface-scrollbar .highlighted,
 .article .content .surface-scrollbar .highlighted.citation_reference {
-  background-color: #990000; }
+  background-color: #0b9dd9; }
 
 /* new FOCUS handles */
 .panel.document .nodes > .content-node > .focus-handle {
@@ -1277,7 +1300,7 @@ body, textarea, p, input {
   color: #505050; }
 
 a {
-  color: #900;
+  color: #1B6685;
   font-weight: normal;
   text-decoration: none;
   /*  -moz-transition: background-color 100ms linear, color 100ms linear, opacity 100ms linear;
@@ -1420,36 +1443,17 @@ body.loading .spinner-wrapper {
 #MathJax_Message {
   display: none; }
 
-@media print {
-  .resources * {
-    display: none !important; } }
-
 .content-node.speech > .content {
-  padding: 0px; }
+  padding: 20px; }
 
-.document .content-node.speech .content-node.speeches {
-  /** padding: 0px 40px 10px 40px; **/ }
+.document .content-node.speech .content-node.paragraph {
+  /*padding: 0px;*/
+  padding: 10px 40px 10px 40px;
+  border-left: 3px solid #000; }
 
-.surface.content .nodes > .content-node.speech > .content > .speeches > .speech {
-  display: table;
-  margin: 10px; }
+.surface.content .content-node.speech > .content > .label {
+  font-weight: 600;
+  padding-bottom: 20px; }
 
-.surface.content .nodes > .content-node.speech > .content > .speeches > .speech > .speech-row {
-  display: table-row; }
-
-.surface.content .nodes > .content-node.speech > .content > .speeches > .speech > .speech-row > .speech-speaker {
-  display: table-cell;
-  max-width: 100px !important;
-  min-width: 100px !important; }
-
-.surface.content .nodes > .content-node.speech > .content > .speeches > .speech > .speech-row > .speech-text {
-  display: table-cell; }
-
-/**
-.rTableHeading    { display: table-header-group; }
-.rTableBody    { display: table-row-group; }
-.rTableFoot    { display: table-footer-group; }
-.rTableCell, .rTableHead  { display: table-cell; }
-*/
 .altmetrics-panel .altmetrics {
   padding: 20px; }
