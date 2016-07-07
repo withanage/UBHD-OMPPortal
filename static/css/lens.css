@@ -981,8 +981,8 @@ span.annotation.formula_reference, span.publication_reference {
 /* For the main content area
 ----------------------------------------------------------------------- */
 .surface.content .nodes > .content-node {
-  padding-top: 10px;
-  padding-bottom: 15px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   padding-left: 30px;
   padding-right: 30px;
   word-wrap: break-word; }
