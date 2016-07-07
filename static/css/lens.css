@@ -753,10 +753,10 @@ out (on iOS 5.1), or flicker (on iOS 6). */
   color: #91bb04; }
 
 .article .resources .citations .content-node.highlighted .resource-header .toggle.toggle-res {
-  color: #0b9dd9; }
+  color: #990000; }
 
 article .resources .footnotes .content-node.highlighted .resource-header .toggle.toggle-res {
-  color: #0b9dd9; }
+  color: #990000; }
 
 .article .resources .info .content-node.highlighted .resource-header .toggle.toggle-res {
   color: #5c6570; }
@@ -855,11 +855,11 @@ span.annotation.formula_reference, span.publication_reference {
   background-color: rgba(237, 96, 48, 0.3); }
 
 .content-node .link {
-  color: #1B6685;
+  color: #900;
   font-weight: bold; }
 
 .content-node .link:hover, .content-node .link.highlighted {
-  color: #0b9dd9; }
+  color: #990000; }
 
 /* Inline Code Annotations */
 .content-node .code {
@@ -910,17 +910,17 @@ span.annotation.formula_reference, span.publication_reference {
   cursor: pointer; }
 
 .content-node .citation_reference {
-  background: rgba(11, 157, 217, 0.075);
-  color: #1B6685;
-  border-bottom: 1px solid rgba(11, 157, 217, 0.4);
+  background: rgba(11, 157, 217, 0);
+  color: #900;
+  border-bottom: 1px solid rgba(11, 157, 217, 0);
   cursor: pointer;
   padding-right: 3px;
   padding-left: 3px; }
 
 .content-node .footnote_reference {
-  background: rgba(11, 157, 217, 0.075);
-  color: #1B6685;
-  border-bottom: 1px solid rgba(11, 157, 217, 0.4);
+  background: rgba(11, 157, 217, 0);
+  color: #900;
+  border-bottom: 1px solid rgba(11, 157, 217, 0);
   cursor: pointer;
   padding-right: 3px;
   padding-left: 3px;
@@ -943,7 +943,7 @@ span.annotation.formula_reference, span.publication_reference {
   background-color: rgba(145, 187, 4, 0.35); }
 
 .content-node .citation_reference:hover {
-  background-color: rgba(11, 157, 217, 0.3); }
+  background-color: rgba(11, 157, 217, 0); }
 
 .content-node .contributor_reference:hover {
   background-color: rgba(0, 0, 0, 0.05); }
@@ -952,14 +952,14 @@ span.annotation.formula_reference, span.publication_reference {
   background-color: rgba(0, 0, 0, 0.1); }
 
 .content-node .footnote_reference:hover {
-  background-color: rgba(11, 157, 217, 0.3); }
+  background-color: rgba(11, 157, 217, 0); }
 
 /* Highlighted states */
 .content-node .figure_reference.highlighted {
   background: rgba(145, 187, 4, 0.7); }
 
 .content-node .citation_reference.highlighted {
-  background: rgba(11, 157, 217, 0.6); }
+  background: rgba(153, 0, 0, 0.15); }
 
 .content-node .contributor_reference.highlighted {
   background-color: #5c6570;
@@ -970,7 +970,7 @@ span.annotation.formula_reference, span.publication_reference {
   color: white; }
 
 .content-node .footnote_reference.highlighted {
-  background: rgba(11, 157, 217, 0.6); }
+  background: rgba(153, 0, 0, 0.15); }
 
 /* Cross Reference */
 .content-node .cross_reference:hover {
@@ -1084,20 +1084,20 @@ as we have a plugin concept for functionality / panels */
 
 /* active citation */
 .article .resources .citations .content-node.highlighted {
-  border-left: 1px solid #0b9dd9;
-  border-right: 1px solid #0b9dd9;
-  border-top: 1px solid #0b9dd9;
-  border-bottom: 1px solid #0b9dd9; }
+  border-left: 1px solid #990000;
+  border-right: 1px solid #990000;
+  border-top: 1px solid #990000;
+  border-bottom: 1px solid #990000; }
 
 .article .resources .figures .content-node.highlighted {
   border-left: 3px solid #91bb04; }
 
 /* active footnote */
 .article .resources .footnotes .content-node.highlighted {
-  border-left: 1px solid #0b9dd9;
-  border-right: 1px solid #0b9dd9;
-  border-top: 1px solid #0b9dd9;
-  border-bottom: 1px solid #0b9dd9; }
+  border-left: 1px solid #990000;
+  border-right: 1px solid #990000;
+  border-top: 1px solid #990000;
+  border-bottom: 1px solid #990000; }
 
 /* active definition */
 .article .resources .definitions .content-node.highlighted {
@@ -1218,19 +1218,19 @@ TOC
 /* Colors for scroll-bar overlays */
 .article .resources .figures .surface-scrollbar .highlighted,
 .article .content .surface-scrollbar .highlighted.figure_reference {
-  background-color: #91bb04; }
+  background-color: rgba(153, 0, 0, 0.45); }
 
 .article .resources .footnotes .surface-scrollbar .highlighted,
 .article .content .surface-scrollbar .highlighted.footnote_reference {
-  background-color: #0b9dd9; }
+  background-color: #990000; }
 
 .article .resources .definitions .surface-scrollbar .highlighted,
 .article .content .surface-scrollbar .highlighted.definition_reference {
-  background-color: #5c6570; }
+  background-color: rgba(153, 0, 0, 0.4); }
 
 .article .resources .citations .surface-scrollbar .highlighted,
 .article .content .surface-scrollbar .highlighted.citation_reference {
-  background-color: #0b9dd9; }
+  background-color: #990000; }
 
 /* new FOCUS handles */
 .panel.document .nodes > .content-node > .focus-handle {
@@ -1300,7 +1300,7 @@ body, textarea, p, input {
   color: #505050; }
 
 a {
-  color: #1B6685;
+  color: #900;
   font-weight: normal;
   text-decoration: none;
   /*  -moz-transition: background-color 100ms linear, color 100ms linear, opacity 100ms linear;
