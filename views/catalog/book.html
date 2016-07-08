@@ -1,264 +1,238 @@
 {{extend 'layout.html'}}
+{{from ompformat import formatCitation, formatContributors, formatName, dateFromRow, dateToStr, formatONIXDate, formatONIXDateWithText, coverImageLink, downloadLink, haveMultipleAuthors}}
+{{from ompdal import OMPDAL}}
 
 
+<div id="main" class="container">
+	<section id="content">
+	  <div style="height: 20px"></div>
+	  <div class="container">
+	    <div class="row">
+	      <div class="col-lg-3">
+	        <article>
+	          <div class="post-image">
+	            {{=IMG(_src=coverImageLink(request, press.press_id, submission.submission_id))}}
+	          </div>
+	        </article>
+	        {{cleanTitle = " ".join([submission_settings.getLocalizedValue('prefix', locale), submission_settings.getLocalizedValue('title', locale)])}}
+	    	{{subtitle = submission_settings.getLocalizedValue('subtitle', locale)}}
+	    	{{abstract = submission_settings.getLocalizedValue('abstract', locale)}}
+	    	{{if series:}}
+	    		{{series_title = " ".join([series.settings.getLocalizedValue('prefix', locale), series.settings.getLocalizedValue('title', locale)])}}
+				{{series_subtitle = series.settings.getLocalizedValue('subtitle', locale)}}
+				{{series_name = " – ".join([t for t in [series_title.strip(), series_subtitle] if t])}}
+			{{else:}}
+				{{series_name = ""}}
+	    	{{pass}}
+	        <div class="box">
+	          <div class="box-gray alignleft" style="height: auto;">
+	            <h5 style="color: #656565; margin-bottom: 0.5em;">{{=T('How to cite this title')}}</h5>
+	            <p>
+	            {{citation_year=dateToStr(date_published, locale, "%Y")}}
+	            {{=formatCitation(cleanTitle, subtitle, authors, editors, citation_year, press_settings.getLocalizedValue('location', ''), press_settings.getLocalizedValue('publisher', ''), doi, locale, series_name=series_name, series_pos=submission.series_position, max_contrib=3)}}
+	            {{=A(doi, _href="http://dx.doi.org/"+doi)}}
+	            </p>
+				<h5 style="color: #656565; margin-bottom: 0.3em;">{{=T('Licenses')}}</h5>
+				{{if session.forced_language =='de': }}
+					<p>Dieses Werk ist unter der<br> <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons-Lizenz 4.0<br/> (CC BY-SA 4.0)</a> veröffentlicht.<br>
+					<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0"><img alt="Creative Commons Lizenz BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p>
+				{{elif session.forced_language =='en': }}
+					<p>This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; License CC BY-SA 4.0">Creative Commons License 4.0<br/> (CC BY-SA 4.0)</a> .<br>
+					<a href="https://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0"><img alt="Creative Commons License BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p>
+				{{pass}}
+	            {{identification_codes = [i for i in [pf.associated_items.get('identification_codes', []) for pf in digital_publication_formats+physical_publication_formats] if i]}}
+	            {{if identification_codes:}}
+	            	<h5 style="color: #656565; margin-bottom: 0.5em; margin-top: 1.2em;">ISBN</h5>
+	            {{pass}}
+	            {{for pf in digital_publication_formats+physical_publication_formats:}}
+	           	  <p style="margin:0px">
+	              {{for identification_code in pf.associated_items.get('identification_codes', []):}}
+	                {{=identification_code.value}} ({{=pf.settings.getLocalizedValue('name', locale)}})
+	                <br>
+	              {{pass}}
+	              </p>
+	            {{pass}}
+	            <p style="margin-top: 1.2em;">{{=T('Published')}} {{=dateToStr(date_published, locale, "%x")}}.</p>
+	            {{pass}}
+	            {{if submission_settings.getLocalizedValue('source', locale):}}
+	            	<div class="separator" style="margin-top: 1.2em"></div>
+	            	<p style="margin-top: 1.2em">{{=XML(submission_settings.getLocalizedValue('source', locale))}}</p>
+	            {{pass}}
+				<!--stats block begin-->
+				{{if stats.checkOASService():}}
+					{{file_types= ['pdf','html']}}
+					{{chapter_html = stats.getChapterHTMLTable(submission_id, file_types,"width: inherit; padding:0; font-size:11px")}}
+					<div id="oas-widget" class="applied-to-ojs" style="margin-top: 1.2em">
+						<div class="btn btn-default" id="statistik-button">{{=T('Statistics')}}</div> <br/>
+						<div style="display:none" class="table" id="oas">
+							<ul class="nav nav-tabs">
+								<li class="active"><a href="#full" data-toggle="tab"><i class="icon-briefcase"></i> {{=T('Book')}}</a></li>
+								{{if len(chapter_html) > 1:}} <li class=""><a href="#chapters" data-toggle="tab">{{=T('Chapters')}}</a></li> {{pass}}
+							</ul>
+							<div class="tab-content">
+								<div class="tab-pane active" id="full">
+									<table class="table">
+									{{=stats.getFullHTMLTable(submission_id,file_types, "width: inherit; padding:0; font-size:15px")}}
+									</table>
+								</div>
+								{{if len(chapter_html)> 1:}}
+									<div class="tab-pane" id="chapters">
+										<table class="table">  {{=chapter_html }}</table>
+									</div>
+								{{pass}}
+							</div>
+						</div>
+					</div>
+					<script type="text/javascript">
+					$('#statistik-button').click(function(){
+					$('#oas').slideToggle()
+					});
+					</script>
+				{{pass}}
+				<!--stats block  end-->                
+	          </div>
+	        </div>
+	      </div>
 
-<section id="content">
-  <div style="height: 20px"></div>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-3">
-        <article>
-          <div class="post-image">
-            {{=IMG(_src=cover_image)}}
-          </div>
-        </article>
-        <div class="box">
-          <div class="box-gray alignleft" style="height: auto;">
-
-            <h5 style="color: #656565; margin-bottom: 0.5em;">{{=T('How to cite this title')}}</h5>
-            <p>{{=authors}}: <br>
-              <i>{{=cleanTitle}}{{if len(subtitle)>0:}}: {{=subtitle}}{{pass}}</i>, {{=press_location}}: {{=press_name}}, {{=published_date.first()['date'][0:4]}}.
-            {{if publication_format_settings_doi:}}
-              DOI: <a href="http://dx.doi.org/{{=publication_format_settings_doi['setting_value']}}" title="DOI: {{=authors}}: {{=cleanTitle}}, {{=press_location}}: {{=press_name}}, {{=published_date.first()['date'][0:4]}}">{{=publication_format_settings_doi['setting_value']}}</a>
-            {{pass}}
-            </p>
-            <h5 style="color: #656565; margin-bottom: 0.3em;">{{=T('Licenses')}}</h5>
-            {{if session.forced_language =='de': }}
-            <p>Dieses Werk ist unter der<br> <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons-Lizenz 4.0<br/> (CC BY-SA 4.0)</a> veröffentlicht.<br>
-              <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0"><img alt="Creative Commons Lizenz BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p>
-            {{elif session.forced_language =='en': }}
-            <p>This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; License CC BY-SA 4.0">Creative Commons License 4.0<br/> (CC BY-SA 4.0)</a> .<br>
-              <a href="https://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0"><img alt="Creative Commons License BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p>
-            {{pass}}
-            {{if len(identification_codes)>0:}}
-            <h5 style="color: #656565; margin-bottom: 0.3em; margin-top: 1.2em;">ISBN</h5>
-            <p>
-              {{for i in identification_codes:}}
-                {{=i}} ({{=identification_codes[i]}})
-              <br>
-              {{pass}}
-            </p>
-            {{pass}}
-            <!--<p><B>Statistik</B></p>-->
-            {{if published_date:}}
-            <p>{{=T('Published')}} {{=published_date.first()['date'][6:8]}}.{{=published_date.first()['date'][4:6]}}.{{=published_date.first()['date'][0:4]}}</p>
-            {{pass}}
-             <!---a data-toggle="modal" class="btn btn-info" href="../../../cgi-bin/oastats.cgi?repo=omphp" data-target="#myModal">{{=T('')}}</a-->
-           <div id="oas-widget" class="applied-to-ojs">
-           <div class="btn btn-default" id="statistik-button">{{=T('Statistik')}}</div> <br/>
-           <div style="display:none" class="table" id="oas">
-             
-              <ul class="nav nav-tabs">
-                     <li class="active"><a href="#one2" data-toggle="tab"><i class="icon-briefcase"></i> {{=T('Book')}}</a></li>
-                     <li class=""><a href="#two2" data-toggle="tab">{{=T('Chapters')}}</a></li>
-                   </ul>
-                   <div class="tab-content">
-                     <div class="tab-pane active" id="one2">
-                       <table class="table">                
-                         
-                         {{file_ids=[]}}
-                       
-                         
-                          {{for fullbook in full_files:}}
-                          {{file_id=str(fullbook['submission_id'])+'-'+str(fullbook['file_id'])+'-'+fullbook['original_file_name'].rsplit('.')[1].lower()}}
-                          {{if fullbook['original_file_name'].rsplit('.')[1].lower()==myconf.take('omp.xml_category_name').lower():}}     
-                            {{=TR()}}
-                              {{=TD(B(XML('HTML')))}}
-                              
-                              {{=TD(DIV("",_id=file_id))}}
-                              {{full_xml=file_id}}
-                          {{else:}}
-                            {{=TR()}}
-                              {{=TD(B('PDF'))}}
-                              {{=TD(DIV("",_id=file_id))}}
-                              {{full_pdf=file_id}}
-                          {{pass}}
-                          {{file_ids.append(file_id)}}
-                        
-                          {{pass}}
-                         
-                       </table>
-                     </div>
-                     <div class="tab-pane " id="two2">
-                       <table class="table" style="width: inherit">
-                          {{type_dict={} }}
-
-                          {{=TR()}}
-                          {{=TD()}}
-                          {{for ix  in publication_formats:}}
-                              {{if ix['publication_formats']['publication_format_id'] in formats_with_files: }}  
-                                  {{type_dict[ix.publication_formats.publication_format_id]=ix.publication_format_settings.setting_value}}
-                                  {{if ix.publication_format_settings.setting_value == myconf.take('omp.xml_category_name'):}}
-                                      {{=TD(XML('HTML'),_style="padding:0")}}
-                                  {{else:}}
-                                      {{type_dict[ix.publication_formats.publication_format_id]=ix.publication_format_settings.setting_value}}
-                                      {{=TD(ix.publication_format_settings.setting_value, _style="padding:0")}}
-                                  {{pass}}
-                               {{pass}}
-                          {{pass}}
-                          {{num=0}}
-                          {{for i in chapters:}}
-                              {{if num%len(formats_with_files)==0: }}
-                                  {{=TR()}}
-                                  {{chapter=str(i.submission_chapter_settings.setting_value)}}
-                                  {{=TD(chapter,_style="padding:0; font-size:12px")}}
-                              {{pass}}
-
-                              {{
-                               chapter_file =str(i.submission_files.submission_id)+'-'+str(i.submission_files.file_id)+'-'+str(type_dict[i.submission_files.assoc_id]).lower() 
-                              =TD(DIV("",_id=chapter_file),_style="padding:1; font-size:12px")
-                              file_ids.append(chapter_file)
-
-                              }}
-
-
-                             {{num = num +1 }}
-                          {{pass}}
-                          <tr>
-                            <td>{{=B(T('Total'))}}</td>
-                           {{=TD(DIV("",_id="chapter_pdf"))}}
-                           {{=TD(DIV("",_id="chapter_xml"))}}
-                          </tr>
-                        </table>
-                     </div>
+		<div class="col-lg-9">
+	        <article>
+	          	<div class="">
+	              {{for pf in digital_publication_formats:}}
+	              	{{full_file = pf.associated_items.get('full_file')}}
+	              	{{if full_file and ("xml" in full_file.attributes.file_type or "html" in full_file.attributes.file_type):}}
+	              		<div class="btn-group" role="group" aria-label="1">
+	              			<li type="button" class="btn btn-default"><a href={{=downloadLink(request, full_file.attributes, myconf.take('web.url'), full_file.settings.getLocalizedValue("vgWortPublic", ""))}} target="_blank">{{=T('Read')}}</a></li>
+	              		</div>
+	              	{{pass}}
+	              {{pass}}
+	              {{if [(pf.associated_items.get('full_file', None).attributes.file_type != "text/html" or pf.associated_items.get('full_file', None).attributes.file_type != "text/xml") for pf in digital_publication_formats if pf.associated_items.get('full_file', None)].count(True):}}
+	              	<div class="btn-group" role="group" aria-label="2">
+	              	  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+	                	{{=T('Download')}}
+	                	<span class="caret"></span>
+	              	  </button>
+		              {{for pf in digital_publication_formats:}}
+		              	{{full_file = pf.associated_items.get('full_file')}}
+		              	{{if full_file and not "html" in full_file.attributes.file_type and not "xml" in full_file.attributes.file_type:}}
+		             		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+		                		<li role="presentation"><a role="menuitem" tabindex="-1" href={{=downloadLink(request, full_file.attributes, myconf.take('web.url'), full_file.settings.getLocalizedValue("vgWortPublic", ""))}}>{{=pf.settings.getLocalizedValue('name', locale)}}</a></li>
+		              		</ul>
+		              	{{pass}}
+		              {{pass}}
                     </div>
-             
-           </div>
-           
-           <div id="error"></div>
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-      <div class="col-lg-9">
-        <article>
-          <div class="">
-            <div class="btn-group" role="group" aria-label="1">
-              {{for fullbook in full_files:}}
-                {{if fullbook['original_file_name'].rsplit('.')[1].lower()==myconf.take('omp.xml_category_name').lower():}}
-              
-                <li type="button" class="btn btn-default"><a href="{{=URL(myconf.take('web.application'), 'reader', 'index/'+str(fullbook['submission_id'])+'/'+str(fullbook['submission_id'])+'-'+str(fullbook['genre_id'])+'-'+str(fullbook['file_id'])+'-'+str(fullbook['revision'])+'-'+str(fullbook['file_stage'])+'-'+str(fullbook["date_uploaded"].strftime('%Y%m%d'))+'.'+str(fullbook['original_file_name']).rsplit('.')[1])}}" target="_blank">{{=T('Read')}}</a></li>
-                {{pass}}
-              {{pass}}
-            </div>
-            <div class="btn-group" role="group" aria-label="2">
-              {{for fullbook in full_files:}}
-              {{if fullbook['original_file_name'].rsplit('.')[1].lower()==myconf.take('omp.doi_format_name').lower():}}
-              
-              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                {{=T('Download')}}
-                <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                <li role="presentation"><a role="menuitem" tabindex="-1"  href="{{=URL(myconf.take('web.application'), 'reader', 'download/'+str(fullbook['submission_id'])+'/'+str(fullbook['submission_id'])+'-'+str(fullbook['genre_id'])+'-'+str(fullbook['file_id'])+'-'+str(fullbook['revision'])+'-'+str(fullbook['file_stage'])+'-'+str(fullbook["date_uploaded"].strftime('%Y%m%d'))+'.'+str(fullbook['original_file_name']).rsplit('.')[1])}}">PDF</a></li>
-              </ul>
-              {{pass}}
-              {{pass}}
-            </div>
-            <div class="btn-group" role="group" aria-label="2">
-	       {{if representatives:}}
-              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                {{=T('Print On Demand')}}
-                <span class="caret"></span>
-              </button>
-		{{pass}}
-              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                {{for i in representatives:}}
-                <li role="presentation"><a role="menuitem"  href="{{=i['url']}}" target='_blank'>{{=i['name']}}</a></li>
-                {{pass}}
-              </ul>
-            </div>
-            <div class="post-heading">
-              <br/>
-              <h5><a href="#">{{=authors}}</a></h5>
-            </div>
-            <h3>{{=XML(cleanTitle)}}</h3>
-            <h4>{{=subtitle}}</h4>
-            <p>
-              <i class="icon-quote-left"></i>
-              {{=XML(abstract)}}
-            </p>
-	   {{if author_bio:}}
-            <p>{{=XML(author_bio['setting_value'])}}</p>
-          {{pass}}
-          </div>
-          <div class="widget">
-            <h5 class="widgetheading"></h5>
-            <ul class="tags">
-            </ul>
-          </div>
-          <div class="widget">
-            <!---a class="btn btn-default" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"-->
-
-            {{if len(chapters)>0:}}
-            <h4>{{=T('Contents')}} </h4>
-            <div  id="downloadTable">
-              <table class="table">
-                {{type_dict={} }}
-                {{=TR()}}
-                {{=TD()}}
-                {{for j  in publication_formats:}}
-                    {{if j['publication_formats']['publication_format_id'] in formats_with_files: }}  
-                        {{if j.publication_format_settings.setting_value == myconf.take('omp.xml_category_name'):}}
-                            {{=TD('HTML')}}
-                        {{else:}}
-                            {{=TD(j.publication_format_settings.setting_value)}}
-                        {{pass}}
-                        {{type_dict[j.publication_formats.publication_format_id]=j.publication_format_settings.setting_value}}
-                    {{pass}}
-                {{pass}}
-
-                {{num=0}}
-                {{for i in chapters:}}
-                    {{if i.submission_files.assoc_id in formats_with_files: }}
-                        {{if num%len(formats_with_files)==0: }}
-                            {{=TR()}}
-                            {{=TD(str(i.submission_chapter_settings.setting_value))}}
-                        {{pass}}
-                    {{if str(type_dict[i.submission_files.assoc_id]).lower() ==  myconf.take('omp.xml_category_name').lower(): }}
-                        {{link=URL(myconf.take('web.application'), 'reader', 'index/'+str(i.submission_files.submission_id)+'/'+str(i.submission_files.submission_id)+'-'+str(i.submission_files.genre_id)+'-'+str(i.submission_files.file_id)+'-'+str(i.submission_files.revision)+'-'+str(i.submission_files.file_stage)+'-'+str(i.submission_files.date_uploaded.strftime('%Y%m%d'))+'.'+str(type_dict[i.submission_files.assoc_id]).lower())}}
-                        {{code=db((db.submission_file_settings.setting_name=="vgWortPublic") & (db.submission_file_settings.file_id==i.submission_files.file_id)).select(db.submission_file_settings.setting_value).first()}}
-                        {{if (vgwort_server is not None) & (code is not None): }}
-                            {{code= code['setting_value']}}
-                            {{link = vgwort_server+code+'?l='+myconf.take("web.url")+link}}
-                        {{pass}}
-
-                        {{=TD(A(I(_class="fa fa-html5"), _href=link))}}
-                    {{else:}}
-                        {{link=URL(myconf.take('web.application'), 'reader', 'download/'+str(i.submission_files.submission_id)+'/'+str(i.submission_files.submission_id)+'-'+str(i.submission_files.genre_id)+'-'+str(i.submission_files.file_id)+'-'+str(i.submission_files.revision)+'-'+str(i.submission_files.file_stage)+'-'+str(i.submission_files.date_uploaded.strftime('%Y%m%d'))+'.'+str(type_dict[i.submission_files.assoc_id]).lower())}}
-                        {{code=db((db.submission_file_settings.setting_name=="vgWortPublic") & (db.submission_file_settings.file_id==i.submission_files.file_id)).select(db.submission_file_settings.setting_value).first()}}
-                        {{if (vgwort_server is not None) & (code is not None): }}
-                            {{code= code['setting_value']}}
-                            {{link = vgwort_server+code+'?l='+myconf.take("web.url")+link}}
-                        {{pass}}
-                        {{=TD(A(I(_class="fa fa-file-text-o"), _href=link))}}
-                    {{pass}}
-                    {{num = num +1 }}
-
-                 {{pass}}
-            {{pass}}  
-             </table>
-          </div>
-          {{pass}}
-          </div>
-        </article>
-      </div>
-    </div>
-  </div>
-</section>
-
-<script>
-  var ids={{=XML(file_ids)}};
-  var full_xml, full_pdf;
-   {{ if 'full_xml' in  locals():}}
-    full_xml = "{{=full_xml}}";
-  {{pass}}
-  {{ if 'full_pdf' in  locals():}}
-    full_pdf= "{{=full_pdf}}";
-  {{pass}}
-
-
-</script>
-<script src="{{=URL(myconf.take('web.application'),'static','js/stats.js')}}" data-ids="{{=XML(file_ids)}}" data-full_pdf=full_pdf data-full_xml=full_xml ></script>
+				  {{pass}}
+	            
+	            <div class="btn-group" role="group" aria-label="2">
+		        {{if representatives:}}
+	              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+	              	{{=T('Purchase')}}
+	              	<span class="caret"></span>
+	              </button>
+	              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+	                {{for i in representatives:}}
+	                	<li role="presentation"><a role="menuitem"  href="{{=i.url}}" target='_blank'>{{=i.name}}</a></li>
+	                {{pass}}
+	              </ul>
+	            {{pass}}
+	            </div>
+	
+	            <div class="post-heading">
+	              <br/>
+	              <h5>
+	              {{if editors:}}
+			      	{{=formatContributors(editors)}}
+			      	{{if len(editors) > 1:}}
+						{{=T("(eds)")}}
+			      	{{else:}}
+						{{=T("(ed.)")}}
+			      	{{pass}}
+		      {{else:}}
+			      	{{=formatContributors(authors)}}
+			   	  {{pass}}
+	              </h5>
+	            </div>
+	            <h3>{{=XML(cleanTitle)}}</h3>
+	            <h4>{{=subtitle}}</h4>
+	            <p>
+	              <i class="icon-quote-left"></i>
+	              {{=XML(abstract)}}
+	            </p>
+	    	  	{{bios = [(formatName(e.attributes), e.settings.getLocalizedValue('biography', locale)) for e in editors]}}
+	    	  	{{bios_role = "editor"}}
+	    	  	{{if bios == []:}}
+	    	  		{{bios = [(formatName(a.attributes), a.settings.getLocalizedValue('biography', locale)) for a in authors]}}
+	    	  		{{bios_role = "author"}}
+	    	  	{{pass}}
+		   	  	{{if bios:}}
+		   	  		{{num_bios = len([b for b in bios if b[1] != ""])}}
+		   	  		{{if bios_role != "author" or num_bios < 4:}}
+		            	{{if num_bios != 0:}}
+                                        <div class="separator"></div>
+                                        <div class="autor_biografie">
+			            	<p>
+			            		{{for contributor, bio in bios:}}
+			            			{{if bio:}}
+			            				{{=XML(bio)}}
+			            			{{pass}}
+			            		{{pass}}
+			            	</p>
+                                        </div>
+		            	{{pass}}	
+		   	  		{{pass}}
+	          	{{pass}}
+	          </div>
+	          
+	          <div class="widget">
+	            {{if len(chapters) > 0:}}
+	            <div id="downloadTable">
+	            	<div class="chapter_row table_head">
+	            		<div class="chapter_cell">{{=T('Contents')}}</div>
+	            		{{for pf in digital_publication_formats:}}
+	            			<div class="chapter_cell">{{=TD(pf.settings.getLocalizedValue('name', locale))}}</div>
+	            		{{pass}}
+	            	</div>
+	            	{{display_authors=haveMultipleAuthors(chapters)}}
+	            	{{for c in chapters:}}
+	                	{{c_title = c.settings.getLocalizedValue('title', locale)}}
+	                	{{c_subtitle = c.settings.getLocalizedValue('subtitle', locale)}}
+	                	{{c_authors = c.associated_items.get('authors', [])}}
+	                	{{c_files = c.associated_items.get('files', [])}}
+	            	<div class="chapter_row">
+	            		<div class="chapter_cell">
+	            			{{if c_authors and display_authors:}}
+	            				<div class="chapter_author">{{=", ".join([formatName(a.attributes) for a in c_authors])}}</div>
+	            			{{pass}}
+	            			<div class="chapter_title">{{=c_title}}</div>
+	            			{{if c_subtitle:}}
+	            				<div class="chapter_subtitle">{{=c_subtitle}}</div>
+	            			{{pass}}
+	            		</div>
+	            		{{for pf in digital_publication_formats:}}
+	            			<div class="chapter_cell">
+	            				{{if c_files:}}
+	            					{{c_file = c_files.get(pf.attributes.publication_format_id)}}
+	            					{{if c_file:}}
+	            						{{if "xml" in c_file.attributes.file_type or "html" in c_file.attributes.file_type:}}
+	            							{{css_class="fa fa-html5"}}
+	            						{{else:}}
+	            							{{css_class="fa fa-file-text-o"}}
+	            						{{pass}}
+	            						<div class="chapter_file">
+	            							{{=A(I(_class=css_class), _href=downloadLink(request, c_file.attributes, myconf.take('web.url'), c_file.settings.getLocalizedValue('vgWortPublic', '')))}}
+	            						</div>
+	            					{{pass}}
+	            				{{pass}}
+							</div>
+	            		{{pass}}
+	            	</div>
+	            	{{pass}}
+	            </div>
+	            {{pass}}
+	          </div>
+	        </article>
+	      </div>
+	    </div>
+	  </div>
+	</section>
+	<div id="vgwpixel"></div>
+</div>

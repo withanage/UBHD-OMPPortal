@@ -1,71 +1,42 @@
 {{extend 'layout.html'}}
-{{import os}}
+{{import re, os}}
+{{from ompformat import formatContributors, coverImageLink}}
+
+<div id="main" class="container">
 <section id="content">
     <div style="height: 20px"></div>
-    {{for entry in order:}}
+    {{for submission in submissions:}}
     <div class="container" height="400px">
         <div class="row">
             <div class="col-lg-3">
                 <article>
                     <div class="post-image">
-                        {{
-                                cover_image=''
-                                path=request.folder+'static/monographs/'+str(entry)+'/simple/cover.'
-                                for t in ['jpg','png','gif']:
-                                        if os.path.exists(path+str(t)):
-                                                cover_image= URL(myconf.take('web.application'), 'static','monographs/' + str(entry) + '/simple/cover.'+str(t))
-                                        pass
-                                pass
-                        }}
-                        {{=IMG(_src=cover_image)}}
+                        {{=IMG(_src=coverImageLink(request, press.press_id, submission.attributes.submission_id))}}
                     </div>
                 </article>
             </div>
             <div class="col-lg-9">
                 <article>
                     <div class="post-heading">
-                        <h4>
-                        {{if subs[entry]['editors']:}}
-                            {{=", ".join([" ".join([e.first_name, e.middle_name, e.last_name]) for e in subs[entry]['editors']][:3])}}
-                                        {{if len(subs[entry]['editors']) > 1:}}
-											{{if len(subs[entry]['editors']) > 3:}}
-												{{=" et al. "}}
-											{{pass}}
-                                            {{=T("(eds)")}}
-                                        {{else:}}
-                                            {{=T("(ed.)")}}
-                                        {{pass}}
-                        {{else:}}
-                            {{=", ".join([" ".join([e.first_name, e.middle_name, e.last_name]) for e in subs[entry]['authors']][:3])}}
-								{{if len(subs[entry]['authors']) > 3:}}
-									{{=" et al. "}}
-								{{pass}}
+						{{include 'catalog/snippets/submission.html'}}
+                        {{series = submission.associated_items.get('series', None)}}
+                        {{if series:}}
+                        	{{series_title = series.settings.getLocalizedValue('title', locale)}}
+                        	{{series_subtitle = series.settings.getLocalizedValue('subtitle', locale)}}
+                        	<i>{{=series_title}}{{ if series_subtitle: }} – {{=series_subtitle}}{{pass}}{{if submission.attributes.series_position:}}, {{=T('Vol.')}} {{=submission.attributes.series_position}} {{pass}}</i>
                         {{pass}}
-                        </h4>
-                        <h4>{{=subs[entry]['title']}}<br />
-                        {{=subs[entry]['subtitle']}}</h4>
-                        <p>
-                        {{if 'publication_date' in subs[entry]:}}{{=subs[entry]['publication_date'][:4]}}<br />{{pass}}
-                        {{if subs[entry].has_key('series_id'):
-                            series_subtitle = series_info[subs[entry]['series_id']]['subtitle']
-                            series_title = series_info[subs[entry]['series_id']]['title']
-                        }}
-                        <i>{{=series_title}}{{ if series_subtitle: }} – {{=series_subtitle}}{{pass}}{{if subs[entry]['series_position']:}},  {{=T('Vol.')}} {{=subs[entry]['series_position']}} {{pass}}</i>
-                        {{pass}}
-                        </p>
                     </div>
                     <p>
                         <i class="icon-quote-left"></i>
-                        {{=XML(subs[entry]['abstract'])}}
+                        {{abstract = submission.settings.getLocalizedValue('abstract', locale)}}
+                        {{if abstract:}}
+                        	{{=XML(abstract)}}
+                        {{pass}}
                     </p>
                     <div class="widget">
                         <h5 class="widgetheading"></h5>
                         <ul class="tags">
-                            {{if session.forced_language =='de': }}
-                            <li><a href="{{=URL(myconf.take('web.application'),'catalog','book/'+str(entry))}}">{{=T('Mehr' )}}</a></li>
-                            {{elif session.forced_language =='en': }}
-                            <li><a href="{{=URL(myconf.take('web.application'),'catalog','book/'+str(entry))}}">{{=T('More Information' )}}</a></li>
-                            {{pass}}
+                          <li><a href="{{=URL('catalog','book/'+str(submission.attributes.submission_id))}}">{{=T('More information' )}}</a></li>
                         </ul>
                     </div>
                 </article>
@@ -81,111 +52,12 @@
                         <div class="solidline">
                         </div>
                         <div class="post-heading">
-                            {{if session.forced_language =='de': }}
-                            <h4>Erscheint demnächst</h4>
-                            {{elif session.forced_language =='en': }}
-                            <h4>Forthcoming</h4>
-                            {{pass}}
+                            <h4>{{=T('Forthcoming')}}</h4>
                         </div>
                         <div class="solidline">
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!--<div class="row">
-            <div class="col-lg-3">
-                <article>
-                    <div class="post-image">
-                        <img src="http://heiup.uni-heidelberg.de/static/images/press/home/Cover2English.jpg"/>
-                    </div>
-                </article>
-            </div>
-            <div class="col-lg-9">
-                {{if session.forced_language =='de': }}
-                <article>
-                    <div class="post-heading">
-                        <h3>Marie Sander</h3>
-                        <h4>Passing Through Shanghai.<br />
-                            Ethnographic Insights into the Mobile Lives of Expatriate Youths</h4>
-                    </div>
-                    <p>
-                        <i class="icon-quote-left"></i>
-                        <i>Passing Through Shanghai</i> untersucht das Erleben internationaler Mobilität aus der Sicht von Kindern und Jugendlichen. Im Fokus des Buches stehen Kinder von Firmenentsandten – sogenannten Expats – die einen Teil ihrer Jugend im gegenwärtigen Shanghai verbringen: eine an sich heterogene Gruppe, deren Lebensstil jedoch aufgrund der internationalen Karrieren der Eltern bestimmte gemeinsame Privilegien, aber auch Herausforderungen aufweist.</p>
-                    <p>Das Buch geht der Frage nach, wie Kinder und Jugendliche kulturelle Identität unter den Bedingungen hoher Mobilität empfinden und aushandeln. Gestützt auf die Ergebnisse ethnographischer Feldforschung aus den Jahren 2010 bis 2012 nimmt <i>Passing Through Shanghai</i> den Alltag der Expat-Teenager an internationalen Schulen, ihr Erleben und Nutzen der Stadt, ihre Träume und Hoffnungen sowie ihre Fragen nach Zugehörigkeit und Heimat in den Blick. Der ethnographische Ansatz erfasst den permanenten Schwebezustand des häufigen Umziehens, der diese Jugendlichen beim Aufwachsen begleitet, und erforscht ihre persönlichen Sichtweisen auf den &bdquo;Transitraum&ldquo; Shanghai. Die Perspektiven der Teenager und ihre Erfahrungen in einer Gemeinschaft aus Expats bieten Einblicke in die Zusammenhänge und Widersprüche zwischen der erstrebten Flexibilität von Identitäten im 21. Jahrhundert und der gleichzeitigen Starrheit kultureller Grenzen, die auf Nationalität, Ethnizität, Geschlecht und sozialer Herkunft basieren.</p>
-                    <p>Die Ethnologin <strong>Marie Sander</strong> studierte Kulturwissenschaft mit Schwerpunkt Kulturanthropologie sowie Anglistik an den Universitäten Bremen und Tours. 2013 promovierte sie an der Universität Heidelberg. Ihr Forschungsinteresse gilt Fragen der Identität, Migration, urbaner Kultur und Jugend.</p>
-                    <div class="widget">
-                        <h5 class="widgetheading"></h5>
-                        /*<ul class="tags">
-                            <li><a href="{{=URL('catalog','book',str(entry))}}">{{=T('More')}}</a></li>
-                        </ul>*/
-                    </div>
-                </article>
-                {{elif session.forced_language =='en': }}
-                <article>
-                    <div class="post-heading">
-                        <h3>Marie Sander</h3>
-                        <h4>Passing Through Shanghai<br />
-                            Ethnographic Insights into the Mobile Lives of Expatriate Youths</h4>
-                    </div>
-                    <p>
-                        <i class="icon-quote-left"></i>
-                        <i>Passing Through Shanghai</i> examines how children experience international mobility. Focusing on a specific yet diverse group of expatriate youths in contemporary Shanghai, the book investigates how children negotiate cultural identity when they are subject to the highly mobile and often privileged lifestyle associated with their parent’s international careers. The ethnographic fieldwork that informs the book was carried out in Shanghai from 2010 to 2012 and focused on expatriate teenagers’ everyday practices, their lives at international schools, their engagement with the city, their dreams and aspirations, as well as their questions of belonging. The book’s ethnographic approach captures the “in-between” state of moving while growing up and explores teenage practices and positionings in this transitory situation. The teenagers’ own perspectives and experiences of living in expatriate communities contribute to a larger view of the interdependence and contradictions between the aspired flexibility of twenty-first century identities and the rigidity of cultural divisions based on nationality, ethnicity, gender, and class.</p>
-                    </p>
-                    <p><strong>Marie Sander</strong> is an anthropologist who completed her doctoral degree at Heidelberg University in 2013. She previously read Cultural Studies with a focus on Cultural Anthropology as well as English Studies at Bremen University and the University of Tours. Her general research interests include questions of identity, migration, urban culture, and youth.</p>
-                    <div class="widget">
-                        <h5 class="widgetheading"></h5>
-                        /*<ul class="tags">
-                            <li><a href="{{=URL('catalog','book',str(entry))}}">{{=T('More')}}</a></li>
-                        </ul>*/
-                    </div>
-                </article>
-                {{pass}}
-            </div>
-        </div> -->
-
-        <div class="row">
-            <div class="col-lg-3">
-                <article>
-                    <div class="post-image">
-                       <img src="http://heiup.uni-heidelberg.de/heiup/en/static/images/catalog/Cover_Kemp_OMP.jpg" />
-                    </div>
-                </article>
-            </div>
-            <div class="col-lg-9">
-                {{if session.forced_language =='de': }}
-                <article>
-                    <div class="post-heading"><a id="kemp"></a>
-                        <h3>Wolfgang Kemp</h3>
-                        <h4>Wir haben ja alle Deutschland nicht gekannt<br />
-                            Das Deutschlandbild der Deutschen in der Zeit der Weimarer Republik</h4>
-                    </div>
-                    <p>Nach 1918 musste sich Deutschland politisch und sozial neu definieren, aber sich auch als Land, als geographische und kulturelle Einheit neu entdecken. Es setzte ein Prozess ein, den man mit einem Begriff der Zeit als „Innere Kolonisation“ bezeichnen kann. Zur Kompensation der vielen Verluste machten sich Wissenschaftler und Künstler daran, jene Dimension, die in Frankreich „la France profonde“ heißt, zu erschließen, das „innere“ Deutschland also, seine einzigartige Kulturdichte. Die Ökonomie des Sparenmüssens wurde zur Überflusswirtschaft der geistigen und materiellen Reichtümer konvertiert. Die dabei entdeckte neue deutsche Tugend der Vielfalt ließ sich in Phrasen und Parolen kurz antönen – dieses Buch aber widmet sich all den Texten und Bildern, die aus einer „Arbeit im Material“ (Siegfried Kracauer) entstanden sind, aus neuer, authentischer Erfahrung und „Nähe der Anschauung“ (Ernst Glaeser) gewonnen wurden.</p>
-                    <p><strong>Erscheint im Mai 2016</strong></p>
-                    <div class="widget">
-                        <h5 class="widgetheading"></h5>
-                        <!--<ul class="tags">
-                            <li><a href="{{=URL('catalog','book',str(entry))}}">{{=T('More')}}</a></li>
-                        </ul>-->
-                    </div>
-                </article>
-                {{elif session.forced_language =='en': }}
-                <article>
-                    <div class="post-heading"><a id="kemp_en"></a>
-                        <h3>Wolfgang Kemp</h3>
-                        <h4>Wir haben ja alle Deutschland nicht gekannt<br />
-                            Das Deutschlandbild der Deutschen in der Zeit der Weimarer Republik</h4>
-                    </div>
-                    <p>After 1918 Germany had to find a new definition for its identity on a political and social level as well as to rediscover itself as a unity in terms of geography and culture. This process can be described as „Inner colonisation“. Scientists and artists began to compensate the many losses by tapping into the dimension of the „inner“ Germany - its unique cultural density - which in France would be called „la France profonde“. The pressure to be economical was converted into an economy of abundance of spiritual and material wealth. The newly discovered virtue of variety could be explained in short by phrases and slogans. However, this book addresses all those texts and images which emerged from an „Arbeit im Material“ (Siegfried Kracauer) and from a fresh, authentic experience - „Nähe der Anschauung“ (Ernst Glaeser).</p>
-                    <p><strong>Coming in May 2016</strong></p>
-                    <div class="widget">
-                        <h5 class="widgetheading"></h5>
-                        <!--<ul class="tags">
-                            <li><a href="{{=URL('catalog','book',str(entry))}}">{{=T('More')}}</a></li>
-                        </ul>-->
-                    </div>
-                </article>
-                {{pass}}
             </div>
         </div>
 
@@ -201,40 +73,27 @@
                 {{if session.forced_language =='de': }}
                 <article>
                     <div class="post-heading"><a id="michl"></a>
-                        <h3>Felix Michl</h3>
+                        <h3>Felix M. Michl</h3>
                         <h4>Die limitierte Auflage<br />
                         Rechtsfragen zeitgenössischer Fotokunst</h4>
                     </div>
                     <p>Die Fotografie hat sich in den letzten Jahrzehnten zu einer der populärsten Kunstgattungen entwickelt. Dies zeigt sich nicht zuletzt auch am Erfolg der zeitgenössischen Fotografie auf dem Kunstmarkt, wo einzelne Abzüge mittlerweile für Millionenbeträge gehandelt werden. Diese hohe finanzielle Wertschätzung einzelner Fotografien wäre undenkbar, würde das Potenzial der Fotografie zur nahezu unendlichen Reproduktion tatsächlich ausgeschöpft. Im Gegenteil hat sich im Bereich der zeitgenössischen Fotokunst die Praxis etabliert, Fotografien nur in sogenannten „limitierten Auflagen“ aufzulegen, bei denen teilweise sogar mit einstelligen Auflagenhöhen gearbeitet wird. Die vorliegende Dissertation untersucht die rechtlichen Fragen im Zusammenhang mit solchen Auflagenlimitierungen und geht dabei insbesondere der Frage nach, ob solche „Exklusivitätsversprechen“ rechtlich bindend sind und somit beispielsweise von einem Sammler eingeklagt werden könnten.</p>
                     <p><strong>Erscheint im Sommer 2016</strong></p>
-                    <div class="widget">
-                        <h5 class="widgetheading"></h5>
-                        <!--<ul class="tags">
-                            <li><a href="{{=URL('catalog','book',str(entry))}}">{{=T('More')}}</a></li>
-                        </ul>-->
-                    </div>
                 </article>
                 {{elif session.forced_language =='en': }}
                 <article>
                     <div class="post-heading"><a id="michl_en"></a>
-                        <h3>Felix Michl</h3>
+                        <h3>Felix M. Michl</h3>
                         <h4>Limited Editions in Contemporary Photography &ndash;<br />
                         A Legal Analysis</h4>
                     </div>
                     <p>Over the course of the past decades, photography has become one of the most popular fields of art. This development is also reflected in recent prices for some works of contemporary photography, which fetch up to several million dollars. Such price levels would be unheard of if artists were to take advantage of the opportunity to produce as many prints from the same negative as possible. On the contrary, the prevailing practice in contemporary photography is that of printing photographs in “limited editions”, with some of the most expensive photographs only existing in the low single digits. This study researches the legal implications of artists communicating limited editions to the purchasers of their art with the main question being whether such “promises of exclusivity” are legally binding and thus could be enforced by collectors e. g. in court proceedings.</p>
                     <p><strong>Coming in Summer 2016</strong></p>
-                    <div class="widget">
-                        <h5 class="widgetheading"></h5>
-                        <!--<ul class="tags">
-                            <li><a href="{{=URL('catalog','book',str(entry))}}">{{=T('More')}}</a></li>
-                        </ul>-->
-                    </div>
                 </article>
                 {{pass}}
             </div>
         </div>
 
     </div>
-    
-    
 </section>
+</div>

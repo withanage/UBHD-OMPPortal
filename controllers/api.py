@@ -4,8 +4,8 @@ Copyright (c) 2015 Heidelberg University Library
 Distributed under the GNU GPL v3. For full terms see the file
 LICENSE.md
 '''
-import gluon.contrib.simplejson as sj
 
+import gluon.contrib.simplejson as sj
 
 def oastatistik():
     locale = 'de_DE'

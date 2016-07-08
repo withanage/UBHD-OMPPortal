@@ -581,7 +581,7 @@ out (on iOS 5.1), or flicker (on iOS 6). */
 .article .document .surface.content .nodes {
   min-height: 100%;
   padding-left: 20px;
-  padding-right: 3px;
+  padding-right: 0px;
   background: #FFFFFF;
   padding-bottom: 50px; }
 
@@ -681,6 +681,9 @@ out (on iOS 5.1), or flicker (on iOS 6). */
 
 .article .resources .nodes > .content-node > .content {
   border-top: none; }
+
+.article .resources .nodes > .content-node > .content .citation-italic {
+  font-style: italic; }
 
 /* Clickable header */
 .article .resources .content-node .resource-header {
@@ -852,11 +855,11 @@ span.annotation.formula_reference, span.publication_reference {
   background-color: rgba(237, 96, 48, 0.3); }
 
 .content-node .link {
-  color: #1B6685;
+  color: #900;
   font-weight: bold; }
 
 .content-node .link:hover, .content-node .link.highlighted {
-  color: #0b9dd9; }
+  color: #990000; }
 
 /* Inline Code Annotations */
 .content-node .code {
@@ -899,7 +902,7 @@ span.annotation.formula_reference, span.publication_reference {
 .content-node .figure_reference {
   background: rgba(153, 0, 0, 0.15);
   border-bottom: 1px solid rgba(153, 0, 0, 0.6);
-  color: #505050;
+  color: #990000;
   cursor: pointer; }
 
 .content-node .contributor_reference {
@@ -907,17 +910,17 @@ span.annotation.formula_reference, span.publication_reference {
   cursor: pointer; }
 
 .content-node .citation_reference {
-  background: rgba(153, 0, 0, 0.15);
-  border-bottom: 1px solid rgba(153, 0, 0, 0.6);
-  color: #505050;
+  background: rgba(11, 157, 217, 0);
+  color: #900;
+  border-bottom: 1px solid rgba(11, 157, 217, 0);
   cursor: pointer;
   padding-right: 3px;
   padding-left: 3px; }
 
 .content-node .footnote_reference {
-  background: rgba(153, 0, 0, 0.15);
-  border-bottom: 1px solid rgba(153, 0, 0, 0.6);
-  color: #505050;
+  background: rgba(11, 157, 217, 0);
+  color: #900;
+  border-bottom: 1px solid rgba(11, 157, 217, 0);
   cursor: pointer;
   padding-right: 3px;
   padding-left: 3px;
@@ -937,37 +940,37 @@ span.annotation.formula_reference, span.publication_reference {
 
 /* Hover states */
 .content-node .figure_reference:hover {
-  background-color: rgba(255, 255, 255, 0.35); }
+  background-color: rgba(153, 0, 0, 0.35); }
 
 .content-node .citation_reference:hover {
-  background-color: rgba(255, 255, 255, 0.35); }
+  background-color: rgba(11, 157, 217, 0); }
 
 .content-node .contributor_reference:hover {
-  background-color: rgba(255, 255, 255, 0.35); }
+  background-color: rgba(0, 0, 0, 0.05); }
 
 .content-node .definition_reference:hover {
-  background-color: rgba(255, 255, 255, 0.35); }
+  background-color: rgba(0, 0, 0, 0.1); }
 
 .content-node .footnote_reference:hover {
-  background-color: rgba(255, 255, 255, 0.35); }
+  background-color: rgba(11, 157, 217, 0); }
 
 /* Highlighted states */
 .content-node .figure_reference.highlighted {
   background: rgba(153, 0, 0, 0.7); }
 
 .content-node .citation_reference.highlighted {
-  background: rgba(153, 0, 0, 0.7); }
+  background: rgba(153, 0, 0, 0.15); }
 
 .content-node .contributor_reference.highlighted {
   background-color: #5c6570;
-  color: rgba(153, 0, 0, 0.7); }
+  color: white; }
 
 .content-node .definition_reference.highlighted {
   background-color: #5c6570;
-  color: rgba(153, 0, 0, 0.7); }
+  color: white; }
 
 .content-node .footnote_reference.highlighted {
-  background: rgba(153, 0, 0, 0.7); }
+  background: rgba(153, 0, 0, 0.15); }
 
 /* Cross Reference */
 .content-node .cross_reference:hover {
@@ -979,9 +982,9 @@ span.annotation.formula_reference, span.publication_reference {
 ----------------------------------------------------------------------- */
 .surface.content .nodes > .content-node {
   padding-top: 0px;
-  padding-bottom: px;
-  padding-left: 10px;
-  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 30px;
+  padding-right: 30px;
   word-wrap: break-word; }
 
 /* Some extra cover spacing */
@@ -1111,6 +1114,18 @@ as we have a plugin concept for functionality / panels */
 /*
 TOC
 --------------------------------------- */
+.resource-view.toc .navigation {
+  color: #c86464;
+  vertical-align: top;
+  text-align: right;
+  padding: 4px 10px;
+  line-height: 20px;
+  border: 1px solid transparent;
+  background-color: #ffffff;
+  /* Green */
+  text-decoration: none;
+  font-size: 16px; }
+
 .resource-view.toc .heading-ref {
   cursor: pointer;
   display: block;
@@ -1148,6 +1163,26 @@ TOC
 
 .resource-view.toc .heading-ref.level-5 {
   padding-left: 80px;
+  font-size: 14px; }
+
+.resource-view.toc .heading-ref.level-6 {
+  padding-left: 100px;
+  font-size: 14px; }
+
+.resource-view.toc .heading-ref.level-7 {
+  padding-left: 120px;
+  font-size: 14px; }
+
+.resource-view.toc .heading-ref.level-8 {
+  padding-left: 140px;
+  font-size: 14px; }
+
+.resource-view.toc .heading-ref.level-9 {
+  padding-left: 160px;
+  font-size: 14px; }
+
+.resource-view.toc .heading-ref.level-10 {
+  padding-left: 180px;
   font-size: 14px; }
 
 .resource-view.toc .heading-ref:hover {
@@ -1195,7 +1230,7 @@ TOC
 /* Colors for scroll-bar overlays */
 .article .resources .figures .surface-scrollbar .highlighted,
 .article .content .surface-scrollbar .highlighted.figure_reference {
-  background-color: #990000; }
+  background-color: rgba(153, 0, 0, 0.45); }
 
 .article .resources .footnotes .surface-scrollbar .highlighted,
 .article .content .surface-scrollbar .highlighted.footnote_reference {
@@ -1203,7 +1238,7 @@ TOC
 
 .article .resources .definitions .surface-scrollbar .highlighted,
 .article .content .surface-scrollbar .highlighted.definition_reference {
-  background-color: #5c6570; }
+  background-color: rgba(153, 0, 0, 0.4); }
 
 .article .resources .citations .surface-scrollbar .highlighted,
 .article .content .surface-scrollbar .highlighted.citation_reference {
@@ -1420,36 +1455,21 @@ body.loading .spinner-wrapper {
 #MathJax_Message {
   display: none; }
 
-@media print {
-  .resources * {
-    display: none !important; } }
-
 .content-node.speech > .content {
-  padding: 0px; }
+  padding: 2px; }
 
-.document .content-node.speech .content-node.speeches {
-  /** padding: 0px 40px 10px 40px; **/ }
+.document .content-node.speech .content-node.paragraph {
+  padding: 10px 40px 10px 40px;
+  border-left: 3px solid #000; }
 
-.surface.content .nodes > .content-node.speech > .content > .speeches > .speech {
-  display: table;
-  margin: 10px; }
+.content-node.speech > .content table.speeches tr td.speaker {
+  width: 100px;
+  font-weight: bold;
+  vertical-align: baseline; }
 
-.surface.content .nodes > .content-node.speech > .content > .speeches > .speech > .speech-row {
-  display: table-row; }
+.surface.content .content-node.speech > .content > .label {
+  font-weight: 600;
+  padding-bottom: 10px; }
 
-.surface.content .nodes > .content-node.speech > .content > .speeches > .speech > .speech-row > .speech-speaker {
-  display: table-cell;
-  max-width: 100px !important;
-  min-width: 100px !important; }
-
-.surface.content .nodes > .content-node.speech > .content > .speeches > .speech > .speech-row > .speech-text {
-  display: table-cell; }
-
-/**
-.rTableHeading    { display: table-header-group; }
-.rTableBody    { display: table-row-group; }
-.rTableFoot    { display: table-footer-group; }
-.rTableCell, .rTableHead  { display: table-cell; }
-*/
 .altmetrics-panel .altmetrics {
   padding: 20px; }

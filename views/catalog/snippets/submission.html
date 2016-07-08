@@ -1,0 +1,20 @@
+<h4>
+	{{editors = submission.associated_items.get('editors', [])}}
+	{{authors = submission.associated_items.get('authors', [])}}
+	{{if editors:}}
+		{{=formatContributors(editors)}}
+			{{if len(editors) > 1:}}
+				{{=T("(eds)")}}
+			{{else:}}
+				{{=T("(ed.)")}}
+			{{pass}}
+	{{else:}}
+		{{=formatContributors(authors)}}
+	{{pass}}
+</h4>
+<h4>{{=" ".join([submission.settings.getLocalizedValue('prefix', locale), submission.settings.getLocalizedValue('title', locale)])}}
+	{{subtitle = submission.settings.getLocalizedValue('subtitle', locale)}}
+	{{if subtitle:}}
+		<br/>{{=subtitle}}
+	{{pass}}
+</h4>

@@ -40,9 +40,21 @@ Thumbs.db
 databases/*
 .idea/*
 sessions/*
+<<<<<<< HEAD
 static/monographs
 static/series
-staric/utils
+static/utils/bookStatsConfig.json
+static/utils/*.log
+static/files
 private/*
 errors/*
+private/
+errors/*
 *.swp
+*.swo
+
+# Eclipse project folders #
+###########################
+.project
+.pydevproject
+.settings/

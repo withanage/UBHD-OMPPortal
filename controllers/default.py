@@ -6,33 +6,20 @@ LICENSE.md
 '''
 
 # required - do no delete
-
-
 def user(): return dict(form=auth())
 
-
 def download(): return response.download(request, db)
-
 
 def call():
     session.forget()
     return service()
 # end requires
 
-
 def index():
     return dict()
 
-
 def error():
     return dict()
-
-
-def get_knv_metadata():
-    if not db(db.t_knv_metadata.submission_id == request.args(0)).select(db.t_knv_metadata.submission_id):
-        redirect(URL('error'))
-    return dict(data=db(db.t_knv_metadata.submission_id == request.args(0)).select())
-
 
 def set_knv_metadata():
     if len(db(db.t_knv_metadata.submission_id == request.args(0)).select(db.t_knv_metadata.submission_id)) > 0:
@@ -71,7 +58,6 @@ def set_knv_metadata():
         redirect(URL('set_onix_data/' + request.args(0)))
     return dict(form=form)
 
-
 def get_onix_data():
     if not request.args(0):
         redirect(URL('error'))
@@ -90,12 +76,10 @@ def get_onix_data():
     return dict(data=data, authors_pre=authors_pre, locale=locale, publication_formats=publication_formats, title_text=title_text)
     # return dict(data=crud.read(db.t_onix_additionals, request.args(0)))
 
-
 def onix_additionals_manage():
     form = SQLFORM.smartgrid(
         db.t_onix_additionals, onupdate=auth.archive, user_signature=False,  exportclasses=None)
     return locals()
-
 
 def set_onix_data():
     if (request.args(0) is None) | (len(db(db.t_onix_additionals.submission_id == request.args(0)).select(db.t_onix_additionals.submission_id)) > 0):
@@ -152,7 +136,6 @@ def set_onix_data():
                 submissions=submissions,
                 submission_settings=submission_settings
                 )
-
 
 def get_books():
     query = (db.submission_settings.submission_id == db.submissions.submission_id) & (
