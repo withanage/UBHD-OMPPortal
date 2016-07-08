@@ -750,7 +750,7 @@ out (on iOS 5.1), or flicker (on iOS 6). */
 
 .article .resources .figures .content-node.highlighted .resource-header .toggle.toggle-res,
 .article .resources .math .content-node.highlighted .resource-header .toggle.toggle-res {
-  color: #91bb04; }
+  color: #990000; }
 
 .article .resources .citations .content-node.highlighted .resource-header .toggle.toggle-res {
   color: #990000; }
@@ -772,7 +772,7 @@ article .resources .footnotes .content-node.highlighted .resource-header .toggle
 /* Styles for fullscreen toggle on resource cards */
 .article .resources .figures .content-node.fullscreen .resource-header .toggle.toggle-fullscreen,
 .article .resources .math .content-node.fullscreen .resource-header .toggle.toggle-fullscreen {
-  color: #91bb04; }
+  color: #990000; }
 
 #container .article .content-node.fullscreen {
   position: fixed;
@@ -900,9 +900,9 @@ span.annotation.formula_reference, span.publication_reference {
   font-weight: bold; }
 
 .content-node .figure_reference {
-  background: rgba(145, 187, 4, 0.15);
-  border-bottom: 1px solid rgba(145, 187, 4, 0.6);
-  color: #495A11;
+  background: rgba(153, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(153, 0, 0, 0.6);
+  color: #990000;
   cursor: pointer; }
 
 .content-node .contributor_reference {
@@ -940,7 +940,7 @@ span.annotation.formula_reference, span.publication_reference {
 
 /* Hover states */
 .content-node .figure_reference:hover {
-  background-color: rgba(145, 187, 4, 0.35); }
+  background-color: rgba(153, 0, 0, 0.35); }
 
 .content-node .citation_reference:hover {
   background-color: rgba(11, 157, 217, 0); }
@@ -956,7 +956,7 @@ span.annotation.formula_reference, span.publication_reference {
 
 /* Highlighted states */
 .content-node .figure_reference.highlighted {
-  background: rgba(145, 187, 4, 0.7); }
+  background: rgba(153, 0, 0, 0.7); }
 
 .content-node .citation_reference.highlighted {
   background: rgba(153, 0, 0, 0.15); }
@@ -1090,7 +1090,7 @@ as we have a plugin concept for functionality / panels */
   border-bottom: 1px solid #990000; }
 
 .article .resources .figures .content-node.highlighted {
-  border-left: 3px solid #91bb04; }
+  border-left: 3px solid #990000; }
 
 /* active footnote */
 .article .resources .footnotes .content-node.highlighted {
@@ -1114,6 +1114,18 @@ as we have a plugin concept for functionality / panels */
 /*
 TOC
 --------------------------------------- */
+.resource-view.toc .navigation {
+  color: #c86464;
+  vertical-align: top;
+  text-align: right;
+  padding: 4px 10px;
+  line-height: 20px;
+  border: 1px solid transparent;
+  background-color: #ffffff;
+  /* Green */
+  text-decoration: none;
+  font-size: 16px; }
+
 .resource-view.toc .heading-ref {
   cursor: pointer;
   display: block;
@@ -1444,7 +1456,7 @@ body.loading .spinner-wrapper {
   display: none; }
 
 .content-node.speech > .content {
-  padding: 20px; }
+  padding: 2px; }
 
 .document .content-node.speech .content-node.paragraph {
   /*padding: 0px;*/
@@ -1453,7 +1465,7 @@ body.loading .spinner-wrapper {
 
 .surface.content .content-node.speech > .content > .label {
   font-weight: 600;
-  padding-bottom: 20px; }
+  padding-bottom: 10px; }
 
 .altmetrics-panel .altmetrics {
   padding: 20px; }
