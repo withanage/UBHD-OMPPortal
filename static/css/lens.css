@@ -1459,9 +1459,12 @@ body.loading .spinner-wrapper {
   padding: 2px; }
 
 .document .content-node.speech .content-node.paragraph {
-  /*padding: 0px;*/
   padding: 10px 40px 10px 40px;
   border-left: 3px solid #000; }
+
+.content-node.speech > .content table.speeches tr td.speaker {
+  width: 100px;
+  font-weight: bold; }
 
 .surface.content .content-node.speech > .content > .label {
   font-weight: 600;
