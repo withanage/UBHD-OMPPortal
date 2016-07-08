@@ -383,6 +383,7 @@
 'To be published %(date)s. ## %B %Y': 'Erscheint im %(date)s.',
 'To be published %(date)s. ## %x': 'Erscheint am %(date)s.',
 'To be published %(date)s. ## %Y': 'Erscheint %(date)s.',
+'To the book': 'Zum Buch',
 'To the eBook': 'Zum eBook',
 'Total': 'Summe',
 'Traceback': 'Traceback',
