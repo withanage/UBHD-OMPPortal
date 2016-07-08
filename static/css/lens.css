@@ -1464,7 +1464,8 @@ body.loading .spinner-wrapper {
 
 .content-node.speech > .content table.speeches tr td.speaker {
   width: 100px;
-  font-weight: bold; }
+  font-weight: bold;
+  vertical-align: baseline; }
 
 .surface.content .content-node.speech > .content > .label {
   font-weight: 600;
