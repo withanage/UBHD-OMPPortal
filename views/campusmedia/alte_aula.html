@@ -52,6 +52,18 @@
 	-->
 	                 <div class="post-heading">
 	                 <br/>
+					 
+                     <div class="col-lg-12">
+                        <div class="solidline"></div>
+                        <div class="post-heading">
+						    {{if session.forced_language =='de': }}
+                            <h4>Erscheint demnächst</h4>
+							{{elif session.forced_language =='en': }}
+							<h4>Coming soon</h4>
+							{{pass}}
+                        </div>
+                        <div class="solidline"></div>
+                     </div>
 	                 <h5>Heike Hawicks, Ingo Runde (Hrsg.)</h5>
 	              </div>
 	              <h3>Die Alte Aula der Universität Heidelberg</h3>

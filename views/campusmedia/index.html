@@ -95,6 +95,26 @@
       </div>
     </div>
 
+	<div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="solidline">
+                        </div>
+                        <div class="post-heading">
+                            {{if session.forced_language =='de': }}
+                            <h4>Erscheint demnächst</h4>
+							{{elif session.forced_language =='en': }}
+							<h4>Coming soon</h4>
+							{{pass}}
+                        </div>
+                        <div class="solidline">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	
     <div class="row">
       <div class="col-lg-2">
         <article>
