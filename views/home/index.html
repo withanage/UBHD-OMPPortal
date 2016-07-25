@@ -240,6 +240,23 @@ $('.flexslider').flexslider();
 
                 </div>
               </div>
+			  
+			  <div class="col-lg-3">
+                <div class="box">
+                  <div class="box-gray aligncenter">
+                  {{if session.forced_language =='de': }}
+                  <h4>Neuerscheinung</h4>
+                  {{elif session.forced_language =='en': }}
+                  <h4>New titles</h4>
+                  {{pass}}
+                    {{=IMG(_src=URL('static','files/presses/6/monographs/48/simple/cover.jpg'),_alt='',_style='width:145px')}}
+                </div>
+                <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/90'))}}
+                </div>
+
+                </div>
+              </div>
+			  
               <div class="col-lg-3">
                 <div class="box">
                   <div class="box-gray aligncenter">{{if session.forced_language =='de': }} <h4>Demnächst</h4>{{elif session.forced_language =='en': }} <h4>Forthcoming</h4>{{pass}} 
@@ -251,21 +268,7 @@ $('.flexslider').flexslider();
                   </div>
                 </div>
               </div>
-              <div class="col-lg-3">
-                <div class="box">
-                  <div class="box-gray aligncenter">
-                  {{if session.forced_language =='de': }}
-                  <h4>Zeitschrift</h4>
-                  {{elif session.forced_language =='en': }}
-                  <h4>Magazine</h4>
-                  {{pass}}
-                    {{=IMG(_src=URL('static','images/journals/tcs.jpg'),_alt='',_style='width:145px')}}
-                </div>
-                <div class="box-bottom">{{=A(T('More Information'),_href=URL('journals','tcs'))}}
-                </div>
-
-                </div>
-              </div>
+              
               <div class="col-lg-3">
                 <div class="box">
                   <div class="box-gray aligncenter">
