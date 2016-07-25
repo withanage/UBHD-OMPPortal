@@ -115,6 +115,26 @@ $('.flexslider').flexslider();
             <div id="boxAktuelles" class="col-lg-6">
               <div class="box">
                 <div class="box-gray aligncenter" style="overflow-y: scroll">{{if session.forced_language =='de': }} <h4>Aktuelles</h4>{{elif session.forced_language =='en': }} <h4>News</h4>{{pass}} 
+				  <div class="media">
+                    <div class="media-left pull-left">
+                      <img alt="" src="{{=URL('static','images/press/home/uni_aktuelles.png')}}" style="width: 50px;" />
+                    </div>
+                    <div class="media-body">
+                      <p class="media-heading">04.07.2016<br>
+                      {{if session.forced_language =='de': }} <span class="h5"><i>Nord & Süd</i> ist das Schwerpunktthema der neu erschienenen Ausgabe des Forschungsmagazins Ruperto Carola</span>{{elif session.forced_language =='en': }} <span class="h5"><i>Nord & Süd</i> ist das Schwerpunktthema der neu erschienenen Ausgabe des Forschungsmagazins Ruperto Carola</span>{{pass}}</p> 
+
+                      <p class="boxText">{{if session.forced_language =='de': }} Im „International Year of Global Understanding“ widmet sich die Ausgabe des <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index" title="Homepage des Forschungsmagazins Ruperto Carola">Forschungsmagazins „Ruperto Carola“</a> der Universität Heidelberg einem hoch aktuellen Themenkomplex, der Politik und Öffentlichkeit rund um den Globus bewegt – den Zusammenhängen von NORD & SÜD. 20 Wissenschaftlerinnen und Wissenschaftler beschäftigen sich in ihren Beiträgen mit globalen Fragestellungen und Herausforderungen wie der Flüchtlingskrise, dem Klimawandel und den asymmetrischen Beziehungen zwischen den Ländern des Globalen Südens und denen des Globalen Nordens.
+                      {{elif session.forced_language =='en': }}
+                      Im „International Year of Global Understanding“ widmet sich die Ausgabe des <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index" title="Homepage des Forschungsmagazins Ruperto Carola">Forschungsmagazins „Ruperto Carola“</a> der Universität Heidelberg einem hoch aktuellen Themenkomplex, der Politik und Öffentlichkeit rund um den Globus bewegt – den Zusammenhängen von NORD & SÜD. 20 Wissenschaftlerinnen und Wissenschaftler beschäftigen sich in ihren Beiträgen mit globalen Fragestellungen und Herausforderungen wie der Flüchtlingskrise, dem Klimawandel und den asymmetrischen Beziehungen zwischen den Ländern des Globalen Südens und denen des Globalen Nordens.                   
+                      
+                      {{pass}}
+                      
+                      
+                       
+                      </p>
+                    </div>
+                  </div>
+				
                   <div class="media">
                     <div class="media-left pull-left">
                       <img alt="" src="{{=URL('static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
@@ -170,18 +190,6 @@ $('.flexslider').flexslider();
                         </p>
                         <p class="boxText">{{if session.forced_language =='de': }} 
                           <a href="http://www.aeup.eu/aeup/" title="Homepage Associaten of European University Presses">AEUP</a> ist eine Organisation von und für europäische Universitätsverlage. Darin vertreten sind zahlreiche namhafte Verlage unter anderem aus Belgien, Finnland, Großbritannien, den Niederlanden und Deutschland. Wir freuen uns, dass unser Aufnahmeantrag vor wenigen Tagen angenommen wurde! {{elif session.forced_language =='en': }} The <a href="http://www.aeup.eu/aeup/" title="Homepage Associaten of European University Presses">AEUP</a> is an organization of and for European university presses. Numerous well-known publishers as for example from Belgium, Finland, Great Britain, the Netherlands and Germany are represented in this association. We are pleased that, a few days ago, our application for admission has been accepted! {{pass}} 
-                        </p>
-                      </div>
-                    </div>
-                    <div class="media">
-                      <div class="media-left pull-left">
-                        <a href="http://open-access.net/community/open_access_tage/">
-                          <img alt="" src="{{=URL('static','images/press/home/uni_aktuelles.png')}}" style="width:50px;" /></a>
-                      </div>
-                      <div class="media-body">
-                        <p class="media-heading">{{if session.forced_language =='de': }} <span class="h5">Neue Ausgabe des Forschungsmagazins „Ruperto Carola“</span>{{elif session.forced_language =='en': }} <span class="h5">New Issue of "Ruperto Carola"</span>{{pass}} 
-                        </p>
-                        <p class="boxText">{{if session.forced_language =='de': }} Die neue Ausgabe des <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index" title="Homepage des Forschungsmagazins Ruperto Carola">Forschungsmagazins „Ruperto Carola“</a> der Universität Heidelberg widmet sich diesmal dem Thema SCHATTEN &amp; LICHT. Ihre Autoren und Autorinnen &ndash; Heidelberger Wissenschaftler der unterschiedlichsten Disziplinen &ndash; beleuchten das Thema aus ganz verschiedenen, aber immer sehr erhellenden Perspektiven. {{elif session.forced_language =='en': }} The new edition of the <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index" title="Homepage Heidelberg University, Research Journal Ruperto Carola">research journal "Ruperto Carola"</a> is dedicated to the topic "SHADOW & LIGHT". Its authors &ndash; Heidelberg scientists from different disciplines &ndash; highlight the subject with completely different but always enlightening perspectives. {{pass}} 
                         </p>
                       </div>
                     </div>
