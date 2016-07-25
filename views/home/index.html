@@ -86,13 +86,13 @@ $('.flexslider').flexslider();
               {{elif session.forced_language =='en': }}                       
                 <h4>New Titles</h4>
                 {{pass}}
-                <img alt="" src="{{=URL('static','images/catalog/Cover_Kemp_OMP.jpg')}}" style="border: 1px solid #e8e8e8; width: 145px;" />
+                <img alt="" src="{{=URL('static','images/catalog/01_Cover_Limitierte_Auflage.jpg')}}" style="border: 1px solid #e8e8e8; width: 145px;" />
                   </div>
                   <div class="box-bottom">
               {{if session.forced_language =='de': }} 
-                    {{=A(T('Mehr'),_href=URL('catalog','book/90'))}}
+                    {{=A(T('Mehr'),_href=URL('catalog','book/102'))}}
               {{elif session.forced_language =='en': }} 
-                    {{=A(T('More Information'),_href=URL('catalog','book/90'))}}<a href="http://heiup.uni-heidelberg.de/catalog/book/90">
+                    {{=A(T('More Information'),_href=URL('catalog','book/102'))}}<a href="http://heiup.uni-heidelberg.de/catalog/book/90">
               {{pass}} 
                   </div>
                 
@@ -116,6 +116,22 @@ $('.flexslider').flexslider();
               <div class="box">
                 <div class="box-gray aligncenter" style="overflow-y: scroll">{{if session.forced_language =='de': }} <h4>Aktuelles</h4>{{elif session.forced_language =='en': }} <h4>News</h4>{{pass}} 
 				  <div class="media">
+                    <div class="media-left pull-left">
+                      <img alt="" src="{{=URL('static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
+                    </div>
+					<div class="media-body">
+                      <p class="media-heading">25.07.2016<br>
+                      {{if session.forced_language =='de': }} <span class="h5">Neuerscheinung zum Thema Kunstrecht: Sind Auflagenlimiterungen in der Fotokunst bindend?</span>{{elif session.forced_language =='en': }} <span class="h5">Neuerscheinung zum Thema Kunstrecht: Sind Auflagenlimiterungen in der Fotokunst bindend?</span>{{pass}}</p> 
+
+                      <p class="boxText">{{if session.forced_language =='de': }} Der Heidelberger Rechtsanwalt Felix M. Michl untersucht in seiner Dissertation <i>Die limitierte Auflage</i> rechtliche Fragen der Auflagenlimitierung in der Fotokunst. Er geht dabei insbesondere der Frage nach, ob solche „Exklusivitätsversprechen“ des Künstlers, nur eine begrenzte Zahl von Abzügen zu erstellen, rechtlich bindend sind und somit beispielsweise von einem Sammler eingeklagt werden könnten. Besondere Relevanz erhält die Fragestellung der Arbeit durch die aktuellen Entwicklungen auf dem Kunstmarkt: Dort hat sich die Fotografie in den letzten Jahrzehnten zu einer der populärsten und auch ökonomisch lukrativsten Kunstgattungen entwickelt. Einzelne Abzüge werden mittlerweile für Millionenbeträge gehandelt. Ohne eine Limitierung der Auflge wäre dies kaum denkbar.
+                      {{elif session.forced_language =='en': }}
+                      Der Heidelberger Rechtsanwalt Felix M. Michl untersucht in seiner Dissertation <i>Die limitierte Auflage</i> rechtliche Fragen der Auflagenlimitierung in der Fotokunst. Er geht dabei insbesondere der Frage nach, ob solche „Exklusivitätsversprechen“ des Künstlers, nur eine begrenzte Zahl von Abzügen zu erstellen, rechtlich bindend sind und somit beispielsweise von einem Sammler eingeklagt werden könnten. Besondere Relevanz erhält die Fragestellung der Arbeit durch die aktuellen Entwicklungen auf dem Kunstmarkt: Dort hat sich die Fotografie in den letzten Jahrzehnten zu einer der populärsten und auch ökonomisch lukrativsten Kunstgattungen entwickelt. Einzelne Abzüge werden mittlerweile für Millionenbeträge gehandelt. Ohne eine Limitierung der Auflge wäre dies kaum denkbar.                   
+                      {{pass}}
+                      </p>
+                    </div>
+				</div>
+				
+				 <div class="media">
                     <div class="media-left pull-left">
                       <img alt="" src="{{=URL('static','images/press/home/uni_aktuelles.png')}}" style="width: 50px;" />
                     </div>
@@ -217,9 +233,9 @@ $('.flexslider').flexslider();
                   {{elif session.forced_language =='en': }}
                   <h4>New Titles</h4>
                   {{pass}} 
-                    {{=IMG(_src=URL('static','files/presses/6/monographs/48/simple/cover.jpg'),_alt='',_style='width:145px')}} 
+                    {{=IMG(_src=URL('static','images/catalog/Cover_Kemp_OMP.jpg'),_alt='',_style='width:145px')}} 
                 </div>
-                <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/48'))}} 
+                <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/90'))}} 
                 </div>
 
                 </div>
@@ -227,11 +243,11 @@ $('.flexslider').flexslider();
               <div class="col-lg-3">
                 <div class="box">
                   <div class="box-gray aligncenter">{{if session.forced_language =='de': }} <h4>Demnächst</h4>{{elif session.forced_language =='en': }} <h4>Forthcoming</h4>{{pass}} 
-                    <img alt="" src="{{=URL('static','images/catalog/01_Cover_Limitierte_Auflage.jpg')}}" style="border: 1px solid #e8e8e8; width: 145px;"/>
+                    <img alt="" src="{{=URL('static','images/catalog/Cover_Moehren_OMP_300.jpg')}}" style="border: 1px solid #e8e8e8; width: 145px;"/>
                   </div>
                   <div class="box-bottom">{{if session.forced_language =='de': }} 
-                    <a href="http://heiup.uni-heidelberg.de/catalog/index.html#michl">Mehr</a>{{elif session.forced_language =='en': }} 
-                    <a href="http://heiup.uni-heidelberg.de/catalog/index.html#michl_en">More Information</a>{{pass}} 
+                    <a href="../catalog/index.html#moehren">Mehr</a>{{elif session.forced_language =='en': }} 
+                    <a href="../catalog/index.html#moehren_en">More Information</a>{{pass}} 
                   </div>
                 </div>
               </div>
