@@ -155,6 +155,7 @@
 'FAQ': 'FAQ',
 'Farbraum': 'Farbraum',
 'First name': 'Vorname',
+'Follow us on Twitter': 'Besuchen Sie uns auf Twitter',
 'For Authors': 'Informationen für Autoren',
 'Forms and Validators': 'Forms und Validators',
 'Forthcoming': 'Erscheint demnächst',

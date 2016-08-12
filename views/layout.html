@@ -227,8 +227,11 @@
                         <li><a href="{{=URL('campusmedia','index')}}">Campus Media</a></li>
                         <li>{{=T('Publishing')}} | <a href="{{=URL('publishing','for_authors')}}">{{=T('Information for Authors')}}</a></li>
                         <li>{{=T('Quality Control')}} | <a href="{{=URL('quality_control','peer_review')}}">Peer Review</a></li>
+                        <li><a href="{{=URL('contact','imprint')}}">{{=T('Legal Notice')}}</a></li>
                      </ul>
                  </div>
+             </div>
+             <div class="col-lg-4">
              </div>
              <div class="col-lg-4">
                <div id="footer_logo_ub" class="widget"><a href="http://www.uni-heidelberg.de" title="Homepage Universität Heidelberg"><img alt="Logo - Universität Heidelberg - Universitätsbibliothek Heidelberg" src="{{=URL('static','/images/press/logo_footer_grau.png')}}" /></a>
@@ -239,7 +242,10 @@
      <div id="sub-footer"  class="screen">
          <div class="container">
              <div class="row">
-                  <div id="footer_sn" class="col-lg-4">
+               <div class="col-lg-4">
+               <a href="https://twitter.com/heiUP_HD" title="Twitter heiUP">{{=T('Follow us on Twitter')}} <i class="fa fa-twitter fa-1x"></i></a>
+               </div>
+                  <!--<div id="footer_sn" class="col-lg-4">
                      <ul class="social-network">
                          <li><a href="https://www.facebook.com/sharer/sharer.php?u={{=myconf.take('web.url')+request.url}}" data-placement="top" title="Facebook"><i class="fa fa-facebook fa-1x"></i></a>
                          </li>
@@ -250,13 +256,13 @@
                          <li><a href="https://plus.google.com/share?url={{=myconf.take('web.url')+request.url}}" data-placement="top" title="Google plus"><i class="fa fa-google-plus fa-1x"></i></a>
                          </li>
                      </ul>
-                 </div>
+                 </div>-->
                  <div class="col-lg-4">
-                {{if session.forced_language=='de':}}
+                <!--{{if session.forced_language=='de':}}
                      <a href="/contact/imprint.html">Impressum</a>
                 {{elif session.forced_language=='en':}}
                      <a href="/contact/imprint.html">Legal Notice</a>
-                {{pass}}     
+                {{pass}}-->     
                  </div>
                  <div class="col-lg-4">
                <a href="https://pkp.sfu.ca/" title="Homepage PKP - Public Knowledge Project"><img class="" alt="Public Knowledge Project" src="http://books.ub.uni-heidelberg.de/lib/pkp/templates/images/pkp_brand.png"></a>
