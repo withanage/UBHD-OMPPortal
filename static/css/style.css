@@ -2000,6 +2000,7 @@ article img.pull-right, article .align-right{
 
 /*Anpassungen WWW Heidelberg*/
 
+.bildrahmen, .post-image img {border:1px solid #cdcbcc} 
 
 .container {
   padding: 0;

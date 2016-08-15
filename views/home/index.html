@@ -86,7 +86,7 @@ $('.flexslider').flexslider();
               {{elif session.forced_language =='en': }}                       
                 <h4>New Titles</h4>
                 {{pass}}
-                <img alt="" src="{{=URL('static','images/catalog/01_Cover_Limitierte_Auflage.jpg')}}" style="border: 1px solid #e8e8e8; width: 145px;" />
+				{{=IMG(_src=URL('static','images/catalog/01_Cover_Limitierte_Auflage.jpg'),_width='145px',_class='bildrahmen')}}
                   </div>
                   <div class="box-bottom">
               {{if session.forced_language =='de': }} 
@@ -229,7 +229,7 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
                   {{elif session.forced_language =='en': }}
                   <h4>New Titles</h4>
                   {{pass}} 
-                    {{=IMG(_src=URL('static','images/catalog/Cover_Kemp_OMP.jpg'),_alt='',_style='width:145px')}} 
+                    {{=IMG(_src=URL('static','images/catalog/Cover_Kemp_OMP.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}} 
                 </div>
                 <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/90'))}} 
                 </div>
@@ -245,7 +245,7 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
                   {{elif session.forced_language =='en': }}
                   <h4>New titles</h4>
                   {{pass}}
-                    {{=IMG(_src=URL('static','files/presses/6/monographs/48/simple/cover.jpg'),_alt='',_style='width:145px')}}
+                    {{=IMG(_src=URL('static','files/presses/6/monographs/48/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
                 </div>
                 <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/48'))}}
                 </div>
@@ -255,8 +255,8 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
 			  
               <div class="col-lg-3">
                 <div class="box">
-                  <div class="box-gray aligncenter">{{if session.forced_language =='de': }} <h4>Demnächst</h4>{{elif session.forced_language =='en': }} <h4>Forthcoming</h4>{{pass}} 
-                    <img alt="" src="{{=URL('static','images/catalog/Cover_Moehren_OMP_300.jpg')}}" style="border: 1px solid #e8e8e8; width: 145px;"/>
+                  <div class="box-gray aligncenter">{{if session.forced_language =='de': }} <h4>Demnächst</h4>{{elif session.forced_language =='en': }} <h4>Forthcoming</h4>{{pass}}
+                    {{=IMG(_src=URL('static','images/catalog/Cover_Moehren_OMP_300.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}				  
                   </div>
                   <div class="box-bottom">{{if session.forced_language =='de': }} 
                     <a href="../catalog/index.html#moehren">Mehr</a>{{elif session.forced_language =='en': }} 
@@ -269,7 +269,7 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
                 <div class="box">
                   <div class="box-gray aligncenter">
                     <h4>Campus Media</h4>
-                    <img alt="" src="{{=URL('static','images/campusmedia/ruperto_carola.jpg')}}" style="width: 145px;"/>
+					{{=IMG(_src=URL('static','images/campusmedia/ruperto_carola.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
                   </div>
                   <div class="box-bottom">{{=A(T('More Information'),_href=URL('campusmedia','ruperto_carola'))}}
                   </div>
