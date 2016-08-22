@@ -1259,6 +1259,10 @@ TOC
 .panel.document .nodes > .content-node > .focus-handle:hover {
   border-left: 3px solid #bbb; }
 
+/** Ticket#66 ***/
+.panel.content.document > .surface.resource-view.content > .nodes > .content-node.heading {
+  padding-top: 20px; }
+
 /*
   Typography / Basics
 ---------------------------------------------*/
