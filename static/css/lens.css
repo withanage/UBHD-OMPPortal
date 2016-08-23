@@ -831,6 +831,9 @@ span.annotation.formula_reference, span.publication_reference {
 .article .cover span.superscript, .article .cover span.subscript, .article .cover sup, .article .cover sub {
   font-size: inherit; }
 
+.article span.strike {
+  text-decoration: line-through; }
+
 .article span.strong, .article strong {
   font-weight: bold; }
 
@@ -1259,6 +1262,13 @@ TOC
 .panel.document .nodes > .content-node > .focus-handle:hover {
   border-left: 3px solid #bbb; }
 
+/** Ticket#66 ***/
+.panel.content.document > .surface.resource-view.content > .nodes > .content-node.heading.level-3 {
+  padding-top: 20px; }
+
+.panel.content.document > .surface.resource-view.content > .nodes > .content-node.heading.level-4 {
+  padding-top: 20px; }
+
 /*
   Typography / Basics
 ---------------------------------------------*/
@@ -1459,17 +1469,24 @@ body.loading .spinner-wrapper {
   padding: 2px; }
 
 .document .content-node.speech .content-node.paragraph {
-  padding: 10px 40px 10px 40px;
-  border-left: 3px solid #000; }
+  padding: 0px 0px 0px 0px;
+  border-left: 3px solid #ffffff; }
 
 .content-node.speech > .content table.speeches tr td.speaker {
   width: 100px;
   font-weight: bold;
   vertical-align: baseline; }
 
+.content-node.speech > .content table.speeches tr td.speech {
+  vertical-align: baseline;
+  font-style: italic; }
+
+.content-node.speech > .content table.speeches tr {
+  vertical-align: baseline; }
+
 .surface.content .content-node.speech > .content > .label {
   font-weight: 600;
-  padding-bottom: 10px; }
+  padding-bottom: 0px; }
 
 .altmetrics-panel .altmetrics {
   padding: 20px; }

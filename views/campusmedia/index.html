@@ -37,7 +37,7 @@
     <div class="row">
       <div class="col-lg-2">
         <article>
-          <div class="post-image" style="border: 1px solid #f5f5f5;">
+          <div class="post-image">
             <img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/heidelberger_jahrbuecher.jpg')}} ">
           </div>
         </article>
@@ -46,8 +46,13 @@
         <article>
           <div class="post-heading"><h3>Heidelberger Jahrbücher Online</h3>
           </div>
-          <p>
-            <i class="icon-quote-left"></i>{{if session.forced_language =='de': }} In den Heidelberger Jahrbüchern Online soll der wissenschaftliche Geist und der geschichtliche Raum der Universität zur Darstellung gelangen. Die Heidelberger Jahrbücher, die im Auftrag der Gesellschaft der Freunde Universität Heidelberg e.V. herausgegeben werden, beleuchten in jedem Band ein fachübergreifendes Thema aus unterschiedlichen Positionen. Ihr Ziel ist es, das Gespräch und den Kontakt der Wissenschaften an der Universität Heidelberg untereinander zu fördern. {{elif session.forced_language =='en': }} Heidelberg Yearbooks Online is a platform for the scientific spirit and the historic dimension of Heidelberg University. The Yearbooks are hosted by the Friends of the University, a non-commercial organization in support of Heidelberg University. Each yearbook focuses on an overarching thematic issue that will be interpreted by heterogenous points of view. The yearbooks are intended to foster communication and contact between scientists from different disciplines. {{pass}} 
+          {{if session.forced_language =='de': }}
+          <p><i class="icon-quote-left"></i>In den Heidelberger Jahrbüchern Online soll der wissenschaftliche Geist und der geschichtliche Raum der Universität zur Darstellung gelangen. Die Heidelberger Jahrbücher, die im Auftrag der Gesellschaft der Freunde Universität Heidelberg e.V. herausgegeben werden, beleuchten in jedem Band ein fachübergreifendes Thema aus unterschiedlichen Positionen. Ihr Ziel ist es, das Gespräch und den Kontakt der Wissenschaften an der Universität Heidelberg untereinander zu fördern.</p>
+          <p><strong>Call for Papers</strong><br />
+          <a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/pages/view/cfp" title="Homepage Heidelberger Jahrbücher Online, Informationen zum Call for Papers für Band 2">Call for Papers für Band 2: &bdquo;Wissenschaft für Alle - Bedeutung von Open Science und Citizen Science für Universitäten und Wissenschaft&rdquo;</a>
+            </p>
+            {{elif session.forced_language =='en': }} 
+          <p><i class="icon-quote-left"></i>Heidelberg Yearbooks Online is a platform for the scientific spirit and the historic dimension of Heidelberg University. The Yearbooks are hosted by the Friends of the University, a non-commercial organization in support of Heidelberg University. Each yearbook focuses on an overarching thematic issue that will be interpreted by heterogenous points of view. The yearbooks are intended to foster communication and contact between scientists from different disciplines. {{pass}} 
           </p>
           <div class="widget">
             <h5 class="widgetheading"></h5>
@@ -67,7 +72,7 @@
     <div class="row">
       <div class="col-lg-2">
         <article>
-          <div class="post-image" style="border: 1px solid #f5f5f5;">
+          <div class="post-image">
             <img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/ruperto_carola.jpg')}} ">
           </div>
         </article>
@@ -94,7 +99,27 @@
         </article>
       </div>
     </div>
-<!--
+
+	<div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="solidline">
+                        </div>
+                        <div class="post-heading">
+                            {{if session.forced_language =='de': }}
+                            <h4>Erscheint demnächst</h4>
+							{{elif session.forced_language =='en': }}
+							<h4>Coming soon</h4>
+							{{pass}}
+                        </div>
+                        <div class="solidline">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	
     <div class="row">
       <div class="col-lg-2">
         <article>
@@ -108,7 +133,7 @@
           <div class="post-heading"><h3>Die Alte Aula der Universität Heidelberg</h3>
           </div>
           <p>
-            <i class="icon-quote-left"></i>{{if session.forced_language =='de': }} Aula der Alten Universität ist Festsaal und Herzkammer der Ruperto Carola und veranschaulicht in Allegorien und Metaphern Geschichte und Selbstverständnis der ältesten Universität im heutigen Deutschland. Ursprünglich in barocker Ausgestaltung erbaut, wurde sie zum 500. Bestehen der Universität komplett umgestaltet. Der vom Großherzog von Baden gestiftete prachtvolle Raum präsentiert sich heute als eines der wenigen intakt erhaltenen Ensembles der Karlsruher Holzschnitzschule und wird überwiegend für akademische Feiern wie Antrittsvorlesungen neuberufener Professoren oder Absolventenfeiern genutzt. Die Aula ist jedoch auch ein Ort für öffentliche Konzerte und Vorträge, denen das ehrwürdige Ambiente dieses Saals einen besonderen Glanz verleihen soll. {{elif session.forced_language =='en': }} The Great Hall of the Old University building is the ceremonial hall and heart of Heidelberg University. With the aid of allegories and metaphors, it illustrates the history and self-image of the oldest university in modern-day Germany. Originally built in the baroque style, it was remodelled completely on the occasion of the University’s 500th anniversary. The magnificent room donated by the Grand Duke of Baden is one of the few ensembles of the Karlsruhe School of Woodcutting that remains intact; it is used primarily for academic events such as inaugural lectures of newly appointed professors or graduation ceremonies. But the Great Hall is also a place for public concerts and presentations to which the venerable surroundings lend a particular splendour. {{pass}}
+            <i class="icon-quote-left"></i>{{if session.forced_language =='de': }}Die Aula der Alten Universität ist Festsaal und Herzkammer der Ruperto Carola und veranschaulicht in Allegorien und Metaphern Geschichte und Selbstverständnis der ältesten Universität im heutigen Deutschland. Ursprünglich in barocker Ausgestaltung erbaut, wurde sie zum 500. Bestehen der Universität komplett umgestaltet. Der vom Großherzog von Baden gestiftete prachtvolle Raum präsentiert sich heute als eines der wenigen intakt erhaltenen Ensembles der Karlsruher Holzschnitzschule und wird überwiegend für akademische Feiern wie Antrittsvorlesungen neuberufener Professoren oder Absolventenfeiern genutzt. Die Aula ist jedoch auch ein Ort für öffentliche Konzerte und Vorträge, denen das ehrwürdige Ambiente dieses Saals einen besonderen Glanz verleihen soll. {{elif session.forced_language =='en': }} The Great Hall of the Old University building is the ceremonial hall and heart of Heidelberg University. With the aid of allegories and metaphors, it illustrates the history and self-image of the oldest university in modern-day Germany. Originally built in the baroque style, it was remodelled completely on the occasion of the University’s 500th anniversary. The magnificent room donated by the Grand Duke of Baden is one of the few ensembles of the Karlsruhe School of Woodcutting that remains intact; it is used primarily for academic events such as inaugural lectures of newly appointed professors or graduation ceremonies. But the Great Hall is also a place for public concerts and presentations to which the venerable surroundings lend a particular splendour. {{pass}}
           </p>
           <div class="widget">
             <h5 class="widgetheading"></h5>
@@ -121,6 +146,6 @@
         </article>
       </div>
     </div>
--->
+
   </div>
 </section>

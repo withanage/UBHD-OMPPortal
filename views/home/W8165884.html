@@ -86,7 +86,7 @@ $('.flexslider').flexslider();
               {{elif session.forced_language =='en': }}                       
                 <h4>New Titles</h4>
                 {{pass}}
-				{{=IMG(_src=URL('static','images/catalog/01_Cover_Limitierte_Auflage.jpg'),_width='145px',_class='bildrahmen')}}
+                <img alt="" src="{{=URL('static','images/catalog/01_Cover_Limitierte_Auflage.jpg')}}" style="border: 1px solid #e8e8e8; width: 145px;" />
                   </div>
                   <div class="box-bottom">
               {{if session.forced_language =='de': }} 
@@ -121,11 +121,11 @@ $('.flexslider').flexslider();
                     </div>
 					<div class="media-body">
                       <p class="media-heading">25.07.2016<br>
-                      {{if session.forced_language =='de': }} <span class="h5">Neuerscheinung zum Thema Kunstrecht: Sind Auflagenlimitierungen in der Fotokunst bindend?</span>{{elif session.forced_language =='en': }} <span class="h5">New publication on the subject of art law: is edition limitation in photographic art binding?</span>{{pass}}</p> 
+                      {{if session.forced_language =='de': }} <span class="h5">Neuerscheinung zum Thema Kunstrecht: Sind Auflagenlimitierungen in der Fotokunst bindend?</span>{{elif session.forced_language =='en': }} <span class="h5">Neuerscheinung zum Thema Kunstrecht: Sind Auflagenlimitierungen in der Fotokunst bindend?</span>{{pass}}</p> 
 
                       <p class="boxText">{{if session.forced_language =='de': }} Der Heidelberger Rechtsanwalt Felix M. Michl untersucht in seiner Dissertation <i>Die limitierte Auflage</i> rechtliche Fragen der Auflagenlimitierung in der Fotokunst. Er geht dabei insbesondere der Frage nach, ob solche „Exklusivitätsversprechen“ des Künstlers, nur eine begrenzte Zahl von Abzügen zu erstellen, rechtlich bindend sind und somit beispielsweise von einem Sammler eingeklagt werden könnten. Besondere Relevanz erhält die Fragestellung der Arbeit durch die aktuellen Entwicklungen auf dem Kunstmarkt: Dort hat sich die Fotografie in den letzten Jahrzehnten zu einer der populärsten und auch ökonomisch lukrativsten Kunstgattungen entwickelt. Einzelne Abzüge werden mittlerweile für Millionenbeträge gehandelt. Ohne eine Limitierung der Auflge wäre dies kaum denkbar.
-                      {{elif session.forced_language =='en': }}                     
-In his dissertation <i>Die limitierte Auflage</i> (“The Limited Edition”), Heidelberg lawyer Felix M. Michl examines the legal issues concerning edition limitation in photographic art. He focuses particularly on whether such “promises of exclusivity” by artists, i.e. to limit the print run, are legally binding and can thus be claimed by a collector. This question has become especially relevant in recent times, with photography becoming one of the most popular and economically lucrative art forms over the last few decades. Individual prints can sell for millions, something that is difficult to imagine without edition limitation.                   
+                      {{elif session.forced_language =='en': }}
+                      Der Heidelberger Rechtsanwalt Felix M. Michl untersucht in seiner Dissertation <i>Die limitierte Auflage</i> rechtliche Fragen der Auflagenlimitierung in der Fotokunst. Er geht dabei insbesondere der Frage nach, ob solche „Exklusivitätsversprechen“ des Künstlers, nur eine begrenzte Zahl von Abzügen zu erstellen, rechtlich bindend sind und somit beispielsweise von einem Sammler eingeklagt werden könnten. Besondere Relevanz erhält die Fragestellung der Arbeit durch die aktuellen Entwicklungen auf dem Kunstmarkt: Dort hat sich die Fotografie in den letzten Jahrzehnten zu einer der populärsten und auch ökonomisch lukrativsten Kunstgattungen entwickelt. Einzelne Abzüge werden mittlerweile für Millionenbeträge gehandelt. Ohne eine Limitierung der Auflge wäre dies kaum denkbar.                   
                       {{pass}}
                       </p>
                     </div>
@@ -137,11 +137,15 @@ In his dissertation <i>Die limitierte Auflage</i> (“The Limited Edition”), H
                     </div>
                     <div class="media-body">
                       <p class="media-heading">04.07.2016<br>
-                      {{if session.forced_language =='de': }} <span class="h5"><i>Nord & Süd</i> ist das Schwerpunktthema der neu erschienenen Ausgabe des Forschungsmagazins Ruperto Carola</span>{{elif session.forced_language =='en': }} <span class="h5"><i>North &amp; South</i> is the main topic of the newly published issue of the research journal Ruperto Carola</span>{{pass}}</p> 
+                      {{if session.forced_language =='de': }} <span class="h5"><i>Nord & Süd</i> ist das Schwerpunktthema der neu erschienenen Ausgabe des Forschungsmagazins Ruperto Carola</span>{{elif session.forced_language =='en': }} <span class="h5"><i>Nord & Süd</i> ist das Schwerpunktthema der neu erschienenen Ausgabe des Forschungsmagazins Ruperto Carola</span>{{pass}}</p> 
+
                       <p class="boxText">{{if session.forced_language =='de': }} Die neueste Ausgabe des Magazins <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index" title="Homepage des Forschungsmagazins Ruperto Carola"> „Ruperto Carola“</a> widmet sich einem hoch aktuellen Themenkomplex – den Zusammenhängen von NORD & SÜD. 20 Wissenschaftlerinnen und Wissenschaftler der Universität Heidelberg beschäftigen sich in ihren Beiträgen mit globalen Fragestellungen und Herausforderungen wie der Flüchtlingskrise, dem Klimawandel und den asymmetrischen Beziehungen zwischen den Ländern des Globalen Südens und denen des Globalen Nordens.
                       {{elif session.forced_language =='en': }}
 In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index" title="Homepage  Ruperto Carola">&ldquo;Ruperto Carola&rdquo;</a> focuses on a highly topical subject – the relationship between NORTH &amp; SOUTH. The articles by 20 Heidelberg University scholars deal with global issues and challenges such as the refugee crisis, climate change and the asymmetrical relations between the countries of the Global South and the Global North.                 
                       {{pass}}
+                      
+                      
+                       
                       </p>
                     </div>
                   </div>
@@ -229,7 +233,7 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
                   {{elif session.forced_language =='en': }}
                   <h4>New Titles</h4>
                   {{pass}} 
-                    {{=IMG(_src=URL('static','images/catalog/Cover_Kemp_OMP.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}} 
+                    {{=IMG(_src=URL('static','images/catalog/Cover_Kemp_OMP.jpg'),_alt='',_style='width:145px')}} 
                 </div>
                 <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/90'))}} 
                 </div>
@@ -245,7 +249,7 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
                   {{elif session.forced_language =='en': }}
                   <h4>New titles</h4>
                   {{pass}}
-                    {{=IMG(_src=URL('static','files/presses/6/monographs/48/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
+                    {{=IMG(_src=URL('static','files/presses/6/monographs/48/simple/cover.jpg'),_alt='',_style='width:145px')}}
                 </div>
                 <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/48'))}}
                 </div>
@@ -255,8 +259,8 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
 			  
               <div class="col-lg-3">
                 <div class="box">
-                  <div class="box-gray aligncenter">{{if session.forced_language =='de': }} <h4>Demnächst</h4>{{elif session.forced_language =='en': }} <h4>Forthcoming</h4>{{pass}}
-                    {{=IMG(_src=URL('static','images/catalog/Cover_Moehren_OMP_300.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}				  
+                  <div class="box-gray aligncenter">{{if session.forced_language =='de': }} <h4>Demnächst</h4>{{elif session.forced_language =='en': }} <h4>Forthcoming</h4>{{pass}} 
+                    <img alt="" src="{{=URL('static','images/catalog/Cover_Moehren_OMP_300.jpg')}}" style="border: 1px solid #e8e8e8; width: 145px;"/>
                   </div>
                   <div class="box-bottom">{{if session.forced_language =='de': }} 
                     <a href="../catalog/index.html#moehren">Mehr</a>{{elif session.forced_language =='en': }} 
@@ -269,7 +273,7 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
                 <div class="box">
                   <div class="box-gray aligncenter">
                     <h4>Campus Media</h4>
-					{{=IMG(_src=URL('static','images/campusmedia/ruperto_carola.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
+                    <img alt="" src="{{=URL('static','images/campusmedia/ruperto_carola.jpg')}}" style="width: 145px;"/>
                   </div>
                   <div class="box-bottom">{{=A(T('More Information'),_href=URL('campusmedia','ruperto_carola'))}}
                   </div>

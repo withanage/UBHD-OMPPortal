@@ -4,14 +4,14 @@
     <div class="row">
       <div class="col-lg-3">
         <article>
-          <div class="post-image" style="border: 1px solid #f5f5f5;">
+          <div class="post-image">
             <img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/cover_alte_aula.jpg')}}">
           </div>
         </article>
         <div class="box">
           <div class="box-gray alignleft" style="height: auto;">
             <h5 style="color: #656565; margin-bottom: 0.5em;">{{=T('How to cite this title')}}</h5>
-            <p>Die Alte Aula der Universität Heidelberg. DOI: <a href="http://dx.doi.org/10.17885/heiup.122.149">10.17885/heiup.122.149</a></p>
+            <p>Hawicks, Heike und Ingo Runde (Hrsg.): Die Alte Aula der Universität Heidelberg. Heidelberg: Heidelberg University Publishing / Campus Media, 2016. <!--DOI: <a href="http://dx.doi.org/10.17885/heiup.122.149">10.17885/heiup.122.149</a>--></p>
             <h5 style="color: #656565; margin-bottom: 0.3em;">{{=T('Licenses')}}</h5>
               {{if session.forced_language =='de': }}
                                         <p>Dieses Werk ist unter der<br> <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons-Lizenz 4.0<br/> (CC BY-SA 4.0)</a> veröffentlicht.<br>
@@ -24,15 +24,16 @@
               <p style="margin:0px">9783946054115 (PDF)<br /></p>
 	      <p style="margin:0px"></p>
 	      <p style="margin:0px">9783946054108 (Softcover)<br /></p>
-              <p style="margin-top: 1.2em;">Veröffentlicht am 11.07.2016.</p>
+              <p style="margin-top: 1.2em;">Erscheint im August 2016.</p>
           </div>
         </div>
       </div>
       <div class="col-lg-9">
          <article>
 	          	<div class="">
+				<!--
 	              		<div class="btn-group" role="group" aria-label="1">
-<!--	              			<li type="button" class="btn btn-default"><a href=http://vg07.met.vgwort.de/na/5a4879b159854b0e897a0fffc8bf7fd0?l=http://heiup.uni-heidelberg.de/UBHD_OMPPortal/reader/index/48/48-68-599-1-10-20160428.xml target="_blank">{{=T('Read')}}</a></li>-->
+	              			<li type="button" class="btn btn-default"><a href=http://vg07.met.vgwort.de/na/5a4879b159854b0e897a0fffc8bf7fd0?l=http://heiup.uni-heidelberg.de/UBHD_OMPPortal/reader/index/48/48-68-599-1-10-20160428.xml target="_blank">{{=T('Read')}}</a></li>
 	              		</div>	
 	              	        <div class="btn-group" role="group" aria-label="2">
 	              	             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">Download <span class="caret"></span></button>
@@ -48,16 +49,28 @@
 	                	        <li role="presentation"><a role="menuitem"  href="https://www.amazon.de/Die-Alte-Aula-Universität-Heidelberg/dp/3946054102" target='_blank'>Amazon</a></li>
 	                                </ul>
 	                        </div>
-	
+	-->
 	                 <div class="post-heading">
 	                 <br/>
+					 
+                     <div class="col-lg-12">
+                        <div class="solidline"></div>
+                        <div class="post-heading">
+						    {{if session.forced_language =='de': }}
+                            <h4>Erscheint demnächst</h4>
+							{{elif session.forced_language =='en': }}
+							<h4>Coming soon</h4>
+							{{pass}}
+                        </div>
+                        <div class="solidline"></div>
+                     </div>
 	                 <h5>Heike Hawicks, Ingo Runde (Hrsg.)</h5>
 	              </div>
 	              <h3>Die Alte Aula der Universität Heidelberg</h3>
 	            <p>
 	              <i class="icon-quote-left"></i>
                       {{if session.forced_language =='de': }}
-	              <p>Aula der Alten Universität ist Festsaal und Herzkammer der Ruperto Carola und veranschaulicht in Allegorien und Metaphern Geschichte und Selbstverständnis der ältesten Universität im heutigen Deutschland. Ursprünglich in barocker Ausgestaltung erbaut, wurde sie zum 500. Bestehen der Universität komplett umgestaltet. Der vom Großherzog von Baden gestiftete prachtvolle Raum präsentiert sich heute als eines der wenigen intakt erhaltenen Ensembles der Karlsruher Holzschnitzschule und wird überwiegend für akademische Feiern wie Antrittsvorlesungen neuberufener Professoren oder Absolventenfeiern genutzt. Die Aula ist jedoch auch ein Ort für öffentliche Konzerte und Vorträge, denen das ehrwürdige Ambiente dieses Saals einen besonderen Glanz verleihen soll.</p>
+	              <p>Die Aula der Alten Universität ist Festsaal und Herzkammer der Ruperto Carola und veranschaulicht in Allegorien und Metaphern Geschichte und Selbstverständnis der ältesten Universität im heutigen Deutschland. Ursprünglich in barocker Ausgestaltung erbaut, wurde sie zum 500. Bestehen der Universität komplett umgestaltet. Der vom Großherzog von Baden gestiftete prachtvolle Raum präsentiert sich heute als eines der wenigen intakt erhaltenen Ensembles der Karlsruher Holzschnitzschule und wird überwiegend für akademische Feiern wie Antrittsvorlesungen neuberufener Professoren oder Absolventenfeiern genutzt. Die Aula ist jedoch auch ein Ort für öffentliche Konzerte und Vorträge, denen das ehrwürdige Ambiente dieses Saals einen besonderen Glanz verleihen soll.</p>
                       {{elif session.forced_language =='en': }}
                       <p>The Great Hall of the Old University building is the ceremonial hall and heart of Heidelberg University. With the aid of allegories and metaphors, it illustrates the history and self-image of the oldest university in modern-day Germany. Originally built in the baroque style, it was remodelled completely on the occasion of the University’s 500th anniversary. The magnificent room donated by the Grand Duke of Baden is one of the few ensembles of the Karlsruhe School of Woodcutting that remains intact; it is used primarily for academic events such as inaugural lectures of newly appointed professors or graduation ceremonies. But the Great Hall is also a place for public concerts and presentations to which the venerable surroundings lend a particular splendour.</p>
                       {{pass}}
@@ -84,19 +97,19 @@
 	            	        </div>
 	            	
 	            	        <div class="chapter_row">
-	            	 	  <div class="chapter_cell"><div class="chapter_author">Bernhard Eitel</div><div class="chapter_title">Grußwort des Rektors der Universität Heidelberg</div></div>
+	            	 	  <div class="chapter_cell"><div class="chapter_title">Grußwort des Rektors der Universität Heidelberg</div></div>
 <!--	            		  <div class="chapter_cell"><div class="chapter_file"><a href="http://vg07.met.vgwort.de/na/5a4879b159854b0e897a0fffc8bf7fd0?l=http://heiup.uni-heidelberg.de/UBHD_OMPPortal/reader/download/48/48-69-585-1-10-20160427.pdf"><i class="fa fa-file-text-o"></i></a></div></div>
 	            		  <div class="chapter_cell"><div class="chapter_file"><a href="http://vg07.met.vgwort.de/na/5a4879b159854b0e897a0fffc8bf7fd0?l=http://heiup.uni-heidelberg.de/UBHD_OMPPortal/reader/index/48/48-69-596-1-10-20160428.xml"><i class="fa fa-html5"></i></a></div></div>-->
 	            	        </div>
 	            	
 	            	        <div class="chapter_row">
-	            		  <div class="chapter_cell"><div class="chapter_author">Heike Hawicks, Ingo Runde</div><div class="chapter_title">Vorwort der Herausgeber</div></div>
+	            		  <div class="chapter_cell"><div class="chapter_title">Vorwort der Herausgeber</div></div>
 <!--	            		  <div class="chapter_cell"><div class="chapter_file"><a href="http://vg07.met.vgwort.de/na/5a4879b159854b0e897a0fffc8bf7fd0?l=http://heiup.uni-heidelberg.de/UBHD_OMPPortal/reader/download/48/48-69-586-1-10-20160427.pdf"><i class="fa fa-file-text-o"></i></a></div></div>
 	            		  <div class="chapter_cell"><div class="chapter_file"><a href="http://vg07.met.vgwort.de/na/5a4879b159854b0e897a0fffc8bf7fd0?l=http://heiup.uni-heidelberg.de/UBHD_OMPPortal/reader/index/48/48-69-597-1-10-20160428.xml"><i class="fa fa-html5"></i></a></div></div>-->
 	                        </div>
 	                	
 	            	        <div class="chapter_row">
-	            		  <div class="chapter_cell"><div class="chapter_author">Heike Hawicks</div><div class="chapter_title">Zur Funktion und Nutzung der Alten Aula im Wandel der Zeit</div></div>
+	            		  <div class="chapter_cell"><div class="chapter_author">Heike Hawicks</div><div class="chapter_title">Funktion und Nutzung der Alten Aula im Wandel der Zeit</div></div>
 <!--	            	          <div class="chapter_cell"><div class="chapter_file"><a href="http://vg07.met.vgwort.de/na/5a4879b159854b0e897a0fffc8bf7fd0?l=http://heiup.uni-heidelberg.de/UBHD_OMPPortal/reader/download/48/48-69-587-1-10-20160427.pdf"><i class="fa fa-file-text-o"></i></a></div></div>
 	            		  <div class="chapter_cell"><div class="chapter_file"><a href="http://vg07.met.vgwort.de/na/5a4879b159854b0e897a0fffc8bf7fd0?l=http://heiup.uni-heidelberg.de/UBHD_OMPPortal/reader/index/48/48-69-270-1-10-20160127.xml"><i class="fa fa-html5"></i></a></div></div>-->
 	            	       </div>
@@ -144,18 +157,6 @@
 	            	       </div>
                                <div class="chapter_row">
                                  <div class="chapter_cell"><div class="chapter_title">Über die Autoren</div></div>
-<!--                                 <div class="chapter_cell"><div class="chapter_file"><a href="http://vg07.met.vgwort.de/na/5a4879b159854b0e897a0fffc8bf7fd0?l=http://heiup.uni-heidelberg.de/UBHD_OMPPortal/reader/download/48/48-67-594-1-10-20160427.pdf"><i class="fa fa-file-text-o"></i></a></div></div>
-                                 <div class="chapter_cell"><div class="chapter_file"><a href="http://vg07.met.vgwort.de/na/5a4879b159854b0e897a0fffc8bf7fd0?l=http://heiup.uni-heidelberg.de/UBHD_OMPPortal/reader/index/48/48-69-595-1-10-20160428.xml"><i class="fa fa-html5"></i></a></div></div>-->
-                               </div>
-
-                               <div class="chapter_row">
-                                 <div class="chapter_cell"><div class="chapter_title">Beilage</div></div>
-<!--                                 <div class="chapter_cell"><div class="chapter_file"><a href="http://vg07.met.vgwort.de/na/5a4879b159854b0e897a0fffc8bf7fd0?l=http://heiup.uni-heidelberg.de/UBHD_OMPPortal/reader/download/48/48-67-594-1-10-20160427.pdf"><i class="fa fa-file-text-o"></i></a></div></div>
-                                 <div class="chapter_cell"><div class="chapter_file"><a href="http://vg07.met.vgwort.de/na/5a4879b159854b0e897a0fffc8bf7fd0?l=http://heiup.uni-heidelberg.de/UBHD_OMPPortal/reader/index/48/48-69-595-1-10-20160428.xml"><i class="fa fa-html5"></i></a></div></div>-->
-                               </div>
-
-                               <div class="chapter_row">
-                                 <div class="chapter_cell"><div class="chapter_author">Oliver Fink</div><div class="chapter_title">Kleiner Führer zur Alten Aula</div></div>
 <!--                                 <div class="chapter_cell"><div class="chapter_file"><a href="http://vg07.met.vgwort.de/na/5a4879b159854b0e897a0fffc8bf7fd0?l=http://heiup.uni-heidelberg.de/UBHD_OMPPortal/reader/download/48/48-67-594-1-10-20160427.pdf"><i class="fa fa-file-text-o"></i></a></div></div>
                                  <div class="chapter_cell"><div class="chapter_file"><a href="http://vg07.met.vgwort.de/na/5a4879b159854b0e897a0fffc8bf7fd0?l=http://heiup.uni-heidelberg.de/UBHD_OMPPortal/reader/index/48/48-69-595-1-10-20160428.xml"><i class="fa fa-html5"></i></a></div></div>-->
                                </div>
