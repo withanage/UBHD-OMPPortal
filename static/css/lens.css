@@ -329,7 +329,8 @@ Definition
   border-collapse: collapse;
   border-spacing: 0;
   margin-bottom: 20px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  width: 100%; }
 
 .lens-article .content-node.html-table thead tr {
   background: #eee; }
@@ -346,8 +347,8 @@ Definition
 
 .lens-article .content-node.html-table table td {
   padding: 5px;
-  font-size: 12px;
-  border: 1px solid lightgrey;
+  /**font-size: 12px;**/
+  border: 0px solid lightgrey;
   /* Enable white-space: nowrap; if author controls wrapping (<br> in HTML)
   /* white-space: nowrap; */ }
 
@@ -901,6 +902,9 @@ span.annotation.formula_reference, span.publication_reference {
 
 .content-node .strong {
   font-weight: bold; }
+
+.content-node .capitalize {
+  text-transform: uppercase; }
 
 .content-node .figure_reference {
   background: rgba(153, 0, 0, 0.15);
