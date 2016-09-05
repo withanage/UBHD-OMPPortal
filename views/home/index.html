@@ -86,14 +86,10 @@ $('.flexslider').flexslider();
               {{elif session.forced_language =='en': }}                       
                 <h4>New Titles</h4>
                 {{pass}}
-				{{=IMG(_src=URL('static','images/catalog/01_Cover_Limitierte_Auflage.jpg'),_width='145px',_class='bildrahmen')}}
+				{{=IMG(_src=URL('static','images/catalog/Cover_Moehren_OMP_300.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}				  
                   </div>
                   <div class="box-bottom">
-              {{if session.forced_language =='de': }} 
-                    {{=A(T('Mehr'),_href=URL('catalog','book/102'))}}
-              {{elif session.forced_language =='en': }} 
-                    {{=A(T('More Information'),_href=URL('catalog','book/102'))}}
-              {{pass}} 
+                    {{=A(T('More Information'),_href=URL('catalog','book/123'))}}
                   </div>
                 
                 </div>
@@ -229,10 +225,12 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
                   {{elif session.forced_language =='en': }}
                   <h4>New Titles</h4>
                   {{pass}} 
-                    {{=IMG(_src=URL('static','images/catalog/Cover_Kemp_OMP.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}} 
-                </div>
-                <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/90'))}} 
-                </div>
+				{{=IMG(_src=URL('static','images/catalog/01_Cover_Limitierte_Auflage.jpg'),_width='145px',_class='bildrahmen')}}
+                  </div>
+                  <div class="box-bottom">
+
+                    {{=A(T('More Information'),_href=URL('catalog','book/102'))}}
+                    </div>
 
                 </div>
               </div>
@@ -245,23 +243,26 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
                   {{elif session.forced_language =='en': }}
                   <h4>New titles</h4>
                   {{pass}}
-                    {{=IMG(_src=URL('static','files/presses/6/monographs/48/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
+				  {{=IMG(_src=URL('static','images/catalog/Cover_Kemp_OMP.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}} 
                 </div>
-                <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/48'))}}
+                <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/90'))}} 
                 </div>
-
                 </div>
               </div>
 			  
               <div class="col-lg-3">
                 <div class="box">
-                  <div class="box-gray aligncenter">{{if session.forced_language =='de': }} <h4>Demnächst</h4>{{elif session.forced_language =='en': }} <h4>Forthcoming</h4>{{pass}}
-                    {{=IMG(_src=URL('static','images/catalog/Cover_Moehren_OMP_300.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}				  
+                  <div class="box-gray aligncenter">
+                  {{if session.forced_language =='de': }}
+                  <h4>Neuerscheinung</h4>
+                  {{elif session.forced_language =='en': }}
+                  <h4>New titles</h4>
+                  {{pass}}				  
+				  {{=IMG(_src=URL('static','files/presses/6/monographs/48/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
                   </div>
-                  <div class="box-bottom">{{if session.forced_language =='de': }} 
-                    <a href="../catalog/index.html#moehren">Mehr</a>{{elif session.forced_language =='en': }} 
-                    <a href="../catalog/index.html#moehrenen">More Information</a>{{pass}} 
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/48'))}}
                   </div>
+				  
                 </div>
               </div>
               
