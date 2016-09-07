@@ -109,7 +109,7 @@
 		              	{{full_file = pf.associated_items.get('full_file')}}
 		              	{{if full_file and not "html" in full_file.attributes.file_type and not "xml" in full_file.attributes.file_type:}}
 		             		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-		                		<li role="presentation"><a role="menuitem" tabindex="-1" href="{{=downloadLink(request, full_file.attributes, myconf.take('web.url'), full_file.settings.getLocalizedValue("vgWortPublic", ""))}}>{{=pf.settings.getLocalizedValue('name', locale)}}"</a></li>
+		                		<li role="presentation"><a role="menuitem" tabindex="-1" href="{{=downloadLink(request, full_file.attributes, myconf.take('web.url'), full_file.settings.getLocalizedValue("vgWortPublic", ""))}}">{{=pf.settings.getLocalizedValue('name', locale)}}</a></li>
 		              		</ul>
 		              	{{pass}}
 		              {{pass}}
