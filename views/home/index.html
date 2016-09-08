@@ -116,6 +116,22 @@ $('.flexslider').flexslider();
                       <img alt="" src="{{=URL('static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
                     </div>
 					<div class="media-body">
+                      <p class="media-heading">08.09.2016<br>
+                      {{if session.forced_language =='de': }} <span class="h5">Neu erschienen: Frankwalt Möhrens Neu-Edition des Kochbuches Il Libro de la cocina</span>{{elif session.forced_language =='en': }} <span class="h5">Neu erschienen: Frankwalt Möhrens Neu-Edition des Kochbuches Il Libro de la cocina</span>{{pass}}</p> 
+
+                      <p class="boxText">{{if session.forced_language =='de': }} Das aus dem 2. Drittel des 14. Jahrhunderts stammende, knapp 200 Rezepte umfassende {{=A(T('Kochbuch'),_href=URL('catalog','book/123'))}} offenbart die ganze Palette der altitalienischen Küche. Sie ist Teil einer Kochtradition, die bis in den orientalischen Kulturraum zurückreicht und ihrerseits eine breite europäische Rezeption erfuhr. In der Edition wird dies durch die Verknüpfung der Rezepte mit vielen orientalischen wie europäischen Vorgängern und Nachfolgern nachdrücklich belegt. Ein vollständiges kritisches Glossar erschließt die Texte; volkssprachliche und lateinische Parallelüberlieferung sind mit abgedruckt.
+                      {{elif session.forced_language =='en': }}                     
+                       Das aus dem 2. Drittel des 14. Jahrhunderts stammende, knapp 200 Rezepte umfassende {{=A(T('Kochbuch'),_href=URL('catalog','book/123'))}} offenbart die ganze Palette der altitalienischen Küche. Sie ist Teil einer Kochtradition, die bis in den orientalischen Kulturraum zurückreicht und ihrerseits eine breite europäische Rezeption erfuhr. In der Edition wird dies durch die Verknüpfung der Rezepte mit vielen orientalischen wie europäischen Vorgängern und Nachfolgern nachdrücklich belegt. Ein vollständiges kritisches Glossar erschließt die Texte; volkssprachliche und lateinische Parallelüberlieferung sind mit abgedruckt.                   
+                      {{pass}}
+                      </p>
+                    </div>
+				  </div>
+				
+				  <div class="media">
+                    <div class="media-left pull-left">
+                      <img alt="" src="{{=URL('static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
+                    </div>
+					<div class="media-body">
                       <p class="media-heading">25.07.2016<br>
                       {{if session.forced_language =='de': }} <span class="h5">Neuerscheinung zum Thema Kunstrecht: Sind Auflagenlimitierungen in der Fotokunst bindend?</span>{{elif session.forced_language =='en': }} <span class="h5">New publication on the subject of art law: is edition limitation in photographic art binding?</span>{{pass}}</p> 
 

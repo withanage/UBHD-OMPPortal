@@ -213,6 +213,7 @@
 'Klassifizierung Hochschulschriften': 'Klassifizierung Hochschulschriften',
 'KNV': 'KNV',
 'KNV-XML': 'KNV-XML',
+'Kochbuch': 'Kochbuch',
 'Kurztext': 'Kurztext',
 'Ladenpreis EURO AT': 'Ladenpreis EURO AT',
 'Ladenpreis EURO DE': 'Ladenpreis EURO DE',
