@@ -2,7 +2,8 @@
 {{from ompformat import formatCitation, formatContributors, formatName, dateFromRow, dateToStr, formatONIXDate, formatONIXDateWithText, coverImageLink, downloadLink, haveMultipleAuthors}}
 {{from ompdal import OMPDAL}}
 
-
+{{file_ids=[]}}
+                     
 <div id="main" class="container">
 	<section id="content">
 	  <div style="height: 20px"></div>
@@ -69,7 +70,9 @@
                         {{file_type = 'xml' if file_type == 'html' else file_type }}
                          	<div class="stats_chapter_row">
                             <div class="stats_chapter_cell">{{=B(file_type.upper())}}</div>                            {{file_type = 'xml' if file_type == 'html' else file_type }}
-                            <div id="{{=submission.submission_id}}-{{=full_file.attributes['file_id']}}-{{=file_type}}" class="chapter_file full_file"></div>
+				{{fid=str(submission.submission_id)+'-'+str(full_file.attributes['file_id'])+'-'+str(file_type)}}
+				{{file_ids.append(fid)}}
+                            <div id="{{=fid}}" class="chapter_file full_file"></div>
                           </div>
                           
                     {{pass}}
@@ -101,7 +104,10 @@
 	            					{{if c_file:}}
 	            						{{file_type = c_file.attributes.file_type.split('/')[1] if '/' in c_file.attributes.file_type else c_file.attributes.file_type}} 
                           {{file_type = 'xml' if file_type == 'html' else file_type }}
-	            						<div id="{{=submission.submission_id}}-{{=c_file.attributes['file_id']}}-{{=file_type}}" class="chapter_file">
+								{{fid=str(submission.submission_id)+'-'+str(c_file.attributes['file_id'])+'-'+str(file_type)}}
+
+								{{file_ids.append(fid)}}
+	            						<div id="{{=fid}}" class="chapter_file">
 	            							
 	            						</div>
 	            					{{pass}}
@@ -130,6 +136,7 @@
          
           
 					<script type="text/javascript">
+					var ids={{=XML(file_ids)}};
 					$('#statistik-button').click(function(){
 					$('#oas').slideToggle()
 					});
