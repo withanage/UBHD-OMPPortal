@@ -53,36 +53,89 @@
 	            	<p style="margin-top: 1.2em">{{=XML(submission_settings.getLocalizedValue('source', locale))}}</p>
 	            {{pass}}
 				<!--stats block begin-->
-				{{if stats.checkOASService():}}
-					{{file_types= ['pdf','html']}}
-					{{chapter_html = stats.getChapterHTMLTable(submission_id, file_types,"width: inherit; padding:0; font-size:11px")}}
 					<div id="oas-widget" class="applied-to-ojs" style="margin-top: 1.2em">
 						<div class="btn btn-default" id="statistik-button">{{=T('Statistics')}}</div> <br/>
 						<div style="display:none" class="table" id="oas">
 							<ul class="nav nav-tabs">
 								<li class="active"><a href="#full" data-toggle="tab"><i class="icon-briefcase"></i> {{=T('Book')}}</a></li>
-								{{if len(chapter_html) > 1:}} <li class=""><a href="#chapters" data-toggle="tab">{{=T('Chapters')}}</a></li> {{pass}}
+								<li class=""><a href="#chapters" data-toggle="tab">{{=T('Chapters')}}</a></li>
 							</ul>
 							<div class="tab-content">
 								<div class="tab-pane active" id="full">
-									<table class="table">
-									{{=stats.getFullHTMLTable(submission_id,file_types, "width: inherit; padding:0; font-size:15px")}}
-									</table>
-								</div>
-								{{if len(chapter_html)> 1:}}
-									<div class="tab-pane" id="chapters">
-										<table class="table">  {{=chapter_html }}</table>
+									  <div  class="table">
+									 {{for pf in digital_publication_formats:}}
+                    {{full_file = pf.associated_items.get('full_file')}}
+                      {{file_type = full_file.attributes.file_type.split('/')[1] if '/' in full_file.attributes.file_type else full_file.attributes.file_type}} 
+                        {{file_type = 'xml' if file_type == 'html' else file_type }}
+                         	<div class="stats_chapter_row">
+                            <div class="stats_chapter_cell">{{=B(file_type.upper())}}</div>                            {{file_type = 'xml' if file_type == 'html' else file_type }}
+                            <div id="{{=submission.submission_id}}-{{=full_file.attributes['file_id']}}-{{=file_type}}" class="chapter_file full_file"></div>
+                          </div>
+                          
+                    {{pass}}
+                   {{pass}}
 									</div>
-								{{pass}}
+								</div>
+								 	<div class="tab-pane" id="chapters">
+	            {{if len(chapters) > 0:}}
+	            <div id="statsTableChapters" class="table">
+	            	<div class="stats_chapter_row statss_table_head">
+	            		<div class="stats_chapter_cell"></div>
+	            		{{for pf in digital_publication_formats:}}
+	            			<div class="stats_chapter_cell">{{=TD(pf.settings.getLocalizedValue('name', locale))}}</div>
+	            		{{pass}}
+	            	</div>
+	            	{{display_authors=haveMultipleAuthors(chapters)}}
+	            	{{for c in chapters:}}
+	                	{{c_title = c.settings.getLocalizedValue('title', locale)}}
+	                	{{c_files = c.associated_items.get('files', [])}}
+	            	<div class="stats_chapter_row">
+	            		<div class="stats_chapter_cell">
+	        
+	            			<div class="stats_chapter_title">{{=c_title}}</div>
+	            		</div>
+	            		{{for pf in digital_publication_formats:}}
+	            			<div class="stats_chapter_cell">
+	            				{{if c_files:}}
+	            					{{c_file = c_files.get(pf.attributes.publication_format_id)}}
+	            					{{if c_file:}}
+	            						{{file_type = c_file.attributes.file_type.split('/')[1] if '/' in c_file.attributes.file_type else c_file.attributes.file_type}} 
+                          {{file_type = 'xml' if file_type == 'html' else file_type }}
+	            						<div id="{{=submission.submission_id}}-{{=c_file.attributes['file_id']}}-{{=file_type}}" class="chapter_file">
+	            							
+	            						</div>
+	            					{{pass}}
+	            				{{pass}}
+                    </div>
+	            		{{pass}}
+                  
+	            	</div>
+	            	{{pass}}
+                <!-- summe -->
+                <div class="stats_chapter_row">
+                  <div class="stats_chapter_cell">{{=TD(T('Total'))}}</div>
+                 {{for pf in digital_publication_formats:}}
+                 {{file_type=pf.settings.getLocalizedValue('name', locale).lower()}}
+                 {{file_type = 'xml' if file_type == 'html' else file_type }}
+                 <div class="stats_chapter_cell" id="total-chapter-{{=file_type}}"></div>
+	            		{{pass}}
+                </div>
+              <!-- statsTableChapters -->
+	            {{pass}}
+	          </div>
 							</div>
 						</div>
 					</div>
+          
+         
+          
 					<script type="text/javascript">
 					$('#statistik-button').click(function(){
 					$('#oas').slideToggle()
 					});
 					</script>
-				{{pass}}
+          <script src="{{=URL('static','js/stats.js')}}"></script>
+				
 				<!--stats block  end-->                
 	          </div>
 	        </div>

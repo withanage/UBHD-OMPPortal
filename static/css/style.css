@@ -1246,6 +1246,14 @@ ul.meta-post li a{
 .chapter_row {border-top:1px solid #ddd;}
 .table_head {color:#000; background-color:#f8f8f8 !important; border-top:1px solid #ddd;}
 
+/*-------statsTableChapters----------------*/
+#statsTableChapters { border-collapse: collapse; width:100%;display:table}
+.stats_chapter_row {display:table-row;}
+.stats_chapter_cell {display:table-cell;padding:0.4em;font-size: small}
+.stats_chapter_title {font-size: small }
+.stats_chapter_row {border-top:1px solid #ddd;}
+.stats_table_head {border-top:1px solid #ddd;}
+
 /* --- Comment --- */
 
 .comment-area {
