@@ -1249,7 +1249,7 @@ ul.meta-post li a{
 /*-------statsTableChapters----------------*/
 #statsTableChapters { border-collapse: collapse; width:100%;display:table}
 .stats_chapter_row {display:table-row;}
-.stats_chapter_cell {display:table-cell;padding:0.4em;font-size: small}
+.stats_chapter_cell {display:table-cell;font-size: small}
 .stats_chapter_title {font-size: small }
 .stats_chapter_row {border-top:1px solid #ddd;}
 .stats_table_head {border-top:1px solid #ddd;}
