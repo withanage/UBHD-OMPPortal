@@ -105,9 +105,9 @@
 														{{file_type = c_file.attributes.file_type.split('/')[1] if '/' in c_file.attributes.file_type else c_file.attributes.file_type}}
 														{{file_type = 'xml' if file_type == 'html' else file_type }}
 														{{fid=str(submission.submission_id)+'-'+str(c_file.attributes['file_id'])+'-'+str(file_type)}}
-￼ 
-￼                           {{file_ids.append(fid)}}
-￼ 	            						<div id="{{=fid}}" class="chapter_file">
+ 
+                           {{file_ids.append(fid)}}
+ 	            						<div id="{{=fid}}" class="chapter_file">
 
 														</div>
 														{{pass}}
