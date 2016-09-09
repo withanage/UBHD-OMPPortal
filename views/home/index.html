@@ -86,14 +86,10 @@ $('.flexslider').flexslider();
               {{elif session.forced_language =='en': }}                       
                 <h4>New Titles</h4>
                 {{pass}}
-				{{=IMG(_src=URL('static','images/catalog/01_Cover_Limitierte_Auflage.jpg'),_width='145px',_class='bildrahmen')}}
+				{{=IMG(_src=URL('static','images/catalog/Cover_Moehren_OMP_300.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}				  
                   </div>
                   <div class="box-bottom">
-              {{if session.forced_language =='de': }} 
-                    {{=A(T('Mehr'),_href=URL('catalog','book/102'))}}
-              {{elif session.forced_language =='en': }} 
-                    {{=A(T('More Information'),_href=URL('catalog','book/102'))}}
-              {{pass}} 
+                    {{=A(T('More Information'),_href=URL('catalog','book/123'))}}
                   </div>
                 
                 </div>
@@ -115,6 +111,22 @@ $('.flexslider').flexslider();
             <div id="boxAktuelles" class="col-lg-6">
               <div class="box">
                 <div class="box-gray aligncenter" style="overflow-y: scroll">{{if session.forced_language =='de': }} <h4>Aktuelles</h4>{{elif session.forced_language =='en': }} <h4>News</h4>{{pass}} 
+				  <div class="media">
+                    <div class="media-left pull-left">
+                      <img alt="" src="{{=URL('static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
+                    </div>
+					<div class="media-body">
+                      <p class="media-heading">08.09.2016<br>
+                      {{if session.forced_language =='de': }} <span class="h5">Neu erschienen: Frankwalt Möhrens Neu-Edition des Kochbuches <i>Il libro de la cocina</i></span>{{elif session.forced_language =='en': }} <span class="h5">Newly published: Frankwalt Möhren's new edition of the cookbook <i>Il libro de la cocina</i></span>{{pass}}</p> 
+
+                      <p class="boxText">{{if session.forced_language =='de': }} Das aus dem 2. Drittel des 14. Jahrhunderts stammende, knapp 200 Rezepte umfassende Kochbuch <i><a href="/catalog/book/123">Il libro de la cocina</a></i> offenbart die ganze Palette der altitalienischen Küche. Sie ist Teil einer Kochtradition, die bis in den orientalischen Kulturraum zurückreicht und ihrerseits eine breite europäische Rezeption erfuhr. In der Edition wird dies durch die Verknüpfung der Rezepte mit vielen orientalischen wie europäischen Vorgängern und Nachfolgern nachdrücklich belegt. Ein vollständiges kritisches Glossar erschließt die Texte; volkssprachliche und lateinische Parallelüberlieferung sind mit abgedruckt.
+                      {{elif session.forced_language =='en': }}                     
+                       Originating from the 2nd third of the 14th century the cookbook <i><a href="/catalog/book/123">Il libro de la cocina</a></i> contains about 200 recipes and presents the whole range of Old Italian cuisine. It is part of a cooking tradition which dates back to the oriental cultural area and which itself was already widely received in Europe. In this edition this is strongly proven by connecting the recipes with many oriental and European predecessors and successors. A complete and critical glossary makes the texts accessible; vernacular and Latin translations are also included.                  
+                      {{pass}}
+                      </p>
+                    </div>
+				  </div>
+				
 				  <div class="media">
                     <div class="media-left pull-left">
                       <img alt="" src="{{=URL('static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
@@ -229,10 +241,12 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
                   {{elif session.forced_language =='en': }}
                   <h4>New Titles</h4>
                   {{pass}} 
-                    {{=IMG(_src=URL('static','images/catalog/Cover_Kemp_OMP.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}} 
-                </div>
-                <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/90'))}} 
-                </div>
+				{{=IMG(_src=URL('static','images/catalog/01_Cover_Limitierte_Auflage.jpg'),_width='145px',_class='bildrahmen')}}
+                  </div>
+                  <div class="box-bottom">
+
+                    {{=A(T('More Information'),_href=URL('catalog','book/102'))}}
+                    </div>
 
                 </div>
               </div>
@@ -245,23 +259,26 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
                   {{elif session.forced_language =='en': }}
                   <h4>New titles</h4>
                   {{pass}}
-                    {{=IMG(_src=URL('static','files/presses/6/monographs/48/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
+				  {{=IMG(_src=URL('static','images/catalog/Cover_Kemp_OMP.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}} 
                 </div>
-                <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/48'))}}
+                <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/90'))}} 
                 </div>
-
                 </div>
               </div>
 			  
               <div class="col-lg-3">
                 <div class="box">
-                  <div class="box-gray aligncenter">{{if session.forced_language =='de': }} <h4>Demnächst</h4>{{elif session.forced_language =='en': }} <h4>Forthcoming</h4>{{pass}}
-                    {{=IMG(_src=URL('static','images/catalog/Cover_Moehren_OMP_300.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}				  
+                  <div class="box-gray aligncenter">
+                  {{if session.forced_language =='de': }}
+                  <h4>Neuerscheinung</h4>
+                  {{elif session.forced_language =='en': }}
+                  <h4>New titles</h4>
+                  {{pass}}				  
+				  {{=IMG(_src=URL('static','files/presses/6/monographs/48/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
                   </div>
-                  <div class="box-bottom">{{if session.forced_language =='de': }} 
-                    <a href="../catalog/index.html#moehren">Mehr</a>{{elif session.forced_language =='en': }} 
-                    <a href="../catalog/index.html#moehrenen">More Information</a>{{pass}} 
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/48'))}}
                   </div>
+				  
                 </div>
               </div>
               
