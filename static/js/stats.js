@@ -30,7 +30,6 @@ function typesort(a, b){
 
 var script = 'oastats-json.cgi';
 var url = "../../../cgi-bin/" + script + "?repo=omphp&type=json&ids=" + ids;
-console.log(url);
 $.getJSON( url, function( data ) {
   var totals = {};
   $.each(data, function (key, value) {
