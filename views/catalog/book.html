@@ -54,7 +54,8 @@
 							{{pass}}
 							<!--stats block begin-->
 							<div id="oas-widget" class="applied-to-ojs" style="margin-top: 1.2em">
-								<div class="btn btn-default" id="statistik-button">{{=T('Statistics')}}</div> <br/>
+                {{statics_note=T('')}}
+								<div class="btn btn-default" id="statistik-button" data-trigger="hover" data-content="{{=statics_note}}">{{=T('Statistics')}}</div> <br/>
 								<div style="display:none" class="table" id="oas">
 									<ul class="nav nav-tabs">
 										<li class="active"><a href="#full" data-toggle="tab"><i class="icon-briefcase"></i> {{=T('Book')}}</a></li>
@@ -140,6 +141,7 @@
 									$('#statistik-button').click(function(){
 									$('#oas').slideToggle()
 									});
+                  $('#statistik-button').popover();
 								</script>
 								<script src="{{=URL('static','js/stats.js')}}"></script>
 
