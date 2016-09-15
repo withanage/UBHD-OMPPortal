@@ -68,13 +68,20 @@
 												{{full_file = pf.associated_items.get('full_file')}}
 												{{file_type = full_file.attributes.file_type.split('/')[1] if '/' in full_file.attributes.file_type else full_file.attributes.file_type}}
 												{{file_type = 'xml' if file_type == 'html' else file_type }}
-												<div class="stats_chapter_row">
+												<div class="stats_chapter_row">											{{full_file = pf.associated_items.get('full_file')}}
+{{if full_file : }}
+												{{file_type = full_file.attributes.file_type.split('/')[1] if '/' in full_file.attributes.file_type else full_file.attributes.file_type}}
+												{{file_type = 'xml' if file_type == 'html' else file_type }}
+
 													   <div class="stats_chapter_cell">{{=B(file_type.upper())}}</div>                            {{file_type = 'xml' if file_type == 'html' else file_type }}
 				{{fid=str(submission.submission_id)+'-'+str(full_file.attributes['file_id'])+'-'+str(file_type)}}
 				{{file_ids.append(fid)}}
                             <div id="{{=fid}}" class="chapter_file full_file" style="padding-left:1em"></div>
-													<div id="{{=submission.submission_id}}-{{=full_file.attributes['file_id']}}-{{=file_type}}" class="chapter_file full_file"></div>
-												</div>
+<div id="{{=submission.submission_id}}-{{=full_file.attributes['file_id']}}-{{=file_type}}" class="chapter_file full_file">
+
+</div>
+{{pass}}
+																																				</div>
 
 												{{pass}}
 												{{pass}}
