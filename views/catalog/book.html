@@ -88,6 +88,11 @@
 												{{pass}}
 												{{pass}}
 											</div>
+                <!-- hinweis -->
+                {{if (datetime.datetime(2016,3,7,0,0,0) - date_published ) :}}
+                {{=T('The statistical recordings begin from 03.07.2016 due to technical reasons ')}}
+                {{pass }}
+                <!-- hinweis end -->
 										</div>
 										<div class="tab-pane" id="chapters">
 											{{if len(chapters) > 0:}}
@@ -153,11 +158,7 @@
                   $('#statistik-button').popover();
 								</script>
 								<script src="{{=URL('static','js/stats.js')}}"></script>
-                <!-- hinweis -->
-                {{if (datetime.datetime(2016,3,7,0,0,0) - date_published ) :}}
-                {{=T('The statistical recordings begin from 03.07.2016 due to technical reasons ')}}
-                {{pass }}
-                <!-- hinweis end -->
+                
 								<!--stats block  end-->
                 
 							</div>
