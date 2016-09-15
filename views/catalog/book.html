@@ -1,6 +1,8 @@
 {{extend 'layout.html'}}
 {{from ompformat import formatCitation, formatContributors, formatName, dateFromRow, dateToStr, formatONIXDate, formatONIXDateWithText, coverImageLink, downloadLink, haveMultipleAuthors}}
 {{from ompdal import OMPDAL}}
+{{import datetime }}
+
 {{file_ids=[]}}
 
 <div id="main" class="container">
@@ -54,7 +56,8 @@
 							{{pass}}
 							<!--stats block begin-->
 							<div id="oas-widget" class="applied-to-ojs" style="margin-top: 1.2em">
-								<div class="btn btn-default" id="statistik-button">{{=T('Statistics')}}</div> <br/>
+                {{statics_note=T('')}}
+								<div class="btn btn-default" id="statistik-button" data-trigger="hover" data-content="{{=statics_note}}">{{=T('Statistics')}}</div> <br/>
 								<div style="display:none" class="table" id="oas">
 									<ul class="nav nav-tabs">
 										<li class="active"><a href="#full" data-toggle="tab"><i class="icon-briefcase"></i> {{=T('Book')}}</a></li>
@@ -67,17 +70,29 @@
 												{{full_file = pf.associated_items.get('full_file')}}
 												{{file_type = full_file.attributes.file_type.split('/')[1] if '/' in full_file.attributes.file_type else full_file.attributes.file_type}}
 												{{file_type = 'xml' if file_type == 'html' else file_type }}
-												<div class="stats_chapter_row">
+												<div class="stats_chapter_row">											{{full_file = pf.associated_items.get('full_file')}}
+{{if full_file : }}
+												{{file_type = full_file.attributes.file_type.split('/')[1] if '/' in full_file.attributes.file_type else full_file.attributes.file_type}}
+												{{file_type = 'xml' if file_type == 'html' else file_type }}
+
 													   <div class="stats_chapter_cell">{{=B(file_type.upper())}}</div>                            {{file_type = 'xml' if file_type == 'html' else file_type }}
 				{{fid=str(submission.submission_id)+'-'+str(full_file.attributes['file_id'])+'-'+str(file_type)}}
 				{{file_ids.append(fid)}}
                             <div id="{{=fid}}" class="chapter_file full_file" style="padding-left:1em"></div>
-													<div id="{{=submission.submission_id}}-{{=full_file.attributes['file_id']}}-{{=file_type}}" class="chapter_file full_file"></div>
-												</div>
+<div id="{{=submission.submission_id}}-{{=full_file.attributes['file_id']}}-{{=file_type}}" class="chapter_file full_file">
+
+</div>
+{{pass}}
+																																				</div>
 
 												{{pass}}
 												{{pass}}
 											</div>
+                <!-- hinweis -->
+                {{if (datetime.datetime(2016,3,7,0,0,0) - date_published ) :}}
+                {{=T('The statistical recordings begin from 03.07.2016 due to technical reasons ')}}
+                {{pass }}
+                <!-- hinweis end -->
 										</div>
 										<div class="tab-pane" id="chapters">
 											{{if len(chapters) > 0:}}
@@ -140,10 +155,12 @@
 									$('#statistik-button').click(function(){
 									$('#oas').slideToggle()
 									});
+                  $('#statistik-button').popover();
 								</script>
 								<script src="{{=URL('static','js/stats.js')}}"></script>
-
+                
 								<!--stats block  end-->
+                
 							</div>
 						</div>
 					</div>
