@@ -6,6 +6,7 @@
 {{file_ids=[]}}
 
 <div id="main" class="container">
+  
 	<section id="content">
 		<div style="height: 20px"></div>
 		<div class="container">
@@ -90,8 +91,8 @@
 												{{pass}}
 											</div>
                 <!-- hinweis -->
-                {{if (datetime.datetime(2016,3,7,0,0,0) - date_published ) :}}
-                {{=T('The statistical recordings begin from 03.07.2016 due to technical reasons ')}}
+                {{if (datetime.datetime(2016,3,7,0,0,0) - date_published).total_seconds() >0 :}}
+                {{=T('For technical reasons, statistical data is available from 03.07.2016 onward. ')}}
                 {{pass }}
                 <!-- hinweis end -->
 										</div>
