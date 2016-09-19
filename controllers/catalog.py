@@ -11,7 +11,6 @@ from ompdal import OMPDAL, OMPSettings, OMPItem
 from ompformat import dateFromRow, seriesPositionCompare
 
 
-
 def series():
     if session.forced_language == 'en':
         locale = 'en_US'

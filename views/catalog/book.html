@@ -1,7 +1,8 @@
 {{extend 'layout.html'}}
 {{from ompformat import formatCitation, formatContributors, formatName, dateFromRow, dateToStr, formatONIXDate, formatONIXDateWithText, coverImageLink, downloadLink, haveMultipleAuthors}}
 {{from ompdal import OMPDAL}}
-{{import datetime }}
+{{from datetime import datetime}}
+
 
 {{file_ids=[]}}
 
@@ -56,7 +57,16 @@
 							<p style="margin-top: 1.2em">{{=XML(submission_settings.getLocalizedValue('source', locale))}}</p>
 							{{pass}}
 							<!-- statistik begin-->
-              {{include '../static/omp-resources/views/catalog/statistik.html' }}
+              <div id="oas-widget" class="applied-to-ojs" style="margin-top: 1.2em">
+                <div class="btn btn-default" id="statistik-button" >{{=T('Statistics')}}</div> <br/>
+                  <div style="display:none" class="table" id="oas">
+                    {{include '../static/omp-resources/views/catalog/statistik.html' }}
+                  </div>
+                  <!-- statistik  hinweis begin-->
+                  {{include '../static/omp-resources/views/catalog/statistik-hinweis.html' }}
+                  
+                  <!-- statistik hinewis end -->
+              </div>
               <!-- statistik end -->
               
               
