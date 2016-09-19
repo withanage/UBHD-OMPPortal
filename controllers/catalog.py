@@ -9,6 +9,7 @@ import os
 from operator import itemgetter
 from ompdal import OMPDAL, OMPSettings, OMPItem
 from ompformat import dateFromRow, seriesPositionCompare
+from datetime import datetime
 
 
 def series():
