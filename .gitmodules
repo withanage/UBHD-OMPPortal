@@ -1,3 +1,6 @@
 [submodule "modules"]
 	path = modules
 	url = https://github.com/UB-Heidelberg/omp-modules.git
+[submodule "static/omp-resources"]
+	path = static/omp-resources
+	url = https://github.com/UB-Heidelberg/omp-resources/

@@ -157,6 +157,7 @@
 'First name': 'Vorname',
 'Follow us on Twitter': 'Besuchen Sie uns auf Twitter',
 'For Authors': 'Informationen für Autoren',
+'For technical reasons, statistical data is available from 03.07.2016 onward. ': 'Aufgrund technischer Gegebenheiten beginnt die statistische Erfassung für diesen Titel erst am 07.03.2016',
 'Forms and Validators': 'Forms und Validators',
 'Forthcoming': 'Erscheint demnächst',
 'Free Applications': 'Kostenlose Anwendungen',

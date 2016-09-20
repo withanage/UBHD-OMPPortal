@@ -1,11 +1,13 @@
 {{extend 'layout.html'}}
 {{from ompformat import formatCitation, formatContributors, formatName, dateFromRow, dateToStr, formatONIXDate, formatONIXDateWithText, coverImageLink, downloadLink, haveMultipleAuthors}}
 {{from ompdal import OMPDAL}}
-{{import datetime }}
+{{from datetime import datetime}}
+
 
 {{file_ids=[]}}
 
 <div id="main" class="container">
+  
 	<section id="content">
 		<div style="height: 20px"></div>
 		<div class="container">
@@ -54,114 +56,18 @@
 							<div class="separator" style="margin-top: 1.2em"></div>
 							<p style="margin-top: 1.2em">{{=XML(submission_settings.getLocalizedValue('source', locale))}}</p>
 							{{pass}}
-							<!--stats block begin-->
-							<div id="oas-widget" class="applied-to-ojs" style="margin-top: 1.2em">
-                {{statics_note=T('')}}
-								<div class="btn btn-default" id="statistik-button" data-trigger="hover" data-content="{{=statics_note}}">{{=T('Statistics')}}</div> <br/>
-								<div style="display:none" class="table" id="oas">
-									<ul class="nav nav-tabs">
-										<li class="active"><a href="#full" data-toggle="tab"><i class="icon-briefcase"></i> {{=T('Book')}}</a></li>
-										<li class=""><a href="#chapters" data-toggle="tab">{{=T('Chapters')}}</a></li>
-									</ul>
-									<div class="tab-content">
-										<div class="tab-pane active" id="full">
-											<div  class="table">
-												{{for pf in digital_publication_formats:}}
-												{{full_file = pf.associated_items.get('full_file')}}
-												{{file_type = full_file.attributes.file_type.split('/')[1] if '/' in full_file.attributes.file_type else full_file.attributes.file_type}}
-												{{file_type = 'xml' if file_type == 'html' else file_type }}
-												<div class="stats_chapter_row">											{{full_file = pf.associated_items.get('full_file')}}
-{{if full_file : }}
-												{{file_type = full_file.attributes.file_type.split('/')[1] if '/' in full_file.attributes.file_type else full_file.attributes.file_type}}
-												{{file_type = 'xml' if file_type == 'html' else file_type }}
-
-													   <div class="stats_chapter_cell">{{=B(file_type.upper())}}</div>                            {{file_type = 'xml' if file_type == 'html' else file_type }}
-				{{fid=str(submission.submission_id)+'-'+str(full_file.attributes['file_id'])+'-'+str(file_type)}}
-				{{file_ids.append(fid)}}
-                            <div id="{{=fid}}" class="chapter_file full_file" style="padding-left:1em"></div>
-<div id="{{=submission.submission_id}}-{{=full_file.attributes['file_id']}}-{{=file_type}}" class="chapter_file full_file">
-
-</div>
-{{pass}}
-																																				</div>
-
-												{{pass}}
-												{{pass}}
-											</div>
-                <!-- hinweis -->
-                {{if (datetime.datetime(2016,3,7,0,0,0) - date_published ) :}}
-                {{=T('The statistical recordings begin from 03.07.2016 due to technical reasons ')}}
-                {{pass }}
-                <!-- hinweis end -->
-										</div>
-										<div class="tab-pane" id="chapters">
-											{{if len(chapters) > 0:}}
-											<div id="statsTableChapters" class="table">
-												<div class="stats_chapter_row statss_table_head">
-													<div class="stats_chapter_cell"></div>
-													{{for pf in digital_publication_formats:}}
-													<div class="stats_chapter_cell">{{=TD(pf.settings.getLocalizedValue('name', locale))}}</div>
-													{{pass}}
-												</div>
-												{{display_authors=haveMultipleAuthors(chapters)}}
-												{{for c in chapters:}}
-												{{c_title = c.settings.getLocalizedValue('title', locale)}}
-												{{c_files = c.associated_items.get('files', [])}}
-												<div class="stats_chapter_row">
-													<div class="stats_chapter_cell">
-
-														<div class="stats_chapter_title">{{=c_title}}</div>
-													</div>
-													{{for pf in digital_publication_formats:}}
-													<div class="stats_chapter_cell">
-														{{if c_files:}}
-														{{c_file = c_files.get(pf.attributes.publication_format_id)}}
-														{{if c_file:}}
-														{{file_type = c_file.attributes.file_type.split('/')[1] if '/' in c_file.attributes.file_type else c_file.attributes.file_type}}
-														{{file_type = 'xml' if file_type == 'html' else file_type }}
-														{{fid=str(submission.submission_id)+'-'+str(c_file.attributes['file_id'])+'-'+str(file_type)}}
- 
-                           {{file_ids.append(fid)}}
- 	            						<div id="{{=fid}}" class="chapter_file">
-
-														</div>
-														{{pass}}
-														{{pass}}
-													</div>
-													{{pass}}
-
-												</div>
-												{{pass}}
-												<!-- summe -->
-												<div class="stats_chapter_row">
-													<div class="stats_chapter_cell">{{=TD(T('Total'))}}</div>
-													{{for pf in digital_publication_formats:}}
-													{{file_type=pf.settings.getLocalizedValue('name', locale).lower()}}
-													{{file_type = 'xml' if file_type == 'html' else file_type }}
-													<div class="stats_chapter_cell" id="total-chapter-{{=file_type}}"></div>
-													{{pass}}
-												</div>
-												<!-- statsTableChapters -->
-												{{pass}}
-											</div>
-										</div>
-									</div>
-								</div>
-
-
-
-								<script type="text/javascript">
-                  var ids={{=XML(file_ids)}};
-									$('#statistik-button').click(function(){
-									$('#oas').slideToggle()
-									});
-                  $('#statistik-button').popover();
-								</script>
-								<script src="{{=URL('static','js/stats.js')}}"></script>
-                
-								<!--stats block  end-->
-                
-							</div>
+							<!-- statistik begin-->
+              <div id="oas-widget" class="applied-to-ojs" style="margin-top: 1.2em">
+                <div class="btn btn-default" id="statistik-button" >{{=T('Statistics')}}</div> <br/>
+                  <div style="display:none" class="table" id="oas">
+                    {{include '../static/omp-resources/views/catalog/statistik.html' }}
+                    
+                    </div>
+                  
+              </div>
+              <!-- statistik end -->
+              
+              
 						</div>
 					</div>
 				</div>

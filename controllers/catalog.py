@@ -9,7 +9,6 @@ import os
 from operator import itemgetter
 from ompdal import OMPDAL, OMPSettings, OMPItem
 from ompformat import dateFromRow, seriesPositionCompare
-#from ompstats import OMPStats
 from datetime import datetime
 
 
@@ -199,5 +198,6 @@ def book():
     representatives = ompdal.getRepresentativesBySubmission(submission_id, myconf.take('omp.representative_id_type'))
     
     #stats = OMPStats(myconf, db, locale)
+    
 
     return locals()
