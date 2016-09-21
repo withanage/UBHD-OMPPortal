@@ -173,7 +173,7 @@
 'Groups': 'Gruppen',
 'Habensetein': 'Habensetein',
 'HB': 'HB',
-'Heidelberg Studies in Transculturality': 'Heidelberg Studies in Transculturality',
+'Heidelberg Studies on Transculturality': 'Heidelberg Studies on Transculturality',
 'Heidelberg University Publishing': 'Heidelberg University Publishing',
 'heiUP Der Beirat': 'heiUP Der Beirat',
 'heiUP Habenstein': 'heiUP Habenstein',
