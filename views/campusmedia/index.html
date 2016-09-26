@@ -33,7 +33,34 @@
       </div>
     </div>-->
   
-  
+    <div class="row">
+      <div class="col-lg-2">
+        <article>
+          <div class="post-image" style="border: 1px solid #f5f5f5;">
+            <img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/cover_alte_aula.jpg')}} ">
+          </div>
+        </article>
+      </div>
+      <div class="col-lg-10">
+        <article>
+          <div class="post-heading"><h3>Die Alte Aula der Universität Heidelberg</h3>
+          </div>
+          <p>
+            <i class="icon-quote-left"></i>{{if session.forced_language =='de': }}Die Aula der Alten Universität ist Festsaal und Herzkammer der Ruperto Carola und veranschaulicht in Allegorien und Metaphern Geschichte und Selbstverständnis der ältesten Universität im heutigen Deutschland. Ursprünglich in barocker Ausgestaltung erbaut, wurde sie zum 500. Bestehen der Universität komplett umgestaltet. Der vom Großherzog von Baden gestiftete prachtvolle Raum präsentiert sich heute als eines der wenigen intakt erhaltenen Ensembles der Karlsruher Holzschnitzschule und wird überwiegend für akademische Feiern wie Antrittsvorlesungen neuberufener Professoren oder Absolventenfeiern genutzt. Die Aula ist jedoch auch ein Ort für öffentliche Konzerte und Vorträge, denen das ehrwürdige Ambiente dieses Saals einen besonderen Glanz verleihen soll. {{elif session.forced_language =='en': }} The Great Hall of the Old University building is the ceremonial hall and heart of Heidelberg University. With the aid of allegories and metaphors, it illustrates the history and self-image of the oldest university in modern-day Germany. Originally built in the baroque style, it was remodelled completely on the occasion of the University’s 500th anniversary. The magnificent room donated by the Grand Duke of Baden is one of the few ensembles of the Karlsruhe School of Woodcutting that remains intact; it is used primarily for academic events such as inaugural lectures of newly appointed professors or graduation ceremonies. But the Great Hall is also a place for public concerts and presentations to which the venerable surroundings lend a particular splendour. {{pass}}
+          </p>
+          <div class="widget">
+            <h5 class="widgetheading"></h5>
+            <ul class="tags">
+              <li>
+              <a href="{{=URL(myconf.take('web.application'),'campusmedia','alte_aula')}}">{{=T('To the book' )}}</a>
+              </li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+
+	
     <div class="row">
       <div class="col-lg-2">
         <article>
@@ -120,32 +147,6 @@
             </div>
         </div>
 	-->
-    <div class="row">
-      <div class="col-lg-2">
-        <article>
-          <div class="post-image" style="border: 1px solid #f5f5f5;">
-            <img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/cover_alte_aula.jpg')}} ">
-          </div>
-        </article>
-      </div>
-      <div class="col-lg-10">
-        <article>
-          <div class="post-heading"><h3>Die Alte Aula der Universität Heidelberg</h3>
-          </div>
-          <p>
-            <i class="icon-quote-left"></i>{{if session.forced_language =='de': }}Die Aula der Alten Universität ist Festsaal und Herzkammer der Ruperto Carola und veranschaulicht in Allegorien und Metaphern Geschichte und Selbstverständnis der ältesten Universität im heutigen Deutschland. Ursprünglich in barocker Ausgestaltung erbaut, wurde sie zum 500. Bestehen der Universität komplett umgestaltet. Der vom Großherzog von Baden gestiftete prachtvolle Raum präsentiert sich heute als eines der wenigen intakt erhaltenen Ensembles der Karlsruher Holzschnitzschule und wird überwiegend für akademische Feiern wie Antrittsvorlesungen neuberufener Professoren oder Absolventenfeiern genutzt. Die Aula ist jedoch auch ein Ort für öffentliche Konzerte und Vorträge, denen das ehrwürdige Ambiente dieses Saals einen besonderen Glanz verleihen soll. {{elif session.forced_language =='en': }} The Great Hall of the Old University building is the ceremonial hall and heart of Heidelberg University. With the aid of allegories and metaphors, it illustrates the history and self-image of the oldest university in modern-day Germany. Originally built in the baroque style, it was remodelled completely on the occasion of the University’s 500th anniversary. The magnificent room donated by the Grand Duke of Baden is one of the few ensembles of the Karlsruhe School of Woodcutting that remains intact; it is used primarily for academic events such as inaugural lectures of newly appointed professors or graduation ceremonies. But the Great Hall is also a place for public concerts and presentations to which the venerable surroundings lend a particular splendour. {{pass}}
-          </p>
-          <div class="widget">
-            <h5 class="widgetheading"></h5>
-            <ul class="tags">
-              <li>
-              <a href="{{=URL(myconf.take('web.application'),'campusmedia','alte_aula')}}">{{=T('To the book' )}}</a>
-              </li>
-            </ul>
-          </div>
-        </article>
-      </div>
-    </div>
 
   </div>
 </section>
