@@ -25,15 +25,16 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
+from html import HTML
 import json
-import os
-import mysql.connector
-import sys
-import operator
 import logging
+import mysql.connector
+import operator
+import os
 import socket
 import struct
-from html import HTML
+import sys
+
 
 logging.basicConfig(filename='jatsPostProcess.log', level=logging.DEBUG)
 
