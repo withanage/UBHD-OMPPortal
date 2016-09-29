@@ -40,10 +40,10 @@ Thumbs.db
 databases/*
 .idea/*
 sessions/*
-<<<<<<< HEAD
 static/monographs
 static/series
 static/utils/bookStatsConfig.json
+static/utils/vgwort.csv
 static/utils/*.log
 static/files
 private/*
@@ -58,3 +58,4 @@ errors/*
 .project
 .pydevproject
 .settings/
+
