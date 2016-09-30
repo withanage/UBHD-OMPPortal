@@ -77,7 +77,7 @@ Table of Contents
 
 #### Run program
   ```
-  python web2py.py -R  applications/UBHD_OMPPortal/static/utils/vgwortInsertBySubmission.py  --shell UBHD_OMPPortal --import_models  
+  python web2py.py -R  applications/UBHD_OMPPortal/static/utils/vgwortInsertBySubmission.py -M  --shell UBHD_OMPPortal 
   ```
 
 # For developers
