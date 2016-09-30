@@ -63,25 +63,22 @@ Table of Contents
 #### Add keys
 - Add new VGWORT keys to  UBHD_OMPPortal/static/utils/vgwort.xls
 - ``` cd $WEB2PY_HOME/ ``` which may be something like ``` cd /usr/local/web2py/```
+
 #### Run program
 ```
 python web2py.py -R  applications/UBHD_OMPPortal/static/utils/vgwortInsertBySubmission.py
 --shell UBHD_OMPPortal  --import_models
 ```
 
-  
-
-
-
 # For developers
 
-##General information
+## General information
 - A general knowledge in python  and sql is necessary for further development.
 - Some  basic knowledge in web2y is helpful. See [docs](http://web2py.com)
 - The OJS intergration is  in progress.
 - We have included a minified [lens](https://github.com/elifesciences/lens/) viewer. If you want to customize it, either use the [lens git](https://github.com/elifesciences/lens/)  or  [contact us](mailto:dulip.withanage@gmail.com). We will be happy to help you.
 
-##Folder structure
+## Folder structure
 **strictly follows MVC (Model-View-Control) design principle**
 
 - **controllers** - contains all the functions for  enabling pages.
