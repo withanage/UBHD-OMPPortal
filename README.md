@@ -39,6 +39,7 @@ UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp](https://pkp.s
        ```
         ln -s web2py_folder/applications/press_name/static/monographs/ omp_folder/files/presses/press_id/monographs
         ```
+
 # Help Tools
 ##  VGWort Pixel Import
 ### Description
