@@ -3,6 +3,7 @@ UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp](https://pkp.s
 
 Table of Contents
 =================
+  * [Table of Contents](#table-of-contents)
   * [Demo](#demo)
   * [Features](#features)
   * [Installation](#installation)
@@ -12,6 +13,12 @@ Table of Contents
       * [Installation](#installation-1)
       * [Usage](#usage)
         * [Add keys](#add-keys)
+        * [Run program](#run-program)
+  * [For developers](#for-developers)
+    * [General information](#general-information)
+    * [Folder structure](#folder-structure)
+    * [Additional information for customizations](#additional-information-for-customizations)
+  * [License](#license)
 
 # Demo
 - Heidelberg University Publishing  [Web](http://heiup.uni-heidelberg.de/)
