@@ -1,6 +1,18 @@
 # UBHD-OMPPortal
 UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp](https://pkp.sfu.ca/) 's [Open Monograph Press](https://pkp.sfu.ca/omp/)  written in python programming language and  based on the python web framework [web2py](http://www.web2py.com).
 
+Table of Contents
+=================
+  * [Demo](#demo)
+  * [Features](#features)
+  * [Installation](#installation)
+  * [Help Tools](#help-tools)
+    * [VGWort Pixel Import](#vgwort-pixel-import)
+      * [Description](#description)
+      * [Installation](#installation-1)
+      * [Usage](#usage)
+        * [Add keys](#add-keys)
+
 # Demo
 - Heidelberg University Publishing  [Web](http://heiup.uni-heidelberg.de/)
 - Customized lens based HTML Viewer [Full book](http://heiup.uni-heidelberg.de/UBHD_OMPPortal/reader/index/43/43-68-231-1-10-20151008.xml) ,  [Chapter ](http://heiup.uni-heidelberg.de/reader/index/43/43-69-209-1-10-20150717.xml) ,  [Chapter with images](http://heiup.uni-heidelberg.de/reader/index/43/43-69-220-1-10-20150723.xml#figures)
