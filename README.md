@@ -46,9 +46,10 @@ UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp](https://pkp.s
 ### Installation
   1. Requires python xlrd  library ```sudo pip2 install xlrd```
 ### Usage
-  1. Add new VGWORT keys to  UBHD_OMPPortal/static/utils/vgwort.xls
-  2. ``` cd $WEB2PY_HOME/ ``` which may be something like ``` cd /usr/local/web2py/```
-  3. ```  python web2py.py -R  applications/UBHD_OMPPortal/static/utils/vgwortInsertBySubmission.py   --shell UBHD_OMPPortal  --import_models
+Add new VGWORT keys to  UBHD_OMPPortal/static/utils/vgwort.xls
+``` cd $WEB2PY_HOME/ ``` which may be something like ``` cd /usr/local/web2py/```
+```
+python web2py.py -R  applications/UBHD_OMPPortal/static/utils/vgwortInsertBySubmission.py   --shell UBHD_OMPPortal  --import_models
 ```
 
   
