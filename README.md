@@ -12,6 +12,12 @@ Table of Contents
       * [Installation](#installation-1)
       * [Usage](#usage)
         * [Add keys](#add-keys)
+        * [Run program](#run-program)
+  * [For developers](#for-developers)
+    * [General information](#general-information)
+    * [Folder structure](#folder-structure)
+    * [Additional information for customizations](#additional-information-for-customizations)
+  * [License](#license)
 
 # Demo
 - Heidelberg University Publishing  [Web](http://heiup.uni-heidelberg.de/)
@@ -63,7 +69,11 @@ Table of Contents
 
 #### Add keys
  - Add new VGWORT keys to  UBHD_OMPPortal/static/utils/vgwort.xls
- - ``` cd $WEB2PY_HOME/ ``` which may be something like ``` cd /usr/local/web2py/```
+ - ``` cd $WEB2PY_HOME/ ``` 
+ which may be something like 
+ ``` 
+ cd /usr/local/web2py/ 
+ ```
 
 #### Run program
   ```
