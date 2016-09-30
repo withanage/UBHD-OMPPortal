@@ -39,6 +39,22 @@ UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp](https://pkp.s
        ```
         ln -s web2py_folder/applications/press_name/static/monographs/ omp_folder/files/presses/press_id/monographs
         ```
+# Help Tools
+##  VGWort Pixel Import
+### Description
+ This tool imports royalty information for germany's vgwort using a Excel File
+### Installation
+  1. Requires python xlrd  library ```sudo pip2 install xlrd```
+### Usage
+  1. Add new VGWORT keys to  UBHD_OMPPortal/static/utils/vgwort.xls
+  2. ``` cd $WEB2PY_HOME/ ``` which may be something like ``` cd /usr/local/web2py/```
+  3. ```  python web2py.py -R  applications/UBHD_OMPPortal/static/utils/vgwortInsertBySubmission.py   --shell UBHD_OMPPortal  --import_models
+```
+
+  
+
+
+
 # For developers
 
 ##General information
