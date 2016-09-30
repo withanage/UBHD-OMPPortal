@@ -69,7 +69,11 @@ Table of Contents
 
 #### Add keys
  - Add new VGWORT keys to  UBHD_OMPPortal/static/utils/vgwort.xls
- - ``` cd $WEB2PY_HOME/ ``` which may be something like ``` cd /usr/local/web2py/```
+ - ``` cd $WEB2PY_HOME/ ``` 
+ which may be something like 
+ ``` 
+ cd /usr/local/web2py/ 
+ ```
 
 #### Run program
   ```
