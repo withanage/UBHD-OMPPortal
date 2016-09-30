@@ -3,7 +3,6 @@ UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp](https://pkp.s
 
 Table of Contents
 =================
-  * [Table of Contents](#table-of-contents)
   * [Demo](#demo)
   * [Features](#features)
   * [Installation](#installation)
