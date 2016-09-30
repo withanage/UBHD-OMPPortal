@@ -91,6 +91,22 @@
               </div>
             </div>
           </div>
+			<div class="btn-group" role="group" aria-label="1">
+				 <li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/issue/current" title="{{=T('current issue')}}">{{=T('read current issue')}}</a></li>
+			</div>
+			
+			<div class="btn-group" role="group" aria-label="1">
+				 <li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/issue/archive" title="{{=T('Archive')}}">{{=T('Archive')}}</a></li>
+			</div>
+			
+			<div class="btn-group" role="group" aria-label="2">
+			 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">{{=T('Purchase')}}<span class="caret"></span></button>
+					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+				<li role="presentation"><a role="menuitem"  href="https://www.buchhandel.de/buch/Stabilitaet-im-Wandel-9783946054191" target='_blank'>buchhandel.de</a></li>
+				<li role="presentation"><a role="menuitem"  href="https://www.amazon.de/Stabilit-t-Wandel-Heidelberger-Jahrb-cher-Online/dp/3946054196/" target='_blank'>Amazon</a></li>
+					</ul>
+			</div>
+		  
           <div class="post-heading"><h3>Heidelberger Jahrbücher Online</h3>
           </div>{{if session.forced_language =='de': }} 
           <p>
@@ -105,19 +121,17 @@
             </p>{{pass}} 
             <div class="widget">
               <h5 class="widgetheading"></h5>
-              <ul class="tags">{{if session.forced_language =='de': }} 
+              <ul class="tags">
                 <li style="display: inline">
-                  <a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/index">zur aktuellen Ausgabe</a>
+
+				                   {{if session.forced_language =='de': }}
+             
+                            <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/index">zur Zeitschrift</a></li>
+             {{elif session.forced_language =='en': }}
+                            <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/index">View Journal</a></li>
+             
+{{pass}}    
                 </li>
-                <li style="display: inline">
-                  <a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/issue/archive">Archiv</a>
-                </li>{{elif session.forced_language =='en': }} 
-                <li style="display: inline">
-                  <a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/index">View Current Issue</a>
-                </li>
-                <li style="display: inline">
-                  <a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/issue/archive">Archive</a>
-                </li>{{pass}} 
               </ul>
             </div>
         </article>
