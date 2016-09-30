@@ -43,7 +43,7 @@ sessions/*
 static/monographs
 static/series
 static/utils/bookStatsConfig.json
-static/utils/vgwort.csv
+static/utils/vgwort.xls
 static/utils/*.log
 static/files
 private/*
