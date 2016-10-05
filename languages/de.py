@@ -80,6 +80,7 @@
 'Book': 'Buch',
 'book not found': 'book not found',
 'Book Proposal': 'Book Proposal',
+'Book Reviews': 'Rezensionen',
 'book_id': 'book_id',
 'Books': 'Bücher',
 'Breite der Trimbox': 'Breite der Trimbox',
