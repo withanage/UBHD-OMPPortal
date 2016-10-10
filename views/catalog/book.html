@@ -144,6 +144,10 @@
 							{{num_bios = len([b for b in bios if b[1] != ""])}}
 							{{if bios_role != "author" or num_bios < 4:}}
 							{{if num_bios != 0:}}
+							
+							<!-- reviews begin -->
+							{{include '../static/omp-resources/views/catalog/reviews.html' }}
+							<!-- reviews end -->
 							<div class="separator"></div>
 							<div class="autor_biografie">
 								<p>
@@ -158,9 +162,7 @@
 							{{pass}}
 							{{pass}}
 							
-							<!-- reviews begin -->
-							{{include '../static/omp-resources/views/catalog/reviews.html' }}
-							<!-- reviews end -->
+							
 							
 						</div>
 
