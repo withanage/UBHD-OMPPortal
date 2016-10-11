@@ -112,6 +112,20 @@
 								</ul>
 								{{pass}}
 							</div>
+							<div class="btn-group" role="group" aria-label="2">
+							{{
+							if 'emails' in myconf:
+							if 'notification' in myconf['emails']:
+							if int(myconf['emails']['notification']) == 1:
+							 }}
+							{{ include '../static/omp-resources/views/catalog/recommend.html' }}
+							{{ 	
+							pass
+							pass
+							pass
+							}}
+							 
+							</div>
 
 							<div class="post-heading">
 								<br/>
