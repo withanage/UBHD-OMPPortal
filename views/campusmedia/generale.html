@@ -116,6 +116,14 @@
               </div>
             </div>
           </div>
+          			<div class="btn-group" role="group" aria-label="1">
+				 <li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/generale/issue/current" title="{{=T('current issue')}}">{{=T('read current issue')}}</a></li>
+			</div>
+			
+			<div class="btn-group" role="group" aria-label="1">
+				 <li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/generale/issue/archive" title="{{=T('Archive')}}">{{=T('Archive')}}</a></li>
+			</div>
+          
           <div class="post-heading"><h3>Studium Generale</h3>
           </div>{{if session.forced_language =='de': }} 
 
@@ -124,7 +132,7 @@
             </p>{{elif session.forced_language =='en': }} 
             <p>Die Publikationen des Studium Generale sind von der gleichnamigen Vorlesungsreihe abgeleitet, die in jedem Semester ein Schwerpunktthema aufgreift und für die interessierte Öffentlichkeit aufbereitet. Herausgeber ist der zuständige Prorektor und Vorsitzende der Kommission Studium Generale, die redaktionelle Verantwortung liegt bei der Abteilung Wissensaustausch.
             </p>{{pass}} 
-            <div class="widget">
+          <!-- <div class="widget">
               <h5 class="widgetheading"></h5>
               {{if session.forced_language =='de': }} 
               <ul class="tags">
@@ -144,7 +152,7 @@
                 </li>
               </ul>
               {{pass}} 
-            </div>
+            </div>    -->
         </article>
       </div>
     </div>
