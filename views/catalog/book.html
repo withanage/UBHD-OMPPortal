@@ -148,6 +148,10 @@ pass
 								<i class="icon-quote-left"></i>
 								{{=XML(abstract)}}
 							</p>
+  
+							<!-- reviews begin -->
+							{{include '../static/omp-resources/views/catalog/reviews.html' }}
+							<!-- reviews end -->
 							{{bios = [(formatName(e.attributes), e.settings.getLocalizedValue('biography', locale)) for e in editors]}}
 							{{bios_role = "editor"}}
 							{{if bios == []:}}
@@ -159,9 +163,6 @@ pass
 							{{if bios_role != "author" or num_bios < 4:}}
 							{{if num_bios != 0:}}
 							
-							<!-- reviews begin -->
-							{{include '../static/omp-resources/views/catalog/reviews.html' }}
-							<!-- reviews end -->
 							<div class="separator"></div>
 							<div class="autor_biografie">
 								<p>
