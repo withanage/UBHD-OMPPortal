@@ -4,3 +4,6 @@
 [submodule "static/omp-resources"]
 	path = static/omp-resources
 	url = https://github.com/UB-Heidelberg/omp-resources/
+[submodule "static/citeproc"]
+	path = static/citeproc
+	url = https://github.com/UB-Heidelberg/citeproc-js-wrapper.git
