@@ -110,7 +110,23 @@ $('.flexslider').flexslider();
             </div>
             <div id="boxAktuelles" class="col-lg-6">
               <div class="box">
-                <div class="box-gray aligncenter" style="overflow-y: scroll">{{if session.forced_language =='de': }} <h4>Aktuelles</h4>{{elif session.forced_language =='en': }} <h4>News</h4>{{pass}} 
+                <div class="box-gray aligncenter" style="overflow-y: scroll">{{if session.forced_language =='de': }} <h4>Aktuelles</h4>{{elif session.forced_language =='en': }} <h4>News</h4>{{pass}} 				
+				  <div class="media">
+                    <div class="media-left pull-left">
+                      <img alt="" src="{{=URL('static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
+                    </div>
+					<div class="media-body">
+                      <p class="media-heading">27.10.2016<br>
+                      {{if session.forced_language =='de': }} <span class="h5">Neu bei heiUP: Studium Generale der Universität Heidelberg</span>{{elif session.forced_language =='en': }} <span class="h5">New heiUP journal: Studium Generale by Heidelberg University</span>{{pass}}</p> 
+
+                      <p class="boxText">{{if session.forced_language =='de': }}Wir freuen uns, dass die traditionsreiche Zeitschrift <a href="/heiup/campusmedia/generale" title="weitere Informationen">Studium Generale</a>, in der Vorträge aus der gleichnamigen Vorlesungsreihe der Universität Heidelberg versammelt sind, ab sofort bei Heidelberg University Publishing erscheint. Am 26.10. ging die erste Ausgabe online, das Thema ist Licht.
+                      {{elif session.forced_language =='en': }}                     
+                      We are very pleased to announce that <a href="/heiup/campusmedia/generale" title="more information">Studium Generale</a> will henceforward be published by Heidelberg University Publishing. The journal compiling speeches from the the lecture series of the same name by Heidelberg University looks back at a long tradition. The first issue on the subject of "light"was published on 26th October 2016.           
+                      {{pass}}
+                      </p>
+                    </div>
+				  </div>
+				  
 				  <div class="media">
                     <div class="media-left pull-left">
                       <img alt="" src="{{=URL('static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
