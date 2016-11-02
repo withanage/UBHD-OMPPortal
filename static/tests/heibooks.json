@@ -1,0 +1,14 @@
+{
+  "env": {},
+  "tests": {
+    "1": {
+      "name": "Book without chapters",
+      "controller": "catalog",
+      "function": "book",
+      "arguments": [
+        69
+      ],
+      "vars": {}
+    }
+  }
+}
