@@ -246,7 +246,7 @@
 'Manage %(action)s': '%(action)s verwalten',
 'Manage Access Control': 'Zugangskontrolle verwalten',
 'Manage Cache': 'Cache verwalten',
-'Media coverage': 'Presse',
+'Media coverage': 'Rezensionen und Presse',
 'Medienbeilage': 'Medienbeilage',
 'Medienbeilage z.B "mit CD-ROM"': 'Medienbeilage z.B "mit CD-ROM"',
 'Mehr': 'Mehr',
