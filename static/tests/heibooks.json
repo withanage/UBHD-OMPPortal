@@ -3,12 +3,17 @@
   "tests": {
     "1": {
       "name": "Book without chapters",
-      "controller": "catalog",
+      "description": "",
+      "group": "hard",
+      "controller": "catalog2",
       "function": "book",
       "arguments": [
-        69
+        200
       ],
-      "vars": {}
+      "vars": {
+        "lang": "en"
+     },
+      "asserts": [""]
     }
   }
 }

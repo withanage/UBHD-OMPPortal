@@ -4,44 +4,65 @@ __author__ = "Nils Weiher, Dulip Withanage"
 from gluon.contrib.webclient import WebClient
 import os, json, sys
 
+
+
 class IntegrationTests:
     def __init__(self):
-        pass
-         
+        self.web_application = myconf.take("web.application")
+        self.web_url = myconf.take("web.url")
+        self.config = self.read_json("applications/" + self.web_application + "/static/tests/heibooks.json")
+
+    def get_host(self, url):
+        return url.split('//')[-1]
+
+
     def read_json(self, f):
         if os.path.isfile(f):
+            print f
             with open(f) as j:
                 return json.load(j)
         else:
-            sys.exit(1) 
+            sys.exit(1)
+
+
     def run(self):
-        self.config = self.gv.read_json("heibooks.json")
+        tests = self.config.get("tests")
+        if tests:
+            # Sort tests by key
+            for t in tests:
+                self.run_test(t, tests[t])
 
-'''
-client = WebClient('http://127.0.0.1:8000/welcome/default/',
-                   postbacks=True)
 
-client.get('index')
-# register
-data = dict(first_name='Homer',
-            last_name='Simpson',
-            email='homer@web2py.com',
-            password='test',
-            password_two='test',
-            _formname='register')
-client.post('user/register', data=data)
+    def run_test(self, test_num, test):
+        print "num: " + test_num, test
+        url_parts = [self.web_url, self.web_application, test.get('controller')]
 
-# logout
-client.get('user/logout')
+        request_url = test.get('function')
+        for arg in test.get('arguments'):
+            url_parts.append(arg)
+        url = self.make_w2py_url(test)
+        print "RUN TEST FOR url=" + url
+        try:
+            client = WebClient(url, postbacks=True)
+            client.get("")
+        except Exception as e:
+            print e
+            print "Test failed!"
+        print client.text
+        print client.status
 
-# login again
-data = dict(email='homer@web2py.com',
-            password='test',
-            _formname='login')
-client.post('user/login', data=data)
+    def make_w2py_url(self, test):
+        url = URL(c=test.get('controller'), f=str(test.get('function')), args=test.get('arguments'),
+                  vars=test.get('vars'),
+                  host=self.get_host(self.web_url))
+        return url
 
-# check registration and login were successful
-client.get('index')
-assert('Welcome Homer' in client.text)
-'''
+
+def main():
+    it = IntegrationTests()
+    it.run()
+
+
+main()
+
 
