@@ -2267,7 +2267,13 @@ figcaption {
 }
 
 
-/*** Footer - Änderungen voe ****/
+/** Button dropdownMenu 1 'Kaufen' etc - Abstand Pfeil **/
+.btn .caret {
+  margin-left: 3px;
+}
+  
+
+/*** Footer ****/
 footer {
   padding-left: 10px;
 }
