@@ -110,7 +110,23 @@ $('.flexslider').flexslider();
             </div>
             <div id="boxAktuelles" class="col-lg-6">
               <div class="box">
-                <div class="box-gray aligncenter" style="overflow-y: scroll">{{if session.forced_language =='de': }} <h4>Aktuelles</h4>{{elif session.forced_language =='en': }} <h4>News</h4>{{pass}} 				
+                <div class="box-gray aligncenter" style="overflow-y: scroll">{{if session.forced_language =='de': }} <h4>Aktuelles</h4>{{elif session.forced_language =='en': }} <h4>News</h4>{{pass}} 	
+                   <div class="media">
+                    <div class="media-left pull-left">
+                      <img alt="" src="{{=URL('static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
+                    </div>
+					<div class="media-body">
+                      <p class="media-heading">09.12.2016<br>
+                      {{if session.forced_language =='de': }} <span class="h5">Neueste Ausgabe der "Ruperto Carola" ist online</span>{{elif session.forced_language =='en': }} <span class="h5">Latest Edition of "Ruperto Carola" is Now Online</span>{{pass}}</p> 
+
+                      <p class="boxText">{{if session.forced_language =='de': }}STOP & GO, der Wechsel zwischen Stillstand und Bewegung, zwischen Beharren und Veränderung, ist das Thema der neuesten Ausgabe des Magazins <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index" title="Link zur Zeitschrift">Ruperto Carola</a>. 22 Wissenschaftler der Universität Heidelberg zeigen, in wie vielfältigen Zusammenhängen die beiden Zustände „Stop“ und „Go“ – Stillstand und Bewegung – wirken.
+                      {{elif session.forced_language =='en': }}                     
+                      STOP & GO, the new edition of the journal <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index" title="Link to the journal">Ruperto Carola</a> is dedicated to the transition from standstill to movement, from insistence to change. 22 scholars and scientists of Heidelberg University show how manifold the connections are in wich these two states "stop" and "go" - standstill and movement - work.            
+                      {{pass}}
+                      </p>
+                    </div>
+				  </div>		
+				  
 				  <div class="media">
                     <div class="media-left pull-left">
                       <img alt="" src="{{=URL('static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
@@ -330,9 +346,9 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
                 <div class="box">
                   <div class="box-gray aligncenter">
                     <h4>Campus Media</h4>
-					{{=IMG(_src=URL('static','images/campusmedia/studiumgenerale.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
+					{{=IMG(_src=URL('static','images/campusmedia/cover_09_2016.png'),_alt='',_style='width:145px', _class='bildrahmen')}}
                   </div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('campusmedia','generale'))}}
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('campusmedia','ruperto_carola'))}}
                   </div>
                 </div>
               </div>
