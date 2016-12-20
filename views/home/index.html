@@ -110,7 +110,55 @@ $('.flexslider').flexslider();
             </div>
             <div id="boxAktuelles" class="col-lg-6">
               <div class="box">
-                <div class="box-gray aligncenter" style="overflow-y: scroll">{{if session.forced_language =='de': }} <h4>Aktuelles</h4>{{elif session.forced_language =='en': }} <h4>News</h4>{{pass}} 
+                <div class="box-gray aligncenter" style="overflow-y: scroll">{{if session.forced_language =='de': }} <h4>Aktuelles</h4>{{elif session.forced_language =='en': }} <h4>News</h4>{{pass}} 	
+                   <div class="media">
+                    <div class="media-left pull-left">
+                      <img alt="" src="{{=URL('static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
+                    </div>
+					<div class="media-body">
+                      <p class="media-heading">09.12.2016<br>
+                      {{if session.forced_language =='de': }} <span class="h5">Neueste Ausgabe der "Ruperto Carola" ist online</span>{{elif session.forced_language =='en': }} <span class="h5">Latest Edition of "Ruperto Carola" is Now Online</span>{{pass}}</p> 
+
+                      <p class="boxText">{{if session.forced_language =='de': }}STOP & GO, der Wechsel zwischen Stillstand und Bewegung, zwischen Beharren und Veränderung, ist das Thema der neuesten Ausgabe des Magazins <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index" title="Link zur Zeitschrift">Ruperto Carola</a>. 22 Wissenschaftler der Universität Heidelberg zeigen, in wie vielfältigen Zusammenhängen die beiden Zustände „Stop“ und „Go“ – Stillstand und Bewegung – wirken.
+                      {{elif session.forced_language =='en': }}                     
+                      STOP & GO, the new edition of the journal <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index" title="Link to the journal">Ruperto Carola</a> is dedicated to the transition from standstill to movement, from insistence to change. 22 scholars and scientists of Heidelberg University show how manifold the connections are in wich these two states "stop" and "go" - standstill and movement - work.            
+                      {{pass}}
+                      </p>
+                    </div>
+				  </div>		
+				  
+				  <div class="media">
+                    <div class="media-left pull-left">
+                      <img alt="" src="{{=URL('static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
+                    </div>
+					<div class="media-body">
+                      <p class="media-heading">27.10.2016<br>
+                      {{if session.forced_language =='de': }} <span class="h5">Neu bei heiUP: Studium Generale der Universität Heidelberg</span>{{elif session.forced_language =='en': }} <span class="h5">New heiUP journal: Studium Generale by Heidelberg University</span>{{pass}}</p> 
+
+                      <p class="boxText">{{if session.forced_language =='de': }}Wir freuen uns, dass die traditionsreiche Zeitschrift <a href="/heiup/campusmedia/generale" title="weitere Informationen">Studium Generale</a>, in der Vorträge aus der gleichnamigen Vorlesungsreihe der Universität Heidelberg versammelt sind, ab sofort bei Heidelberg University Publishing erscheint. Am 26.10. ging die erste Ausgabe online, das Thema ist Licht.
+                      {{elif session.forced_language =='en': }}                     
+                      We are very pleased to announce that <a href="/heiup/campusmedia/generale" title="more information">Studium Generale</a> will henceforward be published by Heidelberg University Publishing. The journal compiling speeches from the the lecture series of the same name by Heidelberg University looks back at a long tradition. The first issue on the subject of "light"was published on 26th October 2016.           
+                      {{pass}}
+                      </p>
+                    </div>
+				  </div>
+				  
+				  <div class="media">
+                    <div class="media-left pull-left">
+                      <img alt="" src="{{=URL('static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
+                    </div>
+					<div class="media-body">
+                      <p class="media-heading">21.10.2016<br>
+                      {{if session.forced_language =='de': }} <span class="h5">Veranstaltungsreihe Open Access am Mittag: Publizieren an der Universität Heidelberg</span>{{elif session.forced_language =='en': }} <span class="h5">Series of events Open Access at noon: Publishing with the Heidelberg University</span>{{pass}}</p> 
+
+                      <p class="boxText">{{if session.forced_language =='de': }}Anlässlich der Open-Access-Woche 2016 vom 24.10. bis 30.10. lädt die UB Sie in Ihrer Mittagspause dazu ein, sich über die <a href="http://www.ub.uni-heidelberg.de/service/openaccess/Welcome.html" title="Informationen über die Publikationsmöglichkeiten im Open Access an der Universität Heidelberg">vielfältigen Publikationsmöglichkeiten im Open Access</a>, die die Uni Heidelberg bereitstellt, zu informieren. Beginn: 13 Uhr im <a href="http://www.ub.uni-heidelberg.de/cgi-bin/ub3d.cgi?bereich=Handschriftenlesesaal&zweig=&sprache=de" title="Lageplan: Handschriftenlesesaal der UB Heidelberg">Handschriftenlesesaal (Rundzimmer)</a> der UB. [<a href="http://www.ub.uni-heidelberg.de/bilder/oa/oa-woche_plakat_A4.pdf">&rsaquo;&rsaquo;Veranstaltungsübersicht</a>]
+                      {{elif session.forced_language =='en': }}                     
+                      On occasion of the open acces week, 24-30 October 2016, the University Library invites you in your lunch break to inform you about the <a href="http://www.ub.uni-heidelberg.de/Englisch/service/openaccess/Welcome.html" title="Information on Open Access publishing options at Heidelberg University">various publishing options</a> Heidelberg University offers. Start: 1 pm in the <a href="http://www.ub.uni-heidelberg.de/cgi-bin/ub3d.cgi?bereich=Handschriftenlesesaal&zweig=altstadt&sprache=en" title="site plan manuscript reading room of Heidelberg University Library">manuscript reading room (round chamber)</a> of the library.           
+                      {{pass}}
+                      </p>
+                    </div>
+				  </div>
+
 				  <div class="media">
                     <div class="media-left pull-left">
                       <img alt="" src="{{=URL('static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
@@ -282,22 +330,7 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
                 </div>
               </div>
 			  
-              <div class="col-lg-3">
-                <div class="box">
-                  <div class="box-gray aligncenter">
-                  {{if session.forced_language =='de': }}
-                  <h4>Neuerscheinung</h4>
-                  {{elif session.forced_language =='en': }}
-                  <h4>New titles</h4>
-                  {{pass}}				  
-				  {{=IMG(_src=URL('static','files/presses/6/monographs/48/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
-                  </div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/48'))}}
-                  </div>
-				  
-                </div>
-              </div>
-              
+             
               <div class="col-lg-3">
                 <div class="box">
                   <div class="box-gray aligncenter">
@@ -305,6 +338,17 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
 					{{=IMG(_src=URL('static','images/campusmedia/cover_alte_aula.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
                   </div>
                   <div class="box-bottom">{{=A(T('More Information'),_href=URL('campusmedia','alte_aula'))}}
+                  </div>
+                </div>
+              </div>
+    
+            <div class="col-lg-3">
+                <div class="box">
+                  <div class="box-gray aligncenter">
+                    <h4>Campus Media</h4>
+					{{=IMG(_src=URL('static','images/campusmedia/cover_09_2016.png'),_alt='',_style='width:145px', _class='bildrahmen')}}
+                  </div>
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('campusmedia','ruperto_carola'))}}
                   </div>
                 </div>
               </div>

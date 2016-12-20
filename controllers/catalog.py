@@ -96,6 +96,7 @@ def index():
     
     return locals()
 
+
 def book():
     if session.forced_language == 'en':
         locale = 'en_US'
@@ -115,20 +116,19 @@ def book():
     press_settings = OMPSettings(ompdal.getPressSettings(press.press_id))
     
     # Get basic submission info (check, if submission is associated with the actual press and if the submission has been published)
-    submission = ompdal.getPublishedSubmission(submission_id, press_id=myconf.take('omp.press_id'))    
+    submission = ompdal.getPublishedSubmission(submission_id, press_id=myconf.take('omp.press_id'))
     if not submission:
         redirect(URL('home', 'index'))
 
     submission_settings = OMPSettings(ompdal.getSubmissionSettings(submission_id))
     
     # Get contributors and contributor settings
-    authors = []
-    for author in ompdal.getAuthorsBySubmission(submission_id):
-        authors.append(OMPItem(author, OMPSettings(ompdal.getAuthorSettings(author.author_id))))
-    
-    editors = []
-    for editor in ompdal.getEditorsBySubmission(submission_id):
-        editors.append(OMPItem(editor, OMPSettings(ompdal.getAuthorSettings(editor.author_id))))
+    editor_rows = ompdal.getEditorsBySubmission(submission_id)
+    editors = [OMPItem(e, OMPSettings(ompdal.getAuthorSettings(e.author_id))) for e in editor_rows]
+
+    # Do not load authors if the submission has editors
+    authors = [] if editors else [OMPItem(a, OMPSettings(ompdal.getAuthorSettings(a.author_id))) for a in
+                                  ompdal.getActualAuthorsBySubmission(submission_id, filter_browse=True)]
     
     # Get chapters and chapter authors
     chapters = []
