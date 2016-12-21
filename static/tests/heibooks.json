@@ -1,0 +1,19 @@
+{
+  "env": {},
+  "tests": {
+    "1": {
+      "name": "Book without chapters",
+      "description": "",
+      "group": "hard",
+      "controller": "catalog2",
+      "function": "book",
+      "arguments": [
+        200
+      ],
+      "vars": {
+        "lang": "en"
+     },
+      "asserts": [""]
+    }
+  }
+}

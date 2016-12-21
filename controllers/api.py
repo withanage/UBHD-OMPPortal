@@ -6,6 +6,8 @@ LICENSE.md
 '''
 
 import gluon.contrib.simplejson as sj
+from ompdal import OMPDAL
+from ompcsl import OMPCSL
 
 def oastatistik():
     locale = 'de_DE'
@@ -145,3 +147,22 @@ def oastatistik():
            
 
     return sj.dumps(subs, separators=(',', ':'), sort_keys=True)
+
+
+def csl():
+    if request.args:
+        submission_id = request.args[0]
+    else:
+        raise HTTP(405, "Missing submission ID and getting of all submissions not supported")
+    locale = 'de_DE'
+    if session.forced_language == 'en':
+        locale = 'en_US'
+    ompcsl = OMPCSL(OMPDAL(db, myconf), myconf, locale)
+    response.headers['Content-Type'] = 'application/json'
+    try:
+        cls_data = ompcsl.load_csl_data(submission_id)
+    except ValueError as e:
+        # Invalid argument
+        raise HTTP(400, e.message)
+
+    return sj.dumps(cls_data, separators=(',', ':'), sort_keys=True)

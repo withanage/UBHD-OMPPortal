@@ -74,7 +74,7 @@
             <div class="col-lg-3">
                 <article>
                     <div class="post-image">
-		 	<img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/ruperto_carola.jpg')}} ">
+		 	<img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/cover_09_2016.png')}} ">
                   </div>
 
                 </article>
@@ -181,7 +181,15 @@
                 </div>                
               </div>
 
-              
+             <div class="btn-group" role="group" aria-label="1">
+				 <li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/current/showToc" title="{{=T('current issue')}}">{{=T('read current issue')}}</a></li>
+			</div>
+			
+			<div class="btn-group" role="group" aria-label="1">
+				 <li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/archive" title="{{=T('Archive')}}">{{=T('Archive')}}</a></li>
+			</div>
+			
+			
      <div class="post-heading">
      
      
@@ -219,11 +227,9 @@
                         <ul class="tags">
                  {{if session.forced_language =='de': }}
              
-                    <li style="display: inline"><a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index">zur aktuellen Ausgabe</a></li>
-                            <li style="display: inline"><a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/archive">Archiv</a></li>
+                    <li style="display: inline"><a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index">zur Zeitschrift</a></li>
              {{elif session.forced_language =='en': }}
-                            <li style="display: inline"><a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index">View Current Issue</a></li>
-                            <li style="display: inline"><a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/archive">Archive</a></li>
+                            <li style="display: inline"><a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index">View journal</a></li>
              
              
 {{pass}}     
@@ -318,6 +324,19 @@
                      Schatten & Licht<br />
                      Ausgabe 7<br />
                      Dezmber 2015
+                     </figcaption>
+                  </figure>
+                  </div>  
+                </li>
+				 <li class="col-lg-2 design">
+                  <div class="item-thumbs">
+                  <figure>
+                     <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/view/2360" title="Online-Ausgabe Ruperto Carola, 'Nord & Süd', Juli 2016"><figure>
+					 <img alt="" src="/static/images/campusmedia/cover_08_2016.jpg" />
+                     <figcaption>
+                     Nord & Süd<br />
+                     Ausgabe 8<br />
+                     Juli 2016
                      </figcaption>
                   </figure>
                   </div>  

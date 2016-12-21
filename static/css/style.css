@@ -2072,8 +2072,8 @@ header .navbar-nav > li {
 }
 
 .navbar .nav > li > a {
-  padding-left: 10px;
-  padding-right: 5px;
+  padding-left: 20px;
+  padding-right: 0;
   margin-left: 10px;
 } 
 
@@ -2231,6 +2231,55 @@ ul.standard li {
 }  
 
 
+/** Spartenmakierung**/
+.spartenMarker {
+  float: right;
+  font-size: 0.8em;
+  text-align: right;
+  width: 180px; 
+}
+
+.spartenMarker a {
+  color: #909090;
+  text-align: right;
+  text-transform: uppercase; 
+}
+
+.spartenMarker a:hover {
+  text-decoration: none;
+}                       
+
+.sparte {
+  float: right;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+ 
+.sparte li {
+ display: table-cell;
+ line-height: 1em; 
+ vertical-align: middle;
+} 
+
+
+.sparte li:nth-child(1) {
+  padding-right: 10px;
+
+}
+
+.sparte li:nth-child(2) {
+  background: #909090;
+  width: 2em;
+  height: 2em; 
+} 
+
+.fa-stop {
+  color: #909090;
+} 
+
+
+
 /**Beirat**/
 
 .media /* auch Beiträge in Aktuelles-Spalte auf Startseite*/ {
@@ -2267,7 +2316,13 @@ figcaption {
 }
 
 
-/*** Footer - Änderungen voe ****/
+/** Button dropdownMenu 1 'Kaufen' etc - Abstand Pfeil **/
+.btn .caret {
+  margin-left: 3px;
+}
+  
+
+/*** Footer ****/
 footer {
   padding-left: 10px;
 }
@@ -2293,22 +2348,21 @@ footer {
 }
 
 
-
-
-
-@media (max-width: 1199px) {
-
-.box-gray {
-    height: auto !important;
+@media (max-width: 459px) /*verhindert, dass die Hauptnavi zweizeilig umbricht*/ {
+.spartenMarker {
+ margin-bottom: 0.5em;
+ width: 100%;
 }
 
+ }
 
-}
+
+
 
 @media (max-width: 991px) /*verhindert, dass die Hauptnavi zweizeilig umbricht*/ {
 .navbar .nav > li > a {
   padding-right: 0px;
-  padding-left: 5px;
+  padding-left: 5;
    font-size: 12px;
 }
 
@@ -2317,6 +2371,14 @@ footer {
 }
 }
 
+@media (max-width: 1199px) {
+
+.box-gray {
+    height: auto !important;
+ }
+}
+
+
 @media (max-width: 1200px) /*verhindert, dass die Hauptnavi zweizeilig umbricht*/ {
 .navbar .nav > li > a {
   margin-left: 10px; 
@@ -2324,9 +2386,8 @@ footer {
 
 } 
 
-@media print {
-
-
+/***Printstyle ***/
+@media print {    
 
 .print {
   display: block;
