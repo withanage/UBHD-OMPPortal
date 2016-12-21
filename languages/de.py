@@ -340,7 +340,7 @@
 'read current issue': 'Aktuelle Ausgabe lesen',
 'Receiver notification': 'Receiver notification',
 'Recipes': 'Rezepte',
-'Recipient': 'Empfänger',
+'Recipient mail': 'Empfängeradresse',
 'Recommend': 'Recommend',
 'Recommend by Email': 'Recommend by Email',
 'Record': 'Eintrag',
