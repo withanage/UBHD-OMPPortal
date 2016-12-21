@@ -198,6 +198,12 @@ def book():
     representatives = ompdal.getRepresentativesBySubmission(submission_id, myconf.take('omp.representative_id_type'))
     
     #stats = OMPStats(myconf, db, locale)
+    form = FORM(INPUT(name='sName', requires=IS_NOT_EMPTY()),
+                INPUT(name='sSName', requires=IS_NOT_EMPTY()),
+                INPUT(name='senderEmail', requires=IS_NOT_EMPTY()),
+                INPUT(name='recipientEmail', requires=IS_NOT_EMPTY()),
+
+                INPUT(type='submit')).process(formname='reccommendform')
     
 
     return locals()
