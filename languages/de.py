@@ -375,7 +375,7 @@
 'Series ##sg': 'Reihe',
 'Services': 'Dienste',
 'set_knv_metadata/': 'set_knv_metadata/',
-'Share': 'Share',
+'Share': 'Empfehlen',
 'Sign Up': 'Sign Up',
 'Size of cache:': 'Cachegröße:',
 'Soon': 'Demnächst',
