@@ -1,0 +1,1900 @@
+{
+  "102-7103-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Felix Michl",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "limitierte Auflage",
+        "type": "volume"
+      }
+    ],
+    "label": "I. Schluss IV – English Summary",
+    "norm_id": "_omphp:102-448",
+    "type": "part"
+  },
+  "102-7104-xml": {
+    "associate_via_hierarchy": [
+      {
+        "label": "Felix Michl",
+        "relation": "creators",
+        "type": "person"
+      }
+    ],
+    "label": "limitierte Auflage",
+    "type": "volume"
+  },
+  "102-7105-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Felix Michl",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "limitierte Auflage",
+        "type": "volume"
+      }
+    ],
+    "label": "D.\tKapitel 3 – Der Limitierungsvertrag",
+    "norm_id": "_omphp:102-270",
+    "type": "part"
+  },
+  "102-7106-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Felix Michl",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "limitierte Auflage",
+        "type": "volume"
+      }
+    ],
+    "label": "G. Schluss II – Zusammenfassung der wesentlichen Ergebnisse der Arbeit",
+    "norm_id": "_omphp:102-273",
+    "type": "part"
+  },
+  "102-7107-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Felix Michl",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "limitierte Auflage",
+        "type": "volume"
+      }
+    ],
+    "label": "H. Schluss III – Zentrale Thesen",
+    "norm_id": "_omphp:102-274",
+    "type": "part"
+  },
+  "102-7108-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Felix Michl",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "limitierte Auflage",
+        "type": "volume"
+      }
+    ],
+    "label": "Vorwort",
+    "norm_id": "_omphp:102-276",
+    "type": "part"
+  },
+  "102-7109-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Felix Michl",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "limitierte Auflage",
+        "type": "volume"
+      }
+    ],
+    "label": "B.\tKapitel 1 – Die rechtstatsächlichen Umstände des Markts für Fotokunst",
+    "norm_id": "_omphp:102-267",
+    "type": "part"
+  },
+  "102-7110-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Felix Michl",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "limitierte Auflage",
+        "type": "volume"
+      }
+    ],
+    "label": "C.\tKapitel 2 – Die Bedeutung der Auflagenlimitierung für den urheberrechtlichen Originalbegriff in der zeitgenössischen Fotokunst",
+    "norm_id": "_omphp:102-269",
+    "type": "part"
+  },
+  "102-7112-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Felix Michl",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "limitierte Auflage",
+        "type": "volume"
+      }
+    ],
+    "label": "E.\tKapitel 4 – Kaufrechtliche Ansprüche aufgrund unrichtiger Limitierungsangaben",
+    "norm_id": "_omphp:102-271",
+    "type": "part"
+  },
+  "102-7114-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Felix Michl",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "limitierte Auflage",
+        "type": "volume"
+      }
+    ],
+    "label": "K. Literaturverzeichnis",
+    "norm_id": "_omphp:102-275",
+    "type": "part"
+  },
+  "102-7118-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Felix Michl",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "limitierte Auflage",
+        "type": "volume"
+      }
+    ],
+    "label": "F.\tSchluss I – Vorschläge für die Praxis",
+    "norm_id": "_omphp:102-272",
+    "type": "part"
+  },
+  "102-7120-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Felix Michl",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "limitierte Auflage",
+        "type": "volume"
+      }
+    ],
+    "label": "Widmung",
+    "norm_id": "_omphp:102-731",
+    "type": "part"
+  },
+  "102-7121-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Felix Michl",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "limitierte Auflage",
+        "type": "volume"
+      }
+    ],
+    "label": "Vorwort",
+    "norm_id": "_omphp:102-276",
+    "type": "part"
+  },
+  "102-7122-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Felix Michl",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "limitierte Auflage",
+        "type": "volume"
+      }
+    ],
+    "label": "Inhaltsverzeichnis",
+    "norm_id": "_omphp:102-732",
+    "type": "part"
+  },
+  "102-7123-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Felix Michl",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "limitierte Auflage",
+        "type": "volume"
+      }
+    ],
+    "label": "A.\tEinleitung – Von der unbegrenzten technischen Reproduzierbarkeit des Kunstwerks zur limitierten Auflage",
+    "norm_id": "_omphp:102-266",
+    "type": "part"
+  },
+  "102-7124-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Felix Michl",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "limitierte Auflage",
+        "type": "volume"
+      }
+    ],
+    "label": "B.\tKapitel 1 – Die rechtstatsächlichen Umstände des Markts für Fotokunst",
+    "norm_id": "_omphp:102-267",
+    "type": "part"
+  },
+  "102-7125-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Felix Michl",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "limitierte Auflage",
+        "type": "volume"
+      }
+    ],
+    "label": "C.\tKapitel 2 – Die Bedeutung der Auflagenlimitierung für den urheberrechtlichen Originalbegriff in der zeitgenössischen Fotokunst",
+    "norm_id": "_omphp:102-269",
+    "type": "part"
+  },
+  "102-7126-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Felix Michl",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "limitierte Auflage",
+        "type": "volume"
+      }
+    ],
+    "label": "D.\tKapitel 3 – Der Limitierungsvertrag",
+    "norm_id": "_omphp:102-270",
+    "type": "part"
+  },
+  "102-7127-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Felix Michl",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "limitierte Auflage",
+        "type": "volume"
+      }
+    ],
+    "label": "E.\tKapitel 4 – Kaufrechtliche Ansprüche aufgrund unrichtiger Limitierungsangaben",
+    "norm_id": "_omphp:102-271",
+    "type": "part"
+  },
+  "102-7128-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Felix Michl",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "limitierte Auflage",
+        "type": "volume"
+      }
+    ],
+    "label": "F.\tSchluss I – Vorschläge für die Praxis",
+    "norm_id": "_omphp:102-272",
+    "type": "part"
+  },
+  "102-7129-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Felix Michl",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "limitierte Auflage",
+        "type": "volume"
+      }
+    ],
+    "label": "G. Schluss II – Zusammenfassung der wesentlichen Ergebnisse der Arbeit",
+    "norm_id": "_omphp:102-273",
+    "type": "part"
+  },
+  "102-7130-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Felix Michl",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "limitierte Auflage",
+        "type": "volume"
+      }
+    ],
+    "label": "H. Schluss III – Zentrale Thesen",
+    "norm_id": "_omphp:102-274",
+    "type": "part"
+  },
+  "102-7131-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Felix Michl",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "limitierte Auflage",
+        "type": "volume"
+      }
+    ],
+    "label": "I. Schluss IV – English Summary",
+    "norm_id": "_omphp:102-448",
+    "type": "part"
+  },
+  "102-7132-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Felix Michl",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "limitierte Auflage",
+        "type": "volume"
+      }
+    ],
+    "label": "K. Literaturverzeichnis",
+    "norm_id": "_omphp:102-275",
+    "type": "part"
+  },
+  "102-7133-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "label": "Felix Michl",
+        "relation": "creators",
+        "type": "person"
+      }
+    ],
+    "label": "limitierte Auflage",
+    "type": "volume"
+  },
+  "102-75322-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Felix Michl",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "limitierte Auflage",
+        "type": "volume"
+      }
+    ],
+    "label": "Titelei",
+    "norm_id": "_omphp:102-723",
+    "type": "part"
+  },
+  "102-851-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Felix Michl",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "limitierte Auflage",
+        "type": "volume"
+      }
+    ],
+    "label": "A.\tEinleitung – Von der unbegrenzten technischen Reproduzierbarkeit des Kunstwerks zur limitierten Auflage",
+    "norm_id": "_omphp:102-266",
+    "type": "part"
+  },
+  "123-7525-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Frankwalt Möhren",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "libro de la cocina",
+        "norm_id": "10.17885/heiup.123.151",
+        "type": "volume"
+      }
+    ],
+    "label": "Preliminari",
+    "norm_id": "_omphp:123-572",
+    "type": "part"
+  },
+  "123-7526-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Frankwalt Möhren",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "libro de la cocina",
+        "norm_id": "10.17885/heiup.123.151",
+        "type": "volume"
+      }
+    ],
+    "label": "Introduzione",
+    "norm_id": "_omphp:123-302",
+    "type": "part"
+  },
+  "123-7527-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Frankwalt Möhren",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "libro de la cocina",
+        "norm_id": "10.17885/heiup.123.151",
+        "type": "volume"
+      }
+    ],
+    "label": "Libro de la cocina: Edizione",
+    "norm_id": "_omphp:123-303",
+    "type": "part"
+  },
+  "123-7528-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Frankwalt Möhren",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "libro de la cocina",
+        "norm_id": "10.17885/heiup.123.151",
+        "type": "volume"
+      }
+    ],
+    "label": "Glossario",
+    "norm_id": "_omphp:123-304",
+    "type": "part"
+  },
+  "123-75294-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "label": "Frankwalt Möhren",
+        "relation": "creators",
+        "type": "person"
+      }
+    ],
+    "label": "libro de la cocina",
+    "norm_id": "10.17885/heiup.123.151",
+    "type": "volume"
+  },
+  "123-75296-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Frankwalt Möhren",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "libro de la cocina",
+        "norm_id": "10.17885/heiup.123.151",
+        "type": "volume"
+      }
+    ],
+    "label": "Avantèsto",
+    "norm_id": "_omphp:123-696",
+    "type": "part"
+  },
+  "123-75297-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Frankwalt Möhren",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "libro de la cocina",
+        "norm_id": "10.17885/heiup.123.151",
+        "type": "volume"
+      }
+    ],
+    "label": "Indice",
+    "norm_id": "_omphp:123-697",
+    "type": "part"
+  },
+  "123-7668-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Frankwalt Möhren",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "libro de la cocina",
+        "norm_id": "10.17885/heiup.123.151",
+        "type": "volume"
+      }
+    ],
+    "label": "Preliminari",
+    "norm_id": "_omphp:123-572",
+    "type": "part"
+  },
+  "123-7669-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Frankwalt Möhren",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "libro de la cocina",
+        "norm_id": "10.17885/heiup.123.151",
+        "type": "volume"
+      }
+    ],
+    "label": "Introduzione",
+    "norm_id": "_omphp:123-302",
+    "type": "part"
+  },
+  "123-7670-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Frankwalt Möhren",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "libro de la cocina",
+        "norm_id": "10.17885/heiup.123.151",
+        "type": "volume"
+      }
+    ],
+    "label": "Libro de la cocina: Edizione",
+    "norm_id": "_omphp:123-303",
+    "type": "part"
+  },
+  "123-7671-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Frankwalt Möhren",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "libro de la cocina",
+        "norm_id": "10.17885/heiup.123.151",
+        "type": "volume"
+      }
+    ],
+    "label": "Glossario",
+    "norm_id": "_omphp:123-304",
+    "type": "part"
+  },
+  "123-7672-xml": {
+    "associate_via_hierarchy": [
+      {
+        "label": "Frankwalt Möhren",
+        "relation": "creators",
+        "type": "person"
+      }
+    ],
+    "label": "libro de la cocina",
+    "norm_id": "10.17885/heiup.123.151",
+    "type": "volume"
+  },
+  "43-199-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Astrid Habenstein",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Abwesenheit von Rom",
+        "norm_id": "10.17885/heiup.43.32",
+        "type": "volume"
+      }
+    ],
+    "label": "Einleitung",
+    "norm_id": "_omphp:43-43",
+    "type": "part"
+  },
+  "43-201-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Astrid Habenstein",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Abwesenheit von Rom",
+        "norm_id": "10.17885/heiup.43.32",
+        "type": "volume"
+      }
+    ],
+    "label": "Einleitung",
+    "norm_id": "_omphp:43-43",
+    "type": "part"
+  },
+  "43-202-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Astrid Habenstein",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Abwesenheit von Rom",
+        "norm_id": "10.17885/heiup.43.32",
+        "type": "volume"
+      }
+    ],
+    "label": "Absenz und aristokratische Lebensführung: Die römische Villa",
+    "norm_id": "_omphp:43-44",
+    "type": "part"
+  },
+  "43-203-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Astrid Habenstein",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Abwesenheit von Rom",
+        "norm_id": "10.17885/heiup.43.32",
+        "type": "volume"
+      }
+    ],
+    "label": "Absenz und aristokratische Lebensführung: Die römische Villa",
+    "norm_id": "_omphp:43-44",
+    "type": "part"
+  },
+  "43-206-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Astrid Habenstein",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Abwesenheit von Rom",
+        "norm_id": "10.17885/heiup.43.32",
+        "type": "volume"
+      }
+    ],
+    "label": "Rückzug, Absenz und aristokratische Politik in der späten Republik und frühen Kaiserzeit",
+    "norm_id": "_omphp:43-45",
+    "type": "part"
+  },
+  "43-207-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Astrid Habenstein",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Abwesenheit von Rom",
+        "norm_id": "10.17885/heiup.43.32",
+        "type": "volume"
+      }
+    ],
+    "label": "Rückzug, Absenz und aristokratische Politik in der späten Republik und frühen Kaiserzeit",
+    "norm_id": "_omphp:43-45",
+    "type": "part"
+  },
+  "43-208-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Astrid Habenstein",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Abwesenheit von Rom",
+        "norm_id": "10.17885/heiup.43.32",
+        "type": "volume"
+      }
+    ],
+    "label": "‚Rückzug‘  und Herrschaft: Der Kaiser",
+    "norm_id": "_omphp:43-46",
+    "type": "part"
+  },
+  "43-209-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Astrid Habenstein",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Abwesenheit von Rom",
+        "norm_id": "10.17885/heiup.43.32",
+        "type": "volume"
+      }
+    ],
+    "label": "‚Rückzug‘  und Herrschaft: Der Kaiser",
+    "norm_id": "_omphp:43-46",
+    "type": "part"
+  },
+  "43-210-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Astrid Habenstein",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Abwesenheit von Rom",
+        "norm_id": "10.17885/heiup.43.32",
+        "type": "volume"
+      }
+    ],
+    "label": "Zusammenfassung",
+    "norm_id": "_omphp:43-47",
+    "type": "part"
+  },
+  "43-211-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Astrid Habenstein",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Abwesenheit von Rom",
+        "norm_id": "10.17885/heiup.43.32",
+        "type": "volume"
+      }
+    ],
+    "label": "Zusammenfassung",
+    "norm_id": "_omphp:43-47",
+    "type": "part"
+  },
+  "43-212-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Astrid Habenstein",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Abwesenheit von Rom",
+        "norm_id": "10.17885/heiup.43.32",
+        "type": "volume"
+      }
+    ],
+    "label": "Quellen- und Literaturverzeichnis",
+    "norm_id": "_omphp:43-48",
+    "type": "part"
+  },
+  "43-213-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Astrid Habenstein",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Abwesenheit von Rom",
+        "norm_id": "10.17885/heiup.43.32",
+        "type": "volume"
+      }
+    ],
+    "label": "Quellen- und Literaturverzeichnis",
+    "norm_id": "_omphp:43-48",
+    "type": "part"
+  },
+  "43-214-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Astrid Habenstein",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Abwesenheit von Rom",
+        "norm_id": "10.17885/heiup.43.32",
+        "type": "volume"
+      }
+    ],
+    "label": "Vorwort und Dank",
+    "norm_id": "_omphp:43-42",
+    "type": "part"
+  },
+  "43-215-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Astrid Habenstein",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Abwesenheit von Rom",
+        "norm_id": "10.17885/heiup.43.32",
+        "type": "volume"
+      }
+    ],
+    "label": "Vorwort und Dank",
+    "norm_id": "_omphp:43-42",
+    "type": "part"
+  },
+  "43-217-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Astrid Habenstein",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Abwesenheit von Rom",
+        "norm_id": "10.17885/heiup.43.32",
+        "type": "volume"
+      }
+    ],
+    "label": "Widmung",
+    "norm_id": "_omphp:43-41",
+    "type": "part"
+  },
+  "43-218-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Astrid Habenstein",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Abwesenheit von Rom",
+        "norm_id": "10.17885/heiup.43.32",
+        "type": "volume"
+      }
+    ],
+    "label": "Widmung",
+    "norm_id": "_omphp:43-41",
+    "type": "part"
+  },
+  "43-219-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Astrid Habenstein",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Abwesenheit von Rom",
+        "norm_id": "10.17885/heiup.43.32",
+        "type": "volume"
+      }
+    ],
+    "label": "Anhang",
+    "norm_id": "_omphp:43-49",
+    "type": "part"
+  },
+  "43-220-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Astrid Habenstein",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Abwesenheit von Rom",
+        "norm_id": "10.17885/heiup.43.32",
+        "type": "volume"
+      }
+    ],
+    "label": "Anhang",
+    "norm_id": "_omphp:43-49",
+    "type": "part"
+  },
+  "43-230-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "label": "Astrid Habenstein",
+        "relation": "creators",
+        "type": "person"
+      }
+    ],
+    "label": "Abwesenheit von Rom",
+    "norm_id": "10.17885/heiup.43.32",
+    "type": "volume"
+  },
+  "43-231-xml": {
+    "associate_via_hierarchy": [
+      {
+        "label": "Astrid Habenstein",
+        "relation": "creators",
+        "type": "person"
+      }
+    ],
+    "label": "Abwesenheit von Rom",
+    "norm_id": "10.17885/heiup.43.32",
+    "type": "volume"
+  },
+  "43-75327-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Astrid Habenstein",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Abwesenheit von Rom",
+        "norm_id": "10.17885/heiup.43.32",
+        "type": "volume"
+      }
+    ],
+    "label": "Titelei",
+    "norm_id": "_omphp:43-730",
+    "type": "part"
+  },
+  "43-75328-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Astrid Habenstein",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Abwesenheit von Rom",
+        "norm_id": "10.17885/heiup.43.32",
+        "type": "volume"
+      }
+    ],
+    "label": "Inhaltsverzeichnis",
+    "norm_id": "_omphp:43-729",
+    "type": "part"
+  },
+  "48-270-pt0": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Marie Sander",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Passing Through Shanghai",
+        "norm_id": "10.17885/heiup.48.42",
+        "type": "volume"
+      }
+    ],
+    "label": "Introduction",
+    "norm_id": "_omphp:48-213",
+    "type": "part"
+  },
+  "48-271-pt1": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Marie Sander",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Passing Through Shanghai",
+        "norm_id": "10.17885/heiup.48.42",
+        "type": "volume"
+      }
+    ],
+    "label": "Part I: Getting Acquainted",
+    "norm_id": "_omphp:48-216",
+    "type": "part"
+  },
+  "48-272-pt2": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Marie Sander",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Passing Through Shanghai",
+        "norm_id": "10.17885/heiup.48.42",
+        "type": "volume"
+      }
+    ],
+    "label": "Part II: Leaving",
+    "norm_id": "_omphp:48-217",
+    "type": "part"
+  },
+  "48-527-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Marie Sander",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Passing Through Shanghai",
+        "norm_id": "10.17885/heiup.48.42",
+        "type": "volume"
+      }
+    ],
+    "label": "Part III: Arriving",
+    "norm_id": "_omphp:48-218",
+    "type": "part"
+  },
+  "48-529-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Marie Sander",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Passing Through Shanghai",
+        "norm_id": "10.17885/heiup.48.42",
+        "type": "volume"
+      }
+    ],
+    "label": "Part IV: Living",
+    "norm_id": "_omphp:48-219",
+    "type": "part"
+  },
+  "48-530-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Marie Sander",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Passing Through Shanghai",
+        "norm_id": "10.17885/heiup.48.42",
+        "type": "volume"
+      }
+    ],
+    "label": "Part V: Moving On",
+    "norm_id": "_omphp:48-220",
+    "type": "part"
+  },
+  "48-585-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Marie Sander",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Passing Through Shanghai",
+        "norm_id": "10.17885/heiup.48.42",
+        "type": "volume"
+      }
+    ],
+    "label": "Dedication and Motto",
+    "norm_id": "_omphp:48-214",
+    "type": "part"
+  },
+  "48-586-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Marie Sander",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Passing Through Shanghai",
+        "norm_id": "10.17885/heiup.48.42",
+        "type": "volume"
+      }
+    ],
+    "label": "Acknowledgements",
+    "norm_id": "_omphp:48-215",
+    "type": "part"
+  },
+  "48-587-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Marie Sander",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Passing Through Shanghai",
+        "norm_id": "10.17885/heiup.48.42",
+        "type": "volume"
+      }
+    ],
+    "label": "Introduction",
+    "norm_id": "_omphp:48-213",
+    "type": "part"
+  },
+  "48-588-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Marie Sander",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Passing Through Shanghai",
+        "norm_id": "10.17885/heiup.48.42",
+        "type": "volume"
+      }
+    ],
+    "label": "Part I: Getting Acquainted",
+    "norm_id": "_omphp:48-216",
+    "type": "part"
+  },
+  "48-589-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Marie Sander",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Passing Through Shanghai",
+        "norm_id": "10.17885/heiup.48.42",
+        "type": "volume"
+      }
+    ],
+    "label": "Part II: Leaving",
+    "norm_id": "_omphp:48-217",
+    "type": "part"
+  },
+  "48-590-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Marie Sander",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Passing Through Shanghai",
+        "norm_id": "10.17885/heiup.48.42",
+        "type": "volume"
+      }
+    ],
+    "label": "Part III: Arriving",
+    "norm_id": "_omphp:48-218",
+    "type": "part"
+  },
+  "48-591-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Marie Sander",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Passing Through Shanghai",
+        "norm_id": "10.17885/heiup.48.42",
+        "type": "volume"
+      }
+    ],
+    "label": "Part IV: Living",
+    "norm_id": "_omphp:48-219",
+    "type": "part"
+  },
+  "48-592-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Marie Sander",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Passing Through Shanghai",
+        "norm_id": "10.17885/heiup.48.42",
+        "type": "volume"
+      }
+    ],
+    "label": "Part V: Moving On",
+    "norm_id": "_omphp:48-220",
+    "type": "part"
+  },
+  "48-593-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Marie Sander",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Passing Through Shanghai",
+        "norm_id": "10.17885/heiup.48.42",
+        "type": "volume"
+      }
+    ],
+    "label": "Appendix",
+    "norm_id": "_omphp:48-221",
+    "type": "part"
+  },
+  "48-594-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Marie Sander",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Passing Through Shanghai",
+        "norm_id": "10.17885/heiup.48.42",
+        "type": "volume"
+      }
+    ],
+    "label": "Bibliography",
+    "norm_id": "_omphp:48-222",
+    "type": "part"
+  },
+  "48-595-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Marie Sander",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Passing Through Shanghai",
+        "norm_id": "10.17885/heiup.48.42",
+        "type": "volume"
+      }
+    ],
+    "label": "Bibliography",
+    "norm_id": "_omphp:48-222",
+    "type": "part"
+  },
+  "48-596-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Marie Sander",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Passing Through Shanghai",
+        "norm_id": "10.17885/heiup.48.42",
+        "type": "volume"
+      }
+    ],
+    "label": "Dedication and Motto",
+    "norm_id": "_omphp:48-214",
+    "type": "part"
+  },
+  "48-597-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Marie Sander",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Passing Through Shanghai",
+        "norm_id": "10.17885/heiup.48.42",
+        "type": "volume"
+      }
+    ],
+    "label": "Acknowledgements",
+    "norm_id": "_omphp:48-215",
+    "type": "part"
+  },
+  "48-598-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Marie Sander",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Passing Through Shanghai",
+        "norm_id": "10.17885/heiup.48.42",
+        "type": "volume"
+      }
+    ],
+    "label": "Appendix",
+    "norm_id": "_omphp:48-221",
+    "type": "part"
+  },
+  "48-599-xml": {
+    "associate_via_hierarchy": [
+      {
+        "label": "Marie Sander",
+        "relation": "creators",
+        "type": "person"
+      }
+    ],
+    "label": "Passing Through Shanghai",
+    "norm_id": "10.17885/heiup.48.42",
+    "type": "volume"
+  },
+  "48-600-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "label": "Marie Sander",
+        "relation": "creators",
+        "type": "person"
+      }
+    ],
+    "label": "Passing Through Shanghai",
+    "norm_id": "10.17885/heiup.48.42",
+    "type": "volume"
+  },
+  "48-75325-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Marie Sander",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Passing Through Shanghai",
+        "norm_id": "10.17885/heiup.48.42",
+        "type": "volume"
+      }
+    ],
+    "label": "Front Matter",
+    "norm_id": "_omphp:48-728",
+    "type": "part"
+  },
+  "48-75326-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Marie Sander",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Passing Through Shanghai",
+        "norm_id": "10.17885/heiup.48.42",
+        "type": "volume"
+      }
+    ],
+    "label": "Table of Contents",
+    "norm_id": "_omphp:48-727",
+    "type": "part"
+  },
+  "90-689-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Wolfgang Kemp",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Wir haben ja alle Deutschland nicht gekannt",
+        "norm_id": "10.17885/heiup.90.106",
+        "type": "volume"
+      }
+    ],
+    "label": "Danksagung",
+    "norm_id": "_omphp:90-260",
+    "type": "part"
+  },
+  "90-690-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Wolfgang Kemp",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Wir haben ja alle Deutschland nicht gekannt",
+        "norm_id": "10.17885/heiup.90.106",
+        "type": "volume"
+      }
+    ],
+    "label": "Landgewinn: Ein Vorwort",
+    "norm_id": "_omphp:90-256",
+    "type": "part"
+  },
+  "90-692-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Wolfgang Kemp",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Wir haben ja alle Deutschland nicht gekannt",
+        "norm_id": "10.17885/heiup.90.106",
+        "type": "volume"
+      }
+    ],
+    "label": "Erster Teil: Deutsche Vielfalt, ihre Freunde und ihre Feinde",
+    "norm_id": "_omphp:90-257",
+    "type": "part"
+  },
+  "90-702-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Wolfgang Kemp",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Wir haben ja alle Deutschland nicht gekannt",
+        "norm_id": "10.17885/heiup.90.106",
+        "type": "volume"
+      }
+    ],
+    "label": "Zweiter Teil: Das Land der Deutschen",
+    "norm_id": "_omphp:90-258",
+    "type": "part"
+  },
+  "90-703-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Wolfgang Kemp",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Wir haben ja alle Deutschland nicht gekannt",
+        "norm_id": "10.17885/heiup.90.106",
+        "type": "volume"
+      }
+    ],
+    "label": "Dritter Teil: Deutschland, das Land der Städte",
+    "norm_id": "_omphp:90-259",
+    "type": "part"
+  },
+  "90-704-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Wolfgang Kemp",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Wir haben ja alle Deutschland nicht gekannt",
+        "norm_id": "10.17885/heiup.90.106",
+        "type": "volume"
+      }
+    ],
+    "label": "Bildnachweis",
+    "norm_id": "_omphp:90-262",
+    "type": "part"
+  },
+  "90-705-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Wolfgang Kemp",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Wir haben ja alle Deutschland nicht gekannt",
+        "norm_id": "10.17885/heiup.90.106",
+        "type": "volume"
+      }
+    ],
+    "label": "Bibliographie",
+    "norm_id": "_omphp:90-261",
+    "type": "part"
+  },
+  "90-706-xml": {
+    "associate_via_hierarchy": [
+      {
+        "label": "Wolfgang Kemp",
+        "relation": "creators",
+        "type": "person"
+      }
+    ],
+    "label": "Wir haben ja alle Deutschland nicht gekannt",
+    "norm_id": "10.17885/heiup.90.106",
+    "type": "volume"
+  },
+  "90-707-xml": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Wolfgang Kemp",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Wir haben ja alle Deutschland nicht gekannt",
+        "norm_id": "10.17885/heiup.90.106",
+        "type": "volume"
+      }
+    ],
+    "label": "Anmerkungen",
+    "norm_id": "_omphp:90-265",
+    "type": "part"
+  },
+  "90-708-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Wolfgang Kemp",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Wir haben ja alle Deutschland nicht gekannt",
+        "norm_id": "10.17885/heiup.90.106",
+        "type": "volume"
+      }
+    ],
+    "label": "Landgewinn: Ein Vorwort",
+    "norm_id": "_omphp:90-256",
+    "type": "part"
+  },
+  "90-709-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Wolfgang Kemp",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Wir haben ja alle Deutschland nicht gekannt",
+        "norm_id": "10.17885/heiup.90.106",
+        "type": "volume"
+      }
+    ],
+    "label": "Erster Teil: Deutsche Vielfalt, ihre Freunde und ihre Feinde",
+    "norm_id": "_omphp:90-257",
+    "type": "part"
+  },
+  "90-710-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Wolfgang Kemp",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Wir haben ja alle Deutschland nicht gekannt",
+        "norm_id": "10.17885/heiup.90.106",
+        "type": "volume"
+      }
+    ],
+    "label": "Zweiter Teil: Das Land der Deutschen",
+    "norm_id": "_omphp:90-258",
+    "type": "part"
+  },
+  "90-711-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Wolfgang Kemp",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Wir haben ja alle Deutschland nicht gekannt",
+        "norm_id": "10.17885/heiup.90.106",
+        "type": "volume"
+      }
+    ],
+    "label": "Dritter Teil: Deutschland, das Land der Städte",
+    "norm_id": "_omphp:90-259",
+    "type": "part"
+  },
+  "90-712-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Wolfgang Kemp",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Wir haben ja alle Deutschland nicht gekannt",
+        "norm_id": "10.17885/heiup.90.106",
+        "type": "volume"
+      }
+    ],
+    "label": "Danksagung",
+    "norm_id": "_omphp:90-260",
+    "type": "part"
+  },
+  "90-713-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Wolfgang Kemp",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Wir haben ja alle Deutschland nicht gekannt",
+        "norm_id": "10.17885/heiup.90.106",
+        "type": "volume"
+      }
+    ],
+    "label": "Anmerkungen",
+    "norm_id": "_omphp:90-265",
+    "type": "part"
+  },
+  "90-714-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Wolfgang Kemp",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Wir haben ja alle Deutschland nicht gekannt",
+        "norm_id": "10.17885/heiup.90.106",
+        "type": "volume"
+      }
+    ],
+    "label": "Bibliographie",
+    "norm_id": "_omphp:90-261",
+    "type": "part"
+  },
+  "90-715-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Wolfgang Kemp",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Wir haben ja alle Deutschland nicht gekannt",
+        "norm_id": "10.17885/heiup.90.106",
+        "type": "volume"
+      }
+    ],
+    "label": "Bildnachweis",
+    "norm_id": "_omphp:90-262",
+    "type": "part"
+  },
+  "90-716-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "label": "Wolfgang Kemp",
+        "relation": "creators",
+        "type": "person"
+      }
+    ],
+    "label": "Wir haben ja alle Deutschland nicht gekannt",
+    "norm_id": "10.17885/heiup.90.106",
+    "type": "volume"
+  },
+  "90-75323-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Wolfgang Kemp",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Wir haben ja alle Deutschland nicht gekannt",
+        "norm_id": "10.17885/heiup.90.106",
+        "type": "volume"
+      }
+    ],
+    "label": "Titelei",
+    "norm_id": "_omphp:90-724",
+    "type": "part"
+  },
+  "90-75324-pdf": {
+    "associate_via_hierarchy": [
+      {
+        "associate_via_hierarchy": [
+          {
+            "label": "Wolfgang Kemp",
+            "relation": "creators",
+            "type": "person"
+          }
+        ],
+        "label": "Wir haben ja alle Deutschland nicht gekannt",
+        "norm_id": "10.17885/heiup.90.106",
+        "type": "volume"
+      }
+    ],
+    "label": "Inhaltsverzeichnis",
+    "norm_id": "_omphp:90-725",
+    "type": "part"
+  }
+}
