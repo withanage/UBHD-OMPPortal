@@ -128,6 +128,7 @@ def oastatistik():
             if part_authors:
                 bookpart["associate_via_hierarchy"] = [part_authors]
             subs[file_id] = bookpart
+            subs[file_id]["associate_via_hierarchy"] = [fullbook]
 
 
 
