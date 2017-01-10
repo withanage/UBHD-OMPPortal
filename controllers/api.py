@@ -83,15 +83,6 @@ def oastatistik():
             fullbook["norm_id"] = publication_format_settings_doi['setting_value']
         fullbook["associate_via_hierarchy"] = [authors]
 
-        '''
-      if request.vars.ids:
-        for j in filter_ids:
-          if str(j) == str(book_id.submission_id):
-            subs[book_id.submission_id] = fullbook
-
-      else:
-          subs[book_id.submission_id] = fullbook
-      '''
 
         chapters = db(
             (db.submission_chapters.submission_id == book_id['submission_id']) & (
@@ -107,7 +98,7 @@ def oastatistik():
                 db.submission_files.original_file_name).first()['original_file_name'].rsplit('.')[1]
             file_id = str(book_id['submission_id']) + '-' + \
                 str(c['submission_file_settings']['file_id']) + '-' + str(type)
-            part_filter = False
+            part_filter = True
             if request.vars.ids:
                 for j in filter_ids:
                     if str(file_id) == str(j):
@@ -123,7 +114,7 @@ def oastatistik():
                 bookpart = {}
                 if part_title:
                     bookpart["label"] = part_title['setting_value']
-                bookpart["norm_id"] = myconf.take('oastatistik.id') + ':' + chapter_id
+                bookpart["norm_id"] = myconf.take('statistik.id') + ':' + chapter_id
                 bookpart["type"] = "part"
                 part_authors = []
                 author_id_list = db(
@@ -144,7 +135,7 @@ def oastatistik():
                     bookpart["associate_via_hierarchy"] = [part_authors]
                 subs[file_id] = bookpart
                 subs[file_id]["associate_via_hierarchy"] = [fullbook]
-           
+
 
     return sj.dumps(subs, separators=(',', ':'), sort_keys=True)
 
