@@ -68,7 +68,9 @@ def oastatistik():
             full["label"] = title
             full["type"] = "volume"
             full["associate_via_hierarchy"] = [authors]
-            full["norm_id"] = str(book_id.submission_id)
+            #full["norm_id"] = str(book_id.submission_id)
+            if publication_format_settings_doi:
+                full["norm_id"] = publication_format_settings_doi['setting_value']
             file_name = str(book_id.submission_id)+'-'+str(f.file_id)+'-'+str(f.original_file_name.rsplit('.')[1])
             subs[file_name] = full
 
