@@ -21,16 +21,11 @@ def oastatistik():
     submissions = db(query).select(db.submission_settings.ALL, orderby=db.submissions.submission_id)
     subs = {}
     title, publication_format_settings_doi = '', None
-    filter_ids = []
-    if request.vars.ids:
-        filter_ids = request.vars.ids.split(',')
-
     for book_id in submissions:
 
         # full book
         publication_format_settings = db(
             (db.publication_format_settings.setting_name == 'name') & (
-                db.publication_format_settings.locale == locale) & (
                 db.publication_formats.submission_id == book_id['submission_id']) & (
                 db.publication_formats.publication_format_id == db.publication_format_settings.publication_format_id)).select(
                     db.publication_format_settings.publication_format_id,
@@ -68,9 +63,11 @@ def oastatistik():
             full["label"] = title
             full["type"] = "volume"
             full["associate_via_hierarchy"] = [authors]
-            #full["norm_id"] = str(book_id.submission_id)
+
             if publication_format_settings_doi:
                 full["norm_id"] = publication_format_settings_doi['setting_value']
+            else :
+             full["norm_id"] = "XXXXXXXXXXXXXXXXXXXX"
             file_name = str(book_id.submission_id)+'-'+str(f.file_id)+'-'+str(f.original_file_name.rsplit('.')[1])
             subs[file_name] = full
 
