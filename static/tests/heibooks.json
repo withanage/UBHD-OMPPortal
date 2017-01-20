@@ -5,7 +5,7 @@
       "name": "Book without chapters",
       "description": "",
       "group": "hard",
-      "controller": "catalog2",
+      "controller": "catalog",
       "function": "book",
       "arguments": [
         200
