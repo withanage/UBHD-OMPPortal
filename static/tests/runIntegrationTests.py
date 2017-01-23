@@ -3,6 +3,8 @@ __author__ = "Nils Weiher, Dulip Withanage"
 
 from gluon.contrib.webclient import WebClient
 import os, json, sys
+from bs4 import BeautifulSoup
+
 
 
 
@@ -10,7 +12,10 @@ class IntegrationTests:
     def __init__(self):
         self.web_application = myconf.take("web.application")
         self.web_url = myconf.take("web.url")
-        self.config = self.read_json("applications/" + self.web_application + "/static/tests/heibooks.json")
+        #print self.web_url
+        self.config = self.read_json("applications/" + self.web_application + "/static/tests/configuration.json")
+        print self.config
+
 
     def get_host(self, url):
         return url.split('//')[-1]
@@ -18,20 +23,22 @@ class IntegrationTests:
 
     def read_json(self, f):
         if os.path.isfile(f):
-            print f
+            #print f
             with open(f) as j:
                 return json.load(j)
         else:
+            #TODO log
             sys.exit(1)
 
 
     def run(self):
+        print 'run'
         tests = self.config.get("tests")
         if tests:
-            # Sort tests by key
             for t in tests:
                 self.run_test(t, tests[t])
-
+        else:
+            print 'no config'
 
     def run_test(self, test_num, test):
         print "num: " + test_num, test
@@ -45,11 +52,17 @@ class IntegrationTests:
         try:
             client = WebClient(url, postbacks=True)
             client.get("")
+            # TODO  status test
+            print client.status
+
         except Exception as e:
             print e
-            print "Test failed!"
-        print client.text
-        print client.status
+
+        pd =  BeautifulSoup(client.text, 'html.parser')
+        print pd.head
+        print test['name']w
+
+
 
     def make_w2py_url(self, test):
         url = URL(c=test.get('controller'), f=str(test.get('function')), args=test.get('arguments'),
