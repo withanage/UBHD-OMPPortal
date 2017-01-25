@@ -84,6 +84,10 @@ def index():
                              OMPSettings(ompdal.getSubmissionSettings(submission_row.submission_id)),
                              {'authors': authors, 'editors': editors}
         )
+        category_row = ompdal.getCategoryBySubmissionId(submission_row.submission_id)
+        if category_row:
+            submission.associated_items['category'] = OMPItem(category_row, OMPSettings(ompdal.getCategorySettings(category_row.category_id)))
+
         series_row = ompdal.getSeries(submission_row.series_id)
         if series_row:
             submission.associated_items['series'] = OMPItem(series_row, OMPSettings(ompdal.getSeriesSettings(series_row.series_id)))
@@ -92,8 +96,8 @@ def index():
             
         submissions.append(submission)
 
-    submissions = sorted(submissions, key=lambda s: min(s.associated_items.get('publication_dates', [datetime(1, 1, 1)])), reverse = True)
-    
+    #submissions = sorted(submissions, key=lambda s: min(s.associated_items.get('publication_dates', [datetime(1, 1, 1)])), reverse = True)
+
     return locals()
 
 
