@@ -221,9 +221,9 @@ $('.flexslider').flexslider();
                       <p class="media-heading">26.09.2016<br>
                       {{if session.forced_language =='de': }} <span class="h5">Neu erschienen bei Heidelberg University Publishing / Campus Media: <i>Die Alte Aula der Universität Heidelberg</i></span>{{elif session.forced_language =='en': }} <span class="h5">Newly published in Heidelberg University Publishing / Campus Media: <i>Die Alte Aula der Universität Heidelberg</i></span>{{pass}}</p> 
 
-                      <p class="boxText">{{if session.forced_language =='de': }}Geschichte und Gestaltung des berühmten Festsaales der Heidelberger Universität bilden die Themen des von Heike Hawicks und Ingo Runde herausgegebenen Bandes <i><a href="/heiup/campusmedia/alte_aula">Die Alte Aula der Universität Heidelberg</a></i>. Mit zahlreichen farbigen Abbildungen ausgestattet, zeigt das Buch sehr anschaulich die Pracht des Raumes und seine wechselvolle Vergangenheit.
+                      <p class="boxText">{{if session.forced_language =='de': }}Geschichte und Gestaltung des berühmten Festsaales der Heidelberger Universität bilden die Themen des von Heike Hawicks und Ingo Runde herausgegebenen Bandes <i><a href="/catalog/book/122">Die Alte Aula der Universität Heidelberg</a></i>. Mit zahlreichen farbigen Abbildungen ausgestattet, zeigt das Buch sehr anschaulich die Pracht des Raumes und seine wechselvolle Vergangenheit.
                       {{elif session.forced_language =='en': }}                     
-                       Geschichte und Gestaltung des berühmten Festsaales der Heidelberger Universität bilden die Themen des von Heike Hawicks und Ingo Runde herausgegebenen Bandes <i><a href="/heiup/campusmedia/alte_aula">Die Alte Aula der Universität Heidelberg</a></i>. Mit zahlreichen farbigen Abbildungen ausgestattet, zeigt das Buch sehr anschaulich die Pracht des Raumes und seine wechselvolle Vergangenheit.                  
+                       Geschichte und Gestaltung des berühmten Festsaales der Heidelberger Universität bilden die Themen des von Heike Hawicks und Ingo Runde herausgegebenen Bandes <i><a href="/catalog/book/122">Die Alte Aula der Universität Heidelberg</a></i>. Mit zahlreichen farbigen Abbildungen ausgestattet, zeigt das Buch sehr anschaulich die Pracht des Raumes und seine wechselvolle Vergangenheit.                  
                       {{pass}}
                       </p>
                     </div>
@@ -389,9 +389,9 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
                 <div class="box">
                   <div class="box-gray aligncenter">
                     <h4>Campus Media</h4>
-					{{=IMG(_src=URL('static','images/campusmedia/cover_alte_aula.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
+					{{=IMG(_src=URL('static','files/presses/6/monographs/122/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
                   </div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('campusmedia','alte_aula'))}}
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/122'))}}
                   </div>
                 </div>
               </div>
