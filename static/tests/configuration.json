@@ -1,0 +1,37 @@
+{
+  "env": {},
+  "tests": {
+    "1": {
+      "name": "Book without chapters",
+      "description": "",
+      "group": "hard",
+      "controller": "catalog",
+      "function": "book",
+      "arguments": [
+        102
+      ],
+      "vars": {
+        "lang": "en"
+     },
+      "asserts": [
+        {
+          "citation_test":{
+           "tags":[
+             {"a":
+             [
+               {"data-target":"#citationModal"}
+             ]
+             },
+             {
+               "div":[
+                 {"id":"citationModal"},
+                 {"class": "modal fade"}
+               ]
+             }
+           ]
+          }
+        }
+      ]
+    }
+  }
+}

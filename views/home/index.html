@@ -17,25 +17,58 @@ $('.flexslider').flexslider();
               <li>{{if session.forced_language =='de': }} 
               <img alt="" id="hup-logo" src="{{=URL('static','images/press/slideshow/01_claim_tablet.de.jpg')}}" />
               <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('Das Profil von heiUP')}}</h3>
-                <a href="./about_us/profile.html" class="btn btn-theme">Mehr</a>
+                {{=A(T('More'),_href=URL('about_us','profile'), _class='btn btn-theme')}}
+                <!--<a href="./about_us/profile.html" class="btn btn-theme">Mehr</a>-->
               </div>{{elif session.forced_language =='en': }} 
               <img alt="" id="hup-logo" src="{{=URL('static','images/press/slideshow/01_claim_tablet.en.jpg')}}" />
               <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('heiUP Profile')}}</h3>
-                <a href="./about_us/profile.html" class="btn btn-theme">More Information</a>
+                {{=A(T('More Information'),_href=URL('about_us','profile'), _class='btn btn-theme')}}
+                <!--<a href="./about_us/profile.html" class="btn btn-theme">More Information</a>-->
               </div>{{pass}} 
               </li>
               <li>
+              <img alt="" id="hup-logo2" src="{{=URL('static','images/press/slideshow/02_cover_michl.jpg')}}" />
+              {{if session.forced_language =='de': }} 
+              <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('Felix M. Michl Die limitierte Auflage')}}</h3>
+                {{=A(T('More'),_href=URL('catalog','book/102'), _class='btn btn-theme')}}    
+
+              </div>
+              {{elif session.forced_language =='en': }} 
+              <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('Felix M. Michl Die limitierte Auflage')}}</h3>
+                {{=A(T('More Information'),_href=URL('catalog','book/102'), _class='btn btn-theme')}}
+
+              </div>
+              {{pass}} 
+              </li>
+              <li>
+              <img alt="" id="hup-logo2" src="{{=URL('static','images/press/slideshow/03_cover_moehren.jpg')}}" />
+              {{if session.forced_language =='de': }} 
+              <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('Frankwalt Möhren Il libro de la cocina')}}</h3>
+                {{=A(T('More'),_href=URL('catalog','book/123'), _class='btn btn-theme')}}    
+
+              </div>
+              {{elif session.forced_language =='en': }} 
+              <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('Frankwalt Möhren Il libro de la cocina')}}</h3>
+                {{=A(T('More Information'),_href=URL('catalog','book/123'), _class='btn btn-theme')}}
+
+              </div>
+              {{pass}} 
+              </li>               
+              <!--<li>
               <img alt="" id="hup-logo2" src="{{=URL('static','images/press/slideshow/02_cover_kemp.jpg')}}" />{{if session.forced_language =='de': }} 
               <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('Wolfgang Kemp Wir haben ja alle Deutschland nicht gekannt')}}</h3>
-                <a href="./catalog/book/90" class="btn btn-theme">Mehr</a>
+                {{=A(T('More'),_href=URL('catalog','book/90'), _class='btn btn-theme')}}    
+
+
               </div>{{elif session.forced_language =='en': }} 
               <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('Wolfgang Kemp Wir haben ja alle Deutschland nicht gekannt')}}</h3>
-                <a href="./catalog/book/90" class="btn btn-theme">More Information</a>
+                {{=A(T('More Information'),_href=URL('catalog','book/90'), _class='btn btn-theme')}}
+
               </div>{{pass}} 
-              </li>
+              </li>-->
               <li>
-              <img alt="" id="hup-logo3" src="{{=URL('static','images/press/slideshow/03_ub_treppenhaus.jpg')}}" />{{if session.forced_language =='de': }} 
-              <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('UB Heidelberg Digitale Informations- versorgung')}}</h3>
+              <img alt="" id="hup-logo3" src="{{=URL('static','images/press/slideshow/04_ub_treppenhaus.jpg')}}" />{{if session.forced_language =='de': }} 
+              <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('UB Heidelberg Digitale Informations- versorgung')}}</h3>              
                 <a href="http://www.ub.uni-heidelberg.de/Welcome.html" class="btn btn-theme">Mehr</a>
               </div>{{elif session.forced_language =='en': }} 
               <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('Heidelberg University Library - Digital Information Supply')}}</h3>
@@ -43,16 +76,16 @@ $('.flexslider').flexslider();
               </div>{{pass}} 
               </li>
               <li>
-              <img alt="" id="hup-logo4" src="{{=URL('static','images/press/slideshow/04_alte_universitaet.jpg')}}" />{{if session.forced_language =='de': }} 
+              <img alt="" id="hup-logo4" src="{{=URL('static','images/press/slideshow/05_alte_universitaet.jpg')}}" />{{if session.forced_language =='de': }} 
               <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('heiUP Der Beirat')}}</h3>
-                <a href="./about_us/advisory_board.html" class="btn btn-theme">Mehr</a>
-              </div>{{elif session.forced_language =='en': }} 
+                {{=A(T('More'),_href=URL('about_us','advisory_board'), _class='btn btn-theme')}}              
+                </div>{{elif session.forced_language =='en': }} 
               <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('heiUP Advisory Board')}}</h3>
-                <a href="./about_us/advisory_board.html" class="btn btn-theme">More Information</a>
-              </div>{{pass}} 
+                {{=A(T('More Information'),_href=URL('about_us','advisory_board'), _class='btn btn-theme')}}              
+                </div>{{pass}} 
               </li>
               <li>
-              <img alt="" id="hup-logo5" src="{{=URL('static','images/press/slideshow/05_dem_lebendigen_geist.jpg')}}" />{{if session.forced_language =='de': }} 
+              <img alt="" id="hup-logo5" src="{{=URL('static','images/press/slideshow/06_dem_lebendigen_geist.jpg')}}" />{{if session.forced_language =='de': }} 
               <!--<div class="flex-caption hidden-xs hidden-sm"> 
               <h3>{{=T('"Dem lebendigen Geist" Motto der Universität')}}</h3> 
               <p></p> 
@@ -86,7 +119,7 @@ $('.flexslider').flexslider();
               {{elif session.forced_language =='en': }}                       
                 <h4>New Titles</h4>
                 {{pass}}
-				{{=IMG(_src=URL('static','images/catalog/Cover_Moehren_OMP_300.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}				  
+				      {{=IMG(_src=URL('static','images/catalog/Cover_Moehren_OMP_300.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}				  
                   </div>
                   <div class="box-bottom">
                     {{=A(T('More Information'),_href=URL('catalog','book/123'))}}
@@ -103,14 +136,35 @@ $('.flexslider').flexslider();
                   </p>{{pass}} 
                 </div>
                 <div class="box-bottom">{{if session.forced_language =='de': }} 
-                  <a href="http://heiup.uni-heidelberg.de/about_us/mission_statement/">Mehr</a>{{elif session.forced_language =='en': }} 
-                  <a href="http://heiup.uni-heidelberg.de/about_us/mission_statement/">More Information</a>{{pass}} 
+                    {{=A(T('More Information'),_href=URL('about_us','mission_statement'))}}
+                  <!--<a href="http://heiup.uni-heidelberg.de/about_us/mission_statement/">Mehr</a>-->
+                  {{elif session.forced_language =='en': }} 
+                    {{=A(T('More Information'),_href=URL('about_us','mission_statement'))}}
+                  <!--<a href="http://heiup.uni-heidelberg.de/about_us/mission_statement/">More Information</a>-->
+                  
+                  {{pass}} 
                 </div>
               </div>
             </div>
             <div id="boxAktuelles" class="col-lg-6">
               <div class="box">
                 <div class="box-gray aligncenter" style="overflow-y: scroll">{{if session.forced_language =='de': }} <h4>Aktuelles</h4>{{elif session.forced_language =='en': }} <h4>News</h4>{{pass}} 	
+                   <div class="media">
+                    <div class="media-left pull-left">
+                      <img alt="" src="{{=URL('static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
+                    </div>
+					<div class="media-body">
+                      <p class="media-heading">03.01.17<br>
+                      {{if session.forced_language =='de': }} <span class="h5">Frisch erschienen: Die neue Ausgabe von Online – Heidelberg Journal of Religions on the Internet</span>{{elif session.forced_language =='en': }} <span class="h5">Freshly published: The new edition of Online – Heidelberg Journal of Religions on the Internet</span>{{pass}}</p> 
+
+                      <p class="boxText">{{if session.forced_language =='de': }}
+                      Themen dieser <a href="http://heiup.uni-heidelberg.de/journals/index.php/religions/index" title="Homepage des Online Journals 'Religions on the Internet'">Ausgabe</a> unter anderem:  Konflikt- und Affektverhalten konservativer Christen auf Facebook, die Bedeutung von Web 2.0 für Dschihadistinnen sowie Judentum, Christentum und Buddhismus in der englischsprachigen Wikipedia.
+                      {{elif session.forced_language =='en': }}                     
+                      Topics of this <a href="http://heiup.uni-heidelberg.de/journals/index.php/religions/index" title="Homepage of online journal 'Religions on the Internet'">issue</a> are (inter alia): a case study of conflicts on Facebook, the importance of Web 2.0 for female jihadists, and the use of religious terms on Wikipedia.       
+                      {{pass}}
+                      </p>
+                    </div>
+				  </div>		
                    <div class="media">
                     <div class="media-left pull-left">
                       <img alt="" src="{{=URL('static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
@@ -323,9 +377,9 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
                   {{elif session.forced_language =='en': }}
                   <h4>New titles</h4>
                   {{pass}}
-				  {{=IMG(_src=URL('static','images/catalog/Cover_Kemp_OMP.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}} 
+				  {{=IMG(_src=URL('static','images/journals/religions.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}} 
                 </div>
-                <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/90'))}} 
+                <div class="box-bottom">{{=A(T('More Information'),_href=URL('journals','religions'))}} 
                 </div>
                 </div>
               </div>
@@ -345,10 +399,10 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
             <div class="col-lg-3">
                 <div class="box">
                   <div class="box-gray aligncenter">
-                    <h4>Campus Media</h4>
-					{{=IMG(_src=URL('static','images/campusmedia/cover_09_2016.png'),_alt='',_style='width:145px', _class='bildrahmen')}}
+                    <h4>{{if session.forced_language =='de': }}Erscheint demnächst{{elif session.forced_language =='en': }}Coming soon{{pass}}</h4>
+					{{=IMG(_src=URL('static','images/catalog/Cover_anders_altern_OMP_300.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
                   </div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('campusmedia','ruperto_carola'))}}
+                  <div class="box-bottom">&nbsp;
                   </div>
                 </div>
               </div>

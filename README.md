@@ -18,6 +18,7 @@ Table of Contents
     * [Folder structure](#folder-structure)
     * [Additional information for customizations](#additional-information-for-customizations)
   * [License](#license)
+  *[Credits](#Credits)
 
 # Demo
 - Heidelberg University Publishing  [Web](http://heiup.uni-heidelberg.de/)
@@ -108,4 +109,13 @@ Table of Contents
 # License
 This software is released under the the [GNU General Public License](LICENSE.md).
 See the file [LICENSE.md](LICENSE.md) included with this distribution for the terms of this license.
+
+# Credits
+The lead deveopper and software architect is Dulip Withanage, Heidelberg University Library
+
+Additional contributions were made, in alphabetical order by:
+
+Katharina Wäschle , Heidelberg University Library
+Nils Weiher,  Heidelberg University Library
+Web-Team, University Library Heidelberg
 

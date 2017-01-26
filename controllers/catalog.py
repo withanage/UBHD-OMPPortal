@@ -198,6 +198,7 @@ def book():
     representatives = ompdal.getRepresentativesBySubmission(submission_id, myconf.take('omp.representative_id_type'))
     
     #stats = OMPStats(myconf, db, locale)
-    
+
+
 
     return locals()
