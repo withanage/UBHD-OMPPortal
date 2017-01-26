@@ -8,6 +8,21 @@ LICENSE.md
 import gluon.contrib.simplejson as sj
 from ompdal import OMPDAL
 from ompcsl import OMPCSL
+from os.path import  join
+@request.restful()
+def index():
+    response.view = 'generic.json'
+
+    def GET(*args, **vars):
+        l = ['catalog','csl','oastatistik']
+        url = join(request.env.http_host,request.application, request.controller)
+        apis = {}
+        for i in l:
+            apis[i]= join(url,i)
+        return apis
+
+    response.headers['Content-Type'] = 'application/json'
+    return locals()
 
 def oastatistik():
     locale = 'de_DE'
