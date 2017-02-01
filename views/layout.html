@@ -117,8 +117,19 @@
 
 
     {{if response.menu:}}
-          {{=MENU(response.menu, _class='nav navbar-nav',li_class='dropdown',ul_class='dropdown-menu')}}
-          {{pass}}
+
+    <div class="container">
+        <header>
+            <div class="col-lg-12">
+                 <div class="navbar navbar-default navbar-static-top" style="width: 100%">
+                    <div class="container">
+                        {{=MENU(response.menu, _class='nav navbar-nav',li_class='dropdown',ul_class='dropdown-menu')}}
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+    {{pass}}
 
     <div class="container">
         <header>

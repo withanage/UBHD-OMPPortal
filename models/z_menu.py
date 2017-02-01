@@ -17,4 +17,5 @@ response.meta.description = settings.description
 
 categories = ompdal.getCategoriesByPress(myconf.take('omp.press_id'))
 
-response.menu =    [(c['path'], False, URL('default', 'index'), [])  for c in categories.as_list()]
+response.menu = [(T('Categories'), False, None, [(c['path'], False, URL('default', 'index'), [])  for c in categories.as_list()])]
+
