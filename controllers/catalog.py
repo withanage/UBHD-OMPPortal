@@ -64,7 +64,7 @@ def index():
         locale = 'de_DE'
     else:
         locale = ''
-    
+
     ompdal = OMPDAL(db, myconf)
     
     press = ompdal.getPress(myconf.take('omp.press_id'))
