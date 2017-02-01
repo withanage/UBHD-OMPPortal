@@ -96,8 +96,8 @@ def index():
             
         submissions.append(submission)
 
-    #submissions = sorted(submissions, key=lambda s: min(s.associated_items.get('publication_dates', [datetime(1, 1, 1)])), reverse = True)
-    submissions = sorted(submissions,key=lambda s: s.associated_items.get('category',None),  reverse=False)
+    submissions = sorted(submissions, key=lambda s: min(s.associated_items.get('publication_dates', [datetime(1, 1, 1)])), reverse = True)
+    #submissions = sorted(submissions,key=lambda s: s.associated_items.get('category',None),  reverse=False)
 
     return locals()
 

@@ -96,6 +96,7 @@
 'Campus Media': 'Campus Media',
 'Cannot be empty': 'Darf nicht leer sein',
 'Capitals': 'Capitals',
+'Categories': 'Sparten',
 'Chapters': 'Kapitel',
 'Check to delete': 'Auswählen um zu löschen',
 'Choose citation style': 'Zitationsstil auswählen',
