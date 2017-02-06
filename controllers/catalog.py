@@ -12,6 +12,38 @@ from ompformat import dateFromRow, seriesPositionCompare
 from datetime import datetime
 
 
+
+def category():
+    if session.forced_language == 'en':
+        locale = 'en_US'
+    elif session.forced_language == 'de':
+        locale = 'de_DE'
+    else:
+        locale = ''
+    ignored_submission_id = myconf.take('omp.ignore_submissions') if myconf.take('omp.ignore_submissions') else -1
+
+    if request.args == []:
+        redirect(URL('home', 'index'))
+    category_path = request.args[0]
+
+    ompdal = OMPDAL(db, myconf)
+
+    press = ompdal.getPress(myconf.take('omp.press_id'))
+    if not press:
+        redirect(URL('home', 'index'))
+
+    category_row = ompdal.getCategoryByPathAndPress(category_path, press.press_id)
+
+    if not category_row:
+        redirect(URL('home', 'index'))
+
+    #category = OMPItem(category_row, OMPSettings(ompdal.getCategorySettings(category_row.series_id)))
+    #submission_rows = ompdal.getSubmissionsBySeries(series_row.series_id, ignored_submission_id=ignored_submission_id,status=3)
+
+
+    return locals()
+
+
 def series():
     if session.forced_language == 'en':
         locale = 'en_US'
