@@ -37,9 +37,23 @@ def category():
     if not category_row:
         redirect(URL('home', 'index'))
 
-    #category = OMPItem(category_row, OMPSettings(ompdal.getCategorySettings(category_row.series_id)))
-    #submission_rows = ompdal.getSubmissionsBySeries(series_row.series_id, ignored_submission_id=ignored_submission_id,status=3)
+    category = OMPItem(category_row, OMPSettings(ompdal.getCategorySettings(category_row.category_id)))
+    submission_rows = ompdal.getSubmissionsByCategory(category_row.category_id, ignored_submission_id=ignored_submission_id,status=3)
+    submissions = []
+    for submission_row in submission_rows:
+        authors = [OMPItem(author, OMPSettings(ompdal.getAuthorSettings(author.author_id))) for author in
+                   ompdal.getAuthorsBySubmission(submission_row.submission_id)]
+        editors = [OMPItem(editor, OMPSettings(ompdal.getAuthorSettings(editor.author_id))) for editor in
+                   ompdal.getEditorsBySubmission(submission_row.submission_id)]
+        submission = OMPItem(submission_row,
+                             OMPSettings(ompdal.getSubmissionSettings(submission_row.submission_id)),
+                             {'authors': authors, 'editors': editors}
+                             )
 
+        submissions.append(submission)
+
+
+    submissions = sorted(submissions, key=lambda s: s.attributes['series_id'], reverse=True)
 
     return locals()
 
