@@ -13,12 +13,6 @@ from datetime import datetime
 
 
 def category():
-    if session.forced_language == 'en':
-        locale = 'en_US'
-    elif session.forced_language == 'de':
-        locale = 'de_DE'
-    else:
-        locale = ''
     ignored_submission_id = myconf.take('omp.ignore_submissions') if myconf.take(
         'omp.ignore_submissions') else -1
 
@@ -72,12 +66,6 @@ def category():
 
 
 def series():
-    if session.forced_language == 'en':
-        locale = 'en_US'
-    elif session.forced_language == 'de':
-        locale = 'de_DE'
-    else:
-        locale = ''
 
     ignored_submission_id = myconf.take('omp.ignore_submissions') if myconf.take(
         'omp.ignore_submissions') else -1
@@ -124,13 +112,6 @@ def series():
 
 
 def index():
-    if session.forced_language == 'en':
-        locale = 'en_US'
-    elif session.forced_language == 'de':
-        locale = 'de_DE'
-    else:
-        locale = ''
-
     ompdal = OMPDAL(db, myconf)
 
     press = ompdal.getPress(myconf.take('omp.press_id'))
@@ -177,12 +158,6 @@ def index():
 
 
 def book():
-    if session.forced_language == 'en':
-        locale = 'en_US'
-    elif session.forced_language == 'de':
-        locale = 'de_DE'
-    else:
-        locale = ''
 
     submission_id = request.args[0] if request.args else redirect(
         URL('home', 'index'))
