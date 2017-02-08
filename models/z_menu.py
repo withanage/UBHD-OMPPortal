@@ -7,14 +7,21 @@ LICENSE.md
 from ompdal import OMPDAL
 ompdal = OMPDAL(db, myconf)
 
+locale = ''
+if session.forced_language == 'en':
+    locale = 'en_US'
+elif session.forced_language == 'de':
+    locale = 'de_DE'
+
+
 
 response.title = settings.title
 response.subtitle = settings.subtitle
 response.meta.keywords = settings.keywords
 response.meta.description = settings.description
 
-
-categories = ompdal.getCategoriesByPress(myconf.take('omp.press_id'))
+press_id = myconf.take('omp.press_id')
+categories = ompdal.getCategoriesByPress(press_id)
 
 
 def title(t):
@@ -22,7 +29,8 @@ def title(t):
         T(t))
 
 
-category_list = [LI(A(c['path'], _href=URL(
+
+category_list = [LI(A(ompdal.getLocalizedCategorySettings(ompdal.getCategoryByPathAndPress(c['path'], press_id).get('category_id'),'title', locale)['setting_value'], _href=URL(
     'catalog', '/'.join(['category', c['path']])))) for c in categories.as_list()]
 
 
