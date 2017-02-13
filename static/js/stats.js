@@ -35,12 +35,10 @@ function s4() {
     .substring(1);
 }
 
+
 function typesort(a, b){
     return a.split('-')[2] > b.split('-')[2];
 }
-
-
-
 
 
 var script = 'oastats-json.cgi';
