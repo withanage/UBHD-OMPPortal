@@ -232,7 +232,7 @@ def book():
 
     pdf = ompdal.getPublicationFormatByName(
         submission_id, myconf.take('omp.doi_format_name')).first()
-    # Get DOI from the format marked as DOI carrier
+    # Get DOI from the format marked as DOI
     if pdf:
         doi = OMPSettings(ompdal.getPublicationFormatSettings(pdf.publication_format_id)).getLocalizedValue(
             "pub-id::doi", "")    # DOI always has empty locale
