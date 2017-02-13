@@ -301,6 +301,7 @@
 'Papiertyp': 'Papiertyp',
 'Partner': 'Partner',
 'Partners': 'Partner',
+'Partnersz': 'Partnersz',
 'Passing Through Shangai': 'Passing Through Shangai',
 'Password': 'Passwort',
 "Password fields don't match": 'Passwortfelder sind nicht gleich',
