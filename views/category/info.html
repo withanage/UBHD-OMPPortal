@@ -36,9 +36,11 @@
 								{{if submission_rows:}}
 									{{=UL(LI(A(T('Volumes'), _href=URL('catalog','category/'+str(category.attributes.path)))),_class="tags")}}
 								{{pass}}
+							{{if request.args[0]=='lecturenotes':}}
+							<p>Beschreibung</p>
 
-
-		                </div>
+							{{pass}}
+						</div>
 		            </article>
 		        </div>
 		    </div>
