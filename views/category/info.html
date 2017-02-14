@@ -29,16 +29,15 @@
 
 
 		                </p>
+
 		                <div class="widget">
 		                    <h5 class="widgetheading"></h5>
-		                    <ul class="tags">
-								<li>
-									<a href="{{=URL('catalog','category/'+str(category.attributes.path))}}">{{=T('Volumes')}}</a>
 
-								</li>
+								{{if submission_rows:}}
+									{{=UL(LI(A(T('Volumes'), _href=URL('catalog','category/'+str(category.attributes.path)))),_class="tags")}}
+								{{pass}}
 
 
-							</ul>
 		                </div>
 		            </article>
 		        </div>
