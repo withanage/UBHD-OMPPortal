@@ -16,13 +16,11 @@
 	</h4>
 	</div>
 	<div id="spartenmarker" class="col-lg-3 col-md-3 col-xs-5">
-	{{ category = submission.associated_items.get('category', None)}}
-                        {{if category:}}
-                        {{=category.settings.getLocalizedValue('title', locale)}}
-                        {{pass}}
-  
-
-	</div>
+		{{ category = submission.associated_items.get('category', None)}}
+		{{if category:}}
+    	{{=category.settings.getLocalizedValue('title', locale)}}
+    	{{pass}}
+  	</div>
 
 </div>
 
