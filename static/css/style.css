@@ -2331,14 +2331,17 @@ figcaption {
    padding-right: 5%;
    text-align: right;
    text-transform: uppercase;
-
 } 
+
+#spartenmarker a {
+  text-decoration: none;
+  color: #979797;
+}
+
 #spartenmarker::after {
    color: #979797;
   content: "■";
   font-size: 165%;
-
-
 }  
 
 /*** Footer ****/
@@ -2380,7 +2383,7 @@ footer {
    width: 70%;
 }
 
- }
+}
 
 
 @media (max-width: 530px)  {
