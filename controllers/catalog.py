@@ -103,6 +103,11 @@ def series():
                              {'authors': authors, 'editors': editors}
                              )
 
+        category_row = ompdal.getCategoryBySubmissionId(submission_row.submission_id)
+        if category_row:
+            submission.associated_items['category'] = OMPItem(
+                category_row, OMPSettings(ompdal.getCategorySettings(category_row.category_id)))
+
         submissions.append(submission)
 
     submissions = sorted(submissions, cmp=seriesPositionCompare, reverse=True)
