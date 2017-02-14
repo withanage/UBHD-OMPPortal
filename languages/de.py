@@ -94,6 +94,7 @@
 'Cache Cleared': 'Cache geleert',
 'Cache Keys': 'Cache Schlüssel',
 'Campus Media': 'Campus Media',
+'Campus Media ': 'Campus Media ',
 'Cannot be empty': 'Darf nicht leer sein',
 'Capitals': 'Capitals',
 'Categories': 'Sparten',
