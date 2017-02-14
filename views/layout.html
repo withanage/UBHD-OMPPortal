@@ -114,6 +114,10 @@
          <img alt="" id="heiup-logo-print" class="print" src="{{=URL('static','images/press/schriftzug_header_print.png')}}" />
        </div> 
        </div>
+
+
+
+
     <div class="container">
         <header>
             <div class="col-lg-12">
@@ -127,42 +131,8 @@
                             </a>
                         </div>
                         <div class="navbar-collapse collapse pull-left ">
-                            <ul class="nav navbar-nav">
-                                <li><a href="{{=URL('home','index')}}">{{=T('Home')}}</a></li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
-                                       data-delay="0" data-close-others="false">{{=T('About us')}}<b class=" icon-angle-down"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="{{=URL('about_us', 'mission_statement')}}"> {{=T('Mission Statement')}}</a></li>
-                                        <li><a href="{{=URL('about_us','profile')}}">{{=T('Profile')}}</a></li>
-                                        <li><a href="{{=URL('about_us','advisory_board')}}"> {{=T('Advisory Board')}}</a></li>
-                                        <li><a href="{{=URL('about_us','team')}}">{{=T('Team')}}</a></li>
-                                        <li><a href="{{=URL('about_us','partners')}}">{{=T('Partners')}}</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="{{=URL('catalog','index')}}">{{=T('Books')}}</a></li>
-                                <li><a href="{{=URL('series','index')}}">{{=T('Series')}}</a></li>
-                                <li><a href="{{=URL('journals','index')}}">{{=T('Journals')}}</a></li>
-                                <li><a href="{{=URL('campusmedia','index')}}">{{=T('Campus Media')}}</a></li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown"
-                                       data-delay="0" data-close-others="false">{{=T('Publishing')}} <b class="icon-angle-down"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="{{=URL('publishing','for_authors')}}">{{=T('Information for Authors')}} </a></li>
-                                        <!--li><a href="{{=URL('publishing','book_proposal')}}">{{=T('Book Proposal')}}</a></li-->
-                                        <li><a href="{{=URL('publishing','rights_and_licences')}}">{{=T('Rights and Licences')}} </a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown"
-                                       data-delay="0" data-close-others="false">{{=T('Quality Control')}} <b class=" icon-angle-down"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="{{=URL('quality_control','peer_review')}}"> {{=T('Peer Review')}}</a></li>
-                                        <li><a href="{{=URL('quality_control','plagiarism')}}"> {{=T('Plagiarism')}}</a></li>
-                                        <li><a href="{{=URL('quality_control','data_privacy')}}">{{=T('Data Privacy')}} </a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                                {{=response.menu}}
+
                         </div>
                         <!-- second -->
                         <div class="navbar-collapse collapse pull-right visible-lg hidden-md">
@@ -312,5 +282,3 @@
     <script src="{{=URL('static','js/bootstrap.min.js')}}"></script>
   </body>
 </html>
-{{db.t_usage_statistics.insert()}}
-{{db.commit()}}

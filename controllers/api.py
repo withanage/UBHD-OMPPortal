@@ -8,6 +8,51 @@ LICENSE.md
 import gluon.contrib.simplejson as sj
 from ompdal import OMPDAL
 from ompcsl import OMPCSL
+from os.path import  join
+
+response.headers['Content-Type'] = 'application/json'
+response.view = 'generic.json'
+url = join(request.env.http_host,request.application, request.controller)
+
+ompdal = OMPDAL(db, myconf)
+press = ompdal.getPress(myconf.take('omp.press_id'))
+
+if session.forced_language == 'en':
+    locale = 'en_US'
+elif session.forced_language == 'de':
+    locale = 'de_DE'
+else:
+    locale = ''
+
+@request.restful()
+def index():
+    """
+    Returns all the rest services
+    """
+
+
+    def GET(*args, **vars):
+        l = ['catalog','csl','oastatistik']
+
+        apis = {}
+        for i in l:
+            apis[i]= join(url,i)
+        return apis
+
+
+    return locals()
+
+
+@request.restful()
+def catalog():
+    """ Returns  press submissions """
+
+    def GET(*args, **vars):
+        submissions= ompdal.getSubmissionsByPress(press.press_id, -1).as_list()
+        submission_ids = [{s['submission_id']:join(url,'catalog',str(s['submission_id']))} for s in submissions]
+        return dict(submissions=request.vars.sort_by)
+
+    return locals()
 
 def oastatistik():
     locale = 'de_DE'

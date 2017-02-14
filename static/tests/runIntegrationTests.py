@@ -60,7 +60,7 @@ class IntegrationTests:
 
         pd =  BeautifulSoup(client.text, 'html.parser')
         print pd.head
-        print test['name']w
+        print test['name']
 
 
 

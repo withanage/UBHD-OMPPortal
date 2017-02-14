@@ -1,0 +1,49 @@
+{{extend 'layout.html'}}
+
+
+<div id="main" class="container">
+	<section id="content">
+		<div class="container">
+
+		  	<div class="row">
+		  		<div class="col-lg-2">
+		  			<article>
+		  				<div class="post-image">
+		  					{{#if len(row['image']) > 7 :}}
+		  						{{#=IMG(_src=getSeriesImageLink(request, press.press_id, series.attributes.image))}}
+							{{#pass}}
+						</div>
+					</article>
+				</div>
+				<div class="col-lg-10">
+					<article>
+						<div class="post-heading">
+
+
+							<h3>{{=(category.settings.getLocalizedValue('title',locale))}}</h3>
+
+						</div>
+		                <p>
+							<i class="icon-quote-left"></i>
+							{{=XML(category.settings.getLocalizedValue('description',locale))}}
+
+
+		                </p>
+		                <div class="widget">
+		                    <h5 class="widgetheading"></h5>
+		                    <ul class="tags">
+								<li>
+									<a href="{{=URL('catalog','category/'+str(category.attributes.path))}}">{{=T('Volumes')}}</a>
+
+								</li>
+
+
+							</ul>
+		                </div>
+		            </article>
+		        </div>
+		    </div>
+
+		</div>
+	</section>
+</div>

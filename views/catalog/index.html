@@ -19,7 +19,12 @@
                 <article>
                     <div class="post-heading">
 						{{include 'catalog/snippets/submission.html'}}
+                        {{ category = submission.associated_items.get('category', None)}}
+                        {{if category:}}
+                        {{=category.settings.getLocalizedValue('title', locale)}}
+                        {{pass}}
                         {{series = submission.associated_items.get('series', None)}}
+
                         {{if series:}}
                         	{{series_title = series.settings.getLocalizedValue('title', locale)}}
                         	{{series_subtitle = series.settings.getLocalizedValue('subtitle', locale)}}
