@@ -2321,6 +2321,25 @@ figcaption {
   margin-left: 3px;
 }
   
+  
+/** Spartenmarkierung **/
+
+#spartenmarker {
+   color: #979797;
+   font-size: 115%;
+   margin-top: 0.5ex;
+   padding-right: 5%;
+   text-align: right;
+   text-transform: uppercase;
+
+} 
+#spartenmarker::after {
+   color: #979797;
+  content: "■";
+  font-size: 165%;
+
+
+}  
 
 /*** Footer ****/
 footer {
@@ -2347,11 +2366,32 @@ footer {
  display: none;
 }
 
+@media (max-width: 220px)  {
+#spartenmarker::after {
+  content: none;
+}
 
-@media (max-width: 459px) /*verhindert, dass die Hauptnavi zweizeilig umbricht*/ {
-.spartenMarker {
- margin-bottom: 0.5em;
- width: 100%;
+#autoren {
+  width: 100%;
+}
+#spartenmarker {
+   font-size: 0.9em;
+   text-align: left;
+   width: 70%;
+}
+
+ }
+
+
+@media (max-width: 530px)  {
+
+#autoren {
+  width: 100%;
+}
+#spartenmarker {
+   font-size: 0.9em;
+   text-align: left;
+   width: 70%;
 }
 
  }
@@ -2359,11 +2399,13 @@ footer {
 
 
 
-@media (max-width: 991px) /*verhindert, dass die Hauptnavi zweizeilig umbricht*/ {
+@media (max-width: 993px) /*verhindert, dass die Hauptnavi zweizeilig umbricht*/ {
 .navbar .nav > li > a {
-  padding-right: 0px;
-  padding-left: 5;
-   font-size: 12px;
+  font-size: 12px;
+  margin-left: 0;
+  padding-left: 5px;
+  padding-right: 0;
+  
 }
 
 #nav-social-media {

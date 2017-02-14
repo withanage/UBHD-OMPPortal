@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-lg-10 col-md-10">
+	<div id="autoren" class="col-lg-9 col-md-9 col-xs-7">
 	<h4>
 		{{editors = submission.associated_items.get('editors', [])}}
 		{{authors = submission.associated_items.get('authors', [])}}
@@ -15,11 +15,13 @@
 		{{pass}}
 	</h4>
 	</div>
-	<div class="col-lg-2 col-md-2">
+	<div id="spartenmarker" class="col-lg-3 col-md-3 col-xs-5">
 	{{ category = submission.associated_items.get('category', None)}}
                         {{if category:}}
                         {{=category.settings.getLocalizedValue('title', locale)}}
                         {{pass}}
+  
+
 	</div>
 
 </div>
@@ -27,6 +29,6 @@
 <h4>{{=" ".join([submission.settings.getLocalizedValue('prefix', locale), submission.settings.getLocalizedValue('title', locale)])}}
 	{{subtitle = submission.settings.getLocalizedValue('subtitle', locale)}}
 	{{if subtitle:}}
-		<br/>{{=subtitle}}
+		<br />{{=subtitle}}
 	{{pass}}
 </h4>
