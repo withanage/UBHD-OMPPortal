@@ -25,7 +25,7 @@
 		                    <h5 class="widgetheading"></h5>
 
 								{{if submission_rows:}}
-									{{=UL(LI(A(T('Volumes'), _href=URL('catalog','category/'+str(category.attributes.path)))),_class="tags")}}
+									{{=UL(LI(A(T('Titles'), _href=URL('catalog','category/'+str(category.attributes.path)))),_class="tags")}}
 								{{pass}}
 							{{if request.args[0]=='lecturenotes':}}
 							<p></p>
