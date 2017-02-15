@@ -172,6 +172,98 @@
         </article>
     </div>
     </div>
+	</div>
 	{{pass}}
+	
+	
+	{{if request.args[0]=='academic':}}
+		<div class="container">
+
+		  	<div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="solidline">
+                        </div>
+                        <div class="post-heading">
+                            <h4 id="forthcoming">{{=T('Journals')}}</h4>
+                        </div>
+                        <div class="solidline">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+			
+<div class="col-lg-2">
+                <article>
+                    <div class="post-image">
+		 	<img src="{{=URL(myconf.take('web.application'),'static','images/journals/religions.jpg')}} ">
+                  </div>
+                </article>
+            </div>
+            <div class="col-lg-10">
+               <article>
+                  <div class="post-heading">		            
+						<div id="autoren" class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h3>Online &ndash; Heidelberg Journal of Religions on the Internet</h3></div>
+          <div id="spartenmarker" class="col-lg-3 col-md-3 col-xs-5" style="padding-left: 0; padding-right: 3%; margin-top: 2ex;"><a href="{{=URL(myconf.take('web.application'),'category','info/academic')}}" style="text-decoration: none; color: #979797;">{{=T('Academic ')}}</a></div>
+                    <br style="clear: both">
+                        </div>
+                        <p>
+                            <i class="icon-quote-left"></i>
+             {{if session.forced_language =='de': }}
+<i>Online</i> ist eine internationale, Peer-Review-geprüfte Open-Access-Zeitschrift, die am Institut für Religionswissenschaft der Universität Heidelberg erscheint. Die Herausgeber haben sich zum Ziel gesetzt, wissenschaftliche Forschung an der Schnittstelle von Religion und Internet zu fördern und die Forschung in diesem Feld theoretisch und methodisch voranzubringen.
+             {{elif session.forced_language =='en': }}
+<i>Online</i> is an international open-access, peer-reviewed academic journal published by the Institute of Religious Studies  at the University of Heidelberg (Germany). The journal is committed to promoting and (theoretically and methodically) advancing  scientific research at the interface between religion and the internet.
+{{pass}}     
+                        </p>
+                    <div class="widget">
+                        <h5 class="widgetheading"></h5>
+                        <ul class="tags">
+        	       	   <li><a href="{{=URL(myconf.take('web.application'),'journals','religions')}}">{{=T('More' )}}</a></li><br>
+	                   <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/religions/index">{{=T('View Journal')}}</a></li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+	<div class="row">
+            <div class="col-lg-2">
+                <article>
+                    <div class="post-image">
+		 	<img src="{{=URL(myconf.take('web.application'),'static','images/journals/tcs.jpg')}} ">
+                  </div>
+                </article>
+            </div>
+            <div class="col-lg-10">
+               <article>
+                        <div class="post-heading">
+			            
+						<div id="autoren" class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h3>Transcultural Studies</h3></div>
+          <div id="spartenmarker" class="col-lg-3 col-md-3 col-xs-5" style="padding-left: 0; padding-right: 3%; margin-top: 2ex;"><a href="{{=URL(myconf.take('web.application'),'category','info/academic')}}" style="text-decoration: none; color: #979797;">{{=T('Academic ')}}</a></div>
+                    <br style="clear: both">
+                        </div>
+                        <p>
+                            <i class="icon-quote-left"></i>
+             {{if session.forced_language =='de': }}
+<i>Transcultural Studies</i> ist eine Peer-Review-geprüfte Open-Access-Zeitschrift, die sich als Forum zur Verbreitung von Wissen und Forschung zur Transkulturalität in allen Disziplinen versteht. Sie wird vom Exzellenzcluster „Asien und Europa im globalen Kontext. Die Dynamiken der Transkulturalität“ der Ruprecht-Karls-Universität Heidelberg herausgegeben.
+             {{elif session.forced_language =='en': }}
+<i>Transcultural Studies</i> is a peer-reviewed, open-access journal committed to promoting the knowledge and research of transculturality in all disciplines. It is published by the Cluster of Excellence “Asia and Europe in a Global Context: The Dynamics of Transculturality” of the Ruprecht-Karls-Universität Heidelberg.
+{{pass}}     
+                        </p>
+                    <div class="widget">
+                        <h5 class="widgetheading"></h5>
+                        <ul class="tags">
+        	       	   <li><a href="{{=URL(myconf.take('web.application'),'journals','tcs')}}">{{=T('More' )}}</a></li><br>
+	                   <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/index">{{=T('View Journal')}}</a></li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+		</div>
+	{{pass}}
+	
 </section>
 </div>
