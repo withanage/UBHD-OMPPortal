@@ -33,7 +33,7 @@
 							{{pass}}
 						</div>
 						{{if request.args[0]=='lecturenotes':}}Lecture Notes{{pass}}
-						{{if request.args[0]=='academic':}}Academic{{pass}}
+						{{if request.args[0]=='academic':}}{{if session.forced_language=='en':}}Academic{{elif session.forced_language=='de':}}Wissenschaft{{pass}}{{pass}}
 						{{if request.args[0]=='campusmedia':}}Campus Media{{pass}}
 		            </article>
 		        </div>
