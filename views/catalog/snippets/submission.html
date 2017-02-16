@@ -15,13 +15,17 @@
 		{{pass}}
 	</h4>
 	</div>
-	<div id="spartenmarker" class="col-lg-3 col-md-3 col-xs-5">
+
+
 		{{ category = submission.associated_items.get('category', None)}}
-		{{category_path=ompdal.getCategory(category.attributes.get('category_id')).get('path')}}
 		{{if category:}}
+	<div id="spartenmarker" class="col-lg-3 col-md-3 col-xs-5">
+		{{category_path=ompdal.getCategory(category.attributes.get('category_id')).get('path')}}
+
 		{{=A(category.settings.getLocalizedValue('title', locale),_href=URL('category','info/'+str(category_path)))}}
+		</div>
     	{{pass}}
-  	</div>
+
 
 </div>
 
