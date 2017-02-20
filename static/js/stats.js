@@ -23,13 +23,24 @@
  * THE SOFTWARE.
  */
 
+function guid() {
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+    s4() + '-' + s4() + s4() + s4();
+}
+
+function s4() {
+  return Math.floor((1 + Math.random()) * 0x10000)
+    .toString(16)
+    .substring(1);
+}
+
 function typesort(a, b){
     return a.split('-')[2] > b.split('-')[2];
 }
 
 
 var script = 'oastats-json.cgi';
-var url = "../../../cgi-bin/" + script + "?repo=omphp&type=json&ids=" + ids;
+var url = "../../../cgi-bin/" + script + "?repo=omphp&type=json&ids=" + ids+"&uid="+guid();
 $.getJSON( url, function( data ) {
   var totals = {};
   $.each(data, function (key, value) {

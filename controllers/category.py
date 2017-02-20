@@ -21,12 +21,12 @@ def info():
     if exists(request.folder + 'views/catalog/' + category_path + "_info.html"):
         content = "category/" + category_path + "_info.html"
     else:
-        row = ompdal.getCategoryByPathAndPress(category_path, press.press_id)
-        category = OMPItem(row,
-                           OMPSettings(ompdal.getCategorySettings(row.category_id))
+        category_row = ompdal.getCategoryByPathAndPress(category_path, press.press_id)
+        category = OMPItem(category_row,
+                           OMPSettings(ompdal.getCategorySettings(category_row.category_id))
                            )
 
-        #category.sort(key=lambda s: s.settings.getLocalizedValue('title', locale))
+    submission_rows = ompdal.getSubmissionsByCategory(category_row.category_id, ignored_submission_id=-1, status=3)
 
 
     return locals()

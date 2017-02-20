@@ -6,16 +6,7 @@
 		<div class="container">
 
 		  	<div class="row">
-		  		<div class="col-lg-2">
-		  			<article>
-		  				<div class="post-image">
-		  					{{#if len(row['image']) > 7 :}}
-		  						{{#=IMG(_src=getSeriesImageLink(request, press.press_id, series.attributes.image))}}
-							{{#pass}}
-						</div>
-					</article>
-				</div>
-				<div class="col-lg-10">
+		  		<div class="col-lg-12">
 					<article>
 						<div class="post-heading">
 
@@ -29,21 +20,24 @@
 
 
 		                </p>
+
 		                <div class="widget">
 		                    <h5 class="widgetheading"></h5>
-		                    <ul class="tags">
-								<li>
-									<a href="{{=URL('catalog','category/'+str(category.attributes.path))}}">{{=T('Volumes')}}</a>
 
-								</li>
+								{{if submission_rows:}}
+									{{=UL(LI(A(T('Titles'), _href=URL('catalog','category/'+str(category.attributes.path)))),_class="tags")}}
+								{{pass}}
+							{{if request.args[0]=='lecturenotes':}}
+							<p></p>
 
-
-							</ul>
-		                </div>
+							{{pass}}
+						</div>
 		            </article>
 		        </div>
 		    </div>
 
+		</div>
+		
 		</div>
 	</section>
 </div>
