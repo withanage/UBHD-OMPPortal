@@ -122,7 +122,9 @@ def series():
 def index():
     ompdal = OMPDAL(db, myconf)
     press = ompdal.getPress(myconf.take('omp.press_id'))
-    limit_by = request.vars.get('catalog_limit_by', session.get('limit_by'))
+    per_page = int(request.vars.get('per_page', session.get('catalog_per_page',20)))
+    page_nr = int(request.vars.get('page_nr',0))
+    limit_by = ((page_nr*per_page), (page_nr+1)*per_page)
 
 
 
@@ -134,7 +136,7 @@ def index():
         'omp.ignore_submissions') else -1
 
     submissions = []
-    for submission_row in ompdal.getSubmissionsByPress(press.press_id, ignored_submission_id):
+    for submission_row in ompdal.getSubmissionsByPress(press.press_id, ignored_submission_id, limit_by):
         authors = [OMPItem(author, OMPSettings(ompdal.getAuthorSettings(author.author_id)))
                    for author in ompdal.getAuthorsBySubmission(submission_row.submission_id)]
         editors = [OMPItem(editor, OMPSettings(ompdal.getAuthorSettings(editor.author_id)))
