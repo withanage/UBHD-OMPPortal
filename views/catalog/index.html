@@ -3,7 +3,53 @@
 {{from ompformat import formatContributors, coverImageLink}}
 
 <div id="main" class="container">
+
+
 <section id="content">
+
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-9">
+                <div class = "btn-group">
+   <button type = "button" class = "btn btn-default">Results per page</button>
+
+   <button type = "button" class = "btn btn-default dropdown-toggle" data-toggle = "dropdown">
+      <span class = "caret"></span>
+      <span class = "sr-only">Results per page</span>
+   </button>
+   {{results_per_page=[2,10,50]}}
+   <ul class = "dropdown-menu" role = "menu">
+       {{for i in results_per_page:}}
+      {{=LI(A(i, _href=URL('index?per_page='+str(i))))}}
+       {{pass}}
+
+   </ul>
+</div>
+    <nav aria-label="Page navigation">
+  <ul class="pagination">
+
+
+            {{for i in range(0,len(submission_rows)/per_page):}}
+            <li>
+
+                {{if i ==0:}}
+                <span aria-hidden="true">&laquo;</span>
+                {{pass}}
+            {{=(A(i, _href=URL('index?page_nr='+str(i))))}}
+                {{if i ==len(submission_rows)/per_page-1: }}
+                <span aria-hidden="true">&raquo;</span>
+                {{pass}}
+            </li>
+            {{pass}}
+
+
+  </ul>
+</nav>
+
+                </div>
+
+
+            </div>
     {{for submission in submissions:}}
     <div class="container" height="400px">
         <div class="row">
