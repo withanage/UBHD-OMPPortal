@@ -13,6 +13,9 @@ from datetime import datetime
 
 
 def category():
+
+
+
     ignored_submission_id = myconf.take('omp.ignore_submissions') if myconf.take(
         'omp.ignore_submissions') else -1
 
@@ -113,8 +116,11 @@ def series():
 
 def index():
     ompdal = OMPDAL(db, myconf)
-
     press = ompdal.getPress(myconf.take('omp.press_id'))
+    limit_by = request.vars.get('catalog_limit_by', session.get('limit_by'))
+
+
+
     if not press:
         redirect(URL('home', 'index'))
     press_settings = OMPSettings(ompdal.getPressSettings(press.press_id))
