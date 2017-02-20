@@ -123,8 +123,13 @@ def index():
     ompdal = OMPDAL(db, myconf)
     press = ompdal.getPress(myconf.take('omp.press_id'))
 
-    per_page = int(request.vars.get('per_page', session.get('catalog_per_page',20)))
-    page_nr = int(request.vars.get('page_nr',0))-1
+    per_page = request.vars.get('per_page')
+    if per_page :
+        session.catalog_per_page = int(per_page)
+
+    per_page = int(session.get('catalog_per_page', 20))
+
+    page_nr = int(request.vars.get('page_nr',0))
 
 
 

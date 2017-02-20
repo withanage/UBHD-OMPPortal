@@ -17,7 +17,7 @@
       <span class = "caret"></span>
       <span class = "sr-only">Results per page</span>
    </button>
-   {{results_per_page=[2,10,50]}}
+   {{results_per_page=[2,3,4]}}
    <ul class = "dropdown-menu" role = "menu">
        {{for i in results_per_page:}}
       {{=LI(A(i, _href=URL('index?per_page='+str(i))))}}
@@ -25,6 +25,7 @@
 
    </ul>
 </div>
+
     <nav aria-label="Page navigation">
   <ul class="pagination">
 
@@ -33,13 +34,15 @@
             <li>
 
                 {{if i ==0:}}
-                <span aria-hidden="true">&laquo;</span>
+                <li><a href="{{=URL('index?page_nr='+str(i-1))}}"><span aria-hidden="true">&laquo;</span></a></li>
                 {{pass}}
             {{=(A(i, _href=URL('index?page_nr='+str(i))))}}
+                </li>
                 {{if i ==len(submission_rows)/per_page-1: }}
-                <span aria-hidden="true">&raquo;</span>
+                 <li><a href="{{=URL('index?page_nr='+str(i+1))}}"><span aria-hidden="true">&raquo;</span></a></li>
+
                 {{pass}}
-            </li>
+
             {{pass}}
 
 
