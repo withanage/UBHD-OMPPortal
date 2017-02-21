@@ -129,7 +129,7 @@ def index():
 
     per_page = int(session.get('catalog_per_page', 20))
 
-    page_nr = int(request.vars.get('page_nr',0))
+    page_nr = int(request.vars.get('page_nr',1))-1
 
 
 
