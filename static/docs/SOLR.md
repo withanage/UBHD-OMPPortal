@@ -32,3 +32,9 @@ Check with [http://localhost:8983/solr](http://localhost:8983/solr)
 ```
  sudo su - solr -c "/opt/solr/bin/solr create -c presss_portal -n omp"
  ```
+## Install Python dependancy
+
+```
+sudo pip install sunburnt
+
+```
