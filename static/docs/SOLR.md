@@ -12,13 +12,17 @@ ln -s /usr/lib/jvm/java-7-openjdk-amd64 /usr/java/default
 ```
 sudo apt-get -y install solr-tomcat
 ```
-## From Source
-cd /opt
+## From Source 
+(You must  be root or have rights on the  /usr/local/ folder, otherwise change accordingly )
+```
+cd /usr/local
+mkdir /usr/local/solr
 wget http://archive.apache.org/dist/lucene/solr/6.4.1/solr-6.4.1-src.tgz
 tar -xvf solr-6.4.1-src.tgz
-cp -R solr-6.4.1-src.tgz/example /opt/solr
-cd /opt/solr
+cp -R solr-6.4.1/solr/example/ /usr/local/solr/
+cd /usr/local/solr
 java -jar start.jar
+```
 
 
 
