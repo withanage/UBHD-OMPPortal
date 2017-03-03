@@ -18,7 +18,7 @@ Table of Contents
     * [Folder structure](#folder-structure)
     * [Additional information for customizations](#additional-information-for-customizations)
   * [License](#license)
-  *[Credits](#Credits)
+  * [Credits](#Credits)
 
 # Demo
 - Heidelberg University Publishing  [Web](http://heiup.uni-heidelberg.de/)
