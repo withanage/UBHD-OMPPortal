@@ -7,6 +7,7 @@ Table of Contents
   * [Features](#features)
   * [Installation](#installation)
   * [Help Tools](#help-tools)
+    * [Solt Search](https://github.com/UB-Heidelberg/UBHD-OMPPortal/blob/categories/static/docs/SOLR.md)
     * [VGWort Pixel Import](#vgwort-pixel-import)
       * [Description](#description)
       * [Installation](#installation-1)
