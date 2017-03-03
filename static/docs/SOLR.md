@@ -36,5 +36,4 @@ Check with [http://localhost:8983/solr](http://localhost:8983/solr)
 
 ```
 sudo pip install sunburnt
-
 ```
