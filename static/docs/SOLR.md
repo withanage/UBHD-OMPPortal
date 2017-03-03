@@ -26,3 +26,9 @@ sudo ./install_solr_service.sh solr-6.4.1.tgz
 ```
 Solr will be installed under /opt/solr and it  start in port 8983
 Check with [http://localhost:8983/solr](http://localhost:8983/solr)
+
+## Create a OMP Collection and scheme
+
+```
+ sudo su - solr -c "/opt/solr/bin/solr create -c presss_portal -n omp"
+ ```
