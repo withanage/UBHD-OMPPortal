@@ -25,4 +25,4 @@ tar xzf solr-6.4.1.tgz solr-6.4.1/bin/install_solr_service.sh --strip-components
 sudo ./install_solr_service.sh solr-6.4.1.tgz
 ```
 Solr will be installed under /opt/solr and it  start in port 8983
-Check with (http://localhost:8983/solr)[http://localhost:8983/solr]
+Check with [http://localhost:8983/solr](http://localhost:8983/solr)
