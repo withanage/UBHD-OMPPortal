@@ -28,11 +28,12 @@ This software is released under the the [GNU General Public License](LICENSE.md)
 See the file [LICENSE.md](LICENSE.md) included with this distribution for the terms of this license.
 
 # Credits
-The lead deveopper and software architect is Dulip Withanage, Heidelberg University Library
+The lead deveopper and software architect is
+- Dulip Withanage, Heidelberg University Library
 
 Additional contributions were made, in alphabetical order by:
 
-Katharina Wäschle , Heidelberg University Library
-Nils Weiher,  Heidelberg University Library
-Web-Team, University Library Heidelberg
+- Katharina Wäschle , Heidelberg University Library
+- Nils Weiher,  Heidelberg University Library
+- Web-Team, University Library Heidelberg
 
