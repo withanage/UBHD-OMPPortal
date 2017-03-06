@@ -120,6 +120,16 @@ def series():
 
 
 def index():
+    import sunburnt
+    solr_results=[]
+    solr_url = "http://localhost:8983/solr/presss_portal/"
+    try:
+        si = sunburnt.SolrInterface(solr_url)
+        for i in si.query(book_title ="My First *").filter(id=1).execute():
+            solr_results.append(i)
+    except RuntimeError as err:
+        raise HTTP(400, '{} {} {}'.format(err, solr_url, T('not found')))
+
     ompdal = OMPDAL(db, myconf)
     press = ompdal.getPress(myconf.take('omp.press_id'))
 
