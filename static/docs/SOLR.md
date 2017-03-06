@@ -1,6 +1,6 @@
 # Installation
 
-## (Ubuntu / Debian Systems)
+Cut and paste for (Ubuntu / Debian Systems) for other systems, plese see relevent  docucmentation
 ### Install  JDK, if not installed.
 
 ```
@@ -18,6 +18,10 @@ sudo apt-get update
 sudo apt-get install oracle-java8-installer
 java -version
 ```
+
+
+
+
 ### Install Solr
 ```
 cd /tmp/
@@ -28,20 +32,30 @@ sudo ./install_solr_service.sh solr-6.4.1.tgz
 Solr will be installed under /opt/solr and it  start in port 8983
 Check with [http://localhost:8983/solr](http://localhost:8983/solr)
 
+
+
+---
+
+
 ### Install Python dependancy
 
 ```
 sudo pip install sunburnt
 ```
 
-# Configuration
-## Create a OMP Collection and scheme
+## Configuration
+
+
+### Create a OMP Collection and scheme
 
 ```
  sudo su - solr -c "/opt/solr/bin/solr create -c presss_portal -n omp"
  ```
-## Install Python dependancy
+
+
+### Copy solr schema.xml in to your solr directory
 
 ```
-sudo pip install sunburnt
-```
+cp <web2py_folder>/UBHD_OMPPortal/static/utils/solr/schema.xml <my_solr_folder>/data/presss_portal/conf
+ ```
+
