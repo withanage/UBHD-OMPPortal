@@ -1,6 +1,6 @@
 language: python
 
-before_install:
-wget https://mdipierro.pythonanywhere.com/examples/static/web2py_src.zip
-
+python:
+  2.7
+  
 
