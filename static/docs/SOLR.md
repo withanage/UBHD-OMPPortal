@@ -29,9 +29,10 @@ wget http://archive.apache.org/dist/lucene/solr/6.4.1/solr-6.4.1.tgz
 tar xzf solr-6.4.1.tgz solr-6.4.1/bin/install_solr_service.sh --strip-components=2
 sudo ./install_solr_service.sh solr-6.4.1.tgz
 ```
+
+
 Solr will be installed under /opt/solr and it  start in port 8983
 Check with [http://localhost:8983/solr](http://localhost:8983/solr)
-
 
 
 ---
@@ -47,6 +48,8 @@ sudo pip install sunburnt
 
 
 ### Create a OMP Collection and scheme
+
+Change /opt/solr   to your custom path
 
 ```
  sudo su - solr -c "/opt/solr/bin/solr create -c presss_portal -n omp"
