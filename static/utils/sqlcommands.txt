@@ -1,2 +1,7 @@
+# All Publications
+SELECT p.path as  Verlag,  sum(1) as Summe FROM omp1_2.submissions s, omp1_2.presses p WHERE p.press_id =s.context_id group  by context_id;
+
+
 # Alll publications for a certain time range
 SELECT p.path as  Verlag,  sum(1) as Summe FROM omp1_2.submissions s, omp1_2.presses p WHERE s.date_submitted >= "2016-01-01 00:00:00" and s.date_submitted <= "2017-01-01 00:00:00" and p.press_id =s.context_id group  by context_id;
+

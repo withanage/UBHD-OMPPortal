@@ -18,7 +18,7 @@ Table of Contents
     * [Folder structure](#folder-structure)
     * [Additional information for customizations](#additional-information-for-customizations)
   * [License](#license)
-  *[Credits](#Credits)
+  * [Credits](#Credits)
 
 # Demo
 - Heidelberg University Publishing  [Web](http://heiup.uni-heidelberg.de/)
@@ -35,6 +35,7 @@ Table of Contents
 - Detailed usage statistics
 - Easy migration using web2py app structure
 - VGWORT plugin for royalties (for Germany, requires pythonn- urllib to check if the vgwort is enabled )
+- Solr Plugin (Work in progress)
 
 # Installation
 - Prerequisites
@@ -65,6 +66,9 @@ Table of Contents
  This tool imports royalty information for germany's vgwort using a Excel File
 ### Installation
   1. Requires python xlrd  library ```sudo pip2 install xlrd```
+
+## Solr Plugin
+### Description 
 
 ### Usage
 

@@ -4,7 +4,6 @@
 
 <div id="main" class="container">
 <section id="content">
-    <div style="height: 20px"></div>
     {{for submission in submissions:}}
     <div class="container" height="400px">
         <div class="row">
@@ -20,6 +19,7 @@
                     <div class="post-heading">
 						{{include 'catalog/snippets/submission.html'}}
                         {{series = submission.associated_items.get('series', None)}}
+
                         {{if series:}}
                         	{{series_title = series.settings.getLocalizedValue('title', locale)}}
                         	{{series_subtitle = series.settings.getLocalizedValue('subtitle', locale)}}
@@ -52,7 +52,7 @@
                         <div class="solidline">
                         </div>
                         <div class="post-heading">
-                            <h4>{{=T('Forthcoming')}}</h4>
+                            <h4 id="forthcoming">{{=T('Forthcoming')}}</h4>
                         </div>
                         <div class="solidline">
                         </div>
@@ -73,7 +73,9 @@
             <div class="col-lg-9">
                 <article>
                     <div class="post-heading"><a id="michl"></a>
-                        <h4>Corinna Forberg, Philipp W. Stockhammer (Eds.)</h4>
+						<div id="autoren" class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h4>Corinna Forberg, Philipp W. Stockhammer (Eds.)</h4></div>
+          
+                    <br style="clear: both">
                         <h4>The Transformative Power of the Copy<br />
                         A Transcultural and Interdisciplinary Approach</h4>
 						<i>Heidelberg Studies in Transculturality, vol. 2</i>
@@ -83,6 +85,27 @@
                 </article>
             </div>
         </div>
+		<div class="row">
+            <div class="col-lg-3">
+                <article>
+                    <div class="post-image">
+                        <img src="{{=URL('static','images/catalog/Cover_Windelband_OMP_300.jpg')}}"/>
+                    </div>
+                </article>
+            </div>
+            <div class="col-lg-9">
+                <article>
+                    <div class="post-heading"><a id="michl"></a>
+					<div id="autoren" class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h4>Horst Gundlach</h4></div>
+          
+                    <br style="clear: both">
+                        <h4>Wilhelm Windelband und die Psychologie &ndash; Das Fach Philosophie und die Wissenschaft Psychologie im Deutschen Kaiserreich </h4>
+						        </div>
+					<p></p>
+                    <p>Wilhelm Windelband (1848-1915) war Ordinarius der Philosophie im Deutschen Kaiserreich, Haupt der südwestdeutschen Schule des Neukantianismus und einflussreicher Kathederfürst. Dem Neukantianismus wird Gegnerschaft zur Psychologie nachgesagt, und Windelband gilt in der Wissenschaftsgeschichte als jemand, der eine ausgeprägte Abneigung gegen die Psychologie hegte und diese polemisch von sich gab. Die hier erstmalig untersuchte Wirklichkeit sah anders aus. Er setzte sich frühzeitig für die Selbständigkeit der Psychologie ein, arbeitete an einem Buch zur Psychologie und hielt mehr als zwanzig Hauptvorlesungen zur Psychologie. Institutionelle Hintergründe des problematischen Verhältnisses zwischen Philosophie und Psychologie werden untersucht und gezeigt, weshalb Windelband kein Einzelfall in der Geschichte des Faches Philosophie war.</p>
+                </article>
+            </div>
+      </div>        
 		
 		
     </div>

@@ -1,0 +1,239 @@
+{{extend 'layout.html'}}
+{{import re, os}}
+{{from ompformat import formatContributors, coverImageLink}}
+
+
+<div id="main" class="container">
+<section id="content">
+      {{for submission in submissions:}}
+<div class="container" height="400px">
+        <div class="row">
+            <div class="col-lg-3">
+                <article>
+                    <div class="post-image">
+                        {{=IMG(_src=coverImageLink(request, press.press_id, submission.attributes.submission_id))}}
+                    </div>
+                </article>
+            </div>
+            <div class="col-lg-9">
+                <article>
+                    <div class="post-heading">
+						{{include 'catalog/snippets/submission.html'}}
+
+                        {{series = submission.associated_items.get('series', None)}}
+
+                        {{if series:}}
+                        	{{series_title = series.settings.getLocalizedValue('title', locale)}}
+                        	{{series_subtitle = series.settings.getLocalizedValue('subtitle', locale)}}
+                        	<i>{{=series_title}}{{ if series_subtitle: }} – {{=series_subtitle}}{{pass}}{{if submission.attributes.series_position:}}, {{=T('Vol.')}} {{=submission.attributes.series_position}} {{pass}}</i>
+                        {{pass}}
+                    </div>
+                    <p>
+                        <i class="icon-quote-left"></i>
+                        {{abstract = submission.settings.getLocalizedValue('abstract', locale)}}
+                        {{if abstract:}}
+                        	{{=XML(abstract)}}
+                        {{pass}}
+                    </p>
+                    <div class="widget">
+                        <h5 class="widgetheading"></h5>
+                        <ul class="tags">
+                          <li><a href="{{=URL('catalog','book/'+str(submission.attributes.submission_id))}}">{{=T('More information' )}}</a></li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+    {{pass}}
+	
+	{{if request.args[0]=='campusmedia':}}
+		<div class="container">
+
+			
+		<div class="row">
+			<div class="col-lg-3">
+				<article>
+				  <div class="post-image">
+					<img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/heidelberger_jahrbuecher.jpg')}} ">
+				  </div>
+				</article>
+			  </div>
+		    <div class="col-lg-9">
+				<article>
+				  <div class="post-heading">
+				  <div id="autoren" class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h3>Heidelberger Jahrbücher Online</h3></div>
+          <div id="spartenmarker" class="col-lg-3 col-md-3 col-xs-5" style="padding-left: 0; padding-right: 3%; margin-top: 2ex;"><a href="{{=URL(myconf.take('web.application'),'category','info/campusmedia')}}" style="text-decoration: none; color: #979797;">{{=T('Campus Media ')}}</a></div>
+          <br style="clear: both">
+				  </div>
+				  {{if session.forced_language =='de': }}
+				  <p><i class="icon-quote-left"></i>In den Heidelberger Jahrbüchern Online soll der wissenschaftliche Geist und der geschichtliche Raum der Universität zur Darstellung gelangen. Die Heidelberger Jahrbücher, die im Auftrag der Gesellschaft der Freunde Universität Heidelberg e.V. herausgegeben werden, beleuchten in jedem Band ein fachübergreifendes Thema aus unterschiedlichen Positionen. Ihr Ziel ist es, das Gespräch und den Kontakt der Wissenschaften an der Universität Heidelberg untereinander zu fördern.</p>
+				  <p><strong>Call for Papers</strong><br />
+				  <a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/pages/view/cfp" title="Homepage Heidelberger Jahrbücher Online, Informationen zum Call for Papers für Band 2">Call for Papers für Band 2: &bdquo;Wissenschaft für Alle - Bedeutung von Open Science und Citizen Science für Universitäten und Wissenschaft&rdquo;</a>
+					</p>
+					{{elif session.forced_language =='en': }} 
+				  <p><i class="icon-quote-left"></i>Heidelberg Yearbooks Online is a platform for the scientific spirit and the historic dimension of Heidelberg University. The Yearbooks are hosted by the Friends of the University, a non-commercial organization in support of Heidelberg University. Each yearbook focuses on an overarching thematic issue that will be interpreted by heterogenous points of view. The yearbooks are intended to foster communication and contact between scientists from different disciplines. {{pass}} 
+				  </p>
+				  <div class="widget">
+					<h5 class="widgetheading"></h5>
+					<ul class="tags">
+					  <li>
+					  <a href="{{=URL(myconf.take('web.application'),'campusmedia','heidelberger_jahrbuecher')}}">{{=T('More' )}}</a>
+					  </li>
+					  <br>
+					  <li>
+					  <a href="https://heiup.uni-heidelberg.de/journals/index.php/hdjbo/index">{{=T('View Journal')}}</a>
+					  </li>
+					</ul>
+				  </div>
+				</article>
+		    </div>
+    </div> 
+
+	<div class="row">
+      <div class="col-lg-3">
+        <article>
+          <div class="post-image">
+            <img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/cover_09_2016.png')}}">
+          </div>
+        </article>
+      </div>
+      <div class="col-lg-9">
+        <article>
+          <div class="post-heading">
+          <div id="autoren" class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h3>Ruperto Carola</h3></div>
+          <div id="spartenmarker" class="col-lg-3 col-md-3 col-xs-5" style="padding-left: 0; padding-right: 3%; margin-top: 2ex;"><a href="{{=URL(myconf.take('web.application'),'category','info/campusmedia')}}" style="text-decoration: none; color: #979797;">{{=T('Campus Media ')}}</a></div>
+          <br style="clear: both">
+          </div>
+          <p>
+            <i class="icon-quote-left"></i>{{if session.forced_language =='de': }} Das Forschungsmagazin „Ruperto Carola“ berichtet über wissenschaftliche Erkenntnisse und laufende Forschungsvorhaben der Universität Heidelberg. Jede seiner Ausgaben ist einem gesellschaftlich relevanten Schwerpunktthema gewidmet, zu dem Heidelberger Forscherinnen und Forscher über Disziplinen und Fächer hinweg ihre wissenschaftliche Arbeit vorstellen. Herausgeber des Magazins ist der Rektor der Universität Heidelberg, die redaktionelle Verantwortung liegt bei der Stabsstelle „Kommunikation und Marketing“. {{elif session.forced_language =='en': }} The "Ruperto Carola" research journal reports on scientific findings and current research activities at Heidelberg University. Every issue is dedicated to a central theme of high social relevance, to which Heidelberg scholars contribute by presenting related research projects across the entire range of disciplines and subjects. The journal is published by the President of Heidelberg University and edited by the "Communications and Marketing" team. {{pass}} 
+          </p>
+          <div class="widget">
+            <h5 class="widgetheading"></h5>
+            <ul class="tags">
+              <li>
+              <a href="{{=URL(myconf.take('web.application'),'campusmedia','ruperto_carola')}}">{{=T('More' )}}</a>
+              </li>
+              <br>
+              <li>
+              <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index">{{=T('View Journal')}}</a>
+              </li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+            
+    <div class="row">
+      <div class="col-lg-3">
+        <article>
+          <div class="post-image">
+            <img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/studiumgenerale.jpg')}} ">
+          </div>
+        </article>
+      </div>
+      <div class="col-lg-9">
+        <article>
+          <div class="post-heading">
+          <div id="autoren" class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h3>Studium Generale</h3></div>
+          <div id="spartenmarker" class="col-lg-3 col-md-3 col-xs-5" style="padding-left: 0; padding-right: 3%; margin-top: 2ex;"><a href="{{=URL(myconf.take('web.application'),'category','info/campusmedia')}}" style="text-decoration: none; color: #979797;">{{=T('Campus Media ')}}</a></div>
+                    <br style="clear: both">
+		  </div>
+          <p>
+            <i class="icon-quote-left"></i>{{if session.forced_language =='de': }} Die Publikationen des Studium Generale sind von der gleichnamigen Vorlesungsreihe abgeleitet, die in jedem Semester ein Schwerpunktthema aufgreift und für die interessierte Öffentlichkeit aufbereitet. Herausgeber ist der zuständige Prorektor und Vorsitzende der Kommission Studium Generale, die redaktionelle Verantwortung liegt bei der Abteilung Wissensaustausch. {{elif session.forced_language =='en': }} Die Publikationen des Studium Generale sind von der gleichnamigen Vorlesungsreihe abgeleitet, die in jedem Semester ein Schwerpunktthema aufgreift und für die interessierte Öffentlichkeit aufbereitet. Herausgeber ist der zuständige Prorektor und Vorsitzende der Kommission Studium Generale, die redaktionelle Verantwortung liegt bei der Abteilung Wissensaustausch. {{pass}} 
+          </p>
+          <div class="widget">
+            <h5 class="widgetheading"></h5>
+            <ul class="tags">
+              <li>
+              <a href="{{=URL(myconf.take('web.application'),'campusmedia','generale')}}">{{=T('More' )}}</a>
+              </li>
+              <br>
+              <li>
+              <a href="https://heiup.uni-heidelberg.de/journals/index.php/generale/index">{{=T('View Journal')}}</a>
+              </li>
+            </ul>
+          </div>
+        </article>
+    </div>
+    </div>
+	</div>
+	{{pass}}
+	
+	
+	{{if request.args[0]=='academic':}}
+		<div class="container">
+	    
+        <div class="row">		
+			<div class="col-lg-3">
+                <article>
+                    <div class="post-image">
+		 	<img src="{{=URL(myconf.take('web.application'),'static','images/journals/religions.jpg')}} ">
+                  </div>
+                </article>
+            </div>
+            <div class="col-lg-9">
+               <article>
+                  <div class="post-heading">		            
+						<div id="autoren" class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h3>Online &ndash; Heidelberg Journal of Religions on the Internet</h3></div>
+          <div id="spartenmarker" class="col-lg-3 col-md-3 col-xs-5" style="padding-left: 0; padding-right: 3%; margin-top: 2ex;"><a href="{{=URL(myconf.take('web.application'),'category','info/academic')}}" style="text-decoration: none; color: #979797;">{{=T('Academic ')}}</a></div>
+                    <br style="clear: both">
+                        </div>
+                        <p>
+                            <i class="icon-quote-left"></i>
+             {{if session.forced_language =='de': }}
+<i>Online</i> ist eine internationale, Peer-Review-geprüfte Open-Access-Zeitschrift, die am Institut für Religionswissenschaft der Universität Heidelberg erscheint. Die Herausgeber haben sich zum Ziel gesetzt, wissenschaftliche Forschung an der Schnittstelle von Religion und Internet zu fördern und die Forschung in diesem Feld theoretisch und methodisch voranzubringen.
+             {{elif session.forced_language =='en': }}
+<i>Online</i> is an international open-access, peer-reviewed academic journal published by the Institute of Religious Studies  at the University of Heidelberg (Germany). The journal is committed to promoting and (theoretically and methodically) advancing  scientific research at the interface between religion and the internet.
+{{pass}}     
+                        </p>
+                    <div class="widget">
+                        <h5 class="widgetheading"></h5>
+                        <ul class="tags">
+        	       	   <li><a href="{{=URL(myconf.take('web.application'),'journals','religions')}}">{{=T('More' )}}</a></li><br>
+	                   <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/religions/index">{{=T('View Journal')}}</a></li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+	<div class="row">
+            <div class="col-lg-3">
+                <article>
+                    <div class="post-image">
+		 	<img src="{{=URL(myconf.take('web.application'),'static','images/journals/tcs.jpg')}} ">
+                  </div>
+                </article>
+            </div>
+            <div class="col-lg-9">
+               <article>
+                        <div class="post-heading">
+			            
+						<div id="autoren" class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h3>Transcultural Studies</h3></div>
+          <div id="spartenmarker" class="col-lg-3 col-md-3 col-xs-5" style="padding-left: 0; padding-right: 3%; margin-top: 2ex;"><a href="{{=URL(myconf.take('web.application'),'category','info/academic')}}" style="text-decoration: none; color: #979797;">{{=T('Academic ')}}</a></div>
+                    <br style="clear: both">
+                        </div>
+                        <p>
+                            <i class="icon-quote-left"></i>
+             {{if session.forced_language =='de': }}
+<i>Transcultural Studies</i> ist eine Peer-Review-geprüfte Open-Access-Zeitschrift, die sich als Forum zur Verbreitung von Wissen und Forschung zur Transkulturalität in allen Disziplinen versteht. Sie wird vom Exzellenzcluster „Asien und Europa im globalen Kontext. Die Dynamiken der Transkulturalität“ der Ruprecht-Karls-Universität Heidelberg herausgegeben.
+             {{elif session.forced_language =='en': }}
+<i>Transcultural Studies</i> is a peer-reviewed, open-access journal committed to promoting the knowledge and research of transculturality in all disciplines. It is published by the Cluster of Excellence “Asia and Europe in a Global Context: The Dynamics of Transculturality” of the Ruprecht-Karls-Universität Heidelberg.
+{{pass}}     
+                        </p>
+                    <div class="widget">
+                        <h5 class="widgetheading"></h5>
+                        <ul class="tags">
+        	       	   <li><a href="{{=URL(myconf.take('web.application'),'journals','tcs')}}">{{=T('More' )}}</a></li><br>
+	                   <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/index">{{=T('View Journal')}}</a></li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+		</div>
+	{{pass}}
+	
+</section>
+</div>
