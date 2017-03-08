@@ -1,427 +1,483 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
- Licensed to the Apache Software Foundation (ASF) under one or more
- contributor license agreements.  See the NOTICE file distributed with
- this work for additional information regarding copyright ownership.
- The ASF licenses this file to You under the Apache License, Version 2.0
- (the "License"); you may not use this file except in compliance with
- the License.  You may obtain a copy of the License at
+  * schema.xml
+  *
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2003-2017 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * OJS solr/lucene search plugin index schema default configuration.
+  *
+  * NB: You may customize the index/query analyzer chains. Do not change the field
+  * configuration, though, as this will probably break the OJS/solr indexing or
+  * search protocol.
 
-     http://www.apache.org/licenses/LICENSE-2.0
+  Original file
+  https://github.com/pkp/ojs/blob/master/plugins/generic/lucene/embedded/solr/conf/schema.xml
 
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
--->
+  Modified by
+  Dulip Withanage
 
-<!--  
- This is the Solr schema file. This file should be named "schema.xml" and
- should be in the conf directory under the solr home
- (i.e. ./solr/conf/schema.xml by default) 
- or located where the classloader for the Solr webapp can find it.
 
- This example schema is the recommended version for users who want a clean
- start.
- 
- For more information, on how to customize this file, please see
- http://wiki.apache.org/solr/SchemaXml
+  -->
 
--->
+<schema name="omp" version="1.0">
 
-<schema name="minimal-lt" version="1.4">
-   
-    <fields>
+  <types>
+    <!-- Numeric fields are used for numeric IDs -->
+    <fieldType name="numId" class="solr.TrieLongField" omitNorms="true" />
 
-        <field name="id" type="string" indexed="true" stored="true" required="true" />
-        <field name="book_title" type="string" indexed="true" stored="true" required="true" />
-        <field name="text" type="text_en" indexed="true" stored="true" required="true" />
-
-        <!-- uncomment the following to ignore any fields that don't already match an existing 
-            field name or dynamic field, rather than reporting them as an error. 
-            alternately, change the type="ignored" to some other type e.g. "text" if you want 
-            unknown fields indexed and/or stored by default --> 
-        <dynamicField name="*" type="ignored" multiValued="true" />
-
-        <!-- Valid attributes for fields:
-         name: mandatory - the name for the field
-         type: mandatory - the name of a previously defined type from the 
-           <types> section
-         indexed: true if this field should be indexed (searchable or sortable)
-         stored: true if this field should be retrievable
-         multiValued: true if this field may contain multiple values per document
-         omitNorms: (expert) set to true to omit the norms associated with
-           this field (this disables length normalization and index-time
-           boosting for the field, and saves some memory).  Only full-text
-           fields or fields that need an index-time boost need norms.
-         termVectors: [false] set to true to store the term vector for a
-           given field.
-           When using MoreLikeThis, fields used for similarity should be
-           stored for best performance.
-         termPositions: Store position information with the term vector.  
-           This will increase storage costs.
-         termOffsets: Store offset information with the term vector. This 
-           will increase storage costs.
-         default: a value that should be used if no value is specified
-           when adding a document.
-        -->
-
-</fields>
-
-<!-- Field to use to determine and enforce document uniqueness. 
-  Unless this field is marked with required="false", it will be a required field
--->
-<uniqueKey>id</uniqueKey>
-
-<!-- field for the QueryParser to use when an explicit fieldname is absent -->
-<defaultSearchField>text</defaultSearchField>
-
-<!-- SolrQueryParser configuration: defaultOperator="AND|OR" -->
-<solrQueryParser defaultOperator="OR"/>
-
-<types>
-
-    <!-- The StrField type is not analyzed, but indexed/stored verbatim. -->
+    <!-- The StrField type is not analyzed, but indexed/stored verbatim (e.g. for sort fields or textual ID fields). -->
     <fieldType name="string" class="solr.StrField" sortMissingLast="true" omitNorms="true"/>
-
-    <!--
-      Default numeric field types. For faster range queries, consider the tint/tfloat/tlong/tdouble types.
-    -->
-    <fieldType name="int" class="solr.TrieIntField" precisionStep="0" omitNorms="true" positionIncrementGap="0"/>
-    <fieldType name="long" class="solr.TrieLongField" precisionStep="0" omitNorms="true" positionIncrementGap="0"/>
-
-    <!-- The format for this date field is of the form 1995-12-31T23:59:59Z, and
-         is a more restricted form of the canonical representation of dateTime
-         http://www.w3.org/TR/xmlschema-2/#dateTime    
-         The trailing "Z" designates UTC time and is mandatory.
-         Optional fractional seconds are allowed: 1995-12-31T23:59:59.999Z
-         All other components are mandatory.
-
-         Expressions can also be used to denote calculations that should be
-         performed relative to "NOW" to determine the value, ie...
-
-               NOW/HOUR
-                  ... Round to the start of the current hour
-               NOW-1DAY
-                  ... Exactly 1 day prior to now
-               NOW/DAY+6MONTHS+3DAYS
-                  ... 6 months and 3 days in the future from the start of
-                      the current day
-                      
-         Consult the DateField javadocs for more information.
-
-         Note: For faster range queries, consider the tdate type
-      -->
-    <fieldType name="date" class="solr.TrieDateField" omitNorms="true" precisionStep="0" positionIncrementGap="0"/>
 
     <!-- A Trie based date field for faster date range queries and date faceting. -->
     <fieldType name="tdate" class="solr.TrieDateField" omitNorms="true" precisionStep="6" positionIncrementGap="0"/>
 
-    <!-- The "RandomSortField" is not used to store or search any
-         data.  You can declare fields of this type it in your schema
-         to generate pseudo-random orderings of your docs for sorting 
-         purposes.  The ordering is generated based on the field name 
-         and the version of the index, As long as the index version
-         remains unchanged, and the same field name is reused,
-         the ordering of the docs will be consistent.  
-         If you want different psuedo-random orderings of documents,
-         for the same version of the index, use a dynamicField and
-         change the name
-     -->
-    <fieldType name="random" class="solr.RandomSortField" indexed="true" />
+    <!-- A conventional date field for sorting -->
+    <fieldType name="pdate" class="solr.DateField" sortMissingLast="true"/>
 
-    <!-- solr.TextField allows the specification of custom text analyzers
-         specified as a tokenizer and a list of token filters. Different
-         analyzers may be specified for indexing and querying.
+    <!-- Faceting fields (you may have to change the tokenization patterns)-->
+    <!-- General faceted field (comma- or semicolon-separated, e.g. discipline, type, subject, etc.) -->
+    <fieldType name="facet" class="solr.TextField" positionIncrementGap="100">
+      <analyzer>
+        <tokenizer class="solr.PatternTokenizerFactory" pattern="[,;]\s*"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+      </analyzer>
+    </fieldType>
 
-         The optional positionIncrementGap puts space between multiple fields of
-         this type on the same document, with the purpose of preventing false phrase
-         matching across fields.
+    <!-- Facet field with semicolon-separated facets (e.g. authors) -->
+    <fieldType name="facet_semicolon_separated" class="solr.TextField" positionIncrementGap="100">
+      <analyzer>
+        <tokenizer class="solr.PatternTokenizerFactory" pattern=";\s*"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+      </analyzer>
+    </fieldType>
 
-         For more info on customizing your analyzer chain, please see
-         http://wiki.apache.org/solr/AnalyzersTokenizersTokenFilters
-     -->
+    <!-- Cross-language field -->
+    <fieldType name="text" class="solr.TextField" positionIncrementGap="100">
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.WordDelimiterFilterFactory" splitOnCaseChange="0" catenateWords="1" catenateNumbers="1" />
+        <filter class="solr.ASCIIFoldingFilterFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+        <!--filter class="solr.ReversedWildcardFilterFactory" /-->
+      </analyzer>
+    </fieldType>
 
-    <!-- One can also specify an existing Analyzer class that has a
-         default constructor via the class attribute on the analyzer element
-    <fieldType name="text_greek" class="solr.TextField">
-      <analyzer class="org.apache.lucene.analysis.el.GreekAnalyzer"/>
+    <!-- Configuration for specific languages. You may add or change language-specific
+         analysis chains here. The import process will automatically recognize new
+         locales. -->
+    <!-- Catalan -->
+    <fieldType name="text_ca" class="solr.TextField" positionIncrementGap="100">
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords_ca.txt" enablePositionIncrements="true"/>
+        <filter class="solr.WordDelimiterFilterFactory" splitOnCaseChange="0" catenateWords="1" catenateNumbers="1" />
+        <filter class="solr.ASCIIFoldingFilterFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.SnowballPorterFilterFactory" language="Catalan" />
+        <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+        <!--filter class="solr.ReversedWildcardFilterFactory" /-->
+      </analyzer>
+    </fieldType>
+
+    <!-- Czech -->
+    <fieldType name="text_cs" class="solr.TextField" positionIncrementGap="100">
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords_cs.txt" enablePositionIncrements="true"/>
+        <filter class="solr.WordDelimiterFilterFactory" splitOnCaseChange="0" catenateWords="1" catenateNumbers="1" />
+        <filter class="solr.ASCIIFoldingFilterFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.CzechStemFilterFactory"/>
+        <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+        <!--filter class="solr.ReversedWildcardFilterFactory" /-->
+      </analyzer>
+    </fieldType>
+
+    <!-- Danish -->
+    <fieldType name="text_da" class="solr.TextField" positionIncrementGap="100">
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords_da.txt" enablePositionIncrements="true"/>
+        <filter class="solr.WordDelimiterFilterFactory" splitOnCaseChange="0" catenateWords="1" catenateNumbers="1" />
+        <filter class="solr.ASCIIFoldingFilterFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.SnowballPorterFilterFactory" language="Danish" />
+        <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+        <!--filter class="solr.ReversedWildcardFilterFactory" /-->
+      </analyzer>
+    </fieldType>
+
+    <!-- German -->
+    <fieldType name="text_de" class="solr.TextField" positionIncrementGap="100">
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords_de.txt" enablePositionIncrements="true"/>
+        <filter class="solr.WordDelimiterFilterFactory" splitOnCaseChange="0" catenateWords="1" catenateNumbers="1" />
+        <filter class="solr.ASCIIFoldingFilterFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.GermanLightStemFilterFactory"/>
+        <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+        <!--filter class="solr.ReversedWildcardFilterFactory" /-->
+      </analyzer>
+    </fieldType>
+
+    <!-- Greek -->
+    <fieldType name="text_el" class="solr.TextField" positionIncrementGap="100">
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords_el.txt" enablePositionIncrements="true"/>
+        <filter class="solr.WordDelimiterFilterFactory" splitOnCaseChange="0" catenateWords="1" catenateNumbers="1" />
+        <filter class="solr.GreekLowerCaseFilterFactory"/>
+        <filter class="solr.GreekStemFilterFactory"/>
+        <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+        <!--filter class="solr.ReversedWildcardFilterFactory" /-->
+      </analyzer>
+    </fieldType>
+
+    <!-- English -->
+    <fieldType name="text_en" class="solr.TextField" positionIncrementGap="100">
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords_en.txt" enablePositionIncrements="true"/>
+        <filter class="solr.WordDelimiterFilterFactory" splitOnCaseChange="0" catenateWords="1" catenateNumbers="1" />
+        <filter class="solr.ASCIIFoldingFilterFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.EnglishMinimalStemFilterFactory"/>
+        <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+        <!--filter class="solr.ReversedWildcardFilterFactory" /-->
+      </analyzer>
+    </fieldType>
+
+    <!-- Spanish -->
+    <fieldType name="text_es" class="solr.TextField" positionIncrementGap="100">
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords_es.txt" enablePositionIncrements="true"/>
+        <filter class="solr.WordDelimiterFilterFactory" splitOnCaseChange="0" catenateWords="1" catenateNumbers="1" />
+        <filter class="solr.ASCIIFoldingFilterFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.SpanishLightStemFilterFactory"/>
+        <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+        <!--filter class="solr.ReversedWildcardFilterFactory" /-->
+      </analyzer>
+    </fieldType>
+
+    <!-- Basque -->
+    <fieldType name="text_eu" class="solr.TextField" positionIncrementGap="100">
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords_eu.txt" enablePositionIncrements="true"/>
+        <filter class="solr.WordDelimiterFilterFactory" splitOnCaseChange="0" catenateWords="1" catenateNumbers="1" />
+        <filter class="solr.ASCIIFoldingFilterFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.SnowballPorterFilterFactory" language="Basque" />
+        <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+        <!--filter class="solr.ReversedWildcardFilterFactory" /-->
+      </analyzer>
+    </fieldType>
+
+    <!-- Persian/Farsi -->
+    <fieldType name="text_fa" class="solr.TextField" positionIncrementGap="100">
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords_fa.txt" enablePositionIncrements="true"/>
+        <filter class="solr.ArabicNormalizationFilterFactory"/>
+        <filter class="solr.PersianNormalizationFilterFactory"/>
+        <!--filter class="solr.ReversedWildcardFilterFactory" /-->
+      </analyzer>
+    </fieldType>
+
+    <!-- French -->
+    <fieldType name="text_fr" class="solr.TextField" positionIncrementGap="100">
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords_fr.txt" enablePositionIncrements="true"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.ElisionFilterFactory"/>
+        <filter class="solr.ASCIIFoldingFilterFactory"/>
+        <filter class="solr.WordDelimiterFilterFactory" splitOnCaseChange="0" catenateWords="1" catenateNumbers="1" />
+        <filter class="solr.FrenchLightStemFilterFactory"/>
+        <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+        <!--filter class="solr.ReversedWildcardFilterFactory" /-->
+      </analyzer>
+    </fieldType>
+
+    <!-- Galician -->
+    <fieldType name="text_gl" class="solr.TextField" positionIncrementGap="100">
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords_gl.txt" enablePositionIncrements="true"/>
+        <filter class="solr.WordDelimiterFilterFactory" splitOnCaseChange="0" catenateWords="1" catenateNumbers="1" />
+        <filter class="solr.ASCIIFoldingFilterFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.GalicianStemFilterFactory"/>
+        <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+        <!--filter class="solr.ReversedWildcardFilterFactory" /-->
+      </analyzer>
+    </fieldType>
+
+    <!-- Italian -->
+    <fieldType name="text_it" class="solr.TextField" positionIncrementGap="100">
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords_it.txt" enablePositionIncrements="true"/>
+        <filter class="solr.WordDelimiterFilterFactory" splitOnCaseChange="0" catenateWords="1" catenateNumbers="1" />
+        <filter class="solr.ASCIIFoldingFilterFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.ItalianLightStemFilterFactory" />
+        <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+        <!--filter class="solr.ReversedWildcardFilterFactory" /-->
+      </analyzer>
+    </fieldType>
+
+    <!-- Chinese, Japanese and Korean -->
+    <fieldType name="text_cjk" class="solr.TextField" positionIncrementGap="100">
+      <analyzer>
+        <tokenizer class="solr.CJKTokenizerFactory"/>
+        <!--filter class="solr.ReversedWildcardFilterFactory" /-->
+      </analyzer>
+    </fieldType>
+
+    <!-- Chinese (simplified): To use this filter, see solr/contrib/analysis-extras/README.txt
+         for instructions on which jars you need to add to solr/lib
+    <fieldType name="text_csimp" class="solr.TextField" positionIncrementGap="100">
+      <analyzer>
+        <analyzer class="org.apache.lucene.analysis.cn.smart.SmartChineseAnalyzer"/>
+      </analyzer>
     </fieldType>
     -->
 
-    <!-- A text field that only splits on whitespace for exact matching of words -->
-    <fieldType name="text_ws" class="solr.TextField" positionIncrementGap="100">
+    <!-- Dutch -->
+    <fieldType name="text_nl" class="solr.TextField" positionIncrementGap="100">
       <analyzer>
-        <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords_nl.txt" enablePositionIncrements="true"/>
+        <filter class="solr.WordDelimiterFilterFactory" splitOnCaseChange="0" catenateWords="1" catenateNumbers="1" />
+        <filter class="solr.ASCIIFoldingFilterFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.SnowballPorterFilterFactory" language="Dutch" />
+        <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+        <!--filter class="solr.ReversedWildcardFilterFactory" /-->
       </analyzer>
     </fieldType>
 
-    <!-- A general text field that has reasonable, generic
-         cross-language defaults: it tokenizes with StandardTokenizer,
-	 removes stop words from case-insensitive "stopwords.txt"
-	 (empty by default), and down cases.  At query time only, it
-	 also applies synonyms. -->
-    <fieldType name="text_general" class="solr.TextField" positionIncrementGap="100">
-      <analyzer type="index">
-        <tokenizer class="solr.StandardTokenizerFactory"/>
-        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" enablePositionIncrements="true" />
-        <!-- in this example, we will only use synonyms at query time
-        <filter class="solr.SynonymFilterFactory" synonyms="index_synonyms.txt" ignoreCase="true" expand="false"/>
-        -->
-        <filter class="solr.LowerCaseFilterFactory"/>
-      </analyzer>
-      <analyzer type="query">
-        <tokenizer class="solr.StandardTokenizerFactory"/>
-        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" enablePositionIncrements="true" />
-        <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
-        <filter class="solr.LowerCaseFilterFactory"/>
-      </analyzer>
-    </fieldType>
-
-    <!-- A text field with defaults appropriate for English: it
-         tokenizes with StandardTokenizer, removes English stop words
-         (stopwords_en.txt), down cases, protects words from protwords.txt, and
-         finally applies Porter's stemming.  The query time analyzer
-         also applies synonyms from synonyms.txt. -->
-    <fieldType name="text_en" class="solr.TextField" positionIncrementGap="100">
-      <analyzer type="index">
-        <tokenizer class="solr.StandardTokenizerFactory"/>
-        <!-- in this example, we will only use synonyms at query time
-        <filter class="solr.SynonymFilterFactory" synonyms="index_synonyms.txt" ignoreCase="true" expand="false"/>
-        -->
-        <!-- Case insensitive stop word removal.
-          add enablePositionIncrements=true in both the index and query
-          analyzers to leave a 'gap' for more accurate phrase queries.
-        -->
-        <filter class="solr.StopFilterFactory"
-                ignoreCase="true"
-                words="stopwords_en.txt"
-                enablePositionIncrements="true"
-                />
-        <filter class="solr.LowerCaseFilterFactory"/>
-	<filter class="solr.EnglishPossessiveFilterFactory"/>
-        <filter class="solr.KeywordMarkerFilterFactory" protected="protwords.txt"/>
-	<!-- Optionally you may want to use this less aggressive stemmer instead of PorterStemFilterFactory:
-        <filter class="solr.EnglishMinimalStemFilterFactory"/>
-	-->
-        <filter class="solr.PorterStemFilterFactory"/>
-      </analyzer>
-      <analyzer type="query">
-        <tokenizer class="solr.StandardTokenizerFactory"/>
-        <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
-        <filter class="solr.StopFilterFactory"
-                ignoreCase="true"
-                words="stopwords_en.txt"
-                enablePositionIncrements="true"
-                />
-        <filter class="solr.LowerCaseFilterFactory"/>
-	<filter class="solr.EnglishPossessiveFilterFactory"/>
-        <filter class="solr.KeywordMarkerFilterFactory" protected="protwords.txt"/>
-	<!-- Optionally you may want to use this less aggressive stemmer instead of PorterStemFilterFactory:
-        <filter class="solr.EnglishMinimalStemFilterFactory"/>
-	-->
-        <filter class="solr.PorterStemFilterFactory"/>
-      </analyzer>
-    </fieldType>
-
-    <!-- A text field with defaults appropriate for English, plus
-	 aggressive word-splitting and autophrase features enabled.
-	 This field is just like text_en, except it adds
-	 WordDelimiterFilter to enable splitting and matching of
-	 words on case-change, alpha numeric boundaries, and
-	 non-alphanumeric chars.  This means certain compound word
-	 cases will work, for example query "wi fi" will match
-	 document "WiFi" or "wi-fi".  However, other cases will still
-	 not match, for example if the query is "wifi" and the
-	 document is "wi fi" or if the query is "wi-fi" and the
-	 document is "wifi".
-        -->
-    <fieldType name="text_en_splitting" class="solr.TextField" positionIncrementGap="100" autoGeneratePhraseQueries="true">
-      <analyzer type="index">
-        <tokenizer class="solr.WhitespaceTokenizerFactory"/>
-        <!-- in this example, we will only use synonyms at query time
-        <filter class="solr.SynonymFilterFactory" synonyms="index_synonyms.txt" ignoreCase="true" expand="false"/>
-        -->
-        <!-- Case insensitive stop word removal.
-          add enablePositionIncrements=true in both the index and query
-          analyzers to leave a 'gap' for more accurate phrase queries.
-        -->
-        <filter class="solr.StopFilterFactory"
-                ignoreCase="true"
-                words="stopwords_en.txt"
-                enablePositionIncrements="true"
-                />
-        <filter class="solr.WordDelimiterFilterFactory" generateWordParts="1" generateNumberParts="1" catenateWords="1" catenateNumbers="1" catenateAll="0" splitOnCaseChange="1"/>
-        <filter class="solr.LowerCaseFilterFactory"/>
-        <filter class="solr.KeywordMarkerFilterFactory" protected="protwords.txt"/>
-        <filter class="solr.PorterStemFilterFactory"/>
-      </analyzer>
-      <analyzer type="query">
-        <tokenizer class="solr.WhitespaceTokenizerFactory"/>
-        <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
-        <filter class="solr.StopFilterFactory"
-                ignoreCase="true"
-                words="stopwords_en.txt"
-                enablePositionIncrements="true"
-                />
-        <filter class="solr.WordDelimiterFilterFactory" generateWordParts="1" generateNumberParts="1" catenateWords="0" catenateNumbers="0" catenateAll="0" splitOnCaseChange="1"/>
-        <filter class="solr.LowerCaseFilterFactory"/>
-        <filter class="solr.KeywordMarkerFilterFactory" protected="protwords.txt"/>
-        <filter class="solr.PorterStemFilterFactory"/>
-      </analyzer>
-    </fieldType>
-
-    <!-- Less flexible matching, but less false matches.  Probably not ideal for product names,
-         but may be good for SKUs.  Can insert dashes in the wrong place and still match. -->
-    <fieldType name="text_en_splitting_tight" class="solr.TextField" positionIncrementGap="100" autoGeneratePhraseQueries="true">
+    <!-- Norwegian -->
+    <fieldType name="text_no" class="solr.TextField" positionIncrementGap="100">
       <analyzer>
-        <tokenizer class="solr.WhitespaceTokenizerFactory"/>
-        <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="false"/>
-        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords_en.txt"/>
-        <filter class="solr.WordDelimiterFilterFactory" generateWordParts="0" generateNumberParts="0" catenateWords="1" catenateNumbers="1" catenateAll="0"/>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords_no.txt" enablePositionIncrements="true"/>
+        <filter class="solr.WordDelimiterFilterFactory" splitOnCaseChange="0" catenateWords="1" catenateNumbers="1" />
+        <filter class="solr.ASCIIFoldingFilterFactory"/>
         <filter class="solr.LowerCaseFilterFactory"/>
-        <filter class="solr.KeywordMarkerFilterFactory" protected="protwords.txt"/>
-        <filter class="solr.EnglishMinimalStemFilterFactory"/>
-        <!-- this filter can remove any duplicate tokens that appear at the same position - sometimes
-             possible with WordDelimiterFilter in conjuncton with stemming. -->
+        <filter class="solr.NorwegianLightStemFilterFactory" />
+        <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+        <!--filter class="solr.ReversedWildcardFilterFactory" /-->
+      </analyzer>
+    </fieldType>
+
+    <!-- Portuguese -->
+    <fieldType name="text_pt" class="solr.TextField" positionIncrementGap="100">
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords_pt.txt" enablePositionIncrements="true"/>
+        <filter class="solr.WordDelimiterFilterFactory" splitOnCaseChange="0" catenateWords="1" catenateNumbers="1" />
+        <filter class="solr.ASCIIFoldingFilterFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.PortugueseLightStemFilterFactory" />
+        <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+        <!--filter class="solr.ReversedWildcardFilterFactory" /-->
+      </analyzer>
+    </fieldType>
+
+    <!-- Romanian -->
+    <fieldType name="text_ro" class="solr.TextField" positionIncrementGap="100">
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords_ro.txt" enablePositionIncrements="true"/>
+        <filter class="solr.WordDelimiterFilterFactory" splitOnCaseChange="0" catenateWords="1" catenateNumbers="1" />
+        <filter class="solr.ASCIIFoldingFilterFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.SnowballPorterFilterFactory" language="Romanian" />
+        <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+        <!--filter class="solr.ReversedWildcardFilterFactory" /-->
+      </analyzer>
+    </fieldType>
+
+    <!-- Russian -->
+    <fieldType name="text_ru" class="solr.TextField" positionIncrementGap="100">
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords_ru.txt" enablePositionIncrements="true"/>
+        <filter class="solr.WordDelimiterFilterFactory" splitOnCaseChange="0" catenateWords="1" catenateNumbers="1" />
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.RussianLightStemFilterFactory" />
+        <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+        <!--filter class="solr.ReversedWildcardFilterFactory" /-->
+      </analyzer>
+    </fieldType>
+
+    <!-- Swedish -->
+    <fieldType name="text_sv" class="solr.TextField" positionIncrementGap="100">
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords_sv.txt" enablePositionIncrements="true"/>
+        <filter class="solr.WordDelimiterFilterFactory" splitOnCaseChange="0" catenateWords="1" catenateNumbers="1" />
+        <filter class="solr.ASCIIFoldingFilterFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.SwedishLightStemFilterFactory" />
+        <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+        <!--filter class="solr.ReversedWildcardFilterFactory" /-->
+      </analyzer>
+    </fieldType>
+
+    <!-- Turkish -->
+    <fieldType name="text_tr" class="solr.TextField" positionIncrementGap="100">
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords_tr.txt" enablePositionIncrements="true"/>
+        <filter class="solr.WordDelimiterFilterFactory" splitOnCaseChange="0" catenateWords="1" catenateNumbers="1" />
+        <filter class="solr.TurkishLowerCaseFilterFactory"/>
+        <filter class="solr.SnowballPorterFilterFactory" language="Turkish" />
+        <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+        <!--filter class="solr.ReversedWildcardFilterFactory" /-->
+      </analyzer>
+    </fieldType>
+
+    <!-- Language-agnostic spellcheck analysis config -->
+    <fieldType name="text_spell" class="solr.TextField" positionIncrementGap="100">
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.StandardFilterFactory"/>
         <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
       </analyzer>
     </fieldType>
 
-    <!-- Just like text_general except it reverses the characters of
-	 each token, to enable more efficient leading wildcard queries. -->
-    <fieldType name="text_general_rev" class="solr.TextField" positionIncrementGap="100">
-      <analyzer type="index">
-        <tokenizer class="solr.StandardTokenizerFactory"/>
-        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" enablePositionIncrements="true" />
-        <filter class="solr.LowerCaseFilterFactory"/>
-        <filter class="solr.ReversedWildcardFilterFactory" withOriginal="true"
-           maxPosAsterisk="3" maxPosQuestion="2" maxFractionAsterisk="0.33"/>
-      </analyzer>
-      <analyzer type="query">
-        <tokenizer class="solr.StandardTokenizerFactory"/>
-        <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
-        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" enablePositionIncrements="true" />
-        <filter class="solr.LowerCaseFilterFactory"/>
-      </analyzer>
-    </fieldType>
-
-    <!-- Lithuanian text ================================================== -->
-    <!-- A text field with defaults appropriate for Lithuanian: it
-         tokenizes with StandardTokenizer, removes Lithuanian stop words
-         (stopwords_lt.txt), down cases, protects words from protwords_lt.txt, and
-         finally applies Porter's stemming.  The query time analyzer
-         also applies synonyms from synonyms_lt.txt. -->
-    <fieldType name="text_lt" class="solr.TextField" positionIncrementGap="100">
-      <!-- These filters are applied when indexing documents: -->
-      <analyzer type="index">
-        <tokenizer class="solr.StandardTokenizerFactory"/>
-        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords_lt.txt" enablePositionIncrements="true" />
-        <!-- in this example, we will only use synonyms at query time
-        <filter class="solr.SynonymFilterFactory" synonyms="index_synonyms.txt" ignoreCase="true" expand="false"/>
-        -->
-        <filter class="solr.LowerCaseFilterFactory"/>
-        <filter class="solr.SnowballPorterFilterFactory" language="Lithuanian" protected="protwords_lt.txt"/>
-      </analyzer>
-      <!-- These filters are applied when querying the database: -->
-      <analyzer type="query">
-        <tokenizer class="solr.StandardTokenizerFactory"/>
-        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords_lt.txt" enablePositionIncrements="true" />
-        <filter class="solr.SynonymFilterFactory" synonyms="synonyms_lt.txt" ignoreCase="true" expand="true"/>
-        <filter class="solr.LowerCaseFilterFactory"/>
-        <filter class="solr.SnowballPorterFilterFactory" language="Lithuanian" protected="protwords_lt.txt"/>
-      </analyzer>
-    </fieldType>
-    <!-- /Lithuanian text ================================================= -->
-
-    <!-- charFilter + WhitespaceTokenizer  -->
     <!--
-    <fieldType name="text_char_norm" class="solr.TextField" positionIncrementGap="100" >
-      <analyzer>
-        <charFilter class="solr.MappingCharFilterFactory" mapping="mapping-ISOLatin1Accent.txt"/>
-        <tokenizer class="solr.WhitespaceTokenizerFactory"/>
-      </analyzer>
-    </fieldType>
+      External field to support ranking by an external fast-changing metric.
+      Values in the external field should vary between 0.5 (half) and 2.0 (double).
+      The default value is 1 (neutral ranking) so that the results for articles
+      without specific ranking data will not distort results (especially for very
+      new articles or in a central server case with inconsistently configured
+      clients).
+    -->
+    <!--fieldType name="externalFile" keyField="submission_id" defVal="1" stored="false" indexed="false"      class="solr.ExternalFileField" valType="pfloat"/-->
+
+    <!-- Dummy field type for ignored fields -->
+    <fieldtype name="ignored" stored="false" indexed="false" multiValued="true" class="solr.StrField" />
+  </types>
+
+  <fields>
+    <!-- Valid attributes for fields:
+      name: mandatory - the name for the field
+      type: mandatory - the name of a previously defined type from the
+        <types> section
+      indexed: true if this field should be indexed (searchable or sortable)
+      stored: true if this field should be retrievable
+      multiValued: true if this field may contain multiple values per document
+      omitNorms: (expert) set to true to omit the norms associated with
+        this field (this disables length normalization and index-time
+        boosting for the field, and saves some memory).  Only full-text
+        fields or fields that need an index-time boost need norms.
+      termVectors: [false] set to true to store the term vector for a
+        given field.
+        When using MoreLikeThis, fields used for similarity should be
+        stored for best performance.
+      termPositions: Store position information with the term vector.
+        This will increase storage costs.
+      termOffsets: Store offset information with the term vector. This
+        will increase storage costs.
+      default: a value that should be used if no value is specified
+        when adding a document.
     -->
 
-    <!-- This is an example of using the KeywordTokenizer along
-         With various TokenFilterFactories to produce a sortable field
-         that does not include some properties of the source text
-      -->
-    <fieldType name="alphaOnlySort" class="solr.TextField" sortMissingLast="true" omitNorms="true">
-      <analyzer>
-        <!-- KeywordTokenizer does no actual tokenizing, so the entire
-             input string is preserved as a single token
-          -->
-        <tokenizer class="solr.KeywordTokenizerFactory"/>
-        <!-- The LowerCase TokenFilter does what you expect, which can be
-             when you want your sorting to be case insensitive
-          -->
-        <filter class="solr.LowerCaseFilterFactory" />
-        <!-- The TrimFilter removes any leading or trailing whitespace -->
-        <filter class="solr.TrimFilterFactory" />
-        <!-- The PatternReplaceFilter gives you the flexibility to use
-             Java Regular expression to replace any sequence of characters
-             matching a pattern with an arbitrary replacement string, 
-             which may include back references to portions of the original
-             string matched by the pattern.
-             
-             See the Java Regular Expression documentation for more
-             information on pattern and replacement string syntax.
-             
-             http://java.sun.com/j2se/1.5.0/docs/api/java/util/regex/package-summary.html
-          -->
-        <filter class="solr.PatternReplaceFilterFactory"
-                pattern="([^a-z])" replacement="" replace="all"
-        />
-      </analyzer>
-    </fieldType>
-    
-    <fieldtype name="phonetic" stored="false" indexed="true" class="solr.TextField" >
-      <analyzer>
-        <tokenizer class="solr.StandardTokenizerFactory"/>
-        <filter class="solr.DoubleMetaphoneFilterFactory" inject="false"/>
-      </analyzer>
-    </fieldtype>
+    <!-- Fields containing the unique document ID and other administrative IDs, e.g. a installation-specific GUID, the journal ID and the article ID -->
+    <field name="authors" type="string" indexed="true" stored="true" required="false" multiValued="true" />
+    <field name="abstract_en" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="abstract_de" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="locale" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+    <field name="category_de" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="category_en" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="press_id" type="numId" indexed="true" stored="true" required="true" multiValued="false" />
+    <field name="series_description_de" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="series_description_en" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="series_title_de" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="series_title_en" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="submission_id" type="numId" indexed="true" stored="true" required="true" multiValued="false" />
+    <field name="sub_title_en" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="sub_title_de" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="title_en" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+    <field name="title_de" type="string" indexed="true" stored="true" required="true" multiValued="false" />
 
-    <fieldtype name="payloads" stored="false" indexed="true" class="solr.TextField" >
-      <analyzer>
-        <tokenizer class="solr.WhitespaceTokenizerFactory"/>
-        <!--
-        The DelimitedPayloadTokenFilter can put payloads on tokens... for example,
-        a token of "foo|1.4"  would be indexed as "foo" with a payload of 1.4f
-        Attributes of the DelimitedPayloadTokenFilterFactory : 
-         "delimiter" - a one character delimiter. Default is | (pipe)
-	 "encoder" - how to encode the following value into a playload
-	    float -> org.apache.lucene.analysis.payloads.FloatEncoder,
-	    integer -> o.a.l.a.p.IntegerEncoder
-	    identity -> o.a.l.a.p.IdentityEncoder
-            Fully Qualified class name implementing PayloadEncoder, Encoder must have a no arg constructor.
-         -->
-        <filter class="solr.DelimitedPayloadTokenFilterFactory" encoder="float"/>
-      </analyzer>
-    </fieldtype>
 
-    <!-- lowercases the entire field value, keeping it as a single token.  -->
-    <fieldType name="lowercase" class="solr.TextField" positionIncrementGap="100">
-      <analyzer>
-        <tokenizer class="solr.KeywordTokenizerFactory"/>
-        <filter class="solr.LowerCaseFilterFactory" />
-      </analyzer>
-    </fieldType>
+    <dynamicField name="*_id" type="string" indexed="true" stored="true" required="true" multiValued="false" />
 
-    <fieldType name="text_path" class="solr.TextField" positionIncrementGap="100">
-      <analyzer>
-        <tokenizer class="solr.PathHierarchyTokenizerFactory"/>
-      </analyzer>
-    </fieldType>
+    <!-- OJS locale support. We are using stored field for easier debugging. This can be changed
+         to "false" in a production environment if index size becomes an issue. If you want to
+         support an additional locale, you can add a dynamic field definition here. The locale
+         names correspond 1:1 to OJS locale names. The type attribute points to one of the
+         field type definitions above. -->
+    <!---dynamicField name="*_ca_ES" type="text_ca" indexed="true"  stored="true" multiValued="false" />
+    <dynamicField name="*_cs_CZ" type="text_cs" indexed="true"  stored="true" multiValued="false" />
+    <dynamicField name="*_da_DK" type="text_da" indexed="true"  stored="true" multiValued="false" />
+    <dynamicField name="*_de_DE" type="text_de" indexed="true"  stored="true" multiValued="false" />
+    <dynamicField name="*_el_GR" type="text_el" indexed="true"  stored="true" multiValued="false" />
+    <dynamicField name="*_en_US" type="text_en" indexed="true"  stored="true" multiValued="false" />
+    <dynamicField name="*_es_ES" type="text_es" indexed="true"  stored="true" multiValued="false" />
+    <dynamicField name="*_eu_ES" type="text_eu" indexed="true"  stored="true" multiValued="false" />
+    <dynamicField name="*_fa_IR" type="text_fa" indexed="true"  stored="true" multiValued="false" />
+    <dynamicField name="*_fr_CA" type="text_fr" indexed="true"  stored="true" multiValued="false" />
+    <dynamicField name="*_gl_ES" type="text_gl" indexed="true"  stored="true" multiValued="false" />
+    <dynamicField name="*_hr_HR" type="text" indexed="true"  stored="true" multiValued="false" />
+    <dynamicField name="*_it_IT" type="text_it" indexed="true"  stored="true" multiValued="false" />
+    <dynamicField name="*_ja_JP" type="text_cjk" indexed="true"  stored="true" multiValued="false" />
+    <dynamicField name="*_ml_IN" type="text" indexed="true"  stored="true" multiValued="false" />
+    <dynamicField name="*_nl_NL" type="text_nl" indexed="true"  stored="true" multiValued="false" />
+    <dynamicField name="*_nb_NO" type="text_no" indexed="true"  stored="true" multiValued="false" />
+    <dynamicField name="*_pt_BR" type="text_pt" indexed="true"  stored="true" multiValued="false" />
+    <dynamicField name="*_pt_PT" type="text_pt" indexed="true"  stored="true" multiValued="false" />
+    <dynamicField name="*_ro_RO" type="text_ro" indexed="true"  stored="true" multiValued="false" />
+    <dynamicField name="*_ru_RU" type="text_ru" indexed="true"  stored="true" multiValued="false" />
+    <dynamicField name="*_sr_SR" type="text" indexed="true"  stored="true" multiValued="false" />
+    <dynamicField name="*_sv_SE" type="text_sv" indexed="true"  stored="true" multiValued="false" />
+    <dynamicField name="*_tr_TR" type="text_tr" indexed="true"  stored="true" multiValued="false" />
+    <dynamicField name="*_uk_UA" type="text" indexed="true"  stored="true" multiValued="false" />
+    <dynamicField name="*_vi_VN" type="text" indexed="true"  stored="true" multiValued="false" />
+    <dynamicField name="*_zh_CN" type="text_cjk" indexed="true"  stored="true" multiValued="false" />
+    <dynamicField name="*_zh_TW" type="text_cjk" indexed="true"  stored="true" multiValued="false" /-->
+    <dynamicField name="*_txt" type="text" indexed="true" stored="true" multiValued="false" />
 
-    <!-- since fields of this type are by default not stored or indexed,
-         any data added to them will be ignored outright.  --> 
-    <fieldtype name="ignored" stored="false" indexed="false" multiValued="true" class="solr.StrField" />
+    <!-- Dynamic field definitions for special field types. -->
+    <dynamicField name="*_dt" type="tdate" indexed="true" stored="true" multiValued="false" />
+    <dynamicField name="*_txtsort" type="string" indexed="true" stored="true" multiValued="false" />
+    <dynamicField name="*_dtsort" type="pdate" indexed="true" stored="true" multiValued="false" />
 
- </types>
+    <!-- Spelling and auto-suggest support -->
+    <dynamicField name="*_spell" type="text_spell" indexed="true" stored="true" multiValued="false" />
 
+    <!-- Faceting support (if you have special requirements for special fields then you can add your own field types) -->
+    <field name="authors_facet" type="facet_semicolon_separated" indexed="true" multiValued="false" />
+    <dynamicField name="*_facet" type="facet" indexed="true" multiValued="false" />
+
+    <!-- Ignore any fields that don't already match an existing
+         field name or dynamic field (e.g. unsupported locales). -->
+    <dynamicField name="*" type="ignored" multiValued="true" />
+
+    <!--field name="usageMetricAll" type="externalFile" multiValued="false" />
+    <field name="usageMetricMonth" type="externalFile" multiValued="false" /-->
+  </fields>
+
+  <!-- Field to use to determine and enforce document uniqueness.
+       Unless this field is marked with required="false", it will be a required field
+    -->
+  <uniqueKey>submission_id</uniqueKey>
+
+  <!-- Field for the QueryParser to use when an explicit fieldname is absent -->
+  <defaultSearchField>submission_id</defaultSearchField>
+
+  <!-- SolrQueryParser configuration: defaultOperator="AND|OR" -->
+  <solrQueryParser defaultOperator="AND"/>
 </schema>
-

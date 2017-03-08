@@ -120,15 +120,32 @@ def series():
 
 
 def index():
-    import sunburnt
-    solr_results=[]
-    solr_url = "http://localhost:8983/solr/presss_portal/"
-    try:
-        si = sunburnt.SolrInterface(solr_url)
-        for i in si.query(book_title ="My First *").filter(id=1).execute():
-            solr_results.append(i)
-    except RuntimeError as err:
-        raise HTTP(400, '{} {} {}'.format(err, solr_url, T('not found')))
+    solr_results = []
+    # curl "http://localhost:8983/solr/presss_portal/update?commit=true" -H "Content-Type: text/xml" --data-binary '<delete><query>*:*</query></delete>'
+    if myconf.take("plugins.solr") == str(1):
+        try:
+            import sunburnt
+        except ImportError as err:
+            raise HTTP(400, '{} <br/> {}'.format(err, "Install using sudo pip install sunburnt"))
+
+        try:
+            try:
+                solr_url = myconf.take('plugin_solr.url')
+            except BaseException as err:
+                raise HTTP(400, '{} <br/>  add  <br/>  [plugin_solr]<br/>url= http:<MY_SOLR_SERVER>/presss_portal/  <BR/> in private/appconfig.ini'.format(err))
+            try:
+                si = sunburnt.SolrInterface(solr_url)
+                document = {"submission_id":43, "press_id":6,"title_de":u"爭家光的去是是聯","title_en":"Test EN","locale":"de","authors":["Dulip Withanage","Max Musterman"]}
+                #si.add(document)
+                #si.delete(queries=si.Q("*"))
+                #si.commit()
+
+                for i in si.query(press_id="6").execute():
+                    solr_results.append(i)
+            except (RuntimeError,OverflowError, sunburnt.SolrError)  as err:
+                raise HTTP(400, '{}'.format(err))
+        except RuntimeError as err:
+            raise HTTP(400, err)
 
     ompdal = OMPDAL(db, myconf)
     press = ompdal.getPress(myconf.take('omp.press_id'))

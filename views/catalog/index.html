@@ -47,7 +47,10 @@
 </nav>
 
                 </div>
-
+{{for s in solr_results:}}
+{{=XML(s)}}
+{{=BR()}}
+{{pass}}
 
             </div>
     {{for submission in submissions:}}
