@@ -135,10 +135,10 @@ def index():
                 raise HTTP(400, '{} <br/>  add  <br/>  [plugin_solr]<br/>url= http:<MY_SOLR_SERVER>/presss_portal/  <BR/> in private/appconfig.ini'.format(err))
             try:
                 si = sunburnt.SolrInterface(solr_url)
-                document = {"submission_id":43, "press_id":6,"title_de":u"爭家光的去是是聯","title_en":"Test EN","locale":"de","authors":["Dulip Withanage","Max Musterman"]}
-                #si.add(document)
+                document = {"submission_id":43, "press_id":6,"en_title_s":u"爭家光的去是是聯","de_title_s":"Test EN","locale_s":"de","authors":["Dulip Withanage","Max Musterman"]}
+                si.add(document)
                 #si.delete(queries=si.Q("*"))
-                #si.commit()
+                si.commit()
 
                 for i in si.query(press_id="6").execute():
                     solr_results.append(i)

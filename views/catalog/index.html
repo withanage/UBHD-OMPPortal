@@ -48,7 +48,7 @@
 
                 </div>
 {{for s in solr_results:}}
-{{=XML(s)}}
+{{=s.get("en_title_s").encode(encoding='utf-8')}}
 {{=BR()}}
 {{pass}}
 

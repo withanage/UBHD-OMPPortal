@@ -396,21 +396,21 @@
 
     <!-- Fields containing the unique document ID and other administrative IDs, e.g. a installation-specific GUID, the journal ID and the article ID -->
     <field name="authors" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-    <field name="abstract_en" type="string" indexed="true" stored="true" required="false" multiValued="false" />
-    <field name="abstract_de" type="string" indexed="true" stored="true" required="false" multiValued="false" />
-    <field name="locale" type="string" indexed="true" stored="true" required="true" multiValued="false" />
-    <field name="category_de" type="string" indexed="true" stored="true" required="false" multiValued="false" />
-    <field name="category_en" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="en_abstract_t" type="text" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="de_abstract_t" type="text" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="locale_s" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+    <field name="en_category_s" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="de_category_s" type="string" indexed="true" stored="true" required="false" multiValued="false" />
     <field name="press_id" type="numId" indexed="true" stored="true" required="true" multiValued="false" />
-    <field name="series_description_de" type="string" indexed="true" stored="true" required="false" multiValued="false" />
-    <field name="series_description_en" type="string" indexed="true" stored="true" required="false" multiValued="false" />
-    <field name="series_title_de" type="string" indexed="true" stored="true" required="false" multiValued="false" />
-    <field name="series_title_en" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="en_series_description_t" type="text" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="de_series_description_t" type="text" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="en_series_title_s" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="de_series_title_s" type="string" indexed="true" stored="true" required="false" multiValued="false" />
     <field name="submission_id" type="numId" indexed="true" stored="true" required="true" multiValued="false" />
-    <field name="sub_title_en" type="string" indexed="true" stored="true" required="false" multiValued="false" />
-    <field name="sub_title_de" type="string" indexed="true" stored="true" required="false" multiValued="false" />
-    <field name="title_en" type="string" indexed="true" stored="true" required="true" multiValued="false" />
-    <field name="title_de" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+    <field name="en_sub_title_s" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="de_sub_title_s" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="en_title_s" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+    <field name="de_title_s" type="string" indexed="true" stored="true" required="true" multiValued="false" />
 
 
     <dynamicField name="*_id" type="string" indexed="true" stored="true" required="true" multiValued="false" />
