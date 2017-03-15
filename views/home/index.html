@@ -149,6 +149,25 @@ $('.flexslider').flexslider();
             <div id="boxAktuelles" class="col-lg-6">
               <div class="box">
                 <div class="box-gray aligncenter" style="overflow-y: scroll">{{if session.forced_language =='de': }} <h4>Aktuelles</h4>{{elif session.forced_language =='en': }} <h4>News</h4>{{pass}} 	
+                   
+                   			<div class="media">
+                    <div class="media-left pull-left">
+                      <img alt="" src="{{=URL('static','images/press/home/uni_aktuelles.png')}}" style="width: 50px;" />
+                    </div>
+					<div class="media-body">
+                      <p class="media-heading">15.03.2017<br>
+                      {{if session.forced_language =='de': }} <h5>Von Open Access bis Open Research Data: Infrastrukturen für offene Wissenschaft an der Universität Heidelberg</h5>{{elif session.forced_language =='en': }} <h5>Von Open Access bis Open Research Data: Infrastrukturen für offene Wissenschaft an der Universität Heidelberg</h5>{{pass}}</p> 
+
+                      <p class="boxText">{{if session.forced_language =='de': }}
+                      Vortrag von Dr. Jochen Apel und  Dr. Maria Effinger (UB Heidelberg), Do. 16.03.2017, 15&nbsp;Uhr, Uni Heidelberg, Neue&nbsp;Universität, HS&nbsp;14, 2.&nbsp;OG im Rahmen der <a href="https://e-science-tage.de/de/startseite" title="Homepage der E-Science-Tage">E-Science-Tage</a>
+                      {{elif session.forced_language =='en': }}                     
+Talk by Jochen Apel and  Maria Effinger (UB Heidelberg), Tuesday 16th March, 3&nbsp;pm, Uni Heidelberg, Neue Universität, HS&nbsp;14, 2.&nbsp;OG
+  on occasion of the <a href="https://e-science-tage.de/en" title="Homepage E-Science-Days">E-Science-Days</a>        
+                      {{pass}}
+                      </p>
+                    </div>
+			</div>
+                   
                    <div class="media">
                     <div class="media-left pull-left">
                       <img alt="" src="{{=URL('static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
