@@ -5,8 +5,6 @@ Distributed under the GNU GPL v3. For full terms see the file
 LICENSE.md
 '''
 
-import os
-from operator import itemgetter
 from ompdal import OMPDAL, OMPSettings, OMPItem
 from ompformat import dateFromRow, seriesPositionCompare
 from datetime import datetime
@@ -70,7 +68,7 @@ def series():
     ignored_submission_id = myconf.take('omp.ignore_submissions') if myconf.take(
         'omp.ignore_submissions') else -1
 
-    if request.args == []:
+    if not request.args:
         redirect(URL('home', 'index'))
     series_path = request.args[0]
 
@@ -244,22 +242,20 @@ def book():
     else:
         doi = ""
 
-    def get_first(l):
-        if l:
-            return l[0]
-        else:
-            return None
 
     date_published = None
+    date_first_published = None
     # Get the OMP publication date (column publication_date contains latest catalog entry edit date.) Try:
     # 1. Custom publication date entered for a publication format calles "PDF"
     if pdf:
-        date_published = get_first([dateFromRow(pd) for pd in ompdal.getPublicationDatesByPublicationFormat(
-            pdf.publication_format_id) if pd.role == "01"])
+        date_published = dateFromRow(ompdal.getPublicationDatesByPublicationFormat(pdf.publication_format_id, "01")
+                                     .first())
+        date_first_published = dateFromRow(ompdal.getPublicationDatesByPublicationFormat(pdf.publication_format_id, "11")
+                                           .first())
     # 2. Date on which the catalog entry was first published
     if not date_published:
-        date_published = get_first(
-            [pd.date_logged for pd in ompdal.getMetaDataPublishedDates(submission_id)])
+        metadatapublished_date = ompdal.getMetaDataPublishedDates(submission_id).first()
+        date_published = metadatapublished_date.date_logged if metadatapublished_date else None
     # 3. Date on which the submission status was last modified (always set)
     if not date_published:
         date_published = submission.date_status_modified
