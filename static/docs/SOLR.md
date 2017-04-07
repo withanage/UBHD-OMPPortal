@@ -109,3 +109,8 @@ solr =1
 [solr_plugin]
 url = "http://localhost:8983/solr/presss_portal/"
 ````
+
+# Update solr index
+python web2py.py -R  applications/UBHD_OMPPortal/static/utils/solr/updateSolrIndex.py -M  --shell UBHD_OMPPortal 
+
+
