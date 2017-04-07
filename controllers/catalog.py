@@ -122,7 +122,7 @@ def series():
 def index():
     if myconf.take("plugins.solr") == str(1):
         solr = OMPSOLR(db,myconf)
-        x = solr.si.query(press_id="6").execute()
+        x = solr.si.query(id="1").execute()
 
     ompdal = OMPDAL(db, myconf)
     press = ompdal.getPress(myconf.take('omp.press_id'))
