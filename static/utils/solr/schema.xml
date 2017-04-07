@@ -6,18 +6,17 @@
   * Copyright (c) 2003-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * OJS solr/lucene search plugin index schema default configuration.
+  * OMP solr/lucene search plugin index schema default configuration.
   *
   * NB: You may customize the index/query analyzer chains. Do not change the field
   * configuration, though, as this will probably break the OJS/solr indexing or
   * search protocol.
 
-  Original file
-  https://github.com/pkp/ojs/blob/master/plugins/generic/lucene/embedded/solr/conf/schema.xml
+  * Original file
+  * https://github.com/pkp/ojs/blob/master/plugins/generic/lucene/embedded/solr/conf/schema.xml
 
-  Modified by
-  Dulip Withanage
-
+  * Modified by
+  * Dulip Withanage
 
   -->
 
