@@ -119,10 +119,23 @@ def series():
     return locals()
 
 
-def index():
+
+def search():
+    q = {'authors':"Dulip Withanag?",'press_id':'6'}
+    sort= ['de_title_s','-en_title_s']
+
     if myconf.take("plugins.solr") == str(1):
         solr = OMPSOLR(db,myconf)
-        x = solr.si.query(id="1").execute()
+        results = solr.si.query(**q)
+        for s in sort:
+            results =results.sort_by(s)
+        results= results.paginate(start=0, rows=10)
+        results = results.execute()
+
+    return  locals()
+
+
+def index():
 
     ompdal = OMPDAL(db, myconf)
     press = ompdal.getPress(myconf.take('omp.press_id'))

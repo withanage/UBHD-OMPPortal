@@ -367,6 +367,8 @@
 
     <!-- Dummy field type for ignored fields -->
     <fieldtype name="ignored" stored="false" indexed="false" multiValued="true" class="solr.StrField" />
+
+
   </types>
 
   <fields>
@@ -394,22 +396,25 @@
     -->
 
     <!-- Fields containing the unique document ID and other administrative IDs, e.g. a installation-specific GUID, the journal ID and the article ID -->
+
+
+    <!-- Fields containing the unique document ID and other administrative IDs, e.g. a installation-specific GUID, the press id, chapter id -->
     <field name="authors" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-    <field name="en_abstract_t" type="text" indexed="true" stored="true" required="false" multiValued="false" />
-    <field name="de_abstract_t" type="text" indexed="true" stored="true" required="false" multiValued="false" />
-    <field name="locale_s" type="string" indexed="true" stored="true" required="true" multiValued="false" />
-    <field name="en_category_s" type="string" indexed="true" stored="true" required="false" multiValued="false" />
-    <field name="de_category_s" type="string" indexed="true" stored="true" required="false" multiValued="false" />
-    <field name="press_id" type="numId" indexed="true" stored="true" required="true" multiValued="false" />
-    <field name="en_series_description_t" type="text" indexed="true" stored="true" required="false" multiValued="false" />
-    <field name="de_series_description_t" type="text" indexed="true" stored="true" required="false" multiValued="false" />
-    <field name="en_series_title_s" type="string" indexed="true" stored="true" required="false" multiValued="false" />
-    <field name="de_series_title_s" type="string" indexed="true" stored="true" required="false" multiValued="false" />
-    <field name="submission_id" type="numId" indexed="true" stored="true" required="true" multiValued="false" />
-    <field name="en_sub_title_s" type="string" indexed="true" stored="true" required="false" multiValued="false" />
-    <field name="de_sub_title_s" type="string" indexed="true" stored="true" required="false" multiValued="false" />
-    <field name="en_title_s" type="string" indexed="true" stored="true" required="true" multiValued="false" />
-    <field name="de_title_s" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+    <field name="omp_en_abstract_t" type="text_en" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="omp_de_abstract_t" type="text_de" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="omp_locale_s" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+    <field name="omp_en_category_s" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="omp_de_category_s" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="omp_press_id" type="numId" indexed="true" stored="true" required="true" multiValued="false" />
+    <field name="omp_en_series_description_t" type="text" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="omp_de_series_description_t" type="text" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="omp_en_series_title_s" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="omp_de_series_title_s" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="omp_submission_id" type="numId" indexed="true" stored="true" required="true" multiValued="false" />
+    <field name="omp_en_sub_title_s" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="omp_de_sub_title_s" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="omp_en_title_s" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+    <field name="omp_de_title_s" type="string" indexed="true" stored="true" required="true" multiValued="false" />
 
 
     <dynamicField name="*_id" type="string" indexed="true" stored="true" required="true" multiValued="false" />
