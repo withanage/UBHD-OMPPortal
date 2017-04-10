@@ -138,7 +138,6 @@ def search():
         r = r.exclude(**exc)
         r = r.field_limit(fl)
         r = r.highlight(q.keys())
-
         r= r.paginate(start=start, rows=rows)
         results = r.execute()
         hl = results.highlighting
