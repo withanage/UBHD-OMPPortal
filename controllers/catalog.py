@@ -121,16 +121,27 @@ def series():
 
 
 def search():
-    q = {'authors':"Dulip Withanag?",'press_id':'6'}
-    sort= ['de_title_s','-en_title_s']
+    q = {'de_title_s': 'Test E*','press_id':'6'}
+    sort= ['de_title_s','en_title_s']
+    start= 0
+    rows =10
+    fq = {'de_title_s':'*','locale_s': 'de'}
+    exc = {'submission_id':'42'}
+    fl = ['de_title_s','submission_id','press_id','en_title_s']
 
     if myconf.take("plugins.solr") == str(1):
         solr = OMPSOLR(db,myconf)
-        results = solr.si.query(**q)
+        r = solr.si.query(**q)
         for s in sort:
-            results =results.sort_by(s)
-        results= results.paginate(start=0, rows=10)
-        results = results.execute()
+            r =r.sort_by(s)
+        r = r.filter(**fq)
+        r = r.exclude(**exc)
+        r = r.field_limit(fl)
+        r = r.highlight(q.keys())
+
+        r= r.paginate(start=start, rows=rows)
+        results = r.execute()
+        hl = results.highlighting
 
     return  locals()
 
