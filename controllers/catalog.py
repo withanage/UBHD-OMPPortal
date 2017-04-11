@@ -10,9 +10,14 @@ from operator import itemgetter
 from ompdal import OMPDAL, OMPSettings, OMPItem
 from ompformat import dateFromRow, seriesPositionCompare
 from datetime import datetime
+from ompsolr import OMPSOLR
+import json
 
 
 def category():
+
+
+
     ignored_submission_id = myconf.take('omp.ignore_submissions') if myconf.take(
         'omp.ignore_submissions') else -1
 
@@ -116,10 +121,60 @@ def series():
     return locals()
 
 
-def index():
-    ompdal = OMPDAL(db, myconf)
 
+def search():
+    title = '{}'.format(request.vars.title) if request.vars.title else ''
+    press_id = request.vars.press_id if request.vars.press_id else ''
+
+    form = form = SQLFORM.factory(
+        Field("title", default="rituale*"),
+        Field("press_id"),
+        formstyle='divs',
+        submit_button="Search",
+    )
+    if form.process().accepted:
+        title = form.vars.title
+
+    sort= ['title_de','title_en']
+    start= 0
+    rows =10
+    fq = {'title_en':'*','locale': 'de'}
+    exc = {'submission_id':'42'}
+    fl = ['title_de','submission_id','press_id','title_en']
+
+    if myconf.take("plugins.solr") == str(1):
+        solr = OMPSOLR(db,myconf)
+        r = solr.si.query(solr.si.Q(title_en=title)  | solr.si.Q(title_de=title))
+        #for s in sort:
+        #    r =r.sort_by(s)
+        #r = r.filter(**fq)
+        #r = r.exclude(**exc)
+        #r = r.field_limit(fl)
+        #r = r.highlight(q.keys())
+        r= r.paginate(start=start, rows=rows)
+        results = r.execute()
+        #hl = results.highlighting
+
+
+
+    return  locals()
+
+
+def index():
+
+    ompdal = OMPDAL(db, myconf)
     press = ompdal.getPress(myconf.take('omp.press_id'))
+
+    per_page = request.vars.get('per_page')
+    if per_page :
+        session.catalog_per_page = int(per_page)
+
+    per_page = int(session.get('catalog_per_page', 20))
+
+    page_nr = int(request.vars.get('page_nr',1))-1
+
+
+
     if not press:
         redirect(URL('home', 'index'))
     press_settings = OMPSettings(ompdal.getPressSettings(press.press_id))
@@ -128,7 +183,9 @@ def index():
         'omp.ignore_submissions') else -1
 
     submissions = []
-    for submission_row in ompdal.getSubmissionsByPress(press.press_id, ignored_submission_id):
+    submission_rows = ompdal.getSubmissionsByPress(press.press_id, ignored_submission_id)
+
+    for submission_row in submission_rows:
         authors = [OMPItem(author, OMPSettings(ompdal.getAuthorSettings(author.author_id)))
                    for author in ompdal.getAuthorsBySubmission(submission_row.submission_id)]
         editors = [OMPItem(editor, OMPSettings(ompdal.getAuthorSettings(editor.author_id)))
@@ -157,7 +214,10 @@ def index():
 
     submissions = sorted(submissions, key=lambda s: min(
         s.associated_items.get('publication_dates', [datetime(1, 1, 1)])), reverse=True)
+
     #submissions = sorted(submissions,key=lambda s: s.associated_items.get('category',None),  reverse=False)
+    #Slice
+    submissions = submissions[page_nr*per_page:(page_nr+1)*(per_page)]
 
     return locals()
 
