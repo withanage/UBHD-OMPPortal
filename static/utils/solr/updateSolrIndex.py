@@ -9,6 +9,7 @@ from gluon import DAL
 from ompdal import OMPDAL
 import sunburnt
 from ompsolr import OMPSOLR
+import sys
 
 
 ompdal = OMPDAL(db, myconf)
@@ -21,35 +22,31 @@ class Solr:
 def main():
     ps = ompdal.getPresses()
     solr = OMPSOLR(db, myconf)
-    submissions = []
+    document = []
+    solr.si.delete(queries=solr.si.Q("*"))
+    solr.si.commit()
 
     for p in ps:
         submissions =  ompdal.getSubmissionsByPress(p.press_id)
         for s in submissions:
             sub = {}
-            sub['omp_press_id'] = p.press_id
+            sub['press_id'] = p.press_id
             sub['submission_id'] = s.submission_id
-
+            sub['locale'] = s.locale
             #print ompdal.getActualAuthorsBySubmission(s.submission_id)
-            ss = ompdal.getSubmissionSettings(s.submission_id)
-            for value in ss:
-                print value.get('locale')
-                print value
+            s_settings = ompdal.getSubmissionSettings(s.submission_id)
+            for v in s_settings:
+                if v.get('locale'):
+                    key = '{}_{}'.format(v.get('setting_name').lower(),v.get('locale').split('_')[0])
+                    sub[key] =  v.get('setting_value').decode('utf-8')
+            document.append(sub)
 
 
-    document = [{"id": "0553573403",
-                "cat": "book",
-                "name": "A Game of Thrones",
-                "price": 7.99,
-                "inStock": True,
-                "author_t":
-                    "George R.R. Martin",
-                "series_t": "A Song of Ice and Fire",
-                "sequence_i": 1,
-                "genre_s": "fantasy"}]
 
-    #solr.si.add(submissions)
-    #solr.si.commit()
+
+    solr.si.add(document)
+
+    solr.si.commit()
 
 
 if __name__ == '__main__':

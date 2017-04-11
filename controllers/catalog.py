@@ -11,6 +11,8 @@ from ompdal import OMPDAL, OMPSettings, OMPItem
 from ompformat import dateFromRow, seriesPositionCompare
 from datetime import datetime
 from ompsolr import OMPSOLR
+import json
+
 
 def category():
 
@@ -121,26 +123,39 @@ def series():
 
 
 def search():
-    q = {'de_title_s': 'Test E*','press_id':'6'}
-    sort= ['de_title_s','en_title_s']
+    title = '{}'.format(request.vars.title) if request.vars.title else ''
+    press_id = request.vars.press_id if request.vars.press_id else ''
+
+    form = form = SQLFORM.factory(
+        Field("title", default="rituale*"),
+        Field("press_id"),
+        formstyle='divs',
+        submit_button="Search",
+    )
+    if form.process().accepted:
+        title = form.vars.title
+
+    sort= ['title_de','title_en']
     start= 0
     rows =10
-    fq = {'de_title_s':'*','locale_s': 'de'}
+    fq = {'title_en':'*','locale': 'de'}
     exc = {'submission_id':'42'}
-    fl = ['de_title_s','submission_id','press_id','en_title_s']
+    fl = ['title_de','submission_id','press_id','title_en']
 
     if myconf.take("plugins.solr") == str(1):
         solr = OMPSOLR(db,myconf)
-        r = solr.si.query(**q)
-        for s in sort:
-            r =r.sort_by(s)
-        r = r.filter(**fq)
-        r = r.exclude(**exc)
-        r = r.field_limit(fl)
-        r = r.highlight(q.keys())
+        r = solr.si.query(solr.si.Q(title_en=title)  | solr.si.Q(title_de=title))
+        #for s in sort:
+        #    r =r.sort_by(s)
+        #r = r.filter(**fq)
+        #r = r.exclude(**exc)
+        #r = r.field_limit(fl)
+        #r = r.highlight(q.keys())
         r= r.paginate(start=start, rows=rows)
         results = r.execute()
-        hl = results.highlighting
+        #hl = results.highlighting
+
+
 
     return  locals()
 

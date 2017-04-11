@@ -33,13 +33,23 @@
       {{pass}}
       {{pages = len(submission_rows)/per_page}}
       {{odd = len(submission_rows)%per_page > 0}}
+
       {{for i in range(0,pages):}}
-          {{=LI(A(i+1, _href=URL('index?page_nr='+str(i+1))))}}
+      {{next = i+1}}
+      {{if i==page_nr:}}
+      {{next = B(next)}}
+      {{pass}}
+      {{=LI(A(next, _href=URL('index?page_nr='+str(i+1))))}}
       {{pass}}
 
       {{if odd:}}
-      {{=LI(A(pages+1, _href=URL('index?page_nr='+str(pages+1))))}}
+      {{last = pages+1}}
+      {{if page_nr == pages:}}
+      {{last= B(last)}}
       {{pass}}
+      {{=LI(A(last, _href=URL('index?page_nr='+str(pages+1))))}}
+      {{pass}}
+
       {{if (page_nr < pages-1) or (page_nr < pages & odd ):}}
       <li><a href="{{=URL('index?page_nr='+str(page_nr+2))}}"><span aria-hidden="true">&raquo;</span></a></li>
       {{pass}}
