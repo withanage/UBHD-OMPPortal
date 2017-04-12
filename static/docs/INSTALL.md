@@ -14,11 +14,11 @@
 2. ```git clone https://github.com/UB-Heidelberg/UBHD-OMPPortal.git press_name```
     - Notice
      - press_name *should* contain only characters, numbers or _
-     - Please do not use **-** in the **press_name**
+     - Please do not use **-** symbol in the **press_name** to
      
 3. Install dependencies
 ```
-cd  web2py_folder/applications/UBHD_OMPPortal
+cd  web2py_folder/applications/$press_name
 sudo pip2 install -r requirements.txt
 ```     
 
@@ -26,7 +26,7 @@ sudo pip2 install -r requirements.txt
 
     ```   mkdir private ```
 
-    ```  cp web2py_folder/application/UBHD_OMPPortal/static/docs/appconfig.ini   web2py_folder/application/UBHD_OMPPortal/private/     ```
+    ```  cp web2py_folder/application/$press_name/static/docs/appconfig.ini   web2py_folder/application/$press_name/private/     ```
 
 5. Change the settings for your local omp installation private/appconfig.ini   [Details](https://github.com/UB-Heidelberg/UBHD-OMPPortal/blob/categories/static/docs/APPCONFIG.md)
     1. **username** and **password** for the OMP database
