@@ -13,8 +13,7 @@
 
 2. ```git clone https://github.com/UB-Heidelberg/UBHD-OMPPortal.git press_name```
     - Notice
-     - press_name *should* contain only characters, numbers or _
-     - Please do not use **-** symbol in the **press_name** to
+        - Please  use  **only** **_**, ascii alphabet and numbers for the  **press_name** 
      
 3. Install dependencies
 ```
