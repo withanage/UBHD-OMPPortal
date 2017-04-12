@@ -15,19 +15,26 @@
     - Notice
      - press_name *should* contain only characters, numbers or _
      - Please do not use **-** in the **press_name**
+     
+3. Install dependencies
+```
+cd  web2py_folder/applications/UBHD_OMPPortal
+sudo pip2 install -r requirements.txt
+```     
 
-3. Copy appconfig.ini and cahnges the settings accordingly Datails on appconfig.ini are
+4. Copy appconfig.ini and cahnges the settings accordingly Datails on appconfig.ini are
 
     ```   mkdir private ```
 
     ```  cp web2py_folder/application/UBHD_OMPPortal/static/docs/appconfig.ini   web2py_folder/application/UBHD_OMPPortal/private/     ```
 
-4. Change the settings for your local omp installation private/appconfig.ini   [Details](https://github.com/UB-Heidelberg/UBHD-OMPPortal/blob/categories/static/docs/APPCONFIG.md)
+5. Change the settings for your local omp installation private/appconfig.ini   [Details](https://github.com/UB-Heidelberg/UBHD-OMPPortal/blob/categories/static/docs/APPCONFIG.md)
     1. **username** and **password** for the OMP database
     2. **press_id** of the local omp press
     3. define the **press_name** you selected when cloning from git
 
-5. Mount or symlink the files folder of the OMP  to **web2py_folder**/applications/**press_name**/static/monographs/
+6. Mount or symlink the files folder of the OMP  to **web2py_folder**/applications/**press_name**/static/monographs/
 
 ```
 ln -s web2py_folder/applications/press_name/static/monographs/ omp_folder/files/presses/press_id/monographs
+
