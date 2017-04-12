@@ -127,7 +127,7 @@ def search():
     press_id = request.vars.press_id if request.vars.press_id else ''
 
     form = form = SQLFORM.factory(
-        Field("title", default="rituale*"),
+        Field("title"),
         Field("press_id"),
         formstyle='divs',
         submit_button="Search",
@@ -144,7 +144,8 @@ def search():
 
     if myconf.take("plugins.solr") == str(1):
         solr = OMPSOLR(db,myconf)
-        r = solr.si.query(solr.si.Q(title_en=title)  | solr.si.Q(title_de=title))
+        #r = solr.si.query(solr.si.Q(title_en=title)  | solr.si.Q(title_de=title))
+        r = solr.si.query('aktuelle*')
         #for s in sort:
         #    r =r.sort_by(s)
         #r = r.filter(**fq)
@@ -172,10 +173,50 @@ def search():
     return  locals()
 
 
+
+
 def index():
+    def create_pagination(total, per_page, current):
+        li = []
+        al = {'_aria-label': "Page navigation"}
+        for i in range(0, total):
+            l = A(i + 1, _href=URL('index?page_nr=' + str(i + 1)))
+            li.append(LI(l, _class="active")) if i == current  else li.append(LI(l))
+        return TAG.nav(UL(li, _class="pagination"), **al)
+
+    def create_per_page_nav():
+        li = [LI(A(i, _href=URL('index?per_page=' + str(i)))) for i in [2,3,4]]
+        ul =UL(li, _class="dropdown-menu")
+        button_cs= { "_type":"button", "_class":"btn btn-default dropdown-toggle","_data-toggle":"dropdown", "_aria-haspopup":"true","_aria-expanded":"false"}
+        button =TAG.button("Results per Page",SPAN(_class='caret'),**button_cs )
+        return  DIV(button,ul,_class="btn-group")
+
+    def create_sort(submissions, sort_by):
+        default = sorted(submissions, key=lambda s: min(s.associated_items.get('publication_dates', [datetime(1, 1, 1)])),
+               reverse=False)
+        if sort_by=="date":
+            results = default
+        elif sort_by=="title":
+            results = sorted(submissions, key=lambda s: s.settings.getLocalizedValue('title', locale), reverse=False)
+        else:
+            results = sorted(submissions, key=lambda s: s.associated_items.get(sort_by), reverse=True)
+
+
+        return results
+
+    def create_sort_nav():
+        li = [LI(A(i, _href=URL('index?sort_by=' + str(i)))) for i in ["title","authors","date","category","series"]]
+        ul =UL(li, _class="dropdown-menu")
+        button_cs= { "_type":"button", "_class":"btn btn-default dropdown-toggle","_data-toggle":"dropdown", "_aria-haspopup":"true","_aria-expanded":"false"}
+        button =TAG.button(T("sort by"),SPAN(_class='caret'),**button_cs )
+        return  DIV(button,ul,_class="btn-group")
 
     ompdal = OMPDAL(db, myconf)
     press = ompdal.getPress(myconf.take('omp.press_id'))
+    sort_by = request.vars.get('sort_by')
+    session.sort_by = sort_by if sort_by else session.get('sort_by','date')
+
+
 
     per_page = request.vars.get('per_page')
     if per_page :
@@ -224,12 +265,16 @@ def index():
 
         submissions.append(submission)
 
-    submissions = sorted(submissions, key=lambda s: min(
-        s.associated_items.get('publication_dates', [datetime(1, 1, 1)])), reverse=True)
+    submissions = create_sort(submissions,session.get('sort_by'))
 
-    #submissions = sorted(submissions,key=lambda s: s.associated_items.get('category',None),  reverse=False)
-    #Slice
     submissions = submissions[page_nr*per_page:(page_nr+1)*(per_page)]
+
+    pages = len(submission_rows)/per_page
+    if len(submission_rows) % per_page >0:
+        pages = pages +1
+    pagination = create_pagination(pages, per_page, page_nr)
+    results_per_page = create_per_page_nav()
+    sort_nav = create_sort_nav()
 
     return locals()
 
