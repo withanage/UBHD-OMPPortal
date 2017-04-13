@@ -7,8 +7,9 @@ LICENSE.md
 
 from ompdal import OMPDAL, OMPSettings, OMPItem
 from ompformat import dateFromRow, seriesPositionCompare
-from datetime import datetime
+
 from ompsolr import OMPSOLR
+from ompbrowse  import Pagination , Sort
 import json
 
 
@@ -174,51 +175,17 @@ def search():
 
 
 def index():
-    def create_pagination(total, per_page, current):
-        li = []
-        al = {'_aria-label': "Page navigation"}
-        for i in range(0, total):
-            l = A(i + 1, _href=URL('index?page_nr=' + str(i + 1)))
-            li.append(LI(l, _class="active")) if i == current  else li.append(LI(l))
-        return TAG.nav(UL(li, _class="pagination"), **al)
-
-    def create_per_page_nav():
-        li = [LI(A(i, _href=URL('index?per_page=' + str(i)))) for i in [2,3,4]]
-        ul =UL(li, _class="dropdown-menu")
-        button_cs= { "_type":"button", "_class":"btn btn-default dropdown-toggle","_data-toggle":"dropdown", "_aria-haspopup":"true","_aria-expanded":"false"}
-        button =TAG.button("Results per Page",SPAN(_class='caret'),**button_cs )
-        return  DIV(button,ul,_class="btn-group")
-
-    def create_sort(submissions, sort_by):
-        results = sorted(submissions, key=lambda s: min(s.associated_items.get('publication_dates', [datetime(1, 1, 1)])),
-               reverse=False)
-        if sort_by=="title":
-            results = sorted(submissions, key=lambda s: s.settings.getLocalizedValue('title', locale).lower(), reverse=False)
-        elif sort_by=="category":
-            results = sorted(submissions, key=lambda s: s.associated_items.get('category'), reverse=False)
-        return results
-
-    def create_sort_nav():
-        li = [LI(A(i, _href=URL('index?sort_by=' + str(i)))) for i in ["title","date","category"]]
-        ul =UL(li, _class="dropdown-menu")
-        button_cs= { "_type":"button", "_class":"btn btn-default dropdown-toggle","_data-toggle":"dropdown", "_aria-haspopup":"true","_aria-expanded":"false"}
-        button =TAG.button(T("sort by"),SPAN(_class='caret'),**button_cs )
-        return  DIV(button,ul,_class="btn-group")
 
     ompdal = OMPDAL(db, myconf)
     press = ompdal.getPress(myconf.take('omp.press_id'))
+
     sort_by = request.vars.get('sort_by')
     session.sort_by = sort_by if sort_by else session.get('sort_by','date')
 
-
-
     per_page = request.vars.get('per_page')
-    if per_page :
-        session.catalog_per_page = int(per_page)
+    session.per_page = int(per_page) if per_page else int(session.get('per_page', 20))
 
-    per_page = int(session.get('catalog_per_page', 20))
-
-    page_nr = int(request.vars.get('page_nr',1))-1
+    current = int(request.vars.get('page_nr',1))-1
 
 
 
@@ -259,16 +226,22 @@ def index():
 
         submissions.append(submission)
 
-    submissions = create_sort(submissions,session.get('sort_by'))
-
-    submissions = submissions[page_nr*per_page:(page_nr+1)*(per_page)]
-
-    pages = len(submission_rows)/per_page
-    if len(submission_rows) % per_page >0:
+    pages = len(submission_rows) / session.get('per_page')
+    if len(submission_rows) % session.get('per_page') >0:
         pages = pages +1
-    pagination = create_pagination(pages, per_page, page_nr)
-    results_per_page = create_per_page_nav()
-    sort_nav = create_sort_nav()
+
+    sort = Sort(locale)
+    sort_select = sort.get_sort_select()
+
+
+    submissions = sort.sort_submissions(submissions, session.get('sort_by'))
+    submissions = submissions[current * session.get('per_page'):(current + 1) * (session.get('per_page'))]
+
+    pagination = Pagination(current,pages)
+    navigation_select = pagination.get_navigation_select()
+    navigation_result = pagination.get_navigation_result()
+
+
 
     return locals()
 

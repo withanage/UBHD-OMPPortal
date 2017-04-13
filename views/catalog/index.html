@@ -3,38 +3,18 @@
 {{from ompformat import formatContributors, coverImageLink}}
 
 <div id="main" class="container">
-{{
-
-    titles = []
-    for s in submissions:
-    #=s.settings.__dict__
-    =(s.settings.getLocalizedValue('title',locale))
-    if s.associated_items.get('category'):
-    =XML('-----')
-    = (s.associated_items.get('category').settings.getLocalizedValue('title',locale))
-    =XML('-----')
-    pass
-      if s.associated_items.get('series'):
-    = (s.associated_items.get('series').settings.getLocalizedValue('title',locale))
-    pass
-    =BR()
-    pass
-    pass
-
-}}
 
 <section id="content">
 
         <div class="row">
             <div class="col-lg-3">
-
-          {{=results_per_page}}
-{{=sort_nav}}
-
+                {{=navigation_select}}{{=sort_select}}
             </div>
-            <div class="col-lg-9">    {{=pagination}}  </div>
-
+            <div class="col-lg-9">
+                {{=navigation_result}}
+            </div>
         </div>
+
     {{for submission in submissions:}}
         <div class="container" height="400px">
             <div class="row">
