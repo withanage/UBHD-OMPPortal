@@ -3,12 +3,17 @@
 {{from ompformat import formatContributors, coverImageLink}}
 
 <div id="main" class="container">
-{{for s in submissions:
-    for l in s.associated_items.get('authors'):
-    =l.attributes.get('last_name')
+{{
+     submissions = sorted(submissions, key=lambda s: s.settings.getLocalizedValue('title', locale).lower(), reverse=False)
+    titles = []
+    for s in submissions:
+    #=s.settings.__dict__
+    =(s.settings.getLocalizedValue('title',locale))
+    =BR()
     pass
     pass
-    }}
+
+}}
 
 <section id="content">
 

@@ -195,7 +195,7 @@ def index():
         if sort_by=="date":
             results = default
         elif sort_by=="title":
-            results = sorted(submissions, key=lambda s: s.settings.getLocalizedValue('title', locale), reverse=False)
+            results = sorted(submissions, key=lambda s: s.settings.getLocalizedValue('title', locale).lower(), reverse=False)
         else:
             results = sorted(submissions, key=lambda s: s.associated_items.get(sort_by), reverse=True)
 
