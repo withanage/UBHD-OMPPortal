@@ -196,13 +196,10 @@ def index():
             results = sorted(submissions, key=lambda s: s.settings.getLocalizedValue('title', locale).lower(), reverse=False)
         elif sort_by=="category":
             results = sorted(submissions, key=lambda s: s.associated_items.get('category'), reverse=False)
-
-
-
         return results
 
     def create_sort_nav():
-        li = [LI(A(i, _href=URL('index?sort_by=' + str(i)))) for i in ["title","date","category","series"]]
+        li = [LI(A(i, _href=URL('index?sort_by=' + str(i)))) for i in ["title","date","category"]]
         ul =UL(li, _class="dropdown-menu")
         button_cs= { "_type":"button", "_class":"btn btn-default dropdown-toggle","_data-toggle":"dropdown", "_aria-haspopup":"true","_aria-expanded":"false"}
         button =TAG.button(T("sort by"),SPAN(_class='caret'),**button_cs )
