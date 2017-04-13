@@ -11,7 +11,7 @@ from ompformat import dateFromRow, seriesPositionCompare
 from ompsolr import OMPSOLR
 from ompbrowse  import Pagination , Sort
 import json
-
+from datetime import datetime
 
 def category():
 
@@ -233,8 +233,11 @@ def index():
     sort = Sort(locale)
     sort_select = sort.get_sort_select()
 
-
+    #submissions = filter(lambda s: s.associated_items.get('category') != None, submissions)
     submissions = sort.sort_submissions(submissions, session.get('sort_by'))
+    #submissions = filter(lambda s:   datetime.strptime(str(2016),'%Y') <  min(s.associated_items.get('publication_dates', [datetime(1, 1, 1)])) <  datetime.strptime(str(2017),'%Y') , submissions)
+
+
     submissions = submissions[current * session.get('per_page'):(current + 1) * (session.get('per_page'))]
 
     pagination = Pagination(current,pages)
