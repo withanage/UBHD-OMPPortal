@@ -1,1 +1,11 @@
 language: python
+
+sudo: required
+
+cache: pip
+
+python:
+  - '2.7'
+  - 'pypy'
+  - '3.5'
+
