@@ -4,11 +4,19 @@
 
 <div id="main" class="container">
 {{
-     submissions = sorted(submissions, key=lambda s: s.settings.getLocalizedValue('title', locale).lower(), reverse=False)
+
     titles = []
     for s in submissions:
     #=s.settings.__dict__
     =(s.settings.getLocalizedValue('title',locale))
+    if s.associated_items.get('category'):
+    =XML('-----')
+    = (s.associated_items.get('category').settings.getLocalizedValue('title',locale))
+    =XML('-----')
+    pass
+      if s.associated_items.get('series'):
+    = (s.associated_items.get('series').settings.getLocalizedValue('title',locale))
+    pass
     =BR()
     pass
     pass

@@ -190,20 +190,19 @@ def index():
         return  DIV(button,ul,_class="btn-group")
 
     def create_sort(submissions, sort_by):
-        default = sorted(submissions, key=lambda s: min(s.associated_items.get('publication_dates', [datetime(1, 1, 1)])),
+        results = sorted(submissions, key=lambda s: min(s.associated_items.get('publication_dates', [datetime(1, 1, 1)])),
                reverse=False)
-        if sort_by=="date":
-            results = default
-        elif sort_by=="title":
+        if sort_by=="title":
             results = sorted(submissions, key=lambda s: s.settings.getLocalizedValue('title', locale).lower(), reverse=False)
-        else:
-            results = sorted(submissions, key=lambda s: s.associated_items.get(sort_by), reverse=True)
+        elif sort_by=="category":
+            results = sorted(submissions, key=lambda s: s.associated_items.get('category'), reverse=False)
+
 
 
         return results
 
     def create_sort_nav():
-        li = [LI(A(i, _href=URL('index?sort_by=' + str(i)))) for i in ["title","authors","date","category","series"]]
+        li = [LI(A(i, _href=URL('index?sort_by=' + str(i)))) for i in ["title","date","category","series"]]
         ul =UL(li, _class="dropdown-menu")
         button_cs= { "_type":"button", "_class":"btn btn-default dropdown-toggle","_data-toggle":"dropdown", "_aria-haspopup":"true","_aria-expanded":"false"}
         button =TAG.button(T("sort by"),SPAN(_class='caret'),**button_cs )
