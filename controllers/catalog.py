@@ -9,7 +9,7 @@ from ompdal import OMPDAL, OMPSettings, OMPItem
 from ompformat import dateFromRow, seriesPositionCompare
 
 from ompsolr import OMPSOLR
-from ompbrowse  import Pagination , Sort
+from ompbrowse  import Browser
 import json
 from datetime import datetime
 
@@ -179,13 +179,6 @@ def index():
     ompdal = OMPDAL(db, myconf)
     press = ompdal.getPress(myconf.take('omp.press_id'))
 
-    sort_by = request.vars.get('sort_by')
-    session.sort_by = sort_by if sort_by else session.get('sort_by','date')
-
-    per_page = request.vars.get('per_page')
-    session.per_page = int(per_page) if per_page else int(session.get('per_page', 20))
-
-    current = int(request.vars.get('page_nr',1))-1
 
 
 
@@ -198,6 +191,7 @@ def index():
 
     submissions = []
     submission_rows = ompdal.getSubmissionsByPress(press.press_id, ignored_submission_id)
+
 
     for submission_row in submission_rows:
         authors = [OMPItem(author, OMPSettings(ompdal.getAuthorSettings(author.author_id)))
@@ -226,23 +220,16 @@ def index():
 
         submissions.append(submission)
 
-    pages = len(submission_rows) / session.get('per_page')
-    if len(submission_rows) % session.get('per_page') >0:
-        pages = pages +1
+    session.filters =request.vars.get('filters') if request.vars.get('filters') else session.get('filters', {})
+    session.per_page = int(request.vars.get('per_page')) if request.vars.get('per_page') else int(session.get('per_page', 20))
+    session.sort_by = request.vars.get('sort_by') if request.vars.get('sort_by') else session.get('sort_by', 'date')
 
-    sort = Sort(locale)
-    sort_select = sort.get_sort_select()
-
-    #submissions = filter(lambda s: s.associated_items.get('category') != None, submissions)
-    submissions = sort.sort_submissions(submissions, session.get('sort_by'))
-    #submissions = filter(lambda s:   datetime.strptime(str(2016),'%Y') <  min(s.associated_items.get('publication_dates', [datetime(1, 1, 1)])) <  datetime.strptime(str(2017),'%Y') , submissions)
+    current = int(request.vars.get('page_nr', 1)) - 1
 
 
-    submissions = submissions[current * session.get('per_page'):(current + 1) * (session.get('per_page'))]
-
-    pagination = Pagination(current,pages)
-    navigation_select = pagination.get_navigation_select()
-    navigation_result = pagination.get_navigation_result()
+    b = Browser(submissions,current,locale, session.get('per_page'), session.get('sort_by'), session.get('filters'))
+    b.submissions = b.filter_submissions(submissions)
+    submissions =b.process_submissions(b.submissions)
 
 
 
