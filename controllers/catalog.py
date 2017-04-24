@@ -179,9 +179,6 @@ def index():
     ompdal = OMPDAL(db, myconf)
     press = ompdal.getPress(myconf.take('omp.press_id'))
 
-
-
-
     if not press:
         redirect(URL('home', 'index'))
     press_settings = OMPSettings(ompdal.getPressSettings(press.press_id))
@@ -220,18 +217,14 @@ def index():
 
         submissions.append(submission)
 
-    session.filters =request.vars.get('filters') if request.vars.get('filters') else session.get('filters', {})
+    session.filters =request.vars.get('filter_by').strip('[').strip(']') if request.vars.get('filter_by') else session.get('filters', '')
     session.per_page = int(request.vars.get('per_page')) if request.vars.get('per_page') else int(session.get('per_page', 20))
     session.sort_by = request.vars.get('sort_by') if request.vars.get('sort_by') else session.get('sort_by', 'date')
 
     current = int(request.vars.get('page_nr', 1)) - 1
 
-
     b = Browser(submissions,current,locale, session.get('per_page'), session.get('sort_by'), session.get('filters'))
-    b.submissions = b.filter_submissions(submissions)
-    submissions =b.process_submissions(b.submissions)
-
-
+    submissions = b.process_submissions(b.submissions)
 
     return locals()
 
