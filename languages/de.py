@@ -285,6 +285,7 @@
 'News': 'Aktuelles',
 'next %s rows': 'nächste %s Reihen',
 'No databases in this application': 'Keine Datenbank in dieser Anwendung',
+'Numerik 0': 'Numerik 0',
 'Nur wenn check-trim-box yes ist, Standardwert 4 mm, kann aber frei gewählt werden.': 'Nur wenn check-trim-box yes ist, Standardwert 4 mm, kann aber frei gewählt werden.',
 'Nur wenn Prüfung Trimbox "yes" ist, Standardwert 2,5 mm, kann aber frei gewählt werden. Bei Dezimalzahlen Trennzeichen "Punkt".': 'Nur wenn Prüfung Trimbox "yes" ist, Standardwert 2,5 mm, kann aber frei gewählt werden. Bei Dezimalzahlen Trennzeichen "Punkt".',
 'Object or table name': 'Objekt- oder Tabellenname',
