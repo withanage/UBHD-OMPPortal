@@ -23,8 +23,8 @@ def main():
     ps = ompdal.getPresses()
     solr = OMPSOLR(db, myconf)
     document = []
-    #solr.si.delete(queries=solr.si.Q("*"))
-    #solr.si.commit()
+    solr.si.delete(queries=solr.si.Q("*"))
+    solr.si.commit()
 
     for p in ps:
         submissions =  ompdal.getSubmissionsByPress(p.press_id)

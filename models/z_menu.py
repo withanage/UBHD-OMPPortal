@@ -58,7 +58,13 @@ publishing_dict_list = [LI(A(i[1], _href=URL('publishing', i[0])))
                         for i in publishing_dict]
 
 
-
+def display_form():
+    form=FORM( INPUT(_name='search',_class="form-control", _placeholder=T("Search")),
+              #INPUT(_type='submit',_class="btn btn-default",),
+               _class="navbar-form navbar-left")
+    if form.accepts(request,session):
+        redirect(URL('catalog','search?q='+request.vars.search))
+    return form
 
 
 response.menu = UL([LI(A(T('Home'),
@@ -83,7 +89,8 @@ response.menu = UL([LI(A(T('Home'),
                     LI(XML(title('Publishing')),
                        UL(publishing_dict_list,
                           _class="dropdown-menu"),
-                       _class="dropdown")
+                       _class="dropdown"),
+                    LI(display_form(),  _class="dropdown")
 
                     ],
                    _class="nav navbar-nav")

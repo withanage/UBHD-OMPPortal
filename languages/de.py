@@ -373,6 +373,7 @@
 'Rows selected': 'Reihen ausgewählt',
 'Rückenart': 'Rückenart',
 'Save model as...': 'Speichere Vorlage als...',
+'search': 'search',
 'Search': 'Suche',
 'Semantic': 'Semantik',
 'Send': 'Verschicken',

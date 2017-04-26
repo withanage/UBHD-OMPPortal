@@ -122,8 +122,8 @@ def series():
 
 
 def search():
-    title = '{}'.format(request.vars.title) if request.vars.title else ''
-    press_id = request.vars.press_id if request.vars.press_id else ''
+    q = '{}'.format(request.vars.q) if request.vars.q else '*'
+
 
     form = form = SQLFORM.factory(
         Field("title"),
@@ -144,8 +144,8 @@ def search():
     if myconf.take("plugins.solr") == str(1):
         solr = OMPSOLR(db,myconf)
         #r = solr.si.query(solr.si.Q(title_en=title)  | solr.si.Q(title_de=title))
-        r = solr.si.query(solr.si.Q(title_de='*Leben*'))
-        #r = solr.si.query('*Leben*')
+        #r = solr.si.query(solr.si.Q(title_de='*Leben*'))
+        r = solr.si.query(solr.si.Q(q)  & solr.si.Q(press_id=myconf.take('omp.press_id')) )
         #for s in sort:
         #    r =r.sort_by(s)
         #r = r.filter(**fq)

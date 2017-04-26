@@ -400,9 +400,10 @@
   <field name="_root_" type="string" docValues="false" indexed="true" stored="false"/>
   <field name="_text_" type="text_general" multiValued="true" indexed="true" stored="false"/>
   <field name="_version_" type="long" indexed="false" stored="false"/>
+
   <field name="abstract_de" type="text_general" multiValued="false" indexed="true" required="false" stored="true"/>
   <field name="abstract_en" type="text_general" multiValued="false" indexed="true" required="false" stored="true"/>
-  <field name="authors" type="string" multiValued="true" indexed="true" required="false" stored="true"/>
+  <field name="authors" type="text_general" multiValued="true" indexed="true" required="false" stored="true"/>
   <field name="category_de" type="text_general" multiValued="false" indexed="true" required="false" stored="true"/>
   <field name="category_en" type="text_general" multiValued="false" indexed="true" required="false" stored="true"/>
   <field name="cleantitle_de" type="strings"/>
@@ -492,6 +493,7 @@
   <dynamicField name="*_is" type="ints" indexed="true" stored="true"/>
   <dynamicField name="*_ss" type="strings" indexed="true" stored="true"/>
   <dynamicField name="*_ls" type="longs" indexed="true" stored="true"/>
+  <dynamicField name="*_bs" type="booleans" indexed="true" stored="true"/>
   <dynamicField name="*_fs" type="floats" indexed="true" stored="true"/>
   <dynamicField name="*_ds" type="doubles" indexed="true" stored="true"/>
   <dynamicField name="*_dt" type="date" indexed="true" stored="true"/>
