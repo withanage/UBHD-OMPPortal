@@ -23,8 +23,8 @@ def main():
     ps = ompdal.getPresses()
     solr = OMPSOLR(db, myconf)
     document = []
-    solr.si.delete(queries=solr.si.Q("*"))
-    solr.si.commit()
+    #solr.si.delete(queries=solr.si.Q("*"))
+    #solr.si.commit()
 
     for p in ps:
         submissions =  ompdal.getSubmissionsByPress(p.press_id)
@@ -32,6 +32,7 @@ def main():
             sub = {}
             sub['press_id'] = p.press_id
             sub['submission_id'] = s.submission_id
+            #sub['id'] = s.submission_id
             sub['locale'] = s.locale
             #print ompdal.getActualAuthorsBySubmission(s.submission_id)
             s_settings = ompdal.getSubmissionSettings(s.submission_id)
@@ -44,8 +45,8 @@ def main():
 
 
 
+    #print document
     solr.si.add(document)
-
     solr.si.commit()
 
 
