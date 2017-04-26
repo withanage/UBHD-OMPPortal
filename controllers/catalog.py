@@ -145,7 +145,7 @@ def search():
         solr = OMPSOLR(db,myconf)
         #r = solr.si.query(solr.si.Q(title_en=title)  | solr.si.Q(title_de=title))
         #r = solr.si.query(solr.si.Q(title_de='*Leben*'))
-        r = solr.si.query(solr.si.Q(q)  & solr.si.Q(press_id=myconf.take('omp.press_id')) )
+        r = solr.si.query(solr.si.Q(q.decode('utf-8'))  & solr.si.Q(press_id=myconf.take('omp.press_id')) )
         #for s in sort:
         #    r =r.sort_by(s)
         #r = r.filter(**fq)
