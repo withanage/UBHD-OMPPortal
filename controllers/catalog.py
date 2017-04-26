@@ -144,7 +144,8 @@ def search():
     if myconf.take("plugins.solr") == str(1):
         solr = OMPSOLR(db,myconf)
         #r = solr.si.query(solr.si.Q(title_en=title)  | solr.si.Q(title_de=title))
-        r = solr.si.query('aktuelle*')
+        r = solr.si.query(solr.si.Q(title_de='*Leben*'))
+        #r = solr.si.query('*Leben*')
         #for s in sort:
         #    r =r.sort_by(s)
         #r = r.filter(**fq)
@@ -153,7 +154,7 @@ def search():
         #r = r.highlight(q.keys())
         r= r.paginate(start=start, rows=rows)
         results = r.execute()
-        #hl = results.highlighting
+        hl = results.highlighting
 
     from paginate import Page, make_html_tag
 

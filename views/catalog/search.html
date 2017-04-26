@@ -1,15 +1,32 @@
-{{#extend 'layout.html'}}
+{{extend 'layout.html'}}
 {{import re, os}}
 {{from ompformat import formatContributors, coverImageLink}}
-{{=form}}
-<table >
-            {{
+<div id="main" class="container">
 
-            for r in results:
-            #=TR(TD(r.get('en_title_s').encode('utf-8'),_class="col-lg-1"),TD(r.get('authors'),_class="col-lg-3"),TD(i))
-            #=TR(r)
-            pass}}
-</table>
-{{=results}}
-{{=p}}
+
+<section id="content">
+
+        <div class="row">
+            <div class="col-lg-3">
+
+            </div>
+            <div class="col-lg-9">
+                {{=form}}
+                    <table >
+                                {{
+
+                                for r in results:
+                                =TR(TD(r.get('title_en').encode('utf-8'),_class="col-lg-1"),TD(r.get('authors'),_class="col-lg-3"))
+                                #=TR(r)
+                                =BR()
+                                pass}}
+                    </table>
+                    {{#=results}}
+                    {{=p}}
+
+            </div>
+        </div>
+</section>
+</div>
+
 

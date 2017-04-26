@@ -48,21 +48,17 @@ about_us_list = [LI(A(i[1], _href=URL('about_us', i[0])))
 
 
 publishing_dict = [['for_authors', T('Information for Authors')],
-                   ['rights_and_licences', T('Rights and Licences')]
+                   ['rights_and_licences', T('Rights and Licences')],
+                   ['peer_review', T('Peer Review')],
+                   ['plagiarism', T('Plagiarism')],
+                   ['data_privacy', T('Data Privacy')]
                    ]
 
 publishing_dict_list = [LI(A(i[1], _href=URL('publishing', i[0])))
                         for i in publishing_dict]
 
 
-quality_control_dict = [
-    ['peer_review', T('Peer Review')],
-    ['plagiarism', T('Plagiarism')],
-    ['data_privacy', T('Data Privacy')],
-]
 
-quality_control_dict_list = [
-    LI(A(i[1], _href=URL('quality_control', i[0]))) for i in quality_control_dict]
 
 
 response.menu = UL([LI(A(T('Home'),
@@ -87,11 +83,8 @@ response.menu = UL([LI(A(T('Home'),
                     LI(XML(title('Publishing')),
                        UL(publishing_dict_list,
                           _class="dropdown-menu"),
-                       _class="dropdown"),
-                    LI(XML(title('Quality Control')),
-                       UL(quality_control_dict_list,
-                          _class="dropdown-menu"),
-                       _class="dropdown"),
+                       _class="dropdown")
+
                     ],
                    _class="nav navbar-nav")
 
