@@ -48,8 +48,8 @@ about_us_list = [LI(A(i[1], _href=URL('about_us', i[0])))
 
 
 publishing_dict = [['for_authors', T('Information for Authors')],
-                   ['rights_and_licences', T('Rights and Licences')],
                    ['peer_review', T('Peer Review')],
+                   ['rights_and_licences', T('Rights and Licences')],
                    ['plagiarism', T('Plagiarism')],
                    ['data_privacy', T('Data Privacy')]
                    ]
@@ -90,7 +90,7 @@ response.menu = UL([LI(A(T('Home'),
                        UL(publishing_dict_list,
                           _class="dropdown-menu"),
                        _class="dropdown"),
-                    LI(display_form(),  _class="dropdown")
+                    #LI(display_form(),  _class="dropdown")
 
                     ],
                    _class="nav navbar-nav")
