@@ -2314,12 +2314,29 @@ ul.standard li {
   text-align: right;
 }
 
+.pagination {
+  margin: 0 10px 0 0;
+}
+
+.pagination > li > a{
+  padding: 4px 10px;
+}
+
+
+.pagination > li > a,
+.pagination > li > a:focus, 
+.pagination > li > a:hover {
+  color: #c9c9c9;
+}
+
+
 .pagination > .active > a, 
 .pagination > .active > a:focus,
 .pagination > .active > a:hover {
   background: #c9c9c9;
   border-color: #cccccc;
 }
+
 
 .pagination > li:first-child > a,
 .pagination > li:last-child > a, 
@@ -2328,11 +2345,7 @@ ul.standard li {
   border-radius: 0;
 }
 
-.pagination > li > a,
-.pagination > li > a:focus, 
-.pagination > li > a:hover {
-  color: #c9c9c9;
-}
+
 
 
 
