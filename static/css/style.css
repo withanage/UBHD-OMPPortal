@@ -2092,7 +2092,7 @@ header .navbar-nav > li {
 
 
 .open > .dropdown-menu {
-  margin-left: 20px;
+  margin-left: 8px;
   background: #f5f5f5;
 }
 
@@ -2346,7 +2346,9 @@ ul.standard li {
 }
 
 
-
+.pull-left > .dropdown-menu {
+  margin-left: 0;
+}
 
 
 /**Beirat**/
