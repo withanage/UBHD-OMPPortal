@@ -8,7 +8,7 @@
 3. change directory to the the unzipped folder
 4. If you have python installed : run ```python web2py.py --nogui -a "mypassword"```
 
-Output should be 
+Output should look like this 
 ```
 web2py Web Framework
 Created by Massimo Di Pierro, Copyright 2007-2017
