@@ -6,7 +6,20 @@
 1. [Download] (http://web2py.com/init/default/download) web2py
 2. Unzip it
 3. change directory to the the unzipped folder
-4. If you have python installed : run ```python2.7 web2py.py```
+4. If you have python installed : run ```python web2py.py --nogui -a "mypassword"```
+
+Output should be 
+```
+web2py Web Framework
+Created by Massimo Di Pierro, Copyright 2007-2017
+Version 2.14.6-stable+timestamp.2016.05.10.00.21.47
+Database drivers available: pymysql, imaplib, pg8000, sqlite3, sqlite2, pyodbc, mysqlconnector
+please visit:
+        http://127.0.0.1:8000/
+use "kill -SIGTERM 30529" to shutdown the web2py server
+
+```
+
 
 ## Install UBHD-OMPPortal
 1. ```cd  web2py_folder/applications/```
@@ -36,4 +49,12 @@ sudo pip2 install -r requirements.txt
 
 ```
 ln -s web2py_folder/applications/press_name/static/monographs/ omp_folder/files/presses/press_id/monographs
+```
+7. Test your installation
+```
+http://127.0.0.1:8000/press_name
+```
 
+
+  
+ 
