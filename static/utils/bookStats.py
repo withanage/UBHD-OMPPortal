@@ -97,16 +97,31 @@ class BookStats:
         """
         return s.encode('utf-8')
 
+    def int2IP(self, ipnum):
+        o1 = int(ipnum / 16777216) % 256
+        o2 = int(ipnum / 65536) % 256
+        o3 = int(ipnum / 256) % 256
+        o4 = int(ipnum) % 256
+        return '%(o1)s.%(o2)s.%(o3)s.%(o4)s' % locals()
+
     def filter_ip(self, ip, list):
         """
         filters a list of ips
         """
         for i in list:
-            if ip == self.ip2long(i):
-                return False
 
-        else:
-            return True
+            if  ip:
+                x1 = self.int2IP(ip)
+                x = x1.split('.')
+                x[2] =0
+
+                x = [str(j) for j in x]
+                y = '.'.join(x)
+                if self.ip2long(y) == self.ip2long(i):
+                    return False
+
+                else:
+                    return True
 
     def get_stats_by_country(self, iplist, pos, filter):
         """
@@ -114,6 +129,7 @@ class BookStats:
         """
         rs = {}
         for ips in iplist:
+
             if self.filter_ip(ips[pos], filter):
                 q = "".join(["SELECT country_code, country_name  FROM omp.t_geoip_country where  INET_ATON(ip_begin) < ", str(
                     ips[pos]), " and INET_ATON(ip_end) > ", str(ips[pos]), ";"])
@@ -140,7 +156,7 @@ class BookStats:
         return True if len(s) == 32 or len(s) == 4 else False
 
     def total_create_html(self, a):
-        result = self.get_stats_by_country(self.get_ips(a), 1, filter=[])
+        result = self.get_stats_by_country(self.get_ips(a), 1, filter=self.config.get('filters'))
         # total for all monographs
         r = {}
         for i in result:
@@ -149,7 +165,7 @@ class BookStats:
                     r[k]= r[k]+ result[i][k]
                  else:
                      r[k] = result[i][k]
-                 #print k , result[i][k]
+
         result = r
         result= OrderedDict(sorted(result.items(), key=lambda x: -x[1]))
         result['Total']= sum(result.values())
