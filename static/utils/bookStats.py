@@ -249,7 +249,7 @@ class BookStats:
             f.write(bs.monograph_create_html(m, []))
             f.close()
         else :
-            args = {'pdf':'select_all_pdf','xml':'select_all_xml'}
+            args = {'pdf':'select_all_pdf','xml':'select_all_xml','html':'select_web_site'}
             for a in args:
                 f = open('{}{}'.format(a,'-total.html'), 'w')
                 f.write(bs.total_create_html(args[a]))
