@@ -47,11 +47,29 @@ class BookStats:
         self.con = self.get_connection(self.get_config(config))
         self.cursor = self.con.cursor()
         self.locale = '"de_DE"'
+        self.monographs = self.get_monographs()
+        self.countries = self.get_countries()
+
+
         self.h = HTML()
 
     def __del__(self):
         self.cursor.close()
         self.con.close()
+
+
+    def get_monographs(self):
+        monographs = []
+        q1 = "".join(
+            ["SELECT submission_id FROM omp1_2.submissions where context_id=",str(self.config.get('press')),"  group by  submission_id;"])
+        try:
+            self.cursor.execute(q1)
+            for row in self.cursor:
+                # print row
+                monographs.append(row[0])
+        except:
+            logging.error(q1)
+        return monographs
 
     def ip2long(self, ip):
         """
@@ -68,10 +86,25 @@ class BookStats:
         sql = [ "SELECT request_args,  INET_ATON(REPLACE(client_ip, 'xxx', '0')), 1 FROM omp.t_usage_statistics"]
         if self.config.get('sql'):
             if self.config.get('sql').get(a):
+                sql.append("where")
                 sql.append(self.config.get('sql').get(a))
+
+
+
+
         q = ' '.join(sql)
         self.cursor.execute(q)
-        [r.append((row[0], row[1], row[2])) for row in self.cursor]
+        for row in self.cursor:
+
+            # check for the monoggraph id
+            if  len(row[0]) ==32 and (a =='select_all_xml' or a =='select_all_pdf' ) :
+                if row[0].split('|')[1].isdigit():
+                      if int(row[0].split('|')[1]) in self.monographs:
+                            r.append((row[0], row[1], row[2]))
+
+            if a =='select_web_site':
+                r.append((row[0], row[1], row[2]))
+
         return r
 
     def get_chapter_name(self, m):
@@ -129,25 +162,39 @@ class BookStats:
         """
         rs = {}
         for ips in iplist:
-
+            # check if monograph is in press
             if self.filter_ip(ips[pos], filter):
-                q = "".join(["SELECT country_code, country_name  FROM omp.t_geoip_country where  INET_ATON(ip_begin) < ", str(
-                    ips[pos]), " and INET_ATON(ip_end) > ", str(ips[pos]), ";"])
-                try:
-                    self.cursor.execute(q)
-                except:
-                    logging.error(q)
-                for row in self.cursor:
-                    f = ips[0].strip()
-                    if rs.get(f):
-                        if rs.get(f).get(row[1]):
-                            rs[f][row[1]] = ips[2] + rs[f][row[1]]
+                    q = "".join(["SELECT country_code, country_name  FROM omp.t_geoip_country where  INET_ATON(ip_begin) < ", str(
+                        ips[pos]), " and INET_ATON(ip_end) > ", str(ips[pos]), ";"])
+                    try:
+                        self.cursor.execute(q)
+
+                    except:
+                        logging.error(q)
+                    for row in self.cursor:
+                        f = ips[0].strip()
+                        if rs.get(f):
+                            if rs.get(f).get(row[1]):
+                                rs[f][row[1]] = ips[2] + rs[f][row[1]]
+                            else:
+                                rs[f][row[1]] = ips[2]
                         else:
+                            rs[f] = {}
                             rs[f][row[1]] = ips[2]
-                    else:
-                        rs[f] = {}
-                        rs[f][row[1]] = ips[2]
         return rs
+
+    def get_countries(self):
+        countries = {}
+        q1 = "".join(
+            ["SELECT country_code, country_name,  INET_ATON(ip_begin),  INET_ATON(ip_end)  FROM omp.t_geoip_country"])
+        try:
+            self.cursor.execute(q1)
+            for row in self.cursor:
+                # print row
+                countries[row[1]] = {'ip_begin': row[2], 'ip_end': row[3]}
+        except:
+            logging.error(q1)
+        return  countries
 
     def filter_monographs(self, s):
         """
@@ -156,6 +203,7 @@ class BookStats:
         return True if len(s) == 32 or len(s) == 4 else False
 
     def total_create_html(self, a):
+        print a
         result = self.get_stats_by_country(self.get_ips(a), 1, filter=self.config.get('filters'))
         # total for all monographs
         r = {}
