@@ -48,6 +48,7 @@ class BookStats:
         self.cursor = self.con.cursor()
         self.locale = '"de_DE"'
         self.monographs = self.get_monographs()
+        print self.monographs
         self.countries = self.get_countries()
 
 
@@ -93,18 +94,18 @@ class BookStats:
 
 
         q = ' '.join(sql)
+        print q
         self.cursor.execute(q)
         for row in self.cursor:
-
             # check for the monoggraph id
-            if  len(row[0]) ==32 and (a =='select_all_xml' or a =='select_all_pdf' ) :
+            print row
+            if  (len(row[0]) >=32) and (a =='select_all_xml' or a =='select_all_pdf' ) :
                 if row[0].split('|')[1].isdigit():
                       if int(row[0].split('|')[1]) in self.monographs:
-                            r.append((row[0], row[1], row[2]))
+                        r.append((row[0], row[1], row[2]))
 
             if a =='select_web_site':
                 r.append((row[0], row[1], row[2]))
-
         return r
 
     def get_chapter_name(self, m):
