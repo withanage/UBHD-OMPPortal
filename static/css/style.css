@@ -1294,18 +1294,18 @@ ul.meta-post li a{
 
 #pagination a,
 #pagination span {
-    display: block;
-    float: left;
-    margin: 0 7px 0 0;
-    padding: 7px 10px 6px 10px;
-    font-size: 12px;
-    line-height:12px;
-    color: #888;
-	font-weight:600;
+  display: block;
+  float: left;
+  margin: 0 7px 0 0;
+  padding: 7px 10px 6px 10px;
+  font-size: 12px;
+  line-height:12px;
+  color: #888;
+	font-weight: 600;
 }
 
 #pagination a:hover {
-    color: #fff;
+  color: #fff;
 	text-decoration:none;
 }
 
@@ -1884,7 +1884,6 @@ article img.pull-right, article .align-right{
 	  z-index: 1000;
 	  display: none;
 	  float: left;
-	  min-width: 160px;
 	  padding: 5px 0;
 	  margin: 2px 0 0;
 	  font-size: 13px;
@@ -2006,9 +2005,11 @@ article img.pull-right, article .align-right{
 }
 
 
-/*Anpassungen WWW Heidelberg*/
+/*Änderungen WWW Heidelberg*/
 
-.bildrahmen, .post-image img {border:1px solid #cdcbcc} 
+.bildrahmen, .post-image img {
+  border: 1px solid #cdcbcc;
+} 
 
 .container {
   padding: 0;
@@ -2091,7 +2092,7 @@ header .navbar-nav > li {
 
 
 .open > .dropdown-menu {
-  margin-left: 20px;
+  margin-left: 8px;
   background: #f5f5f5;
 }
 
@@ -2114,6 +2115,9 @@ li.active {
   background: #900 !important;
   border: none;
 }
+
+
+/**Inhaltsbereich**/
 
 .box-gray h4 {
   text-align: left; 
@@ -2232,7 +2236,7 @@ ul.standard li {
 
 
 /** Spartenmakierung**/
-.spartenMarker {
+/*.spartenMarker {
   float: right;
   font-size: 0.8em;
   text-align: right;
@@ -2271,13 +2275,80 @@ ul.standard li {
 .sparte li:nth-child(2) {
   background: #909090;
   width: 2em;
-  height: 2em; 
+  height: 2em;    */
 } 
 
 .fa-stop {
   color: #909090;
 } 
 
+#spartenmarker {
+   color: #979797;
+   font-size: 115%;
+   margin-top: 0.5ex;
+   padding-right: 5%;
+   text-align: right;
+   text-transform: uppercase;
+} 
+
+#spartenmarker a {
+  text-decoration: none;
+  color: #979797;
+}
+
+#spartenmarker::after {
+   color: #979797;
+  content: "■";
+  font-size: 165%;
+}  
+
+/*Filterfunktion Seite catalog*/
+
+.dropdown-menu li a {
+  border-bottom: 0;
+  padding: 5px 10px 5px 5px;
+  text-transform: uppercase;
+}
+
+.open > .dropdown-menu {
+  text-align: right;
+}
+
+.pagination {
+  margin: 0 10px 0 0;
+}
+
+.pagination > li > a{
+  padding: 4px 10px;
+}
+
+
+.pagination > li > a,
+.pagination > li > a:focus, 
+.pagination > li > a:hover {
+  color: #c9c9c9;
+}
+
+
+.pagination > .active > a, 
+.pagination > .active > a:focus,
+.pagination > .active > a:hover {
+  background: #c9c9c9;
+  border-color: #cccccc;
+}
+
+
+.pagination > li:first-child > a,
+.pagination > li:last-child > a, 
+.btn-group > .btn:first-child, 
+.btn-group > .btn:last-child  {
+  border-radius: 0;
+}
+
+
+.pull-left > .dropdown-menu {
+  margin-left: 0;
+}
 
 
 /**Beirat**/
@@ -2318,32 +2389,10 @@ figcaption {
 
 /** Button dropdownMenu 1 'Kaufen' etc - Abstand Pfeil **/
 .btn .caret {
-  margin-left: 3px;
+  margin-left: 5px;
 }
   
   
-/** Spartenmarkierung **/
-
-#spartenmarker {
-   color: #979797;
-   font-size: 115%;
-   margin-top: 0.5ex;
-   padding-right: 5%;
-   text-align: right;
-   text-transform: uppercase;
-} 
-
-#spartenmarker a {
-  text-decoration: none;
-  color: #979797;
-}
-
-#spartenmarker::after {
-   color: #979797;
-  content: "■";
-  font-size: 165%;
-}  
-
 /*** Footer ****/
 footer {
   padding-left: 10px;
@@ -2363,6 +2412,10 @@ footer {
 #sub-footer ul.social-network {
 	float: left;
 }
+
+
+
+
 
 /******/
 .print {

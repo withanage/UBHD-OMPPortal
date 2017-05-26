@@ -1,4 +1,3 @@
-from __future__ import division
 # coding: utf-8
 #!/usr/bin/env python
 
@@ -37,7 +36,6 @@ import struct
 import sys
 from json2html import *
 from collections import OrderedDict
-
 
 logging.basicConfig(filename='jatsPostProcess.log', level=logging.DEBUG)
 
@@ -100,6 +98,7 @@ class BookStats:
         self.cursor.execute(q)
         for row in self.cursor:
             # check for the monoggraph id
+            print row
             if  (len(row[0]) >=32) and (a =='select_all_xml' or a =='select_all_pdf' ) :
                 if row[0].split('|')[1].isdigit():
                       if int(row[0].split('|')[1]) in self.monographs:
@@ -204,7 +203,7 @@ class BookStats:
         """
         return True if len(s) == 32 or len(s) == 4 else False
 
-    def total_create_html(self, a, prozent):
+    def total_create_html(self, a):
         print a
         result = self.get_stats_by_country(self.get_ips(a), 1, filter=self.config.get('filters'))
         # total for all monographs
@@ -218,15 +217,9 @@ class BookStats:
 
         result = r
         result= OrderedDict(sorted(result.items(), key=lambda x: -x[1]))
-        t = sum(result.values())
-
-        result = self.get_prozent(result, t) if prozent else result
-
+        result['Total']= sum(result.values())
         return json2html.convert(json = result)
 
-    def get_prozent(self, result, t):
-        for x in result:
-            result[x] = str(round(result[x] / t * 100, 2)) + '%'
 
     def monograph_create_html(self, m, filter):
         """
@@ -308,7 +301,7 @@ class BookStats:
             args = {'pdf':'select_all_pdf','xml':'select_all_xml','html':'select_web_site'}
             for a in args:
                 f = open('{}{}'.format(a,'-total.html'), 'w')
-                f.write(bs.total_create_html(args[a], self.config.get('prozent')))
+                f.write(bs.total_create_html(args[a]))
                 f.close()
 
 if __name__ == "__main__":
