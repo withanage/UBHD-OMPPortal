@@ -69,6 +69,7 @@
 'Are you sure you want to delete this object?': 'Sind Sie sich sicher, dass Sie dieses Objekt löschen wollen?',
 'Auflage': 'Auflage',
 'Auslieferungstermin': 'Auslieferungstermin',
+'author': 'Autor',
 'authors': 'Autor',
 'Autoren': 'Autoren',
 'Autoren : Vorname Nachname )': 'Autoren : Vorname Nachname )',
