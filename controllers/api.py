@@ -60,7 +60,7 @@ def remove_url_prefix(url):
     urls = [url.split('/')[0] for url in url.split()]
     return ''.join(urls)
 
-def get_series_info(b,locale):
+def get_series_info(b):
     r = None
     series = ompdal.getSeriesBySubmissionId(b['submission_id'])
     s_id = series.get('series_id') if series else ''
@@ -100,14 +100,14 @@ def oastatistik():
         authors = get_authors(book_id)
         full_files = get_full_books(book_id)
         press_info = get_press_info(locale)
-        series_info = get_series_info(book_id, locale)
+        series_info = get_series_info(book_id)
 
         for f in full_files:
             full = {}
             full["label"] = title
             full["type"] = "volume"
 
-            full = get_associated_items(authors, full, press_info, series_info)
+            full = get_as(authors, full, press_info, series_info)
 
             if publication_format_settings_doi:
                 full["norm_id"] = publication_format_settings_doi['setting_value']
@@ -123,8 +123,7 @@ def oastatistik():
 
         if publication_format_settings_doi:
             fullbook["norm_id"] = publication_format_settings_doi['setting_value']
-
-        full = get_associated_items(authors, full, press_info, series_info)
+        fullbook = get_as(authors, fullbook, press_info, series_info)
 
         chapters = get_chapters(book_id)
         for c in chapters:
@@ -144,14 +143,14 @@ def oastatistik():
     return sj.dumps(subs, separators=(',', ':'), sort_keys=True)
 
 
-def get_associated_items(authors, full, press_info, series_info):
-    full["associate_via_hierarchy"] = []
-    full["associate_via_hierarchy"].append(authors)
+def get_as(authors, fullbook, press_info, series_info):
+    fullbook["associate_via_hierarchy"] = []
     if series_info:
-        full["associate_via_hierarchy"].append(series_info)
+        fullbook["associate_via_hierarchy"].append(series_info)
     else:
-        full["associate_via_hierarchy"].append(press_info)
-    return  full
+        fullbook["associate_via_hierarchy"].append(press_info)
+    fullbook["associate_via_hierarchy"].append(authors)
+    return fullbook
 
 
 def get_press_info(locale):
