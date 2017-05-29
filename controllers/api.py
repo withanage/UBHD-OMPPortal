@@ -71,7 +71,7 @@ def get_series_info(b):
         r = {"label":s_t,
         'norm_id': 'url:{}/catalog/series/{}'.format(remove_url_prefix(myconf.take('web.url')),sp),
         "type": "collection",
-             "associate_via_hierarchy":get_press_info(locale)}
+             "associate_via_hierarchy":[get_press_info(locale) ]}
     return r
 
 def oastatistik():
