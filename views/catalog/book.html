@@ -141,6 +141,11 @@ pass
 							}}
 							 
 							</div>
+							<div class="btn-group" role="group" aria-label="3">
+								<button class="btn btn-default" id="anno-btn">
+									<span class="fa fa-comment">&nbsp;</span><span class="anno-number"></span> Annotationen
+								</button>
+							</div>
 
 							<div class="post-heading">
 								<br/>
@@ -159,6 +164,8 @@ pass
 							</div>
 							<h3>{{=XML(cleanTitle)}}</h3>
 							<h4>{{=subtitle}}</h4>
+              <div id="anno-block">
+              </div>
 							<p>
 								<i class="icon-quote-left"></i>
 								{{=XML(abstract)}}
@@ -256,3 +263,65 @@ pass
 	</section>
 	<div id="vgwpixel"></div>
 </div>
+
+<!--   BEGIN kba Tue Apr 18 17:07:35 CEST 2017 -->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quill/1.2.4/quill.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vuex/2.3.1/vuex.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.1/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.1/axios.min.js"></script>
+
+  <script src="https://unpkg.com/semtonotes-client"></script>
+  <script src="http://digi.ub.uni-heidelberg.de/diglit_pub/xrx-utils.js"></script>
+  <script src="http://digi.ub.uni-heidelberg.de/diglit_pub/xrx-vue.js"></script>
+  <script src="http://digi.ub.uni-heidelberg.de/diglit_pub/anno.min.js"></script>
+  <script src="http://anno.ub.uni-heidelberg.de/dist2/ubhd-anno.prod.js"></script>
+
+  <script type="text/javascript" src="http://digi.ub.uni-heidelberg.de/diglit_pub/jquery/jquery.ui.touch-punch.min.js"></script>
+  <script type="text/javascript" src="http://digi.ub.uni-heidelberg.de/diglit_pub/localizations.min.js"></script>
+  <script type="text/javascript" src="http://digi.ub.uni-heidelberg.de/diglit_pub/js.cookie-2.1.2.min.js"></script>
+  <script type="text/javascript" src="http://digi.ub.uni-heidelberg.de/diglit_pub/jquery/socialshareprivacy1.6/jquery.socialshareprivacy.min.js"></script>
+  <script type="text/javascript" src="http://digi.ub.uni-heidelberg.de/diglit_pub/ubhd3.js"></script>
+<script>
+$("#anno-block").hide()
+$("#anno-btn").click(() => $("#anno-block").toggle())
+$(function() {
+	const lang = "{{=T.accepted_language or 'en'}}"
+	const targetSource = `http://heiup.uni-heidelberg.de{{= URL(args=request.args) }}`
+
+	window.annoapp = displayAnnotations({
+
+		// Metadata
+		targetSource,
+
+		// Language
+		language: lang,
+
+		// Element to draw sidebar in
+		container: document.getElementById('anno-block'),
+
+		// Determine login & such
+		collection:    'heiup',
+		annoEndpoint:  'http://serv42.ub.uni-heidelberg.de/anno/anno',
+		loginEndpoint:  'http://serv42.ub.uni-heidelberg.de/anno/auth/login',
+		logoutEndpoint:  'http://serv42.ub.uni-heidelberg.de/anno/auth/logout',
+		tokenEndpoint:  'http://serv42.ub.uni-heidelberg.de/anno/auth/token',
+		// tokenEndpoint: 'https://digi.ub.uni-heidelberg.de/cgi-bin/annoToken',
+		// loginEndpoint:  document.querySelector('a#login') ? document.querySelector('a#login').href : null,
+
+		events: {
+			fetched(list)  {
+				document.querySelector(".anno-number").innerHTML = list.length
+				if (list.length > 0)  {
+					document.querySelector("#anno-btn").classList.remove('btn-default')
+					document.querySelector("#anno-btn").classList.add('btn-primary')
+				}
+			},
+			error(err)     { console.error(err) },
+		}
+
+	})
+})
+</script>
+<!-- vim: set noet: -->
+<!--   END kba Tue Apr 18 17:07:35 CEST 2017 -->
