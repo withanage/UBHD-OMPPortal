@@ -116,6 +116,7 @@
 'Clear RAM': 'RAM löschen',
 'Client IP': 'Client IP',
 'Close': 'Schließen',
+'Comment': 'Kommentieren',
 'Community': 'Community',
 'Components and Plugins': 'Komponenten und Plugins',
 'Contact': 'Kontakt',
