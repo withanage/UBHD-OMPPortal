@@ -89,7 +89,7 @@ pass
 									<span class="caret"></span>
 								</button>
 								<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-								{{for pf in  sorted(digital_publication_formats, key=lambda s: s.settings.getLocalizedValue('name', locale)):}}
+								{{for pf in  digital_publication_formats:}}
 									{{format_name=pf.settings.getLocalizedValue('name', locale)}}
 								{{full_epub_file  = pf.associated_items.get('full_epub_file')}}
 									{{if full_epub_file:}}
