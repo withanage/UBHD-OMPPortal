@@ -79,7 +79,7 @@ pass
 				</div>
 				<div class="col-lg-9">
 					<article>
-						<div class="">
+						<div class="summary">
 							{{for pf in digital_publication_formats:}}
 							{{full_file = pf.associated_items.get('full_file')}}
 							{{if full_file and ("xml" in full_file.attributes.file_type or "html" in full_file.attributes.file_type):}}
@@ -143,9 +143,10 @@ pass
 							</div>
 							<div class="btn-group" role="group" aria-label="3">
 								<button class="btn btn-default" id="anno-btn">
-									<span class="fa fa-comment">&nbsp;</span><span class="anno-number"></span> Annotationen
+									<span class="fa fa-comment">&nbsp;</span>{{=T("Comment")}} (<span class="anno-number"></span>)
 								</button>
 							</div>
+              <div id="anno-block"> </div>
 
 							<div class="post-heading">
 								<br/>
@@ -164,8 +165,6 @@ pass
 							</div>
 							<h3>{{=XML(cleanTitle)}}</h3>
 							<h4>{{=subtitle}}</h4>
-              <div id="anno-block">
-              </div>
 							<p>
 								<i class="icon-quote-left"></i>
 								{{=XML(abstract)}}
@@ -283,9 +282,28 @@ pass
   <script type="text/javascript" src="http://digi.ub.uni-heidelberg.de/diglit_pub/jquery/socialshareprivacy1.6/jquery.socialshareprivacy.min.js"></script>
   <script type="text/javascript" src="http://digi.ub.uni-heidelberg.de/diglit_pub/ubhd3.js"></script>
 <script>
-$("#anno-block").hide()
-$("#anno-btn").click(() => $("#anno-block").toggle())
+$("#anno-btn").click(() => {
+	if ($("#anno-block").is(':hidden'))
+		showAnnoBlock()
+	else
+		hideAnnoBlock()
+})
+function showAnnoBlock() {
+	$(".summary > *").each((idx, el) => {
+		if (!el.classList.contains('btn-group')) $(el).hide()
+	})
+	$("div.widget").hide()
+	$("#anno-block").show()
+}
+function hideAnnoBlock() {
+	$(".summary > *").show()
+	$("div.widget").show()
+	$("#anno-block").hide()
+}
 $(function() {
+
+	hideAnnoBlock()
+
 	const lang = "{{=T.accepted_language or 'en'}}"
 	const targetSource = `http://heiup.uni-heidelberg.de{{= URL(args=request.args) }}`
 
