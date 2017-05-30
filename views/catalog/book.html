@@ -88,14 +88,23 @@ pass
 									{{=T('Download')}}
 									<span class="caret"></span>
 								</button>
-								{{for pf in digital_publication_formats:}}
+								<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+								{{for pf in  sorted(digital_publication_formats, key=lambda s: s.settings.getLocalizedValue('name', locale)):}}
+									{{format_name=pf.settings.getLocalizedValue('name', locale)}}
+								{{full_epub_file  = pf.associated_items.get('full_epub_file')}}
+									{{if full_epub_file:}}
+										<li role="presentation"><a role="menuitem" tabindex="0" href="{{=downloadLink(request, full_epub_file.attributes, myconf.take('web.url'), full_epub_file.settings.getLocalizedValue("vgWortPublic", ""))}}">{{=format_name}}</a></li>
+									{{pass}}
 								{{full_file = pf.associated_items.get('full_file')}}
 								{{if full_file and not "html" in full_file.attributes.file_type and not "xml" in full_file.attributes.file_type:}}
-								<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-									<li role="presentation"><a role="menuitem" tabindex="-1" href="{{=downloadLink(request, full_file.attributes, myconf.take('web.url'), full_file.settings.getLocalizedValue("vgWortPublic", ""))}}">{{=pf.settings.getLocalizedValue('name', locale)}}</a></li>
-								</ul>
+
+									<li role="presentation"><a role="menuitem" tabindex="-1" href="{{=downloadLink(request, full_file.attributes, myconf.take('web.url'), full_file.settings.getLocalizedValue("vgWortPublic", ""))}}">
+										{{=format_name}}</a></li>
+
+
 								{{pass}}
 								{{pass}}
+									</ul>
 							</div>
 							{{pass}}
 
@@ -187,7 +196,10 @@ pass
 								<div class="chapter_row table_head">
 									<div class="chapter_cell">{{=T('Contents')}}</div>
 									{{for pf in digital_publication_formats:}}
-									<div class="chapter_cell">{{=TD(pf.settings.getLocalizedValue('name', locale))}}</div>
+									{{format_name=pf.settings.getLocalizedValue('name', locale)}}
+									{{if format_name != 'EPUB':}}
+									<div class="chapter_cell">{{=TD(format_name)}}</div>
+									{{pass}}
 									{{pass}}
 								</div>
 								{{display_authors=haveMultipleAuthors(chapters)}}
@@ -207,6 +219,8 @@ pass
 										{{pass}}
 									</div>
 									{{for pf in digital_publication_formats:}}
+									{{format_name=pf.settings.getLocalizedValue('name', locale)}}
+									{{if format_name != 'EPUB':}}
 									<div class="chapter_cell">
 										{{if c_files:}}
 										{{c_file = c_files.get(pf.attributes.publication_format_id)}}
@@ -222,6 +236,7 @@ pass
 										{{pass}}
 										{{pass}}
 									</div>
+									{{pass}}
 									{{pass}}
 								</div>
 								{{pass}}
