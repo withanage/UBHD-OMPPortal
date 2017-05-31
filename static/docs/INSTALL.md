@@ -32,6 +32,7 @@ use "kill -SIGTERM 30529" to shutdown the web2py server
 ```
 cd  web2py_folder/applications/$press_name
 sudo pip2 install -r requirements.txt
+git checkout clean
 git submodule init
 git submodule update
 ```     
