@@ -32,6 +32,7 @@ use "kill -SIGTERM 30529" to shutdown the web2py server
 ```
 cd  web2py_folder/applications/$press_name
 sudo pip2 install -r requirements.txt
+git submodule init
 git submodule update
 ```     
 
@@ -49,7 +50,7 @@ git submodule update
 6. Mount or symlink the files folder of the OMP  to **web2py_folder**/applications/**press_name**/static/monographs/
 
 ```
-ln -s web2py_folder/applications/press_name/static/monographs/ omp_folder/files/presses/press_id/monographs
+ln -s  /omp_folder/presses/ /web2py_folder/applications/press_name/static/files/presses
 ```
 7. Test your installation
 ```
