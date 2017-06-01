@@ -2511,4 +2511,7 @@ margin: 0.5cm;
 
 }
 
+#anno-btn.btn-primary { background-color: #900; }
+#anno-block .panel-heading { padding: 10px 15px; }
+#anno-block .panel-heading h4 { font-size: 1.2em; }
 
