@@ -321,10 +321,10 @@ $(function() {
 		// Determine login & such
 		collection:    'heiup',
 		annoEndpoint:  'http://serv42.ub.uni-heidelberg.de/anno/anno',
-		loginEndpoint:  'http://digi.ub.uni-heidelberg.de/cgi-bin/login',
-		tokenEndpoint:  'https://digi.ub.uni-heidelberg.de/cgi-bin/annoToken?iss=heiup',
+		loginEndpoint:  `https://anno.ub.uni-heidelberg.de/anno/auth/login?from=${targetSource}`,
+		tokenEndpoint:  'https://anno.ub.uni-heidelberg.de/anno/auth/token/heiup',
 
-		// enableLogoutButton: false,
+		enableLogoutButton: false,
 		// loginEndpoint:  document.querySelector('a#login') ? document.querySelector('a#login').href : null,
 
 		events: {
