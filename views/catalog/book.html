@@ -143,7 +143,7 @@ pass
 							</div>
 							<div class="btn-group" role="group" aria-label="3">
 								<button class="btn btn-default" id="anno-btn">
-									<span class="fa fa-comment">&nbsp;</span>{{=T("Comment")}} (<span class="anno-number"></span>)
+									<span class="fa fa-comment">&nbsp;</span>{{=T("Comment")}} (<span class="anno-number">...</span>)
 								</button>
 							</div>
               <div id="anno-block"> </div>
@@ -269,12 +269,12 @@ pass
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vuex/2.3.1/vuex.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.1/vue.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.1/axios.min.js"></script>
-
   <script src="https://unpkg.com/semtonotes-client"></script>
-  <script src="http://digi.ub.uni-heidelberg.de/diglit_pub/xrx-utils.js"></script>
-  <script src="http://digi.ub.uni-heidelberg.de/diglit_pub/xrx-vue.js"></script>
-  <script src="http://digi.ub.uni-heidelberg.de/diglit_pub/anno.min.js"></script>
-  <script src="http://anno.ub.uni-heidelberg.de/dist2/ubhd-anno.prod.js"></script>
+
+  <script src="http://anno.ub.uni-heidelberg.de/dist/xrx-utils.js"></script>
+  <script src="http://anno.ub.uni-heidelberg.de/dist/xrx-vue.js"></script>
+  <script src="http://anno.ub.uni-heidelberg.de/dist/anno.min.js"></script>
+  <script src="http://anno.ub.uni-heidelberg.de/dist/anno-frontend.js"></script>
 
   <script type="text/javascript" src="http://digi.ub.uni-heidelberg.de/diglit_pub/jquery/jquery.ui.touch-punch.min.js"></script>
   <script type="text/javascript" src="http://digi.ub.uni-heidelberg.de/diglit_pub/localizations.min.js"></script>
@@ -321,10 +321,10 @@ $(function() {
 		// Determine login & such
 		collection:    'heiup',
 		annoEndpoint:  'http://serv42.ub.uni-heidelberg.de/anno/anno',
-		loginEndpoint:  'http://serv42.ub.uni-heidelberg.de/anno/auth/login',
-		logoutEndpoint:  'http://serv42.ub.uni-heidelberg.de/anno/auth/logout',
-		tokenEndpoint:  'http://serv42.ub.uni-heidelberg.de/anno/auth/token',
-		// tokenEndpoint: 'https://digi.ub.uni-heidelberg.de/cgi-bin/annoToken',
+		loginEndpoint:  'http://digi.ub.uni-heidelberg.de/cgi-bin/login',
+		tokenEndpoint:  'https://digi.ub.uni-heidelberg.de/cgi-bin/annoToken?iss=heiup',
+
+		// enableLogoutButton: false,
 		// loginEndpoint:  document.querySelector('a#login') ? document.querySelector('a#login').href : null,
 
 		events: {
