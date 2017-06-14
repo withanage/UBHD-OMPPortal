@@ -8,58 +8,28 @@
 <section id="content">
 
         <div class="row">
-            <div class="col-lg-3"></div>
-            <div class="col-lg-9">
-                <div class = "btn-group">
-   <button type = "button" class = "btn btn-default">Results per page</button>
-
-   <button type = "button" class = "btn btn-default dropdown-toggle" data-toggle = "dropdown">
-      <span class = "caret"></span>
-      <span class = "sr-only">Results per page</span>
-   </button>
-   {{results_per_page=[2,3,4]}}
-   <ul class = "dropdown-menu" role = "menu">
-       {{for i in results_per_page:}}
-      {{=LI(A(i, _href=URL('index?per_page='+str(i))))}}
-       {{pass}}
-
-   </ul>
-</div>
-
-<nav aria-label="Page navigation">
-  <ul class="pagination">
-      {{if page_nr > 0:}}
-      <li><a href="{{=URL('index?page_nr='+str(page_nr))}}"><span aria-hidden="true">&laquo;</span></a></li>
-      {{pass}}
-      {{pages = len(submission_rows)/per_page}}
-      {{odd = len(submission_rows)%per_page > 0}}
-
-      {{for i in range(0,pages):}}
-      {{next = i+1}}
-      {{if i==page_nr:}}
-      {{next = B(next)}}
-      {{pass}}
-      {{=LI(A(next, _href=URL('index?page_nr='+str(i+1))))}}
-      {{pass}}
-
-      {{if odd:}}
-      {{last = pages+1}}
-      {{if page_nr == pages:}}
-      {{last= B(last)}}
-      {{pass}}
-      {{=LI(A(last, _href=URL('index?page_nr='+str(pages+1))))}}
-      {{pass}}
-
-      {{if (page_nr < pages-1) or (page_nr < pages & odd ):}}
-      <li><a href="{{=URL('index?page_nr='+str(page_nr+2))}}"><span aria-hidden="true">&raquo;</span></a></li>
-      {{pass}}
-  </ul>
-</nav>
-
-                </div>
+            <div class="col-lg-3">
 
             </div>
+            <div class="col-lg-9">
+
+
+            {{=b.filter_select}}
+            {{try:
+            del b.sort_select[1][4]
+            except:
+            pass
+
+            }}
+            {{=b.sort_select}}
+
+
+
+            </div>
+        </div>
+
     {{for submission in submissions:}}
+
         <div class="container" height="400px">
             <div class="row">
                 <div class="col-lg-3">
@@ -97,8 +67,21 @@
                     </article>
                 </div>
             </div>
+
         </div>
     {{pass}}
+     <div class="container">
+            <div class="row">
+            <div class="col-lg-3">
+            </div>
+             <div class="col-lg-9">
+                {{=b.navigation_list}}
+             {{=b.navigation_select}}
+             </div>   
+            </div>
+     </div>
+
+	{{if session.filters=='':}}
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -116,7 +99,6 @@
                 </div>
             </div>
 
-		
             <div class="row">
                 <div class="col-lg-3">
                     <article>
@@ -162,7 +144,9 @@
                 </div>
             </div>
 		
-		
+
         </div>
+    {{pass}}
     </section>
 </div>
+

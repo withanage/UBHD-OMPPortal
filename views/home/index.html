@@ -112,19 +112,17 @@ $('.flexslider').flexslider();
         <div class="col-lg-12">
           <div class="row">
             <div class="col-lg-3">
-              <div class="box">
-                <div class="box-gray aligncenter">
+                <div class="box">
+                  <div class="box-gray aligncenter">
               {{if session.forced_language =='de': }} 
-                <h4>Erscheint demnächst</h4>
+                <h4>Neuerscheinung</h4>
               {{elif session.forced_language =='en': }}                       
-                <h4>Coming soon</h4>
+                <h4>New titles</h4>
                 {{pass}}
-				      {{=IMG(_src=URL('static','images/catalog/transformative_cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}				  
+					{{=IMG(_src=URL('static','files/presses/6/monographs/258/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
                   </div>
-                  <div class="box-bottom">
-                    {{=A(T('More Information'),_href=URL('catalog','index.html#forthcoming'))}}
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/258'))}}
                   </div>
-                
                 </div>
             </div>
             <div class="col-lg-3">
@@ -149,6 +147,96 @@ $('.flexslider').flexslider();
             <div id="boxAktuelles" class="col-lg-6">
               <div class="box">
                 <div class="box-gray aligncenter" style="overflow-y: scroll">{{if session.forced_language =='de': }} <h4>Aktuelles</h4>{{elif session.forced_language =='en': }} <h4>News</h4>{{pass}} 	
+                   
+				   
+				   <div class="media">
+                    <div class="media-left pull-left">
+                      <img alt="" src="{{=URL('static','images/press/home/uni_aktuelles.png')}}" style="width: 50px;" />
+                    </div>
+					<div class="media-body">
+                      <p class="media-heading">02.06.2017<br>
+                      {{if session.forced_language =='de': }} <h5>Neu erschienen in der Reihe <i>Lecture Notes</i>: <i>Numerik I</i></h5>{{elif session.forced_language =='en': }} <h5>New release in the series <i>Lecture Notes</i>: <i>Numerik I</i></h5>{{pass}}</p> 
+
+                      <p class="boxText">{{if session.forced_language =='de': }}                       
+In diesem <a href="{{=URL('catalog','book/258')}}">zweiten Teil</a> der Vorlesungsreihe "Numerische Mathematik" von Professor Rolf Rannacher werden numerische Verfahren zur approximativen Lösung gewöhnlicher Differentialgleichungen behandelt. Dabei finden wieder sowohl theoretisch-mathematische als auch praktische Aspekte Berücksichtigung. Zur Erleichterung des Selbststudiums dienen theoretische und praktische Übungsaufgaben mit Lösungen.
+                      {{elif session.forced_language =='en': }}                     
+In this <a href="{{=URL('catalog','book/258')}}">second part</a> of the lecture cycle "Numerische Mathematik"  Professor Rolf Rannacher deals with numerical methods for solving ordinary differential equations. Again theoretical as well as practical aspects are considered. To facilitate self-study the book includes both theoretical and practical exercises, together with solutions.        
+                      {{pass}}
+                      </p>
+                    </div>
+			             </div>
+						 
+					<div class="media">
+                    <div class="media-left pull-left">
+                      <img alt="" src="{{=URL('static','images/press/home/uni_aktuelles.png')}}" style="width: 50px;" />
+                    </div>
+					<div class="media-body">
+                      <p class="media-heading">02.06.2017<br>
+                      {{if session.forced_language =='de': }} <h5>Neu bei heiUP: <i>Studium Generale</i> – Themenheft <i>Anders altern</i></h5>{{elif session.forced_language =='en': }} <h5>Newly published: <i>Studium Generale</i> – Issue <i>Anders altern</i></h5>{{pass}}</p> 
+
+                      <p class="boxText">{{if session.forced_language =='de': }}     
+                      <i>Anders altern</i> – Unter diesem Motto standen die Vorträge des <i><a href="http://heiup.uni-heidelberg.de/journals/index.php/generale/index" title="Homepage des Online Journals 'Studium Generale'">Studium Generale</a></i>, zu dem die Universität Heidelberg im Sommersemester 2015 eingeladen hat. Wissenschaftlerinnen und Wissenschaftler beleuchteten verschiedene Aspekte des Alterns aus Sicht ihrer jeweiligen Disziplinen - vom Umgang mit dem Altern und alten Menschen in Asien über ethische Betrachtungen zum Alter bis hin zu Darstellungen des Themas in der zeitgenössischen Literatur. 					  
+                      {{elif session.forced_language =='en': }}                     
+<i>Aging the other way (Anders altern)</i> – was the motto of the lectures of the <i><a href="http://heiup.uni-heidelberg.de/journals/index.php/generale/index" title="Homepage des Online Journals 'Studium Generale'">Studium Generale</a></i> to which the Heidelberg University invited in the summer semester 2015. Scientists looked at various aspects of aging from the perspective of their respective disciplines from dealing with aging and elderly people in Asia to ethical considerations of age to presentations of the subject in contemporary literature.
+                      {{pass}}
+                      </p>
+                    </div>
+			        </div>
+						 
+						 
+				   
+                  <div class="media">
+                    <div class="media-left pull-left">
+                      <img alt="" src="{{=URL('static','images/press/home/uni_aktuelles.png')}}" style="width: 50px;" />
+                    </div>
+					<div class="media-body">
+                      <p class="media-heading">26.04.2017<br>
+                      {{if session.forced_language =='de': }} <h5>heiUP startet <i>Lecture Notes</i></h5>{{elif session.forced_language =='en': }} <h5>heiUP starts <i>Lecture Notes</i></h5>{{pass}}</p> 
+
+                      <p class="boxText">{{if session.forced_language =='de': }}                       
+Die neue Reihe <i>Lecture Notes</i> richtet sich an Studierende, die sich in konzentrierter Form mit einem umschriebenen Thema befassen wollen. Die <i>Lecture Notes</i> berücksichtigen didaktisch aufbereitet die essenziellen Grundlagen des entsprechenden Teilgebietes der Wissenschaft,  weisen aber auch auf laufende Diskussionen, offene Fragen und kontroverse Themen hin.
+                      {{elif session.forced_language =='en': }}                     
+The new series <i>Lecture Notes</i> is aimed at students interested in exploring a specific topic in great depth. <i>Lecture Notes</i> provide a didactic account of essential fundamentals in a specific scientific field, while at the same time addressing and describing current topics of active research and controversy within the field.        
+                      {{pass}}
+                      </p>
+                    </div>
+			             </div>
+
+
+                  <div class="media">
+                    <div class="media-left pull-left">
+                      <img alt="" src="{{=URL('static','images/press/home/uni_aktuelles.png')}}" style="width: 50px;" />
+                    </div>
+					<div class="media-body">
+                      <p class="media-heading">26.04.2017<br>
+                      {{if session.forced_language =='de': }} <h5>Neu erschienen: <i>Numerik 0</i> von Rolf Rannacher </h5>{{elif session.forced_language =='en': }} <h5>Newly published: <i>Numerik</i> 0 by Rolf Rannacher</h5>{{pass}}</p> 
+
+                      <p class="boxText">{{if session.forced_language =='de': }}                       
+<i>{{=A(T('Numerik 0'),_href=URL('catalog','book/206'))}}</i> eröffnet die neue heiUP-Reihe <i>Lecture Notes</i>.  Autor des ersten Bandes ist der Prof.&nbsp;em. für Numerische Mathematik an der Universität Heidelberg, Rolf Rannacher. Behandelt werden die fundamentalen Konzepte numerischer Verfahren für Grundaufgaben aus Analysis und Lineare Algebra.
+                      {{elif session.forced_language =='en': }}                     
+<i>{{=A(T('Numerik 0'),_href=URL('catalog','book/206'))}}</i> opens the new heiUP-series <i>Lecture Notes</i>. Rolf Rannacher, Prof. em. for numerical mathematics at Heidelberg University is the author of the first volume. It deals with fundamental concepts of numeric methods for solving basic problems of analysis and linear algebra.        
+                      {{pass}}
+                      </p>
+                    </div>
+			             </div>
+                 <div class="media">
+                    <div class="media-left pull-left">
+                      <img alt="" src="{{=URL('static','images/press/home/uni_aktuelles.png')}}" style="width: 50px;" />
+                    </div>
+					<div class="media-body">
+                      <p class="media-heading">15.03.2017<br>
+                      {{if session.forced_language =='de': }} <h5>Von Open Access bis Open Research Data: Infrastrukturen für offene Wissenschaft an der Universität Heidelberg</h5>{{elif session.forced_language =='en': }} <h5>Von Open Access bis Open Research Data: Infrastrukturen für offene Wissenschaft an der Universität Heidelberg</h5>{{pass}}</p> 
+
+                      <p class="boxText">{{if session.forced_language =='de': }}
+                      Vortrag von Dr. Jochen Apel und  Dr. Maria Effinger (UB Heidelberg), Do. 16.03.2017, 15&nbsp;Uhr, Uni Heidelberg, Neue&nbsp;Universität, HS&nbsp;14, 2.&nbsp;OG im Rahmen der <a href="https://e-science-tage.de/de/startseite" title="Homepage der E-Science-Tage">E-Science-Tage</a>
+                      {{elif session.forced_language =='en': }}                     
+Talk by Jochen Apel and  Maria Effinger (UB Heidelberg), Tuesday 16th March, 3&nbsp;pm, Uni Heidelberg, Neue Universität, HS&nbsp;14, 2.&nbsp;OG
+  on occasion of the <a href="https://e-science-tage.de/en" title="Homepage E-Science-Days">E-Science-Days</a>        
+                      {{pass}}
+                      </p>
+                    </div>
+			             </div>
+                   
                    <div class="media">
                     <div class="media-left pull-left">
                       <img alt="" src="{{=URL('static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
@@ -351,6 +439,24 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
         <div class="row">
           <div class="col-lg-12">
             <div class="row">
+
+			       <div class="col-lg-3">
+               <div class="box">
+                <div class="box-gray aligncenter">
+              {{if session.forced_language =='de': }} 
+                <h4>Erscheint demnächst</h4>
+              {{elif session.forced_language =='en': }}                       
+                <h4>Coming soon</h4>
+                {{pass}}
+				      {{=IMG(_src=URL('static','images/catalog/transformative_cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}				  
+                  </div>
+                  <div class="box-bottom">
+                    {{=A(T('More Information'),_href=URL('catalog','index.html#forthcoming'))}}
+                  </div>
+                </div>
+              </div>
+
+
               <div class="col-lg-3">
                 <div class="box">
                   <div class="box-gray aligncenter">
@@ -369,20 +475,7 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
                 </div>
               </div>
 			  
-			  <div class="col-lg-3">
-                <div class="box">
-                  <div class="box-gray aligncenter">
-                  {{if session.forced_language =='de': }}
-                  <h4>Neuerscheinung</h4>
-                  {{elif session.forced_language =='en': }}
-                  <h4>New titles</h4>
-                  {{pass}}
-				  {{=IMG(_src=URL('static','images/journals/religions.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}} 
-                </div>
-                <div class="box-bottom">{{=A(T('More Information'),_href=URL('journals','religions'))}} 
-                </div>
-                </div>
-              </div>
+
 			  
              
               <div class="col-lg-3">
@@ -399,10 +492,10 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
             <div class="col-lg-3">
                 <div class="box">
                   <div class="box-gray aligncenter">
-                    <h4>{{if session.forced_language =='de': }}Erscheint demnächst{{elif session.forced_language =='en': }}Coming soon{{pass}}</h4>
+                    <h4>{{if session.forced_language =='de': }}Neuerscheinung{{elif session.forced_language =='en': }}New{{pass}}</h4>
 					{{=IMG(_src=URL('static','images/catalog/Cover_anders_altern_OMP_300.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
                   </div>
-                  <div class="box-bottom">&nbsp;
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('campusmedia','generale'))}}
                   </div>
                 </div>
               </div>

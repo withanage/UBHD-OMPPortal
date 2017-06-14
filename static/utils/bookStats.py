@@ -34,7 +34,8 @@ import os
 import socket
 import struct
 import sys
-
+from json2html import *
+from collections import OrderedDict
 
 logging.basicConfig(filename='jatsPostProcess.log', level=logging.DEBUG)
 
@@ -46,11 +47,30 @@ class BookStats:
         self.con = self.get_connection(self.get_config(config))
         self.cursor = self.con.cursor()
         self.locale = '"de_DE"'
+        self.monographs = self.get_monographs()
+        print self.monographs
+        self.countries = self.get_countries()
+
+
         self.h = HTML()
 
     def __del__(self):
         self.cursor.close()
         self.con.close()
+
+
+    def get_monographs(self):
+        monographs = []
+        q1 = "".join(
+            ["SELECT submission_id FROM omp1_2.submissions where context_id=",str(self.config.get('press')),"  group by  submission_id;"])
+        try:
+            self.cursor.execute(q1)
+            for row in self.cursor:
+                # print row
+                monographs.append(row[0])
+        except:
+            logging.error(q1)
+        return monographs
 
     def ip2long(self, ip):
         """
@@ -59,18 +79,33 @@ class BookStats:
         packedIP = socket.inet_aton(ip)
         return struct.unpack("!L", packedIP)[0]
 
-    def get_ips(self, m):
+    def get_ips(self,a):
         """
         returns the IPS per monograph
         """
         r = list()
-        q = ''.join(
-            [
-                "SELECT request_args,  INET_ATON(REPLACE(client_ip, 'xxx', '0')), 1 FROM omp.t_usage_statistics where request_args like '|",
-                str(m),
-                "|%' "])
+        sql = [ "SELECT request_args,  INET_ATON(REPLACE(client_ip, 'xxx', '0')), 1 FROM omp.t_usage_statistics"]
+        if self.config.get('sql'):
+            if self.config.get('sql').get(a):
+                sql.append("where")
+                sql.append(self.config.get('sql').get(a))
+
+
+
+
+        q = ' '.join(sql)
+        print q
         self.cursor.execute(q)
-        [r.append((row[0], row[1], row[2])) for row in self.cursor]
+        for row in self.cursor:
+            # check for the monoggraph id
+            print row
+            if  (len(row[0]) >=32) and (a =='select_all_xml' or a =='select_all_pdf' ) :
+                if row[0].split('|')[1].isdigit():
+                      if int(row[0].split('|')[1]) in self.monographs:
+                        r.append((row[0], row[1], row[2]))
+
+            if a =='select_web_site':
+                r.append((row[0], row[1], row[2]))
         return r
 
     def get_chapter_name(self, m):
@@ -96,16 +131,31 @@ class BookStats:
         """
         return s.encode('utf-8')
 
+    def int2IP(self, ipnum):
+        o1 = int(ipnum / 16777216) % 256
+        o2 = int(ipnum / 65536) % 256
+        o3 = int(ipnum / 256) % 256
+        o4 = int(ipnum) % 256
+        return '%(o1)s.%(o2)s.%(o3)s.%(o4)s' % locals()
+
     def filter_ip(self, ip, list):
         """
         filters a list of ips
         """
         for i in list:
-            if ip == self.ip2long(i):
-                return False
 
-        else:
-            return True
+            if  ip:
+                x1 = self.int2IP(ip)
+                x = x1.split('.')
+                x[2] =0
+
+                x = [str(j) for j in x]
+                y = '.'.join(x)
+                if self.ip2long(y) == self.ip2long(i):
+                    return False
+
+                else:
+                    return True
 
     def get_stats_by_country(self, iplist, pos, filter):
         """
@@ -113,24 +163,39 @@ class BookStats:
         """
         rs = {}
         for ips in iplist:
+            # check if monograph is in press
             if self.filter_ip(ips[pos], filter):
-                q = "".join(["SELECT country_code, country_name  FROM omp.t_geoip_country where  INET_ATON(ip_begin) < ", str(
-                    ips[pos]), " and INET_ATON(ip_end) > ", str(ips[pos]), ";"])
-                try:
-                    self.cursor.execute(q)
-                except:
-                    logging.error(q)
-                for row in self.cursor:
-                    f = ips[0].strip()
-                    if rs.get(f):
-                        if rs.get(f).get(row[1]):
-                            rs[f][row[1]] = ips[2] + rs[f][row[1]]
+                    q = "".join(["SELECT country_code, country_name  FROM omp.t_geoip_country where  INET_ATON(ip_begin) < ", str(
+                        ips[pos]), " and INET_ATON(ip_end) > ", str(ips[pos]), ";"])
+                    try:
+                        self.cursor.execute(q)
+
+                    except:
+                        logging.error(q)
+                    for row in self.cursor:
+                        f = ips[0].strip()
+                        if rs.get(f):
+                            if rs.get(f).get(row[1]):
+                                rs[f][row[1]] = ips[2] + rs[f][row[1]]
+                            else:
+                                rs[f][row[1]] = ips[2]
                         else:
+                            rs[f] = {}
                             rs[f][row[1]] = ips[2]
-                    else:
-                        rs[f] = {}
-                        rs[f][row[1]] = ips[2]
         return rs
+
+    def get_countries(self):
+        countries = {}
+        q1 = "".join(
+            ["SELECT country_code, country_name,  INET_ATON(ip_begin),  INET_ATON(ip_end)  FROM omp.t_geoip_country"])
+        try:
+            self.cursor.execute(q1)
+            for row in self.cursor:
+                # print row
+                countries[row[1]] = {'ip_begin': row[2], 'ip_end': row[3]}
+        except:
+            logging.error(q1)
+        return  countries
 
     def filter_monographs(self, s):
         """
@@ -138,14 +203,35 @@ class BookStats:
         """
         return True if len(s) == 32 or len(s) == 4 else False
 
-    def create_html(self, m, filter):
+    def total_create_html(self, a):
+        print a
+        result = self.get_stats_by_country(self.get_ips(a), 1, filter=self.config.get('filters'))
+        # total for all monographs
+        r = {}
+        for i in result:
+            for k in result[i].keys():
+                 if r.get(k):
+                    r[k]= r[k]+ result[i][k]
+                 else:
+                     r[k] = result[i][k]
+
+        result = r
+        result= OrderedDict(sorted(result.items(), key=lambda x: -x[1]))
+        result['Total']= sum(result.values())
+        return json2html.convert(json = result)
+
+
+    def monograph_create_html(self, m, filter):
         """
         generates HTML Table
         """
         result = self.get_stats_by_country(self.get_ips(m), 1, filter)
+        total = 0
         t = self.h.table(style=" border-collapse: collapse; border: 1px solid black;")
         for r in sorted(result):
+
             ls = sum(result[r].values())
+            total = total +ls
             if self.filter_monographs(r):
                 if len(r.split('-')) > 2:
                     if r.split('-')[2]:
@@ -170,6 +256,7 @@ class BookStats:
                     tr = t.tr(style="border: 1px solid black;")
                     tr.td(str(c[0]))
                     tr.td(str(c[1]))
+        print total
         return ''.join(['<head><meta charset="utf-8"></head> ',str(t)])
 
     def get_config(self, f):
@@ -194,21 +281,30 @@ class BookStats:
             database=config["mysql"]["db"])
         return cnx
 
-    def create_stats(self, bs, m):
+
+
+    def create_stats(self, bs,m):
         """
         generate stats html, with filter and without filter
         """
-        ofilter = ''.join([os.getcwd(), '/', str(m), '-filter.html'])
-        f = open(ofilter, 'w')
-        f.write(bs.create_html(m, bs.config["filters"]))
-        f.close()
+        if m:
+            ofilter = ''.join([os.getcwd(), '/', str(m), '-filter.html'])
+            f = open(ofilter, 'w')
+            f.write(bs.monograph_create_html(m, bs.config["filters"]))
+            f.close()
 
-        outfile = ''.join([os.getcwd(), '/', str(m), '.html'])
-        f = open(outfile, 'w')
-        f.write(bs.create_html(m, []))
-        f.close()
+            outfile = ''.join([os.getcwd(), '/', str(m), '.html'])
+            f = open(outfile, 'w')
+            f.write(bs.monograph_create_html(m, []))
+            f.close()
+        else :
+            args = {'pdf':'select_all_pdf','xml':'select_all_xml','html':'select_web_site'}
+            for a in args:
+                f = open('{}{}'.format(a,'-total.html'), 'w')
+                f.write(bs.total_create_html(args[a]))
+                f.close()
+
 if __name__ == "__main__":
 
-    m = sys.argv[1] if len(sys.argv) > 1 else ''
-    bs = BookStats("bookStatsConfig.json")
-    bs.create_stats(bs, m)
+    bs = BookStats("/home/wit/scripts/bookStatsConfig.json")
+    bs.create_stats(bs, m=None)

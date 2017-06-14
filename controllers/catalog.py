@@ -5,14 +5,13 @@ Distributed under the GNU GPL v3. For full terms see the file
 LICENSE.md
 '''
 
-import os
-from operator import itemgetter
 from ompdal import OMPDAL, OMPSettings, OMPItem
 from ompformat import dateFromRow, seriesPositionCompare
-from datetime import datetime
-from ompsolr import OMPSOLR
-import json
 
+from ompsolr import OMPSOLR
+from ompbrowse  import Browser
+import json
+from datetime import datetime
 
 def category():
 
@@ -75,7 +74,7 @@ def series():
     ignored_submission_id = myconf.take('omp.ignore_submissions') if myconf.take(
         'omp.ignore_submissions') else -1
 
-    if request.args == []:
+    if not request.args:
         redirect(URL('home', 'index'))
     series_path = request.args[0]
 
@@ -123,11 +122,11 @@ def series():
 
 
 def search():
-    title = '{}'.format(request.vars.title) if request.vars.title else ''
-    press_id = request.vars.press_id if request.vars.press_id else ''
+    q = '{}'.format(request.vars.q) if request.vars.q else '*'
+
 
     form = form = SQLFORM.factory(
-        Field("title", default="rituale*"),
+        Field("title"),
         Field("press_id"),
         formstyle='divs',
         submit_button="Search",
@@ -144,7 +143,9 @@ def search():
 
     if myconf.take("plugins.solr") == str(1):
         solr = OMPSOLR(db,myconf)
-        r = solr.si.query(solr.si.Q(title_en=title)  | solr.si.Q(title_de=title))
+        #r = solr.si.query(solr.si.Q(title_en=title)  | solr.si.Q(title_de=title))
+        #r = solr.si.query(solr.si.Q(title_de='*Leben*'))
+        r = solr.si.query(solr.si.Q(q.decode('utf-8'))  & solr.si.Q(press_id=myconf.take('omp.press_id')) )
         #for s in sort:
         #    r =r.sort_by(s)
         #r = r.filter(**fq)
@@ -153,27 +154,31 @@ def search():
         #r = r.highlight(q.keys())
         r= r.paginate(start=start, rows=rows)
         results = r.execute()
-        #hl = results.highlighting
+        hl = results.highlighting
+
+    from paginate import Page, make_html_tag
+
+    def paginate_link_tag(item):
+        """
+        Create an A-HREF tag that points to another page usable in paginate.
+        """
+        a_tag = Page.default_link_tag(item)
+        if item['type'] == 'current_page':
+            return make_html_tag('li', a_tag, **{'class': 'active'})
+        return make_html_tag('li', a_tag)
 
 
+    p = Page(['test','test2'], page=15, items_per_page=15, item_count=10)
 
     return  locals()
+
+
 
 
 def index():
 
     ompdal = OMPDAL(db, myconf)
     press = ompdal.getPress(myconf.take('omp.press_id'))
-
-    per_page = request.vars.get('per_page')
-    if per_page :
-        session.catalog_per_page = int(per_page)
-
-    per_page = int(session.get('catalog_per_page', 20))
-
-    page_nr = int(request.vars.get('page_nr',1))-1
-
-
 
     if not press:
         redirect(URL('home', 'index'))
@@ -184,6 +189,7 @@ def index():
 
     submissions = []
     submission_rows = ompdal.getSubmissionsByPress(press.press_id, ignored_submission_id)
+
 
     for submission_row in submission_rows:
         authors = [OMPItem(author, OMPSettings(ompdal.getAuthorSettings(author.author_id)))
@@ -212,12 +218,14 @@ def index():
 
         submissions.append(submission)
 
-    submissions = sorted(submissions, key=lambda s: min(
-        s.associated_items.get('publication_dates', [datetime(1, 1, 1)])), reverse=True)
+    session.filters =request.vars.get('filter_by').strip('[').strip(']') if request.vars.get('filter_by') else session.get('filters', '')
+    session.per_page = int(request.vars.get('per_page')) if request.vars.get('per_page') else int(session.get('per_page', 20))
+    session.sort_by = request.vars.get('sort_by') if request.vars.get('sort_by') else session.get('sort_by', 'newest_to_oldest')
 
-    #submissions = sorted(submissions,key=lambda s: s.associated_items.get('category',None),  reverse=False)
-    #Slice
-    submissions = submissions[page_nr*per_page:(page_nr+1)*(per_page)]
+    current = int(request.vars.get('page_nr', 1)) - 1
+
+    b = Browser(submissions,current,locale, session.get('per_page'), session.get('sort_by'), session.get('filters'))
+    submissions = b.process_submissions(b.submissions)
 
     return locals()
 
@@ -273,6 +281,11 @@ def book():
                                      )
         full_file = ompdal.getLatestRevisionOfFullBookFileByPublicationFormat(
             submission_id, pf.publication_format_id)
+        full_epub_file  = ompdal.getLatestRevisionOfEBook(submission_id, pf.publication_format_id)
+        if full_epub_file:
+            publication_format.associated_items['full_epub_file'] = OMPItem(
+                full_epub_file, OMPSettings(ompdal.getSubmissionFileSettings(full_epub_file.file_id)))
+
         if full_file:
             publication_format.associated_items['full_file'] = OMPItem(
                 full_file, OMPSettings(ompdal.getSubmissionFileSettings(full_file.file_id)))
@@ -304,22 +317,20 @@ def book():
     else:
         doi = ""
 
-    def get_first(l):
-        if l:
-            return l[0]
-        else:
-            return None
 
     date_published = None
+    date_first_published = None
     # Get the OMP publication date (column publication_date contains latest catalog entry edit date.) Try:
     # 1. Custom publication date entered for a publication format calles "PDF"
     if pdf:
-        date_published = get_first([dateFromRow(pd) for pd in ompdal.getPublicationDatesByPublicationFormat(
-            pdf.publication_format_id) if pd.role == "01"])
+        date_published = dateFromRow(ompdal.getPublicationDatesByPublicationFormat(pdf.publication_format_id, "01")
+                                     .first())
+        date_first_published = dateFromRow(ompdal.getPublicationDatesByPublicationFormat(pdf.publication_format_id, "11")
+                                           .first())
     # 2. Date on which the catalog entry was first published
     if not date_published:
-        date_published = get_first(
-            [pd.date_logged for pd in ompdal.getMetaDataPublishedDates(submission_id)])
+        metadatapublished_date = ompdal.getMetaDataPublishedDates(submission_id).first()
+        date_published = metadatapublished_date.date_logged if metadatapublished_date else None
     # 3. Date on which the submission status was last modified (always set)
     if not date_published:
         date_published = submission.date_status_modified

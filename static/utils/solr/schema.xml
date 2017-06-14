@@ -367,7 +367,7 @@
 
     <!-- Dummy field type for ignored fields -->
     <fieldtype name="ignored" stored="false" indexed="false" multiValued="true" class="solr.StrField" />
-    <fieldType name="string_de" class="solr.TextField">
+    <fieldType name="string_de" class="solr.TextField"  sortMissingLast="true" omitNorms="true">
       <analyzer type="index">
                 <tokenizer class="solr.WhitespaceTokenizerFactory"/>
         <filter class="solr.LowerCaseFilterFactory"/>
@@ -377,7 +377,7 @@
         <filter class="solr.LowerCaseFilterFactory"/>
       </analyzer>
     </fieldType>
-    <fieldType name="string_en" class="solr.TextField">
+    <fieldType name="string_en" class="solr.TextField"  sortMissingLast="true" omitNorms="true">
       <analyzer type="index">
                 <tokenizer class="solr.WhitespaceTokenizerFactory"/>
         <filter class="solr.LowerCaseFilterFactory"/>

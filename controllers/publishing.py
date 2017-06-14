@@ -10,3 +10,16 @@ def for_authors():
 
 def rights_and_licences():
     return dict()
+
+def plagiarism():
+    return dict()
+
+def data_privacy():
+    return dict()
+
+def peer_review():
+    return dict()
+
+def conflict_interest():
+    return dict()
+

@@ -427,3 +427,12 @@ db.define_table('t_usage_statistics',
                 Field('description', 'text'),
                 migrate=False,
                 )
+
+db.define_table('t_license_settings',
+                Field( "license_id", "integer"),
+                Field("locale", "string", length=6),
+                Field("setting_name", "string",length=48),
+                Field("setting_value", "string"),
+                migrate = False,
+                primarykey=["license_id" ,"locale", "setting_name"],
+                )
