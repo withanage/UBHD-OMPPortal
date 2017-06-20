@@ -565,7 +565,7 @@ out (on iOS 5.1), or flicker (on iOS 6). */
   float: left;
   overflow: hidden;
   height: 100%;
-  width: 60%;
+  width: 70%;
   border-right: 1px solid #ddd; }
 
 .article .document .surface.content {
@@ -634,7 +634,7 @@ out (on iOS 5.1), or flicker (on iOS 6). */
 .article .resources {
   float: right;
   line-height: 25px;
-  width: 40%;
+  width: 30%;
   height: 100%;
   padding-left: 50px;
   padding-right: 50px;
