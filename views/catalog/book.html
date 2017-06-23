@@ -275,12 +275,6 @@ pass
   <script src="http://anno.ub.uni-heidelberg.de/dist/xrx-vue.js"></script>
   <script src="http://anno.ub.uni-heidelberg.de/dist/anno.min.js"></script>
   <script src="http://anno.ub.uni-heidelberg.de/dist/anno-frontend.js"></script>
-
-  <script type="text/javascript" src="http://digi.ub.uni-heidelberg.de/diglit_pub/jquery/jquery.ui.touch-punch.min.js"></script>
-  <script type="text/javascript" src="http://digi.ub.uni-heidelberg.de/diglit_pub/localizations.min.js"></script>
-  <script type="text/javascript" src="http://digi.ub.uni-heidelberg.de/diglit_pub/js.cookie-2.1.2.min.js"></script>
-  <script type="text/javascript" src="http://digi.ub.uni-heidelberg.de/diglit_pub/jquery/socialshareprivacy1.6/jquery.socialshareprivacy.min.js"></script>
-  <script type="text/javascript" src="http://digi.ub.uni-heidelberg.de/diglit_pub/ubhd3.js"></script>
 <script>
 $("#anno-btn").click(() => {
 	if ($("#anno-block").is(':hidden'))
@@ -320,11 +314,11 @@ $(function() {
 
 		// Determine login & such
 		collection:    'heiup',
-		annoEndpoint:  'http://serv42.ub.uni-heidelberg.de/anno/anno',
+		annoEndpoint:  'http://anno.ub.uni-heidelberg.de/anno/anno',
 		loginEndpoint:  `https://anno.ub.uni-heidelberg.de/anno/auth/login?from=${targetSource}`,
 		tokenEndpoint:  'https://anno.ub.uni-heidelberg.de/anno/auth/token/heiup',
 
-		enableLogoutButton: false,
+		enableLogoutButton: true,
 		// loginEndpoint:  document.querySelector('a#login') ? document.querySelector('a#login').href : null,
 
 		events: {
