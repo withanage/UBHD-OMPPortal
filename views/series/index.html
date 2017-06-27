@@ -1,63 +1,57 @@
 {{extend 'layout.html'}}
-{{import json}}
 {{from ompformat import formatContributors, getSeriesImageLink}}
 
 <div id="main" class="container">
-	<section id="content">
-		<div class="container">
-		  {{for series in all_series:}}
-		  	<div class="row">
-		  		<div class="col-lg-2">
-		  			<article>
-		  				<div class="post-image">
-		  					{{if len(row['image']) > 7 :}}
-		  						{{=IMG(_src=getSeriesImageLink(request, press.press_id, series.attributes.image))}}
-							{{pass}}
-						</div>
-					</article>
-				</div>
-				<div class="col-lg-10">
-					<article>
-						<div class="post-heading">
-							{{series_title = " ".join([series.settings.getLocalizedValue('prefix', locale), series.settings.getLocalizedValue('title', locale)])}}
-							{{series_subtitle = series.settings.getLocalizedValue('subtitle', locale)}}
-							<h3>{{=series_title}}</h3>
-							<h4>{{=series_subtitle}}</h4>
-							{{series_editors = series.associated_items.get('series_editors')}}
-							{{if series_editors:}}
-								{{num_editors = len(series_editors)}}
-								<p>
-									{{if num_editors > 1:}}
-										{{=T('Editors')}}:
-									{{else:}}
-										{{=T('Editor')}}:
-									{{pass}}
-									{{=formatContributors(series_editors, max_contributors=3, et_al=True)}}
-								</p>
-							{{pass}}
-						</div>
-		                <p>
-							<i class="icon-quote-left"></i>
-							{{if len(series.settings.getLocalizedValue('description', locale)) > 1000:}}
-								{{=XML(html2text(series.settings.getLocalizedValue('description', locale)))[0:999]+'...'}}
-							{{else:}}
-								{{=XML(series.settings.getLocalizedValue('description', locale))}}
-							{{pass}}
-		                </p>
-		                <div class="widget">
-		                    <h5 class="widgetheading"></h5>
-		                    <ul class="tags">
-								<li>
-									<a href="{{=URL('catalog','series/'+str(series.attributes.path))}}">{{=T('Volumes')}}</a>
-									<a href="{{=URL('series','info/'+str(series.attributes.path))}}">{{=T('Information about the series')}}</a>
-								</li>
-							</ul>
-		                </div>
-		            </article>
-		        </div>
-		    </div>
-		  {{pass}}
-		</div>
-	</section>
+  <section id="content">
+    <div class="container">
+    {{for series in all_series:}}
+      <div class="row">
+        <div class="col-lg-2">
+          <article>
+            <div class="post-image">
+            {{if len(row['image']) > 7 :}}
+              {{=IMG(_src=getSeriesImageLink(request, press.press_id, series.attributes.image))}}
+            {{pass}}
+            </div>
+          </article>
+        </div>
+        <div class="col-lg-10">
+          <article>
+            <div class="post-heading">
+            {{series_title = " ".join([series.settings.getLocalizedValue('prefix', locale), series.settings.getLocalizedValue('title', locale)])}}
+            {{series_subtitle = series.settings.getLocalizedValue('subtitle', locale)}}
+              <h3>{{=series_title}}</h3>
+              <h4>{{=series_subtitle}}</h4>
+            {{series_editors = series.associated_items.get('series_editors')}}
+            {{if series_editors:}}
+              <p>
+              {{if len(series_editors) > 1:}}
+                {{=T('Editors')}}:
+              {{else:}}
+                {{=T('Editor')}}:
+              {{pass}}
+              {{=formatContributors(series_editors, max_contributors=3, et_al=True)}}
+              </p>
+            {{pass}}
+            </div>
+            <p>
+              <i class="icon-quote-left"></i>
+              {{=XML(series.settings.getLocalizedValue('description', locale))}}
+            </p>
+            <div class="widget">
+              <h5 class="widgetheading"></h5>
+              <ul class="tags">
+                <li>
+                  <a href="{{=URL('catalog','series/'+str(series.attributes.path))}}">{{=T('Volumes')}}</a>
+                  <a href="{{=URL('series','info/'+str(series.attributes.path))}}">{{=T('Information about the series')}}</a>
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    {{pass}}
+    </div>
+  </section>
 </div>
 
