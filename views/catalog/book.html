@@ -276,12 +276,7 @@ pass
   <script src="http://anno.ub.uni-heidelberg.de/dist/anno.min.js"></script>
   <script src="http://anno.ub.uni-heidelberg.de/dist/anno-frontend.js"></script>
 <script>
-$("#anno-btn").click(() => {
-	if ($("#anno-block").is(':hidden'))
-		showAnnoBlock()
-	else
-		hideAnnoBlock()
-})
+$("#anno-btn").click(() => $("#anno-block").is(':hidden') ? showAnnoBlock() : hideAnnoBlock())
 function showAnnoBlock() {
 	$(".summary > *").each((idx, el) => {
 		if (!el.classList.contains('btn-group')) $(el).hide()
@@ -298,8 +293,14 @@ $(function() {
 
 	hideAnnoBlock()
 
-	const lang = "{{=T.accepted_language or 'en'}}"
-	const targetSource = `http://heiup.uni-heidelberg.de{{= URL(args=request.args) }}`
+	const language      = "{{=T.accepted_language or 'en'}}"
+	const targetSource  = `http://heiup.uni-heidelberg.de{{= URL(args=request.args) }}`
+	const container     = document.getElementById('anno-block')
+	const collection    = 'heiup'
+	const annoHost      = 'https://anno.ub.uni-heidelberg.de'
+	const tokenEndpoint = `${annoHost}/anno/auth/token/${collection}`
+	const annoEndpoint  = `${annoHost}/anno/anno`
+	const loginEndpoint = `${annoHost}/anno/auth/login`
 
 	window.annoapp = displayAnnotations({
 
@@ -307,29 +308,31 @@ $(function() {
 		targetSource,
 
 		// Language
-		language: lang,
+		language,
 
 		// Element to draw sidebar in
-		container: document.getElementById('anno-block'),
+		container,
 
 		// Determine login & such
-		collection:    'heiup',
-		annoEndpoint:  'http://anno.ub.uni-heidelberg.de/anno/anno',
-		loginEndpoint:  `https://anno.ub.uni-heidelberg.de/anno/auth/login?from=${targetSource}`,
-		tokenEndpoint:  'https://anno.ub.uni-heidelberg.de/anno/auth/token/heiup',
+		collection,
+		annoEndpoint,
+		loginEndpoint,
+		tokenEndpoint,
 
 		enableLogoutButton: true,
 		// loginEndpoint:  document.querySelector('a#login') ? document.querySelector('a#login').href : null,
 
 		events: {
-			fetched(list)  {
+			fetched(list) {
 				document.querySelector(".anno-number").innerHTML = list.length
 				if (list.length > 0)  {
 					document.querySelector("#anno-btn").classList.remove('btn-default')
 					document.querySelector("#anno-btn").classList.add('btn-primary')
 				}
 			},
-			error(err)     { console.error(err) },
+			error(err) {
+				console.error(err)
+			},
 		}
 
 	})
