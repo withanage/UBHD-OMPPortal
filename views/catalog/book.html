@@ -289,6 +289,10 @@ function hideAnnoBlock() {
 	$("div.widget").show()
 	$("#anno-block").hide()
 }
+
+var css = document.styleSheets[0]
+css.insertRule(`#anno-block .dropdown-menu .active a { color: white !important; }`)
+
 $(function() {
 
 	hideAnnoBlock()
