@@ -278,9 +278,7 @@ pass
 <script>
 $("#anno-btn").click(() => $("#anno-block").is(':hidden') ? showAnnoBlock() : hideAnnoBlock())
 function showAnnoBlock() {
-	$(".summary > *").each((idx, el) => {
-		if (!el.classList.contains('btn-group')) $(el).hide()
-	})
+	$(".summary > *").each((idx, el) => { if (!el.classList.contains('btn-group')) $(el).hide() })
 	$("div.widget").hide()
 	$("#anno-block").show()
 }
@@ -290,8 +288,7 @@ function hideAnnoBlock() {
 	$("#anno-block").hide()
 }
 
-var css = document.styleSheets[0]
-css.insertRule(`#anno-block .dropdown-menu .active a { color: white !important; }`)
+document.styleSheets[0].insertRule(`#anno-block .dropdown-menu .active a { color: white !important; }`, 0)
 
 $(function() {
 
@@ -301,6 +298,7 @@ $(function() {
 	const targetSource  = `http://heiup.uni-heidelberg.de{{= URL(args=request.args) }}`
 	const container     = document.getElementById('anno-block')
 	const collection    = 'heiup'
+	const purlId        = document.location.hash.substr(1)
 	const annoHost      = 'https://anno.ub.uni-heidelberg.de'
 	const tokenEndpoint = `${annoHost}/anno/auth/token/${collection}`
 	const annoEndpoint  = `${annoHost}/anno/anno`
@@ -322,6 +320,7 @@ $(function() {
 		annoEndpoint,
 		loginEndpoint,
 		tokenEndpoint,
+		purlId,
 
 		enableLogoutButton: true,
 		// loginEndpoint:  document.querySelector('a#login') ? document.querySelector('a#login').href : null,
