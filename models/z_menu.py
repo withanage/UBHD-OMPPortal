@@ -41,7 +41,8 @@ about_us_dict = [['mission_statement', T('Mission Statement')],
                  ['profile', T('Profile')],
                  ['advisory_board', T('Advisory Board')],
                  ['team', T('Team')],
-                 ['partners', T('Partners')]
+                 ['partners', T('Partners')],
+                 ['technology', T('Technology')]
                  ]
 about_us_list = [LI(A(i[1], _href=URL('about_us', i[0])))
                  for i in about_us_dict]
