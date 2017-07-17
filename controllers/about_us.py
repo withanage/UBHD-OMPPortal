@@ -22,3 +22,6 @@ def team():
 
 def partners():
     return dict()
+    
+def technology():
+    return dict()    
