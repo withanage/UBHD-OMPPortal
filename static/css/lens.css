@@ -1501,23 +1501,23 @@ body.loading .spinner-wrapper {
 /** Anpassung Tabelle https://gitlab.ub.uni-heidelberg.de/wit/verlag-portale/issues/58 
  **/
 
-.lens-article .content-node .html-table {
+.lens-article .content-node.html-table table{
   border: 1px solid grey;
 }
 
-.lens-article .content-node .html-table tr {
+.lens-article .content-node.html-table table tr {
   vertical-align: top;
 }
 
-.lens-article .content-node .html-table tr:nth-child(odd) { 
+.lens-article .content-node.html-table table tr:nth-child(odd) { 
   background-color: #e7e7e7;
 }
 
-.lens-article .content-node .html-table tr:nth-child(odd) { 
+.lens-article .content-node.html-table table tr:nth-child(odd) { 
   background-color: #f8f8f8;
 }
 
-.lens-article .content-node .html-table td {
+.lens-article .content-node.html-table table td {
   border-left: 1px solid grey;
 } 
  
