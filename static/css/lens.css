@@ -1497,3 +1497,27 @@ body.loading .spinner-wrapper {
 
 .altmetrics-panel .altmetrics {
   padding: 20px; }
+
+/** Anpassung Tabelle https://gitlab.ub.uni-heidelberg.de/wit/verlag-portale/issues/58 
+ **/
+
+.lens-article .content-node.html-table {
+  border: 1px solid grey;
+}
+
+.lens-article .content-node.html-table tr {
+  vertical-align: top;
+}
+
+.lens-article .content-node.html-table tr:nth-child(odd) { 
+  background-color: #e7e7e7;
+}
+
+.lens-article .content-node.html-table tr:nth-child(odd) { 
+  background-color: #f8f8f8;
+}
+
+.lens-article .content-node.html-table td {
+  border-left: 1px solid grey;
+} 
+ 
