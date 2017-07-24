@@ -13,6 +13,7 @@ from ompbrowse  import Browser
 import json
 from datetime import datetime
 
+
 def category():
 
 
@@ -219,7 +220,7 @@ def index():
         submissions.append(submission)
 
     session.filters =request.vars.get('filter_by').strip('[').strip(']') if request.vars.get('filter_by') else session.get('filters', '')
-    session.per_page = int(request.vars.get('per_page')) if request.vars.get('per_page') else int(session.get('per_page', 20))
+    session.per_page = int(request.vars.get('per_page')) if request.vars.get('per_page') else int(session.get('per_page', 100))
     session.sort_by = request.vars.get('sort_by') if request.vars.get('sort_by') else session.get('sort_by', 'newest_to_oldest')
 
     current = int(request.vars.get('page_nr', 1)) - 1
@@ -283,7 +284,7 @@ def book():
             submission_id, pf.publication_format_id)
         full_epub_file  = ompdal.getLatestRevisionOfEBook(submission_id, pf.publication_format_id)
         if full_epub_file:
-            publication_format.associated_items['full_epub_file'] = OMPItem(
+            publication_format.associated_items['full_file'] = OMPItem(
                 full_epub_file, OMPSettings(ompdal.getSubmissionFileSettings(full_epub_file.file_id)))
 
         if full_file:
