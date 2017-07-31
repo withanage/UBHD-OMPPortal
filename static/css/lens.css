@@ -1526,9 +1526,12 @@ body.loading .spinner-wrapper {
   border-right: 1px solid lightgrey;
 }
  
- /** Anpassung Überschriften-Abstände auf Bitte ak 31.07.17 - voe **/
+ /** Anpassung Abstände auf Bitte ak 31.07.17 - voe **/
  
 .content-node.heading.level-2 {
   margin-top: 1.5em;
 }
 
+[data-id=paragraph-5] {
+  margin-bottom: 2em; 
+}
