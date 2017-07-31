@@ -1532,6 +1532,6 @@ body.loading .spinner-wrapper {
   margin-top: 1.5em;
 }
 
-.content-node.heading level-2 content {
+.content-node.heading level-2 .content {
   line-height: 1.2em;
 } 
