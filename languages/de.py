@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 {
 '': '',
+' &rdquo;Heidelberg Studies on Transculturality&ldquo': ' &rdquo;Heidelberg Studies on Transculturality&ldquo',
 ' iw-12: Werkdruck / 090 gr / 1,30 Volumen': ' iw-12: Werkdruck / 090 gr / 1,30 Volumen',
 ' iw-12: Werkdruck / 090 gr / 1,30 Volumen ': ' iw-12: Werkdruck / 090 gr / 1,30 Volumen ',
 ' iw-13: Matt MC / 115 gr / 0,93 Volumen ': ' iw-13: Matt MC / 115 gr / 0,93 Volumen ',
@@ -11,6 +12,7 @@
 '!langname!': 'Deutsch (DE)',
 '"Dem lebendigen Geist" &ndash; Motto der Universität': '"Dem lebendigen Geist" &ndash; Motto der Universität',
 '"Dem lebendigen Geist" Motto der Universität': '"Dem lebendigen Geist" Motto der Universität',
+'"Heidelberg Studies on Transculturality"': '"Heidelberg Studies on Transculturality"',
 '"temp" zum einmaligen Testen': '"temp" zum einmaligen Testen',
 '"update" is an optional expression like "field1=\'newvalue\'". You cannot update or delete the results of a JOIN': '""Update" ist ein optionaler Ausdruck wie "Feld1 = \'newvalue". JOIN Ergebnisse können nicht aktualisiert oder gelöscht werden',
 '"Veröffentlichungen des Staatlichen Mathematisch-Physikalischen Salons"': '"Veröffentlichungen des Staatlichen Mathematisch-Physikalischen Salons"',
@@ -30,6 +32,7 @@
 '%s selected': '%s selected',
 '%Y-%m-%d': '%Y-%m-%d',
 '%Y-%m-%d %H:%M:%S': '%Y-%m-%d %H:%M:%S',
+'&#x2013;Heidelberg Studies on Transculturality"': '&#x2013;Heidelberg Studies on Transculturality"',
 '&bdquo;Campus Media&rdquo;': '&bdquo;Campus Media&rdquo;',
 '(Ed.)': '(Hrsg.)',
 '(Eds.)': '(Hrsg.)',
@@ -424,6 +427,7 @@
 'The "query" is a condition like "db.table1.field1==\'value\'". Something like "db.table1.field1==db.table2.field2" results in a SQL JOIN.': 'Die "query" ist eine Bedingung wie "db.tabelle1.feld1==\'wert\'". So etwas wie "db.tabelle1.feld1==db.tabelle2.feld2" resultiert in einem SQL JOIN.',
 'The Core': 'Der Core',
 'The output of the file is a dictionary that was rendered by the view %s': 'Die Ausgabe der Datei ist ein "dictionary", welches vom "view" %s gerendert wurde',
+'The Transformative Power of the Copy': 'The Transformative Power of the Copy',
 'The Views': 'Die Views',
 'This App': 'Diese App',
 'This email already has an account': 'This email already has an account',
@@ -497,4 +501,5 @@
 'Zolltarifnummer Verzeihnis': 'Zolltarifnummer Verzeihnis',
 'Zusatz ISBN / EAN': 'Zusatz ISBN / EAN',
 'Zusatzinformationen': 'Zusatzinformationen',
+'„Heidelberg Studies on Transculturality“': '„Heidelberg Studies on Transculturality“',
 }

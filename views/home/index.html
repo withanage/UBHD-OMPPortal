@@ -153,6 +153,24 @@ $('.flexslider').flexslider();
                       <img alt="" src="{{=URL('static','images/press/home/uni_aktuelles.png')}}" style="width: 50px;" />
                     </div>
 					<div class="media-body">
+                      <p class="media-heading">02.08.2017<br>
+                      {{if session.forced_language =='de': }} <h5>Neu erschienen: The Transformative Power of the Copy, hrsg. von Corinna Forberg und Philipp W. Stockhammer</h5>{{elif session.forced_language =='en': }} <h5>New: The Transformative Power of the Copy, ed. by Corinna Forberg and Philipp W. Stockhammer</h5>{{pass}}</p> 
+
+                      <p class="boxText">{{if session.forced_language =='de': }}                       
+{{=A(T('The Transformative Power of the Copy'),_href=URL('catalog','book/195'))}} widmet sich dem Phänomen der „Kopie“ und der Praxis des Kopierens aus einer transkulturellen Perspektive.  Er erscheint als zweiter Band der Reihe {{=A(T('„Heidelberg Studies on Transculturality“'),_href=URL('catalog','series/hst'))}} des Excellenzclusters Asien und Europa im globalen Kontext.
+                      {{elif session.forced_language =='en': }}                     
+{{=A(T('The Transformative Power of the Copy'),_href=URL('catalog','book/195'))}} examines the "copy" and the practice of copying from a transcultural perspective. It is the second volume in the series {{=A(T('"Heidelberg Studies on Transculturality"'),_href=URL('catalog','series/hst'))}} by the Cluster of Excellence "Asia and Europe in a global context". 
+                        {{pass}}
+                      </p>
+                    </div>
+			             </div>
+
+
+				   <div class="media">
+                    <div class="media-left pull-left">
+                      <img alt="" src="{{=URL('static','images/press/home/uni_aktuelles.png')}}" style="width: 50px;" />
+                    </div>
+					<div class="media-body">
                       <p class="media-heading">19.07.2017<br>
                       {{if session.forced_language =='de': }} <h5><i>Frau und Mann</i> ist das Thema der neuesten Ausgabe der <i>Ruperto Carola</i></h5>{{elif session.forced_language =='en': }} <h5><i>Woman and Man</i> is the thematic focus of the current issue of <i>Ruperto Carola</i></h5>{{pass}}</p> 
 
