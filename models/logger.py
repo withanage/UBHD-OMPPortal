@@ -66,4 +66,4 @@ def get_configured_logger(name):
 
 # Assign application logger to a global var
 
-logger = get_configured_logger(request.application)
+#logger = get_configured_logger(request.application)
