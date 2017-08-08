@@ -502,4 +502,5 @@
 'Zusatz ISBN / EAN': 'Zusatz ISBN / EAN',
 'Zusatzinformationen': 'Zusatzinformationen',
 '„Heidelberg Studies on Transculturality“': '„Heidelberg Studies on Transculturality“',
+'„Numerische Mathematik“': '„Numerische Mathematik“',
 }

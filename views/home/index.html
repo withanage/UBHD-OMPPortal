@@ -147,6 +147,24 @@ $('.flexslider').flexslider();
             <div id="boxAktuelles" class="col-lg-6">
               <div class="box">
                 <div class="box-gray aligncenter" style="overflow-y: scroll">{{if session.forced_language =='de': }} <h4>Aktuelles</h4>{{elif session.forced_language =='en': }} <h4>News</h4>{{pass}} 	
+
+				   <div class="media">
+                    <div class="media-left pull-left">
+                      <img alt="" src="{{=URL('static','images/press/home/uni_aktuelles.png')}}" style="width: 50px;" />
+                    </div>
+					<div class="media-body">
+                      <p class="media-heading">08.08.2017<br>
+                      {{if session.forced_language =='de': }} <h5>Neu erschienen in der Reihe <em>Lecture Notes</em>: <em>Numerik 2</em></h5>{{elif session.forced_language =='en': }} <h5>New release in the series <em>Lecture Notes</em>: <em>Numerik 2</em></h5>{{pass}}</p> 
+
+                      <p class="boxText">{{if session.forced_language =='de': }}                       
+In dem dritten Teil der Vorlesungsreihe {{=A(T('„Numerische Mathematik“'),_href=URL('catalog','book/281'))}} von Professor Rolf Rannacher werden numerische Verfahren zur approximativen Lösung partieller Differentialgleichungen behandelt. Dabei finden wieder sowohl theoretisch-mathematische als auch praktische Aspekte Berücksichtigung. Zur Erleichterung des Selbststudiums dienen theoretische und praktische Übungsaufgaben mit Lösungen.
+                      {{elif session.forced_language =='en': }}                     
+The third part of the lecture cycle {{=A(T('"Numerische Mathematik"'),_href=URL('catalog','book/281'))}} by Professor Rolf Rannacher is devoted to numerical methods for solving partial differential equations. Again theoretical mathematical as well as practical aspects are considered. To facilitate self-study the book includes both theoretical and practical exercises, together with solutions.
+                        {{pass}}
+                      </p>
+                    </div>
+			             </div>
+
                    
 				   <div class="media">
                     <div class="media-left pull-left">
