@@ -2174,6 +2174,11 @@ li.active {
   margin-bottom: 0.3em;
 }
 
+/** Schaltflächen-Elemente 'Aktuelle Ausgabe', etc. **/
+.schaltflaeche {
+  margin: 0;
+}
+
 /**Twitter-Box**/
 
 #twitter-widget-0 {
@@ -2241,48 +2246,10 @@ ul.standard li {
 }  
 
 
+
+
 /** Spartenmakierung**/
-/*.spartenMarker {
-  float: right;
-  font-size: 0.8em;
-  text-align: right;
-  width: 180px; 
-}
-
-.spartenMarker a {
-  color: #909090;
-  text-align: right;
-  text-transform: uppercase; 
-}
-
-.spartenMarker a:hover {
-  text-decoration: none;
-}                       
-
-.sparte {
-  float: right;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
  
-.sparte li {
- display: table-cell;
- line-height: 1em; 
- vertical-align: middle;
-} 
-
-
-.sparte li:nth-child(1) {
-  padding-right: 10px;
-
-}
-
-.sparte li:nth-child(2) {
-  background: #909090;
-  width: 2em;
-  height: 2em;    */
-} 
 
 .fa-stop {
   color: #909090;
