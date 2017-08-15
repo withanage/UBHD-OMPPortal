@@ -1,10 +1,4 @@
-{{extend 'layout.html'}}
-{{if request.args:}}
-{{if request.args[0]:}}
-{{if request.args[0]=='contact':}}
-
-
-{{if session.forced_language =='de': }}
+{{extend 'layout.html'}} {{if request.args:}} {{if request.args[0]:}} {{if request.args[0]=='contact':}} {{if session.forced_language =='de': }} 
     <div class="row">
     <div class="container">
       <h3>Ruperto Carola</h3>
@@ -20,19 +14,17 @@
       <h4>Hauptkontakt</h4>
       <ul class="standard">
       <li>Marietta Fuhrmann-Koch (verantwortlich)</li>
-      <li>Ute von Figura (Leitung)</li>
+      <li>Mirjam Mohr (Leitung)</li>
       </ul>
        
       <p>Phone: +49 6221 54-19026<br />
       Fax: +49 6221 54-19020<br />
-      Email: <a href="mailto:ute.vonfigura@rektorat.uni-heidelberg.de" title="E-Mail senden an Frau von Figura">ute.vonfigura@rektorat.uni-heidelberg.de</a></p>
+      Email: <a href="mailto:mirjam.mohr@rektorat.uni-heidelberg.de" title="E-Mail senden an Frau Mohr">mirjam.mohr@rektorat.uni-heidelberg.de</a></p>
 
 
      </div>
      </div>
-{{elif session.forced_language =='en': }}
-
-
+{{elif session.forced_language =='en': }} 
       <div class="row">
       <div class="container">
         <h3>Ruperto Carola</h3>
@@ -48,25 +40,20 @@
         <h4>Principal Contact</h4>
         <ul class="standard">
         <li>Marietta Fuhrmann-Koch (responsible)</li>
-        <li>Ute von Figura (executive)</li>
+        <li>Mirjam Mohr (managing)</li>
         </ul>
          
         <p>Phone: +49 6221 54-19026<br />
         Fax: +49 6221 54-19020<br />
-        Email: <a href="mailto:ute.vonfigura@rektorat.uni-heidelberg.de" title="Send email to Ms. von Figura">ute.vonfigura@rektorat.uni-heidelberg.de</a></p>
-
+        Email: <a href="mailto:mirjam.mohr@rektorat.uni-heidelberg.de" title="Send email to Ms. Mohr">mirjam.mohr@rektorat.uni-heidelberg.de</a></p>
      </div>
-     </diV
-
-
+     </div>
 
 {{pass}}
-
-
 {{pass}}
-
 {{pass}}
 {{else:}}
+
 <section id="content">
     <div class="container">
         <div class="row">
@@ -74,16 +61,16 @@
             <div class="col-lg-3">
                 <article>
                     <div class="post-image">
-		 	<img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/cover_10_2017.png')}} ">
+		 	<img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/cover_10_2017.png')}}" />
                   </div>
 
                 </article>
                 
                 <div class="box">
 			             <div class="box-gray alignleft" style="height: auto;">
-                 {{if session.forced_language =='de': }}
+{{if session.forced_language =='de': }}
                             <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographische Angaben</h5>
-                            <p>Ruperto Carola<br>
+                            <p>Ruperto Carola</p>
                             
                             <p>Herausgeber<br />
                             Universität Heidelberg<br />
@@ -106,18 +93,18 @@
                             <p>Redaktion</p>
                               <ul>
                                 <li>Marietta Fuhrmann-Koch (verantwortlich)</li>
-                                <li>Ute von Figura (Leitung)</li>
+                                <li>Mirjam Mohr (Leitung)</li>
                               </ul>  
                             <p>Heidelberg University Publishing, Heidelberg</p>
                             <p>ISSN: 0035-998-X</p>  
                             <p>Copyright: Universität Heidelberg</p>
                              
-             {{elif session.forced_language =='en': }}
+{{elif session.forced_language =='en': }}
              
 <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographic details</h5>
-                            <p>Ruperto Carola<br>
+                            <p>Ruperto Carola</p>
                             
-                            <p>Editors</p>
+                            <p>Editors<br />
                             Universität Heidelberg<br />
                               Der Rektor<br />
                               Communications and Marketing
@@ -138,7 +125,7 @@
                             <p>Editorial Team</p>
                               <ul>
                                 <li>Marietta Fuhrmann-Koch (responsible)</li>
-                                <li>Ute von Figura (managing)</li>
+                                <li>Mirjam Mohr (managing)</li>
                               </ul>  
                             <p>Heidelberg University Publishing, Heidelberg</p>
                             <p>ISSN: 0035-998-X</p>  
@@ -151,7 +138,7 @@
              
                                          
                   </div>
- </div>   
+            </div>   
 
             
             <div class="col-lg-9">
@@ -182,11 +169,11 @@
               </div>
 
              <div class="btn-group" role="group" aria-label="1">
-				 <li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/current/showToc" title="{{=T('current issue')}}">{{=T('read current issue')}}</a></li>
+				 <ul class="schaltflaeche"><li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/current/showToc" title="{{=T('current issue')}}">{{=T('read current issue')}}</a></li></ul>
 			</div>
 			
 			<div class="btn-group" role="group" aria-label="1">
-				 <li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/archive" title="{{=T('Archive')}}">{{=T('Archive')}}</a></li>
+				 <ul class="schaltflaeche"><li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/archive" title="{{=T('Archive')}}">{{=T('Archive')}}</a></li></ul>
 			</div>
 			
 			
@@ -198,7 +185,7 @@
 
                  {{if session.forced_language =='de': }}
                  
-                        <p><i class="icon-quote-left"></i>
+                        
 <p>Das Forschungsmagazin „Ruperto Carola“ berichtet über wissenschaftliche Erkenntnisse und laufende Forschungsvorhaben der Universität Heidelberg. Jede seiner Ausgaben ist einem gesellschaftlich relevanten Schwerpunktthema gewidmet, zu dem Heidelberger Forscherinnen und Forscher über Disziplinen und Fächer hinweg ihre wissenschaftliche Arbeit vorstellen. In allgemein verständlicher Sprache zeigen die Autoren, auf wie vielfältige Weise an der Universität geforscht wird.</p>
 <p>Mit dem Format des Themenmagazins will die Universität Heidelberg ihr besonderes Potential und ihren Anspruch erfahrbar machen, als Volluniversität einen wesentlichen Beitrag zum Verständnis der komplexen Herausforderungen und großen Fragestellungen unserer Zeit zu leisten.</p>
 <p>Die „Ruperto Carola“ erscheint zweimal jährlich in deutscher Sprache mit englischsprachigen Abstracts und wendet sich an die Mitglieder der Universität, an ihre Partner in Wissenschaft, Politik, Wirtschaft und Gesellschaft sowie insbesondere auch an Alumni, Freunde und eine interessierte Öffentlichkeit im In- und Ausland.</p>
@@ -224,18 +211,16 @@
 
                     <div class="widget">
                         <h5 class="widgetheading"></h5>
-                        <ul class="tags">
                  {{if session.forced_language =='de': }}
-             
+                        <ul class="tags">
                     <li style="display: inline"><a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index">zur Zeitschrift</a></li>
-             {{elif session.forced_language =='en': }}
-                            <li style="display: inline"><a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index">View journal</a></li>
-             
-             
-{{pass}}     
-                       
-
+                        </ul> 
+                 {{elif session.forced_language =='en': }}
+                        <ul class="tags">
+                    <li style="display: inline"><a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index">View journal</a></li>
                         </ul>
+{{pass}}     
+
                     </div>
 
                 </article>
@@ -317,33 +302,31 @@
                 </li>
                 <li class="col-lg-2 design">
                   <div class="item-thumbs">
-                  <figure>
-                     <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/view/2350" title="Online-Ausgabe Ruperto Carola, 'Schatten & Licht', Dezember 2015"><figure>
-                  <img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/cover_07_2015.jpg')}}">
+                     <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/view/2350" title="Online-Ausgabe Ruperto Carola, 'Schatten & Licht', Dezember 2015">
+                     <figure>
+                      <img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/cover_07_2015.jpg')}}">
                      <figcaption>
                      Schatten & Licht<br />
                      Ausgabe 7<br />
                      Dezember 2015
                      </figcaption>
-                  </figure>
+                  </figure></a>
                   </div>  
                 </li>
 				 <li class="col-lg-2 design">
                   <div class="item-thumbs">
-                  <figure>
                      <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/view/2360" title="Online-Ausgabe Ruperto Carola, 'Nord & Süd', Juli 2016"><figure>
-                  <img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/cover_08_2016.jpg')}}">
+                     <img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/cover_08_2016.jpg')}}">
                      <figcaption>
                      Nord & Süd<br />
                      Ausgabe 8<br />
                      Juli 2016
                      </figcaption>
-                  </figure>
+                  </figure></a>
                   </div>  
                 </li>
         <li class="col-lg-2 design">
                   <div class="item-thumbs">
-                  <figure>
                      <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/view/2362" title="Online-Ausgabe Ruperto Carola, 'Stop & Go', Dezember 2016"><figure>
                   <img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/cover_09_2016.png')}}" style="border: 1px solid #f5f5f5;">
                      <figcaption>
@@ -351,7 +334,7 @@
                      Ausgabe 9<br />
                      Dezember 2016
                      </figcaption>
-                  </figure>
+                  </figure></a>
                   </div>  
                 </li>
             </ul>
