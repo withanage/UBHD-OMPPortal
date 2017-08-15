@@ -564,7 +564,7 @@ out (on iOS 5.1), or flicker (on iOS 6). */
   float: left;
   overflow: hidden;
   height: 100%;
-  width: 70%;
+  width: 60%;
   border-right: 1px solid #ddd; }
 
 .article .document .surface.content {
@@ -633,7 +633,7 @@ out (on iOS 5.1), or flicker (on iOS 6). */
 .article .resources {
   float: right;
   line-height: 25px;
-  width: 30%;
+  width: 40%;
   height: 100%;
   padding-left: 50px;
   padding-right: 50px;
@@ -1272,9 +1272,6 @@ TOC
 .panel.content.document > .surface.resource-view.content > .nodes > .content-node.heading.level-4 {
   padding-top: 20px; }
 
-.content-node.text.focussed.highlighted {
-  color: #04c304; }
-
 /*
   Typography / Basics
 ---------------------------------------------*/
@@ -1496,41 +1493,3 @@ body.loading .spinner-wrapper {
 
 .altmetrics-panel .altmetrics {
   padding: 20px; }
-
-  /** Anpassung Tabelle https://gitlab.ub.uni-heidelberg.de/wit/verlag-portale/issues/58 
- **/
-
-.lens-article .content-node.html-table > .content {
-  padding-left: 0;
-}
-
-.lens-article .content-node.html-table table {
-  border: 1px solid lightgrey;
-}
-
-.lens-article .content-node.html-table table tr {
-  vertical-align: top;
-}
-
-.lens-article .content-node.html-table table tr:nth-child(odd) { 
-  background-color: #f8f8f8;
-}
-
-.lens-article .content-node.html-table table tr:nth-child(odd) > td:empty {
-  background-color: #f8f8f8;
-}
-
-
-.lens-article .content-node.html-table table td {
-  border-right: 1px solid lightgrey;
-}
- 
- /** Anpassung Abstände auf Bitte ak 31.07.17 - voe **/
- 
-.content-node.heading.level-2 {
-  margin-top: 1.5em;
-}
-
-[data-id=paragraph_5] {
-  padding-bottom: 2em; 
-}
