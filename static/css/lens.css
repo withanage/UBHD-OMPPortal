@@ -249,7 +249,6 @@ Box
   padding: 20px; }
 
 .document .content-node.quote .content-node.paragraph {
-  /*padding: 0px;*/
   padding: 10px 40px 10px 40px;
   border-left: 3px solid #ccc; }
 
