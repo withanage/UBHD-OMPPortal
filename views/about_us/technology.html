@@ -9,54 +9,92 @@
             {{pass}}
             </h3>
 
-<p>Heidelberg University Publishing (heiUP) setzt auf Open-Source-Software und beteiligt sich an der Entwicklung von innovativen Publikationstechnologien. Hierzu zählt die Entwicklung von Software genauso wie die Kooperation mit Partnern wie dem <a class="extern" href="https://pkp.sfu.ca" title="Homepage Public Knowledge Project">Public Knowledge Project (PKP)&nbsp;<i class="fa fa-external-link"></i></a> und die aktive Mitwirkung in internationalen und nationalen Anwendernetzwerken (z.B. <a class="extern" href="http://ojs-de.net" title="Homepage OJS-Initiative ojs-de.net">OJS-de.net&nbsp;<i class="fa fa-external-link"></i></a>).</p>
+{{ if session.forced_language =='de': }}
+		<p>Heidelberg University Publishing (heiUP) setzt auf Open-Source-Software und beteiligt sich an der Entwicklung von innovativen Publikationstechnologien. Hierzu zählt die Entwicklung von Software genauso wie die Kooperation mit Partnern wie dem <a class="extern" href="https://pkp.sfu.ca" title="Homepage Public Knowledge Project">Public Knowledge Project (PKP)&nbsp;<i class="fa fa-external-link"></i></a> und die aktive Mitwirkung in internationalen und nationalen Anwendernetzwerken (z.B. <a class="extern" href="http://ojs-de.net" title="Homepage OJS-Initiative ojs-de.net">OJS-de.net&nbsp;<i class="fa fa-external-link"></i></a>).</p>
 
-<h5>Backend</h5>
-<ul>
-  <li>Monographien und Sammelbände: <a href="https://pkp.sfu.ca/omp/" title="Homepage Open Monograph Press">Open Monograph Press (OMP)&nbsp;<i class="fa fa-external-link"></i></a></li>
-  <li>Zeitschriften: <a href="https://pkp.sfu.ca/ojs/" title="Homepage Open Journal Systems">Open Journal Systems (OJS)&nbsp;<i class="fa fa-external-link"></i></a></li>
-  <li>Datenbank: <a href="https://www.mysql.com" title="Homepage MySQL">Oracle MySQL</a>&nbsp;<i class="fa fa-external-link"></i></li>
-</ul>
+		<h5>Backend</h5>
+		<ul>
+		  <li>Monographien und Sammelbände: <a href="https://pkp.sfu.ca/omp/" title="Homepage Open Monograph Press">Open Monograph Press (OMP)&nbsp;<i class="fa fa-external-link"></i></a></li>
+		  <li>Zeitschriften: <a href="https://pkp.sfu.ca/ojs/" title="Homepage Open Journal Systems">Open Journal Systems (OJS)&nbsp;<i class="fa fa-external-link"></i></a></li>
+		  <li>Datenbank: <a href="https://www.mysql.com" title="Homepage MySQL">Oracle MySQL</a>&nbsp;<i class="fa fa-external-link"></i></li>
+		</ul>
+
+		<h5>Frontend</h5>
+		<ul>
+		  <li>Python-basiertes Framework für Web-Applikationen  <a href="http://www.web2py.com" title="Homepage Web2py">Web2py&nbsp;<i class="fa fa-external-link"></i></a></li>
+		  <li>HTML, CSS, responsives Design via <a href="http://getbootstrap.com" title="Homepage Bootstrap">Twitter Bootstrap&nbsp;<i class="fa fa-external-link"></i></a></li>
+		  <li>Übergreifende Suche: <a href="http://lucene.apache.org/solr/" title="Homepage Apache Solr index">Apache Solr&nbsp;<i class="fa fa-external-link"></i></a></li>
+		  <li>Online-Leseumgebung: <a href="https://github.com/elifesciences/lens" title="Homepage Github, Projekt Lens Viewer">eLife Lens&nbsp;<i class="fa fa-external-link"></i></a></li> 
+		</ul>
+
+		<h5>Schnittstellen</h5>
+		<ul>
+		  <li><a href="http://www.dini.de/projekte/oa-statistik/" title="Homepage OA Statistik">Open-Access-Statistik&nbsp;<i class="fa fa-external-link"></i></a></li> 
+		  <li><a href="http://www.vgwort.de/startseite.html" title="Homepage VG Wort">VG Wort&nbsp;<i class="fa fa-external-link"></i></a></li>
+		</ul>
+
+		<h5>heiMPT &ndash; Medienneutraler Publikationsworkflow</h5>
+
+		<div class="col-lg-12" style="padding-left: 0;">
+		<div class="col-lg-9" style="padding-left: 0;">
+					  
+
+		<p><a href="https://github.com/withanage/heimpt" title="Homepage Github, Projekt heiMPT">heiMPT&nbsp;<i class="fa fa-external-link"></i></a> ermöglicht eine automatische Generierung von verlagsspezifischen Ausgabeformaten wie HTML, PDF und ePUB aus Eingabedateien im Microsoft Word- und LaTeX-Format. Als medienneutrales XML-Zwischenformat nutzt es <a href="http://www.tei-c.org/index.xml" title="Homepage TEI-Initiative">TEI&nbsp;<i class="fa fa-external-link"></i></a>, die <a href="https://jats.nlm.nih.gov/index.html" title="Homepage Journal Article Tag Suite">Journal Article Tag Suite (JATS)&nbsp;<i class="fa fa-external-link"></i></a>  sowie das <a href="https://jats.nlm.nih.gov/extensions/bits/" title="Homepage Book Interchange Tag Set">Book Interchange Tag Set (BITS)&nbsp;<i class="fa fa-external-link"></i></a>. heiMPT kann um weitere Ausgabeformate erweitert werden, die Integration in Open Monograph Press (OMP) und Open Journal Systems (OJS) ist ebenso leicht möglich. heiMPT kann sowohl als Kommandozeilen- als auch als Web-Anwendung genutzt werden und bietet eine webbasierte Metadatenverarbeitung. heiMPT wurde mit DFG-Förderung im Rahmen des Projekts &bdquo;Entwicklung eines Geschäftsmodells für Open-Access-Bücher&rdquo; entwickelt.</p>
+
+		</div>
+		<div class="col-lg-3">
+				 <a href="https://github.com/withanage/heimpt" title="Homepage Github, Projekt heiMPT"><img alt="heiMPT | Heidelberg Monograph Publication Tool" src="{{=URL('static','images/about_us/technology/logo_heiMPT.png')}}" style="width: 100%; max-width: 300px;" /></a>
+		</div>
+		</div>
+
+		<h5>Satz und Layout</h5>
+		<ul>
+		 <li><a href="https://www.adobe.com/de/products/indesign.html" title="Homepage Adobe; Produktinformationen Adobe InDesign">Adobe InDesign&nbsp;<i class="fa fa-external-link"></i></a> für manuellen Satz und Covergestaltung</li>
+		</ul> 
+{{elif session.forced_language =='en': }}
+
+		<p>Heidelberg University Publishing (heiUP) uses Open-Source-Software and participates in the development of innovative publication technology.  This includes software development as well as co-operation with partners such as the <a class="extern" href="https://pkp.sfu.ca" title="Homepage Public Knowledge Project">Public Knowledge Project (PKP)&nbsp;<i class="fa fa-external-link"></i></a> and active participation in national and international user networks (e.g. <a class="extern" href="http://ojs-de.net" title="Homepage OJS-Initiative ojs-de.net">OJS-de.net&nbsp;<i class="fa fa-external-link"></i></a>).</p>
+
+		<h5>Backend</h5>
+		<ul>
+		  <li>Monographs and collected volumes: <a href="https://pkp.sfu.ca/omp/" title="Homepage Open Monograph Press">Open Monograph Press (OMP)&nbsp;<i class="fa fa-external-link"></i></a></li>
+		  <li>Journals: <a href="https://pkp.sfu.ca/ojs/" title="Homepage Open Journal Systems">Open Journal Systems (OJS)&nbsp;<i class="fa fa-external-link"></i></a></li>
+		  <li>Database: <a href="https://www.mysql.com" title="Homepage MySQL">Oracle MySQL</a>&nbsp;<i class="fa fa-external-link"></i></li>
+		</ul>
 
 
-<h5>Frontend</h5>
-<ul>
-  <li>Python-basiertes Framework für Web-Applikationen  <a href="http://www.web2py.com" title="Homepage Web2py">Web2py&nbsp;<i class="fa fa-external-link"></i></a></li>
-  <li>HTML, CSS, responsives Design via <a href="http://getbootstrap.com" title="Homepage Bootstrap">Twitter Bootstrap&nbsp;<i class="fa fa-external-link"></i></a></li>
-  <li>Übergreifende Suche: <a href="http://lucene.apache.org/solr/" title="Homepage Apache Solr index">Apache Solr&nbsp;<i class="fa fa-external-link"></i></a></li>
-  <li>Online-Leseumgebung: <a href="https://github.com/elifesciences/lens" title="Homepage Github, Projekt Lens Viewer">eLife Lens&nbsp;<i class="fa fa-external-link"></i></a></li> 
-</ul>
+		<h5>Frontend</h5>
+		<ul>
+		  <li>Python-based framework for web applications <a href="http://www.web2py.com" title="Homepage Web2py">Web2py&nbsp;<i class="fa fa-external-link"></i></a></li>
+		  <li>HTML, CSS, responsive design using <a href="http://getbootstrap.com" title="Homepage Bootstrap">Twitter Bootstrap&nbsp;<i class="fa fa-external-link"></i></a></li>
+		  <li>Comprehensive searching: <a href="http://lucene.apache.org/solr/" title="Homepage Apache Solr index">Apache Solr&nbsp;<i class="fa fa-external-link"></i></a></li>
+		  <li>Online reading environment: <a href="https://github.com/elifesciences/lens" title="Homepage Github, Projekt Lens Viewer">eLife Lens&nbsp;<i class="fa fa-external-link"></i></a></li> 
+		</ul>
 
-<h5>Schnittstellen</h5>
-<ul>
-  <li><a href="http://www.dini.de/projekte/oa-statistik/" title="Homepage OA Statistik">Open-Access-Statistik&nbsp;<i class="fa fa-external-link"></i></a></li> 
-  <li><a href="http://www.vgwort.de/startseite.html" title="Homepage VG Wort">VG Wort&nbsp;<i class="fa fa-external-link"></i></a></li>
-</ul>
+		<h5>Interfaces</h5>
+		<ul>
+		  <li><a href="http://www.dini.de/projekte/oa-statistik/" title="Homepage OA Statistik">Open-Access-Statistik&nbsp;<i class="fa fa-external-link"></i></a></li> 
+		  <li><a href="http://www.vgwort.de/startseite.html" title="Homepage VG Wort">VG Wort&nbsp;<i class="fa fa-external-link"></i></a></li>
+		</ul>
 
-<h5>heiMPT &ndash; Medienneutraler Publikationsworkflow</h5>
+		<h5>heiMPT &ndash; Media neutral publication workflow</h5>
 
-<div class="col-lg-12" style="padding-left: 0;">
-<div class="col-lg-9" style="padding-left: 0;">
-              
-          {{ if session.forced_language =='de': }}
-<p><a href="https://github.com/withanage/heimpt" title="Homepage Github, Projekt heiMPT">heiMPT&nbsp;<i class="fa fa-external-link"></i></a> ermöglicht eine automatische Generierung von verlagsspezifischen Ausgabeformaten wie HTML, PDF und ePUB aus Eingabedateien im Microsoft Word- und LaTeX-Format. Als medienneutrales XML-Zwischenformat nutzt es <a href="http://www.tei-c.org/index.xml" title="Homepage TEI-Initiative">TEI&nbsp;<i class="fa fa-external-link"></i></a>, die <a href="https://jats.nlm.nih.gov/index.html" title="Homepage Journal Article Tag Suite">Journal Article Tag Suite (JATS)&nbsp;<i class="fa fa-external-link"></i></a>  sowie das <a href="https://jats.nlm.nih.gov/extensions/bits/" title="Homepage Book Interchange Tag Set">Book Interchange Tag Set (BITS)&nbsp;<i class="fa fa-external-link"></i></a>. heiMPT kann um weitere Ausgabeformate erweitert werden, die Integration in Open Monograph Press (OMP) und Open Journal Systems (OJS) ist ebenso leicht möglich. heiMPT kann sowohl als Kommandozeilen- als auch als Web-Anwendung genutzt werden und bietet eine webbasierte Metadatenverarbeitung. heiMPT wurde mit DFG-Förderung im Rahmen des Projekts &bdquo;Entwicklung eines Geschäftsmodells für Open-Access-Bücher&rdquo; entwickelt.
-          </p>
-          {{elif session.forced_language =='en': }}
-<p><a href="https://github.com/withanage/heimpt" title="Homepage Github, Projekt heiMPT">heiMPT&nbsp;<i class="fa fa-external-link"></i></a> ermöglicht eine automatische Generierung von verlagsspezifischen Ausgabeformaten wie HTML, PDF und ePUB aus Eingabedateien im Microsoft Word- und LaTeX-Format. Als medienneutrales XML-Zwischenformat nutzt es <a href="http://www.tei-c.org/index.xml" title="Homepage TEI-Initiative">TEI&nbsp;<i class="fa fa-external-link"></i></a>, die <a href="https://jats.nlm.nih.gov/index.html" title="Homepage Journal Article Tag Suite">Journal Article Tag Suite (JATS)&nbsp;<i class="fa fa-external-link"></i></a>  sowie das <a href="https://jats.nlm.nih.gov/extensions/bits/" title="Homepage Book Interchange Tag Set">Book Interchange Tag Set (BITS)&nbsp;<i class="fa fa-external-link"></i></a>. heiMPT kann um weitere Ausgabeformate erweitert werden, die Integration in Open Monograph Press (OMP) und Open Journal Systems (OJS) ist ebenso leicht möglich. heiMPT kann sowohl als Kommandozeilen- als auch als Web-Anwendung genutzt werden und bietet eine webbasierte Metadatenverarbeitung. heiMPT wurde mit DFG-Förderung im Rahmen des Projekts &bdquo;Entwicklung eines Geschäftsmodells für Open-Access-Bücher&rdquo; entwickelt.
-          </p>
-         {{pass}}
-</div>
-<div class="col-lg-3">
-         <a href="https://github.com/withanage/heimpt" title="Homepage Github, Projekt heiMPT"><img alt="heiMPT | Heidelberg Monograph Publication Tool" src="{{=URL('static','images/about_us/technology/logo_heiMPT.png')}}" style="width: 100%; max-width: 300px;" /></a>
-</div>
-</div>
+		<div class="col-lg-12" style="padding-left: 0;">
+		<div class="col-lg-9" style="padding-left: 0;">
+					  
+		<p><a href="https://github.com/withanage/heimpt" title="Homepage Github, Projekt heiMPT">heiMPT&nbsp;<i class="fa fa-external-link"></i></a> allows for the automatic generation of publisher specific output formats such as HTML, PDF and ePUB, based on entry data in Microsoft Word and LaTeX formats. A media neutral XML interim format is provided by <a href="http://www.tei-c.org/index.xml" title="Homepage TEI-Initiative">TEI&nbsp;<i class="fa fa-external-link"></i></a>, the <a href="https://jats.nlm.nih.gov/index.html" title="Homepage Journal Article Tag Suite">Journal Article Tag Suite (JATS)&nbsp;<i class="fa fa-external-link"></i></a> and the <a href="https://jats.nlm.nih.gov/extensions/bits/" title="Homepage Book Interchange Tag Set">Book Interchange Tag Set (BITS)&nbsp;<i class="fa fa-external-link"></i></a>. It is possible to expand heiMPT to include other output formats and integration in Open Monograph Press (OMP) and Open Journal Systems (OJS) can be implemented quite simply. heiMPT can be used either as a command line or a web application and offers web-based processing of metadata.  heiMPT was developed with support from the DFG as part of the project “Development of a business model for open-access books” (“Entwicklung eines Geschäftsmodells für Open-Access-Bücher”).</p>
 
-<h5>Satz und Layout</h5>
-<ul>
- <li><a href="https://www.adobe.com/de/products/indesign.html" title="Homepage Adobe; Produktinformationen Adobe InDesign">Adobe InDesign&nbsp;<i class="fa fa-external-link"></i></a> für manuellen Satz und Covergestaltung</li>
-</ul> 
+		</div>
+		<div class="col-lg-3">
+				 <a href="https://github.com/withanage/heimpt" title="Homepage Github, Projekt heiMPT"><img alt="heiMPT | Heidelberg Monograph Publication Tool" src="{{=URL('static','images/about_us/technology/logo_heiMPT.png')}}" style="width: 100%; max-width: 300px;" /></a>
+		</div>
+		</div>
 
-
+		<h5>Typesetting and Layout</h5>
+		<ul>
+		 <li><a href="https://www.adobe.com/de/products/indesign.html" title="Homepage Adobe; Product information Adobe InDesign">Adobe InDesign&nbsp;<i class="fa fa-external-link"></i></a> is used for manual typesetting and cover design.</li>
+		</ul> 
+{{pass}}
 </div>  
 
 
