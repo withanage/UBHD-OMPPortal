@@ -264,18 +264,19 @@ pass
 </div>
 
 <!--   BEGIN kba Tue Apr 18 17:07:35 CEST 2017 -->
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/quill/1.2.4/quill.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vuex/2.3.1/vuex.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.1/vue.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.1/axios.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="http://anno.ub.uni-heidelberg.de/anno/dist/quill.js"></script>
+  <script src="http://anno.ub.uni-heidelberg.de/anno/dist/vuex.js"></script>
+  <script src="http://anno.ub.uni-heidelberg.de/anno/dist/vue.js"></script>
+  <script src="http://anno.ub.uni-heidelberg.de/anno/dist/axios.min.js"></script>
 
-  <script src="http://anno.ub.uni-heidelberg.de/dist/xrx.api.drawing.min.js"></script>
-  <script src="http://anno.ub.uni-heidelberg.de/dist/xrx-utils.js"></script>
-  <script src="http://anno.ub.uni-heidelberg.de/dist/xrx-vue.js"></script>
-  <script src="http://anno.ub.uni-heidelberg.de/dist/anno.min.js"></script>
-  <script src="http://anno.ub.uni-heidelberg.de/dist/anno-frontend.js"></script>
+  <script src="http://anno.ub.uni-heidelberg.de/anno/dist/xrx.api.drawing.min.js"></script>
+  <script src="http://anno.ub.uni-heidelberg.de/anno/dist/xrx-utils.js"></script>
+  <script src="http://anno.ub.uni-heidelberg.de/anno/dist/xrx-vue.js"></script>
+  <script src="http://anno.ub.uni-heidelberg.de/anno/dist/anno.min.js"></script>
+  <script src="http://anno.ub.uni-heidelberg.de/anno/dist/anno-frontend.js"></script>
 <script>
+
 $("#anno-btn").click(() => $("#anno-block").is(':hidden') ? showAnnoBlock() : hideAnnoBlock())
 function showAnnoBlock() {
 	$(".summary > *").each((idx, el) => { if (!el.classList.contains('btn-group')) $(el).hide() })
