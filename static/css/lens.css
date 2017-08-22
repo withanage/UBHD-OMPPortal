@@ -1511,7 +1511,7 @@ body.loading .spinner-wrapper {
 
 .content-node.abstract .title {
   font-size: 17px !important;
-  font-weight: normal !important;
+  font-weight: bold !important;
   line-height: 28px !important;
   padding-bottom: 0 !important;
 }
