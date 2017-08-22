@@ -12,9 +12,6 @@
   padding: 20px 60px;
   padding-left: 100px; }
 
-.content-node.text.focussed {
-  background-color: grey; }
-
 /* Paragraph Node
 -------------------------------------------------------------------------------*/
 .content-node.paragraph .content {
@@ -1371,7 +1368,7 @@ p {
 p:last-child {
   padding-bottom: 0; }
 
-.small {
+ÿ ma摘Ʉ {
   color: #505050;
   font-size: .75em;
   font-weight: 400; }
@@ -1496,3 +1493,49 @@ body.loading .spinner-wrapper {
 
 .altmetrics-panel .altmetrics {
   padding: 20px; }
+
+/*** Anpassungen Abstract, Keywords, Listenformatierungen - voe 08/17 für 'The Transformative Power of the Copy' ***/
+
+.content-node.abstract {
+  margin-bottom: 1.5em; 
+}
+
+
+/** Listen **/
+
+.content.simple {
+  list-style-type: none;
+}
+
+/*ul.content {
+  }
+
+ol.content.ordered {
+  }*/
+  
+
+.content.alpha-lower {
+  list-style-type: lower-alpha;
+}
+
+.content.alpha-upper {
+  list-style-type: upper-alpha;
+}  
+  
+.content.roman-lower {
+  list-style-type: lower-roman;
+}
+
+.content.roman-upper {
+  list-style-type: upper-roman;
+}
+
+.content.greek-lower {
+  list-style-type: lower-greek;
+} 
+
+.content.greek-upper {
+  list-style-type: upper-greek;
+}   
+
+  
