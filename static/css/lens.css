@@ -1513,6 +1513,7 @@ body.loading .spinner-wrapper {
   font-size: 17px !important;
   font-weight: normal !important;
   line-height: 28px !important;
+  padding-bottom: 0 !important;
 }
 
 /** Listen **/
