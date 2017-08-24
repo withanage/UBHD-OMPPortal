@@ -13,8 +13,7 @@
   padding-left: 100px; }
 
 .content-node.text.focussed {
-  background-color: grey;
-}
+  background-color: grey; }
 
 /* Paragraph Node
 -------------------------------------------------------------------------------*/
@@ -1372,7 +1371,7 @@ p {
 p:last-child {
   padding-bottom: 0; }
 
-ÿ ma摘Ʉ {
+.small {
   color: #505050;
   font-size: .75em;
   font-weight: 400; }
@@ -1494,6 +1493,16 @@ body.loading .spinner-wrapper {
 .surface.content .content-node.speech > .content > .label {
   font-weight: 600;
   padding-bottom: 0px; }
+
+.lens-article .content-node.sec-meta .authors .text {
+  float: left;
+  padding: 0px;
+  margin: 0px;
+  font-size: 17px;
+  margin-right: 10px;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 10; }
 
 .altmetrics-panel .altmetrics {
   padding: 20px; }

@@ -624,9 +624,7 @@ abstractView.Prototype = function () {
 
         var childViewEl = childView.render().el;
         childViewEl.className += ' title';
-
         this.content.appendChild(childViewEl);
-
         this.renderChildren();
         this.el.appendChild(this.content);
         return this;
@@ -4871,6 +4869,7 @@ module.exports = {
 },{"./sec_meta":110,"./sec_meta_view":111}],110:[function(require,module,exports){
 "use strict";
 
+var _ = require("underscore");
 var Document = require('../../../substance/document');
 var Composite = Document.Composite;
 
@@ -4891,8 +4890,11 @@ secMeta.type = {
   "parent": "content",
   "properties": {
       "children":{
-        "abstract":"abstract"
-      }
+        "abstract":"abstract",
+
+      },
+      "authors": ["array", "paragraph"]
+
     }
 
 
@@ -4933,6 +4935,12 @@ secMeta.Prototype = function() {
     return this.properties.children;
   };
 
+  this.getAuthors = function() {
+        return _.map(this.properties.authors, function(paragraphId) {
+            return this.document.get(paragraphId);
+        }, this);
+    };
+
 };
 
 secMeta.Prototype.prototype = Composite.prototype;
@@ -4943,9 +4951,9 @@ Document.Node.defineProperties(secMeta);
 
 module.exports = secMeta;
 
-},{"../../../substance/document":183}],111:[function(require,module,exports){
+},{"../../../substance/document":183,"underscore":195}],111:[function(require,module,exports){
 "use strict";
-
+var _ = require("underscore");
 var NodeView = require('../node').View;
 var CompositeView = require("../composite").View;
 var $$ = require("../../../substance/application").$$;
@@ -4959,7 +4967,29 @@ var secMetaView = function (node, viewFactory) {
 
 secMetaView.Prototype = function () {
     this.render = function () {
+        var node = this.node;
         this.content = document.createElement("div");
+
+        var authors = $$('.authors', {
+            children: _.map(node.getAuthors(), function(authorPara) {
+                var paraView = this.viewFactory.createView(authorPara);
+                var paraEl = paraView.render().el;
+                this.content.appendChild(paraEl);
+                return paraEl;
+            }, this)
+        });
+
+        authors.appendChild($$('.content-node.text.plain', {
+            children: [
+                $$('.content', {text: this.node.document.on_behalf_of})
+            ]
+        }));
+
+        this.content.appendChild(authors);
+
+
+        //
+
         this.renderChildren();
         this.el.appendChild(this.content);
         return this;
@@ -4971,7 +5001,7 @@ secMetaView.prototype = new secMetaView.Prototype();
 
 module.exports = secMetaView;
 
-},{"../../../substance/application":170,"../composite":36,"../node":94}],112:[function(require,module,exports){
+},{"../../../substance/application":170,"../composite":36,"../node":94,"underscore":195}],112:[function(require,module,exports){
 "use strict";
 
 module.exports = {
@@ -6120,7 +6150,8 @@ NlmToLensConverter.Prototype = function () {
         "presenter": "Presenter",
         "guest-issue-editor": "Guest Issue Editor",
         "participant": "Participant",
-        "translator": "Translator"
+        "translator": "Translator",
+        "section-editor": "Section Editor"
     };
 
     this.isAnnotation = function (type) {
@@ -6314,6 +6345,7 @@ NlmToLensConverter.Prototype = function () {
             };
             pubInfoNode.history.push(historyEntry);
         }
+        console.log(pubInfoNode);
 
         doc.create(pubInfoNode);
         doc.show("info", pubInfoNode.id, 0);
@@ -6589,7 +6621,7 @@ NlmToLensConverter.Prototype = function () {
             id: "cover",
             type: "cover",
             title: docNode.title,
-            authors: [], // docNode.authors,
+            authors: [],
             abstract: a_id
         };
 
@@ -6781,6 +6813,12 @@ NlmToLensConverter.Prototype = function () {
         }
 
         if (contrib.getAttribute("contrib-type") === "author") {
+            doc.nodes.document.authors.push(id);
+        }
+        if (contrib.getAttribute("contrib-type") === "editor") {
+            doc.nodes.document.authors.push(id);
+        }
+        if (contrib.getAttribute("contrib-type") === "section-editor") {
             doc.nodes.document.authors.push(id);
         }
 
@@ -7092,7 +7130,7 @@ NlmToLensConverter.Prototype = function () {
         // TODO: the spec says, that there may be any combination of
         // 'contrib-group', 'aff', 'aff-alternatives', and 'x'
         // However, in the articles seen so far, these were sub-elements of 'contrib-group', which itself was single
-        var contribGroup = article.querySelector("article-meta contrib-group");
+        var contribGroup = article.querySelector("contrib-group");
         if (contribGroup) {
             this.contribGroup(state, contribGroup);
         }
@@ -7378,16 +7416,48 @@ NlmToLensConverter.Prototype = function () {
     this._bodyNodes["abstract"] = function (state, child) {
         return this._abstract(state, child);
     };
+    this._bodyNodes["contrib-group"] = function (state, child) {
+        return this.contribGroup(state, child);
+    };
 
     this.secMeta = function (state, secMeta) {
         var doc = state.doc;
+        var docNode = doc.get("document");
         var childNodes = this.bodyNodes(state, util.dom.getChildren(secMeta));
         var secMetaID = state.nextId("sec_meta");
         var secNode = {
             "id": secMetaID,
             "type": "sec_meta",
-            "children": _.pluck(childNodes, 'id')
+            "children": _.pluck(childNodes, 'id'),
+            "authors": [],
         };
+
+        _.each(docNode.authors, function (contributorId) {
+
+            var contributor = doc.get(contributorId);
+           if (contributor.contributor_type=="Section Editor"){
+
+            var authorsPara = {
+                "id": "text_" + contributorId + "_reference",
+                "type": "text",
+                "content": contributor.name
+            };
+
+            doc.create(authorsPara);
+            secNode.authors.push(authorsPara.id);
+
+            var anno = {
+                id: state.nextId("contributor_reference"),
+                type: "contributor_reference",
+                path: ["text_" + contributorId + "_reference", "content"],
+                range: [0, contributor.name.length],
+                target: contributorId
+            };
+
+            doc.create(anno);
+        }
+        }, this);
+        console.log("secNode", secNode);
         doc.create(secNode);
         return secNode;
     };
