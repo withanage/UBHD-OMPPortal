@@ -1513,6 +1513,10 @@ body.loading .spinner-wrapper {
   padding-left: 0;
 }
 
+.lens-article .content-node.sec-meta .authors {
+  overflow: hidden; 
+}
+
 .content-node.abstract {
   margin-bottom: 5em; 
 }
