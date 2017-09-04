@@ -260,7 +260,7 @@ Box
   padding-bottom: 20px; }
 
 /*
-Citations
+Citations 
 --------------------------------------- */
 .lens-article .resources .content-node.citation .resource-header .name {
   font-weight: normal;
@@ -285,7 +285,7 @@ Citations
   padding-right: 20px; }
 
 /*
-Definition
+Definition 
 --------------------------------------- */
 .lens-article .content-node.definition .description {
   font-size: 16px; }
@@ -382,7 +382,7 @@ Definition
   padding-bottom: 10px; }
 
 /*
-Contributor
+Contributor 
 --------------------------------------- */
 .lens-article .resources .content-node.contributor .resource-header .name {
   font-weight: normal;
@@ -1566,5 +1566,3 @@ ol.content.ordered {
   list-style-type: upper-greek;
 }
 
-lens-article .content-node.sec-meta .abstract {
-  clear: both; }
