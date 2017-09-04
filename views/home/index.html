@@ -119,9 +119,9 @@ $('.flexslider').flexslider();
               {{elif session.forced_language =='en': }}                       
                 <h4>New titles</h4>
                 {{pass}}
-					{{=IMG(_src=URL('static','files/presses/6/monographs/281/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
+					{{=IMG(_src=URL('static','files/presses/6/monographs/203/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
                  </div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/281'))}}
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/203'))}}
                   </div>
                 </div>
             </div>
@@ -147,6 +147,24 @@ $('.flexslider').flexslider();
             <div id="boxAktuelles" class="col-lg-6">
               <div class="box">
                 <div class="box-gray aligncenter" style="overflow-y: scroll">{{if session.forced_language =='de': }} <h4>Aktuelles</h4>{{elif session.forced_language =='en': }} <h4>News</h4>{{pass}} 	
+
+
+           <div class="media">
+                    <div class="media-left pull-left">
+                      <img alt="" src="{{=URL('static','images/press/home/uni_aktuelles.png')}}" style="width: 50px;" />
+                    </div>
+					<div class="media-body">
+                      <p class="media-heading">31.08.2017<br>
+                      {{if session.forced_language =='de': }} <h5>Neu: Horst Gundlach: Wilhelm Windelband und die Psychologie</h5>{{pass}}</p> 
+
+                      <p class="boxText">{{if session.forced_language =='de': }}                       
+Der Philosoph Wilhelm Windelband,  Hauptvertreter des Neukantianismus und von 1903 bis 1915 Professor an der Heidelberger Universität, gilt als ein erklärter Gegner der Psychologie. Wie er tatsächlich zu dieser jungen Wissenschaft stand, untersucht Horst Gundlach in seiner umfassenden Studie "Wilhelm Windelband und die Psychologie", in der auch die 2016 entdeckten Notizhefte Windelbands erstmals veröffentlicht werden.
+                      {{elif session.forced_language =='en': }}                     
+The Philosopher Wilhelm Windelband, leading figure of Neo-Kantism and from 1903 until 1915 professor at Heidelberg University, is regarded as an outspoken critic of psychology. Horst Gundlach investigates how he really viewed the new science of psychology in his comprehensive study "Wihelm Windelband und die Psychologie". This study also includes Windelband's notebooks, which were discovered in 2016, and are now published for the first time. 
+                        {{pass}}
+                      </p>
+                    </div>
+			             </div>
 
 				   <div class="media">
                     <div class="media-left pull-left">
@@ -501,9 +519,9 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
               {{elif session.forced_language =='en': }}                       
                 <h4>New titles</h4>
                 {{pass}}
-					{{=IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/195/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}                
+					{{=IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/281/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}                
                   </div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/195'))}}
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/281'))}}
                   </div>
                 </div>
               </div>
@@ -513,15 +531,15 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
                 <div class="box">
                   <div class="box-gray aligncenter">
                   {{if session.forced_language =='de': }}
-                  <h4>Erscheint demnächst</h4>
+                  <h4>Neuerscheinung</h4>
                   {{elif session.forced_language =='en': }}
-                  <h4>Coming soon</h4>
+                  <h4>New titles</h4>
                   {{pass}} 
-				{{=IMG(_src=URL('static','images/catalog/Cover_Windelband_OMP_300.jpg'),_width='145px',_class='bildrahmen')}}
+				{{=IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/195/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}                
                   </div>
                   <div class="box-bottom">
 
-                    {{=A(T('More Information'),_href=URL('catalog','index.html#forthcoming'))}}
+                    {{=A(T('More Information'),_href=URL('catalog','book/195'))}}
                     </div>
 
                 </div>
