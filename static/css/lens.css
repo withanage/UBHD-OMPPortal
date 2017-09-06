@@ -1507,7 +1507,7 @@ body.loading .spinner-wrapper {
 .altmetrics-panel .altmetrics {
   padding: 20px; }
 
-/*** Anpassungen Abstract, Keywords, Listenformatierungen - voe 08/17 anlässlich 'The Transformative Power of the Copy' ***/
+/*** Anpassungen Abstract, Keywords, Listenformatierungen, Kapitelabstand - voe 08-09/17 anlässlich 'The Transformative Power of the Copy' ***/
 
 .document .content-node.text /* Test: Alle einzelnen Vorkommen der Klasse .test haben Anweisungen erhalten, die das in den Zeilen 12 und 13 notierte Format wieder aufheben, der Test soll etablieren, ob ZZ 12 u. 13 pauschal konterkariert werden können.*/ {
   padding-left: 0;
@@ -1521,6 +1521,9 @@ body.loading .spinner-wrapper {
   margin-bottom: 5em;
 }
 
+.content .text.title {
+  margin-top: 2em;
+}
 
 .content-node.abstract .title {
   font-size: 17px !important;
