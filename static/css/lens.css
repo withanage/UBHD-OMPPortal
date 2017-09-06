@@ -1522,6 +1522,7 @@ body.loading .spinner-wrapper {
 }
 
 .content .text.title {
+  display: block;
   margin-top: 2em;
 }
 
