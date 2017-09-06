@@ -2,8 +2,9 @@
 <html>
 <head>
     <title>heiUP {{=authors}}</title>
-    <!--http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic -->
-    <link href="{{=URL('static','css/fonts.css')}}" rel='stylesheet'   type='text/css'>
+    <!--link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic"-->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!--link href="{{=URL('static','css/fonts.css')}}" rel='stylesheet'   type='text/css'-->
 
     <link rel="stylesheet" type="text/css" media="all"
           href="{{=URL('static','css/font-awesome.min.css')}}"/>
@@ -28,7 +29,7 @@
          styles: {".MathJax_Display": {padding: "0em 0em 0em 3em" },".MathJax_SVG_Display": {padding: "0em 0em 0em 3em" },}
       });
     </script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+    <script type="text/javascript" src="http://beta.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML-full"></script>
     <!--script type="text/javascript" src="{{=URL('static','js/MathJax.js')}}"/-->
     <script type="text/javascript">
         //web2py variables
@@ -50,3 +51,5 @@
 
 </body>
 </html>
+{{db.t_usage_statistics.insert()}}
+{{db.commit()}}
