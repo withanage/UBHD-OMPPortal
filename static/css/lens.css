@@ -741,7 +741,7 @@ out (on iOS 5.1), or flicker (on iOS 6). */
 .article .resources .content-node .resource-header .toggle {
   float: left;
   font-size: 12px;
-  font-weight: 600;
+/*  font-weight: 600; */
   bottom: 0px;
   text-align: center;
   line-height: 50px;
