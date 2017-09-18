@@ -642,7 +642,7 @@ out (on iOS 5.1), or flicker (on iOS 6). */
   padding-right: 50px;
   position: relative; }
 
-/* It's not exactly good to have the overflow-y: scroll for the container AND the surface.
+/* It's not exactly good to have the overflow-y: scroll for the container AND the surface.
    There should be just one overflowing container, if possible
 */
 .article .resources .panel {
@@ -741,7 +741,7 @@ out (on iOS 5.1), or flicker (on iOS 6). */
 .article .resources .content-node .resource-header .toggle {
   float: left;
   font-size: 12px;
-  /**font-weight: 600;**/
+/*  font-weight: 600; */
   bottom: 0px;
   text-align: center;
   line-height: 50px;
@@ -1310,7 +1310,7 @@ body.reader {
   clear: both; }
 
 /*
-General Layout 
+General Layout
 --------------------------------------- */
 #container {
   position: relative;
@@ -1504,33 +1504,69 @@ body.loading .spinner-wrapper {
   position: relative;
   z-index: 10; }
 
-.lens-article .content-node.sec-meta .abstract {
-  clear: both; }
-
-/*
-citations
---------------------------------------- */
-.lens-article .resources .content-node.citation .resource-header .name {
-  font-weight: normal;
-  font-size: 12px;
-  color: #888; }
-
-.lens-article .content-node.citation .content .title {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 20px; }
-
-.lens-article .content-node.citation .content .authors {
-  font-size: 14px; }
-
-.lens-article .content-node.citation .content .source {
-  /*color: #777;*/ }
-
-.lens-article .content-node.citation .content .citation-urls {
-  padding-top: 20px; }
-
-.lens-article .content-node.citation .content .citation-urls .url {
-  padding-right: 20px; }
-
 .altmetrics-panel .altmetrics {
   padding: 20px; }
+
+/*** Anpassungen Abstract, Keywords, Listenformatierungen, Kapitelabstand - voe 08-09/17 anlässlich 'The Transformative Power of the Copy' ***/
+
+.document .content-node.text /* Test: Alle einzelnen Vorkommen der Klasse .test haben Anweisungen erhalten, die das in den Zeilen 12 und 13 notierte Format wieder aufheben, der Test soll etablieren, ob ZZ 12 u. 13 pauschal konterkariert werden können.*/ {
+  padding-left: 0;
+}
+
+.lens-article .content-node.sec-meta .authors {
+  overflow: hidden;
+}
+
+.content-node.abstract {
+  margin-bottom: 5em;
+}
+
+.content .text.title {
+  display: block;
+  margin-top: 2em;
+}
+
+.content-node.abstract .title {
+  font-size: 17px !important;
+  font-weight: bold !important;
+  line-height: 28px !important;
+  padding-bottom: 0 !important;
+}
+
+/** Listen **/
+
+.content.simple {
+  list-style-type: none;
+}
+
+/*ul.content {
+  }
+
+ol.content.ordered {
+  }*/
+
+
+.content.alpha-lower {
+  list-style-type: lower-alpha;
+}
+
+.content.alpha-upper {
+  list-style-type: upper-alpha;
+}
+
+.content.roman-lower {
+  list-style-type: lower-roman;
+}
+
+.content.roman-upper {
+  list-style-type: upper-roman;
+}
+
+.content.greek-lower {
+  list-style-type: lower-greek;
+}
+
+.content.greek-upper {
+  list-style-type: upper-greek;
+}
+
