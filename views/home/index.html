@@ -114,12 +114,8 @@ $('.flexslider').flexslider();
             <div class="col-lg-3">
                 <div class="box">
                   <div class="box-gray aligncenter">
-              {{if session.forced_language =='de': }} 
-                <h4>Neuerscheinung</h4>
-              {{elif session.forced_language =='en': }}                       
-                <h4>New titles</h4>
-                {{pass}}
-					{{=IMG(_src=URL('static','files/presses/6/monographs/203/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
+                <h4>{{=T('New Titles')}}</h4>
+      					{{=IMG(_src=URL('static','files/presses/6/monographs/203/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
                  </div>
                   <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/203'))}}
                   </div>
@@ -133,29 +129,25 @@ $('.flexslider').flexslider();
                   <p class="boxText"><b>Heidelberg University Publishing</b> is an open-access publisher of high-quality, peer-reviewed academic works. We endorse open access as a publishing model to distribute outstanding research results and use open-source software for the collaborative development of underlying publishing technologies. 
                   </p>{{pass}} 
                 </div>
-                <div class="box-bottom">{{if session.forced_language =='de': }} 
+                <div class="box-bottom"> 
                     {{=A(T('More Information'),_href=URL('about_us','mission_statement'))}}
-                  <!--<a href="http://heiup.uni-heidelberg.de/about_us/mission_statement/">Mehr</a>-->
-                  {{elif session.forced_language =='en': }} 
-                    {{=A(T('More Information'),_href=URL('about_us','mission_statement'))}}
-                  <!--<a href="http://heiup.uni-heidelberg.de/about_us/mission_statement/">More Information</a>-->
-                  
-                  {{pass}} 
                 </div>
               </div>
             </div>
             <div id="boxAktuelles" class="col-lg-6">
               <div class="box">
-                <div class="box-gray aligncenter" style="overflow-y: scroll">{{if session.forced_language =='de': }} <h4>Aktuelles</h4>{{elif session.forced_language =='en': }} <h4>News</h4>{{pass}} 	
+                <div class="box-gray aligncenter" style="overflow-y: scroll">
+                   <h4>{{=T('News')}}</h4>
 
-
-           <div class="media">
+                <div class="media">
                     <div class="media-left pull-left">
                       <img alt="" src="{{=URL('static','images/press/home/uni_aktuelles.png')}}" style="width: 50px;" />
                     </div>
-					<div class="media-body">
+					       <div class="media-body">
                       <p class="media-heading">31.08.2017<br>
-                      {{if session.forced_language =='de': }} <h5>Neu: Horst Gundlach: Wilhelm Windelband und die Psychologie</h5>{{pass}}</p> 
+                      {{if session.forced_language =='de': }}
+                      <h5>Neu: Horst Gundlach: Wilhelm Windelband und die Psychologie</h5>
+                      {{pass}}</p> 
 
                       <p class="boxText">{{if session.forced_language =='de': }}                       
 Der Philosoph Wilhelm Windelband,  Hauptvertreter des Neukantianismus und von 1903 bis 1915 Professor an der Heidelberger Universität, gilt als ein erklärter Gegner der Psychologie. Wie er tatsächlich zu dieser jungen Wissenschaft stand, untersucht Horst Gundlach in seiner umfassenden Studie "Wilhelm Windelband und die Psychologie", in der auch die 2016 entdeckten Notizhefte Windelbands erstmals veröffentlicht werden.
@@ -448,9 +440,7 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
                       <i>{{=A(T('Wir haben ja alle Deutschland nicht gekannt'),_href=URL('catalog','book/90'))}}</i> – The images and texts of Wolfgang Kemp’s new 500 page book are concerned with Germany during the Weimar Republic. After 1918 Germany had to find a new definition for its identity on a political and social level as well as to rediscover itself as a unity in terms of geography and culture. This process can be described as „Inner colonisation“. Scientists and artists began to compensate the many losses by tapping into the dimension of the „inner“ Germany - its unique cultural density - which in France would be called „la France profonde“. The pressure to be economical was converted into an economy of abundance of spiritual and material wealth.                   
                       
                       {{pass}}
-                      
-                      
-                       
+
                       </p>
                     </div>
                     </div>
@@ -514,12 +504,8 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
 			       <div class="col-lg-3">
                <div class="box">
                 <div class="box-gray aligncenter">
-              {{if session.forced_language =='de': }} 
-                <h4>Neuerscheinung</h4>
-              {{elif session.forced_language =='en': }}                       
-                <h4>New titles</h4>
-                {{pass}}
-					{{=IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/281/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}                
+                <h4>{{=T('New Titles')}}</h4>
+					       {{=IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/281/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}                
                   </div>
                   <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/281'))}}
                   </div>
@@ -530,23 +516,15 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
               <div class="col-lg-3">
                 <div class="box">
                   <div class="box-gray aligncenter">
-                  {{if session.forced_language =='de': }}
-                  <h4>Neuerscheinung</h4>
-                  {{elif session.forced_language =='en': }}
-                  <h4>New titles</h4>
-                  {{pass}} 
-				{{=IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/195/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}                
+                <h4>{{=T('New Titles')}}</h4>
+        				{{=IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/195/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}                
                   </div>
                   <div class="box-bottom">
-
                     {{=A(T('More Information'),_href=URL('catalog','book/195'))}}
                     </div>
 
                 </div>
-              </div>
-			  
-
-			                                                
+              </div>                              
              
               <div class="col-lg-3">
                 <div class="box">
@@ -562,7 +540,7 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
             <div class="col-lg-3">
                 <div class="box">
                   <div class="box-gray aligncenter">
-                    <h4>{{if session.forced_language =='de': }}Neuerscheinung{{elif session.forced_language =='en': }}New{{pass}}</h4>
+                <h4>{{=T('New Titles')}}</h4>
 					{{=IMG(_src=URL('static','images/catalog/Cover_anders_altern_OMP_300.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
                   </div>
                   <div class="box-bottom">{{=A(T('More Information'),_href=URL('campusmedia','generale'))}}
@@ -611,7 +589,66 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
                 <!--</div>-->
               </div>
             </div>
-          </div>
+          </div><!-- ./zweite Boxen-Reihe-->
+          <div class="row">
+           <div class="col-lg-12">
+            <div class="row">
+
+			       <div class="col-lg-3">
+               <div class="box">
+                <div class="box-gray aligncenter">
+                <h4>{{=T('Forthcoming')}}</h4>
+					       {{=IMG(_src=URL(myconf.take('web.application'),'static','images/catalog/cover_europa.jpg'),_alt='',_style='width:145px')}}                
+                  </div>
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','#forthcoming'))}}
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-lg-3">
+                <div class="box">
+                  <div class="box-gray aligncenter">
+                <h4>{{=T('Forthcoming')}}</h4>
+				        {{=IMG(_src=URL(myconf.take('web.application'),'static','images/catalog/cover_proust.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}                
+                  </div>
+                  <div class="box-bottom">
+
+                    {{=A(T('More Information'),_href=URL('catalog','#proust'))}}
+                    </div>
+
+                </div>
+              </div>                              
+             
+              <div class="col-lg-3">
+                <div class="box">
+                  <div class="box-gray aligncenter">
+                <h4>{{=T('Forthcoming')}}</h4>
+                {{=IMG(_src=URL(myconf.take('web.application'),'static','images/campusmedia/#.png'),_alt='',_style='width:145px', _class='bildrahmen')}}
+                  </div>
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('campusmedia','ruperto_carola'))}}
+                  </div>
+                </div>
+              </div>
+    
+            <div class="col-lg-3">
+                <div class="box">
+                  <div class="box-gray aligncenter">
+                <h4>{{=T('Forthcoming')}}</h4>
+					{{=IMG(_src=URL('static','images/catalog/#.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
+                  </div>
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('campusmedia','generale'))}}
+                  </div>
+                </div>
+              </div>
+
+           
+           
+             </div>
+           </div>
+          </div><!-- ./dritte Boxen-reihe-->
+          
+          
         </div>
       </div>
   </section>
