@@ -263,84 +263,55 @@ pass
 	<div id="vgwpixel"></div>
 </div>
 
-<!--   BEGIN kba Tue Apr 18 17:07:35 CEST 2017 -->
-  <script src="//www.ub.uni-heidelberg.de/cdn/jquery-ui/1.12.1/jquery-ui.js"></script>
-  <script src="//www.ub.uni-heidelberg.de/cdn/quill/1.2.4/quill.js"></script>
-  <script src="//www.ub.uni-heidelberg.de/cdn/vuex/2.3.1/vuex.js"></script>
-  <script src="//www.ub.uni-heidelberg.de/cdn/vue/2.3.1/vue.js"></script>
-  <script src="//www.ub.uni-heidelberg.de/cdn/axios/0.16.2/axios.js"></script>
-  <script src="//www.ub.uni-heidelberg.de/cdn/semtonotes/latest/semtonotes.js"></script>
-  <script src="//www.ub.uni-heidelberg.de/cdn/authorities-client/latest/authorities-client.js"></script>
-  <script src="//www.ub.uni-heidelberg.de/cdn/xrx-utils/latest/xrx-utils.js"></script>
-  <script src="//www.ub.uni-heidelberg.de/cdn/xrx-vue/latest/xrx-vue.js"></script>
-  <script src="//www.ub.uni-heidelberg.de/cdn/anno-common/dev/anno-common.js"></script>
-  <script src="//www.ub.uni-heidelberg.de/cdn/anno-frontend/dev/anno-frontend.js"></script>
+{{ cdn = 'http://www.ub.uni-heidelberg.de/cdn' }}
+<script src="{{= cdn }}/jquery-ui/1.12.1/jquery-ui.js"></script>
+<script src="{{= cdn }}/quill/1.2.4/quill.js"></script>
+<script src="{{= cdn }}/vuex/2.3.1/vuex.js"></script>
+<script src="{{= cdn }}/vue/2.3.1/vue.js"></script>
+<script src="{{= cdn }}/axios/0.16.2/axios.js"></script>
+<script src="{{= cdn }}/semtonotes/latest/semtonotes.js"></script>
+<script src="{{= cdn }}/authorities-client/latest/authorities-client.js"></script>
+<script src="{{= cdn }}/xrx-utils/latest/xrx-utils.js"></script>
+<script src="{{= cdn }}/xrx-vue/latest/xrx-vue.js"></script>
+<script src="{{= cdn }}/anno-common/dev/anno-common.js"></script>
+<script src="{{= cdn }}/anno-frontend/dev/anno-frontend.js"></script>
+
 <script>
-
-$("#anno-btn").click(() => $("#anno-block").is(':hidden') ? showAnnoBlock() : hideAnnoBlock())
-function showAnnoBlock() {
-	$(".summary > *").each((idx, el) => { if (!el.classList.contains('btn-group')) $(el).hide() })
-	$("div.widget").hide()
-	$("#anno-block").show()
-}
-function hideAnnoBlock() {
-	$(".summary > *").show()
-	$("div.widget").show()
-	$("#anno-block").hide()
-}
-
-document.styleSheets[0].insertRule(`#anno-block .dropdown-menu .active a { color: white !important; }`, 0)
-
 $(function() {
+   // XXX TODO need adapt this
+   const collection = 'heiup'
+   document.styleSheets[0].insertRule(`#anno-block .dropdown-menu .active a { color: white !important; }`, 0)
 
-	hideAnnoBlock()
-
-	const language      = "{{=T.accepted_language or 'en'}}"
-	const targetSource  = `http://heiup.uni-heidelberg.de{{= URL(args=request.args) }}`
-	const container     = document.getElementById('anno-block')
-	const collection    = 'heiup'
-	const purlId        = document.location.hash.substr(1)
-	const annoHost      = 'https://anno.ub.uni-heidelberg.de'
-	const tokenEndpoint = `${annoHost}/anno/auth/token/${collection}`
-	const annoEndpoint  = `${annoHost}/anno/anno`
-	const loginEndpoint = `${annoHost}/anno/auth/login`
-
-	window.annoapp = displayAnnotations({
-
-		// Metadata
-		targetSource,
-
-		// Language
-		language,
-
-		// Element to draw sidebar in
-		container,
-
-		// Determine login & such
-		collection,
-		annoEndpoint,
-		loginEndpoint,
-		tokenEndpoint,
-		purlId,
-
-		enableLogoutButton: true,
-		// loginEndpoint:  document.querySelector('a#login') ? document.querySelector('a#login').href : null,
-
-		events: {
-			fetched(list) {
-				document.querySelector(".anno-number").innerHTML = list.length
-				if (list.length > 0)  {
-					document.querySelector("#anno-btn").classList.remove('btn-default')
-					document.querySelector("#anno-btn").classList.add('btn-primary')
-				}
-			},
-			error(err) {
-				console.error(err)
-			},
-		}
-
-	})
-})
+   // XXX keep as-is
+   $("#anno-btn").click(() => $("#anno-block").is(':hidden') ? showAnnoBlock() : hideAnnoBlock())
+   function showAnnoBlock() {
+     $(".summary > *").each((idx, el) => { if (!el.classList.contains('btn-group')) $(el).hide() })
+     $("div.widget").hide()
+     $("#anno-block").show()
+   }
+   function hideAnnoBlock() {
+     $(".summary > *, div.widget").show()
+     $("#anno-block").hide()
+   }
+   hideAnnoBlock()
+   window.annoapp = displayAnnotations({
+     collection,
+     targetSource: document.location.href.replace(/[#\?].*$/, ''),
+     container: document.getElementById('anno-block'),
+     language: "{{=T.accepted_language or 'de'}}",
+     tokenEndpoint: 'https://anno.ub.uni-heidelberg.de/anno/auth/token/' + collection,
+     purlId: document.location.hash.substr(1),
+     enableLogoutButton: true,
+     events: {
+       fetched(list) {
+         document.querySelector(".anno-number").innerHTML = list.length
+         if (list.length > 0) {
+           document.querySelector("#anno-btn").classList.remove('btn-default')
+           document.querySelector("#anno-btn").classList.add('btn-primary')
+         }
+       },
+       error(err) { console.warn(err) },
+     }
+   })
+ })
 </script>
-<!-- vim: set noet: -->
-<!--   END kba Tue Apr 18 17:07:35 CEST 2017 -->
