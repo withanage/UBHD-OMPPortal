@@ -299,6 +299,7 @@ $(function() {
      targetSource: document.location.href.replace(/[#\?].*$/, ''),
      container: document.getElementById('anno-block'),
      language: "{{=T.accepted_language or 'de'}}",
+     loginEndpoint: 'https://anno.ub.uni-heidelberg.de/anno/auth/login?from=' + encodeURIComponent(window.location.href),
      tokenEndpoint: 'https://anno.ub.uni-heidelberg.de/anno/auth/token/' + collection,
      purlId: document.location.hash.substr(1),
      enableLogoutButton: true,
