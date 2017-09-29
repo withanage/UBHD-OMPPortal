@@ -115,9 +115,9 @@ $('.flexslider').flexslider();
                 <div class="box">
                   <div class="box-gray aligncenter">
                 <h4>{{=T('New Titles')}}</h4>
-      					{{=IMG(_src=URL('static','files/presses/6/monographs/203/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
+      					{{=IMG(_src=URL('static','files/presses/6/monographs/291/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
                  </div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/203'))}}
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/291'))}}
                   </div>
                 </div>
             </div>
@@ -139,6 +139,25 @@ $('.flexslider').flexslider();
                 <div class="box-gray aligncenter" style="overflow-y: scroll">
                    <h4>{{=T('News')}}</h4>
 
+                <div class="media">
+                    <div class="media-left pull-left">
+                      <img alt="" src="{{=URL('static','images/press/home/uni_aktuelles.png')}}" style="width: 50px;" />
+                    </div>
+					       <div class="media-body">
+                      <p class="media-heading">28.09.2017<br>
+                      {{if session.forced_language =='de': }}
+                      <h5>Neu bei heiUP: Konstruktionen Europas in der Frühen Neuzeit</h5>
+                      {{pass}}</p> 
+
+                      <p class="boxText">{{if session.forced_language =='de': }}                       
+Der Tagungsband <a href="http://heiup.uni-heidelberg.de/catalog/book/291">Konstruktionen Europas in der Frühen Neuzeit. Geographische und historische Imaginationen</a>, herausgegeben von Susan Richter, Michael Roth und Sebastian Meurer, vereint die Beiträge zur 11. Arbeitstagung der <a href="http://www.historikerverband.de/arbeitsgruppen/ag-fruehe-neuzeit.html">Arbeitsgemeinschaft Frühe Neuzeit</a>. Die Autorinnen und Autoren haben sich zum Ziel gesetzt, Europa im Kontext ferner Weltregionen in den Blick zu nehmen. Die Ergebnisse der Tagung eröffnen neue Blicke auf geographisch und historisch imaginierte Selbst- und Fremdzuschreibungen, Behauptungen von Identität und Alterität und die Wandelbarkeit von Peripherie und Zentrum.
+                      {{elif session.forced_language =='en': }}                     
+The conference transcript <a href="http://heiup.uni-heidelberg.de/catalog/book/291">Konstruktionen Europas in der Frühen Neuzeit. Geographische und historische Imaginationen</a> (Constructions of Europe in the Modern Era. Geographical and Histrocial Imaginations), published by Susan Richter, Michael Roth and Sebastian Meurer comprises the talks given during the 11th workshop of the <a href="http://www.historikerverband.de/arbeitsgruppen/ag-fruehe-neuzeit.html">Arbeitsgemeinschaft Frühe Neuzeit</a>. The authors’ aim was to focus on Europe in the context of distant world religions. The results of the conference open up new perspectives on the geographically and historically imagined self-attributions and external ascriptions, assertions of identity and otherness as well as the changeability of periphery and centre. 
+                        {{pass}}
+                      </p>
+                    </div>
+			             </div>
+                
                 <div class="media">
                     <div class="media-left pull-left">
                       <img alt="" src="{{=URL('static','images/press/home/uni_aktuelles.png')}}" style="width: 50px;" />
@@ -505,9 +524,9 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
                <div class="box">
                 <div class="box-gray aligncenter">
                 <h4>{{=T('New Titles')}}</h4>
-					       {{=IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/281/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}                
+					       {{=IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/203/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}                
                   </div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/281'))}}
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/203'))}}
                   </div>
                 </div>
               </div>
@@ -517,10 +536,10 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
                 <div class="box">
                   <div class="box-gray aligncenter">
                 <h4>{{=T('New Titles')}}</h4>
-        				{{=IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/195/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}                
+        				{{=IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/281/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}                
                   </div>
                   <div class="box-bottom">
-                    {{=A(T('More Information'),_href=URL('catalog','book/195'))}}
+                    {{=A(T('More Information'),_href=URL('catalog','book/281'))}}
                     </div>
 
                 </div>
@@ -550,13 +569,15 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
               </div>
 -->
 			  <div class="col-lg-3">
-               <div class="box">
-                <div class="box-gray aligncenter">
-                <h4>{{=T('Forthcoming')}}</h4>
-					       {{=IMG(_src=URL(myconf.take('web.application'),'static','images/catalog/cover_europa.jpg'),_alt='',_style='width:145px')}}                
+                <div class="box">
+                  <div class="box-gray aligncenter">
+                <h4>{{=T('New Titles')}}</h4>
+        				{{=IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/195/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}                
                   </div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','#forthcoming'))}}
-                  </div>
+                  <div class="box-bottom">
+                    {{=A(T('More Information'),_href=URL('catalog','book/195'))}}
+                    </div>
+
                 </div>
               </div>
 
