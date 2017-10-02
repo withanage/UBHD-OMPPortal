@@ -281,6 +281,7 @@ $(function() {
    // XXX TODO need adapt this
    const collection = 'heiup'
    document.styleSheets[0].insertRule(`#anno-block .dropdown-menu .active a { color: white !important; }`, 0)
+   const base = 'http://serv42.ub.uni-heidelberg.de/anno'
 
    // XXX keep as-is
    $("#anno-btn").click(() => $("#anno-block").is(':hidden') ? showAnnoBlock() : hideAnnoBlock())
@@ -299,8 +300,11 @@ $(function() {
      targetSource: document.location.href.replace(/[#\?].*$/, ''),
      container: document.getElementById('anno-block'),
      language: "{{=T.accepted_language or 'de'}}",
-     loginEndpoint: 'https://anno.ub.uni-heidelberg.de/anno/auth/login?from=' + encodeURIComponent(window.location.href),
-     tokenEndpoint: 'https://anno.ub.uni-heidelberg.de/anno/auth/token/' + collection,
+     annoEndpoint:     base + '/anno',
+     loginEndpoint:    base + '/auth/login?from=' + encodeURIComponent(window.location.href),
+     tokenEndpoint:    base + '/auth/token/' + collection,
+     registerEndpoint: base + '/auth/register',
+     requestEndpoint:  base + '/auth/request',
      purlId: document.location.hash.substr(1),
      enableLogoutButton: true,
      events: {
