@@ -1,0 +1,53 @@
+{{extend 'layout.html'}}
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+	
+            <div class="col-lg-3">
+                <article>
+                    <div class="post-image">
+		 	<img src="http://heiup.uni-heidelberg.de/heiup/static/files/presses/6/monographs/281/simple/cover.jpg">
+                  </div>
+
+                </article>
+                
+            </div>   
+
+            <div class="col-lg-9">
+               <article>
+
+
+     <div class="post-heading">
+
+        <h3>LECTURE NOTES &ndash; MATERIALIEN FÜR DIE LEHRE</h3>
+        </div>
+      {{if session.forced_language =='de': }}
+<p><i class="icon-quote-left"></i>Die <i>Lecture Notes</i> richten sich an Studierende insbesondere der MINT-Fächer, die sich in konzentrierter Form mit einem umschriebenen Thema befassen wollen. Die <i>Lecture Notes</i> berücksichtigen didaktisch aufbereitet die essentiellen Grundlagen des entsprechenden Teilgebietes der Wissenschaft, sie weisen aber auch auf laufende Diskussionen, offene Fragen und kontroverse Themen hin. Dabei tragen sie immer die individuelle Handschrift des Lehrenden. Daher bieten die <i>Lecture Notes</i> immer einen guten Zugang zum Thema &ndash; nicht nur für Studierende des jeweiligen Faches sondern auch über seine Grenzen hinaus.</p>
+
+<p>Die <i>Lecture Notes</i> sind noch im Aufbau; den Auftakt bilden Vorlesungsreihen zur Mathematik. Sie behandeln die fundamentalen Konzepte numerischer Verfahren für Grundaufgaben aus Analysis und Linearer Algebra, wobei sowohl theoretisch-mathematische als auch praktische Aspekte Berücksichtigung finden. Zur Erleichterung des Selbststudiums dienen theoretische und praktische Übungsaufgaben mit Lösungen. In Vorbereitung sind weitere Vorlesungsreihen aus den Gebieten der Physik und der Medizin, andere Fächer werden folgen.</p>
+  
+      
+      {{elif session.forced_language =='en': }}                 
+<p><i class="icon-quote-left"></i>                 
+<i>Lecture Notes</i> are aimed at students interested in exploring a specific topic in great depth. They provide a didactic account of essential fundamentals in a specific scientific field, while at the same time addressing and describing current topics of active research and controversy within the field. Lecture Notes on a given topic bear the mark of the specific lecturer who produced them, offering a great opportunity for students, and others, to gain unique insights into these topics and beyond from experts in the field.</p>
+
+<p><i>Lecture Notes</i>:w-resize is a work in progress and begins with lecture series in the field of mathematics. They cover fundamental concepts of the numerical methods used in basic calculations in analysis and linear algebra, including both mathematical theory and practical applications. To aid self-study there are exercises covering theory and practice, with solutions. Further lecture series in the fields of physics and medicine are being prepared, and other subjects will follow later.</p>
+      {{pass}}
+
+                    <div class="widget">
+                        <h5 class="widgetheading"></h5>
+                        <ul class="tags">          
+                            <li>{{=A(T('Volumes'),_href=URL('catalog','series/hst'))}}
+                        </ul>
+                    </div>
+
+
+                </article>
+                
+            </div>
+
+    </div>   
+
+   </div>
+</section>
