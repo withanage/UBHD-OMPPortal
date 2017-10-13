@@ -146,14 +146,14 @@ pass
 								<br/>
 								<h5>
 									{{if editors:}}
-									{{=formatContributors(editors)}}
+									{{=formatContributors(editors, max_contributors=4)}}
 									{{if len(editors) > 1:}}
 									{{=T("(Eds.)")}}
 									{{else:}}
 									{{=T("(Ed.)")}}
 									{{pass}}
 									{{else:}}
-									{{=formatContributors(authors)}}
+									{{=formatContributors(authors, max_contributors=4)}}
 									{{pass}}
 								</h5>
 							</div>
@@ -175,7 +175,7 @@ pass
 							{{pass}}
 							{{if bios:}}
 							{{num_bios = len([b for b in bios if b[1] != ""])}}
-							{{if bios_role != "author" or num_bios < 4:}}
+							{{if bios_role != "author" or num_bios < 5:}}
 							{{if num_bios != 0:}}
 							
 							<div class="separator"></div>
