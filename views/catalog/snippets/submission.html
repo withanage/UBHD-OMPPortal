@@ -4,14 +4,14 @@
 		{{editors = submission.associated_items.get('editors', [])}}
 		{{authors = submission.associated_items.get('authors', [])}}
 		{{if editors:}}
-			{{=formatContributors(editors)}}
+			{{=formatContributors(editors, max_contributors=4)}}
 				{{if len(editors) > 1:}}
 					{{=T("(Eds.)")}}
 				{{else:}}
 					{{=T("(Ed.)")}}
 				{{pass}}
 		{{else:}}
-			{{=formatContributors(authors)}}
+			{{=formatContributors(authors, max_contributors=4)}}
 		{{pass}}
 	</h4>
 	</div>
