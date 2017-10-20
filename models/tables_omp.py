@@ -210,6 +210,13 @@ db.define_table("series",
                 migrate=False
                 )
 
+
+db.define_table("series_categories",
+                Field("series_id", "integer"),
+                Field("category_id", "integer"),
+                primarykey=['series_id'],
+                migrate=False
+                )
 db.define_table("series_editors",
                 Field("press_id", "integer"),
                 Field("series_id", "integer"),
