@@ -1,12 +1,5 @@
 {{extend 'layout.html'}}
 {{from ompformat import formatContributors, getSeriesImageLink}}
-{{for s in all_series:
-cat =s.associated_items.get('series_categories', None)
-for c in cat:
-=c.settings.getLocalizedValue('title', locale)
-pass
-pass
-}}
 <div id="main" class="container">
   <section id="content">
     <div class="container">
