@@ -1,6 +1,12 @@
 {{extend 'layout.html'}}
 {{from ompformat import formatContributors, getSeriesImageLink}}
-
+{{for s in all_series:
+cat =s.associated_items.get('series_categories', None)
+for c in cat:
+=c.settings.getLocalizedValue('title', locale)
+pass
+pass
+}}
 <div id="main" class="container">
   <section id="content">
     <div class="container">
@@ -22,6 +28,8 @@
             {{series_subtitle = series.settings.getLocalizedValue('subtitle', locale)}}
               <h3>{{=series_title}}</h3>
               <h4>{{=series_subtitle}}</h4>
+
+
             {{series_editors = series.associated_items.get('series_editors')}}
             {{if series_editors:}}
               <p>
@@ -33,6 +41,18 @@
               {{=formatContributors(series_editors, max_contributors=3, et_al=True)}}
               </p>
             {{pass}}
+
+            <!-- Begin Series Category -->
+            {{cat =series.associated_items.get('series_categories', None)}}
+            {{for category in cat:}}
+            {{if category:}}
+            <div id="spartenmarker" class="">
+            {{category_path=ompdal.getCategory(category.attributes.get('category_id')).get('path')}}
+            {{=A(category.settings.getLocalizedValue('title', locale),_href=URL('category','info/'+str(category_path)))}}
+            </div>
+            {{pass}}
+            {{pass}}
+            <!-- Begin Series Category -->
             </div>
             <p>
               <i class="icon-quote-left"></i>
