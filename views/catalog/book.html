@@ -82,6 +82,7 @@ pass
 						<div class="">
 							{{for pf in digital_publication_formats:}}
 							{{full_file = pf.associated_items.get('full_file')}}
+
 							{{if full_file and ("xml" in full_file.attributes.file_type or "html" in full_file.attributes.file_type):}}
 							<div class="btn-group" role="group" aria-label="1">
 								<li type="button" class="btn btn-default"><a href="{{=downloadLink(request, full_file.attributes, myconf.take('web.url'), full_file.settings.getLocalizedValue("vgWortPublic", ""))}}" target="_blank">{{=T('Read')}}</a></li>
@@ -99,13 +100,15 @@ pass
 									{{format_name=pf.settings.getLocalizedValue('name', locale)}}
 								{{full_epub_file  = pf.associated_items.get('full_epub_file')}}
 									{{if full_epub_file:}}
-										<li role="presentation"><a role="menuitem" tabindex="0" href="{{=downloadLink(request, full_epub_file.attributes, myconf.take('web.url'), full_epub_file.settings.getLocalizedValue("vgWortPublic", ""))}}">{{=format_name}}</a></li>
+									{{f_size=full_epub_file.attributes.get('file_size')/(1024*1024)}}
+										<li role="presentation"><a role="menuitem" tabindex="0" href="{{=downloadLink(request, full_epub_file.attributes, myconf.take('web.url'), full_epub_file.settings.getLocalizedValue("vgWortPublic", ""))}}">{{='{} {} M'.format(format_name,f_size)}}</a></li>
 									{{pass}}
 								{{full_file = pf.associated_items.get('full_file')}}
-								{{if full_file and not "html" in full_file.attributes.file_type and not "xml" in full_file.attributes.file_type:}}
 
+								{{if full_file and not "html" in full_file.attributes.file_type and not "xml" in full_file.attributes.file_type:}}
+									{{f_size=full_file.attributes.get('file_size')/(1024*1024)}}
 									<li role="presentation"><a role="menuitem" tabindex="-1" href="{{=downloadLink(request, full_file.attributes, myconf.take('web.url'), full_file.settings.getLocalizedValue("vgWortPublic", ""))}}">
-										{{=format_name}}</a></li>
+									{{='{}, {}M'.format(format_name,f_size)}}</a></li>
 
 
 								{{pass}}
