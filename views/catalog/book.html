@@ -304,9 +304,10 @@ $(function() {
      loginEndpoint:    base + '/auth/login?from=' + encodeURIComponent(window.location.href),
      tokenEndpoint:    base + '/auth/token/' + collection,
      registerEndpoint: base + '/auth/register',
-     requestEndpoint:  base + '/auth/request',
+     requestEndpoint:  base + '/auth/request?c=' + collection,
      purlId: document.location.hash.substr(1),
      enableLogoutButton: true,
+     enableRegisterButton: false,
      events: {
        fetched(list) {
          document.querySelector(".anno-number").innerHTML = list.length
