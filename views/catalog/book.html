@@ -163,8 +163,9 @@ pass
 							</div>
 							<h3>{{=XML(cleanTitle)}}</h3>
 							<h4>{{=subtitle}}</h4>
-
+							{{if series:}}
 							<i>{{=A(series_name,_href=URL('series','/info/{}'.format(series.attributes.get('path'))))}}</i>
+							{{pass}}
 							<p>
 								<i class="icon-quote-left"></i>
 								{{=XML(abstract)}}
