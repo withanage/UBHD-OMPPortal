@@ -18,6 +18,7 @@
 							{{=IMG(_src=coverImageLink(request, press.press_id, submission.submission_id))}}
 						</div>
 					</article>
+
 {{
 cleanTitle = " ".join([submission_settings.getLocalizedValue('prefix', locale), submission_settings.getLocalizedValue('title', locale)])
 subtitle = submission_settings.getLocalizedValue('subtitle', locale)
@@ -82,6 +83,7 @@ pass
 						<div class="summary">
 							{{for pf in digital_publication_formats:}}
 							{{full_file = pf.associated_items.get('full_file')}}
+
 							{{if full_file and ("xml" in full_file.attributes.file_type or "html" in full_file.attributes.file_type):}}
 							<div class="btn-group" role="group" aria-label="1">
 								<li type="button" class="btn btn-default"><a href="{{=downloadLink(request, full_file.attributes, myconf.take('web.url'), full_file.settings.getLocalizedValue("vgWortPublic", ""))}}" target="_blank">{{=T('Read')}}</a></li>
@@ -99,13 +101,15 @@ pass
 									{{format_name=pf.settings.getLocalizedValue('name', locale)}}
 								{{full_epub_file  = pf.associated_items.get('full_epub_file')}}
 									{{if full_epub_file:}}
-										<li role="presentation"><a role="menuitem" tabindex="0" href="{{=downloadLink(request, full_epub_file.attributes, myconf.take('web.url'), full_epub_file.settings.getLocalizedValue("vgWortPublic", ""))}}">{{=format_name}}</a></li>
+									{{f_size=full_epub_file.attributes.get('file_size')/(1024*1024)}}
+										<li role="presentation"><a role="menuitem" tabindex="0" href="{{=downloadLink(request, full_epub_file.attributes, myconf.take('web.url'), full_epub_file.settings.getLocalizedValue("vgWortPublic", ""))}}">{{='{} ({}MB)'.format(format_name,f_size)}}</a></li>
 									{{pass}}
 								{{full_file = pf.associated_items.get('full_file')}}
-								{{if full_file and not "html" in full_file.attributes.file_type and not "xml" in full_file.attributes.file_type:}}
 
+								{{if full_file and not "html" in full_file.attributes.file_type and not "xml" in full_file.attributes.file_type:}}
+									{{f_size=full_file.attributes.get('file_size')/(1024*1024)}}
 									<li role="presentation"><a role="menuitem" tabindex="-1" href="{{=downloadLink(request, full_file.attributes, myconf.take('web.url'), full_file.settings.getLocalizedValue("vgWortPublic", ""))}}">
-										{{=format_name}}</a></li>
+									{{='{} ({}MB)'.format(format_name,f_size)}}</a></li>
 
 
 								{{pass}}
@@ -165,6 +169,9 @@ pass
 							</div>
 							<h3>{{=XML(cleanTitle)}}</h3>
 							<h4>{{=subtitle}}</h4>
+							{{if series:}}
+							<i>{{=A(series_name,_href=URL('series','/info/{}'.format(series.attributes.get('path'))))}}</i>
+							{{pass}}
 							<p>
 								<i class="icon-quote-left"></i>
 								{{=XML(abstract)}}
@@ -197,7 +204,7 @@ pass
 							{{pass}}
 							{{pass}}
 							{{pass}}
-							
+
 							
 							
 						</div>
