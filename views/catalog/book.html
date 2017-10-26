@@ -18,6 +18,7 @@
 							{{=IMG(_src=coverImageLink(request, press.press_id, submission.submission_id))}}
 						</div>
 					</article>
+
 {{
 cleanTitle = " ".join([submission_settings.getLocalizedValue('prefix', locale), submission_settings.getLocalizedValue('title', locale)])
 subtitle = submission_settings.getLocalizedValue('subtitle', locale)
@@ -162,7 +163,8 @@ pass
 							</div>
 							<h3>{{=XML(cleanTitle)}}</h3>
 							<h4>{{=subtitle}}</h4>
-							<i>{{=series_name}}</i>
+
+							<i>{{=A(series_name,_href=URL('series','/info/{}'.format(series.attributes.get('path'))))}}</i>
 							<p>
 								<i class="icon-quote-left"></i>
 								{{=XML(abstract)}}
