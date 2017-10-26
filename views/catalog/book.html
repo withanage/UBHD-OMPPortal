@@ -280,17 +280,17 @@ pass
 <script src="{{= cdn }}/authorities-client/latest/authorities-client.js"></script>
 <script src="{{= cdn }}/xrx-utils/latest/xrx-utils.js"></script>
 <script src="{{= cdn }}/xrx-vue/latest/xrx-vue.js"></script>
-<script src="{{= cdn }}/anno-common/dev/anno-common.js"></script>
-<script src="{{= cdn }}/anno-frontend/dev/anno-frontend.js"></script>
+<script src="{{= cdn }}/anno-common/0.0.4/anno-common.js"></script>
+<script src="{{= cdn }}/anno-frontend/0.0.5/anno-frontend.js"></script>
 
 <script>
 $(function() {
    // XXX TODO need adapt this
    const collection = 'heiup'
    document.styleSheets[0].insertRule(`#anno-block .dropdown-menu .active a { color: white !important; }`, 0)
-   const base = 'https://anno.ub.uni-heidelberg.de/anno'
 
    // XXX keep as-is
+   const annoEndpoint = 'https://anno.ub.uni-heidelberg.de/anno'
    $("#anno-btn").click(() => $("#anno-block").is(':hidden') ? showAnnoBlock() : hideAnnoBlock())
    function showAnnoBlock() {
      $(".summary > *").each((idx, el) => { if (!el.classList.contains('btn-group')) $(el).hide() })
@@ -307,11 +307,11 @@ $(function() {
      targetSource: document.location.href.replace(/[#\?].*$/, ''),
      container: document.getElementById('anno-block'),
      language: "{{=T.accepted_language or 'de'}}",
-     annoEndpoint:     base + '/anno',
-     loginEndpoint:    base + '/auth/login?from=' + encodeURIComponent(window.location.href),
-     tokenEndpoint:    base + '/auth/token/' + collection,
-     registerEndpoint: base + '/auth/register',
-     requestEndpoint:  base + '/auth/request?c=' + collection,
+     annoEndpoint,
+     loginEndpoint:    annoEndpoint + '/auth/login?from=' + encodeURIComponent(window.location.href),
+     tokenEndpoint:    annoEndpoint + '/auth/token/' + collection,
+     registerEndpoint: annoEndpoint + '/auth/register',
+     requestEndpoint:  annoEndpoint + '/auth/request?c=' + collection,
      purlId: document.location.hash.substr(1),
      enableLogoutButton: true,
      enableRegisterButton: false,
@@ -326,5 +326,6 @@ $(function() {
        error(err) { console.warn(err) },
      }
    })
+
  })
 </script>
