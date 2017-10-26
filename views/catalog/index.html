@@ -42,7 +42,7 @@
                             {{series = submission.associated_items.get('series', None)}}
 
                             {{if series:}}
-               mama                  {{series_title = series.settings.getLocalizedValue('title', locale)}}
+                                {{series_title = series.settings.getLocalizedValue('title', locale)}}
                                 {{series_subtitle = series.settings.getLocalizedValue('subtitle', locale)}}
                                 <i>{{=series_title}}{{ if series_subtitle: }} – {{=series_subtitle}}{{pass}}{{if submission.attributes.series_position:}}, {{=T('Vol.')}} {{=submission.attributes.series_position}} {{pass}}</i>
                             {{pass}}
