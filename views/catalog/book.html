@@ -102,14 +102,14 @@ pass
 								{{full_epub_file  = pf.associated_items.get('full_epub_file')}}
 									{{if full_epub_file:}}
 									{{f_size=full_epub_file.attributes.get('file_size')/(1024*1024)}}
-										<li role="presentation"><a role="menuitem" tabindex="0" href="{{=downloadLink(request, full_epub_file.attributes, myconf.take('web.url'), full_epub_file.settings.getLocalizedValue("vgWortPublic", ""))}}">{{='{} {} M'.format(format_name,f_size)}}</a></li>
+										<li role="presentation"><a role="menuitem" tabindex="0" href="{{=downloadLink(request, full_epub_file.attributes, myconf.take('web.url'), full_epub_file.settings.getLocalizedValue("vgWortPublic", ""))}}">{{='{} ({}M)'.format(format_name,f_size)}}</a></li>
 									{{pass}}
 								{{full_file = pf.associated_items.get('full_file')}}
 
 								{{if full_file and not "html" in full_file.attributes.file_type and not "xml" in full_file.attributes.file_type:}}
 									{{f_size=full_file.attributes.get('file_size')/(1024*1024)}}
 									<li role="presentation"><a role="menuitem" tabindex="-1" href="{{=downloadLink(request, full_file.attributes, myconf.take('web.url'), full_file.settings.getLocalizedValue("vgWortPublic", ""))}}">
-									{{='{}, {}M'.format(format_name,f_size)}}</a></li>
+									{{='{} ({}M)'.format(format_name,f_size)}}</a></li>
 
 
 								{{pass}}
