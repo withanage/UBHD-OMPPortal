@@ -19,7 +19,7 @@
             <div class="post-heading">
             {{series_title = " ".join([series.settings.getLocalizedValue('prefix', locale), series.settings.getLocalizedValue('title', locale)])}}
             {{series_subtitle = series.settings.getLocalizedValue('subtitle', locale)}}
-              <h3>{{=series_title}}</h3>
+              <h3 class="col-lg-9 col-md-9 col-xs-7">{{=series_title}}</h3>
             <!-- Begin Series Category -->
             {{cat =series.associated_items.get('series_categories', None)}}
             {{for category in cat:}}
