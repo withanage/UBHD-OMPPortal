@@ -2255,7 +2255,7 @@ ul.standard li {
   color: #909090;
 } 
 
-#spartenmarker {
+.spartenmarker {
    color: #979797;
    font-size: 115%;
    margin-top: 0.5ex;
@@ -2264,12 +2264,12 @@ ul.standard li {
    text-transform: uppercase;
 } 
 
-#spartenmarker a {
+.spartenmarker a {
   text-decoration: none;
   color: #979797;
 }
 
-#spartenmarker::after {
+.spartenmarker::after {
    color: #979797;
   content: "■";
   font-size: 165%;

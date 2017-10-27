@@ -39,7 +39,7 @@
             {{cat =series.associated_items.get('series_categories', None)}}
             {{for category in cat:}}
             {{if category:}}
-            <div id="spartenmarker" class="">
+            <div class="spartenmarker">
             {{category_path=ompdal.getCategory(category.attributes.get('category_id')).get('path')}}
             {{=A(category.settings.getLocalizedValue('title', locale),_href=URL('category','info/'+str(category_path)))}}
             </div>
