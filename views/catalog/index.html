@@ -11,7 +11,9 @@
 
             </div>
             <div class="col-lg-9">
-
+             <div class="btn-group pull-right">
+             <a href="#forthcoming" title="{{=T('Forthcoming')}}"><button class="btn btn-default" type="button">{{=T('Forthcoming')}}</button></a><!--<a href="{{=URL('catalog#forthcoming')}}" title="{{=T('Forthcoming')}}">{{=T('Forthcoming')}}</a>--></button> 
+             </div>
             {{=b.filter_select}}
             {{try:
             del b.sort_select[1][4]
