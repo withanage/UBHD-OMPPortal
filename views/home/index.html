@@ -488,7 +488,8 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
                     </div>
                     <div class="media-body">
                       <p class="media-heading">24.06.2016</p>
-                      {{if session.forced_language =='de': }} <h5>Neu erschienen: <i>Wir haben ja alle Deutschland nicht gekannt</i><br /> von Wolfgang Kemp</h5>{{elif session.forced_language =='en': }} <h5>New release: <i>Wir haben ja alle Deutschland nicht gekannt</i><br /> by Wolfgang Kemp</h5>{{pass}}</p> 
+                      {{if session.forced_language =='de': }} <h5>Neu erschienen: <i>Wir haben ja alle Deutschland nicht gekannt</i><br /> von Wolfgang Kemp</h5>
+                      {{elif session.forced_language =='en': }} <h5>New release: <i>Wir haben ja alle Deutschland nicht gekannt</i><br /> by Wolfgang Kemp</h5>{{pass}} 
 
                       <p class="boxText">{{if session.forced_language =='de': }} <i>{{=A(T('Wir haben ja alle Deutschland nicht gekannt'),_href=URL('catalog','book/90'))}}</i> – Das neue, fast 500 Seiten starke Buch von Wolfgang Kemp widmet sich in Texten und Bildern Deutschland in der Zeit der Weimarer Republik. Nach 1918 musste sich das Land nicht nur politisch und sozial neu definieren, sondern sich auch geographisch und als kulturelle Einheit neu entdecken. Es setzte ein Prozess ein, den man mit einem Begriff der Zeit als „Innere Kolonisation“ bezeichnen kann. Zur Kompensation der vielen Verluste machten sich Wissenschaftler und Künstler daran, jene Dimension, die in Frankreich „la France profonde“ heißt, zu erschließen, das „innere“ Deutschland also, seine einzigartige Kulturdichte. Die Ökonomie des Sparenmüssens wurde zur Überflusswirtschaft der geistigen und materiellen Reichtümer konvertiert. 
                       {{elif session.forced_language =='en': }}
@@ -739,6 +740,6 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
           
           
         </div>
-      </div>  
   </section>
-</div>
+ </div>  
+
