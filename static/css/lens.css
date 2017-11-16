@@ -1570,3 +1570,6 @@ ol.content.ordered {
   list-style-type: upper-greek;
 }
 
+.lens-article .content-node.html-table table td {
+font-size: 0.8em;
+}
