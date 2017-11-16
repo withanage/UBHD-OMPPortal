@@ -20,7 +20,7 @@ UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp](https://pkp.s
 - Detailed usage statistics
 - Easy migration using web2py app structure
 - VGWORT plugin for royalties (for Germany, requires pythonn- urllib to check if the vgwort is enabled )
-
+- Annotation Support
 
 
 # License
