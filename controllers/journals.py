@@ -16,6 +16,8 @@ def religions():
 def tcs():
     return dict()
 
+def heied():
+    return dict()
 
 def home():
     return dict()
