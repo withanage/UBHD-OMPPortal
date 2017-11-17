@@ -18,42 +18,65 @@
                  {{if session.forced_language =='de': }}
                             <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographische Angaben</h5>
                             <p>heiEDUCATION Journal<br>
-                            <!--
+
                             <p>Herausgeber</p>
                             <ul>
-                              <li>Monica Juneja</li>
-                              <li>Joachim Kurtz</li>
-                              <li>Rudolf Wagner</li>
+                              <li>Prof. Dr. Beatrix Busse</li>
+                              <li>Prof. Dr. Gerhard Härle</li>
                             </ul>
-                            <p>Managing Editor</p>
+                            <p>Redaktion</p>
                               <ul>
-                                <li>Andrea Hacker</li>
+                                <li>Kathrin Strobel (verantwortlich)</li>
+								<li>Dr. Felix Heizmann</li>
                               </ul>  
+							<p>Beratende Herausgeber</p>
+							<ul>
+							   <li>Prof. Dr. Tobias Dörfler</li>
+                               <li>Prof. Dr. Michael Haus</li>
+                               <li>Prof. Dr. Jörg Peltzer</li>
+                               <li>PD Dr. Stefanie Samida</li>
+                               <li>Dr. Cristian D. Magnus</li>
+                               <li>Dr. Sebastian Mahner</li>
+                               <li>Dr. Stefan Nessler</li>
+                               <li>Dr. Christiane Wienand</li>
+                               <li>Dr. Alexander Wohnig</li>
+							</ul>
                             <p>Heidelberg University Publishing, Heidelberg</p>
-                            <p>ISSN: 2191-6411</p>  
-
+                            <!--<p>ISSN: 2191-6411</p>  -->
+                            <!--
                             <p>Dieses Werk ist unter der<br> <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons-Lizenz 4.0<br /> (CC BY-SA 4.0)</a> veröffentlicht.<br>
                             <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0"><img alt="Creative Commons Lizenz BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p>
+                            -->
 
-                             -->
              {{elif session.forced_language =='en': }}
              
 <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographic details</h5>
                             <p>heiEDUCATION Journalbr>
-                            <!--
                             <p>Editors</p>
                             <ul>
-                              <li>Monica Juneja</li>
-                              <li>Joachim Kurtz</li>
-                              <li>Rudolf Wagner</li>
+                              <li>Prof. Dr. Beatrix Busse</li>
+                              <li>Prof. Dr. Gerhard Härle</li>
                             </ul>
-                            <p>Managing Editor</p>
+                            <p>Assistant Editors</p>
                               <ul>
-                                <li>Andrea Hacker</li>
+                                <li>Kathrin Strobel (verantwortlich)</li>
+								<li>Dr. Felix Heizmann</li>
                               </ul>  
+							<p>Consulting Editors</p>
+							<ul>
+							   <li>Prof. Dr. Tobias Dörfler</li>
+                               <li>Prof. Dr. Michael Haus</li>
+                               <li>Prof. Dr. Jörg Peltzer</li>
+                               <li>PD Dr. Stefanie Samida</li>
+                               <li>Dr. Cristian D. Magnus</li>
+                               <li>Dr. Sebastian Mahner</li>
+                               <li>Dr. Stefan Nessler</li>
+                               <li>Dr. Christiane Wienand</li>
+                               <li>Dr. Alexander Wohnig</li>
+							</ul>
                             <p>Heidelberg University Publishing, Heidelberg</p>
-                            <p>ISSN: 2191-6411</p>  
-
+                            <!--<p>ISSN: 2191-6411</p>  -->
+                            <!--
                             <p>This work is licensed under a <br> <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons License 4.0<br> (CC BY-SA 4.0)</a>.<br>
                             <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; License CC BY-SA 4.0"><img alt="Creative Commons License BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p>             
 -->
@@ -70,10 +93,12 @@
             <div class="col-lg-9">
 		
                <article>
-			   <!--
+
         <div id="infoBoxRechts" class="col-lg-3">
+		<!--
           <div class="box">
             <div class="box-gray"  style="height: auto;">
+	
                  {{if session.forced_language =='de': }}
                 <p class="boxText"><b>RSS für die aktuelle Ausgabe</b></p>
              {{elif session.forced_language =='en': }}
@@ -85,7 +110,7 @@
 	<a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/gateway/plugin/WebFeedGatewayPlugin/rss"><img src="http://heiup.uni-heidelberg.de/journals/plugins/generic/webFeed/templates/images/rss10_logo.gif" alt="RSS1 logo" border="0" /></a>
                   </div>
                 </div>
-             
+             -->
 
                 <div class="box">
                   <div class="box-gray"  style="height: auto;">
@@ -95,7 +120,7 @@
                                  
 
                     <ul class="standard">
-                      <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/about/submissions#authorGuidelines">Author Guidelines</a></li>
+                      <li><a href="{{=URL(myconf.take('web.application'),'static','medien/journals/heieducation_autorenhinweise.pdf')}}">Author Guidelines</a></li>
                     </ul>
                   </div>
                 </div>
@@ -105,12 +130,12 @@
                  
                 <p class="boxText"><b>{{=T('Contact')}}</b></p>
                     <ul class="standard">
-                      <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/about/contact">Andrea Hacker</a></li>
+                      <li><a href="mailto:heied-journal@heiedu.uni-heidelberg.de">Kathrin Strobel</a></li>
                     </ul>
                   </div>
                 </div>                
               </div>
-
+<!--
             <div class="btn-group" role="group" aria-label="1">
              <ul class="schaltflaeche">
 				 <li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/issue/current/showToc" title="{{=T('current issue')}}">{{=T('read current issue')}}</a></li>
@@ -122,20 +147,32 @@
 				 <li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/issue/archive" title="{{=T('Archive')}}">{{=T('Archive')}}</a></li>
             </ul> 
 			</div>
-			
+	-->		
      <div class="post-heading">
-     -->
+
      
                   <h3>heiEDUCATION Journal</h3>
 				  
-				  <!--
+
         </div>
--->
+
                  {{if session.forced_language =='de': }}
-                 <p>Weitere Informationen folgen</p>
+                 <p>Das <i>heiEDUCATION Journal. Transdisziplinäre Studien zur Lehrerbildung</i> ist eine neue fächer- und institutionenübergreifende wissenschaftliche Online-Zeitschrift, die an der <a href="http://www.hse-heidelberg.de/" title="Homepage der Heidelberg School of Education">Heidelberg School of Education</a> verortet ist. Die Heidelberg School of Education ist eine gemeinsame hochschulübergreifende Einrichtung der Pädagogischen Hochschule Heidelberg und der Universität Heidelberg.</p>
+
+                 <p>aktuell. In mindestens zwei Ausgaben pro Jahr behandelt das heiEDUCATION Journal aktuelle und relevante Themen der Lehrerbildung aus unterschiedlichen Domänen und Disziplinen.</p>
+
+                 <p>transdisziplinär. Die Zeitschrift richtet sich an alle Akteurinnen und Akteure der Lehrerbildung: Wissenschaftlerinnen und Wissenschaftler, Studierende, für die Fort- und Weiterbildung Verantwortliche sowie berufstätige Lehrerinnen und Lehrer.</p>
+
+                 <p>dialogisch. Die Rubrik experiment eröffnet ein Forum für den Austausch von Meinungen, für die Kommunikation über die Grenzen der Fächer und Institutionen hinweg sowie für die Diskussion anwendungsbezogener Konzepte.</p>
+
+                 <p>digital. Das heiEDUCATION Journal ist als Online-Zeitschrift jederzeit und überall zugänglich. Bei Interesse besteht die Möglichkeit, die Zeitschrift in gedruckter Form zu bestellen (Print on Demand).</p>
+
+                <p>peer-reviewed. Alle eingereichten Beiträge werden in einem Blind-Peer-Review-Verfahren von nationalen und internationalen Fachexpertinnen und -experten hinsichtlich ihrer wissenschaftlichen Qualität, ihrer Forschungsaktualität und ihrer Relevanz begutachtet.</p>
+
+                <p>fokussiert. Die Ausgaben bieten entweder forschungsaktuelle Einzelbeiträge oder folgen einem von den Herausgebern gesetzten Themenschwerpunkt. Zudem besteht auch für andere Wissenschaftler/teams die Möglichkeit, thematisch fokussierte Einzelausgaben herauszugeben (Special Editions). Bei Interesse wenden Sie sich bitte an heied-journal@heiedu.uni-heidelberg.de<mailto:heied-journal@heiedu.uni-heidelberg.de>.</p>
 				 
              {{elif session.forced_language =='en': }}
-                <p>More information coming soon</p>
+                <p>Coming soon</p>
 
 
 {{pass}}     
@@ -152,9 +189,9 @@
                             <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/index">View Journal</a></li>
                         </ul>
 {{pass}}     
-          -->             
+                 
                     </div>
-
+     --> 
                      			
 			
                 </article>
