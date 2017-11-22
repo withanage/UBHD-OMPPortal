@@ -20,7 +20,7 @@
              <div class="col-lg-9 col-md-9 col-xs-7">
             {{series_title = " ".join([series.settings.getLocalizedValue('prefix', locale), series.settings.getLocalizedValue('title', locale)])}}
             {{series_subtitle = series.settings.getLocalizedValue('subtitle', locale)}}
-              <h3>{{=series_title}}</h3></div>
+              <h3 style="margin-left:-15px">{{=series_title}}</h3></div>
               
             <!-- Begin Series Category -->
             {{cat =series.associated_items.get('series_categories', None)}}
