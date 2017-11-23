@@ -825,7 +825,9 @@ span.annotation.formula_reference, span.publication_reference {
 
 .article span.superscript, .article sup {
   vertical-align: super;
-  font-size: 12px; }
+  font-size: 12px; 
+  line-height: 0; /* Issue #102 - Verringerung ZAB FN - 23.11.17 - voe */
+}
 
 .article span.subscript, .article sub {
   vertical-align: sub;
@@ -933,7 +935,7 @@ span.annotation.formula_reference, span.publication_reference {
   cursor: pointer;
   padding-right: 3px;
   padding-left: 3px;
-  vertical-align: super;
+  /*vertical-align: super; Issue #102: Verringerung ZAB FN - 23.11.17 voe*/
   font-size: smaller; }
 
 .content-node .cross_reference {
