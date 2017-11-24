@@ -932,12 +932,24 @@ span.annotation.formula_reference, span.publication_reference {
   border-bottom: 1px solid rgba(11, 157, 217, 0);
   color: #900;
   cursor: pointer;
-  font-size: smaller; 
-  line-height: 0; /** Issue Nr. 102: Korrektur Zeilenhöhe der FN - 24.11.17 voe **/
+  font-size: smaller;   
   padding-right: 3px;
   padding-left: 3px;
   vertical-align: super; 
 }
+
+/** Issue Nr. 102: Korrektur Zeilenhöhe und Vereinheitlichung der Größe FN-Ziffern - 24.11.17 voe **/
+.content-node .footnote_reference {
+  font-size: 1em;
+  line-height: 0; 
+}
+
+.footnote_reference > span.superscript {
+ font-size: 1em;
+ vertical-align: baseline;
+}
+
+/**************************************************************/
 
 .content-node .cross_reference {
   background: rgba(0, 0, 0, 0.05);
