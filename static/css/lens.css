@@ -940,7 +940,7 @@ span.annotation.formula_reference, span.publication_reference {
 
 /** Issue Nr. 102: Korrektur Zeilenhöhe und Vereinheitlichung der Größe FN-Ziffern - 24.11.17 voe **/
 .content-node .footnote_reference {
-  font-size: 1em;
+  font-size: smaller;
   line-height: 0; 
 }
 
