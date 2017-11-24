@@ -938,15 +938,19 @@ span.annotation.formula_reference, span.publication_reference {
   vertical-align: super; 
 }
 
-/** Issue Nr. 102: Korrektur Zeilenhöhe und Vereinheitlichung der Größe FN-Ziffern - 24.11.17 voe **/
+/** Issue Nr. 102: Korrektur Zeilenhöhe und Vereinheitlichung der Größe Fußnoten-Ziffern - 24.11.17 voe **/
 .content-node .footnote_reference {
-  font-size: smaller;
+  font-size: 12px;
   line-height: 0; 
 }
 
 .footnote_reference > span.superscript {
- font-size: 1em;
+ font-size: 12px;
  vertical-align: baseline;
+}
+
+.content-node.text .content {
+	line-height: 1em;
 }
 
 /**************************************************************/
