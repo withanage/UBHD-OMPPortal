@@ -824,9 +824,8 @@ span.annotation.formula_reference, span.publication_reference {
   font-style: italic; }
 
 .article span.superscript, .article sup {
-  vertical-align: super;
-  font-size: 12px; 
-  line-height: 0; /* Issue #102 - Verringerung ZAB FN - 23.11.17 - voe */
+  vertical-align: super; 
+  font-size: 12px;   
 }
 
 .article span.subscript, .article sub {
@@ -930,13 +929,15 @@ span.annotation.formula_reference, span.publication_reference {
 
 .content-node .footnote_reference {
   background: rgba(11, 157, 217, 0);
-  color: #900;
   border-bottom: 1px solid rgba(11, 157, 217, 0);
+  color: #900;
   cursor: pointer;
+  font-size: smaller; 
+  line-height: 0; /** Issue Nr. 102: Korrektur Zeilenhöhe der FN - 24.11.17 voe **/
   padding-right: 3px;
   padding-left: 3px;
-  /*vertical-align: super; Issue #102: Verringerung ZAB FN - 23.11.17 voe*/
-  font-size: smaller; }
+  vertical-align: super; 
+}
 
 .content-node .cross_reference {
   background: rgba(0, 0, 0, 0.05);
