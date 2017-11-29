@@ -828,7 +828,6 @@ h4.heading {
 
 .widgetheading {
 	width:100%;
-
 	padding:0;
 }
 
@@ -2223,6 +2222,7 @@ li.active {
 .widget ul.tags li a {
   color: #FFF;
 }
+
 
 .navbar-default .navbar-nav > .open > a {
   padding-left: 10px;
