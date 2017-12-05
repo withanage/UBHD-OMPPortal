@@ -1,0 +1,189 @@
+{{extend 'layout.html'}}
+
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+	
+            <div class="col-lg-3">
+                <article>
+                    <div class="post-image">
+		 	<img src="{{=URL(myconf.take('web.application'),'static','images/journals/cover_heso.jpg')}} ">
+                  </div>
+
+                </article>
+                
+                <div class="box">
+			             <div class="box-gray alignleft" style="height: auto;">
+                 {{if session.forced_language =='de': }}
+                            <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographische Angaben</h5>
+                            <p>Handbuch Europäische Sprachkritik Online (HESO)<br>
+
+                            <p>Herausgeber</p>
+                            <ul>
+                              <li>Prof. Dr. Ekkehard Felder</li>
+                              <li>PDr. Horst Schwinn</li>
+							  <li>Prof. Dr. Beatrix Busse</li>
+							  <li>Prof. Dr. Ludwig M. Eichinger</li>
+							  <li>Sybille Große</li>
+							  <li>Jadranka Gvozdanović</li>
+							  <li>Katharina Jacob</li>
+							  <li>Edgar Radtke</li>
+                            </ul>
+                            <p>Redaktion</p>
+                              <ul>
+                                <li>Vanessa Münch</li>
+                              </ul>  
+							<p>Gutachterinnen und Gutachern</p>
+							<ul>
+							   <li>Acht anonyme Gutachterinnen und Gutachern aus dem In- und Ausland</li>
+							</ul>
+                            <p>Heidelberg University Publishing, Heidelberg</p>
+                            <!--<p>ISSN: 2191-6411</p>  -->
+                            <!--
+                            <p>Dieses Werk ist unter der<br> <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons-Lizenz 4.0<br /> (CC BY-SA 4.0)</a> veröffentlicht.<br>
+                            <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0"><img alt="Creative Commons Lizenz BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p>
+                            -->
+
+             {{elif session.forced_language =='en': }}
+             
+<h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographic details</h5>
+                            <p>Handbuch Europäische Sprachkritik Online (HESO)<br>
+                            <p>Editors</p>
+                            <ul>
+                              <li>Prof. Dr. Ekkehard Felder</li>
+                              <li>PDr. Horst Schwinn</li>
+							  <li>Prof. Dr. Beatrix Busse</li>
+							  <li>Prof. Dr. Ludwig M. Eichinger</li>
+							  <li>Sybille Große</li>
+							  <li>Jadranka Gvozdanović</li>
+							  <li>Katharina Jacob</li>
+							  <li>Edgar Radtke</li>
+                            </ul>
+                            <p>Editorial staff</p>
+                              <ul>
+                                <li>Vanessa Münch</li>
+                              </ul>  
+							<p>Reviewers</p>
+							<ul>
+							   <li>Eight anonymous national and international reviewers</li>
+							</ul>
+                            <p>Heidelberg University Publishing, Heidelberg</p>
+                            <!--<p>ISSN: 2191-6411</p>  -->
+                            <!--
+                            <p>This work is licensed under a <br> <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons License 4.0<br> (CC BY-SA 4.0)</a>.<br>
+                            <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; License CC BY-SA 4.0"><img alt="Creative Commons License BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p>             
+-->
+{{pass}}                  
+                   </div>
+
+
+             
+                                         
+                  </div>
+ </div>   
+
+            
+            <div class="col-lg-9">
+		
+               <article>
+
+        <div id="infoBoxRechts" class="col-lg-3">
+		<!--
+          <div class="box">
+            <div class="box-gray"  style="height: auto;">
+	
+                 {{if session.forced_language =='de': }}
+                <p class="boxText"><b>RSS für die aktuelle Ausgabe</b></p>
+             {{elif session.forced_language =='en': }}
+                <p class="boxText"><b>RSS for current issue</b></p>
+{{pass}}                                          
+
+                    <a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/gateway/plugin/WebFeedGatewayPlugin/atom"><img src="http://heiup.uni-heidelberg.de/journals/plugins/generic/webFeed/templates/images/atom10_logo.gif" alt="Atom logo" border="0" /></a><br />
+	<a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/gateway/plugin/WebFeedGatewayPlugin/rss2"><img src="http://heiup.uni-heidelberg.de/journals/plugins/generic/webFeed/templates/images/rss20_logo.gif" alt="RSS2 logo" border="0" /></a><br />
+	<a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/gateway/plugin/WebFeedGatewayPlugin/rss"><img src="http://heiup.uni-heidelberg.de/journals/plugins/generic/webFeed/templates/images/rss10_logo.gif" alt="RSS1 logo" border="0" /></a>
+                  </div>
+                </div>
+             -->
+<!--
+                <div class="box">
+                  <div class="box-gray"  style="height: auto;">
+                 
+                <p class="boxText"><b>{{=T('Information for authors')}}</b></p>
+
+                                 
+
+                    <ul class="standard">
+                      <li><a href="{{=URL(myconf.take('web.application'),'static','medien/journals/heieducation_autorenhinweise.pdf')}}">Author Guidelines</a></li>
+                    </ul>
+                  </div>
+                </div>
+    -->            
+          <div class="box">
+            <div class="box-gray"  style="height: auto;">
+                 
+                <p class="boxText"><b>{{=T('Contact')}}</b></p>
+                    <ul class="standard">
+                      <li><a href="mailto:katharina.jacob@gs.uni-heidelberg.de">Katharina Jacob </a></li>
+                    </ul>
+                  </div>
+                </div>                
+              </div>
+<!--
+            <div class="btn-group" role="group" aria-label="1">
+             <ul class="schaltflaeche">
+				 <li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/issue/current/showToc" title="{{=T('current issue')}}">{{=T('read current issue')}}</a></li>
+             </ul>
+			</div>
+			
+			<div class="btn-group" role="group" aria-label="1">
+            <ul class="schaltflaeche">
+				 <li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/issue/archive" title="{{=T('Archive')}}">{{=T('Archive')}}</a></li>
+            </ul> 
+			</div>
+	-->		
+     <div class="post-heading">
+
+     
+                  <h3>Handbuch Europäische Sprachkritik Online</h3>
+				  
+
+        </div>
+
+                 {{if session.forced_language =='de': }}
+                 <p>Das <i>Handbuch Europäische Sprachkritik Online</i> liefert eine vergleichende Perspektive auf Sprachkritik in europäischen Sprachkulturen (im Speziellen auf die Sprachkritik im Deutschen, Englischen, Französischen, Italienischen und Kroatischen). In dem Handbuch werden zentrale Konzepte der Sprachkritik deskriptiv behandelt. Das Ziel ist demnach, eine Konzeptgeschichte der europäischen Sprachkritik zu präsentieren. Zum einen liefert das Handbuch einen spezifischen Blick auf die jeweiligen Sprachkulturen. Zum anderen werden diese vergleichend in den Blick genommen. Das multilinguale Handbuch erscheint periodisch in Bänden.</p>
+				 <p>Das Handbuch umfasst einzelsprachliche Artikel und sprachübergreifende Vergleichsartikel. Alle Artikel sind in deutscher Sprache zu lesen. Die einzelsprachlichen Artikel, die die Sprachkritik im Englischen, Französischen, Italienischen und Kroatischen beleuchten, sind in der deutschen Sprache und in der Sprache, auf die sich der Artikel bezieht, zu lesen (also in deutscher/englischer, deutscher/französischer, deutscher/italienischer oder deutscher/kroatischer Sprache).</p>
+				 <p>Es handelt sich um eine Publikation der Projektgruppe Europäische Sprachkritik Online (ESO). Das ESO-Projekt ist in dem <a href="http://ezs-online.de/de/ezs-arbeitsgruppe-europaeische-sprachkritik-online-eso/" title="Europäisches Zentrum für Sprachwissenschaften (EZS)">Europäischen Zentrum für Sprachwissenschaften (EZS)</a> beheimatet, das eine Kooperation zwischen der Neuphilologischen Fakultät der Universität Heidelberg und dem Institut für Deutsche Sprache (IDS) in Mannheim darstellt. Es ist für Wissenschaftler/innen, Nachwuchswissenschaftler/innen und Studierende der verschiedenen Philologien im In- und Ausland geschrieben. Der Adressatenkreis ist aber auch auf andere Disziplinen mit sozial- und kulturwissenschaftlichem Hintergrund bezogen.</p>
+             {{elif session.forced_language =='en': }}
+                <p>The <i>Handbook of language criticism in European perspective</i> offers a comparative perspective of language criticism in European language cultures (especially of language criticism in German, English, French, Italian and Croatian). Central concepts of language criticism are covered descriptively in the handbook. The goal is to present a conceptual history of European language criticism.<br />
+				   On the one hand, the handbook gives specific insights into the respective language cultures. On the other hand, it compares and contrasts them. The multilingual handbook is released periodically in volumes.</p>
+				<p>The handbook thus contains comparative articles that focus on a single language or on multiple languages. All articles are published in German. The individual language articles looking at language criticism in English, French, Italian and Croatian can also be read in the language the article investigates (the articles are hence available in German/English, German/French, German/Italian or German/Croatian).<br />
+                   The handbook is a publication of the project group European language criticism online (Europäische Sprachkritik Online, ESO). The ESO-Project is based in the European Center for linguistics (Europäisches Zentrum für Sprachwissenschaften, EZS), which is a cooperation between the Faculty for Modern Languages of Heidelberg University and the German Institute (Institut für Deutsche Sprache, IDS) in Mannheim. It is designated for researchers, young academics and students of the various philologies in Germany and abroad. It is also addressed to persons from other disciplines, especially those with a background in social and cultural studies.</p>				
+
+
+{{pass}}     
+<!--
+
+                    <div class="widget">
+                        <h5 class="widgetheading"></h5>
+                 {{if session.forced_language =='de': }}
+                        <ul class="tags">
+                            <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/index">zur Zeitschrift</a></li>
+                        </ul>
+             {{elif session.forced_language =='en': }}
+                        <ul class="tags">
+                            <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/index">View Journal</a></li>
+                        </ul>
+{{pass}}     
+                 
+                    </div>
+     --> 
+                     			
+			
+                </article>
+
+            </div>
+ </div>
+        </div>
+
+</section>

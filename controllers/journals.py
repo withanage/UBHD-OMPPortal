@@ -19,5 +19,8 @@ def tcs():
 def heied():
     return dict()
 
+def heso():
+    return dict()
+	
 def home():
     return dict()
