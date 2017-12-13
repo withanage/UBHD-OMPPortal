@@ -7,6 +7,47 @@ LICENSE.md
 
 ########################################
 
+db.define_table("announcements",
+                Field("announcement_id", "integer"),
+                Field("assoc_type", "integer"),
+                Field("assoc_id", "integer"),
+                Field("type_id", "integer"),
+                Field("date_expire", "datetime"),
+                Field("date_posted", "datetime"),
+                primarykey=['announcement_id'],
+                migrate=False
+                )
+
+db.define_table("announcement_settings",
+                Field("announcement_id", "integer"),
+                Field("locale", "string"),
+                Field("setting_name", "string"),
+                Field("setting_value", "string"),
+                Field("setting_type", "string"),
+                primarykey=['announcement_id', 'locale', 'setting_name'],
+                migrate=False
+                )
+
+
+db.define_table("announcement_types",
+                Field("type_id", "integer"),
+                Field("assoc_type", "integer"),
+                Field("assoc_id", "integer"),
+                primarykey=["type_id"],
+                migrate=False
+                )
+
+
+db.define_table("announcement_type_settings",
+                Field("type_id", "integer"),
+                Field("locale", "string"),
+                Field("setting_name", "string"),
+                Field("setting_value", "string"),
+                Field("setting_type", "string"),
+                primarykey=['type_id', 'locale', 'setting_name'],
+                migrate=False
+                )
+
 db.define_table("authors",
                 Field("author_id", "integer"),
                 Field("submission_id", "integer"),
