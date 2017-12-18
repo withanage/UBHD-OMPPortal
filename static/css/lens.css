@@ -1216,6 +1216,14 @@ TOC
 .resource-view.toc .heading-ref:hover {
   color: black; }
 
+.resource-view.toc .heading-ref.level-2 .authors .author{
+  padding-left: 10px;
+  padding-right: 5px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: normal;
+}
+
 /* Scrollbar
 --------------------------------------- */
 .surface-scrollbar {
