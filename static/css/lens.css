@@ -1562,6 +1562,39 @@ body.loading .spinner-wrapper {
   padding-bottom: 0 !important;
 }
 
+/** Layout Daten-Tabelle Issue Nr. 58 **/
+
+.lens-article .content-node.html-table > .content {
+  padding-left: 0;
+}
+
+.lens-article .content-node.html-table .daten-tabelle {
+  border: 1px solid #f8f8f8;
+  overflow-x: scroll;
+}
+
+.lens-article .content-node.html-table .daten-tabelle tr {
+  vertical-align: top;
+}
+
+.lens-article .content-node.html-table .daten-tabelle tr:nth-child(odd) {
+  background-color: #f8f8f8;
+}
+
+.lens-article .content-node.html-table .daten-tabelle tr:nth-child(odd) td:empty {
+  background-color: #f8f8f8;
+}
+
+
+.lens-article .content-node.html-table .daten-tabelle td {
+  border-right: 1px solid #f8f8f8;
+  padding: 10px;
+}
+
+
+
+
+
 /** Listen **/
 
 .content.simple {
@@ -1600,5 +1633,6 @@ ol.content.ordered {
 }
 
 .lens-article .content-node.html-table table td {
-font-size: 0.8em;
+font-size: 0.75em;
+line-height: 1.7em;
 }
