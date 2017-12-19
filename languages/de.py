@@ -83,6 +83,7 @@
 'bei HB:': 'bei HB:',
 'Bei PB ist nur square möglich.': 'Bei PB ist nur square möglich.',
 'bei PB: ': 'bei PB: ',
+'Beiheft': 'Beiheft',
 'Belletristik': 'Belletristik',
 'Bindeart': 'Bindeart',
 'Book': 'Buch',
