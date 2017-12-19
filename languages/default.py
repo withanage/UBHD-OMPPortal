@@ -41,6 +41,7 @@
     'Available Databases and Tables': 'Available Databases and Tables',
     'Back': 'Back',
     'Belletristik': 'Belletristik',
+    'Beiheft': 'Supplement',
     'book_id': 'book_id',
     'Buy this book': 'Buy this book',
     'cache': 'cache',
