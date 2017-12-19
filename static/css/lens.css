@@ -1217,7 +1217,7 @@ TOC
   color: black; }
 
 .resource-view.toc .heading-ref .authors .author{
-  padding-left: 10px;
+  padding-left: 0px;
   padding-right: 5px;
   font-size: 14px;
   font-style: normal;
