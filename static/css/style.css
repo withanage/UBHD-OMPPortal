@@ -639,13 +639,14 @@ ul.general {
 	margin-left: 0;
 }
 ul.link-list {
-	margin: 0;
+	margin: 0.3em 0 0 0.5em;
 	padding: 0;
 	list-style: none;
 }
 ul.link-list li {
-	margin: 0;
-	padding: 2px 0 2px 0;
+	font-size: 0.9em;
+  margin: 0;
+	padding: 2px 0 0 0;
 	list-style: none;
 }
 footer ul.link-list li a {
@@ -1324,7 +1325,6 @@ ul.social-network li {
 	color: #f5f5f5;
 	padding: 0;
 	padding-top: 0px;
-	margin: 20px 0 0 0;
 }
 #sub-footer p {
 	margin: 0;
@@ -1892,7 +1892,7 @@ footer {
 #footer_logo_ub img {
 	width: 100%;
 	max-width: 340px;
-	margin-top: 3em;
+	margin-top: 1em;
 	padding-right: 0px;
 }
 #sub-footer ul.social-network {
