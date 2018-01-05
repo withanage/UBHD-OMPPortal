@@ -1,3 +1,4 @@
+
 @font-face {
   font-family: 'Source Sans Pro';
   font-style: normal;
@@ -21,4 +22,31 @@
   font-style: italic;
   font-weight: 600;
   src: local('Source Sans Pro Semibold Italic'), local('SourceSansPro-SemiboldIt'), url(../fonts/italic-600.ttf) format('truetype');
+}
+
+/**gandhari**/
+
+@font-face {
+  font-family: 'Gandhari Unicode';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Gandhari Unicode'), local('GandhariUnicode'), url(../fonts/gur.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Gandhari Unicode';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Gandhari Unicode Bold'),local('GandhariUnicodeBold'), url(../fonts/gub.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Gandhari Unicode';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Gandhari Unicode Italic'), local('GandhariUnicodeItalic'), url(../fonts/gui.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Gandhari Unicode';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Gandhari Unicode Italic Bold'),local('GandhariUnicodeItalicBold'), url(../fonts/gubi.ttf) format('truetype');
 }
