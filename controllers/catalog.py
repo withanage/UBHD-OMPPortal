@@ -199,10 +199,12 @@ def index():
                    for editor in ompdal.getEditorsBySubmission(submission_row.submission_id)]
         publication_dates = [dateFromRow(pd) for pf in ompdal.getAllPublicationFormatsBySubmission(submission_row.submission_id, available=True, approved=True)
                              for pd in ompdal.getPublicationDatesByPublicationFormat(pf.publication_format_id)]
+        digital_publication_formats= [f for f in ompdal.getDigitalPublicationFormats(submission_row.submission_id, available=True, approved=True)    ]
         submission = OMPItem(submission_row,
                              OMPSettings(ompdal.getSubmissionSettings(
                                  submission_row.submission_id)),
-                             {'authors': authors, 'editors': editors}
+                             {'authors': authors, 'editors': editors,
+                              'digital_publication_formats':digital_publication_formats}
                              )
         category_row = ompdal.getCategoryBySubmissionId(
             submission_row.submission_id)

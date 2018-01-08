@@ -56,12 +56,7 @@
                                 {{=XML(abstract)}}
                             {{pass}}
                         </p>
-                        <div class="widget">
-                            <h5 class="widgetheading"></h5>
-                            <ul class="tags">
-                              <li><a href="{{=URL('catalog','book/'+str(submission.attributes.submission_id))}}">{{=T('More information' )}}</a></li>
-                            </ul>
-                        </div>
+                        {{include 'catalog/snippets/reference.html'}}
                     </article>
                 </div>
             </div>
