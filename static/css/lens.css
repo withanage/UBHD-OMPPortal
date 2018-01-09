@@ -1352,9 +1352,7 @@ body.reader #container {
   /* 988px / 16px = 61.75em */
   height: 100%; }
 
-body, textarea, p, input {
-  font-family: 'Source Sans Pro', 'Helvetica', 'Arial', 'Verdana', 'sans-serif', 'Gandhari Unicode';
-  color: #505050; }
+
 
 a {
   color: #900;
