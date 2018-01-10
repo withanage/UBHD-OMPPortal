@@ -7,9 +7,12 @@ LICENSE.md
 
 # required - do no delete
 import os
+import json
 from ompdal import OMPDAL, OMPSettings, OMPItem
 from os.path import exists
+import gluon
 
+locale = 'en_US' if session.forced_language == 'en' else 'de_DE'
 
 def user(): return dict(form=auth())
 
@@ -24,19 +27,26 @@ def call():
 # end requires
 
 def index():
-    from gluon.serializers import json
     ompdal = OMPDAL(db, myconf)
     json_list = dict(xml_url='')
 
-    locale = 'en_US' if session.forced_language == 'en' else 'de_DE'
 
     submission_id = request.args[0]
     file_id = request.args[1]
 
     if str(file_id).endswith('.xml'):
+
         submission_settings = ompdal.getSubmissionSettings(submission_id)
-        fs = [i for i in submission_settings.as_list() if (i['locale']==locale and i['setting_name']=='fontFamily')]
-        font_family = fs[0]['setting_value'] if len(fs) >0 else 'Source Sans Pro'
+        series = ompdal.getSeriesBySubmissionId(submission_id)
+        series_settings = ompdal.getSeriesSettings(series.get('series_id')) if series else []
+
+        cssStyles = get_setting_value(series_settings,'cssStyles')
+        if not cssStyles:
+            cssStyles = get_setting_value(submission_settings,'cssStyles')
+
+        cssStylesStr = cssStyles.replace("'", "\"") if len(cssStyles) >0 else '{}'
+        cssStylesDict = json.loads(cssStylesStr)
+        font_family = cssStylesDict.get('font-face').get('family') if  cssStylesDict.get('font-face') else 'Source Sans Pro'
 
         authors_list = db((db.authors.submission_id == submission_id)).select(
             db.authors.first_name, db.authors.last_name)
@@ -46,7 +56,7 @@ def index():
         if authors.endswith(', '):
             authors = authors[:-2]
 
-        return dict(json_list=XML(json(json_list)), authors=authors, font_family=font_family)
+        return dict(json_list=XML(gluon.serializers.json(json_list)), authors=authors, font_family=font_family)
 
     else:
         path = os.path.join(request.folder, 'static/files/presses', myconf.take('omp.press_id'), 'monographs',
@@ -54,14 +64,19 @@ def index():
     return response.stream(path)
 
 
+def get_setting_value(settings, name):
+    val = []
+    if settings:
+        for i in settings.as_list():
+            if i['locale'] == locale and i['setting_name'] == name:
+                val = i['setting_value']
+    return val
+
+
 def home():
     return dict()
 
 
-def index2():
-    from gluon.serializers import json
-    json_list = dict(xml_url='')
-    return dict(json_list=XML(json(json_list)))
 
 
 def download():
