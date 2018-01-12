@@ -11,9 +11,9 @@
 
             </div>
             <div class="col-lg-9">
-            <!--<div class="btn-group pull-right">
+            <div class="btn-group pull-right">
             <a href="#forthcoming" title="{{=T('Forthcoming')}}"><button class="btn btn-default" type="button">{{=T('Forthcoming')}}</button></a> 
-            </div>-->
+            </div>
             {{=b.filter_select}}
             {{try:
             del b.sort_select[1][4]
@@ -74,8 +74,8 @@
             </div>
      </div>
 
-	<!--{{if session.filters=='':}}
-     <div class="container">
+	{{if session.filters=='':}}
+        <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row">
@@ -90,40 +90,43 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-        <div class="row">
+          </div>
+        </div>  
+        <div class="container">
+         <div class="row">
                 <div class="col-lg-3">
                     <article>
                         <div class="post-image">
-					{{=IMG(_src=URL(myconf.take('web.application'),'static','images/catalog/cover_viehbeck.jpg'),_alt='',_style='width:300px')}}                          
+                {{=IMG(_src=URL(myconf.take('web.application'),'static','/images/series/hdaw_dn.jpg'),_alt='', _class='bildrahmen')}}                        
          
-                        </div>
+                      </div>
                     </article>
                 </div>
                 
                 <div class="col-lg-9">
                     <article>
                         <div class="post-heading">
-                          <div id="autoren" class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h4>Markus Viehbeck (Editor)</h4></div>
+                          <div id="autoren" class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h4>Simon Cubelic, Axel Michaelis, Astrid Zotter (Eds.)</h4></div>
                           <br style="clear: both">
                               <h4 id="proust">Transcultural Encounters in the Himalayan Borderlands – Kalimpong as a “contact zone”</h4>
                          </div>
                         {{if session.forced_language =='de': }}
-                        <p>Die vorliegende Studie untersucht Kalimpong und die umliegenden Grenzgebiete des östlichen Himalaja als paradigmatischen Fall einer “Kontaktzone”. In der Kolonialzeit wie auch in der frühen postkolonialen Ära ermöglichte dieser Raum eine Vielzahl von Begegnungen: zwischen (Britisch) Indien, Tibet und China, aber auch Nepal und Bhutan; zwischen christlicher Mission und den Religionen des Himalaja; zwischen globalen Geld- und Informationsströmen und lokalen Märkten und Praktiken. Anhand einer Fülle lokaler und globaler historischer Quellen verfolgen die einzelnen Beiträge die Wege von Akteuren unterschiedlicher kultureller Hintergründe und untersuchen die neuen Formen von Wissen und Praktiken, die aus ihren Begegnungen und ihren wechselnden Machtbeziehungen hervorgingen. Der Band liefert daher nicht nur eine differenzierte Geschichtsschreibung zu Kalimpong und den angrenzenden Gebieten, sondern auch ein theoretisches Modell für die Untersuchung transkultureller Prozesse in Grenzräumen und deren kolonialer und postkolonialer Dynamiken.</p>
-                        <p>Erscheint am 14. Dezember 2017</p>                        
+                        <p>This volume is the outcome of the conference “Studying Documents in Pre-Modern South Asia and Beyond: Problems and Perspective”, held in October 2014 in Heidelberg. In bringing together experts from different fields—including Indology, Tibetology, History, Anthropology, Religious Studies, and Digital Humanties—it aims at exploring and rethinking issues of diplomatics and typology, the place of documents in relation to other texts and literary genres, methods of archiving and editing documents, as well as their “social life”, i.e. the role they play in social, religious and political constellations, the agents and practices of their use, and the norms and institutions they embody and constitute.</p>
+<p>The book is the first volume in the <em>Documenta Nepalica &ndash; Book Series</em>, published by the Heidelberg Academy of Sciences and Humanities in collaboration with the National Archives, Nepal.</p>
+                        <p>To be published February 2018.</p>                        
 
                         {{elif session.forced_language =='en': }}
-                        <p>This collaborative study investigates the hill station of Kalimpong and the larger Eastern Himalayan borderlands as a paradigmatic case of a “contact zone.” In the colonial and early post-colonial era, this space enabled a variety of encounters: between (British) India, Tibet, and China, but also Nepal and Bhutan; between Christian mission and Himalayan religions; between global flows of money and information and local markets and practices. Using a plethora of local and global historical sources, the contributing essays follow the pathways of people from diverse cultural backgrounds and investigate the new forms of knowledge and practice that resulted from their encounters and their shifting power relations. The volume provides not only a nuanced historiography of Kalimpong and its adjacent areas, but also a conceptual model for studying transcultural processes in borderland spaces and their colonial and post-colonial dynamics.</p>
-                        <p>To be published: 14 December 2017</p>
-
+                        <p>This volume is the outcome of the conference “Studying Documents in Pre-Modern South Asia and Beyond: Problems and Perspective”, held in October 2014 in Heidelberg. In bringing together experts from different fields—including Indology, Tibetology, History, Anthropology, Religious Studies, and Digital Humanties—it aims at exploring and rethinking issues of diplomatics and typology, the place of documents in relation to other texts and literary genres, methods of archiving and editing documents, as well as their “social life”, i.e. the role they play in social, religious and political constellations, the agents and practices of their use, and the norms and institutions they embody and constitute.</p>
+<p>The book is the first volume in the <em>Documenta Nepalica &ndash; Book Series</em>, published by the Heidelberg Academy of Sciences and Humanities in collaboration with the National Archives, Nepal.</p>
+                        <p>To be published February 2018.</p>  
                         {{pass}}
                     </article>
                 </div>
-            </div>  
-	
-    {{pass}}--> 
-</section>
+        </div>  
+    </div>	
+    {{pass}}
+
+  </section>
 </div>
 
 

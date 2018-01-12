@@ -106,6 +106,7 @@ $('.flexslider').flexslider();
       </div>
     </div>
   </section>
+  
   <section id="content">
     <div class="container">
       <div class="row">
@@ -156,7 +157,7 @@ $('.flexslider').flexslider();
                       {{if session.forced_language =='de': }}    
                       In allen Bereichen des Lebens stehen wir vor der Herausforderung, zwischen Sein und Schein, zwischen Tatsache, Irrtum und Lüge unterscheiden zu müssen. Doch die Welt des schönen Scheins hat noch viel mehr Facetten, wie die <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/view/2373" title="Online-Ausgabe der Ruperto Carola">neueste Ausgabe der Ruperto Carola</a> zeigt.                    
                       {{elif session.forced_language =='en': }}                    
-					   In every area of life, we are constantly challenged to distinguish between appearance and reality, between facts on the one hand, and errors and lies on the other. The <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/view/2373" title="Online edition of Ruperto Carola">new edition of &ldquo;Ruperto Carola&rdquo;</a> takes up different aspects of this theme, and illuminates how appearances can be deceptive.
+					            In every area of life, we are constantly challenged to distinguish between appearance and reality, between facts on the one hand, and errors and lies on the other. The <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/view/2373" title="Online edition of Ruperto Carola">new edition of &ldquo;Ruperto Carola&rdquo;</a> takes up different aspects of this theme, and illuminates how appearances can be deceptive.
                         {{pass}}
                       </p>
                     </div>
@@ -177,7 +178,7 @@ $('.flexslider').flexslider();
                       {{if session.forced_language =='de': }}    
                       Band 3 der Reihe "Heidelberg Studies on Transculturality", herausgegeben von Markus Viehbeck, untersucht Kalimpong und die umliegenden Grenzgebiete des östlichen Himalaja als paradigmatischen Fall einer “Kontaktzone” (Mary Louise Pratt), in der eine Vielzahl von Begegnungen unterschiedlicher Kulturen und Nationen möglich ist.                    
                       {{elif session.forced_language =='en': }}                    
-					  Vol. 3 of the series "Heidelberg Studies on Transculturality", edited by Markus Viehbeck, investigates the hill station of Kalimpong and the larger Eastern Himalayan borderlands as a paradigmatic case of a “contact zone” (Marie Louise Pratt), which enabled a variety of encounters between different cultures and nations.
+					            Vol. 3 of the series "Heidelberg Studies on Transculturality", edited by Markus Viehbeck, investigates the hill station of Kalimpong and the larger Eastern Himalayan borderlands as a paradigmatic case of a “contact zone” (Marie Louise Pratt), which enabled a variety of encounters between different cultures and nations.
                         {{pass}}
                       </p>
                     </div>
@@ -198,7 +199,7 @@ $('.flexslider').flexslider();
                       {{if session.forced_language =='de': }}    
                       Das <a href="{{=URL('journals','heso')}}" title="Informationen zum Titel">Handbuch Europäische Sprachkritik Online</a> liefert eine vergleichende Perspektive auf Sprachkritik in europäischen Sprachkulturen. Es behandelt deskriptiv zentrale Konzepte der Sprachkritik mit dem Ziel, eine Konzeptgeschichte der europäischen Sprachkritik zu präsentieren.                    
                       {{elif session.forced_language =='en': }}                    
-					  The <a href="{{=URL('journals','heso')}}" title="More Information">Online Handbook of Language Criticism in European Perspective</a> offers a comparative perspective of language criticism in European language culture. Central concepts of language criticism are covered descriptively in the handbook. The goal is to present a conceptual history of European language criticism.
+					             The <a href="{{=URL('journals','heso')}}" title="More Information">Online Handbook of Language Criticism in European Perspective</a> offers a comparative perspective of language criticism in European language culture. Central concepts of language criticism are covered descriptively in the handbook. The goal is to present a conceptual history of European language criticism.
                         {{pass}}
                       </p>
                     </div>
@@ -525,10 +526,11 @@ Talk by Jochen Apel and  Maria Effinger (UB Heidelberg), Tuesday 16th March, 3&n
           </div>
         </div>
         </div>
+       </div> 
         <div class="row">
           <div class="col-lg-12">
             <div class="row">
-			  <div class="col-lg-3">
+			       <div class="col-lg-3">
                <div class="box">
                 <div class="box-gray aligncenter">
                 <h4>{{=T('New Titles')}}</h4>
@@ -538,7 +540,7 @@ Talk by Jochen Apel and  Maria Effinger (UB Heidelberg), Tuesday 16th March, 3&n
                   </div>
                 </div>
               </div>   
-        <div class="col-lg-3">
+              <div class="col-lg-3">
                 <div class="box">
                   <div class="box-gray aligncenter">
                 <h4>{{=T('New Titles')}}</h4>
@@ -548,7 +550,6 @@ Talk by Jochen Apel and  Maria Effinger (UB Heidelberg), Tuesday 16th March, 3&n
                   </div>
                 </div>
               </div> 
-
 			       <div class="col-lg-3">
                <div class="box">
                 <div class="box-gray aligncenter">
@@ -559,8 +560,6 @@ Talk by Jochen Apel and  Maria Effinger (UB Heidelberg), Tuesday 16th March, 3&n
                   </div>
                 </div>
               </div>
-
-
               <div class="col-lg-3">
                 <div class="box">
                   <div class="box-gray aligncenter">
@@ -570,7 +569,6 @@ Talk by Jochen Apel and  Maria Effinger (UB Heidelberg), Tuesday 16th March, 3&n
                   <div class="box-bottom">
                     {{=A(T('More Information'),_href=URL('catalog','book/310'))}}
                     </div>
-
                 </div>
               </div>                              
              
@@ -647,18 +645,16 @@ Talk by Jochen Apel and  Maria Effinger (UB Heidelberg), Tuesday 16th March, 3&n
           <div class="row">
            <div class="col-lg-12">
             <div class="row">
-        <div class="col-lg-3">
+            <div class="col-lg-3">
                 <div class="box">
                   <div class="box-gray aligncenter">
-                <h4>{{=T('New Titles')}}</h4>
-                  {{=IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/291/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}               
+                <h4>{{=T('Forthcoming')}}</h4>
+                {{=IMG(_src=URL(myconf.take('web.application'),'static','/images/series/hdaw_dn.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}               
                   </div>
-                  <div class="box-bottom">
-                    {{=A(T('More Information'),_href=URL('catalog','book/291'))}}
-                    </div>
-
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','#forthcoming'))}}
                 </div>
               </div>
+            </div>  
 			  <div class="col-lg-3">
                <div class="box">
                 <div class="box-gray aligncenter">
@@ -669,10 +665,6 @@ Talk by Jochen Apel and  Maria Effinger (UB Heidelberg), Tuesday 16th March, 3&n
                   </div>
                 </div>
               </div>
-			  
-			  
-			       
-                          
              
               <div class="col-lg-3">
                 <div class="box">
@@ -695,8 +687,6 @@ Talk by Jochen Apel and  Maria Effinger (UB Heidelberg), Tuesday 16th March, 3&n
                   </div>
                 </div>
               </div>
-
-           
            
              </div>
            </div>
