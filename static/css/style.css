@@ -1052,7 +1052,8 @@ ul.meta-post li a {
 	padding: 0.1em
 }
 .stats_chapter_title {
-	font-size: small
+	font-size: 0.9em;
+	max-width: 160px;
 }
 .stats_chapter_row {
 	border-top: 1px solid #ddd;
