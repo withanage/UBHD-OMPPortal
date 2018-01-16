@@ -1,0 +1,40 @@
+{
+  "directories": [
+    {
+      "path": "home",
+      "priority": 1.0
+    },
+    {
+      "path": "catalog",
+      "priority": 0.9
+    },
+    {
+      "path": "publishing",
+      "priority": 0.8
+    },
+    {
+      "path": "reader",
+      "priority": 0.7
+    },
+    {
+      "path": "journals",
+      "priority": 0.6
+    },
+    {
+      "path": "series",
+      "priority": 0.5
+    },
+    {
+      "path": "contact",
+      "priority": 0.5
+    },
+    {
+      "path": "campusmedia",
+      "priority": 0.5
+    },
+    {
+      "path": "about_us",
+      "priority": 0.5
+    }
+  ]
+}
