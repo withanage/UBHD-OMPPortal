@@ -8,5 +8,5 @@ from ompannouncements import Announcements
 
 def index():
     a = Announcements(myconf, db, locale)
-    news_list = a.create_news_list()
+    news_list = a.create_announcement_list()
     return locals()
