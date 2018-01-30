@@ -1054,6 +1054,8 @@ ul.meta-post li a {
 .stats_chapter_title {
 	font-size: 0.9em;
 	max-width: 160px;
+  line-height: 1.5em;
+  margin-bottom: 0.5em;
 }
 .stats_chapter_row {
 	border-top: 1px solid #ddd;
