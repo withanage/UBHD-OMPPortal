@@ -304,16 +304,8 @@ db.define_table("submissions",
                 Field("language", "string"),
                 Field("comments_to_ed", "string"),
                 Field("date_submitted", "string"),
-                Field(
-                    "last_modified",
-                    "datetime",
-                    requires=IS_DATETIME(
-                        format="%Y-%m-%d %H:%M:%S")),
-                Field(
-                    "date_status_modified",
-                    "datetime",
-                    requires=IS_DATETIME(
-                        format="%Y-%m-%d %H:%M:%S")),
+                Field("last_modified","datetime",requires=IS_DATETIME(format="%Y-%m-%d %H:%M:%S")),
+                Field("date_status_modified","datetime",requires=IS_DATETIME(format="%Y-%m-%d %H:%M:%S")),
                 Field("status", "integer"),
                 Field("submission_progress", "integer"),
                 Field("pages", "string"),
@@ -411,18 +403,10 @@ db.define_table("users",
                 Field("billing_address", "string"),
                 Field("country", "string"),
                 Field("locales", "string"),
-                Field("date_last_email",
-                      "datetime",
-                      requires=IS_DATETIME(format="%Y-%m-%d %H:%M:%S")),
-                Field("date_registered",
-                      "datetime",
-                      requires=IS_DATETIME(format="%Y-%m-%d %H:%M:%S")),
-                Field("date_validated",
-                      "datetime",
-                      requires=IS_DATETIME(format="%Y-%m-%d %H:%M:%S")),
-                Field("date_last_login",
-                      "datetime",
-                      requires=IS_DATETIME(format="%Y-%m-%d %H:%M:%S")),
+                Field("date_last_email","datetime",requires=IS_DATETIME(format="%Y-%m-%d %H:%M:%S")),
+                Field("date_registered","datetime",requires=IS_DATETIME(format="%Y-%m-%d %H:%M:%S")),
+                Field("date_validated","datetime",requires=IS_DATETIME(format="%Y-%m-%d %H:%M:%S")),
+                Field("date_last_login","datetime",requires=IS_DATETIME(format="%Y-%m-%d %H:%M:%S")),
                 Field("must_change_password", "integer"),
                 Field("auth_id", "integer"),
                 Field("auth_str", "string"),
@@ -445,37 +429,7 @@ db.define_table("user_settings",
                 migrate=False
                 )
 
-request_client = ''
-if request.client:
-    rcs = request.client.split('.')
-    if len(rcs) == 4:
-        request_client = rcs[0] + '.' + rcs[1] + '.' + rcs[2] + '.xxx'
 
-db.define_table('t_usage_statistics',
-                Field('time_stamp', 'datetime', default=request.now),
-                Field('client_ip', 'string', default=request_client),
-                Field(
-                    'request_controller',
-                    'string',
-                    default=request.controller),
-                Field('request_function', 'string', default=request.function),
-                Field(
-                    'request_extension',
-                    'string',
-                    default=request.extension),
-                Field('request_ajax', 'string', default=request.ajax),
-                Field('request_args', 'string', default=request.args),
-                Field('request_vars', 'string', default=request.vars),
-                Field('request_view', 'string', default=request.view),
-                Field('request_http_user_agent', 'string',
-                      default=request.env.http_user_agent),
-                Field(
-                    'request_language',
-                    'string',
-                    default=request.env.http_accept_language),
-                Field('description', 'text'),
-                migrate=False,
-                )
 
 db.define_table('t_license_settings',
                 Field( "license_id", "integer"),
@@ -485,3 +439,38 @@ db.define_table('t_license_settings',
                 migrate = False,
                 primarykey=["license_id" ,"locale", "setting_name"],
                 )
+
+
+#
+# request_client = ''
+# if request.client:
+#     rcs = request.client.split('.')
+#     if len(rcs) == 4:
+#         request_client = rcs[0] + '.' + rcs[1] + '.' + rcs[2] + '.xxx'
+#
+# db.define_table('t_usage_statistics',
+#                 Field('time_stamp', 'datetime', default=request.now),
+#                 Field('client_ip', 'string', default=request_client),
+#                 Field(
+#                     'request_controller',
+#                     'string',
+#                     default=request.controller),
+#                 Field('request_function', 'string', default=request.function),
+#                 Field(
+#                     'request_extension',
+#                     'string',
+#                     default=request.extension),
+#                 Field('request_ajax', 'string', default=request.ajax),
+#                 Field('request_args', 'string', default=request.args),
+#                 Field('request_vars', 'string', default=request.vars),
+#                 Field('request_view', 'string', default=request.view),
+#                 Field('request_http_user_agent', 'string',
+#                       default=request.env.http_user_agent),
+#                 Field(
+#                     'request_language',
+#                     'string',
+#                     default=request.env.http_accept_language),
+#                 Field('description', 'text'),
+#                 migrate=False,
+#                 )
+#
