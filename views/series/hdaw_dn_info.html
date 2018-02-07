@@ -1,0 +1,48 @@
+{{extend 'layout.html'}}
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+	
+            <div class="col-lg-3">
+                <article>
+                    <div class="post-image">
+		 	{{=IMG(_src=URL('static','files/presses/6/monographs/312/simple/cover.jpg'))}}
+                  </div>
+
+                </article>
+                
+            </div>   
+
+            <div class="col-lg-9">
+               <article>
+
+
+     <div class="post-heading">
+
+        <h3>Documenta Nepalica</h3>
+        </div>
+      {{if session.forced_language =='de': }}
+<p>Weitere Informationen folgen!</p>
+
+      
+      {{elif session.forced_language =='en': }}                 
+<p>More information coming soon!</p>
+   {{pass}}
+
+                    <div class="widget">
+                        <h5 class="widgetheading"></h5>
+                        <ul class="tags">          
+                            <li>{{=A(T('Volumes'),_href=URL('catalog','series/hdaw_dn'))}}
+                        </ul>
+                    </div>
+
+
+                </article>
+                
+            </div>
+
+    </div>   
+
+   </div>
+</section>
