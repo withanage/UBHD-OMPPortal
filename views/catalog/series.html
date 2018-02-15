@@ -1,7 +1,7 @@
 {{extend 'layout.html'}}
 {{import re}}
 {{import os}}
-{{from ompformat import formatContributors, coverImageLink}}
+{{from ompformat import formatContributors, coverImageLink, formatSeriesPosition}}
 
 <div id="main" class="container">
 	<section id="content">
@@ -30,7 +30,7 @@
 		                <article>
 		                    <div class="post-heading">
 								{{include 'catalog/snippets/submission.html'}}
-								<i>{{=series_title}}{{ if series_subtitle: }} – {{=series_subtitle}}{{pass}}{{if submission.attributes.series_position:}}, {{=T('Vol.')}} {{=submission.attributes.series_position}} {{pass}}</i>
+								<i>{{=series_title}}{{ if series_subtitle: }} – {{=series_subtitle}}{{pass}}{{if submission.attributes.series_position:}}, {{=formatSeriesPosition(submission.attributes.series_position)}}{{pass}}</i>
 			                    <p>
 			                        <i class="icon-quote-left"></i>
 			                        {{abstract = submission.settings.getLocalizedValue('abstract', locale)}}

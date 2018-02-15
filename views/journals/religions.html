@@ -121,12 +121,16 @@
                 </div>                
               </div>
 
-			               <div class="btn-group" role="group" aria-label="1">
-				 <li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/religions/issue/current/showToc" title="{{=T('current issue')}}">{{=T('read current issue')}}</a></li>
+			<div class="btn-group" role="group" aria-label="1">
+          <ul class="schaltflaeche">
+				    <li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/religions/issue/current/showToc" title="{{=T('current issue')}}">{{=T('read current issue')}}</a></li>
+          </ul>
 			</div>
 			
 			<div class="btn-group" role="group" aria-label="1">
+          <ul class="schaltflaeche">         
 				 <li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/religions/issue/archive" title="{{=T('Archive')}}">{{=T('Archive')}}</a></li>
+          </ul>
 			</div>
               
      <div class="post-heading">
@@ -137,7 +141,7 @@
 
                  {{if session.forced_language =='de': }}
                  
-                        <p><i class="icon-quote-left"></i>
+                        
 <p><i>Online</i> ist eine internationale, Peer-Review-geprüfte Open-Access-Zeitschrift, die am Institut für Religionswissenschaft der Universität Heidelberg erscheint. Die Herausgeber haben sich zum Ziel gesetzt, wissenschaftliche Forschung an der Schnittstelle von Religion und Internet zu fördern und die Forschung in diesem Feld theoretisch und methodisch voranzubringen.</p>
 
 <p>Autoren aus allen wissenschaftlichen Disziplinen wie beispielsweise Religionswisssenschaft, Soziologie, Kulturwissenschaft, Medienwissenschaft, Theologie, Ethnologie, die innerhalb des Diskursfelds Religion(en) und digitale Medien forschen und publizieren, sind aufgerufen, Abstracts und/oder Artikel einzureichen. Darüber hinaus werden auch Buchrezensionen zum Themenfeld des Journals gesucht und angenommen. Das Journal möchte eine große, jedoch hauptsächlich akademische Leserschaft erreichen. Von den Autoren wird deshalb erwartet, ihre Forschung in den Kontext rezenter theoretischer und methodischer Diskussionen zu stellen und diese in ihrer Forschung zu reflektieren.</p>
@@ -152,8 +156,7 @@
 
              {{elif session.forced_language =='en': }}
 
-                        <p><i class="icon-quote-left"></i>
-<i>Online</i> is an international open-access, peer-reviewed academic journal published by the Institute of Religious Studies  at the University of Heidelberg (Germany). The journal is committed to promoting and (theoretically and methodically) advancing  scientific research at the interface between religion and the internet.</p>
+<p><i>Online</i> is an international open-access, peer-reviewed academic journal published by the Institute of Religious Studies  at the University of Heidelberg (Germany). The journal is committed to promoting and (theoretically and methodically) advancing  scientific research at the interface between religion and the internet.</p>
 
 <p>The editors welcome submissions from all academic disciplines and perspectives (e.g. Religious Studies, Social Studies, Cultural Studies, Media Studies, Theology, Anthropology, etc.) focussing on general and specific issues of religion and new digital media. Additionally, we encourage authors to review (new) books dealing with subjects relevant  to the journal’s scopes.</p>
 
@@ -169,17 +172,18 @@
 
                     <div class="widget">
                         <h5 class="widgetheading"></h5>
-                        <ul class="tags">
                  {{if session.forced_language =='de': }}
-             
-                            <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/religions/index">zur Zeitschrift</a></li>
-             {{elif session.forced_language =='en': }}
-                            <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/religions/index">View Journal</a></li>
-             
-{{pass}}     
-                       
 
+                        <ul class="tags">
+                            <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/religions/index">zur Zeitschrift</a></li>
                         </ul>
+             {{elif session.forced_language =='en': }}
+
+                        <ul class="tags">
+                            <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/religions/index">View Journal</a></li>
+                        </ul>
+{{pass}}     
+
                     </div>
 
                      			

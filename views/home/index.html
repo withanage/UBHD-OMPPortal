@@ -15,59 +15,59 @@ $('.flexslider').flexslider();
           <div id="main-slider" class="flexslider">
             <ul class="slides">
               <li>{{if session.forced_language =='de': }} 
-              <img alt="" id="hup-logo" src="{{=URL('static','images/press/slideshow/01_claim_tablet.de.jpg')}}" />
+              <img alt="" src="{{=URL('static','images/press/slideshow/01_claim_tablet.de.jpg')}}" />
               <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('Das Profil von heiUP')}}</h3>
                 {{=A(T('More'),_href=URL('about_us','profile'), _class='btn btn-theme')}}
                 <!--<a href="./about_us/profile.html" class="btn btn-theme">Mehr</a>-->
               </div>{{elif session.forced_language =='en': }} 
-              <img alt="" id="hup-logo" src="{{=URL('static','images/press/slideshow/01_claim_tablet.en.jpg')}}" />
+              <img alt="" src="{{=URL('static','images/press/slideshow/01_claim_tablet.en.jpg')}}" />
               <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('heiUP Profile')}}</h3>
                 {{=A(T('More Information'),_href=URL('about_us','profile'), _class='btn btn-theme')}}
                 <!--<a href="./about_us/profile.html" class="btn btn-theme">More Information</a>-->
               </div>{{pass}} 
               </li>
               <li>
-              <img alt="" id="hup-logo2" src="{{=URL('static','images/press/slideshow/02_cover_michl.jpg')}}" />
+              <img alt="" src="{{=URL('static','images/press/slideshow/02_cover_richter.jpg')}}" />
               {{if session.forced_language =='de': }} 
-              <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('Felix M. Michl Die limitierte Auflage')}}</h3>
-                {{=A(T('More'),_href=URL('catalog','book/102'), _class='btn btn-theme')}}    
+              <div class="flex-caption hidden-xs hidden-sm"><h3>S. Richter, M. Roth, S. Meurer Konstruktionen Europas in der Frühen Neuzeit</h3>
+                {{=A(T('More'),_href=URL('catalog','book/291'), _class='btn btn-theme')}}    
 
               </div>
               {{elif session.forced_language =='en': }} 
-              <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('Felix M. Michl Die limitierte Auflage')}}</h3>
-                {{=A(T('More Information'),_href=URL('catalog','book/102'), _class='btn btn-theme')}}
+              <div class="flex-caption hidden-xs hidden-sm"><h3>S. Richter, M. Roth, S. Meurer Konstruktionen Europas in der Frühen Neuzeit</h3>
+                {{=A(T('More Information'),_href=URL('catalog','book/291'), _class='btn btn-theme')}}
 
               </div>
               {{pass}} 
               </li>
               <li>
-              <img alt="" id="hup-logo2" src="{{=URL('static','images/press/slideshow/03_cover_moehren.jpg')}}" />
+              <img alt="" src="{{=URL('static','images/press/slideshow/03_cover_jaritz.jpg')}}" />
               {{if session.forced_language =='de': }} 
-              <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('Frankwalt Möhren Il libro de la cocina')}}</h3>
-                {{=A(T('More'),_href=URL('catalog','book/123'), _class='btn btn-theme')}}    
+              <div class="flex-caption hidden-xs hidden-sm"><h3>Joanna Jaritz<br />Proust Cinématographe</h3>
+                {{=A(T('More'),_href=URL('catalog','book/310'), _class='btn btn-theme')}}    
 
               </div>
               {{elif session.forced_language =='en': }} 
-              <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('Frankwalt Möhren Il libro de la cocina')}}</h3>
-                {{=A(T('More Information'),_href=URL('catalog','book/123'), _class='btn btn-theme')}}
+              <div class="flex-caption hidden-xs hidden-sm"><h3>Joanna Jaritz<br />Proust Cinématographe</h3>
+                {{=A(T('More Information'),_href=URL('catalog','book/310'), _class='btn btn-theme')}}
 
               </div>
               {{pass}} 
               </li>               
-              <!--<li>
-              <img alt="" id="hup-logo2" src="{{=URL('static','images/press/slideshow/02_cover_kemp.jpg')}}" />{{if session.forced_language =='de': }} 
-              <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('Wolfgang Kemp Wir haben ja alle Deutschland nicht gekannt')}}</h3>
-                {{=A(T('More'),_href=URL('catalog','book/90'), _class='btn btn-theme')}}    
+              <li>
+              <img alt="" src="{{=URL('static','images/press/slideshow/04_cover_numerik3.jpg')}}" />{{if session.forced_language =='de': }} 
+              <div class="flex-caption hidden-xs hidden-sm"><h3>Rolf Rannacher Numerik 3</h3>
+                {{=A(T('More'),_href=URL('catalog','book/312'), _class='btn btn-theme')}}    
 
 
               </div>{{elif session.forced_language =='en': }} 
-              <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('Wolfgang Kemp Wir haben ja alle Deutschland nicht gekannt')}}</h3>
-                {{=A(T('More Information'),_href=URL('catalog','book/90'), _class='btn btn-theme')}}
+              <div class="flex-caption hidden-xs hidden-sm"><h3>Rolf Rannacher Numerik 3</h3>
+                {{=A(T('More Information'),_href=URL('catalog','book/312'), _class='btn btn-theme')}}
 
               </div>{{pass}} 
-              </li>-->
+              </li>
               <li>
-              <img alt="" id="hup-logo3" src="{{=URL('static','images/press/slideshow/04_ub_treppenhaus.jpg')}}" />{{if session.forced_language =='de': }} 
+              <img alt=""  src="{{=URL('static','images/press/slideshow/05_ub_treppenhaus.jpg')}}" />{{if session.forced_language =='de': }} 
               <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('UB Heidelberg Digitale Informations- versorgung')}}</h3>              
                 <a href="http://www.ub.uni-heidelberg.de/Welcome.html" class="btn btn-theme">Mehr</a>
               </div>{{elif session.forced_language =='en': }} 
@@ -76,7 +76,7 @@ $('.flexslider').flexslider();
               </div>{{pass}} 
               </li>
               <li>
-              <img alt="" id="hup-logo4" src="{{=URL('static','images/press/slideshow/05_alte_universitaet.jpg')}}" />{{if session.forced_language =='de': }} 
+              <img alt="" src="{{=URL('static','images/press/slideshow/06_alte_universitaet.jpg')}}" />{{if session.forced_language =='de': }} 
               <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('heiUP Der Beirat')}}</h3>
                 {{=A(T('More'),_href=URL('about_us','advisory_board'), _class='btn btn-theme')}}              
                 </div>{{elif session.forced_language =='en': }} 
@@ -85,7 +85,7 @@ $('.flexslider').flexslider();
                 </div>{{pass}} 
               </li>
               <li>
-              <img alt="" id="hup-logo5" src="{{=URL('static','images/press/slideshow/06_dem_lebendigen_geist.jpg')}}" />{{if session.forced_language =='de': }} 
+              <img alt="" src="{{=URL('static','images/press/slideshow/07_dem_lebendigen_geist.jpg')}}" />{{if session.forced_language =='de': }} 
               <!--<div class="flex-caption hidden-xs hidden-sm"> 
               <h3>{{=T('"Dem lebendigen Geist" Motto der Universität')}}</h3> 
               <p></p> 
@@ -101,32 +101,29 @@ $('.flexslider').flexslider();
               </li>
             </ul>
           </div>
-          <!-- end slider -->
+          <!-- ./Slideshow -->
         </div>
       </div>
     </div>
   </section>
+  
   <section id="content">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <div class="row">
-            <div class="col-lg-3">
-              <div class="box">
-                <div class="box-gray aligncenter">
-              {{if session.forced_language =='de': }} 
-                <h4>Erscheint demnächst</h4>
-              {{elif session.forced_language =='en': }}                       
-                <h4>Coming soon</h4>
-                {{pass}}
-				      {{=IMG(_src=URL('static','images/catalog/transformative_cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}				  
+      <div class="col-lg-3">
+                <div class="box">
+                  <div class="box-gray aligncenter">
+                <h4>{{=T('New Titles')}}</h4>
+                {{=IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/317/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
+      					</div>
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/317'))}}
                   </div>
-                  <div class="box-bottom">
-                    {{=A(T('More Information'),_href=URL('catalog','index.html#forthcoming'))}}
-                  </div>
-                
                 </div>
             </div>
+		   
+		  
             <div class="col-lg-3">
               <div class="box">
                 <div class="box-gray aligncenter">{{if session.forced_language =='de': }} 
@@ -135,205 +132,23 @@ $('.flexslider').flexslider();
                   <p class="boxText"><b>Heidelberg University Publishing</b> is an open-access publisher of high-quality, peer-reviewed academic works. We endorse open access as a publishing model to distribute outstanding research results and use open-source software for the collaborative development of underlying publishing technologies. 
                   </p>{{pass}} 
                 </div>
-                <div class="box-bottom">{{if session.forced_language =='de': }} 
+                <div class="box-bottom"> 
                     {{=A(T('More Information'),_href=URL('about_us','mission_statement'))}}
-                  <!--<a href="http://heiup.uni-heidelberg.de/about_us/mission_statement/">Mehr</a>-->
-                  {{elif session.forced_language =='en': }} 
-                    {{=A(T('More Information'),_href=URL('about_us','mission_statement'))}}
-                  <!--<a href="http://heiup.uni-heidelberg.de/about_us/mission_statement/">More Information</a>-->
-                  
-                  {{pass}} 
                 </div>
               </div>
             </div>
             <div id="boxAktuelles" class="col-lg-6">
               <div class="box">
-                <div class="box-gray aligncenter" style="overflow-y: scroll">{{if session.forced_language =='de': }} <h4>Aktuelles</h4>{{elif session.forced_language =='en': }} <h4>News</h4>{{pass}} 	
-                   <div class="media">
-                    <div class="media-left pull-left">
-                      <img alt="" src="{{=URL('static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
-                    </div>
-					<div class="media-body">
-                      <p class="media-heading">03.01.17<br>
-                      {{if session.forced_language =='de': }} <span class="h5">Frisch erschienen: Die neue Ausgabe von Online – Heidelberg Journal of Religions on the Internet</span>{{elif session.forced_language =='en': }} <span class="h5">Freshly published: The new edition of Online – Heidelberg Journal of Religions on the Internet</span>{{pass}}</p> 
+                <div class="box-gray aligncenter" style="overflow-y: scroll">
+                   <h4>{{=T('News')}}</h4>
 
-                      <p class="boxText">{{if session.forced_language =='de': }}
-                      Themen dieser <a href="http://heiup.uni-heidelberg.de/journals/index.php/religions/index" title="Homepage des Online Journals 'Religions on the Internet'">Ausgabe</a> unter anderem:  Konflikt- und Affektverhalten konservativer Christen auf Facebook, die Bedeutung von Web 2.0 für Dschihadistinnen sowie Judentum, Christentum und Buddhismus in der englischsprachigen Wikipedia.
-                      {{elif session.forced_language =='en': }}                     
-                      Topics of this <a href="http://heiup.uni-heidelberg.de/journals/index.php/religions/index" title="Homepage of online journal 'Religions on the Internet'">issue</a> are (inter alia): a case study of conflicts on Facebook, the importance of Web 2.0 for female jihadists, and the use of religious terms on Wikipedia.       
-                      {{pass}}
-                      </p>
-                    </div>
-				  </div>		
-                   <div class="media">
-                    <div class="media-left pull-left">
-                      <img alt="" src="{{=URL('static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
-                    </div>
-					<div class="media-body">
-                      <p class="media-heading">09.12.2016<br>
-                      {{if session.forced_language =='de': }} <span class="h5">Neueste Ausgabe der "Ruperto Carola" ist online</span>{{elif session.forced_language =='en': }} <span class="h5">Latest Edition of "Ruperto Carola" is Now Online</span>{{pass}}</p> 
 
-                      <p class="boxText">{{if session.forced_language =='de': }}STOP & GO, der Wechsel zwischen Stillstand und Bewegung, zwischen Beharren und Veränderung, ist das Thema der neuesten Ausgabe des Magazins <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index" title="Link zur Zeitschrift">Ruperto Carola</a>. 22 Wissenschaftler der Universität Heidelberg zeigen, in wie vielfältigen Zusammenhängen die beiden Zustände „Stop“ und „Go“ – Stillstand und Bewegung – wirken.
-                      {{elif session.forced_language =='en': }}                     
-                      STOP & GO, the new edition of the journal <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index" title="Link to the journal">Ruperto Carola</a> is dedicated to the transition from standstill to movement, from insistence to change. 22 scholars and scientists of Heidelberg University show how manifold the connections are in wich these two states "stop" and "go" - standstill and movement - work.            
-                      {{pass}}
-                      </p>
-                    </div>
-				  </div>		
-				  
-				  <div class="media">
-                    <div class="media-left pull-left">
-                      <img alt="" src="{{=URL('static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
-                    </div>
-					<div class="media-body">
-                      <p class="media-heading">27.10.2016<br>
-                      {{if session.forced_language =='de': }} <span class="h5">Neu bei heiUP: Studium Generale der Universität Heidelberg</span>{{elif session.forced_language =='en': }} <span class="h5">New heiUP journal: Studium Generale by Heidelberg University</span>{{pass}}</p> 
+                    {{
+                    for n in news_list:
+                        =n
+                    pass
+                    }}
 
-                      <p class="boxText">{{if session.forced_language =='de': }}Wir freuen uns, dass die traditionsreiche Zeitschrift <a href="/heiup/campusmedia/generale" title="weitere Informationen">Studium Generale</a>, in der Vorträge aus der gleichnamigen Vorlesungsreihe der Universität Heidelberg versammelt sind, ab sofort bei Heidelberg University Publishing erscheint. Am 26.10. ging die erste Ausgabe online, das Thema ist Licht.
-                      {{elif session.forced_language =='en': }}                     
-                      We are very pleased to announce that <a href="/heiup/campusmedia/generale" title="more information">Studium Generale</a> will henceforward be published by Heidelberg University Publishing. The journal compiling speeches from the the lecture series of the same name by Heidelberg University looks back at a long tradition. The first issue on the subject of "light"was published on 26th October 2016.           
-                      {{pass}}
-                      </p>
-                    </div>
-				  </div>
-				  
-				  <div class="media">
-                    <div class="media-left pull-left">
-                      <img alt="" src="{{=URL('static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
-                    </div>
-					<div class="media-body">
-                      <p class="media-heading">21.10.2016<br>
-                      {{if session.forced_language =='de': }} <span class="h5">Veranstaltungsreihe Open Access am Mittag: Publizieren an der Universität Heidelberg</span>{{elif session.forced_language =='en': }} <span class="h5">Series of events Open Access at noon: Publishing with the Heidelberg University</span>{{pass}}</p> 
-
-                      <p class="boxText">{{if session.forced_language =='de': }}Anlässlich der Open-Access-Woche 2016 vom 24.10. bis 30.10. lädt die UB Sie in Ihrer Mittagspause dazu ein, sich über die <a href="http://www.ub.uni-heidelberg.de/service/openaccess/Welcome.html" title="Informationen über die Publikationsmöglichkeiten im Open Access an der Universität Heidelberg">vielfältigen Publikationsmöglichkeiten im Open Access</a>, die die Uni Heidelberg bereitstellt, zu informieren. Beginn: 13 Uhr im <a href="http://www.ub.uni-heidelberg.de/cgi-bin/ub3d.cgi?bereich=Handschriftenlesesaal&zweig=&sprache=de" title="Lageplan: Handschriftenlesesaal der UB Heidelberg">Handschriftenlesesaal (Rundzimmer)</a> der UB. [<a href="http://www.ub.uni-heidelberg.de/bilder/oa/oa-woche_plakat_A4.pdf">&rsaquo;&rsaquo;Veranstaltungsübersicht</a>]
-                      {{elif session.forced_language =='en': }}                     
-                      On occasion of the open acces week, 24-30 October 2016, the University Library invites you in your lunch break to inform you about the <a href="http://www.ub.uni-heidelberg.de/Englisch/service/openaccess/Welcome.html" title="Information on Open Access publishing options at Heidelberg University">various publishing options</a> Heidelberg University offers. Start: 1 pm in the <a href="http://www.ub.uni-heidelberg.de/cgi-bin/ub3d.cgi?bereich=Handschriftenlesesaal&zweig=altstadt&sprache=en" title="site plan manuscript reading room of Heidelberg University Library">manuscript reading room (round chamber)</a> of the library.           
-                      {{pass}}
-                      </p>
-                    </div>
-				  </div>
-
-				  <div class="media">
-                    <div class="media-left pull-left">
-                      <img alt="" src="{{=URL('static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
-                    </div>
-					<div class="media-body">
-                      <p class="media-heading">26.09.2016<br>
-                      {{if session.forced_language =='de': }} <span class="h5">Neu erschienen bei Heidelberg University Publishing / Campus Media: <i>Die Alte Aula der Universität Heidelberg</i></span>{{elif session.forced_language =='en': }} <span class="h5">Newly published in Heidelberg University Publishing / Campus Media: <i>Die Alte Aula der Universität Heidelberg</i></span>{{pass}}</p> 
-
-                      <p class="boxText">{{if session.forced_language =='de': }}Geschichte und Gestaltung des berühmten Festsaales der Heidelberger Universität bilden die Themen des von Heike Hawicks und Ingo Runde herausgegebenen Bandes <i><a href="/catalog/book/122">Die Alte Aula der Universität Heidelberg</a></i>. Mit zahlreichen farbigen Abbildungen ausgestattet, zeigt das Buch sehr anschaulich die Pracht des Raumes und seine wechselvolle Vergangenheit.
-                      {{elif session.forced_language =='en': }}                     
-                       Geschichte und Gestaltung des berühmten Festsaales der Heidelberger Universität bilden die Themen des von Heike Hawicks und Ingo Runde herausgegebenen Bandes <i><a href="/catalog/book/122">Die Alte Aula der Universität Heidelberg</a></i>. Mit zahlreichen farbigen Abbildungen ausgestattet, zeigt das Buch sehr anschaulich die Pracht des Raumes und seine wechselvolle Vergangenheit.                  
-                      {{pass}}
-                      </p>
-                    </div>
-				  </div>
-				
-				  <div class="media">
-                    <div class="media-left pull-left">
-                      <img alt="" src="{{=URL('static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
-                    </div>
-					<div class="media-body">
-                      <p class="media-heading">08.09.2016<br>
-                      {{if session.forced_language =='de': }} <span class="h5">Neu erschienen: Frankwalt Möhrens Neu-Edition des Kochbuches <i>Il libro de la cocina</i></span>{{elif session.forced_language =='en': }} <span class="h5">Newly published: Frankwalt Möhren's new edition of the cookbook <i>Il libro de la cocina</i></span>{{pass}}</p> 
-
-                      <p class="boxText">{{if session.forced_language =='de': }}Das aus dem 2. Drittel des 14. Jahrhunderts stammende, knapp 200 Rezepte umfassende Kochbuch <i><a href="/catalog/book/123">Il libro de la cocina</a></i> offenbart die ganze Palette der altitalienischen Küche. Sie ist Teil einer Kochtradition, die bis in den orientalischen Kulturraum zurückreicht und ihrerseits eine breite europäische Rezeption erfuhr. In der Edition wird dies durch die Verknüpfung der Rezepte mit vielen orientalischen wie europäischen Vorgängern und Nachfolgern nachdrücklich belegt. Ein vollständiges kritisches Glossar erschließt die Texte; volkssprachliche und lateinische Parallelüberlieferung sind mit abgedruckt.
-                      {{elif session.forced_language =='en': }}                     
-                       Originating from the 2nd third of the 14th century the cookbook <i><a href="/catalog/book/123">Il libro de la cocina</a></i> contains about 200 recipes and presents the whole range of Old Italian cuisine. It is part of a cooking tradition which dates back to the oriental cultural area and which itself was already widely received in Europe. In this edition this is strongly proven by connecting the recipes with many oriental and European predecessors and successors. A complete and critical glossary makes the texts accessible; vernacular and Latin translations are also included.                  
-                      {{pass}}
-                      </p>
-                    </div>
-				  </div>
-				
-				  <div class="media">
-                    <div class="media-left pull-left">
-                      <img alt="" src="{{=URL('static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
-                    </div>
-					<div class="media-body">
-                      <p class="media-heading">25.07.2016<br>
-                      {{if session.forced_language =='de': }} <span class="h5">Neuerscheinung zum Thema Kunstrecht: Sind Auflagenlimitierungen in der Fotokunst bindend?</span>{{elif session.forced_language =='en': }} <span class="h5">New publication on the subject of art law: is edition limitation in photographic art binding?</span>{{pass}}</p> 
-
-                      <p class="boxText">{{if session.forced_language =='de': }} Der Heidelberger Rechtsanwalt Felix M. Michl untersucht in seiner Dissertation <i>Die limitierte Auflage</i> rechtliche Fragen der Auflagenlimitierung in der Fotokunst. Er geht dabei insbesondere der Frage nach, ob solche „Exklusivitätsversprechen“ des Künstlers, nur eine begrenzte Zahl von Abzügen zu erstellen, rechtlich bindend sind und somit beispielsweise von einem Sammler eingeklagt werden könnten. Besondere Relevanz erhält die Fragestellung der Arbeit durch die aktuellen Entwicklungen auf dem Kunstmarkt: Dort hat sich die Fotografie in den letzten Jahrzehnten zu einer der populärsten und auch ökonomisch lukrativsten Kunstgattungen entwickelt. Einzelne Abzüge werden mittlerweile für Millionenbeträge gehandelt. Ohne eine Limitierung der Auflge wäre dies kaum denkbar.
-                      {{elif session.forced_language =='en': }}                     
-In his dissertation <i>Die limitierte Auflage</i> (“The Limited Edition”), Heidelberg lawyer Felix M. Michl examines the legal issues concerning edition limitation in photographic art. He focuses particularly on whether such “promises of exclusivity” by artists, i.e. to limit the print run, are legally binding and can thus be claimed by a collector. This question has become especially relevant in recent times, with photography becoming one of the most popular and economically lucrative art forms over the last few decades. Individual prints can sell for millions, something that is difficult to imagine without edition limitation.                   
-                      {{pass}}
-                      </p>
-                    </div>
-				</div>
-				
-				 <div class="media">
-                    <div class="media-left pull-left">
-                      <img alt="" src="{{=URL('static','images/press/home/uni_aktuelles.png')}}" style="width: 50px;" />
-                    </div>
-                    <div class="media-body">
-                      <p class="media-heading">04.07.2016<br>
-                      {{if session.forced_language =='de': }} <span class="h5"><i>Nord & Süd</i> ist das Schwerpunktthema der neu erschienenen Ausgabe des Forschungsmagazins Ruperto Carola</span>{{elif session.forced_language =='en': }} <span class="h5"><i>North &amp; South</i> is the main topic of the newly published issue of the research journal Ruperto Carola</span>{{pass}}</p> 
-                      <p class="boxText">{{if session.forced_language =='de': }} Die neueste Ausgabe des Magazins <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index" title="Homepage des Forschungsmagazins Ruperto Carola"> „Ruperto Carola“</a> widmet sich einem hoch aktuellen Themenkomplex – den Zusammenhängen von NORD & SÜD. 20 Wissenschaftlerinnen und Wissenschaftler der Universität Heidelberg beschäftigen sich in ihren Beiträgen mit globalen Fragestellungen und Herausforderungen wie der Flüchtlingskrise, dem Klimawandel und den asymmetrischen Beziehungen zwischen den Ländern des Globalen Südens und denen des Globalen Nordens.
-                      {{elif session.forced_language =='en': }}
-In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index" title="Homepage  Ruperto Carola">&ldquo;Ruperto Carola&rdquo;</a> focuses on a highly topical subject – the relationship between NORTH &amp; SOUTH. The articles by 20 Heidelberg University scholars deal with global issues and challenges such as the refugee crisis, climate change and the asymmetrical relations between the countries of the Global South and the Global North.                 
-                      {{pass}}
-                      </p>
-                    </div>
-                  </div>
-				
-                  <div class="media">
-                    <div class="media-left pull-left">
-                      <img alt="" src="{{=URL('static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
-                    </div>
-                    <div class="media-body">
-                      <p class="media-heading">24.06.2016<br>
-                      {{if session.forced_language =='de': }} <span class="h5">Neu erschienen: <i>Wir haben ja alle Deutschland nicht gekannt</i><br /> von Wolfgang Kemp</span>{{elif session.forced_language =='en': }} <span class="h5">New release: <i>Wir haben ja alle Deutschland nicht gekannt</i><br /> by Wolfgang Kemp</span>{{pass}}</p> 
-
-                      <p class="boxText">{{if session.forced_language =='de': }} <i>{{=A(T('Wir haben ja alle Deutschland nicht gekannt'),_href=URL('catalog','book/90'))}}</i> – Das neue, fast 500 Seiten starke Buch von Wolfgang Kemp widmet sich in Texten und Bildern Deutschland in der Zeit der Weimarer Republik. Nach 1918 musste sich das Land nicht nur politisch und sozial neu definieren, sondern sich auch geographisch und als kulturelle Einheit neu entdecken. Es setzte ein Prozess ein, den man mit einem Begriff der Zeit als „Innere Kolonisation“ bezeichnen kann. Zur Kompensation der vielen Verluste machten sich Wissenschaftler und Künstler daran, jene Dimension, die in Frankreich „la France profonde“ heißt, zu erschließen, das „innere“ Deutschland also, seine einzigartige Kulturdichte. Die Ökonomie des Sparenmüssens wurde zur Überflusswirtschaft der geistigen und materiellen Reichtümer konvertiert. 
-                      {{elif session.forced_language =='en': }}
-                      <i>{{=A(T('Wir haben ja alle Deutschland nicht gekannt'),_href=URL('catalog','book/90'))}}</i> – The images and texts of Wolfgang Kemp’s new 500 page book are concerned with Germany during the Weimar Republic. After 1918 Germany had to find a new definition for its identity on a political and social level as well as to rediscover itself as a unity in terms of geography and culture. This process can be described as „Inner colonisation“. Scientists and artists began to compensate the many losses by tapping into the dimension of the „inner“ Germany - its unique cultural density - which in France would be called „la France profonde“. The pressure to be economical was converted into an economy of abundance of spiritual and material wealth.                   
-                      
-                      {{pass}}
-                      
-                      
-                       
-                      </p>
-                    </div>
-                    </div>
-
-                  <div class="media">
-                    <div class="media-left pull-left">
-                      <img alt="" src="{{=URL('static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
-                    </div>
-                    <div class="media-body">
-                      <p class="media-heading">03.05.2016<br>
-                      {{if session.forced_language =='de': }} <span class="h5">Neu erschienen: <i>Passing Through Shanghai</i> von Marie Sander</span>{{elif session.forced_language =='en': }} <span class="h5">New release: <i>Passing Through Shanghai</i> by Marie Sander</span>{{pass}}</p> 
-
-                      <p class="boxText">{{if session.forced_language =='de': }} {{=A(T('Passing Through Shangai'),_href=URL('catalog','book/48'))}} untersucht das Erleben internationaler Mobilität aus der Sicht von Kindern und Jugendlichen. Im Fokus dieser ethnographischen Studie stehen Kinder von Firmenentsandten – sogenannten Expats – die einen Teil ihrer Jugend im gegenwärtigen Shanghai verbringen. Marie Sander untersucht ihren Alltag, ihre Träume und Hoffnungen sowie ihre Fragen nach Zugehörigkeit und Heimat. {{=A(T('Passing Through Shangai'),_href=URL('catalog','book/48'))}} eröffnet die Reihe {{=A(T('Heidelberg Studies on Transculturality'),_href=URL('series','info/hst'))}}, die vom Exzellenzcluster „Asien und Europa im globalen Kontext“ herausgegeben wird. {{elif session.forced_language =='en': }} {{=A(T('Passing Through Shangai'),_href=URL('catalog','book/48'))}} examines how children experience international mobility. Focusing on a specific yet diverse group of expatriate youths in contemporary Shanghai. Marie Sander investigates expatriate teenagers’ everyday practices, their lives at international schools, their engagement with the city, their dreams and aspirations, as well as their questions of belonging {{=A(T('Passing Through Shangai'),_href=URL('catalog','book/48'))}} is the first issue of the series {{=A(T('Heidelberg Studies on Transculturality'),_href=URL('series','info/hst'))}}, which is edited by the Cluster of Excellence “Asia and Europe in a Global Context”. {{pass}} 
-                      </p>
-                    </div>
-                    </div>
-                    <div class="media">
-                      <div class="media-left pull-left">
-                        <img alt="" src="{{=URL('static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
-                      </div>
-                      <div class="media-body">
-                        <p class="media-heading">21.04.2016<br>
-                        {{if session.forced_language =='de': }} <span class="h5">Neue Ausgabe von "online - Heidelberg Journal of Religions on the Internet"</span>{{elif session.forced_language =='en': }} <span class="h5">New issue of "online - Heidelberg Journal of Religions on the Internet"</span>{{pass}} 
-                        </p>
-                        <p class="boxText">{{if session.forced_language =='de': }} Die neue Ausgabe von 
-                          <a title="Homepage von online - Heidelberg Journal of Religions on the Internet" href="http://heiup.uni-heidelberg.de/journals/index.php/religions/index">online - Heidelberg Journal of Religions on the Internet 10 (2016)</a> widmet sich erneut dem Thema "Religion in digitalen Spielen (RESPAWNED)". Gamer kennen den Begriff sicherlich: Von <i>respawn</i> spricht man, wenn in Computerspielen virtuelle Gegner wieder zum Leben erweckt werden. Was im Spiel Nerven kostet, ist in diesem Fall ein Gewinn: Diese Ausgabe ist das - sehr positive - Ergebnis einer Art <i>respawn</i>, nämlich der Einreichung zahlreicher großartiger und hochinnovativer Artikel aus dem Themenfeld "Religion und digitale Spiele". Viel Spaß beim Lesen! {{elif session.forced_language =='en': }} The new special issue of 
-                          <a title="Homepage von online - Heidelberg Journal of Religions on the Internet" href="http://heiup.uni-heidelberg.de/journals/index.php/religions/index">online - Heidelberg Journal of Religions on the Internet 10 (2016)</a> is - once more - dedicated to "Religion in Digital Games (RESPAWNED)". As the "gamers" among our readers will be very well aware of, <i>respawn</i> is a constant occurence in most videogames. However, while in-game it usually is rather annoying, this issue is the - very positive - result of some kind of <i>respawn</i>, namely the submission of many great papers by highly innovative authors doing research in the field of digital games and gaming. Enjoy! {{pass}} 
-                        </p>
-                      </div>
-                    </div>
-                    <div class="media">
-                      <div class="media-left pull-left">
-                        <img alt="" src="{{=URL('static','images/press/home/heiup_aktuelles.png')}}" style="width: 50px;" />
-                      </div>
-                      <div class="media-body">
-                        <p class="media-heading">{{if session.forced_language =='de': }} <span class="h5">Heidelberg University Publishing ist Mitglied in der Association of European Publishers (AEUP).</span>{{elif session.forced_language =='en': }} <span class="h5">Heidelberg University Publishing is a member of the Association of European Publishers (AEUP).</span>{{pass}} 
-                        </p>
-                        <p class="boxText">{{if session.forced_language =='de': }} 
-                          <a href="http://www.aeup.eu/aeup/" title="Homepage Associaten of European University Presses">AEUP</a> ist eine Organisation von und für europäische Universitätsverlage. Darin vertreten sind zahlreiche namhafte Verlage unter anderem aus Belgien, Finnland, Großbritannien, den Niederlanden und Deutschland. Wir freuen uns, dass unser Aufnahmeantrag vor wenigen Tagen angenommen wurde! {{elif session.forced_language =='en': }} The <a href="http://www.aeup.eu/aeup/" title="Homepage Associaten of European University Presses">AEUP</a> is an organization of and for European university presses. Numerous well-known publishers as for example from Belgium, Finland, Great Britain, the Netherlands and Germany are represented in this association. We are pleased that, a few days ago, our application for admission has been accepted! {{pass}} 
-                        </p>
-                      </div>
-                    </div>
 
                 </div>
               </div>
@@ -348,50 +163,62 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
           </div>
         </div>
         </div>
+       </div> 
         <div class="row">
           <div class="col-lg-12">
             <div class="row">
+			       <div class="col-lg-3">
+               <div class="box">
+                <div class="box-gray aligncenter">
+                <h4>{{=T('New Titles')}}</h4>
+					       {{=IMG(_src=URL('static','images/campusmedia/cover_11_2017.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}                
+                  </div>
+                  <div class="box-bottom"><a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/view/2373">{{=T('More Information')}}</a>
+                  </div>
+                </div>
+              </div>   
               <div class="col-lg-3">
                 <div class="box">
                   <div class="box-gray aligncenter">
-                  {{if session.forced_language =='de': }}
-                  <h4>Erscheint demnächst</h4>
-                  {{elif session.forced_language =='en': }}
-                  <h4>Coming soon</h4>
-                  {{pass}} 
-				{{=IMG(_src=URL('static','images/catalog/Cover_Windelband_OMP_300.jpg'),_width='145px',_class='bildrahmen')}}
+                <h4>{{=T('New Titles')}}</h4>
+                {{=IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/301/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}} 
+				                        
+                  </div>
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/301'))}}
+                  </div>
+                </div>
+              </div> 
+			       <div class="col-lg-3">
+               <div class="box">
+                <div class="box-gray aligncenter">
+                <h4>{{=T('New Titles')}}</h4>
+                 {{=IMG(_src=URL(myconf.take('web.application'),'static','images/journals/cover_heso.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
+					                       
+                  </div>
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('journals','heso'))}}
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="box">
+                  <div class="box-gray aligncenter">
+                <h4>{{=T('New Titles')}}</h4>
+        				{{=IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/312/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}                
                   </div>
                   <div class="box-bottom">
-
-                    {{=A(T('More Information'),_href=URL('catalog','index.html#forthcoming'))}}
+                    {{=A(T('More Information'),_href=URL('catalog','book/312'))}}
                     </div>
-
                 </div>
-              </div>
-			  
-			  <div class="col-lg-3">
-                <div class="box">
-                  <div class="box-gray aligncenter">
-                  {{if session.forced_language =='de': }}
-                  <h4>Neuerscheinung</h4>
-                  {{elif session.forced_language =='en': }}
-                  <h4>New titles</h4>
-                  {{pass}}
-				  {{=IMG(_src=URL('static','images/journals/religions.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}} 
-                </div>
-                <div class="box-bottom">{{=A(T('More Information'),_href=URL('journals','religions'))}} 
-                </div>
-                </div>
-              </div>
-			  
+              </div>                              
              
+<!--Campus Media Boxen			 
               <div class="col-lg-3">
                 <div class="box">
                   <div class="box-gray aligncenter">
-                    <h4>Campus Media</h4>
-					{{=IMG(_src=URL('static','files/presses/6/monographs/122/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
+                    <h4>{{=T('New Titles')}}</h4>
+					{{=IMG(_src=URL(myconf.take('web.application'),'static','images/campusmedia/cover_10_2017.png'),_alt='',_style='width:145px', _class='bildrahmen')}}
                   </div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/122'))}}
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('campusmedia','ruperto_carola'))}}
                   </div>
                 </div>
               </div>
@@ -399,13 +226,16 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
             <div class="col-lg-3">
                 <div class="box">
                   <div class="box-gray aligncenter">
-                    <h4>{{if session.forced_language =='de': }}Erscheint demnächst{{elif session.forced_language =='en': }}Coming soon{{pass}}</h4>
+                <h4>{{=T('New Titles')}}</h4>
 					{{=IMG(_src=URL('static','images/catalog/Cover_anders_altern_OMP_300.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
                   </div>
-                  <div class="box-bottom">&nbsp;
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('campusmedia','generale'))}}
                   </div>
                 </div>
               </div>
+-->
+			      
+
 
               <!-- <div class="col-lg-3">
               <div class="box">
@@ -448,8 +278,63 @@ In its newest edition the journal <a href="http://heiup.uni-heidelberg.de/journa
                 <!--</div>-->
               </div>
             </div>
+          </div><!-- ./zweite Boxen-Reihe-->
+		  
+		  
+          <div class="row">
+           <div class="col-lg-12">
+            <div class="row">
+            <div class="col-lg-3">
+                <div class="box">
+                  <div class="box-gray aligncenter">
+                <h4>{{=T('Forthcoming')}}</h4>
+                {{=IMG(_src=URL(myconf.take('web.application'),'static','/images/series/hdaw_dn.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}               
+                  </div>
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','#forthcoming'))}}
+                </div>
+              </div>
+            </div>  
+			  <div class="col-lg-3">
+               <div class="box">
+                <div class="box-gray aligncenter">
+                <h4>{{=T('Forthcoming')}}</h4>
+					       {{=IMG(_src=URL(myconf.take('web.application'),'static','images/catalog/cover_bubenhofer.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}                
+                  </div>
+                  <div class="box-bottom">&nbsp;
+                  </div>
+                </div>
+              </div>
+             
+              <div class="col-lg-3">
+                <div class="box">
+                  <div class="box-gray aligncenter">
+                <h4>{{=T('Forthcoming')}}</h4>
+                {{=IMG(_src=URL(myconf.take('web.application'),'static','images/journals/heieducation.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
+                  </div>
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('journals','#forthcoming'))}}
+                  </div>
+                </div>
+              </div>
+    
+            <div class="col-lg-3">
+                <div class="box">
+                  <div class="box-gray aligncenter">
+                <h4>{{=T('Forthcoming')}}</h4>
+					{{=IMG(_src=URL('static','images/journals/cover_studium-generale_wasser.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
+                  </div>
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('campusmedia','generale'))}}
+                  </div>
+                </div>
+              </div>
+           
+             </div>
+           </div>
           </div>
-        </div>
-      </div>
+
+		  <!-- ./dritte Boxen-reihe-->
+          
+          
+    </div>
   </section>
-</div>
+ </div>  
+

@@ -4,14 +4,14 @@
 		{{editors = submission.associated_items.get('editors', [])}}
 		{{authors = submission.associated_items.get('authors', [])}}
 		{{if editors:}}
-			{{=formatContributors(editors)}}
+			{{=formatContributors(editors, max_contributors=4)}}
 				{{if len(editors) > 1:}}
-					{{=T("(eds)")}}
+					{{=T("(Eds.)")}}
 				{{else:}}
-					{{=T("(ed.)")}}
+					{{=T("(Ed.)")}}
 				{{pass}}
 		{{else:}}
-			{{=formatContributors(authors)}}
+			{{=formatContributors(authors, max_contributors=4)}}
 		{{pass}}
 	</h4>
 	</div>
@@ -19,7 +19,7 @@
 
 		{{ category = submission.associated_items.get('category', None)}}
 		{{if category:}}
-	<div id="spartenmarker" class="col-lg-3 col-md-3 col-xs-5">
+	<div class="spartenmarker col-lg-3 col-md-3 col-xs-5">
 		{{category_path=ompdal.getCategory(category.attributes.get('category_id')).get('path')}}
 
 		{{=A(category.settings.getLocalizedValue('title', locale),_href=URL('category','info/'+str(category_path)))}}

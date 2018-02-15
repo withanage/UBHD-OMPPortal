@@ -6,7 +6,6 @@
     <!-- Always force latest IE rendering engine
          (even in intranet) & Chrome Frame
          Remove this if you use the .htaccess -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge{{=not request.is_local and ',chrome=1' or ''}}">
     <!--  Mobile Viewport Fix
           j.mp/mobileviewport & davidbcalhoun.com/2010/viewport-metatag
           device-width: Occupy full width of the screen in its current orientation
@@ -18,7 +17,7 @@
     <meta name="application-name" content="{{=request.application}}">
     <!-- Speaking of Google, don't forget to set your site up:
          http://google.com/webmasters -->
-  <meta name="google-site-verification" content="Fe1egWKUFNNSp3IYTaGTmvQ_nZKTZK6L5q7QetXMfa4" />
+    <meta name="google-site-verification" content="Fe1egWKUFNNSp3IYTaGTmvQ_nZKTZK6L5q7QetXMfa4" />
     <!-- include stylesheets -->
     <!-- link rel="stylesheet" href="{{=URL('static','css/bootstrap-theme.min.css')}}"/>
     <link rel="stylesheet" href="{{=URL('static','css/web2py-bootstrap3.css')}}"/-->
@@ -71,7 +70,7 @@
             g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
           })();
       </script>
-       <noscript><p><img src="//www.ub.uni-heidelberg.de/piwik/piwik.php?idsite=4" style="border:0;" alt="" /></p></noscript>
+       <noscript><img alt="" src="//www.ub.uni-heidelberg.de/piwik/piwik.php?idsite=4" style="border:0;"  /></noscript>
 
 
       {{
@@ -81,11 +80,8 @@
 
     }}
 
-
-
-
-
   </head>
+
   <body>
   
     <!--[if lt IE 8]><p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]-->
@@ -97,7 +93,7 @@
             <div class="col-lg-12 col-sm-12 col-xs-12">
                 <ul class="nav nav-pills pull-right">
                      <li><a href="{{=URL('contact','index')}}" style="padding-right: 0;">{{=T('Contact')}} | </a></li>
-         <!--<li><a href="suche.html">{{=T('Search')}} |</a></li>-->
+                    <!--<li><a href="suche.html">{{=T('Search')}} |</a></li>-->
                     <!--<li><a href="faq.html">FAQ |</a></li>-->
                      {{if session.forced_language=='en':}}
                     <li><a href="{{=request.url}}?lang=de" style="padding-left: 5px;">DE</a></li>
@@ -138,7 +134,7 @@
                         <div class="navbar-collapse collapse pull-right visible-lg hidden-md">
                             <ul class="nav navbar-nav">
                                 <li>
-                                  <img id="nav-social-media" src="{{=URL('static','images/press/social-media-icons.png')}}" style="height: 30px"  alt="Planets" usemap="#socialmap">
+                                  <img alt="" id="nav-social-media" src="{{=URL('static','images/press/social-media-icons.png')}}" style="height: 30px"  usemap="#socialmap">
                                     <map name="socialmap">
 					{{if request.url=='/': }}
 					{{request.url=request.url+myconf.take('web.application')}}
@@ -218,20 +214,15 @@
                  </div>
              </div>
              <div class="col-lg-4" >
-                 <div class="widget screen">
-                {{if session.forced_language=='de':}}
-                     <h5 class="widgetheading">Seiten</h5>
-                {{elif session.forced_language=='en':}}
-                     <h5 class="widgetheading">Sitemap</h5>
-                {{pass}}     
+                 <div class="widget screen"> 
                      <ul class="link-list">
                         <li><a href="{{=URL('home','index')}}">{{=T('Home')}}</a></li>
                         <li>{{=T('About us')}} | <a href="{{=URL('about_us','mission_statement')}}">Mission Statement</a></li>
                         <li><a href="{{=URL('catalog','index')}}">{{=T('Books')}}</a></li>
-                        <li><a href="{{=URL('journals','index')}}">{{=T('Journals')}}</a></li>                         
+                        <li><a href="{{=URL('series','index')}}">{{=T('Series')}}</a></li>                         
+                        <li><a href="{{=URL('journals','index')}}">{{=T('Journals')}}</a</li>
                         <li><a href="{{=URL('campusmedia','index')}}">Campus Media</a></li>
                         <li>{{=T('Publishing')}} | <a href="{{=URL('publishing','for_authors')}}">{{=T('Information for Authors')}}</a></li>
-                        <li>{{=T('Quality Control')}} | <a href="{{=URL('quality_control','peer_review')}}">Peer Review</a></li>
                         <li><a href="{{=URL('contact','imprint')}}">{{=T('Legal Notice')}}</a></li>
                      </ul>
                  </div>
@@ -239,7 +230,7 @@
              <div class="col-lg-4">
              </div>
              <div class="col-lg-4">
-               <div id="footer_logo_ub" class="widget"><a href="http://www.uni-heidelberg.de" title="Homepage Universität Heidelberg"><img alt="Logo - Universität Heidelberg - Universitätsbibliothek Heidelberg" src="{{=URL('static','/images/press/logo_footer_grau.png')}}" /></a>
+               <div id="footer_logo_ub" class="widget"><a href="http://www.ub.uni-heidelberg.de" title="Homepage Universitätsbibliothek Heidelberg"><img alt="Logo - Universität Heidelberg - Universitätsbibliothek Heidelberg" src="{{=URL('static','/images/press/logo_footer_grau.png')}}" /></a>
                </div>
              </div>                        
          </div>
@@ -248,7 +239,7 @@
          <div class="container">
              <div class="row">
                <div class="col-lg-4">
-               <a href="https://twitter.com/heiUP_HD" title="Twitter heiUP">{{=T('Follow us on Twitter')}} <i class="fa fa-twitter fa-1x"></i></a>
+               <a href="https://twitter.com/heiUP_HD" style="font-size: 0.9em; margin-left: 0.5em; title="Twitter heiUP">{{=T('Follow us on Twitter')}} <i class="fa fa-twitter fa-1x"></i></a>
                </div>
                   <!--<div id="footer_sn" class="col-lg-4">
                      <ul class="social-network">
@@ -270,7 +261,7 @@
                 {{pass}}-->     
                  </div>
                  <div class="col-lg-4">
-               <a href="https://pkp.sfu.ca/" title="Homepage PKP - Public Knowledge Project"><img class="" alt="Public Knowledge Project" src="http://books.ub.uni-heidelberg.de/lib/pkp/templates/images/pkp_brand.png"></a>
+               <a href="https://pkp.sfu.ca/" title="Homepage PKP - Public Knowledge Project"><img class="" alt="Public Knowledge Project" src="https://books.ub.uni-heidelberg.de/lib/pkp/templates/images/pkp_brand.png"></a>
                  </div>
              </div>
          </div>

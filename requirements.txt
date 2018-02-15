@@ -1,0 +1,2 @@
+sunburnt>=0.6
+paginate>=0.5.6

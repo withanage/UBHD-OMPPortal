@@ -1,6 +1,6 @@
 {{extend 'layout.html'}}
 {{import re, os}}
-{{from ompformat import formatContributors, coverImageLink}}
+{{from ompformat import formatContributors, coverImageLink, formatSeriesPosition}}
 
 
 <div id="main" class="container">
@@ -25,7 +25,7 @@
                         {{if series:}}
                         	{{series_title = series.settings.getLocalizedValue('title', locale)}}
                         	{{series_subtitle = series.settings.getLocalizedValue('subtitle', locale)}}
-                        	<i>{{=series_title}}{{ if series_subtitle: }} – {{=series_subtitle}}{{pass}}{{if submission.attributes.series_position:}}, {{=T('Vol.')}} {{=submission.attributes.series_position}} {{pass}}</i>
+                        	<i>{{=series_title}}{{ if series_subtitle: }} – {{=series_subtitle}}{{pass}}{{if submission.attributes.series_position:}}, {{=formatSeriesPosition(submission.attributes.series_position)}}{{pass}}</i>
                         {{pass}}
                     </div>
                     <p>
@@ -55,7 +55,7 @@
 			<div class="col-lg-3">
 				<article>
 				  <div class="post-image">
-					<img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/heidelberger_jahrbuecher.jpg')}} ">
+					<img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/heidelberger_jahrbuecher_2017.jpg')}} ">
 				  </div>
 				</article>
 			  </div>
@@ -63,17 +63,17 @@
 				<article>
 				  <div class="post-heading">
 				  <div id="autoren" class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h3>Heidelberger Jahrbücher Online</h3></div>
-          <div id="spartenmarker" class="col-lg-3 col-md-3 col-xs-5" style="padding-left: 0; padding-right: 3%; margin-top: 2ex;"><a href="{{=URL(myconf.take('web.application'),'category','info/campusmedia')}}" style="text-decoration: none; color: #979797;">{{=T('Campus Media ')}}</a></div>
+          <div class="spartenmarker col-lg-3 col-md-3 col-xs-5" style="padding-left: 0; padding-right: 3%; margin-top: 2ex;"><a href="{{=URL(myconf.take('web.application'),'category','info/campusmedia')}}" style="text-decoration: none; color: #979797;">{{=T('Campus Media ')}}</a></div>
           <br style="clear: both">
 				  </div>
 				  {{if session.forced_language =='de': }}
 				  <p><i class="icon-quote-left"></i>In den Heidelberger Jahrbüchern Online soll der wissenschaftliche Geist und der geschichtliche Raum der Universität zur Darstellung gelangen. Die Heidelberger Jahrbücher, die im Auftrag der Gesellschaft der Freunde Universität Heidelberg e.V. herausgegeben werden, beleuchten in jedem Band ein fachübergreifendes Thema aus unterschiedlichen Positionen. Ihr Ziel ist es, das Gespräch und den Kontakt der Wissenschaften an der Universität Heidelberg untereinander zu fördern.</p>
 				  <p><strong>Call for Papers</strong><br />
-				  <a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/pages/view/cfp" title="Homepage Heidelberger Jahrbücher Online, Informationen zum Call for Papers für Band 2">Call for Papers für Band 2: &bdquo;Wissenschaft für Alle - Bedeutung von Open Science und Citizen Science für Universitäten und Wissenschaft&rdquo;</a>
+				  <a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/pages/view/cfp" title="Homepage Heidelberger Jahrbücher Online, Informationen zum Call for Papers für Band 3">Call for Papers für Band 3</a>
 					</p>
 					{{elif session.forced_language =='en': }} 
 				  <p><i class="icon-quote-left"></i>Heidelberg Yearbooks Online is a platform for the scientific spirit and the historic dimension of Heidelberg University. The Yearbooks are hosted by the Friends of the University, a non-commercial organization in support of Heidelberg University. Each yearbook focuses on an overarching thematic issue that will be interpreted by heterogenous points of view. The yearbooks are intended to foster communication and contact between scientists from different disciplines. {{pass}} 
-				  </p>
+				  </p> 
 				  <div class="widget">
 					<h5 class="widgetheading"></h5>
 					<ul class="tags">
@@ -94,7 +94,7 @@
       <div class="col-lg-3">
         <article>
           <div class="post-image">
-            <img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/cover_09_2016.png')}}">
+            <img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/cover_11_2017.jpg')}}">
           </div>
         </article>
       </div>
@@ -102,7 +102,7 @@
         <article>
           <div class="post-heading">
           <div id="autoren" class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h3>Ruperto Carola</h3></div>
-          <div id="spartenmarker" class="col-lg-3 col-md-3 col-xs-5" style="padding-left: 0; padding-right: 3%; margin-top: 2ex;"><a href="{{=URL(myconf.take('web.application'),'category','info/campusmedia')}}" style="text-decoration: none; color: #979797;">{{=T('Campus Media ')}}</a></div>
+          <div class="spartenmarker col-lg-3 col-md-3 col-xs-5" style="padding-left: 0; padding-right: 3%; margin-top: 2ex;"><a href="{{=URL(myconf.take('web.application'),'category','info/campusmedia')}}" style="text-decoration: none; color: #979797;">{{=T('Campus Media ')}}</a></div>
           <br style="clear: both">
           </div>
           <p>
@@ -128,7 +128,7 @@
       <div class="col-lg-3">
         <article>
           <div class="post-image">
-            <img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/studiumgenerale.jpg')}} ">
+            <img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/studiumgenerale2017.jpg')}} ">
           </div>
         </article>
       </div>
@@ -136,7 +136,7 @@
         <article>
           <div class="post-heading">
           <div id="autoren" class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h3>Studium Generale</h3></div>
-          <div id="spartenmarker" class="col-lg-3 col-md-3 col-xs-5" style="padding-left: 0; padding-right: 3%; margin-top: 2ex;"><a href="{{=URL(myconf.take('web.application'),'category','info/campusmedia')}}" style="text-decoration: none; color: #979797;">{{=T('Campus Media ')}}</a></div>
+          <div class="spartenmarker col-lg-3 col-md-3 col-xs-5" style="padding-left: 0; padding-right: 3%; margin-top: 2ex;"><a href="{{=URL(myconf.take('web.application'),'category','info/campusmedia')}}" style="text-decoration: none; color: #979797;">{{=T('Campus Media ')}}</a></div>
                     <br style="clear: both">
 		  </div>
           <p>
@@ -176,7 +176,7 @@
                <article>
                   <div class="post-heading">		            
 						<div id="autoren" class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h3>Online &ndash; Heidelberg Journal of Religions on the Internet</h3></div>
-          <div id="spartenmarker" class="col-lg-3 col-md-3 col-xs-5" style="padding-left: 0; padding-right: 3%; margin-top: 2ex;"><a href="{{=URL(myconf.take('web.application'),'category','info/academic')}}" style="text-decoration: none; color: #979797;">{{=T('Academic ')}}</a></div>
+          <div class="spartenmarker col-lg-3 col-md-3 col-xs-5" style="padding-left: 0; padding-right: 3%; margin-top: 2ex;"><a href="{{=URL(myconf.take('web.application'),'category','info/academic')}}" style="text-decoration: none; color: #979797;">{{=T('Academic ')}}</a></div>
                     <br style="clear: both">
                         </div>
                         <p>
@@ -211,7 +211,7 @@
                         <div class="post-heading">
 			            
 						<div id="autoren" class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h3>Transcultural Studies</h3></div>
-          <div id="spartenmarker" class="col-lg-3 col-md-3 col-xs-5" style="padding-left: 0; padding-right: 3%; margin-top: 2ex;"><a href="{{=URL(myconf.take('web.application'),'category','info/academic')}}" style="text-decoration: none; color: #979797;">{{=T('Academic ')}}</a></div>
+          <div class="spartenmarker col-lg-3 col-md-3 col-xs-5" style="padding-left: 0; padding-right: 3%; margin-top: 2ex;"><a href="{{=URL(myconf.take('web.application'),'category','info/academic')}}" style="text-decoration: none; color: #979797;">{{=T('Academic ')}}</a></div>
                     <br style="clear: both">
                         </div>
                         <p>

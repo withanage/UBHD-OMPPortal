@@ -18,6 +18,7 @@
 							{{=IMG(_src=coverImageLink(request, press.press_id, submission.submission_id))}}
 						</div>
 					</article>
+
 {{
 cleanTitle = " ".join([submission_settings.getLocalizedValue('prefix', locale), submission_settings.getLocalizedValue('title', locale)])
 subtitle = submission_settings.getLocalizedValue('subtitle', locale)
@@ -36,8 +37,14 @@ pass
 	            <h5 style="color: #656565; margin-bottom: 0.5em;">{{=T('How to cite this title')}}</h5>
               {{include '../static/omp-resources/views/catalog/citation.html' }}
               <!-- citations end-->
+
+
+							{{license=submission_settings.getLocalizedValue('rights', locale)}}
+							{{if license!='':}}
 							<h5 style="color: #656565; margin-bottom: 0.3em;">{{=T('Licenses')}}</h5>
-							{{=XML(submission_settings.getLocalizedValue('rights', locale))}}
+							{{=XML(license)}}
+							{{pass}}
+
 							{{identification_codes = [i for i in [pf.associated_items.get('identification_codes', []) for pf in digital_publication_formats+physical_publication_formats] if i]}}
 							{{if identification_codes:}}
 							<h5 style="color: #656565; margin-bottom: 0.5em; margin-top: 1.2em;">ISBN</h5>
@@ -58,7 +65,7 @@ pass
 							{{pass}}
 							<!-- statistik begin-->
               <div id="oas-widget" class="applied-to-ojs" style="margin-top: 1.2em">
-                <div class="btn btn-default" id="statistik-button" >{{=T('Statistics')}}</div> <br/>
+                <div class="btn btn-default" id="statistik-button" >{{=T('Statistics')}}</div> <br />
                   <div style="display:none" class="table" id="oas">
                     {{include '../static/omp-resources/views/catalog/statistik.html' }}
                     
@@ -73,9 +80,10 @@ pass
 				</div>
 				<div class="col-lg-9">
 					<article>
-						<div class="">
+						<div class="summary">
 							{{for pf in digital_publication_formats:}}
 							{{full_file = pf.associated_items.get('full_file')}}
+
 							{{if full_file and ("xml" in full_file.attributes.file_type or "html" in full_file.attributes.file_type):}}
 							<div class="btn-group" role="group" aria-label="1">
 								<li type="button" class="btn btn-default"><a href="{{=downloadLink(request, full_file.attributes, myconf.take('web.url'), full_file.settings.getLocalizedValue("vgWortPublic", ""))}}" target="_blank">{{=T('Read')}}</a></li>
@@ -88,14 +96,25 @@ pass
 									{{=T('Download')}}
 									<span class="caret"></span>
 								</button>
-								{{for pf in digital_publication_formats:}}
-								{{full_file = pf.associated_items.get('full_file')}}
-								{{if full_file and not "html" in full_file.attributes.file_type and not "xml" in full_file.attributes.file_type:}}
 								<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-									<li role="presentation"><a role="menuitem" tabindex="-1" href="{{=downloadLink(request, full_file.attributes, myconf.take('web.url'), full_file.settings.getLocalizedValue("vgWortPublic", ""))}}">{{=pf.settings.getLocalizedValue('name', locale)}}</a></li>
-								</ul>
+								{{for pf in  sorted(digital_publication_formats, key=lambda s:  s.settings.getLocalizedValue('name', locale), reverse=True):}}
+									{{format_name=pf.settings.getLocalizedValue('name', locale)}}
+								{{full_epub_file  = pf.associated_items.get('full_epub_file')}}
+									{{if full_epub_file:}}
+									{{f_size=full_epub_file.attributes.get('file_size')/(1024*1024)}}
+										<li role="presentation"><a role="menuitem" tabindex="0" href="{{=downloadLink(request, full_epub_file.attributes, myconf.take('web.url'), full_epub_file.settings.getLocalizedValue("vgWortPublic", ""))}}">{{='{} ({} MB)'.format(format_name,f_size)}}</a></li>
+									{{pass}}
+								{{full_file = pf.associated_items.get('full_file')}}
+
+								{{if full_file and not "html" in full_file.attributes.file_type and not "xml" in full_file.attributes.file_type:}}
+									{{f_size=full_file.attributes.get('file_size')/(1024*1024)}}
+									<li role="presentation"><a role="menuitem" tabindex="-1" href="{{=downloadLink(request, full_file.attributes, myconf.take('web.url'), full_file.settings.getLocalizedValue("vgWortPublic", ""))}}">
+									{{='{} ({} MB)'.format(format_name,f_size)}}</a></li>
+
+
 								{{pass}}
 								{{pass}}
+									</ul>
 							</div>
 							{{pass}}
 
@@ -126,24 +145,33 @@ pass
 							}}
 							 
 							</div>
+							<div class="btn-group" role="group" aria-label="3">
+								<button class="btn btn-default" id="anno-btn">
+									<span class="fa fa-comment">&nbsp;</span>{{=T("Comment")}} (<span class="anno-number">...</span>)
+								</button>
+							</div>
+              <div id="anno-block"> </div>
 
 							<div class="post-heading">
-								<br/>
+								<br />
 								<h5>
 									{{if editors:}}
-									{{=formatContributors(editors)}}
+									{{=formatContributors(editors, max_contributors=4)}}
 									{{if len(editors) > 1:}}
-									{{=T("(eds)")}}
+									{{=T("(Eds.)")}}
 									{{else:}}
-									{{=T("(ed.)")}}
+									{{=T("(Ed.)")}}
 									{{pass}}
 									{{else:}}
-									{{=formatContributors(authors)}}
+									{{=formatContributors(authors, max_contributors=4)}}
 									{{pass}}
 								</h5>
 							</div>
 							<h3>{{=XML(cleanTitle)}}</h3>
 							<h4>{{=subtitle}}</h4>
+							{{if series:}}
+							<i>{{=A(series_name,_href=URL('series','/info/{}'.format(series.attributes.get('path'))))}}</i>
+							{{pass}}
 							<p>
 								<i class="icon-quote-left"></i>
 								{{=XML(abstract)}}
@@ -160,7 +188,7 @@ pass
 							{{pass}}
 							{{if bios:}}
 							{{num_bios = len([b for b in bios if b[1] != ""])}}
-							{{if bios_role != "author" or num_bios < 4:}}
+							{{if bios_role != "author" or num_bios < 5:}}
 							{{if num_bios != 0:}}
 							
 							<div class="separator"></div>
@@ -176,9 +204,6 @@ pass
 							{{pass}}
 							{{pass}}
 							{{pass}}
-							
-							
-							
 						</div>
 
 						<div class="widget">
@@ -187,7 +212,10 @@ pass
 								<div class="chapter_row table_head">
 									<div class="chapter_cell">{{=T('Contents')}}</div>
 									{{for pf in digital_publication_formats:}}
-									<div class="chapter_cell">{{=TD(pf.settings.getLocalizedValue('name', locale))}}</div>
+									{{format_name=pf.settings.getLocalizedValue('name', locale)}}
+									{{if format_name != 'EPUB':}}
+									<div class="chapter_cell">{{=TD(format_name)}}</div>
+									{{pass}}
 									{{pass}}
 								</div>
 								{{display_authors=haveMultipleAuthors(chapters)}}
@@ -207,6 +235,8 @@ pass
 										{{pass}}
 									</div>
 									{{for pf in digital_publication_formats:}}
+									{{format_name=pf.settings.getLocalizedValue('name', locale)}}
+									{{if format_name != 'EPUB':}}
 									<div class="chapter_cell">
 										{{if c_files:}}
 										{{c_file = c_files.get(pf.attributes.publication_format_id)}}
@@ -223,6 +253,7 @@ pass
 										{{pass}}
 									</div>
 									{{pass}}
+									{{pass}}
 								</div>
 								{{pass}}
 							</div>
@@ -235,3 +266,24 @@ pass
 	</section>
 	<div id="vgwpixel"></div>
 </div>
+
+{{ cdn = 'https://www.ub.uni-heidelberg.de/cdn' }}
+<script src="{{= cdn }}/jquery-ui/1.12.1/jquery-ui.js"></script>
+<script src="{{= cdn }}/quill/1.2.4/quill.js"></script>
+<script src="{{= cdn }}/vuex/2.3.1/vuex.js"></script>
+<script src="{{= cdn }}/vue/2.3.1/vue.js"></script>
+<script src="{{= cdn }}/axios/0.16.2/axios.js"></script>
+<script src="{{= cdn }}/semtonotes/latest/semtonotes.js"></script>
+<script src="{{= cdn }}/authorities-client/latest/authorities-client.js"></script>
+<script src="{{= cdn }}/xrx-utils/latest/xrx-utils.js"></script>
+<script src="{{= cdn }}/xrx-vue/latest/xrx-vue.js"></script>
+<script src="{{= cdn }}/anno-common/0.0.4/anno-common.js"></script>
+<script src="{{= cdn }}/anno-frontend/0.0.11/anno-frontend.js"></script>
+<script src="{{= cdn }}/anno-frontend-snippets/latest/anno-snippet-omp.js"></script>
+
+<script>
+$(function() {
+  document.styleSheets[0].insertRule(`#anno-block .dropdown-menu .active a { color: white !important; }`, 0)
+  insertAnnoFrontend({collection: 'heiup', language: "{{=T.accepted_language or 'de'}}"})
+})
+</script>

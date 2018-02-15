@@ -2,7 +2,7 @@ var locales = {
   'Author':'Autor/In',
   'Back':'Zurück',
   'Contents':'Inhalt',
-  'CopyRightAndLicenses':'Copyright und Lizensen',
+  'CopyRightAndLicenses':'Copyright und Lizenzen',
   'Figures': 'Bilder', 
   'Focus':'Einblenden',
   'Reference':'',

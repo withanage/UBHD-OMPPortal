@@ -20,13 +20,14 @@
       <a href="mailto:joachim.funke@psychologie.uni-heidelberg.de" title="send email to Mr Joachim Funke">mailto:joachim.funke@psychologie.uni-heidelberg.de</a>
     </p>
   </div>
-  </div> {{pass}} {{pass}} {{pass}} {{else:}} <section id="content">
+  </div> {{pass}} {{pass}} {{pass}} {{else:}} 
+  <section id="content">
   <div class="container">
     <div class="row">
       <div class="col-lg-3">
         <article>
           <div class="post-image">
-            <img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/heidelberger_jahrbuecher.jpg')}} ">
+            <img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/heidelberger_jahrbuecher_2017.jpg')}} ">
           </div>
         </article>
         <div class="box">
@@ -92,49 +93,54 @@
             </div>
           </div>
 			<div class="btn-group" role="group" aria-label="1">
+        <ul class="schaltflaeche">
 				 <li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/issue/current/showToc" title="{{=T('current issue')}}">{{=T('read current issue')}}</a></li>
+        </ul> 
 			</div>
 			
 			<div class="btn-group" role="group" aria-label="1">
+        <ul class="schaltflaeche">
 				 <li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/issue/archive" title="{{=T('Archive')}}">{{=T('Archive')}}</a></li>
+        </ul> 
 			</div>
 			
 			<div class="btn-group" role="group" aria-label="2">
-			 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">{{=T('Purchase')}}<span class="caret"></span></button>
+			 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">{{=T('Purchase')}}</button>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-				<li role="presentation"><a role="menuitem"  href="https://www.buchhandel.de/buch/Stabilitaet-im-Wandel-9783946054191" target='_blank'>buchhandel.de</a></li>
-				<li role="presentation"><a role="menuitem"  href="https://www.amazon.de/Stabilit-t-Wandel-Heidelberger-Jahrb-cher-Online/dp/3946054196/" target='_blank'>Amazon</a></li>
+				<li role="presentation"><a role="menuitem"  href="https://www.buchhandel.de/suche/ergebnisse?query=re%3DXNB33" target='_blank'>buchhandel.de</a></li>
+				<li role="presentation"><a role="menuitem"  href="https://www.amazon.de/s/ref=nb_sb_noss?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&url=search-alias%3Daps&field-keywords=%22heidelberger+jahrb%C3%BCcher+online%22+&rh=i%3Aaps%2Ck%3A%22heidelberger+jahrb%C3%BCcher+online%22+
+" target='_blank'>Amazon</a></li>
 					</ul>
 			</div>
 		  
           <div class="post-heading"><h3>Heidelberger Jahrbücher Online</h3>
           </div>{{if session.forced_language =='de': }} 
-          <p>
-            <i class="icon-quote-left"></i>
-            <p>In den Heidelberger Jahrbüchern Online soll der wissenschaftliche Geist und der geschichtliche Raum der Universität zur Darstellung gelangen. Die Heidelberger Jahrbücher, die im Auftrag der Gesellschaft der Freunde Universität Heidelberg e.V. herausgegeben werden, beleuchten in jedem Band ein fachübergreifendes Thema aus unterschiedlichen Positionen. Ihr Ziel ist es, das Gespräch und den Kontakt der Wissenschaften an der Universität Heidelberg untereinander zu fördern.
+          
+            <p>In den <i>Heidelberger Jahrbüchern Online</i> soll der wissenschaftliche Geist und der geschichtliche Raum der Universität zur Darstellung gelangen. Die Heidelberger Jahrbücher, die im Auftrag der Gesellschaft der Freunde Universität Heidelberg e.V. herausgegeben werden, beleuchten in jedem Band ein fachübergreifendes Thema aus unterschiedlichen Positionen. Ihr Ziel ist es, das Gespräch und den Kontakt der Wissenschaften an der Universität Heidelberg untereinander zu fördern.
             </p>
-            <!--<h4 style="margin-bottom: 0.2em; margin-top: 1em;">Call for Papers</h4>
-            <p><a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/pages/view/cfp" title="Homepage Heidelberger Jahrbücher Online, Informationen zum Call for Papers für Band 2">Heidelberger Jahrbücher Online - Band 2:<br />
-            &bdquo;Wissenschaft für Alle - Bedeutung von Open Science und Citizen Science für Universitäten und Wissenschaft&rdquo;</a></p>-->
+            <h4 style="margin-bottom: 0.2em; margin-top: 1em;">Call for Papers</h4>
+            <p><a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/pages/view/cfp" title="Homepage Heidelberger Jahrbücher Online, Informationen zum Call for Papers für Band 2">Heidelberger Jahrbücher Online - Band 3</a></p>
             {{elif session.forced_language =='en': }} 
-            <p>Heidelberg Yearbooks Online is a platform for the scientific spirit and the historic dimension of Heidelberg University. The Yearbooks are hosted by the Friends of the University, a non-commercial organization in support of Heidelberg University. Each yearbook focuses on an overarching thematic issue that will be interpreted by heterogenous points of view. The yearbooks are intended to foster communication and contact between scientists from different disciplines.
+            <p><i>Heidelberg Yearbooks Online</i> is a platform for the scientific spirit and the historic dimension of Heidelberg University. The Yearbooks are hosted by the Friends of the University, a non-commercial organization in support of Heidelberg University. Each yearbook focuses on an overarching thematic issue that will be interpreted by heterogenous points of view. The yearbooks are intended to foster communication and contact between scientists from different disciplines.
             </p>{{pass}} 
             <div class="widget">
               <h5 class="widgetheading"></h5>
+{{if session.forced_language =='de': }}
+             
               <ul class="tags">
-                <li style="display: inline">
-
-				                   {{if session.forced_language =='de': }}
-             
-                            <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/index">zur Zeitschrift</a></li>
-             {{elif session.forced_language =='en': }}
-                            <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/index">View Journal</a></li>
-             
-{{pass}}    
-                </li>
+               <li style="display: inline"><a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/index">zur Zeitschrift</a></li>
               </ul>
+              
+             {{elif session.forced_language =='en': }}
+              
+              <ul class="tags">
+                <li style="display: inline"><a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/index">View Journal</a></li>
+              </ul>
+{{pass}}    
+
             </div>
         </article>
       </div>
     </div>
-  </div>{{pass}}
+  </div>
+ </section> {{pass}}

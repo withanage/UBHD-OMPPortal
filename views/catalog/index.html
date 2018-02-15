@@ -1,66 +1,34 @@
 {{extend 'layout.html'}}
 {{import re, os}}
-{{from ompformat import formatContributors, coverImageLink}}
+{{from ompformat import formatContributors, coverImageLink, formatSeriesPosition}}
 
 <div id="main" class="container">
-
 
 <section id="content">
 
         <div class="row">
-            <div class="col-lg-3"></div>
-            <div class="col-lg-9">
-                <div class = "btn-group">
-   <button type = "button" class = "btn btn-default">Results per page</button>
-
-   <button type = "button" class = "btn btn-default dropdown-toggle" data-toggle = "dropdown">
-      <span class = "caret"></span>
-      <span class = "sr-only">Results per page</span>
-   </button>
-   {{results_per_page=[2,3,4]}}
-   <ul class = "dropdown-menu" role = "menu">
-       {{for i in results_per_page:}}
-      {{=LI(A(i, _href=URL('index?per_page='+str(i))))}}
-       {{pass}}
-
-   </ul>
-</div>
-
-<nav aria-label="Page navigation">
-  <ul class="pagination">
-      {{if page_nr > 0:}}
-      <li><a href="{{=URL('index?page_nr='+str(page_nr))}}"><span aria-hidden="true">&laquo;</span></a></li>
-      {{pass}}
-      {{pages = len(submission_rows)/per_page}}
-      {{odd = len(submission_rows)%per_page > 0}}
-
-      {{for i in range(0,pages):}}
-      {{next = i+1}}
-      {{if i==page_nr:}}
-      {{next = B(next)}}
-      {{pass}}
-      {{=LI(A(next, _href=URL('index?page_nr='+str(i+1))))}}
-      {{pass}}
-
-      {{if odd:}}
-      {{last = pages+1}}
-      {{if page_nr == pages:}}
-      {{last= B(last)}}
-      {{pass}}
-      {{=LI(A(last, _href=URL('index?page_nr='+str(pages+1))))}}
-      {{pass}}
-
-      {{if (page_nr < pages-1) or (page_nr < pages & odd ):}}
-      <li><a href="{{=URL('index?page_nr='+str(page_nr+2))}}"><span aria-hidden="true">&raquo;</span></a></li>
-      {{pass}}
-  </ul>
-</nav>
-
-                </div>
+            <div class="col-lg-3">
 
             </div>
+            <div class="col-lg-9">
+            <div class="btn-group pull-right">
+            <a href="#forthcoming" title="{{=T('Forthcoming')}}"><button class="btn btn-default" type="button">{{=T('Forthcoming')}}</button></a> 
+            </div>
+            {{=b.filter_select}}
+            {{try:
+            del b.sort_select[1][4]
+            except:
+            pass
+
+            }}
+            {{=b.sort_select}}
+
+            </div>
+        </div>
+
     {{for submission in submissions:}}
-        <div class="container" height="400px">
+
+        <div class="container">
             <div class="row">
                 <div class="col-lg-3">
                     <article>
@@ -78,7 +46,7 @@
                             {{if series:}}
                                 {{series_title = series.settings.getLocalizedValue('title', locale)}}
                                 {{series_subtitle = series.settings.getLocalizedValue('subtitle', locale)}}
-                                <i>{{=series_title}}{{ if series_subtitle: }} – {{=series_subtitle}}{{pass}}{{if submission.attributes.series_position:}}, {{=T('Vol.')}} {{=submission.attributes.series_position}} {{pass}}</i>
+                                <i>{{=series_title}}{{ if series_subtitle: }} – {{=series_subtitle}}{{pass}}{{if submission.attributes.series_position:}}, {{=formatSeriesPosition(submission.attributes.series_position)}}{{pass}}</i>
                             {{pass}}
                         </div>
                         <p>
@@ -88,17 +56,25 @@
                                 {{=XML(abstract)}}
                             {{pass}}
                         </p>
-                        <div class="widget">
-                            <h5 class="widgetheading"></h5>
-                            <ul class="tags">
-                              <li><a href="{{=URL('catalog','book/'+str(submission.attributes.submission_id))}}">{{=T('More information' )}}</a></li>
-                            </ul>
-                        </div>
+                        {{include 'catalog/snippets/reference.html'}}
                     </article>
                 </div>
             </div>
+
         </div>
     {{pass}}
+     <div class="container">
+            <div class="row">
+            <div class="col-lg-3">
+            </div>
+             <div class="col-lg-9">
+                {{=b.navigation_list}}
+             {{=b.navigation_select}}
+             </div>   
+            </div>
+     </div>
+
+	{{if session.filters=='':}}
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -114,55 +90,44 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-		
-            <div class="row">
+          </div>
+        </div>  
+        <div class="container">
+         <div class="row">
                 <div class="col-lg-3">
                     <article>
                         <div class="post-image">
-                            <img src="{{=URL('static','images/catalog/transformative_cover.jpg')}}"/>
-                        </div>
+                {{=IMG(_src=URL(myconf.take('web.application'),'static','/images/series/hdaw_dn.jpg'),_alt='', _class='bildrahmen')}}                        
+         
+                      </div>
                     </article>
                 </div>
+                
                 <div class="col-lg-9">
                     <article>
-                        <div class="post-heading"><a id="michl"></a>
-                            <div id="autoren" class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h4>Corinna Forberg, Philipp W. Stockhammer (Eds.)</h4></div>
+                        <div class="post-heading">
+                          <div id="autoren" class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h4>Simon Cubelic, Axel Michaels, Astrid Zotter (Eds.)</h4></div>
+                          <br style="clear: both">
+                              <h4>Studies in Historical Documents from Nepal and India</h4>
+                         </div>
+                        {{if session.forced_language =='de': }}
+                        <p>This volume is the outcome of the conference “Studying Documents in Pre-Modern South Asia and Beyond: Problems and Perspective”, held in October 2015 in Heidelberg. In bringing together experts from different fields—including Indology, Tibetology, History, Anthropology, Religious Studies, and Digital Humanties—it aims at exploring and rethinking issues of diplomatics and typology, the place of documents in relation to other texts and literary genres, methods of archiving and editing documents, as well as their “social life”, i.e. the role they play in social, religious and political constellations, the agents and practices of their use, and the norms and institutions they embody and constitute.</p>
+<p>The book is the first volume in the <em>Documenta Nepalica &ndash; Book Series</em>, published by the Heidelberg Academy of Sciences and Humanities in collaboration with the National Archives, Nepal.</p>
+                        <p>To be published February 2018.</p>                        
 
-                        <br style="clear: both">
-                            <h4>The Transformative Power of the Copy<br />
-                            A Transcultural and Interdisciplinary Approach</h4>
-                            <i>Heidelberg Studies in Transculturality, vol. 2</i>
-                        </div>
-                        <p></p>
-                        <p>This volume offers a fresh perspective on the copy and the practice of copying, two topics that, while the focus of much academic discussion in recent decades, have been underrepresented in the discourse on transculturality. Here, experts from a wide range of academic disciplines present their views on the copy from a transcultural perspective, seeking not to define the copy uniformly, but to reveal its dynamic and transformative power. The copy and the practice of copying are thus presented as constituents of transculturality via thought-provoking contributions on topics spanning time periods from antiquity to the present, and regions from Asia to Europe. In so doing, these contributions aim to create the basis for a novel, interdisciplinary discourse on the copy and its transcultural impact throughout history.</p>
+                        {{elif session.forced_language =='en': }}
+                        <p>This volume is the outcome of the conference “Studying Documents in Pre-Modern South Asia and Beyond: Problems and Perspective”, held in October 2015 in Heidelberg. In bringing together experts from different fields—including Indology, Tibetology, History, Anthropology, Religious Studies, and Digital Humanties—it aims at exploring and rethinking issues of diplomatics and typology, the place of documents in relation to other texts and literary genres, methods of archiving and editing documents, as well as their “social life”, i.e. the role they play in social, religious and political constellations, the agents and practices of their use, and the norms and institutions they embody and constitute.</p>
+<p>The book is the first volume in the <em>Documenta Nepalica &ndash; Book Series</em>, published by the Heidelberg Academy of Sciences and Humanities in collaboration with the National Archives, Nepal.</p>
+                        <p>To be published February 2018.</p>  
+                        {{pass}}
                     </article>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3">
-                    <article>
-                        <div class="post-image">
-                            <img src="{{=URL('static','images/catalog/Cover_Windelband_OMP_300.jpg')}}"/>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-lg-9">
-                    <article>
-                        <div class="post-heading"><a id="michl"></a>
-                        <div id="autoren" class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h4>Horst Gundlach</h4></div>
+        </div>  
+    </div>	
+    {{pass}}
 
-                        <br style="clear: both">
-                            <h4>Wilhelm Windelband und die Psychologie &ndash; Das Fach Philosophie und die Wissenschaft Psychologie im Deutschen Kaiserreich </h4>
-                                    </div>
-                        <p></p>
-                        <p>Wilhelm Windelband (1848-1915) war Ordinarius der Philosophie im Deutschen Kaiserreich, Haupt der südwestdeutschen Schule des Neukantianismus und einflussreicher Kathederfürst. Dem Neukantianismus wird Gegnerschaft zur Psychologie nachgesagt, und Windelband gilt in der Wissenschaftsgeschichte als jemand, der eine ausgeprägte Abneigung gegen die Psychologie hegte und diese polemisch von sich gab. Die hier erstmalig untersuchte Wirklichkeit sah anders aus. Er setzte sich frühzeitig für die Selbständigkeit der Psychologie ein, arbeitete an einem Buch zur Psychologie und hielt mehr als zwanzig Hauptvorlesungen zur Psychologie. Institutionelle Hintergründe des problematischen Verhältnisses zwischen Philosophie und Psychologie werden untersucht und gezeigt, weshalb Windelband kein Einzelfall in der Geschichte des Faches Philosophie war.</p>
-                    </article>
-                </div>
-            </div>
-		
-		
-        </div>
-    </section>
+  </section>
 </div>
+
+
+

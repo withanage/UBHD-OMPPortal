@@ -12,6 +12,9 @@
   padding: 20px 60px;
   padding-left: 100px; }
 
+.content-node.text.focussed {
+  background-color: grey; }
+
 /* Paragraph Node
 -------------------------------------------------------------------------------*/
 .content-node.paragraph .content {
@@ -246,12 +249,12 @@ Box
   padding-bottom: 20px; }
 
 .content-node.quote > .content {
-  padding: 20px; }
+  padding: 20px; 
+  border-left: 10px solid #ccc;
 
-.document .content-node.quote .content-node.paragraph {
-  /*padding: 0px;*/
-  padding: 10px 40px 10px 40px;
-  border-left: 3px solid #ccc; }
+}
+}
+
 
 .surface.content .content-node.quote > .content > .label {
   font-weight: 600;
@@ -640,7 +643,7 @@ out (on iOS 5.1), or flicker (on iOS 6). */
   padding-right: 50px;
   position: relative; }
 
-/* It's not exactly good to have the overflow-y: scroll for the container AND the surface.
+/* It's not exactly good to have the overflow-y: scroll for the container AND the surface.
    There should be just one overflowing container, if possible
 */
 .article .resources .panel {
@@ -739,7 +742,7 @@ out (on iOS 5.1), or flicker (on iOS 6). */
 .article .resources .content-node .resource-header .toggle {
   float: left;
   font-size: 12px;
-  font-weight: 600;
+/*  font-weight: 600; */
   bottom: 0px;
   text-align: center;
   line-height: 50px;
@@ -822,8 +825,9 @@ span.annotation.formula_reference, span.publication_reference {
   font-style: italic; }
 
 .article span.superscript, .article sup {
-  vertical-align: super;
-  font-size: 12px; }
+  vertical-align: super; 
+  font-size: 12px;   
+}
 
 .article span.subscript, .article sub {
   vertical-align: sub;
@@ -860,7 +864,7 @@ span.annotation.formula_reference, span.publication_reference {
 
 .content-node .link {
   color: #900;
-  font-weight: bold; }
+  font-weight: normal; }
 
 .content-node .link:hover, .content-node .link.highlighted {
   color: #990000; }
@@ -926,13 +930,31 @@ span.annotation.formula_reference, span.publication_reference {
 
 .content-node .footnote_reference {
   background: rgba(11, 157, 217, 0);
-  color: #900;
   border-bottom: 1px solid rgba(11, 157, 217, 0);
+  color: #900;
   cursor: pointer;
+  font-size: smaller;   
   padding-right: 3px;
   padding-left: 3px;
-  vertical-align: super;
-  font-size: smaller; }
+  vertical-align: super; 
+}
+
+/** Issue Nr. 102: Korrektur Zeilenhöhe und Vereinheitlichung der Größe Fußnoten-Ziffern - 24.11.17 voe **/
+.content-node .footnote_reference {
+  font-size: 12px;
+  line-height: 0; 
+}
+
+.footnote_reference > span.superscript {
+ font-size: 12px;
+ vertical-align: baseline;
+}
+
+.content-node.text .content {
+	line-height: 1em;
+}
+
+/**************************************************************/
 
 .content-node .cross_reference {
   background: rgba(0, 0, 0, 0.05);
@@ -1195,6 +1217,16 @@ TOC
 .resource-view.toc .heading-ref:hover {
   color: black; }
 
+.resource-view.toc .heading-ref .authors .author{
+  padding-left: 0px;
+  padding-right: 5px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: normal;
+  color: #900;
+
+}
+
 /* Scrollbar
 --------------------------------------- */
 .surface-scrollbar {
@@ -1308,7 +1340,7 @@ body.reader {
   clear: both; }
 
 /*
-General Layout 
+General Layout
 --------------------------------------- */
 #container {
   position: relative;
@@ -1321,9 +1353,7 @@ body.reader #container {
   /* 988px / 16px = 61.75em */
   height: 100%; }
 
-body, textarea, p, input {
-  font-family: 'Source Sans Pro', Helvetica, Arial, Verdana, sans-serif;
-  color: #505050; }
+
 
 a {
   color: #900;
@@ -1492,5 +1522,116 @@ body.loading .spinner-wrapper {
   font-weight: 600;
   padding-bottom: 0px; }
 
+.lens-article .content-node.sec-meta .authors .text {
+  float: left;
+  padding: 0px;
+  margin: 0px;
+  font-size: 17px;
+  margin-right: 10px;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 10; }
+
 .altmetrics-panel .altmetrics {
   padding: 20px; }
+
+/*** Anpassungen Abstract, Keywords, Listenformatierungen, Kapitelabstand - voe 08-09/17 anlässlich 'The Transformative Power of the Copy' ***/
+
+.document .content-node.text /* Test: Alle einzelnen Vorkommen der Klasse .test haben Anweisungen erhalten, die das in den Zeilen 12 und 13 notierte Format wieder aufheben, der Test soll etablieren, ob ZZ 12 u. 13 pauschal konterkariert werden können.*/ {
+  padding-left: 0;
+}
+
+.lens-article .content-node.sec-meta .authors {
+  overflow: hidden;
+}
+
+.content-node.abstract {
+  margin-bottom: 5em;
+}
+
+.content .text.title {
+  display: block;
+  margin-top: 2em;
+}
+
+.content-node.abstract .title {
+  font-size: 17px !important;
+  font-weight: bold !important;
+  line-height: 28px !important;
+  padding-bottom: 0 !important;
+}
+
+/** Layout Daten-Tabelle Issue Nr. 58 **/
+
+.lens-article .content-node.html-table > .content {
+  padding-left: 0;
+}
+
+.lens-article .content-node.html-table .daten-tabelle {
+  border: 1px solid #f8f8f8;
+  overflow-x: scroll;
+}
+
+.lens-article .content-node.html-table .daten-tabelle tr {
+  vertical-align: top;
+}
+
+.lens-article .content-node.html-table .daten-tabelle tr:nth-child(odd) {
+  background-color: #f8f8f8;
+}
+
+.lens-article .content-node.html-table .daten-tabelle tr:nth-child(odd) td:empty {
+  background-color: #f8f8f8;
+}
+
+
+.lens-article .content-node.html-table .daten-tabelle td {
+  border-right: 1px solid #f8f8f8;
+  padding: 10px;
+}
+
+
+
+
+
+/** Listen **/
+
+.content.simple {
+  list-style-type: none;
+}
+
+/*ul.content {
+  }
+
+ol.content.ordered {
+  }*/
+
+
+.content.alpha-lower {
+  list-style-type: lower-alpha;
+}
+
+.content.alpha-upper {
+  list-style-type: upper-alpha;
+}
+
+.content.roman-lower {
+  list-style-type: lower-roman;
+}
+
+.content.roman-upper {
+  list-style-type: upper-roman;
+}
+
+.content.greek-lower {
+  list-style-type: lower-greek;
+}
+
+.content.greek-upper {
+  list-style-type: upper-greek;
+}
+
+.lens-article .content-node.html-table table td {
+font-size: 0.75em;
+line-height: 1.7em;
+}
