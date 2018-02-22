@@ -161,6 +161,13 @@ header .nav .caret {
 	border-radius: 0;
 	border: none;
 }
+
+ .navbar-collapse.collapse  {
+		border: none;
+		overflow: hidden;
+		max-height:100%;
+}
+ 
 .dropdown-menu li:last-child {
 	padding-bottom: 0 !important;
 	margin-bottom: 0;
