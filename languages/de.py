@@ -58,6 +58,7 @@
 'Adresszeile3': 'Adresszeile3',
 'Advisory Board': 'Beirat',
 'Ajax Recipes': 'Ajax Rezepte',
+'Akademie': 'Akademie',
 'All': 'Alle',
 'Altersempfehlung': 'Altersempfehlung',
 'and': 'und',
