@@ -22,7 +22,9 @@
 		            <div class="col-lg-3">
 						<article>
 		                    <div class="post-image">
-		                        {{=IMG(_src=coverImageLink(request, press.press_id, submission.attributes.submission_id))}}
+                                  <a href="{{=URL('catalog','book/'+str(submission.attributes.submission_id))}}">
+                                         {{=IMG(_src=coverImageLink(request, press.press_id, submission.attributes.submission_id))}}
+                                  </a>
 		                    </div>
 						</article>
 		            </div>
