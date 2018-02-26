@@ -258,10 +258,16 @@ $('.flexslider').flexslider();
              
               <div class="col-lg-6">
                 <div class="box">
-                  <div class="box-gray">
+                <div class="box-gray">
+                {{if session.forced_language =='de': }} 
                 <h4>Heidelberger Akademie der Wissenschaften</h4>                  
                 {{=IMG(_src=URL(myconf.take('web.application'),'static','images/press/home/heidelberger_akademie_der_wissenschaften.png'),_alt='',_style='float: left; margin-right: 10px; width: 90px')}} Die Heidelberger Akademie der Wissenschaften veröffentlicht beim Verlag „Heidelberg University Publishing“ neueste, wissenschaftliche Ergebnisse ihrer exzellenten Forschungsprojekte. Als Landesakademie setzt sie dabei auf das Open-Access-Modell, um Wissenschaftlerinnen und Wissenschaftlern freien Zugang zu Forschungsergebnissen zu ermöglichen. 
+                  {{elif session.forced_language =='en': }}
+                <h4>The Heidelberg Academy of Sciences and Humanities</h4>                  
+                {{=IMG(_src=URL(myconf.take('web.application'),'static','images/press/home/heidelberger_akademie_der_wissenschaften.png'),_alt='',_style='float: left; margin-right: 10px; width: 90px')}} The Heidelberg Academy of Sciences and Humanities publishes the newest scientific and academic results of their excellent research projects with &ldquo;Heidelberg University Publishing&rdquo;. Being an academy of the federal state it hereby relies on the Open Access model to allow scientists and scholars free access to its research results.                   
+                {{pass}}
                   </div>
+
                   <div class="box-bottom">{{=A(T('More Information'),_href=URL('category','info/hdaw'))}}
                   </div>
                 </div>
