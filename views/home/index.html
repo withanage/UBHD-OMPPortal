@@ -116,7 +116,7 @@ $('.flexslider').flexslider();
                 <div class="box">
                   <div class="box-gray aligncenter">
                 <h4>{{=T('New Titles')}}</h4>
-                {{=IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/347/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
+                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/347/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/347'))}} 
       					</div>
                   <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/347'))}}
                   </div>
@@ -171,7 +171,7 @@ $('.flexslider').flexslider();
                 <div class="box">
                   <div class="box-gray aligncenter">
                 <h4>{{=T('New Titles')}}</h4>
-        				{{=IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/312/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}                
+        				{{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/312/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/312'))}}           
                   </div>
                   <div class="box-bottom">
                     {{=A(T('More Information'),_href=URL('catalog','book/312'))}}
@@ -182,7 +182,7 @@ $('.flexslider').flexslider();
                <div class="box">
                 <div class="box-gray aligncenter">
                 <h4>{{=T('New Titles')}}</h4>
-					       {{=IMG(_src=URL('static','images/campusmedia/cover_11_2017.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}                
+					       <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/view/2373">{{=IMG(_src=URL('static','images/campusmedia/cover_11_2017.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}</a>                
                   </div>
                   <div class="box-bottom"><a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/view/2373">{{=T('More Information')}}</a>
                   </div>
@@ -192,8 +192,7 @@ $('.flexslider').flexslider();
                 <div class="box">
                   <div class="box-gray aligncenter">
                 <h4>{{=T('New Titles')}}</h4>
-                {{=IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/301/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}} 
-				                        
+                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/301/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/301'))}}		                        
                   </div>
                   <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/301'))}}
                   </div>
@@ -203,62 +202,13 @@ $('.flexslider').flexslider();
                <div class="box">
                 <div class="box-gray aligncenter">
                 <h4>{{=T('New Titles')}}</h4>
-                 {{=IMG(_src=URL(myconf.take('web.application'),'static','images/journals/cover_heso.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
-					                       
+                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','images/journals/cover_heso.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('journals','heso'))}}
                   </div>
                   <div class="box-bottom">{{=A(T('More Information'),_href=URL('journals','heso'))}}
                   </div>
                 </div>
               </div>
                              
-             
-<!--Campus Media Boxen			 
-              <div class="col-lg-3">
-                <div class="box">
-                  <div class="box-gray aligncenter">
-                    <h4>{{=T('New Titles')}}</h4>
-					{{=IMG(_src=URL(myconf.take('web.application'),'static','images/campusmedia/cover_10_2017.png'),_alt='',_style='width:145px', _class='bildrahmen')}}
-                  </div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('campusmedia','ruperto_carola'))}}
-                  </div>
-                </div>
-              </div>
-    
-            <div class="col-lg-3">
-                <div class="box">
-                  <div class="box-gray aligncenter">
-                <h4>{{=T('New Titles')}}</h4>
-					{{=IMG(_src=URL('static','images/catalog/Cover_anders_altern_OMP_300.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
-                  </div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('campusmedia','generale'))}}
-                  </div>
-                </div>
-              </div>
--->
-			      
-
-
-              <!-- <div class="col-lg-3">
-              <div class="box">
-              <div class="box-gray">
-              <b><span style="text-align: left">Heidelberg Studies on Transculturality</span></b>
-              {{if session.forced_language =='de': }}
-              <p class="boxText">
-              HST ist eine Peer-Review-geprüfte Open-Access-Schriftenreihe zum Thema Transkulturalität. Sie untersucht kulturelle, soziale und regionale Formationen, die sich durch den Kontakt mit anderen Regionen und Kulturen konstituierten und durch ihn transformiert wurden. </p>
-              {{elif session.forced_language =='en': }}
-              <p class="boxText">
-              HST is a peer-reviewed, open access book series promoting research on transcultuality. The series features works that investigate cultural, social, and regional formations that have themselves been constituted and transformed through contact with other regions and cultures. </p>
-              {{pass}}
-              </div>
-              <div class="box-bottom">&nbsp;
-              {{if session.forced_language =='de': }}
-              <a href="http://heiup.uni-heidelberg.de/#"><span style="color: #EFEFEF;">Mehr</span>
-              {{elif session.forced_language =='en': }}
-              <a href="http://heiup.uni-heidelberg.de/#"><span style="color: #EFEFEF;">More</span>
-              {{pass}}
-              </div>         
-              </div>
-              </div> -->
                 <!--<div>-->
                 <!-- TWITTER TIMELINE-->
 <!--
@@ -289,7 +239,7 @@ $('.flexslider').flexslider();
                 <div class="box">
                   <div class="box-gray aligncenter">
                 <h4>{{=T('Forthcoming')}}</h4>
-                {{=IMG(_src=URL(myconf.take('web.application'),'static','/images/series/hdaw_dn.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}               
+                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','/images/series/hdaw_dn.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','#forthcoming'))}}              
                   </div>
                   <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','#forthcoming'))}}
                 </div>
@@ -298,7 +248,7 @@ $('.flexslider').flexslider();
 			  <div class="col-lg-3">
                <div class="box">
                 <div class="box-gray aligncenter">
-                <h4>{{=T('Forthcoming')}}</h4>
+                <h4>{{=T('Forthcoming')}}</h4> 
 					       {{=IMG(_src=URL(myconf.take('web.application'),'static','images/catalog/cover_bubenhofer.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}                
                   </div>
                   <div class="box-bottom">&nbsp;
@@ -308,11 +258,17 @@ $('.flexslider').flexslider();
              
               <div class="col-lg-6">
                 <div class="box">
-                  <div class="box-gray">
+                <div class="box-gray">
+                {{if session.forced_language =='de': }} 
                 <h4>Heidelberger Akademie der Wissenschaften</h4>                  
                 {{=IMG(_src=URL(myconf.take('web.application'),'static','images/press/home/heidelberger_akademie_der_wissenschaften.png'),_alt='',_style='float: left; margin-right: 10px; width: 90px')}} Die Heidelberger Akademie der Wissenschaften veröffentlicht beim Verlag „Heidelberg University Publishing“ neueste, wissenschaftliche Ergebnisse ihrer exzellenten Forschungsprojekte. Als Landesakademie setzt sie dabei auf das Open-Access-Modell, um Wissenschaftlerinnen und Wissenschaftlern freien Zugang zu Forschungsergebnissen zu ermöglichen. 
+                  {{elif session.forced_language =='en': }}
+                <h4>The Heidelberg Academy of Sciences and Humanities</h4>                  
+                {{=IMG(_src=URL(myconf.take('web.application'),'static','images/press/home/heidelberger_akademie_der_wissenschaften.png'),_alt='',_style='float: left; margin-right: 10px; width: 90px')}} The Heidelberg Academy of Sciences and Humanities publishes the newest scientific and academic results of their excellent research projects with &ldquo;Heidelberg University Publishing&rdquo;. Being an academy of the federal state it hereby relies on the Open Access model to allow scientists and scholars free access to its research results.                   
+                {{pass}}
                   </div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('category','info/hdaw'))}}
+
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('category','info/hadw'))}}
                   </div>
                 </div>
               </div>
@@ -333,9 +289,7 @@ $('.flexslider').flexslider();
           </div>
 
 		  <!-- ./dritte Boxen-Reihe-->
-          
-          
+  </section>      
     </div>
-  </section>
- </div>  
+
 
