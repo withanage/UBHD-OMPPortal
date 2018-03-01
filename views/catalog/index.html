@@ -11,9 +11,9 @@
 
             </div>
             <div class="col-lg-9">
-            <div class="btn-group pull-right">
+            <!--<div class="btn-group pull-right">
             <a href="#forthcoming" title="{{=T('Forthcoming')}}"><button class="btn btn-default" type="button">{{=T('Forthcoming')}}</button></a> 
-            </div>
+            </div>-->
             {{=b.filter_select}}
             {{try:
             del b.sort_select[1][4]
@@ -23,7 +23,7 @@
             }}
             {{=b.sort_select}}
 
-            </div>
+            </div> 
         </div>
 
     {{for submission in submissions:}}
@@ -76,7 +76,7 @@
             </div>
      </div>
 
-	{{if session.filters=='':}}
+<!--	{{if session.filters=='':}}
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -126,7 +126,7 @@
                 </div>
         </div>  
     </div>	
-    {{pass}}
+    {{pass}}  -->
 
   </section>
 </div>
