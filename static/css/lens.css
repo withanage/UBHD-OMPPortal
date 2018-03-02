@@ -954,6 +954,33 @@ span.annotation.formula_reference, span.publication_reference {
 	line-height: 1em;
 }
 
+/** Issue Nr. 145: Absätze mit Abständen - https://gitlab.ub.uni-heidelberg.de/wit/verlag-portale/issues/145 **/
+.margin-top-1 {
+ margin-top: 1em; 
+}
+
+.margin-top-2 {
+ margin-top: 2em;
+}
+
+.margin-bottom-1 {
+ margin-bottom: 1em;
+}
+
+.margin-bottom-2 {
+ margin-bottom: 2em;
+}
+
+margin-left-1 {
+ margin-left: 2ex;
+}
+
+margin-right-1 {
+ margin-right: 2ex;
+}
+
+
+
 /**************************************************************/
 
 .content-node .cross_reference {
