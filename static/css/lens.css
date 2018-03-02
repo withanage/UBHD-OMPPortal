@@ -955,27 +955,27 @@ span.annotation.formula_reference, span.publication_reference {
 }
 
 /** Issue Nr. 145: Absätze mit Abständen - https://gitlab.ub.uni-heidelberg.de/wit/verlag-portale/issues/145 **/
-content-node .paragraph .margin-top-1 {
+.content-node.paragraph.margin-top-1 {
  margin-top: 1em; 
 }
 
-content-node .paragraph .margin-top-2 {
+.content-node.paragraph.margin-top-2 {
  margin-top: 2em;
 }
 
-content-node .paragraph .margin-bottom-1 {
+.content-node.paragraph.margin-bottom-1 {
  margin-bottom: 1em;
 }
 
-content-node .paragraph .margin-bottom-2 {
+.content-node.paragraph.margin-bottom-2 {
  margin-bottom: 2em;
 }
 
-content-node .paragraph .margin-left-1 {
+.content-node.paragraph.margin-left-1 {
  margin-left: 2ex;
 }
 
-content-node .paragraph .margin-right-1 {
+.content-node.paragraph.margin-right-1 {
  margin-right: 2ex;
 }
 
