@@ -1,0 +1,111 @@
+{{extend 'layout.html'}}
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+	<!--
+            <div class="col-lg-3">
+                <article>
+                    <div class="post-image">
+		 	{{=IMG(_src=URL('static','files/presses/6/series/32-series.jpg'))}}
+                  </div>
+
+                </article>
+                
+            </div>   
+-->
+            <div class="col-lg-6">
+               <article>
+
+
+     <div class="post-heading">
+
+        <h3>Schriften zur Südwestdeutschen Hofmusik</h3>
+        </div>
+      {{if session.forced_language =='de': }}
+<p><i>Documenta Nepalica: Book Series</i> ist eine Open Access und Print on Demand erscheinende Publikationsreihe, die gemeinsam von der Forschungsstelle „Religions- und rechtsgeschichtliche Quellen des vormodernen Nepal“ der Heidelberger Akademie der Wissenschaften und dem nepalischen Nationalarchiv herausgegeben wird.</p> 
+<p>Sie dient der Veröffentlichung von Forschungsarbeiten zu historischen Dokumenten und verwandten Texten aus Nepal und dem Himalaya-Raum. Das Publikationsspektrum umfasst sowohl Editionen, Übersetzungen und philologische Untersuchungen einzelner Texte und Textkorpora als auch Studien zu deren Kontexten. Die Reihe zielt darauf,  Arbeiten mit verschiedenen disziplinären und interdisziplinären Ansätzen zu versammeln, besonders aus der Indologie, Tibetologie, Linguistik, Geschichtswissenschaft, Ethnologie, Religionswissenschaft, den Digital Humanities oder verwandten Wissenschaften.
+</p>
+
+      
+      {{elif session.forced_language =='en': }}                 
+<p><i>Documenta Nepalica: Book Series</i> is an open-access and print-on-demand publication series. It is jointly edited by the Research Unit “Documents on the History of Religion and Law of Premodern Nepal” of the Heidelberg Academy of Sciences and Humanities and the National Archives of Nepal.</p>
+<p>In its aim to disseminate research results on historical documents and related texts from Nepal and the Himalayan region, it brings out editions, translations and philological studies of particular texts or text corpora, along with contextual background studies. The series welcomes contributions representing different disciplinary and interdisciplinary approaches, including but not limited to Indology, Tibetology, linguistics, history, anthropology, religious studies, and digital humanities. 
+</p>
+   {{pass}}
+
+                    <div class="widget">
+                        <h5 class="widgetheading"></h5>
+                        <ul class="tags">          
+                            <li>{{=A(T('Volumes'),_href=URL('catalog','series/hdaw_dn'))}}
+                        </ul>
+                    </div>
+
+                </article>
+            </div>
+			<!--
+         <div class="col-lg-3">
+          <article>
+            <div class="box">
+
+			           <div class="box-gray alignleft" style="height: auto;">
+                 {{if session.forced_language =='de': }}
+                            <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographische Angaben</h5>
+                             <p>Documenta Nepalica</p>
+                            <p>Editors</p>
+                            <p>Chief Editor: Axel Michaels</p>
+                            <p>Editor Board</p>
+                            <p>Research Unit “Documents on the History of Religion and Law of Premodern Nepal”; Heidelberg Academy of Sciences and Humanities:</p>
+                            <ul>
+                              <li>Manik Bajracharya
+                              <li>Simon Cubelic</li>
+                              <li>Rajan Khatiwoda</li>
+                              <li>Astrid Zotter</li>
+                              <li>Christof Zotter</li>
+                            </ul>
+                            <p>Government of Nepal; Ministry of Culture, Tourism and Civil Aviation; Department of Archaeology; National Archives:</p>
+                              <ul>
+                                <li>Bhesh Narayan Dahal
+                                <li>Saubhagya Pradhananga</li>
+                                <li>Niran Rajvamshi</li>
+                                <li>Raju Rimal</li>
+                                <li>Kumar Shrestha</li>
+                              </ul>  
+
+                            
+             {{elif session.forced_language =='en': }}
+             
+             <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographic details</h5>
+                            <p>Heidelberg Studies on Transculturality<br>
+                            
+                            <p>Documenta Nepalica</p>
+                            <p>Editors</p>
+                            <p>Chief Editor: Axel Michaels</p>
+                            <p>Editor Board</p>
+                            <p>Research Unit “Documents on the History of Religion and Law of Premodern Nepal”; Heidelberg Academy of Sciences and Humanities:</p>
+                            <ul>
+                              <li>Manik Bajracharya
+                              <li>Simon Cubelic</li>
+                              <li>Rajan Khatiwoda</li>
+                              <li>Astrid Zotter</li>
+                              <li>Christof Zotter</li>
+                            </ul>
+                            <p>Government of Nepal; Ministry of Culture, Tourism and Civil Aviation; Department of Archaeology; National Archives:</p>
+                              <ul>
+                                <li>Bhesh Narayan Dahal
+                                <li>Saubhagya Pradhananga</li>
+                                <li>Niran Rajvamshi</li>
+                                <li>Raju Rimal</li>
+                                <li>Kumar Shrestha</li>
+                              </ul>  
+                            
+                          
+        	{{pass}}
+        </div>   
+      </div>     
+    </article>                                     
+    </div>-->
+    </div>   
+
+
+</section>
