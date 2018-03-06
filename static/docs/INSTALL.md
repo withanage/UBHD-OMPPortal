@@ -29,20 +29,25 @@
 1. ```cd  web2py_folder/applications/```
 
 2. `git clone https://github.com/UB-Heidelberg/UBHD-OMPPortal.git press_name`
-   Please  use  **only** **_**, ascii alphabet and numbers for the  **press_name** 
+
+    :red_circle: Please  use  **only** **_**, ascii alphabet and numbers for the  **press_name** 
+
 3. Install dependencies
-```
+
+```bash
 cd  web2py_folder/applications/$press_name
 sudo pip2 install -r requirements.txt
 git checkout clean
 git submodule init
 git submodule update
 ```     
-4. Create Confi
+4. Create Config file
 
-    ```   mkdir private ```
-
-    ```  cp web2py_folder/application/$press_name/static/docs/appconfig.ini   web2py_folder/application/$press_name/private/     ```
+```   bash
+cd  web2py_folder/applications/$press_name
+mkdir private 
+cp web2py_folder/application/$press_name/static/docs/appconfig.ini   web2py_folder/application/$press_name/private/      
+```
 
 5. Change the settings for your local omp installation private/appconfig.ini   [Details](https://github.com/UB-Heidelberg/UBHD-OMPPortal/blob/categories/static/docs/APPCONFIG.md)
     1. **username** and **password** for the OMP database
