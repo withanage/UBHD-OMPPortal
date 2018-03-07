@@ -121,11 +121,10 @@ editor_id=99
 this is used to enable reviewer comments from backend. e.g. [book](http://heiup.uni-heidelberg.de/catalog/book/122) (Rezensionen und Presse)
 
 First set a review type for your press in
- 
-```
+
 http://MYSERVER/omp/index.php/MYPRESS/management/settings/publication 
 e.g name=Prospectus  designation=88P
-```
+
 
 ```sql 
 SELECT * FROM genre_settings gs, genres g where gs.setting_value='88P' and gs.genre_id=g.genre_id and g.context_id=6 and g.entry_key='Prospectus' 
@@ -145,7 +144,7 @@ application=UBHD_OMPPortal
 
 url=http://heiup.uni-heidelberg.de
 
-###  vgwort server with an additional fail-over server.
+###  vgwort server with an additional fail-over 
 
 do not change
 
