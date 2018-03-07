@@ -101,7 +101,10 @@ vgwort_enable=0
 
 ### get authors and chapter autor ids
 
-For more details: omp backend http://MYSERVER/omp/index.php/MYPRESS/management/settings/access
+For more details: omp backend http://MYSERVER/omp/index.php/MYPRESS/management/settings/access [sample image]( * [Installation](https://github.com/UB-Heidelberg/UBHD-OMPPortal/blob/master/static/docs/user_settings_dialaog.png)
+)) 
+
+
 
 ```sql 
 SELECT  distinct s.user_group_id FROM user_group_stage st, user_group_settings s where st.context_id=6 and st.user_group_id = s.user_group_id and  (s.setting_value='CA'  or s.setting_value='AU')
