@@ -34,9 +34,9 @@
 
 * `git clone https://github.com/UB-Heidelberg/UBHD-OMPPortal.git press_name`
 
-or 
+ or 
 
- `git clone https://github.com/MY-INSTITUTE/UBHD-OMPPortal.git press_name`  
+*  `git clone https://github.com/MY-INSTITUTE/UBHD-OMPPortal.git press_name`  
  
  if you use the main repository.
 
