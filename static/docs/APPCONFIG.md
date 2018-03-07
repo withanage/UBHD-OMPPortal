@@ -103,7 +103,7 @@ vgwort_enable=0
 
 For more details: omp backend http://MYSERVER/omp/index.php/MYPRESS/management/settings/access 
 
-[sample image](https://github.com/UB-Heidelberg/UBHD-OMPPortal/blob/master/static/docs/user_settings_dialaog.png)
+[sample image](https://github.com/UB-Heidelberg/UBHD-OMPPortal/blob/master/static/docs/omp_user_settings_dialaog.png)
  
 
 
