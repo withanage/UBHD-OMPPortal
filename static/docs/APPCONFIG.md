@@ -59,7 +59,8 @@ separator =
 
 
 ## read omp settings
-` SQL examples assume the OMP database name is omp1_2 and the press_id =6 , please change accordingly`
+
+SQL examples assume the OMP database name is omp1_2 and the press_id =6 , please change accordingly
 
 ###[omp]
 
