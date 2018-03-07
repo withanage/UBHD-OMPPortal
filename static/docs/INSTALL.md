@@ -28,9 +28,9 @@
 ## Install UBHD-OMPPortal
 * ```cd  web2py_folder/applications/```
 
-:bookmark: If you are familiar with  github , please fork the repository to your account  :notebook_with_decorative_cover:[doc](https://guides.github.com/activities/forking/)
+  * :bookmark: If you are familiar with  github , please fork the repository to your account  :notebook_with_decorative_cover:[doc](https://guides.github.com/activities/forking/)
 
- :warning: Please  use  **only** **_**, ascii alphabet and numbers for the  **press_name** 
+ * :warning: Please  use  **only** **_**, ascii alphabet and numbers for the  **press_name** 
 
 * `git clone https://github.com/UB-Heidelberg/UBHD-OMPPortal.git press_name`
 
@@ -51,22 +51,22 @@ git checkout clean
 git submodule init
 git submodule update
 ```     
-* Create config file
+* create appconfig.ini file
 
-```   bash
+```bash
 cd  web2py_folder/applications/$press_name
 mkdir private 
 cp web2py_folder/application/$press_name/static/docs/appconfig.ini   web2py_folder/application/$press_name/private/      
 ```
 
 * Change the settings for your local omp installation private/appconfig.ini   
-:warning: Change your settings as in [appconfig.ini ](https://github.com/UB-Heidelberg/UBHD-OMPPortal/blob/master/static/docs/APPCONFIG.md)
+:warning: Pleare refer here [appconfig.ini ](https://github.com/UB-Heidelberg/UBHD-OMPPortal/blob/master/static/docs/APPCONFIG.md)
   
 
-* Mount or symlink the files folder of the OMP  to **web2py_folder**/applications/**press_name**/static/monographs/
+* Mount or symlink the OMP files folder   to **web2py_folder**/applications/**press_name**/static/
 
 ```
-ln -s  /omp_folder/presses/ /web2py_folder/applications/press_name/static/files/presses
+ln -s  /omp_file_folder/presses/ /web2py_folder/applications/press_name/static/files/presses
 ```
 
 * Test your installation
