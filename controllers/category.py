@@ -20,8 +20,11 @@ def info():
 
     if exists(request.folder + 'views/catalog/' + category_path + "_info.html"):
         content = "category/" + category_path + "_info.html"
+        return locals()
     else:
         category_row = ompdal.getCategoryByPathAndPress(category_path, press.press_id)
+        if not category_row:
+            redirect(URL('home', 'index'))
         category = OMPItem(category_row,
                            OMPSettings(ompdal.getCategorySettings(category_row.category_id))
                            )
