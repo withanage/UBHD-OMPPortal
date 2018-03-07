@@ -62,7 +62,7 @@ separator =
 
 SQL examples assume the OMP database name is omp1_2 and the press_id =6 , please change accordingly
 
-###[omp]
+###  [omp]
 
 ###  id of the current press
 ```sql 
@@ -140,7 +140,7 @@ review_type_id=89
 
 
 
-##[web]
+##  [web]
 
 ### name of the press
 
