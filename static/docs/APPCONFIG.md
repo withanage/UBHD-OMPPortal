@@ -64,7 +64,9 @@ separator =
 ###[omp]
 
 ###  id of the current press
-```sql SELECT press_id FROM omp1_2.presses where path ='my_press'```
+```sql 
+SELECT press_id FROM omp1_2.presses where path ='my_press'
+```
 
 press_id=6
 
@@ -73,13 +75,17 @@ doi_format_name=PDF
 
 ### set the book monograph type for the press
 
-```sql SELECT genres.genre_id FROM genres ,genre_settings where genres.context_id=6 and  genre_settings.setting_value='Book Manuscript' and genres.genre_id= genre_settings.genre_id```
+```sql 
+SELECT genres.genre_id FROM genres ,genre_settings where genres.context_id=6 and  genre_settings.setting_value='Book Manuscript' and genres.genre_id= genre_settings.genre_id
+```
 
 monograph_type_id=0
 
 only needed if you have epubs in your press
 
-```sql SELECT genres.genre_id FROM genres ,genre_settings where genres.context_id=6 and  genre_settings.setting_value='EPUB Book Manuscript' and genres.genre_id= genre_settings.genre_id```
+```sql 
+SELECT genres.genre_id FROM genres ,genre_settings where genres.context_id=6 and  genre_settings.setting_value='EPUB Book Manuscript' and genres.genre_id= genre_settings.genre_id
+```
 
 epub_monograph_type_id=0
 
@@ -96,13 +102,17 @@ vgwort_enable=0
 
 For more details: omp backend http://MYSERVER/omp/index.php/MYPRESS/management/settings/access
 
-```sql SELECT  distinct s.user_group_id FROM user_group_stage st, user_group_settings s where st.context_id=6 and st.user_group_id = s.user_group_id and  (s.setting_value='CA'  or s.setting_value='AU')```
+```sql 
+SELECT  distinct s.user_group_id FROM user_group_stage st, user_group_settings s where st.context_id=6 and st.user_group_id = s.user_group_id and  (s.setting_value='CA'  or s.setting_value='AU')
+```
 
 author_ids=98,100
 
 ### get editor id
 
-```sql SELECT  distinct s.user_group_id FROM user_group_stage st, user_group_settings s where st.context_id=6 and st.user_group_id = s.user_group_id and  (s.setting_value='VE')```
+```sql 
+SELECT  distinct s.user_group_id FROM user_group_stage st, user_group_settings s where st.context_id=6 and st.user_group_id = s.user_group_id and  (s.setting_value='VE')
+```
 
 editor_id=99
 
