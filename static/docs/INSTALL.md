@@ -30,7 +30,7 @@
 
 :bookmark: If you are familiar with  github , please fork the repository to your account  :notebook_with_decorative_cover:[doc](https://guides.github.com/activities/forking/)
 
- :red_circle: Please  use  **only** **_**, ascii alphabet and numbers for the  **press_name** 
+ :warning: Please  use  **only** **_**, ascii alphabet and numbers for the  **press_name** 
 
 * `git clone https://github.com/UB-Heidelberg/UBHD-OMPPortal.git press_name`
 
@@ -51,7 +51,7 @@ git checkout clean
 git submodule init
 git submodule update
 ```     
-* Create Config file
+* Create config file
 
 ```   bash
 cd  web2py_folder/applications/$press_name
