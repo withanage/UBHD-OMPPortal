@@ -101,8 +101,10 @@ vgwort_enable=0
 
 ### get authors and chapter autor ids
 
-For more details: omp backend http://MYSERVER/omp/index.php/MYPRESS/management/settings/access [sample image](https://github.com/UB-Heidelberg/UBHD-OMPPortal/blob/master/static/docs/user_settings_dialaog.png)
-)) 
+For more details: omp backend http://MYSERVER/omp/index.php/MYPRESS/management/settings/access 
+
+[sample image](https://github.com/UB-Heidelberg/UBHD-OMPPortal/blob/master/static/docs/user_settings_dialaog.png)
+ 
 
 
 
