@@ -983,6 +983,10 @@ span.annotation.formula_reference, span.publication_reference {
   text-align: center;
 }
 
+.right {
+  text-align: right;
+}
+
 /**************************************************************/
 
 .content-node .cross_reference {
