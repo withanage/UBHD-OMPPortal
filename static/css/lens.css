@@ -983,8 +983,10 @@ span.annotation.formula_reference, span.publication_reference {
   text-align: center;
 }
 
+/* Die Default-Einstellung für .content-node.paragraph .content-node.text div ist display: inline, so dass text-align: right alleine nicht ausreicht. */
 .right {
   text-align: right;
+  display: inline-block !important;
 }
 
 /**************************************************************/
