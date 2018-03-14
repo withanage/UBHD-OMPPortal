@@ -986,7 +986,7 @@ span.annotation.formula_reference, span.publication_reference {
 /* Die Default-Einstellung für .content-node.paragraph .content-node.text div ist display: inline, so dass text-align: right alleine nicht ausreicht. Für inline-Elemente zählt außerdem nicht line-height sondern min-height, deshalb habe ich 28px min-height des inline-Elemnts als line-height für das Block-Element gesetzt.*/
 .content-node.paragraph .content.right {
   text-align: right;
-  display: inline-block !important;
+  display: block !important;
   line-height: 28px !important;
 }
 
