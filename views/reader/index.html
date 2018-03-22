@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>heiUP {{=authors}}</title>
-    <!--link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic"-->
-    <!--link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'-->
+    <title>{{=myconf.take("web.application")}} {{=authors}}</title>
+    <!--http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic -->
     <link href="{{=URL('static','css/fonts.css')}}" rel='stylesheet'   type='text/css'>
-     <title>Title</title>
-
 
     <link rel="stylesheet" type="text/css" media="all"
           href="{{=URL('static','css/font-awesome.min.css')}}"/>
@@ -14,13 +11,6 @@
     <!-- A combined lens.css will be generated in the bundling process -->
     <!-- While in development, separate links for each CSS file are added, so we don't need a source map -->
     <link rel="stylesheet" href="{{=URL('static','css/lens.css')}}"/>
-    <style type="text/css">
-
-        body, textarea, p, input {
-            font-family: '{{=font_family}}';
-            color: #505050;
-        }
-    </style>
     <script src="{{=URL('static','js/jquery.js')}}"></script>
 
 
@@ -39,7 +29,7 @@
       });
     </script>
     <script type="text/javascript" src="http://beta.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML-full"></script>
-
+    <!--script type="text/javascript" src="{{=URL('static','js/MathJax.js')}}"/-->
     <script type="text/javascript">
         //web2py variables
         var submission_id = '{{=request.args[0]}}';
@@ -53,7 +43,6 @@
     <script src="{{=URL('static','js/lens-locales-en.js')}}"></script>
     {{pass}}
 
-
     <script src="{{=URL('static','js/lens2.js')}}"></script>
 
 </head>
@@ -61,4 +50,3 @@
 
 </body>
 </html>
-
