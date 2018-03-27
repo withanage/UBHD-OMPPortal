@@ -8,9 +8,7 @@
         <div class="col-lg-2">
           <article>
             <div class="post-image">
-            {{if len(row['image']) > 7 :}}
               {{=IMG(_src=getSeriesImageLink(request, press.press_id, series.attributes.image))}}
-            {{pass}}
             </div>
           </article>
         </div>
