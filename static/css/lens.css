@@ -1172,6 +1172,12 @@ span.annotation.formula_reference, span.publication_reference {
 .content-node.paragraph.centered {
     text-align: center;
 }
+.content-node.paragraph.text-vertical
+{
+    writing-mode: vertical-rl;
+    text-orientation: sideways;
+
+}
 
 .content-node.paragraph.font-family-NotoSansMonoBlack {
     font-family: 'Noto Sans Mono Black';
