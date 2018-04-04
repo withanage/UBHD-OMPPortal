@@ -241,7 +241,7 @@ def book():
     ompdal = OMPDAL(db, myconf)
 
     press = ompdal.getPress(myconf.take('omp.press_id'))
-    if not press:
+    if not press or not submission_id.isdigit():
         redirect(URL('home', 'index'))
     press_settings = OMPSettings(ompdal.getPressSettings(press.press_id))
 
