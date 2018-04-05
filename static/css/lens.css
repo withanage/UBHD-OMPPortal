@@ -1172,11 +1172,9 @@ span.annotation.formula_reference, span.publication_reference {
 .content-node.paragraph.centered {
     text-align: center;
 }
-.content-node.paragraph.text-vertical
-{
-    writing-mode: vertical-rl;
-    text-orientation: sideways;
 
+.content-node.paragraph.text-orientation-vertical-lr {
+    writing-mode: vertical-lr;
 }
 
 .content-node.paragraph.font-family-NotoSansMonoBlack {
@@ -2084,7 +2082,7 @@ body.loading .spinner-wrapper {
 .lens-article .content-node.html-table .daten-tabelle td {
   border-right: 1px solid #f8f8f8;
   padding: 10px;
-}                **/
+}
 
 /** Listen **/
 
