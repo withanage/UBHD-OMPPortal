@@ -7,7 +7,7 @@ LICENSE.md
 
 from ompdal import OMPDAL, OMPSettings, OMPItem
 from os.path import exists
-
+from gluon.html import *
 
 def info():
     if request.args == []:
@@ -30,6 +30,9 @@ def info():
                            )
 
     submission_rows = ompdal.getSubmissionsByCategory(category_row.category_id, ignored_submission_id=-1, status=3)
+    img_path = '{}{}{}{}{}-category-thumbnail.png'.format(request.folder, 'static/files/presses/', press.press_id, '/categories/',category_row.category_id)
+
+    category_thumbnail = IMG(_src=img_path) if exists(img_path) else DIV()
 
 
     return locals()
