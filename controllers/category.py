@@ -9,6 +9,7 @@ from ompdal import OMPDAL, OMPSettings, OMPItem
 from os.path import exists
 from gluon.html import *
 
+
 def info():
     if request.args == []:
         redirect(URL('home', 'index'))
@@ -30,9 +31,9 @@ def info():
                            )
 
     submission_rows = ompdal.getSubmissionsByCategory(category_row.category_id, ignored_submission_id=-1, status=3)
-    img_path = '/{}{}{}{}{}-category.png'.format(request.application, '/static/files/presses/', press.press_id, '/categories/',category_row.category_id)
+    img_path = '{}{}{}{}-category.png'.format('/static/files/presses/', press.press_id, '/categories/',
+                                              category_row.category_id)
 
-    category_thumbnail = IMG(_src=img_path) if exists(img_path) else DIV()
-
+    category_thumbnail = IMG(_src=request.application + img_path) if exists(request.folder + img_path) else DIV()
 
     return locals()
