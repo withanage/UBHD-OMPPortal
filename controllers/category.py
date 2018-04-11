@@ -31,7 +31,8 @@ def info():
                            )
 
     submission_rows = ompdal.getSubmissionsByCategory(category_row.category_id, ignored_submission_id=-1, status=3)
-    img_path = '{}{}{}{}-category.png'.format('static/files/presses/', press.press_id, '/categories/',
+
+    img_path = '{}{}{}{}-category.jpg'.format('static/files/presses/', press.press_id, '/categories/',
                                               category_row.category_id)
 
     category_thumbnail = IMG(_src="../../" + img_path) if exists(request.folder + img_path) else DIV()
