@@ -7,7 +7,7 @@
 {{file_ids=[]}}
 
 <div id="main" class="container">
-  
+
 	<section id="content">
 		<div style="height: 20px"></div>
 		<div class="container">
@@ -47,12 +47,12 @@ pass
 
 							{{identification_codes = [i for i in [pf.associated_items.get('identification_codes', []) for pf in digital_publication_formats+physical_publication_formats] if i]}}
 							{{if identification_codes:}}
-							<h5 style="color: #656565; margin-bottom: 0.5em; margin-top: 1.2em;">ISBN</h5>
+							<h5 style="color: #656565; margin-bottom: 0.5em; margin-top: 1.2em;">{{="Identifiers"}}</h5>
 							{{pass}}
 							{{for pf in digital_publication_formats+physical_publication_formats:}}
 							<p style="margin:0px">
 								{{for identification_code in pf.associated_items.get('identification_codes', []):}}
-								{{=identification_code.value}} ({{=pf.settings.getLocalizedValue('name', locale)}})
+								{{ ="{}:{}({})".format(onix_types.get(str(identification_code.code)), identification_code.value, pf.settings.getLocalizedValue('name', locale)) }}
 								<br>
 								{{pass}}
 							</p>
@@ -68,13 +68,13 @@ pass
                 <div class="btn btn-default" id="statistik-button" >{{=T('Statistics')}}</div> <br />
                   <div style="display:none" class="table" id="oas">
                     {{include '../static/omp-resources/views/catalog/statistik.html' }}
-                    
+
                     </div>
-                  
+
               </div>
               <!-- statistik end -->
-              
-              
+
+
 						</div>
 					</div>
 				</div>
@@ -138,12 +138,12 @@ pass
 							if int(myconf['emails']['notification']) == 1:
 							 }}
 							{{ include '../static/omp-resources/views/catalog/recommend.html' }}
-							{{ 	
+							{{
 							pass
 							pass
 							pass
 							}}
-							 
+
 							</div>
 							<div class="btn-group" role="group" aria-label="3">
 								<button class="btn btn-default" id="anno-btn">
@@ -176,7 +176,7 @@ pass
 								<i class="icon-quote-left"></i>
 								{{=XML(abstract)}}
 							</p>
-  
+
 							<!-- reviews begin -->
 							{{include '../static/omp-resources/views/catalog/reviews.html' }}
 							<!-- reviews end -->
@@ -190,7 +190,7 @@ pass
 							{{num_bios = len([b for b in bios if b[1] != ""])}}
 							{{if bios_role != "author" or num_bios < 5:}}
 							{{if num_bios != 0:}}
-							
+
 							<div class="separator"></div>
 							<div class="autor_biografie">
 								<p>
