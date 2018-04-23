@@ -214,6 +214,7 @@
 'How did you get here?': 'Wie sind Sie hier her gelangt?',
 'How to cite this title': 'Empfohlene Zitierweise',
 'Höhe der Trimbox': 'Höhe der Trimbox',
+'Identifiers': 'Identifier',
 'import': 'Importieren',
 'Import/Export': 'Importieren/Exportieren',
 'Imprint': 'Imprint',

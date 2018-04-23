@@ -372,5 +372,11 @@ def book():
 
     # stats = OMPStats(myconf, db, locale)
     onix_types=ONIX_PRODUCT_IDENTIFIER_TYPE_CODES
+    # submissions = sorted(submissions, key=lambda s: s.attributes['series_id'], reverse=True)
+    pfs = digital_publication_formats+physical_publication_formats
+    idntfrs = {}
+    for p in pfs:
+        for i in p.associated_items['identification_codes'].as_list():
+            idntfrs['{}.{}'.format(i["code"], i['value'])] = (i, p.settings.getLocalizedValue('name', locale))
 
     return locals()
