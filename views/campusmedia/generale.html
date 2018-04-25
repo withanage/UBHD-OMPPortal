@@ -164,6 +164,22 @@
               </ul>
               {{pass}} 
             </div>    -->
+			<div class="widget">
+              <h5 class="widgetheading"></h5>
+{{if session.forced_language =='de': }}
+             
+              <ul class="tags">
+               <li style="display: inline"><a href="http://heiup.uni-heidelberg.de/journals/index.php/generale/index">zur Zeitschrift</a></li>
+              </ul>
+              
+             {{elif session.forced_language =='en': }}
+              
+              <ul class="tags">
+                <li style="display: inline"><a href="http://heiup.uni-heidelberg.de/journals/index.php/generale/index">View Journal</a></li>
+              </ul>
+{{pass}}    
+
+            </div>
         </article>
       </div>
     </div>
