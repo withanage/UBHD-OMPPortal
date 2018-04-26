@@ -194,9 +194,11 @@ $('.flexslider').flexslider();
                 <div class="box">
                   <div class="box-gray aligncenter">
                 <h4>{{=T('New Titles')}}</h4>
-                <a href="http://heiup.uni-heidelberg.de/journals/index.php/generale/issue/view/2366">{{=IMG(_src=URL(myconf.take('web.application'),'static','images/campusmedia/studiumgenerale2018.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}</a> 
+                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/318/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/318'))}} 
       					</div>
-                  <div class="box-bottom"><a href="http://heiup.uni-heidelberg.de/journals/index.php/generale/issue/view/2366">{{=T('More Information')}}</a></div>
+                  <div class="box-bottom">
+                    {{=A(T('More Information'),_href=URL('catalog','book/318'))}}
+				</div>
                 </div>
             </div> 
                <div class="col-lg-3">
