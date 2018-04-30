@@ -40,8 +40,9 @@ CAT_SORTS = {
     'title-1': 'title',
     'title-2': 'title',
     'datePublished-1': 'oldest_to_newest',
-    'datePublished-2': 'newest_to_oldest'
-
+    'datePublished-2': 'newest_to_oldest',
+     'seriesPosition-1':'title',
+     'seriesPosition-2':'title',
 }
 
 
