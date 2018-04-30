@@ -36,6 +36,14 @@ ONIX_PRODUCT_IDENTIFIER_TYPE_CODES = {"01": "Proprietary",
                                       "35": "ARK"
                                       }
 IDENTIFIER_ORDER = ['06', '22.PDF', '15.PDF', '15.Hardcover', '15.Softcover', '15.Print', '15.Online']
+CAT_SORTS = {
+    'title-1': 'title',
+    'title-2': 'title',
+    'datePublished-1': 'oldest_to_newest',
+    'datePublished-2': 'newest_to_oldest'
+
+}
+
 
 def category():
     ignored_submission_id = myconf.take('omp.ignore_submissions') if myconf.take(
@@ -84,7 +92,22 @@ def category():
 
         submissions.append(submission)
 
-    submissions = sorted(submissions, key=lambda s: s.attributes['series_id'], reverse=True)
+    #
+    # submissions = sorted(submissions, key=lambda s: s.attributes['series_id'], reverse=False)
+    publication_dates = [dateFromRow(pd) for pf in
+                         ompdal.getAllPublicationFormatsBySubmission(submission_row.submission_id, available=True,
+                                                                     approved=True)
+                         for pd in ompdal.getPublicationDatesByPublicationFormat(pf.publication_format_id)]
+
+    if publication_dates:
+        submission.associated_items['publication_dates'] = publication_dates
+
+    current = int(request.vars.get('page_nr', 1)) - 1
+    sortby = ompdal.getCategorySettings(category_row.category_id).find(
+        lambda row: row.setting_name == 'sortOption').first().get('setting_value')
+
+    b = Browser(submissions, current, locale, 100, CAT_SORTS[sortby], [])
+    submissions = b.process_submissions(submissions)
 
     return locals()
 
@@ -379,9 +402,9 @@ def book():
     for p in pfs:
         for i in p.associated_items['identification_codes'].as_list():
             idntfrs['{}.{}'.format(i['code'], p.settings.getLocalizedValue('name', locale))] = (
-            i['value'],i['code'], p.settings.getLocalizedValue('name', locale))
-    try :
+                i['value'], i['code'], p.settings.getLocalizedValue('name', locale))
+    try:
         idntfrs = sorted(idntfrs.items(), key=lambda i: IDENTIFIER_ORDER.index((i[0])))
-    except :
+    except:
         pass
     return locals()
