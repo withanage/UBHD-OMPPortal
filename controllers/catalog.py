@@ -41,8 +41,8 @@ CAT_SORTS = {
     'title-2': 'title',
     'datePublished-1': 'oldest_to_newest',
     'datePublished-2': 'newest_to_oldest',
-     'seriesPosition-1':'title',
-     'seriesPosition-2':'title',
+    'seriesPosition-1':'title',
+    'seriesPosition-2':'title',
 }
 
 
@@ -105,10 +105,10 @@ def category():
 
     current = int(request.vars.get('page_nr', 1)) - 1
     sortby = ompdal.getCategorySettings(category_row.category_id).find(
-        lambda row: row.setting_name == 'sortOption').first().get('setting_value')
-
-    b = Browser(submissions, current, locale, 100, CAT_SORTS[sortby], [])
-    submissions = b.process_submissions(submissions)
+        lambda row: row.setting_name == 'sortOption').first()
+    if sortby:
+        b = Browser(submissions, current, locale, 100, CAT_SORTS[sortby.get('setting_value')], [])
+        submissions = b.process_submissions(submissions)
 
     return locals()
 
