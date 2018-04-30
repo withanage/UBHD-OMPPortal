@@ -13,29 +13,29 @@ from ompbrowse import Browser
 import json
 from datetime import datetime
 
-ONIX_PRODUCT_IDENTIFIER_TYPE_CODES = {"01":"Proprietary",
-                                      "02":"ISBN-10",
-                                      "03":"GTIN-13",
-                                      "04":"UPC",
-                                      "05":"ISMN-10",
-                                      "06":"DOI",
-                                      "13":"LCCN",
-                                      "14":"GTIN-14",
-                                      "15":"ISBN",
-                                      "17":"Legal deposit number",
-                                      "22":"URN",
-                                      "23":"OCLC number",
-                                      "24":"ISBN",
-                                      "25":"ISMN-13",
-                                      "26":"ISBN-A",
-                                      "27":"JP e-code",
-                                      "28":"OLCC number",
-                                      "29":"JP Magazine ID",
-                                      "30":"UPC12+5",
-                                      "31":"BNF Control number",
-                                      "35":"ARK"
+ONIX_PRODUCT_IDENTIFIER_TYPE_CODES = {"01": "Proprietary",
+                                      "02": "ISBN-10",
+                                      "03": "GTIN-13",
+                                      "04": "UPC",
+                                      "05": "ISMN-10",
+                                      "06": "DOI",
+                                      "13": "LCCN",
+                                      "14": "GTIN-14",
+                                      "15": "ISBN",
+                                      "17": "Legal deposit number",
+                                      "22": "URN",
+                                      "23": "OCLC number",
+                                      "24": "ISBN",
+                                      "25": "ISMN-13",
+                                      "26": "ISBN-A",
+                                      "27": "JP e-code",
+                                      "28": "OLCC number",
+                                      "29": "JP Magazine ID",
+                                      "30": "UPC12+5",
+                                      "31": "BNF Control number",
+                                      "35": "ARK"
                                       }
-
+IDENTIFIER_ORDER = ['06', '22.PDF', '15.PDF', '15.Hardcover', '15.Softcover', '15.Print', '15.Online']
 
 def category():
     ignored_submission_id = myconf.take('omp.ignore_submissions') if myconf.take(
@@ -371,12 +371,17 @@ def book():
         submission_id, myconf.take('omp.representative_id_type'))
 
     # stats = OMPStats(myconf, db, locale)
-    onix_types=ONIX_PRODUCT_IDENTIFIER_TYPE_CODES
+    onix_types = ONIX_PRODUCT_IDENTIFIER_TYPE_CODES
     # submissions = sorted(submissions, key=lambda s: s.attributes['series_id'], reverse=True)
-    pfs = digital_publication_formats+physical_publication_formats
+    pfs = digital_publication_formats + physical_publication_formats
     idntfrs = {}
+
     for p in pfs:
         for i in p.associated_items['identification_codes'].as_list():
-            idntfrs['{}.{}'.format(i["code"], i['value'])] = (i, p.settings.getLocalizedValue('name', locale))
-
+            idntfrs['{}.{}'.format(i['code'], p.settings.getLocalizedValue('name', locale))] = (
+            i['value'],i['code'], p.settings.getLocalizedValue('name', locale))
+    try :
+        idntfrs = sorted(idntfrs.items(), key=lambda i: IDENTIFIER_ORDER.index((i[0])))
+    except :
+        pass
     return locals()
