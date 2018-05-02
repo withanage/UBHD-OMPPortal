@@ -91,23 +91,19 @@ def category():
             submission.associated_items['category'] = OMPItem(
                 category_row, OMPSettings(ompdal.getCategorySettings(category_row.category_id)))
 
+        publication_dates = [dateFromRow(pd) for pf in
+                             ompdal.getAllPublicationFormatsBySubmission(submission_row.submission_id)
+                             for pd in ompdal.getPublicationDatesByPublicationFormat(pf.publication_format_id)]
+        print(publication_dates)
+        if publication_dates:
+            submission.associated_items['publication_dates'] = publication_dates
         submissions.append(submission)
 
-    #
-    # submissions = sorted(submissions, key=lambda s: s.attributes['series_id'], reverse=False)
-    publication_dates = [dateFromRow(pd) for pf in
-                         ompdal.getAllPublicationFormatsBySubmission(submission_row.submission_id, available=True,
-                                                                     approved=True)
-                         for pd in ompdal.getPublicationDatesByPublicationFormat(pf.publication_format_id)]
 
-    if publication_dates:
-        submission.associated_items['publication_dates'] = publication_dates
-
-    current = int(request.vars.get('page_nr', 1)) - 1
     sortby = ompdal.getCategorySettings(category_row.category_id).find(
         lambda row: row.setting_name == 'sortOption').first()
     if sortby:
-        b = Browser(submissions, current, locale, 100, CAT_SORTS[sortby.get('setting_value')], [])
+        b = Browser(submissions, 0, locale, 100, CAT_SORTS[sortby.get('setting_value')], [])
         submissions = b.process_submissions(submissions)
 
     return locals()
