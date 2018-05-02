@@ -94,7 +94,6 @@ def category():
         publication_dates = [dateFromRow(pd) for pf in
                              ompdal.getAllPublicationFormatsBySubmission(submission_row.submission_id)
                              for pd in ompdal.getPublicationDatesByPublicationFormat(pf.publication_format_id)]
-        print(publication_dates)
         if publication_dates:
             submission.associated_items['publication_dates'] = publication_dates
         submissions.append(submission)
