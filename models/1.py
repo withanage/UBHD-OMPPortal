@@ -9,7 +9,7 @@ session.forced_language = 'de'
 langs = ['en','de']
 if request.vars.lang:
     if not request.vars.lang in langs:
-        raise HTTP(404,'language not defined')
+        raise HTTP(404,'language not available')
     for l in langs:
         if request.vars.lang.lower() ==l:
             session.forced_language = l
