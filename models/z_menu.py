@@ -7,12 +7,13 @@ LICENSE.md
 from ompdal import OMPDAL
 ompdal = OMPDAL(db, myconf)
 
-locale = ''
+
 if session.forced_language == 'en':
     locale = 'en_US'
 elif session.forced_language == 'de':
     locale = 'de_DE'
-
+else:
+    locale = 'de_DE'
 
 
 response.title = settings.title
