@@ -50,10 +50,16 @@
                             <h5 style="color: #656565; margin-bottom: 0.5em; margin-top: 1.2em;">{{=T("Identifiers")}}</h5>
                         {{pass}}
                             <p style="margin-top: 1.2em;">
+                                {{=P('DOI ',A(doi, _href="http://dx.doi.org/"+doi))}}
                             {{for p in idntfrs:}}
-                                {{if len(p[1])==3:}}
-                                {{ = P('{}: {} ({})'.format(onix_types.get(str(p[1][1])),p[1][0],p[1][2]))}}
 
+                                {{if len(p[1])==3:}}
+                                {{ if p[1][1] not in [15]:}}
+                                {{ = P('{} {}'.format(onix_types.get(str(p[1][1])),p[1][0]))}}
+                                {{else:}}
+                                {{ = P('{} {} ({})'.format(onix_types.get(str(p[1][1])),p[1][0],p[1][2]))}}
+
+                                {{pass}}
                                 {{pass}}
                             {{pass}}
                             </p>
