@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>{{=myconf.take("web.application")}} {{=authors}}</title>
+    <!--http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic -->
     <link href="{{=URL('static','css/fonts.css')}}" rel='stylesheet'   type='text/css'>
 
     <link rel="stylesheet" type="text/css" media="all"
@@ -11,6 +12,7 @@
     <!-- While in development, separate links for each CSS file are added, so we don't need a source map -->
     <link rel="stylesheet" href="{{=URL('static','css/lens.css')}}"/>
     <script src="https://www.ub.uni-heidelberg.de/cdn/jquery/3.2.1/jquery.js"></script>
+
 
 
     <!-- MathJax Configuration -->
@@ -27,8 +29,8 @@
          styles: {".MathJax_Display": {padding: "0em 0em 0em 3em" },".MathJax_SVG_Display": {padding: "0em 0em 0em 3em" },}
       });
     </script>
-
-    <script type="text/javascript" src="{{=URL('static','js/MML_HTMLorMML-full.js')}}"></script>
+    <script type="text/javascript" src="http://beta.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML-full"></script>
+    <!--script type="text/javascript" src="{{=URL('static','js/MathJax.js')}}"/-->
     <script type="text/javascript">
         //web2py variables
         var submission_id = '{{=request.args[0]}}';
