@@ -403,4 +403,9 @@ def book():
         idntfrs = sorted(idntfrs.items(), key=lambda i: IDENTIFIER_ORDER.index((i[0])))
     except:
         pass
+
+    category_row = ompdal.getCategoryBySubmissionId(submission_id)
+    category = OMPItem(category_row, OMPSettings(ompdal.getCategorySettings(category_row.category_id))) if category_row else None
+
+
     return locals()

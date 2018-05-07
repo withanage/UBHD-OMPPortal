@@ -172,18 +172,27 @@
 
                             <div class="post-heading">
                                 <br/>
-                                <h5>
-                                {{if editors:}}
-									{{=formatContributors(editors, max_contributors=4)}}
-									{{if len(editors) > 1:}}
-									{{=T("(Eds.)")}}
-									{{else:}}
-									{{=T("(Ed.)")}}
-									{{pass}}
-									{{else:}}
-									{{=formatContributors(authors, max_contributors=4)}}
-									{{pass}}
-                                </h5>
+                                <div class="row">
+                                <div id="autoren">
+                                    <h5>
+                                    {{if editors:}}
+                                        {{=formatContributors(editors, max_contributors=4)}}
+                                        {{if len(editors) > 1:}}
+                                        {{=T("(Eds.)")}}
+                                        {{else:}}
+                                        {{=T("(Ed.)")}}
+                                        {{pass}}
+                                        {{else:}}
+                                        {{=formatContributors(authors, max_contributors=4)}}
+                                        {{pass}}
+
+                                    </h5>
+
+
+
+                                    </div>
+                                {{include 'catalog/snippets/category.html'}}
+                                    </div>
                             </div>
                             <h3>{{=XML(cleanTitle)}}</h3>
                             <h4>{{=subtitle}}</h4>
