@@ -5,12 +5,14 @@ Distributed under the GNU GPL v3. For full terms see the file
 LICENSE.md
 '''
 
-session.forced_language = 'de'
 langs = ['en','de']
+
 if request.vars.lang:
     if not request.vars.lang in langs:
         raise HTTP(404,'language not available')
     for l in langs:
         if request.vars.lang.lower() ==l:
             session.forced_language = l
-T.force(session.forced_language)
+    T.force(session.forced_language)
+if not session.forced_language:
+    session.forced_language = 'de'
