@@ -13,6 +13,8 @@ if request.vars.lang:
     for l in langs:
         if request.vars.lang.lower() ==l:
             session.forced_language = l
-    T.force(session.forced_language)
+
 if not session.forced_language:
     session.forced_language = 'de'
+
+T.force(session.forced_language)
