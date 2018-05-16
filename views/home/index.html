@@ -114,6 +114,17 @@ $('.flexslider').flexslider();
           <div class="row">
 		  
 		     <div class="col-lg-3">
+                <div class="box">
+                  <div class="box-gray aligncenter">
+                <h4>{{=T('New Titles')}}</h4>
+                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/361/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/345'))}} 
+      					</div>
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/361'))}}
+                  </div>
+                </div>
+            </div>
+		  
+		     <div class="col-lg-3">
                <div class="box">
                 <div class="box-gray aligncenter">
                 <h4>{{=T('New Titles')}}</h4> 
@@ -124,17 +135,7 @@ $('.flexslider').flexslider();
                 </div>
               </div>
 			  
-            <div class="col-lg-3">
-                <div class="box">
-                  <div class="box-gray aligncenter">
-                <h4>{{=T('New Titles')}}</h4>
-                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/345/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/345'))}} 
-      					</div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/345'))}}
-                  </div>
-                </div>
-            </div>
-		   
+	   
 		  
             <div id="boxAktuelles" class="col-lg-6">
               <div class="box">
@@ -166,7 +167,7 @@ $('.flexslider').flexslider();
         <div class="row">
           <div class="col-lg-12">
             <div class="row">
-            <div class="col-lg-3">
+			 <div class="col-lg-3">
               <div class="box">
                 <div class="box-gray aligncenter">{{if session.forced_language =='de': }} 
                   <p class="boxText"><b>Heidelberg University Publishing</b> ist ein Open-Access-Verlag für qualitätsgeprüfte wissenschaftliche Publikationen. Wir unterstützen Open Access als Publikationsmodell für die Verbreitung hervorragender Forschungsergebnisse und setzen Open-Source-Software für die gemeinsame Entwicklung der zugrunde liegenden Publikationstechnologien ein. 
@@ -178,7 +179,19 @@ $('.flexslider').flexslider();
                     {{=A(T('More Information'),_href=URL('about_us','mission_statement'))}}
                 </div>
               </div>
-            </div>			
+            </div>	
+			
+			<div class="col-lg-3">
+                <div class="box">
+                  <div class="box-gray aligncenter">
+                <h4>{{=T('New Titles')}}</h4>
+                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/345/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/345'))}} 
+      					</div>
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/345'))}}
+                  </div>
+                </div>
+            </div>
+					
 
             <div class="col-lg-3">
                 <div class="box">
@@ -201,17 +214,7 @@ $('.flexslider').flexslider();
 				</div>
                 </div>
             </div> 
-               <div class="col-lg-3">
-                <div class="box">
-                  <div class="box-gray aligncenter">
-                <h4>{{=T('New Titles')}}</h4>
-        		{{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/347/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/347'))}}           
-                  </div>
-                  <div class="box-bottom">
-                    {{=A(T('More Information'),_href=URL('catalog','book/347'))}}
-                  </div>
-                </div>
-              </div>   
+  
 				       
 						   
 
@@ -238,10 +241,23 @@ $('.flexslider').flexslider();
             </div>
           </div><!-- ./zweite Boxen-Reihe-->
 		  
+
 		  
           <div class="row">
            <div class="col-lg-12">
             <div class="row">
+			   <div class="col-lg-3">
+                <div class="box">
+                  <div class="box-gray aligncenter">
+                <h4>{{=T('New Titles')}}</h4>
+        		{{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/347/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/347'))}}           
+                  </div>
+                  <div class="box-bottom">
+                    {{=A(T('More Information'),_href=URL('catalog','book/347'))}}
+                  </div>
+                </div>
+              </div> 
+			
               <div class="col-lg-3">
                 <div class="box">
                   <div class="box-gray aligncenter">
@@ -252,17 +268,6 @@ $('.flexslider').flexslider();
                   </div>
                 </div>
               </div> 
-			      
-			  <div class="col-lg-3">
-               <div class="box">
-                <div class="box-gray aligncenter">
-                <h4>{{=T('Forthcoming')}}</h4>
-                {{=IMG(_src=URL(myconf.take('web.application'),'static','images/catalog/cover_grammar.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}	                  </div>
-                  <div class="box-bottom">
-                    &nbsp;
-                  </div>					  
-				</div>
-              </div>
              
               <div class="col-lg-6">
                 <div class="box">
