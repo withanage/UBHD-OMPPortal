@@ -87,7 +87,7 @@ def download():
     response.headers['ContentType'] = "application/octet-stream"
     response.headers[
         'Content-Disposition'] = "attachment; filename=" + submission_file
-    return response.stream(path, chunk_size=4096)
+    return response.stream(path, chunk_size=1048576)
 
 
 def download_image():
