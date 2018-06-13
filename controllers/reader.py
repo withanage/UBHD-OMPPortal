@@ -33,6 +33,10 @@ def index():
 
     submission_id = request.args[0]
     file_id = request.args[1]
+    path = os.path.join(request.folder, 'static/files/presses', myconf.take('omp.press_id'), 'monographs',
+                        submission_id, 'submission/proof', file_id)
+    if  os.path.exists(path) is False:
+        raise HTTP(404)
 
     if str(file_id).endswith('.xml'):
 
@@ -58,9 +62,8 @@ def index():
 
         return dict(json_list=XML(gluon.serializers.json(json_list)), authors=authors, font_family=font_family)
 
-    else:
-        path = os.path.join(request.folder, 'static/files/presses', myconf.take('omp.press_id'), 'monographs',
-                            submission_id, 'submission', file_id)
+
+
     return response.stream(path)
 
 
