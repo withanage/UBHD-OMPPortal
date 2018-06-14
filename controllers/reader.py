@@ -64,7 +64,7 @@ def index():
     else:
         path = os.path.join(request.folder, 'static/files/presses', myconf.take('omp.press_id'), 'monographs',
                             submission_id, 'submission/', file_id)
-        return response.stream(path, chunk_size=65536)
+        return response.stream(path, chunk_size=1048576)
 
 
 
@@ -91,7 +91,7 @@ def download():
     response.headers['ContentType'] = "application/octet-stream"
     response.headers[
         'Content-Disposition'] = "attachment; filename=" + submission_file
-    return response.stream(path, chunk_size=65536)
+    return response.stream(path, chunk_size=1048576)
 
 
 def download_image():
