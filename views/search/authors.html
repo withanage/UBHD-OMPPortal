@@ -20,7 +20,7 @@ pass
         pass
         last_letter = current_letter
 
-      =P(a['last_name'],', ', a['first_name'])
+      =P(A(a['last_name'],', ', a['first_name'],_href=URL('catalog','book',args=a['submission_id'])))
 pass
 }}
 
