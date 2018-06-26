@@ -75,6 +75,7 @@
 'Auslieferungstermin': 'Auslieferungstermin',
 'author': 'Autor',
 'authors': 'Autor',
+'Authors A-Z': 'Autoren A-Z',
 'Autoren': 'Autoren',
 'Autoren : Vorname Nachname )': 'Autoren : Vorname Nachname )',
 'Available Databases and Tables': 'Verfügbare Datenbanken und Tabellen',

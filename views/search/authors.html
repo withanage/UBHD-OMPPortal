@@ -1,11 +1,18 @@
 {{extend 'layout.html'}}
+{{import urllib}}
 {{=BR()}}
 {{=H1(T("Browse Author Index"))}}
 <div class="btn-group">
 {{
+current_letter_index=''
+last_letter_index=''
 for i in index:
+        current_letter_index=i.decode('utf-8')[:1].upper()
         css_class = "btn btn-danger" if searchInitial==i else "btn btn-default"
-        =A(i,_href=URL('authors',vars=dict(searchInitial=i)),_class=css_class)
+         if  current_letter_index !=  last_letter_index:
+            =A(current_letter_index,_href=URL('authors',vars=dict( searchInitial=i[:1])),_class=css_class)
+         pass
+         last_letter_index = current_letter_index
 pass
 =A(T('All'),_href=URL('authors'),_class="btn btn-default")
 }}
@@ -16,30 +23,29 @@ pass
 {{last_author=''}}
 {{submission_array=[]}}
 {{for a in authors:
-        current_letter = a['last_name'][:1].upper()
+        current_letter = a['last_name'].decode('utf-8')[:1].upper()
         current_author = a['last_name']+'+'+a['first_name']
         if  current_letter !=  last_letter:
         =H5(current_letter)
+
         pass
         last_letter = current_letter
 
         if  current_author !=  last_author:
 
           			       
-            if len(submission_array)>0:
-                ='('
+            if len(submission_array) > 0:
+                =' ( '
                 for i,s in enumerate(submission_array):
                 =(A(SPAN(_class="glyphicon glyphicon-new-window small"),' ',_href=URL('catalog','book',args=s)))
                 pass
-                =')'
+                =' )'
                  
 
             pass
-
-            =(A(a['last_name'],', ',a['first_name'],' ',_href=URL('catalog','book',args=a['submission_id'])))
            =BR()
-	
-          
+
+           =(A(a['last_name'],', ',a['first_name'],' ',_href=URL('catalog','book',args=a['submission_id'])))
 
             del submission_array[:]
         else:

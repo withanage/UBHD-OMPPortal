@@ -95,7 +95,10 @@ response.menu = UL([LI(A(T('Home'),
                        UL(publishing_dict_list,
                           _class="dropdown-menu"),
                        _class="dropdown"),
-                    #LI(display_form(),  _class="dropdown")
+
+                    LI(A(T('Authors A-Z'),
+                         _href=URL('search',
+                                   'authors'))),
 
                     ],
                    _class="nav navbar-nav")

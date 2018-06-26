@@ -1,4 +1,5 @@
-# coding: utf-8
+# -*- coding: utf-8 -*-
+
 from ompdal import OMPDAL, OMPSettings, OMPItem
 
 
@@ -8,7 +9,7 @@ press = ompdal.getPress(myconf.take('omp.press_id'))
 def authors():
     searchInitial = request.vars.searchInitial
     authors = ompdal.getAuthorsByPress(press.press_id).as_list()
-    index = sorted(set([a['last_name'][:1].upper() for a in authors]))
+    index = sorted(set([a['last_name'] for a in authors]))
 
 
     if searchInitial:
