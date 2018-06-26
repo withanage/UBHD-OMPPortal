@@ -11,9 +11,9 @@
 
             </div>
             <div class="col-lg-9">
-            <!--<div class="btn-group pull-right">
-            <a href="#forthcoming" title="{{=T('Forthcoming')}}"><button class="btn btn-default" type="button">{{=T('Forthcoming')}}</button></a> 
-            </div>-->
+            <div class="btn-group pull-right">
+            <a href="{{=URL('search','authors')}}" title="{{=T('Authors A-Z')}}"><button class="btn btn-default" type="button">{{=T('Authors A-Z')}}</button></a>
+            </div>
             {{=b.filter_select}}
             {{try:
             del b.sort_select[1][4]

@@ -96,9 +96,6 @@ response.menu = UL([LI(A(T('Home'),
                           _class="dropdown-menu"),
                        _class="dropdown"),
 
-                    LI(A(T('Authors A-Z'),
-                         _href=URL('search',
-                                   'authors'))),
 
                     ],
                    _class="nav navbar-nav")
