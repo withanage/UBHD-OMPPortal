@@ -29,8 +29,8 @@ def call():
 def index():
     ompdal = OMPDAL(db, myconf)
     json_list = dict(xml_url='')
-
-
+    if len(request.args) < 2 :
+        raise HTTP(404)
     submission_id = request.args[0]
     file_id = request.args[1]
 
