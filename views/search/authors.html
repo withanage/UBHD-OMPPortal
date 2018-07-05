@@ -31,22 +31,23 @@ pass
 
         pass
         last_letter = current_letter
-
+        '''
         if  current_author !=  last_author:
 
-          			       
+
             if len(submission_array) > 0:
                 =' ( '
                 for i,s in enumerate(submission_array):
                 =(A(SPAN(_class="glyphicon glyphicon-new-window small"),' ',_href=URL('catalog','book',args=s)))
                 pass
                 =' )'
-                 
+
 
             pass
            =BR()
-
-           =(A(a['last_name'],', ',a['first_name'],' ',_href=URL('catalog','book',args=a['submission_id'])))
+         '''
+         =(A(a['last_name'],', ',a['first_name'],' ',_href=URL('catalog','book',args=a['submission_id'])))
+         =BR()
 
             del submission_array[:]
         else:
