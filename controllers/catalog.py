@@ -353,14 +353,13 @@ def book():
                                                             pf.publication_format_id)})
                                             )
 
-    pdf = ompdal.getPublicationFormatByName(
-        submission_id, myconf.take('omp.doi_format_name')).first()
-    # Get DOI from the format marked as DOI
-    if pdf:
-        doi = OMPSettings(ompdal.getPublicationFormatSettings(pdf.publication_format_id)).getLocalizedValue(
-            "pub-id::doi", "")  # DOI always has empty locale
-    else:
-        doi = ""
+    doi = ""
+    submission_doi = ompdal.getSubmissionSettings(submission_id).find(lambda row: row.setting_name== 'pub-id::doi')
+    pdf = ompdal.getPublicationFormatByName(submission_id, myconf.take('omp.doi_format_name')).first()
+    if submission_doi:
+        doi = submission_doi.first().get('setting_value')
+    elif pdf:
+            doi = OMPSettings(ompdal.getPublicationFormatSettings(pdf.publication_format_id)).getLocalizedValue("pub-id::doi", "")  # DOI always has empty locale
 
     date_published = None
     date_first_published = None
