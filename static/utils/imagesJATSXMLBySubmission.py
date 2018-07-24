@@ -19,16 +19,15 @@ ompdal = OMPDAL(db, myconf)
 
 def main():
     press_id = myconf.get('omp.press_id')
-    submissions = ompdal.getSubmissionsByPress(press_id)
+
+
+    submissions = db(db.submissions.context_id == press_id).select(db.submissions.ALL)
     for s in submissions:
         files =ompdal.getSubmissionFileBySubmission(s.submission_id)
         file_path = '{}{}{}{}{}{}{}{}'.format(request.env.web2py_path, '/applications/', request.application,
                                               '/static/files/presses/', press_id, '/monographs/', s.submission_id,
                                               '/submission/')
-
-
         try:
-
             xml_file = open("{}/{}-figures.xml".format(file_path,s.submission_id), "w")
             xml_file.write('<all-images>\n')
             for f in files:
