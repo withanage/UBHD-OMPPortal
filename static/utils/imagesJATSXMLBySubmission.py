@@ -24,8 +24,8 @@ def main():
                                               '/static/files/presses/', press_id, '/monographs/', s.submission_id,
                                               '/submission/')
 
-        if os.path.exists(os.path.join(file_path,'proof')):
-            xml_file = open("{}{}{}-figures.xml".format(file_path,'/proof/',s.submission_id), "w")
+        if os.path.exists(file_path):
+            xml_file = open("{}{}{}-figures.xml".format(file_path,'',s.submission_id), "w")
             xml_file.write('<all-images>\n')
 
             for f in files:
