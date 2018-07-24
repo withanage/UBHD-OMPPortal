@@ -26,10 +26,10 @@ def main():
                                               '/static/files/presses/', press_id, '/monographs/', s.submission_id,
                                               '/submission/')
 
-        proof_path = os.path.join(file_path, 'proof')
+
         try:
 
-            xml_file = open("{}{}{}-figures.xml".format(file_path,'/proof/',s.submission_id), "w")
+            xml_file = open("{}/{}-figures.xml".format(file_path,s.submission_id), "w")
             xml_file.write('<all-images>\n')
             for f in files:
                 for t in ['bmp','exif','gif','jpeg','jpg','png','tiff']:
@@ -43,7 +43,7 @@ def main():
                                            f.date_uploaded.strftime('%Y%m%d'),
                                            ]
                         file_name = '-'.join([str(i) for i in file_name_items]) + '.' + file_type
-                        if os.path.isfile(file_path+file_name) or True:
+                        if os.path.isfile(file_path+file_name):
                             xml_file.write('<fig-group><fig id="fig_{}_{}" position="float"><label> {} </label><graphic xlink:href="{}"/></fig></fig-group>\n'.format(f.submission_id, f.file_id,f.original_file_name, file_name))
 
             xml_file.write('</all-images>\n')
