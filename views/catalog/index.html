@@ -76,7 +76,7 @@
             </div>
      </div>
 
-<!--	{{if session.filters=='':}}
+	{{if session.filters=='':}}
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -95,11 +95,11 @@
           </div>
         </div>  
         <div class="container">
-         <div class="row">
+		<div class="row" id="kohle">
                 <div class="col-lg-3">
                     <article>
                         <div class="post-image">
-                {{=IMG(_src=URL(myconf.take('web.application'),'static','/images/series/hdaw_dn.jpg'),_alt='', _class='bildrahmen')}}                        
+                {{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_kohle.jpg'),_alt='', _class='bildrahmen')}}                        
          
                       </div>
                     </article>
@@ -108,25 +108,72 @@
                 <div class="col-lg-9">
                     <article>
                         <div class="post-heading">
-                          <div id="autoren" class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h4>Simon Cubelic, Axel Michaels, Astrid Zotter (Eds.)</h4></div>
+                          <div id="autoren" class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h4>Hubertus Kohle</h4></div>
                           <br style="clear: both">
-                              <h4>Studies in Historical Documents from Nepal and India</h4>
+                              <h4>Museen digital<br />Eine Gedächtnisinstitution sucht den Anschluss an die Zukunft</h4>
                          </div>
                         {{if session.forced_language =='de': }}
-                        <p>This volume is the outcome of the conference “Studying Documents in Pre-Modern South Asia and Beyond: Problems and Perspective”, held in October 2015 in Heidelberg. In bringing together experts from different fields—including Indology, Tibetology, History, Anthropology, Religious Studies, and Digital Humanties—it aims at exploring and rethinking issues of diplomatics and typology, the place of documents in relation to other texts and literary genres, methods of archiving and editing documents, as well as their “social life”, i.e. the role they play in social, religious and political constellations, the agents and practices of their use, and the norms and institutions they embody and constitute.</p>
-<p>The book is the first volume in the <em>Documenta Nepalica &ndash; Book Series</em>, published by the Heidelberg Academy of Sciences and Humanities in collaboration with the National Archives, Nepal.</p>
-                        <p>To be published February 2018.</p>                        
+                        <p>Insbesondere Museen im angelsächsischen Bereich verstehen immer besser, dass sie sich in einer medial modernen Form präsentieren müssen, wenn sie auch ein jüngeres Publikum für sich einnehmen wollen. Internet, soziale Medien, Virtual und Augmented Reality, Open Culture: das sind Schlagworte, die auch im Museumskontext immer mehr Bedeutung erlangen. In diesem Buch werden Kunstmuseen vorgestellt, die sich dem Digitalen auf besonders kreative Weise nähern und damit sowohl ihrem Bildungs- als auch ihrem Unterhaltungsauftrag gerecht zu werden versuchen.</p>
+<p>210 S.</p>
+                        <p>ISBN (Softcover) 978-3-946054-86-3<br />
+                           ISBN (PDF) 978-3-946054-85-6
+                        </p>                        
+						<p>Erscheint am 30.08.2018</p>
 
                         {{elif session.forced_language =='en': }}
-                        <p>This volume is the outcome of the conference “Studying Documents in Pre-Modern South Asia and Beyond: Problems and Perspective”, held in October 2015 in Heidelberg. In bringing together experts from different fields—including Indology, Tibetology, History, Anthropology, Religious Studies, and Digital Humanties—it aims at exploring and rethinking issues of diplomatics and typology, the place of documents in relation to other texts and literary genres, methods of archiving and editing documents, as well as their “social life”, i.e. the role they play in social, religious and political constellations, the agents and practices of their use, and the norms and institutions they embody and constitute.</p>
-<p>The book is the first volume in the <em>Documenta Nepalica &ndash; Book Series</em>, published by the Heidelberg Academy of Sciences and Humanities in collaboration with the National Archives, Nepal.</p>
-                        <p>To be published February 2018.</p>  
+                        <p>Museums especially in the Anglosaxon world understand that they have to present themselves in a modern form if they want to be accepted by a younger audience. Internet, social media, virtual and augmented reality, open culture: these are keywords which receive an ever increasing importance in the museum context as well. The book presents a selection of art museums which approach the digital sphere in a creative manner. In this way they try to cope with both their mission to educate and to entertain.</p>
+<p>210 p.</p>
+                        <p>ISBN (Softcover) 978-3-946054-86-3<br />
+                           ISBN (PDF) 978-3-946054-85-6
+                        </p>                        
+						<p>Publication date: 30.08.2018</p>
                         {{pass}}
                     </article>
                 </div>
         </div>  
+         <div class="row" id="jaspert">
+                <div class="col-lg-3">
+                    <article>
+                        <div class="post-image">
+                {{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_jaspert.jpg'),_alt='', _class='bildrahmen')}}                        
+         
+                      </div>
+                    </article>
+                </div>
+                
+                <div class="col-lg-9">
+                    <article>
+                        <div class="post-heading">
+						 {{if session.forced_language =='de': }}
+                          <div id="autoren" class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h4>Nikolas Jaspert, Sebastian Kolditz (Hg.)</h4></div>
+						  {{elif session.forced_language =='en': }}
+						  <div id="autoren" class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h4>Nikolas Jaspert, Sebastian Kolditz (Eds.)</h4></div>
+						  {{pass}}
+                          <br style="clear: both">
+                              <h4>Entre mers—Outre-mer<br />Spaces, Modes and Agents of Indo-Mediterranean Connectivity</h4>
+                         </div>
+                        {{if session.forced_language =='de': }}
+                        <p>Meeresräume haben sich zu einem dynamischen Feld der heutigen Geschichtsforschung entwickelt. Dabei steht jedoch die Untersuchung von Verbindungen zwischen Meeren (entre mers) und Vorstellungen von Land „Outre-mer“ bislang weniger im Zentrum des Interesses. Diesen Fragen widmet sich die Aufsatzsammlung, die auf eine Tagung an der Universität Heidelberg zurückgeht. Die Beiträge behandeln Aspekte transmariner Verbindungen, ihrer Regulierung und mentalen Ausweitung in einem indo-mediterranen Kontext, der neben dem Mittelmeer und dem Indischem Ozean auch die Projektionen von Seewegen nach Indien auf andere maritime Räume in einem breiten zeitlichen Rahmen vom ägyptischen Altertum bis zum Beginn des atlantischen Zeitalters im 16. Jahrhundert umfasst.</p>
+<p>286 S.</p>
+                        <p>ISBN (Hardcover) 978-3-946054-80-1<br />
+                           ISBN (PDF) 978-3-946054-81-8
+                        </p>                        
+						<p>Erscheint August 2018</p>
+
+                        {{elif session.forced_language =='en': }}
+                        <p>The history of individual seascapes has recently become a vibrant and innovative field of research. Nonetheless, connections between seas (entre mers) and the imagination of lands „beyond the Sea“ (Outre-mer) have only rarely been focused in these contexts. This is precisely the main aim of the present collection of essays, which results from a conference held at Heidelberg University. The individual papers treat various aspects of transmarine connections, their regulation and mental expansion in an Indo-Mediterranean context, which comprises the Mediterranean, the Indian Ocean, as well as projections of seaways to India on other maritime areas, thus spanning a wide chronological spectrum from Egyptian antiquity to the onset of the Atlantic Age in the sixteenth century.</p>
+<p>286 p.</p>
+                        <p>ISBN (Hardcover) 978-3-946054-80-1<br />
+                           ISBN (PDF) 978-3-946054-81-8
+                        </p>                        
+						<p>Coming in August 2018</p>
+                        {{pass}}
+                    </article>
+                </div>
+        </div>  
+
     </div>	
-    {{pass}}  -->
+    {{pass}}  
 
   </section>
 </div>

@@ -210,10 +210,10 @@ $('.flexslider').flexslider();
             <div class="col-lg-3">
                 <div class="box">
                   <div class="box-gray aligncenter">
-                <h4>{{=T('New Titles')}}</h4>
-                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/345/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/345'))}} 
+                <h4>{{=T('Forthcoming')}}</h4>
+                {{=IMG(_src=URL(myconf.take('web.application'),'static','images/catalog/cover_analysis_3.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}} 
                   </div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/345'))}}
+                  <div class="box-bottom">&nbsp;
                   </div>
 				      </div>
             </div>            
@@ -256,8 +256,8 @@ $('.flexslider').flexslider();
                 <h4>{{=T('Forthcoming')}}</h4>
                 {{=IMG(_src=URL(myconf.take('web.application'),'static','images/catalog/cover_kohle.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}          
                   </div>
-                  <div class="box-bottom">&nbsp;
-                    <!--{=A(T('More Information'),_href=URL('catalog','images/catalog/'))}}-->
+                  <div class="box-bottom">
+                    {{=A(T('More Information'),_href=URL('catalog','#kohle'))}}
                   </div>
                 </div>
               </div> 
@@ -268,10 +268,10 @@ $('.flexslider').flexslider();
                 <h4>{{=T('Forthcoming')}}</h4>
                 {{=IMG(_src=URL(myconf.take('web.application'),'static','images/catalog/cover_jaspert.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}		                        
                   </div>
-                  <div class="box-bottom">&nbsp;
-                  </div>
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','#jaspert'))}}
                 </div>
               </div> 
+			  </div>
              
               <div class="col-lg-6">
                 <div class="box">
