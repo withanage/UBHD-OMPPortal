@@ -2060,6 +2060,7 @@ body.loading .spinner-wrapper {
 .lens-article .content-node.html-table .layout-tabelle {
   border: 0;
   width: auto;
+  margin-left: 0;
 } 
 
 .lens-article .content-node.html-table .layout-tabelle td {
