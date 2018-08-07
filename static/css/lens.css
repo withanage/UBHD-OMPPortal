@@ -2056,7 +2056,7 @@ body.loading .spinner-wrapper {
 
 
 
-/** Layout Tabelle der Klasse "layout-tabelle" **/
+/** Formatierung der Klasse "layout-tabelle" - Layout-Tabelle - , die nur zur Anordnung von Elementen verwendet wird **/
 .lens-article .content-node.html-table .layout-tabelle {
   border: 0;
   width: auto;
@@ -2065,6 +2065,20 @@ body.loading .spinner-wrapper {
 
 .lens-article .content-node.html-table .layout-tabelle td {
   border: 0;
+  padding: 3px;
+}
+
+/** Formatierung der Klasse "gitter-tabelle" - Gitter-Tabelle  **/
+.lens-article .content-node.html-table .gitter-tabelle {
+  border: 1px solid lightgray;
+  border-collapse: collapse;
+  width: auto;
+  margin-left: 0;
+} 
+
+.lens-article .content-node.html-table .gitter-tabelle td {
+  border: 1px solid lightgray;
+  border-collapse: collapse;
   padding: 3px;
 }
 
