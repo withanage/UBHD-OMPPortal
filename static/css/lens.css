@@ -2054,10 +2054,25 @@ body.loading .spinner-wrapper {
     padding-bottom: 0 !important;
 }
 
-/** Layout Daten-Tabelle Issue Nr. 58
- für heiUP auskommentiert, um mehrspaltigen Satz ohne Färbung zu ermöglichen, To do: HTML/CSS-Konstruktion für mehrspaltigen Satz - 09.03. voe
 
-.lens-article .content-node.html-table > .content {
+
+/** Layout Tabelle der Klasse "layout-tabelle" **/
+.lens-article .content-node.html-table .layout-tabelle {
+  border: 0;
+  width: auto;
+} 
+
+.lens-article .content-node.html-table .layout-tabelle td {
+  border: 0;
+  padding: 3px;
+}
+
+
+
+/** Layout Daten-Tabelle Issue Nr. 58
+ für heiUP auskommentiert, um mehrspaltigen Satz ohne Färbung zu ermöglichen, To do: HTML/CSS-Konstruktion für mehrspaltigen Satz - 09.03. voe - neues default ist layout-tabelle, deshalb testweise wieder einkommentiert - 07.08. voe**/
+
+.lens-article .content-node.html-table > .content {  /* Wie wirkt sich diese klassenunabhängige Anweisung aus? Test! 07.08.. - wenn bis 07.11. keine Verschiebungen bekannt werden, kann Hinweis entfernt werden.*/
   padding-left: 0;
 }
 
@@ -2083,6 +2098,9 @@ body.loading .spinner-wrapper {
   border-right: 1px solid #f8f8f8;
   padding: 10px;
 }
+
+
+
 
 /** Listen **/
 
