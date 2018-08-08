@@ -2065,6 +2065,7 @@ body.loading .spinner-wrapper {
 
 .lens-article .content-node.html-table .layout-tabelle td {
   border: 0;
+  font-size: 1em;
   padding: 3px;
 }
 
