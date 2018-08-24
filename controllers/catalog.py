@@ -132,7 +132,6 @@ def series():
         ompdal.getSeriesSettings(series_row.series_id)))
     submission_rows = ompdal.getSubmissionsBySeries(
         series_row.series_id, ignored_submission_id=ignored_submission_id, status=3)
-
     submissions = []
     for submission_row in submission_rows:
         authors = [OMPItem(author, OMPSettings(ompdal.getAuthorSettings(author.author_id)))
@@ -152,7 +151,8 @@ def series():
 
         submissions.append(submission)
 
-    submissions = sorted(submissions, cmp=seriesPositionCompare, reverse=True)
+    # submissions = sorted(submissions, cmp=seriesPositionCompare, reverse=False)
+    submissions = sorted(submissions, key=lambda s: s.attributes.get("date_submitted"), reverse=True)
     series.associated_items['submissions'] = submissions
 
     return locals()
