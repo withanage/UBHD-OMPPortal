@@ -1,0 +1,144 @@
+{{extend 'layout.html'}}
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+	
+            <div class="col-lg-3">
+			<!--
+                <article>
+                    <div class="post-image">
+					{{=IMG(_src=URL('static','files/presses/6/monographs/301/simple/cover.jpg'))}}
+            
+                  </div>
+
+                </article>
+                -->
+            </div>   
+
+            <div class="col-lg-6">
+               <article>
+
+
+     <div class="post-heading">
+
+        <h3>Höfische Kultur interdisziplinär (HKi)</h3>
+		<h4>Schriften und Materialien des Rudolstädter Arbeitskreises zur Residenzkultur</h4>
+        </div>
+      {{if session.forced_language =='de': }}
+<p><i class="icon-quote-left"></i>Der Rudolstädter Arbeitskreis zur Residenzkultur e.V. beginnt 2018 eine neue wissenschaftliche Schriftenreihe, die in loser Folge wissenschaftlich relevante Untersuchungen, Materialien und Arbeiten zum Thema der höfischen Kunst und Kultur im frühneuzeitlichen römisch-deutschen Reich und generell in Europa der Öffentlichkeit vorstellt.</p>
+<p>Die Erzeugnisse der höfischen Kultur werden heute zwar in Form von Residenzbauten, musealen Sammlungen, Archiven und Bibliotheken in großem Umfang bewahrt, besichtigt, gelesen und in Konzerten gehört, sie entziehen sich aber dennoch oft einem unmittelbaren Zugriff und näherem Verständnis. Der Rudolstädter Arbeitskreis zur Residenzkultur e.V. widmet sich dieser vielfältigen materiellen Kultur, den kulturellen Praktiken und ihrer zeitgemäßen Interpretation deshalb aus einer umfassenden kulturwissenschaftlichen und breit angelegten interdisziplinären Perspektive.  Dabei wird ein Kulturbegriff eingesetzt, der sich auf die "Repräsentation" von sozialem Habitus bzw. Lebensstilen in schriftlichen, bildlichen, objekthaften, klanglichen, baulichen und im weitesten Sinne künstlerisch gestalteten Formen beziehen lässt.</p>
+<p>Die neue Buchreihe setzt die langjährige publizistische Arbeit des 1999 als interdisziplinäre Wissenschaftsvereinigung gegründeten Rudolstädter Arbeitskreises zur Residenzkultur e.V. fort und erweitert sie um die modernen Konzepte des Open Access und der Print-on-Demand-Verfügbarkeit.</p>
+
+      
+      {{elif session.forced_language =='en': }}                 
+<p><i class="icon-quote-left"></i>Coming soon!</p>
+
+ {{pass}}
+<!--
+                    <div class="widget">
+                        <h5 class="widgetheading"></h5>
+                        <ul class="tags">          
+                            <li>{{=A(T('Volumes'),_href=URL('catalog','series/hki'))}}
+                        </ul>
+                    </div>
+-->
+
+                </article>
+                
+            </div>
+               <div class="col-lg-3">
+          <article>
+            <div class="box">
+
+			           <div class="box-gray alignleft" style="height: auto;">
+                 {{if session.forced_language =='de': }}
+                            <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographische Angaben</h5>
+                            <p>Höfische Kultur interdisziplinär (HKi<br>
+                            
+                            <p>Herausgeber</p>
+                            <ul>
+                              <li>Annette Cremer
+                              <li>Stephan Hoppe</li>
+                              <li>Matthias Müller</li>
+                              <li>Klaus Pietschmann</li>
+                            </ul>
+                            <!-- <h5 style="color: #656565; margin-bottom: 0.5em;">Lizenz</h5>
+                            <p>Dieses Werk ist unter der<br> <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons-Lizenz 4.0<br /> (CC BY-SA 4.0)</a> veröffentlicht.<br>
+                            <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0"><img alt="Creative Commons Lizenz BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p>-->
+
+             {{elif session.forced_language =='en': }}
+             
+             <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographic details</h5>
+                            <p>Höfische Kultur interdisziplinär (HKi<br>
+                            
+                            <p>Series Editors</p>
+                            <ul>
+                              <li>Annette Cremer
+                              <li>Stephan Hoppe</li>
+                              <li>Matthias Müller</li>
+                              <li>Klaus Pietschmann</li>
+                            </ul> 
+                            <!--<h5 style="color: #656565; margin-bottom: 0.5em;">Licenses</h5>
+                            <p>This work is licensed under a<br> <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons License 4.0<br /> (CC BY-SA 4.0)</a>.<br>
+                            <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; License CC BY-SA 4.0"><img alt="Creative Commons License BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p> -->
+
+        	{{pass}}
+        </div>   
+      </div>     
+    </article>                                     
+    </div>
+    </div>   
+<!--
+        <div class="row">
+
+        <div class="col-lg-3" style="float: right;">
+          <article>
+
+
+        <div class="box">
+                       
+             {{if session.forced_language =='de': }}
+          <div class="box">
+			           <div class="box-gray alignleft" style="height: auto; padding-bottom: 5px;">
+                <p class="boxText"><b>Hinweise für Autoren</b></p>
+                    <ul class="standard">
+                      <li><a href="http://www.asia-europe.uni-heidelberg.de/de/forschung/dfg-project/information-for-authors.html">Information for Authors</a></li>
+                    </ul>
+                  </div>
+          </div>
+                
+          <div class="box" style="margin-bottom: 1em;">
+			           <div class="box-gray alignleft" style="height: auto;">
+                <p class="boxText"><b>Kontakt</b></p>
+                    <ul class="standard">
+                      <li><a href="mailto:russell.oriagain@asia-europe.uni-heidelberg.de">Russell Ó Ríagaín</a></li>
+                    </ul>
+                  </div>
+                </div>     
+                
+             {{elif session.forced_language =='en': }}
+          <div class="box">
+        <div class="box-gray alignleft" style="height: auto; padding-bottom: 5px;">
+                <p class="boxText"><b>Information for Authors</b></p>
+                    <ul class="standard">
+                      <li><a href="http://www.asia-europe.uni-heidelberg.de/de/forschung/dfg-project/information-for-authors.html">Information for Authors</a></li>
+                    </ul>
+                  </div>
+          </div>
+                
+          <div class="box" style="margin-bottom: 1em;">
+			           <div class="box-gray alignleft" style="height: auto;">
+                <p class="boxText"><b>Contact</b></p>
+                    <ul class="standard">
+                      <li><a href="mailto:russell.oriagain@asia-europe.uni-heidelberg.de">Russell Ó Ríagaín</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+           </article>   
+           {{pass}}
+     </div>
+   </div>
+   -->
+</section>
