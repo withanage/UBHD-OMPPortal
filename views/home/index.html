@@ -128,14 +128,23 @@ $('.flexslider').flexslider();
               </div>
              
 		     <div class="col-lg-3">
-               <div class="box">
-                <div class="box-gray aligncenter">
-                <h4>{{=T('New Titles')}}</h4> 
-					       <a href="https://heiup.uni-heidelberg.de/journals/index.php/hdjbo/issue/view/2378/showToc" title="{{=T('View Journal')}}">{{=IMG(_src=URL(myconf.take('web.application'),'static','images/campusmedia/heidelberger_jahrbuecher_2018.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}</a> 
-                  </div>
-                  <div class="box-bottom"><a href="https://heiup.uni-heidelberg.de/journals/index.php/hdjbo/issue/view/2378/showToc" title="{{=T('View Journal')}}">{{=T('More Information')}}</a>
-                  </div>
+              <div class="box">
+                <div class="box-gray aligncenter">{{if session.forced_language =='de': }} 
+                <h4 style="color: #900;"><a href="https://www.buchmesse.de/" title="Link zur Frankfurter Buchmesse" class="extern">Frankfurter Buchmesse 2018</a></h4>
+                  <p class="boxText"><b>Premiere!</b><br />
+                  heiUP ist dieses Jahr erstmals auf der <a href="https://www.buchmesse.de/" title="Link zur Frankfurter Buchmesse" class="extern">Frankfurter Buchmesse</a>. Schauen Sie doch mal vorbei!<br />
+                  <b>Halle 4.1, Stand B84</b>  
+                  </p>{{elif session.forced_language =='en': }} 
+                  <h4 style="color: #900;"><a href="https://www.buchmesse.de/en" title="Link to the Frankfurt Book Fair" class="extern">Frankfurter Buchmesse 2018</a></h4>
+                  <p class="boxText"><b>Premiere!</b><br />
+                  This is heiUP's first year at the <a href="https://www.buchmesse.de/en" title="Link to the Frankfurt Book Fair" class="extern">Frankfurt Book Fair</a>.<br /> Please, stop by!<br />
+                  <b>Hall 4.1, stall B84</b>  
+                  </p>{{pass}} 
                 </div>
+                <div class="box-bottom">&nbsp; 
+                    <!--{{=A(T('More Information'),_href=URL('about_us','mission_statement'))}}-->
+                </div>
+              </div>
               </div>
 
 		     	     
@@ -192,14 +201,13 @@ $('.flexslider').flexslider();
               </div>
             </div>	
 			
-			<div class="col-lg-3">
-                  
-                <div class="box">
-                  <div class="box-gray aligncenter">
-                <h4>{{=T('New Titles')}}</h4>
-                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/365/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/365'))}} 
-      					</div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/365'))}}
+		     <div class="col-lg-3">
+               <div class="box">
+                <div class="box-gray aligncenter">
+                <h4>{{=T('New Titles')}}</h4> 
+					       <a href="https://heiup.uni-heidelberg.de/journals/index.php/hdjbo/issue/view/2378/showToc" title="{{=T('View Journal')}}">{{=IMG(_src=URL(myconf.take('web.application'),'static','images/campusmedia/heidelberger_jahrbuecher_2018.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}</a> 
+                  </div>
+                  <div class="box-bottom"><a href="https://heiup.uni-heidelberg.de/journals/index.php/hdjbo/issue/view/2378/showToc" title="{{=T('View Journal')}}">{{=T('More Information')}}</a>
                   </div>
                 </div>
               </div>
@@ -209,9 +217,9 @@ $('.flexslider').flexslider();
                 <div class="box">
                   <div class="box-gray aligncenter">
                 <h4>{{=T('New Titles')}}</h4>
-                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/391/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/391'))}} 
+                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/365/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/365'))}} 
       					</div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/391'))}}
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/365'))}}
                   </div>
                 </div>
               </div>
@@ -222,10 +230,10 @@ $('.flexslider').flexslider();
                 <div class="box">
                   <div class="box-gray aligncenter">
                 <h4>{{=T('New Titles')}}</h4>
-                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/381/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/381'))}} 
+                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/391/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/391'))}} 
       					</div>
                   <div class="box-bottom">
-                    {{=A(T('More Information'),_href=URL('catalog','book/381'))}}
+                    {{=A(T('More Information'),_href=URL('catalog','book/391'))}}
 				        </div>
                 </div>
             </div> 
