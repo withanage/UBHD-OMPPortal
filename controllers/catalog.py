@@ -150,7 +150,6 @@ def series():
 
     sort_option = ompdal.getSeriesSettings(series_row.series_id).find(lambda row: row.setting_name == 'sortOption')
     sortby = sort_option.first()
-    print(sortby.setting_value)
     b = Browser(submissions, 0, locale, 100, sortby.get('setting_value'), [])
     submissions = b.process_submissions(submissions)
 
