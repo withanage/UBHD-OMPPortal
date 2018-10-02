@@ -117,15 +117,18 @@ $('.flexslider').flexslider();
         
          <div class="col-lg-3">
                   
-                <div class="box">
-                  <div class="box-gray aligncenter">
-                <h4>{{=T('New Titles')}}</h4>
-                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/355/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/355'))}} 
-      					</div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/355'))}}
+                
+               <div class="box">
+                <div class="box-gray aligncenter">
+                <h4>{{=T('New Titles')}}</h4> 
+					       <a href="https://heiup.uni-heidelberg.de/journals/index.php/heied/issue/view/2379/showToc" title="{{=T('View Journal')}}">{{=IMG(_src=URL(myconf.take('web.application'),'static','images/journals/heieducation.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}</a> 
+                  </div>
+                  <div class="box-bottom"><a href="https://heiup.uni-heidelberg.de/journals/index.php/heied/issue/view/2379/showToc" title="{{=T('View Journal')}}">{{=T('More Information')}}</a>
                   </div>
                 </div>
               </div>
+        
+         
              
 		     <div class="col-lg-3">
               <div class="box">
@@ -200,7 +203,19 @@ $('.flexslider').flexslider();
                 </div>
               </div>
             </div>	
-			
+			   
+         <div class="col-lg-3">
+                  
+                <div class="box">
+                  <div class="box-gray aligncenter">
+                <h4>{{=T('New Titles')}}</h4>
+                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/355/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/355'))}} 
+      					</div>
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/355'))}}
+                  </div>
+                </div>
+              </div>
+          
 		     <div class="col-lg-3">
                <div class="box">
                 <div class="box-gray aligncenter">
@@ -225,18 +240,7 @@ $('.flexslider').flexslider();
               </div>
             		
             
-     <div class="col-lg-3">
-            
-                <div class="box">
-                  <div class="box-gray aligncenter">
-                <h4>{{=T('New Titles')}}</h4>
-                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/391/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/391'))}} 
-      					</div>
-                  <div class="box-bottom">
-                    {{=A(T('More Information'),_href=URL('catalog','book/391'))}}
-				        </div>
-                </div>
-            </div> 
+     
            
             
            
