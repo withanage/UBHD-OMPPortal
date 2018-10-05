@@ -273,6 +273,8 @@ def index():
 
     return locals()
 
+def preview():
+    return locals()
 
 def book():
     submission_id = request.args[0] if request.args else redirect(
