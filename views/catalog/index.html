@@ -77,7 +77,7 @@
      </div>
 
 	{{if session.filters=='':}}
-        <!--<div class="container">
+        <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row">
@@ -94,13 +94,13 @@
                 </div>
           </div>
         </div>  
-        <div class="container">   -->
+        <div class="container">   
 		 
-		<!--<div class="row" id="kohle">
+		<div class="row" id="kohle">
                 <div class="col-lg-3">
                     <article>
                         <div class="post-image">
-                {{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_kohle.jpg'),_alt='', _class='bildrahmen')}}                        
+                {{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_rannacher.jpg'),_alt='', _class='bildrahmen')}}                        
          
                       </div>
                     </article>
@@ -109,29 +109,60 @@
                 <div class="col-lg-9">
                     <article>
                         <div class="post-heading">
-                          <div id="autoren" class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h4>Hubertus Kohle</h4></div>
-                          <br style="clear: both">
-                              <h4>Museen Digital<br />Eine Gedächtnisinstitution sucht den Anschluss an die Zukunft</h4>
+                          <h4>Rolf Rannacher</h4>
+                          <br>
+                              <h4>Lineare Optimierung</h4>
                          </div>
                         {{if session.forced_language =='de': }}
-                        <p>Insbesondere Museen im angelsächsischen Bereich verstehen immer besser, dass sie sich in einer medial modernen Form präsentieren müssen, wenn sie auch ein jüngeres Publikum für sich einnehmen wollen. Internet, soziale Medien, Virtual und Augmented Reality, Open Culture: das sind Schlagworte, die auch im Museumskontext immer mehr Bedeutung erlangen. In diesem Buch werden Kunstmuseen vorgestellt, die sich dem Digitalen auf besonders kreative Weise nähern und damit sowohl ihrem Bildungs- als auch ihrem Unterhaltungsauftrag gerecht zu werden versuchen.</p>
-<p>210 S.</p>
-                        <p>ISBN (Softcover) 978-3-946054-86-3<br />
-                           ISBN (PDF) 978-3-946054-85-6
-                        </p>                        
-						<p>Erscheint am 30.08.2018</p>
+                        <p>
+						Dieser einführende Text basiert auf Vorlesungen innerhalb eines mehrsemestrigen Zyklus ”Numerische Mathematik“, die der Autor an den Universitäten Saarbrücken und Heidelberg gehalten hat. Im vorliegenden Band werden die Konzepte numerischer Verfahren zur Lösung linearer Optimierungsaufgaben (sog. ”Lineare Programme“) entwickelt. Dazu gehören neben dem klassischen ”Simplex-Verfahren“ insbesondere auch modernere ”Innere Punkte-Methoden“. Als naheliegende Weiterungen werden auch Methoden für konvexe nichtlineare, speziell quadratische Optimierungsaufgaben diskutiert. Dabei finden sowohl theoretisch-mathematische als auch praktische Aspekte Berücksichtigung. Das Verständnis der Inhalte erfordert nur solche Vorkenntnisse, wie sie üblicherweise in den Grundvorlesungen über Analysis, Lineare Algebra und Numerik vermittelt werden. Zur Erleichterung des Selbststudiums dienen theoretische und praktische Übungsaufgaben mit Lösungen im Anhang.
+                        </p>
+						
+						<p>Erscheint demnächst</p>
 
                         {{elif session.forced_language =='en': }}
-                        <p>Museums especially in the Anglosaxon world understand that they have to present themselves in a modern form if they want to be accepted by a younger audience. Internet, social media, virtual and augmented reality, open culture: these are keywords which receive an ever increasing importance in the museum context as well. The book presents a selection of art museums which approach the digital sphere in a creative manner. In this way they try to cope with both their mission to educate and to entertain.</p>
-<p>210 p.</p>
-                        <p>ISBN (Softcover) 978-3-946054-86-3<br />
-                           ISBN (PDF) 978-3-946054-85-6
+                        <p>
+						This introductory text is based on courses within a multi-semester cycle on “Numerical Mathematics” given by the author at the Universities in Saarbrücken and Heidelberg.
+In the present part basic concepts of numerical methods are presented for solving linear optimization problems (so-called “Linear Programming”). This includes besides the classical ”Simplex method“ also modern ”Interior-point methods“. As natural extensions methods for convex nonlinear, especially quadratic, optimization problems are discussed.
+Theoretical as well as practical aspects are considered. As prerequisite only that prior knowledge is required, which is usually taught in the introductory Analysis, Linear Algebra, and Numerics courses. For facilitating self-learning the book contains theoretical and practical exercises with solutions collected in the appendix.
                         </p>                        
-						<p>Publication date: 30.08.2018</p>
+						<p>Will be published soon</p>
                         {{pass}}
                     </article>
                 </div>
-        </div> --> 
+        </div> 
+		<div class="row" id="joerdens">
+                <div class="col-lg-3">
+                    <article>
+                        <div class="post-image">
+                {{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_joerdens.jpg'),_alt='', _class='bildrahmen')}}                        
+         
+                      </div>
+                    </article>
+                </div>
+                
+                <div class="col-lg-9">
+                    <article>
+                        <div class="post-heading">
+                          <h4>Andrea Jördens, Joachim Friedrich Quack</h4>
+						  <br>
+                              <h4>Reihe: Studien und Texte aus der Heidelberger Papyrussammlung</h4>
+                         </div>
+                        {{if session.forced_language =='de': }}
+                        <p>Die neue Reihe <i>Studien und Texte aus der Heidelberger Papyrussammlung</i> (STHP)  hat zum Ziel, eine Plattform für die mit der Sammlung verbundenen Publikationen zu bieten. Dies betrifft insbesondere die Herausgabe der dort aufbewahrten Papyri und Ostraka in griechischer, demotischer, koptischer und arabischer Sprache, ohne sich freilich auf reine Editionsbände zu beschränken. Einen Schwerpunkt bilden die am Institut angefertigten Dissertationen. Die STHP können dadurch als weithin sichtbarer Ausweis der vielfältigen Aktivitäten an der Heidelberger Papyrussammlung gelten.</p>
+                        <p>Die Reihe steht in der Nachfolge der 1954 begründeten <i>Veröffentlichungen aus der Heidelberger Papyrussammlung. Neue Folge</i> (VHP.NF), die bislang unter der Ägide der Heidelberger Akademie der Wissenschaften im Universitätsverlag Carl Winter erschien. Für die Herausgabe wird künftig ein Gremium hochrangiger Fachvertreter aus Papyro¬logie und Ägyptologie zuständig sein. Wie schon bisher, werden die Bände auch dar¬über hinaus weiterhin unter Beiziehung der zuständigen Fachkollegen betreut, was die hohe Qualität der bestens eingeführten Reihe auch in Zukunft verbürgt. Mit der paralle¬len Publikation in digitaler Form wird zudem ein direkter Zugriff auf die online gestellten Artefakte ermöglicht und damit die internationale Wahrnehmung der reichen Bestände an Papyri, Ostraka, Pergamenten und Papieren an der Heidelberger Papyrussammlung weiter gestärkt.
+                        </p>                        
+						<p>Erscheint demnächst</p>
+
+                        {{elif session.forced_language =='en': }}
+                        <p>The aim of the <i>Studien und Texte aus der Heidelberger Papyrussammlung</i> (STHP) series is to provide a home for publications related to the collection. In particular, it comprises editions of Greek, Demotic, Coptic, and Arabic papyri and ostraka, but is not limited to editions. Dissertations completed in the Institute constitute a special focus. Through this, the STHP will serve to witness the many and varied activities of the Heidelberg papyrus collection.</p>
+                        <p>Previously, the series was published under the auspices of the Heidelberg Academy of Sciences together with the University press Carl Winter. In the future, the director of the Institute for Papyrology will act as managing editor. As in the past, volumes will be reviewed by scholars in the field, which will ensure the continued high quality of the series. Parallel publication in digital form will guarantee direct online access to the artifacts, something that will further strengthen international recognition of the rich collection of papyrus, ostraka, parchment, and paper holdings in Heidelberg.
+                        </p>                        
+						<p>Will be published soon</p>
+                        {{pass}}
+                    </article>
+                </div>
+        </div> 
         </div>  
 
     </div>	
