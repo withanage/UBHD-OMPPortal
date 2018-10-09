@@ -22,14 +22,14 @@
         <div class="col-lg-12">
 		<div class="container" id="rannacher" height="400px">
 		     <div class="row">
-				<div class="col-lg-3">
+				<div class="col-lg-2">
 					<article>
 						<div class="post-image">
 							{{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_rannacher.jpg'),_alt='', _class='bildrahmen')}}
 						</div>
 					</article>
 				</div>
-				<div class="col-lg-9">
+				<div class="col-lg-10">
 					<article>
 						<div class="post-heading">
 						    <b>Rolf Rannacher<br />
@@ -58,18 +58,52 @@ Theoretical as well as practical aspects are considered. As prerequisite only th
 			</div>
 		</div>
 		
+		<div class="container" id="rannacher" height="400px">
+		     <div class="row">
+				<div class="col-lg-2">
+					<article>
+						<div class="post-image">
+							{{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_becker.jpg'),_alt='', _class='bildrahmen')}}
+						</div>
+					</article>
+				</div>
+				<div class="col-lg-10">
+					<article>
+						<div class="post-heading">
+						    <b>Nadine Becker<br />
+							Die goldenen Siegelringe der Ägäischen Bronzezeit</b>
+						</div>
+						
+						<p>
+						    {{if session.forced_language =='de': }}
+                        <p>
+						Aufgrund ihres hohen Materialwerts und ihrer aussagekräftigen Ikonographie fanden ägäische Siegelringe in der Forschung bereits mehrfach Beachtung. Dabei stand häufig die Analyse und Interpretation der Bilder im Fokus. Eine Gesamtbetrachtung dieser äußerst komplexen archäologischen Gattung und ihrer vielfältigen Funktionen innerhalb der minoisch-mykenischen Administration und Gesellschaft fehlte jedoch bisher. In der vorliegenden Arbeit werden erstmalig nicht nur erhaltene Ringe, sondern auch Abdrücke goldener Siegelringe auf Tonplomben systematisch untersucht, was ein neues Verständnis der Gattung und deren Wandel im Laufe der Ägäischen Bronzezeit ermöglicht.</p>
+						
+						<p>Erscheint demnächst</p>
+
+                        {{elif session.forced_language =='en': }}
+                        <p>
+						Due to their high material value and their meaningful iconography, Aegean signet rings have already attracted considerable attention in research. The focus was often on the analysis and interpretation of images, however, an overall consideration of this extremely complex archaeological genre and its diverse functions within the Minoan-Mycenaean administration and society was lacking so far. For the first time, not only preserved rings but also imprints of signet rings on sealings are systematically investigated in this work, which allows a new understanding of the material and its transformation during the Aegean Bronze Age.</p>                        
+						<p>Coming soon</p>
+                        {{pass}}
+						</p>
+					</article>
+				</div>
+			</div>
+		</div>
+		
 		
     <h4>{{=T('Series')}}</h4>
 			<div class="container" id="joerdens" height="400px">
 		     <div class="row">
-				<div class="col-lg-3">
+				<div class="col-lg-2">
 					<article>
 						<div class="post-image">
 							{{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_joerdens.jpg'),_alt='', _class='bildrahmen')}}
 						</div>
 					</article>
 				</div>
-				<div class="col-lg-9">
+				<div class="col-lg-10">
 					<article>
 						<div class="post-heading">
 						    <b>Andrea Jördens, Joachim Friedrich Quack (Hg.)<br />
