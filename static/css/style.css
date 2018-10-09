@@ -1644,6 +1644,7 @@ ul.portfolio li article a i {
 /*Änderungen WWW*/
 .bildrahmen, .post-image img {
 	border: 1px solid #cdcbcc;
+	width:100%;
 }
 .container {
 	padding: 0;

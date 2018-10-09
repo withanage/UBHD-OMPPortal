@@ -11,12 +11,18 @@
         </div>   
 	</div>
 
-<section id="content">
-	<h4>{{=T('Books')}}</h4>
+
+	<div class="row">
+        <div class="col-lg-12">
+            <h4>{{=T('Books')}}</h4>
+        </div>   
+	</div>
 	
-		<div class="container" id="palatium" height="400px">
+   <div class="row">
+        <div class="col-lg-12">
+		<div class="container" id="rannacher" height="400px">
 		     <div class="row">
-				<div class="col-lg-2">
+				<div class="col-lg-3">
 					<article>
 						<div class="post-image">
 							{{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_rannacher.jpg'),_alt='', _class='bildrahmen')}}
@@ -54,9 +60,9 @@ Theoretical as well as practical aspects are considered. As prerequisite only th
 		
 		
     <h4>{{=T('Series')}}</h4>
-			<div class="container" id="palatium" height="400px">
+			<div class="container" id="joerdens" height="400px">
 		     <div class="row">
-				<div class="col-lg-2">
+				<div class="col-lg-3">
 					<article>
 						<div class="post-image">
 							{{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_joerdens.jpg'),_alt='', _class='bildrahmen')}}
@@ -88,5 +94,6 @@ Theoretical as well as practical aspects are considered. As prerequisite only th
 				</div>
 			</div>
 		</div>
-</section>
+    </div>
+	</div>
 </div>
