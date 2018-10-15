@@ -151,6 +151,27 @@ db.define_table("submission_chapter_settings",
                 migrate=False
                 )
 
+db.define_table("markets",
+                Field("market_id", "integer"),
+                Field("publication_format_id", "integer"),
+                Field("countries_included", "string"),
+                Field("countries_excluded", "string"),
+                Field("regions_included", "string"),
+                Field("regions_excluded", "string"),
+                Field("market_date_role", "string"),
+                Field("market_date_format", "string"),
+                Field("market_date", "string"),
+                Field("price", "string"),
+                Field("discount", "string"),
+                Field("price_type_code", "string"),
+                Field("currency_code", "string"),
+                Field("tax_rate_code", "string"),
+                Field("tax_type_code", "string"),
+                Field("agent_id", "integer"),
+                Field("supplier_id", "integer"),
+                migrate=False
+                )
+
 db.define_table("press_settings",
                 Field("press_id", "integer"),
                 Field("locale", "string"),
