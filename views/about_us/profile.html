@@ -1,8 +1,8 @@
 {{extend 'layout.html'}}
-
+<div id="content">
 <div class="container">
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-9">
             <h3>  {{if session.forced_language =='de': }}
                 Profil
                 {{elif session.forced_language =='en': }}
@@ -45,6 +45,21 @@
 {{pass}}
 
         </div>
+        <div class="col-lg-3">
+        <article>
+        <div class="box">
+	           <div class="box-gray" style="height: auto;">
+             <h5>{{=T('Programme')}} 2018</h5>
+               {{=A(IMG(_src=URL(myconf.take('web.application'),'static','images/about_us/profile/cover_verlagsprogramm.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('static','medien/heiUP_Programmheft2018.pdf'))}}<br /><br />
+               <a class="btn btn-default btn-xs" href="/static/medien/heiUP_Programmheft2018.pdf" role="button" title="Download heiUP Programm 2018">Download {{=T('Programme')}}</a><br /><br />
+             <h5>{{=T('Flyer')}}</h5>
+               {{=A(IMG(_src=URL(myconf.take('web.application'),'static','images/about_us/profile/cover_flyer.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('static','medien/heiUP_Flyer.pdf'))}}<br /><br />
+               <a class="btn btn-default btn-xs" href="/static/medien/heiUP_Flyer.pdf" role="button" title="Download heiUP Flyer">Download Flyer</a>
+                
+             </div>
+        </div>        
+        </article>
     </div>
+  </div>
 </div>
-
+</div>
