@@ -3,7 +3,7 @@
 <head>
     <title>{{=myconf.take("web.application")}} {{=authors}}</title>
     <!--http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic -->
-    <link href="{{=URL('static','css/fonts.css')}}" rel='stylesheet' type='text/css'>
+    <link href="{{=URL('static','css/fonts.css')}}" rel='stylesheet'   type='text/css'>
 
     <link rel="stylesheet" type="text/css" media="all"
           href="{{=URL('static','css/font-awesome.min.css')}}"/>
@@ -12,6 +12,7 @@
     <!-- While in development, separate links for each CSS file are added, so we don't need a source map -->
     <link rel="stylesheet" href="{{=URL('static','css/lens.css')}}"/>
     <script src="https://www.ub.uni-heidelberg.de/cdn/jquery/3.2.1/jquery.js"></script>
+
 
 
     <!-- MathJax Configuration -->
@@ -27,50 +28,22 @@
          "displayAlign": "left",
          styles: {".MathJax_Display": {padding: "0em 0em 0em 3em" },".MathJax_SVG_Display": {padding: "0em 0em 0em 3em" },}
       });
-
     </script>
-    <script type="text/javascript"
-            src="http://beta.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML-full"></script>
+    <script type="text/javascript" src="http://beta.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML-full"></script>
     <!--script type="text/javascript" src="{{=URL('static','js/MathJax.js')}}"/-->
     <script type="text/javascript">
-
-        let locales = {
-            'Author': 'Author',
-            'Back': 'Back',
-            'Contents': 'Contents',
-            'CopyRightAndLicenses': 'Copyright & License',
-            'Figures': 'Figures',
-            'Focus': 'Focus',
-            'Reference': '',
-            'References': 'Footnotes',
-        };
-        var qs = {};
-
-
-        var parts = window.location.href.split("/");
-        if (parts.length === 8) {
-            parts.splice(6, 1, parts[6], 'submission', 'proof');
-            parts.splice(4, 2, 'static', 'files', 'presses', '{{=myconf.take("omp.press_id")}}', 'monographs');
-        }
-        qs.url = parts.join('/');
-
-        var documentURL = "data/example.xml";
-
-        $(function () {
-
-
-            var app = new window.Lens({
-                document_url: qs.url ? decodeURIComponent(qs.url) : documentURL
-            });
-
-
-            app.start();
-
-            window.application = app;
-
-        });
-
+        //web2py variables
+        var submission_id = '{{=request.args[0]}}';
+        var submission_file = '{{=request.args[1]}}';
+        var application = '{{=request.application}}';
+        var press_id = '{{=myconf.take("omp.press_id")}}';
     </script>
+    {{if session.forced_language =='de': }}
+    <script src="{{=URL('static','js/lens-locales-de.js')}}"></script>
+    {{elif session.forced_language =='en': }}
+    <script src="{{=URL('static','js/lens-locales-en.js')}}"></script>
+    {{pass}}
+
     <script src="{{=URL('static','js/lens2.js')}}"></script>
 
 </head>
