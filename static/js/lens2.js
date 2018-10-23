@@ -9746,7 +9746,9 @@ LensController.Prototype = function() {
         if ($.isXMLDoc(data)) {
           doc = that.convertDocument(data);
         } else {
-          if(typeof data == 'string') data = $.parseJSON(data);
+          if(typeof data == 'string'){
+              data = $.parseJSON(data);
+          }
           doc = that.Article.fromSnapshot(data);
         }
         // Extract headings
