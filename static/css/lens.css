@@ -2044,7 +2044,9 @@ body.loading .spinner-wrapper {
 
 .content .text.title {
     display: block;
+    margin-bottom: 0.2em;
     margin-top: 2em;
+    line-height: 1.3em;
 }
 
 .content-node.abstract .title {
