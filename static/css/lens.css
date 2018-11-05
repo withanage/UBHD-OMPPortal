@@ -2126,11 +2126,9 @@ body.loading .spinner-wrapper {
     list-style-type: none;
 }
 
-/*ul.content {
-  }
-
-ol.content.ordered {
-  }*/
+.content.dash {
+  list-style-type: "—";
+}
 
 .content.alpha-lower {
     list-style-type: lower-alpha;
