@@ -270,11 +270,13 @@
                                     {{if c_file:}}
                                     {{if "xml" in c_file.attributes.file_type or "html" in c_file.attributes.file_type:}}
                                     {{css_class="fa fa-html5"}}
+                                    {{target='_blank'}}
                                     {{else:}}
                                     {{css_class="fa fa-file-text-o"}}
+                                    {{target='_self'}}
                                     {{pass}}
                                         <div class="chapter_file">
-                                        {{=A(I(_class=css_class), _href=downloadLink(request, c_file.attributes, myconf.take('web.url'), c_file.settings.getLocalizedValue('vgWortPublic', '')))}}
+                                        {{=A(I(_class=css_class),_target=target, _href=downloadLink(request, c_file.attributes, myconf.take('web.url'), c_file.settings.getLocalizedValue('vgWortPublic', '')))}}
                                         </div>
                                     {{pass}}
                                     {{pass}}
