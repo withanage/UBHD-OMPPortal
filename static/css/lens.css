@@ -1541,10 +1541,15 @@ ol.content.ordered {
 
 .content.dash {
   list-style-type: none;
+  padding-left: 20px;
 }
 
 .content.dash li {
-  background: url('static/images/list-style-dash.svg') no-repeat -0.2% 0.82em;
+  background: url('/static/images/list-style-dash.svg') no-repeat -0.2% 0.82em;
+}
+
+.content.dash li > .content-node.paragraph {
+  padding-left: 20px;
 }
 
 /* Workaround Aufzählungszeichen 'mdash' - Einrückung der zweiten Zeile schlägt fehl .content.dash {
