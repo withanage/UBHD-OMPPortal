@@ -1545,7 +1545,7 @@ ol.content.ordered {
 }
 
 .content.dash li {
-  background: url('/static/images/list-style-dash.svg') no-repeat -0.2% 0.82em;
+  background: url('/static/images/list-style-dash.png') no-repeat left 0.82em;
 }
 
 .content.dash li > .content-node.paragraph {
