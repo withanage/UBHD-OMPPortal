@@ -1548,7 +1548,8 @@ ol.content.ordered {
   padding-right: 6px;
 }    
 
-.content.dash li > .content-node.paragraph {
+.content.dash li > .content-node.paragraph,
+.content.dash li > .content-node.paragraph > .content {
   display: inline;
 }
 
