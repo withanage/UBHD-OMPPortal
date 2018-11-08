@@ -1548,6 +1548,10 @@ ol.content.ordered {
   padding-right: 6px;
 }    
 
+.content.dash li > .content-node.paragraph {
+  display: inline;
+}
+
 /*
   Typography / Basics
 ---------------------------------------------*/
