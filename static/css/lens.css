@@ -1544,7 +1544,7 @@ ol.content.ordered {
 }
 
 .content.dash li {
-  background: url('/test/list-style-dash.svg') no-repeat -0.2% 0.82em;
+  background: url('static/images/list-style-dash.svg') no-repeat -0.2% 0.82em;
 }
 
 /* Workaround Aufzählungszeichen 'mdash' - Einrückung der zweiten Zeile schlägt fehl .content.dash {
