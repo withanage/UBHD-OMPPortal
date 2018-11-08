@@ -1540,7 +1540,13 @@ ol.content.ordered {
   list-style-type: upper-greek; }
 
 .content.dash {
-  list-style-type: "—"; }
+  list-style-type: none;
+}
+  
+.content.dash li::before {
+  content: "\002014"; 
+  padding-right: 6px;
+}    
 
 /*
   Typography / Basics
