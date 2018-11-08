@@ -1542,6 +1542,14 @@ ol.content.ordered {
 .content.dash {
   list-style-type: none;
 }
+
+.content.dash li {
+  background: url('/test/list-style-dash.svg') no-repeat -0.2% 0.82em;
+}
+
+/* Workaround Aufzählungszeichen 'mdash' - Einrückung der zweiten Zeile schlägt fehl .content.dash {
+  list-style-type: none;
+}
   
 .content.dash li::before {
   content: "\002014"; 
@@ -1551,7 +1559,7 @@ ol.content.ordered {
 .content.dash li > .content-node.paragraph,
 .content.dash li > .content-node.paragraph > .content {
   display: inline;
-}
+} */ 
 
 /*
   Typography / Basics
