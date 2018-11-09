@@ -652,6 +652,13 @@ Contributor
 .article .resources .nodes > .content-node.publication-info .content-node[data-id=articleinfo] .content-node {
   padding-top: 10px; }
 
+
+.lens-article .content-node.sec-meta::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
 .lens-article .content-node.sec-meta .authors .text {
   float: left;
   padding: 0px;
@@ -660,7 +667,8 @@ Contributor
   margin-right: 10px;
   margin-bottom: 8px;
   position: relative;
-  z-index: 10; }
+  z-index: 10; 
+}
 
 /*
 Footnotes
