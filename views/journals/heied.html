@@ -26,12 +26,12 @@
                             </ul>
                             <p>Redaktion</p>
                               <ul>
-                                <li>Kathrin Strobel (verantwortlich)</li>
-								<li>Dr. Felix Heizmann</li>
+                                <!--<li>Kathrin Strobel (verantwortlich)</li>-->
+								                <li>Dr. Felix Heizmann</li>
                               </ul>  
-							<p>Beratende Herausgeber</p>
-							<ul>
-							   <li>Prof. Dr. Tobias Dörfler</li>
+							             <p>Beratende Herausgeber</p>
+							               <ul>
+							                 <li>Prof. Dr. Tobias Dörfler</li>
                                <li>Prof. Dr. Michael Haus</li>
                                <li>Prof. Dr. Jörg Peltzer</li>
                                <li>PD Dr. Stefanie Samida</li>
@@ -40,7 +40,7 @@
                                <li>Dr. Stefan Nessler</li>
                                <li>Dr. Christiane Wienand</li>
                                <li>Dr. Alexander Wohnig</li>
-							</ul>
+							               </ul>
                             <p>Heidelberg University Publishing, Heidelberg</p>
                             <!--<p>ISSN: 2191-6411</p>  -->
                             <!--
@@ -59,12 +59,12 @@
                             </ul>
                             <p>Assistant Editors</p>
                               <ul>
-                                <li>Kathrin Strobel (verantwortlich)</li>
-								<li>Dr. Felix Heizmann</li>
+                                <!--<li>Kathrin Strobel (verantwortlich)</li>-->
+								              <li>Dr. Felix Heizmann</li>
                               </ul>  
-							<p>Consulting Editors</p>
-							<ul>
-							   <li>Prof. Dr. Tobias Dörfler</li>
+							             <p>Consulting Editors</p>
+							                <ul>
+							                  <li>Prof. Dr. Tobias Dörfler</li>
                                <li>Prof. Dr. Michael Haus</li>
                                <li>Prof. Dr. Jörg Peltzer</li>
                                <li>PD Dr. Stefanie Samida</li>
@@ -73,7 +73,7 @@
                                <li>Dr. Stefan Nessler</li>
                                <li>Dr. Christiane Wienand</li>
                                <li>Dr. Alexander Wohnig</li>
-							</ul>
+							                </ul>
                             <p>Heidelberg University Publishing, Heidelberg</p>
                             <!--<p>ISSN: 2191-6411</p>  -->
                             <!--
@@ -113,12 +113,8 @@
              -->
 
                 <div class="box">
-                  <div class="box-gray"  style="height: auto;">
-                 
+                  <div class="box-gray"  style="height: auto;">                 
                 <p class="boxText"><b>{{=T('Information for authors')}}</b></p>
-
-                                 
-
                     <ul class="standard">
                       <li><a href="{{=URL(myconf.take('web.application'),'static','medien/journals/heieducation_autorenhinweise.pdf')}}">Author Guidelines</a></li>
                     </ul>
@@ -126,11 +122,14 @@
                 </div>
                 
           <div class="box">
-            <div class="box-gray"  style="height: auto;">
-                 
+            <div class="box-gray"  style="height: auto;">                 
                 <p class="boxText"><b>{{=T('Contact')}}</b></p>
                     <ul class="standard">
-                      <li><a href="mailto:heied-journal@heiedu.uni-heidelberg.de">Kathrin Strobel</a></li>
+                 {{if session.forced_language =='de': }}                    
+                      <li><a href="mailto:heied-journal@heiedu.uni-heidelberg.de">Redaktion</a></li>
+                 {{elif session.forced_language =='en': }}                      
+                      <li><a href="mailto:heied-journal@heiedu.uni-heidelberg.de">Editors</a></li>  
+                 {{pass}}                         
                     </ul>
                   </div>
                 </div>                
@@ -148,12 +147,8 @@
             </ul> 
 			</div>
 	-->
-     <div class="post-heading">
-
-     
+     <div class="post-heading">     
                   <h3>heiEDUCATION Journal</h3>
-				  
-
         </div>
 
                  {{if session.forced_language =='de': }}
@@ -198,7 +193,7 @@
                 </article>
 
             </div>
- </div>
+          </div>
         </div>
 
 </section>
