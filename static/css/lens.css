@@ -652,7 +652,7 @@ Contributor
 .article .resources .nodes > .content-node.publication-info .content-node[data-id=articleinfo] .content-node {
   padding-top: 10px; }
 
-
+.authors::after,     /* Versuch, die Verschiebungen, die sich durch das Float der authors ergeben, direkt am Element zu lösen - wenn es Kollateralschäden gibt, müssen spezifischere Einzelanweisungen an die jew. Verschachtelung gesetzt werden. 09.11.18 voe */
 .lens-article .content-node.sec-meta::after {
     content: "";
     clear: both;
@@ -1674,6 +1674,13 @@ p:last-child {
   color: #505050;
   font-size: .75em;
   font-weight: 400; }
+  
+  
+/* Title 'Abstract' */
+.content-node.text.title {
+  padding-left: 0;
+}
+  
 
 /* Use border-box box model */
 * {
