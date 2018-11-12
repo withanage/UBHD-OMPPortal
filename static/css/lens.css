@@ -15,6 +15,9 @@
 .content-node.text.focussed {
   background-color: grey; }
 
+.content-node.text.title {
+  padding-left: 0; }
+
 /* Paragraph Node
 -------------------------------------------------------------------------------*/
 .content-node.paragraph .content {
@@ -652,6 +655,13 @@ Contributor
 .article .resources .nodes > .content-node.publication-info .content-node[data-id=articleinfo] .content-node {
   padding-top: 10px; }
 
+/* Versuch, die Verschiebungen, die sich durch das Float der authors ergeben, direkt am Element zu lösen - wenn es Kollateralschäden gibt, müssen spezifischere Einzelanweisungen an die jew. Verschachtelung gesetzt werden. 09.11.18 voe */
+.authors::after,
+.lens-article .content-node.sec-meta::after {
+  content: "";
+  clear: both;
+  display: table; }
+
 .lens-article .content-node.sec-meta .authors .text {
   float: left;
   padding: 0px;
@@ -660,7 +670,7 @@ Contributor
   margin-right: 10px;
   margin-bottom: 8px;
   position: relative;
-  z-index: 10; }
+  z-index: 0; }
 
 /*
 Footnotes
@@ -879,8 +889,8 @@ out (on iOS 5.1), or flicker (on iOS 6). */
   left: 0px;
   right: 0px;
   /*  overflow-y: scroll;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;*/ }
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;*/ }
 
 .article .resources .surface {
   position: absolute;
@@ -1032,12 +1042,12 @@ article .resources .footnotes .content-node.highlighted .resource-header .toggle
 ----------------------------------------------------------------------- */
 .article span.annotation {
   /*  -webkit-transition-property: background, color;
-  -moz-transition-property: background, color;
-  transition-property: background, color;
+      -moz-transition-property: background, color;
+      transition-property: background, color;
 
-  -webkit-transition-duration: 0.1s;
-  -moz-transition-duration: 0.1s;
-  transition-duration: 0.1s;*/ }
+      -webkit-transition-duration: 0.1s;
+      -moz-transition-duration: 0.1s;
+      transition-duration: 0.1s;*/ }
 
 /* Small caps */
 span.annotation.sc {
@@ -1540,8 +1550,27 @@ ol.content.ordered {
   list-style-type: upper-greek; }
 
 .content.dash {
-  list-style-type: "—"; }
+  list-style-type: none;
+  padding-left: 20px; }
 
+.content.dash li {
+  background: url("/static/images/list-style-dash.png") no-repeat left 0.82em; }
+
+.content.dash li > .content-node.paragraph {
+  padding-left: 20px; }
+
+/* Workaround Aufzählungszeichen 'mdash' - Einrückung der zweiten Zeile schlägt fehl .content.dash {
+  list-style-type: none;
+}
+
+.content.dash li::before {
+  content: "\002014";
+  padding-right: 6px;
+}
+.content.dash li > .content-node.paragraph,
+.content.dash li > .content-node.paragraph > .content {
+  display: inline;
+} */
 /*
   Typography / Basics
 ---------------------------------------------*/
