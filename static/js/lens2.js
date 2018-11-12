@@ -8410,7 +8410,6 @@ NlmToLensConverter.Prototype = function () {
 
             blocks.push(this.segmentParagraphElements(footnote[k])[0]);
         }
-        console.log(blocks);
         for (i = 0; i < blocks.length; i++) {
             var block = blocks[i];
             for (j = 0; j < block.nodes.length; j++) {
