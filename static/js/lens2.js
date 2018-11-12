@@ -2910,7 +2910,6 @@ CitationView.Prototype = function () {
         var xref;
 
         var texts = node.properties.text;
-        console.log(texts);
 
         function createElement(t, type, cls) {
             var elem = document.createElement(type);
