@@ -392,9 +392,13 @@ Box
   padding: 20px;
   border-left: 10px solid #ccc; }
 
-.document .content-node.quote .content-node.paragraph {
+/* 
+auskommentiert auf Bitte Maurices 12.11. voe; doppelte Auszeichnung von Zitatten bei https://heiup.uni-heidelberg.de/reader/index/355/355-68-82246-1-10-20180911.xml
+  .document .content-node.quote .content-node.paragraph {
   padding: 10px 40px 10px 40px;
-  border-left: 3px solid #ccc; }
+  border-left: 3px solid #ccc; 
+} 
+*/
 
 .surface.content .content-node.quote > .content > .label {
   font-weight: 600;
@@ -524,10 +528,10 @@ Definition
   border-collapse: collapse;
   padding: 3px; }
 
-/** Layout Daten-Tabelle Issue Nr. 58
- für heiUP auskommentiert, um mehrspaltigen Satz ohne Färbung zu ermöglichen, To do: HTML/CSS-Konstruktion für mehrspaltigen Satz - 09.03. voe - neues default ist layout-tabelle, deshalb testweise wieder einkommentiert - 07.08. voe**/
+/** Layout Daten-Tabelle Issue Nr. 58 **/
+
 .lens-article .content-node.html-table > .content {
-  /* Wie wirkt sich diese klassenunabhängige Anweisung aus? Test! 07.08.. - wenn bis 07.11. keine Verschiebungen bekannt werden, kann Hinweis entfernt werden.*/
+
   padding-left: 0; }
 
 .lens-article .content-node.html-table .daten-tabelle {
