@@ -652,13 +652,6 @@ Contributor
 .article .resources .nodes > .content-node.publication-info .content-node[data-id=articleinfo] .content-node {
   padding-top: 10px; }
 
-.authors::after,     /* Versuch, die Verschiebungen, die sich durch das Float der authors ergeben, direkt am Element zu lösen - wenn es Kollateralschäden gibt, müssen spezifischere Einzelanweisungen an die jew. Verschachtelung gesetzt werden. 09.11.18 voe */
-.lens-article .content-node.sec-meta::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
 .lens-article .content-node.sec-meta .authors .text {
   float: left;
   padding: 0px;
@@ -667,8 +660,7 @@ Contributor
   margin-right: 10px;
   margin-bottom: 8px;
   position: relative;
-  z-index: 10; 
-}
+  z-index: 10; }
 
 /*
 Footnotes
@@ -802,7 +794,7 @@ out (on iOS 5.1), or flicker (on iOS 6). */
   float: left;
   overflow: hidden;
   height: 100%;
-  width: 70%;
+  width: 60%;
   border-right: 1px solid #ddd; }
 
 .article .document .surface.content {
@@ -871,7 +863,7 @@ out (on iOS 5.1), or flicker (on iOS 6). */
 .article .resources {
   float: right;
   line-height: 25px;
-  width: 30%;
+  width: 40%;
   height: 100%;
   padding-left: 50px;
   padding-right: 50px;
@@ -1268,7 +1260,7 @@ span.annotation.formula_reference, span.publication_reference {
   right: 0px;
   width: 20px;
   overflow: hidden;
-  background: #fff; }
+  background: #eee; }
 
 /* Disable native scrollbar for resources except TOC */
 .article .resources .panel::-webkit-scrollbar,
@@ -1447,7 +1439,7 @@ TOC
 .surface-scrollbar {
   background: #eee;
   position: absolute;
-  left: 0px;
+  right: 0px;
   width: 20px;
   top: 0px;
   bottom: 0px; }
@@ -1548,31 +1540,7 @@ ol.content.ordered {
   list-style-type: upper-greek; }
 
 .content.dash {
-  list-style-type: none;
-  padding-left: 20px;
-}
-
-.content.dash li {
-  background: url('/static/images/list-style-dash.png') no-repeat left 0.82em;
-}
-
-.content.dash li > .content-node.paragraph {
-  padding-left: 20px;
-}
-
-/* Workaround Aufzählungszeichen 'mdash' - Einrückung der zweiten Zeile schlägt fehl .content.dash {
-  list-style-type: none;
-}
-  
-.content.dash li::before {
-  content: "\002014"; 
-  padding-right: 6px;
-}    
-
-.content.dash li > .content-node.paragraph,
-.content.dash li > .content-node.paragraph > .content {
-  display: inline;
-} */ 
+  list-style-type: "—"; }
 
 /*
   Typography / Basics
@@ -1674,13 +1642,6 @@ p:last-child {
   color: #505050;
   font-size: .75em;
   font-weight: 400; }
-  
-  
-/* Title 'Abstract' */
-.content-node.text.title {
-  padding-left: 0;
-}
-  
 
 /* Use border-box box model */
 * {
