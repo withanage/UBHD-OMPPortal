@@ -114,7 +114,7 @@
 
                 <div class="box">
                   <div class="box-gray"  style="height: auto;">                 
-                <p class="boxText"><b>{{=T('Information for authors')}}</b></p>
+                    <p class="boxText"><b>{{=T('Information for authors')}}</b></p>
                     <ul class="standard">
                       <li><a href="{{=URL(myconf.take('web.application'),'static','medien/journals/heieducation_autorenhinweise.pdf')}}">Author Guidelines</a></li>
                     </ul>
@@ -143,9 +143,18 @@
 			
 			<div class="btn-group" role="group" aria-label="1">
             <ul class="schaltflaeche">
-				 <li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/heied/issue/archive" title="{{=T('Archive')}}">{{=T('Archive')}}</a></li>
+				      <li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/heied/issue/archive" title="{{=T('Archive')}}">{{=T('Archive')}}</a></li>
             </ul> 
 			</div>
+      
+			<div class="btn-group" role="group" aria-label="2">
+			 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">{{=T('Purchase')}}</button>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+				  <li role="presentation"><a role="menuitem"  href="https://www.buchhandel.de/buch/heiEDUCATION-JOURNAL-Lehrerbildung-im-Spannungsfeld-der-Diskurse-9783946054962" target='_blank'>buchhandel.de</a></li>
+				  <li role="presentation"><a role="menuitem"  href="https://www.ebook.de/de/product/34484150/heieducation_journal_lehrerbildung_im_spannungsfeld_der_diskurse.html" target='_blank'>ebook.de</a></li>          
+				  <li role="presentation"><a role="menuitem"  href="https://www.amazon.de/heiEDUCATION-JOURNAL-Transdisziplin%C3%A4re-Studien-Lehrerbildung/dp/394605496X/ref=sr_1_1?ie=UTF8&amp;qid=1542366747&amp;sr=8-1&amp;keywords=heieducation+journal" target='_blank'>Amazon</a></li>
+					</ul>
+			</div>      
 	
      <div class="post-heading">     
                   <h3>heiEDUCATION Journal</h3>
