@@ -852,8 +852,8 @@ out (on iOS 5.1), or flicker (on iOS 6). */
   line-height: 40px;
   color: rgba(0, 0, 0, 0.4);
   border-right: 1px solid #ddd;
-  padding-right: 15px;
-  padding-left: 15px; }
+  padding-right: 10px;
+  padding-left: 10px; }
 
 .menu-bar .context-toggles a.context-toggle.hidden {
   display: none; }
