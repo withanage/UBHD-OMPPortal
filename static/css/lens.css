@@ -697,6 +697,13 @@ Footnotes
 .lens-article .content-node.footnote .content .footnote-urls .url {
   padding-right: 20px; }
 
+.lens-article .content-node.footnote .content .table {
+  border-collapse: collapse;
+  width: 100%; }
+
+.lens-article .content-node.footnote .content .table th, td {
+  padding: 1px; }
+
 .footnote_reference > span.superscript {
   font-size: 12px;
   vertical-align: baseline; }
