@@ -494,7 +494,7 @@ Definition
   /*font-size: 12px;*/
   /*border: 0px solid lightgrey; Diese Anweisung war einkommentiert.*/ 
   /* Enable white-space: nowrap; if author controls wrapping (<br> in HTML)
-  /* white-space: nowrap; */ }
+  /* white-space: nowrap; }*/ 
 
 /*.lens-article .content-node.html-table table td {
   font-size: 0.75em;
