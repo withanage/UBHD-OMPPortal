@@ -454,6 +454,7 @@ Definition
 .content-node.figure div .image-wrapper img {
   width: 100%; }
 
+/* Formatierungen mit Klasse html-table, die nach Änderung der Klassennamen zu "table" unnötig sein sollten  - RS Dulip - Anweisungen löschen? 3.12.18 voe
 .lens-article .content-node.html-table > .content {
   padding: 20px; }
 
@@ -479,10 +480,10 @@ Definition
   background: #eee; }
 
 .lens-article .content-node.html-table thead td {
-  font-weight: bold; }
+  font-weight: bold; }  */
 
 /* Table sub tags */
-.lens-article .content-node.html-table table sub {
+/*.lens-article .content-node.html-table table sub {
   vertical-align: baseline;
   position: relative;
   top: 0.4em;
@@ -490,11 +491,16 @@ Definition
 
 .lens-article .content-node.html-table table td {
   padding: 5px;
-  /**font-size: 12px;**/
-  border: 0px solid lightgrey;
+  /*font-size: 12px;*/
+  /*border: 0px solid lightgrey; Diese Anweisung war einkommentiert.*/ 
   /* Enable white-space: nowrap; if author controls wrapping (<br> in HTML)
   /* white-space: nowrap; */ }
 
+/*.lens-article .content-node.html-table table td {
+  font-size: 0.75em;
+  line-height: 1.7em; }  
+ */
+ 
 .lens-article .content-node.table .footers {
   padding: 0 20px;
   padding-top: 10px;
@@ -513,43 +519,40 @@ Definition
   padding: 3px; }
 
 /** Formatierung der Klasse "gitter-tabelle" - Gitter-Tabelle  **/
-.lens-article .content-node.table .gitter-tabelle {
+.gitter-tabelle {
   border: 1px solid lightgray;
   border-collapse: collapse;
   width: auto;
   margin-left: 0; }
 
-.lens-article .content-node.table .gitter-tabelle td {
+.gitter-tabelle td {
   border: 1px solid lightgray;
   border-collapse: collapse;
   padding: 3px; }
 
 /** Layout Daten-Tabelle Issue Nr. 58
- für heiUP auskommentiert, um mehrspaltigen Satz ohne Färbung zu ermöglichen, To do: HTML/CSS-Konstruktion für mehrspaltigen Satz - 09.03. voe - neues default ist layout-tabelle, deshalb testweise wieder einkommentiert - 07.08. voe**/
+ für heiUP auskommentiert, um mehrspaltigen Satz ohne Färbung zu ermöglichen, - neues default ist layout-tabelle, deshalb testweise wieder einkommentiert - 07.08. voe**/
 .lens-article .content-node.table > .content {
-  /* Wie wirkt sich diese klassenunabhängige Anweisung aus? Test! 07.08.. - wenn bis 07.11. keine Verschiebungen bekannt werden, kann Hinweis entfernt werden.*/
   padding-left: 0; }
 
-.lens-article .content-node.table .daten-tabelle {
+.daten-tabelle {
   border: 1px solid #f8f8f8;
   overflow-x: scroll; }
 
-.lens-article .content-node.table .daten-tabelle tr {
+.daten-tabelle tr {
   vertical-align: top; }
 
-.lens-article .content-node.table .daten-tabelle tr:nth-child(odd) {
+.daten-tabelle tr:nth-child(odd) {
   background-color: #f8f8f8; }
 
-.lens-article .content-node.table .daten-tabelle tr:nth-child(odd) td:empty {
+.daten-tabelle tr:nth-child(odd) td:empty {
   background-color: #f8f8f8; }
 
-.lens-article .content-node.table .daten-tabelle td {
+.daten-tabelle td {
   border-right: 1px solid #f8f8f8;
   padding: 10px; }
 
-.lens-article .content-node.table table td {
-  font-size: 0.75em;
-  line-height: 1.7em; }
+
 
 .resources .content-node.video .video-wrapper {
   text-align: center;
