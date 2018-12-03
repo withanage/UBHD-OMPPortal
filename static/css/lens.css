@@ -495,31 +495,31 @@ Definition
   /* Enable white-space: nowrap; if author controls wrapping (<br> in HTML)
   /* white-space: nowrap; */ }
 
-.lens-article .content-node.html-table .footers {
+.lens-article .content-node.table .footers {
   padding: 0 20px;
   padding-top: 10px;
   font-size: 12px;
   background: #fff; }
 
 /** Formatierung der Klasse "layout-tabelle" - Layout-Tabelle - , die nur zur Anordnung von Elementen verwendet wird **/
-.lens-article .content-node.html-table .layout-tabelle {
+.layout-tabelle {
   border: 0;
   width: auto;
   margin-left: 0; }
 
-.lens-article .content-node.html-table .layout-tabelle td {
+.layout-tabelle td {
   border: 0;
   font-size: 1em;
   padding: 3px; }
 
 /** Formatierung der Klasse "gitter-tabelle" - Gitter-Tabelle  **/
-.lens-article .content-node.html-table .gitter-tabelle {
+.lens-article .content-node.table .gitter-tabelle {
   border: 1px solid lightgray;
   border-collapse: collapse;
   width: auto;
   margin-left: 0; }
 
-.lens-article .content-node.html-table .gitter-tabelle td {
+.lens-article .content-node.table .gitter-tabelle td {
   border: 1px solid lightgray;
   border-collapse: collapse;
   padding: 3px; }
