@@ -1,0 +1,6 @@
+{{if category:}}
+
+{{category_path=ompdal.getCategory(category.attributes.get('category_id')).get('path')}}
+        {{=DIV(A(category.settings.getLocalizedValue('title', locale),_href=URL('category','info/'+str(category_path))),_class="spartenmarker  col-lg-3 col-md-3 col-xs-5")}}
+
+{{pass}}

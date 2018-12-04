@@ -41,7 +41,7 @@
       <div class="col-lg-2">        
         <article>          
           <div class="post-image">            
-            <img alt="" src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/heidelberger_jahrbuecher_2017.jpg')}} ">          
+            <img alt="" src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/heidelberger_jahrbuecher.jpg')}} ">          
           </div>        
         </article>      
       </div>      
@@ -57,10 +57,10 @@
           </div>          
           {{if session.forced_language =='de': }}           
           <p>In den <i>Heidelberger Jahrbüchern Online</i> soll der wissenschaftliche Geist und der geschichtliche Raum der Universität zur Darstellung gelangen. Die Heidelberger Jahrbücher, die im Auftrag der Gesellschaft der Freunde Universität Heidelberg e.V. herausgegeben werden, beleuchten in jedem Band ein fachübergreifendes Thema aus unterschiedlichen Positionen. Ihr Ziel ist es, das Gespräch und den Kontakt der Wissenschaften an der Universität Heidelberg untereinander zu fördern.
-          </p>          
+          </p> <!--         
           <p><strong>Call for Papers</strong><br />          
             <a href="http://heiup.uni-heidelberg.de/journals/index.php/hdjbo/pages/view/cfp" title="Homepage Heidelberger Jahrbücher Online, Informationen zum Call for Papers für Band 3">Call for Papers für Band 3</a>            
-          </p>
+          </p>-->
           {{elif session.forced_language =='en': }}            
           <p><i>Heidelberg Yearbooks Online</i> is a platform for the scientific spirit and the historic dimension of Heidelberg University. The Yearbooks are hosted by the Friends of the University, a non-commercial organization in support of Heidelberg University. Each yearbook focuses on an overarching thematic issue that will be interpreted by heterogenous points of view. The yearbooks are intended to foster communication and contact between scientists from different disciplines. 
           {{pass}}            
@@ -78,7 +78,47 @@
           </div>        
         </article>      
       </div>    
-    </div>             
+    </div>
+    <div class="row">    
+        <div class="col-lg-2">      
+          <article>        
+            <div class="post-image">            
+              <img alt="" src="https://heiup.uni-heidelberg.de/journals/public/journals/155/cover_issue_2379_de_DE.jpg">        
+            </div>      
+          </article>    
+        </div>    
+        <div class="col-lg-10">      
+          <article>        
+            <div class="post-heading">          
+              <div class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h3>heiEDUCATION Journal</h3>          
+              </div> 
+              <br style="clear: both">        
+            </div> 
+            {{if session.forced_language =='de': }}          
+            <p>Das <i>heiEDUCATION Journal. Transdisziplinäre Studien zur Lehrerbildung</i> ist eine neue fächer- und institutionenübergreifende wissenschaftliche Online-Zeitschrift, die an der            
+              <a href="http://www.hse-heidelberg.de/" title="Homepage der Heidelberg School of Education">Heidelberg School of Education</a> verortet ist.         
+            </p>        
+            <p>In mindestens zwei Ausgaben pro Jahr behandelt das <i>heiEDUCATION Journal</i> aktuelle und relevante Themen der Lehrerbildung aus unterschiedlichen Domänen und Disziplinen. Die Zeitschrift richtet sich an alle Akteurinnen und Akteure der Lehrerbildung: Wissenschaftlerinnen und Wissenschaftler, Studierende, für die Fort- und Weiterbildung Verantwortliche sowie berufstätige Lehrerinnen und Lehrer.         
+            </p>        
+            {{elif session.forced_language =='en': }}         
+            <p><i>heiEDUCATION Journal. Transdisciplinary studies on teacher education</i> is an interdisciplinary and scientific online journal. 
+At least twice a year the journal publishes original research on teacher education, and it addresses current, relevant and controversial topics in teacher education from different domains and disciplines. It is targeted at scientists, students, teachers, as well as agents active in vocational training and from educational policy-making. It offers a platform for interdisciplinary exchange across the boundaries of subjects and institutions.        
+            </p> 
+			{{pass}} 
+            <div class="widget">          
+              <h5 class="widgetheading"></h5>          
+              <ul class="tags">            
+                <li>            
+                <a href="{{=URL(myconf.take('web.application'),'journals','heied')}}">{{=T('More' )}}</a>            
+                </li> 
+<li>
+              <a href="http://heiup.uni-heidelberg.de/journals/index.php/heied/index">{{=T('View Journal')}}</a>
+              </li>                        				
+              </ul>        
+            </div>                
+          </article>            
+        </div>        
+      </div>             
     <div class="row">            
       <div class="col-lg-2">                
         <article>                    
@@ -117,7 +157,7 @@
       <div class="col-lg-2">        
         <article>          
           <div class="post-image">            
-            <img alt="" src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/cover_11_2017.jpg')}}">          
+            <img alt="" src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/cover_12_2018-1.jpg')}}">          
           </div>        
         </article>      
       </div>      
@@ -154,7 +194,7 @@
       <div class="col-lg-2">        
         <article>          
           <div class="post-image">            
-            <img alt="" src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/studiumgenerale2017.jpg')}} ">          
+            <img alt="" src="{{=URL(myconf.take('web.application'),'static','images/journals/cover_studium-generale_manipulation.jpg')}} ">          
           </div>        
         </article>      
       </div>      
@@ -220,7 +260,9 @@
         </article>            
       </div>        
     </div>
-    </div> <!-- ./container -->		 
+    
+    </div> <!-- ./container -->		
+<!--	
     <div class="container">      
           <div class="row">        
             <div class="col-lg-12">          
@@ -234,43 +276,9 @@
             </div>      
          </div>  
 
-      <div class="row">    
-        <div class="col-lg-2">      
-          <article>        
-            <div class="post-image">            
-              <img alt="" src="{{=URL(myconf.take('web.application'),'static','images/journals/heieducation.jpg')}} ">        
-            </div>      
-          </article>    
-        </div>    
-        <div class="col-lg-10">      
-          <article>        
-            <div class="post-heading">          
-              <div class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h3>heiEDUCATION Journal</h3>          
-              </div> 
-              <br style="clear: both">        
-            </div> 
-            {{if session.forced_language =='de': }}          
-            <p>Das <i>heiEDUCATION Journal. Transdisziplinäre Studien zur Lehrerbildung</i> ist eine neue fächer- und institutionenübergreifende wissenschaftliche Online-Zeitschrift, die an der            
-              <a href="http://www.hse-heidelberg.de/" title="Homepage der Heidelberg School of Education">Heidelberg School of Education</a> verortet ist.         
-            </p>        
-            <p>In mindestens zwei Ausgaben pro Jahr behandelt das <i>heiEDUCATION Journal</i> aktuelle und relevante Themen der Lehrerbildung aus unterschiedlichen Domänen und Disziplinen. Die Zeitschrift richtet sich an alle Akteurinnen und Akteure der Lehrerbildung: Wissenschaftlerinnen und Wissenschaftler, Studierende, für die Fort- und Weiterbildung Verantwortliche sowie berufstätige Lehrerinnen und Lehrer.         
-            </p>        
-            <p>Die erste Ausgabe des <i>heiEDUCATION Journals</i> wird im 1. Quartal 2018 erscheinen.        
-            </p> 
-            {{elif session.forced_language =='en': }}         
-            <p>Coming soon         
-            </p> {{pass}}         
-            <div class="widget">          
-              <h5 class="widgetheading"></h5>          
-              <ul class="tags">            
-                <li>            
-                <a href="{{=URL(myconf.take('web.application'),'journals','heied')}}">{{=T('More' )}}</a>            
-                </li>            
-              </ul>        
-            </div>                
-          </article>            
-        </div>        
-      </div>			 
+      			 
     </div>
+	
+	-->
   
 </section>

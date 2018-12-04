@@ -28,7 +28,7 @@ if not request.env.web2py_runtime_gae:
         pool_size=myconf.take(
             'db.pool_size',
             cast=int),
-        check_reserved=None)
+        check_reserved=None,lazy_tables=True)
 else:
     # connect to Google BigTable (optional 'google:datastore://namespace')
     db = DAL('google:datastore+ndb')

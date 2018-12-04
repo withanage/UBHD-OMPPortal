@@ -9,15 +9,36 @@ from ompdal import OMPDAL, OMPSettings, OMPItem
 from ompformat import dateFromRow, seriesPositionCompare
 
 from ompsolr import OMPSOLR
-from ompbrowse  import Browser
+from ompbrowse import Browser
 import json
 from datetime import datetime
 
+ONIX_PRODUCT_IDENTIFIER_TYPE_CODES = {"01": "Proprietary",
+                                      "02": "ISBN-10",
+                                      "03": "GTIN-13",
+                                      "04": "UPC",
+                                      "05": "ISMN-10",
+                                      "06": "DOI",
+                                      "13": "LCCN",
+                                      "14": "GTIN-14",
+                                      "15": "ISBN",
+                                      "17": "Legal deposit number",
+                                      "22": "URN",
+                                      "23": "OCLC number",
+                                      "24": "ISBN",
+                                      "25": "ISMN-13",
+                                      "26": "ISBN-A",
+                                      "27": "JP e-code",
+                                      "28": "OLCC number",
+                                      "29": "JP Magazine ID",
+                                      "30": "UPC12+5",
+                                      "31": "BNF Control number",
+                                      "35": "ARK"
+                                      }
+IDENTIFIER_ORDER = ['06', '22.PDF', '15.PDF', '15.Hardcover', '15.Softcover', '15.Print', '15.Online','15.EPUB']
+
 
 def category():
-
-
-
     ignored_submission_id = myconf.take('omp.ignore_submissions') if myconf.take(
         'omp.ignore_submissions') else -1
 
@@ -62,16 +83,23 @@ def category():
             submission.associated_items['category'] = OMPItem(
                 category_row, OMPSettings(ompdal.getCategorySettings(category_row.category_id)))
 
+        publication_dates = [dateFromRow(pd) for pf in
+                             ompdal.getAllPublicationFormatsBySubmission(submission_row.submission_id)
+                             for pd in ompdal.getPublicationDatesByPublicationFormat(pf.publication_format_id)]
+        if publication_dates:
+            submission.associated_items['publication_dates'] = publication_dates
         submissions.append(submission)
 
-    submissions = sorted(submissions, key=lambda s: s.attributes['series_id'], reverse=True)
-
+    sortby = ompdal.getCategorySettings(category_row.category_id).find(
+        lambda row: row.setting_name == 'sortOption').first()
+    if sortby:
+        b = Browser(submissions, 0, locale, 100, sortby.get('setting_value'), [])
+        submissions = b.process_submissions(submissions)
 
     return locals()
 
 
 def series():
-
     ignored_submission_id = myconf.take('omp.ignore_submissions') if myconf.take(
         'omp.ignore_submissions') else -1
 
@@ -95,7 +123,6 @@ def series():
         ompdal.getSeriesSettings(series_row.series_id)))
     submission_rows = ompdal.getSubmissionsBySeries(
         series_row.series_id, ignored_submission_id=ignored_submission_id, status=3)
-
     submissions = []
     for submission_row in submission_rows:
         authors = [OMPItem(author, OMPSettings(ompdal.getAuthorSettings(author.author_id)))
@@ -113,18 +140,26 @@ def series():
             submission.associated_items['category'] = OMPItem(
                 category_row, OMPSettings(ompdal.getCategorySettings(category_row.category_id)))
 
+        publication_dates = [dateFromRow(pd) for pf in
+                             ompdal.getAllPublicationFormatsBySubmission(submission_row.submission_id, available=True,
+                                                                         approved=True) for pd in
+                             ompdal.getPublicationDatesByPublicationFormat(pf.publication_format_id)]
+        if publication_dates:
+            submission.associated_items['publication_dates'] = publication_dates
         submissions.append(submission)
 
-    submissions = sorted(submissions, cmp=seriesPositionCompare, reverse=True)
+    sort_option = ompdal.getSeriesSettings(series_row.series_id).find(lambda row: row.setting_name == 'sortOption')
+    sortby = sort_option.first()
+    b = Browser(submissions, 0, locale, 100, sortby.get('setting_value'), [])
+    submissions = b.process_submissions(submissions)
+
     series.associated_items['submissions'] = submissions
 
     return locals()
 
 
-
 def search():
     q = '{}'.format(request.vars.q) if request.vars.q else '*'
-
 
     form = form = SQLFORM.factory(
         Field("title"),
@@ -135,25 +170,25 @@ def search():
     if form.process().accepted:
         title = form.vars.title
 
-    sort= ['title_de','title_en']
-    start= 0
-    rows =10
-    fq = {'title_en':'*','locale': 'de'}
-    exc = {'submission_id':'42'}
-    fl = ['title_de','submission_id','press_id','title_en']
+    sort = ['title_de', 'title_en']
+    start = 0
+    rows = 10
+    fq = {'title_en': '*', 'locale': 'de'}
+    exc = {'submission_id': '42'}
+    fl = ['title_de', 'submission_id', 'press_id', 'title_en']
 
     if myconf.take("plugins.solr") == str(1):
-        solr = OMPSOLR(db,myconf)
-        #r = solr.si.query(solr.si.Q(title_en=title)  | solr.si.Q(title_de=title))
-        #r = solr.si.query(solr.si.Q(title_de='*Leben*'))
-        r = solr.si.query(solr.si.Q(q.decode('utf-8'))  & solr.si.Q(press_id=myconf.take('omp.press_id')) )
-        #for s in sort:
+        solr = OMPSOLR(db, myconf)
+        # r = solr.si.query(solr.si.Q(title_en=title)  | solr.si.Q(title_de=title))
+        # r = solr.si.query(solr.si.Q(title_de='*Leben*'))
+        r = solr.si.query(solr.si.Q(q.decode('utf-8')) & solr.si.Q(press_id=myconf.take('omp.press_id')))
+        # for s in sort:
         #    r =r.sort_by(s)
-        #r = r.filter(**fq)
-        #r = r.exclude(**exc)
-        #r = r.field_limit(fl)
-        #r = r.highlight(q.keys())
-        r= r.paginate(start=start, rows=rows)
+        # r = r.filter(**fq)
+        # r = r.exclude(**exc)
+        # r = r.field_limit(fl)
+        # r = r.highlight(q.keys())
+        r = r.paginate(start=start, rows=rows)
         results = r.execute()
         hl = results.highlighting
 
@@ -168,16 +203,12 @@ def search():
             return make_html_tag('li', a_tag, **{'class': 'active'})
         return make_html_tag('li', a_tag)
 
+    p = Page(['test', 'test2'], page=15, items_per_page=15, item_count=10)
 
-    p = Page(['test','test2'], page=15, items_per_page=15, item_count=10)
-
-    return  locals()
-
-
+    return locals()
 
 
 def index():
-
     ompdal = OMPDAL(db, myconf)
     press = ompdal.getPress(myconf.take('omp.press_id'))
 
@@ -191,20 +222,23 @@ def index():
     submissions = []
     submission_rows = ompdal.getSubmissionsByPress(press.press_id, ignored_submission_id)
 
-
     for submission_row in submission_rows:
         authors = [OMPItem(author, OMPSettings(ompdal.getAuthorSettings(author.author_id)))
                    for author in ompdal.getAuthorsBySubmission(submission_row.submission_id)]
         editors = [OMPItem(editor, OMPSettings(ompdal.getAuthorSettings(editor.author_id)))
                    for editor in ompdal.getEditorsBySubmission(submission_row.submission_id)]
-        publication_dates = [dateFromRow(pd) for pf in ompdal.getAllPublicationFormatsBySubmission(submission_row.submission_id, available=True, approved=True)
+        publication_dates = [dateFromRow(pd) for pf in
+                             ompdal.getAllPublicationFormatsBySubmission(submission_row.submission_id, available=True,
+                                                                         approved=True)
                              for pd in ompdal.getPublicationDatesByPublicationFormat(pf.publication_format_id)]
-        digital_publication_formats= [f for f in ompdal.getDigitalPublicationFormats(submission_row.submission_id, available=True, approved=True)    ]
+        digital_publication_formats = [f for f in
+                                       ompdal.getDigitalPublicationFormats(submission_row.submission_id, available=True,
+                                                                           approved=True)]
         submission = OMPItem(submission_row,
                              OMPSettings(ompdal.getSubmissionSettings(
                                  submission_row.submission_id)),
                              {'authors': authors, 'editors': editors,
-                              'digital_publication_formats':digital_publication_formats}
+                              'digital_publication_formats': digital_publication_formats}
                              )
         category_row = ompdal.getCategoryBySubmissionId(
             submission_row.submission_id)
@@ -221,27 +255,35 @@ def index():
 
         submissions.append(submission)
 
-    session.filters =request.vars.get('filter_by').strip('[').strip(']') if request.vars.get('filter_by') else session.get('filters', '')
-    session.per_page = int(request.vars.get('per_page')) if request.vars.get('per_page') else int(session.get('per_page', 100))
-    session.sort_by = request.vars.get('sort_by') if request.vars.get('sort_by') else session.get('sort_by', 'newest_to_oldest')
+    session.filters = request.vars.get('filter_by').strip('[').strip(']') if request.vars.get(
+        'filter_by') else session.get('filters', '')
+    session.per_page = int(request.vars.get('per_page')) if request.vars.get('per_page') else int(
+        session.get('per_page', 100))
+    if request.vars.get('sort_by'):
+        session.sort_by = request.vars.get('sort_by')
+    elif session.get('sort_by'):
+        session.sort_by = session.get('sort_by')
+    else:
+        session.sort_by = 'datePublished-2'
 
     current = int(request.vars.get('page_nr', 1)) - 1
 
-    b = Browser(submissions,current,locale, session.get('per_page'), session.get('sort_by'), session.get('filters'))
+    b = Browser(submissions, current, locale, session.get('per_page'), session.get('sort_by'), session.get('filters'))
     submissions = b.process_submissions(b.submissions)
 
     return locals()
 
+def preview():
+    return locals()
 
 def book():
-
     submission_id = request.args[0] if request.args else redirect(
         URL('home', 'index'))
 
     ompdal = OMPDAL(db, myconf)
 
     press = ompdal.getPress(myconf.take('omp.press_id'))
-    if not press:
+    if not press or not submission_id.isdigit():
         redirect(URL('home', 'index'))
     press_settings = OMPSettings(ompdal.getPressSettings(press.press_id))
 
@@ -270,7 +312,8 @@ def book():
         chapters.append(OMPItem(chapter,
                                 OMPSettings(ompdal.getChapterSettings(
                                     chapter.chapter_id)),
-                                {'authors': [OMPItem(a, OMPSettings(ompdal.getAuthorSettings(a.author_id))) for a in ompdal.getAuthorsByChapter(chapter.chapter_id)]})
+                                {'authors': [OMPItem(a, OMPSettings(ompdal.getAuthorSettings(a.author_id))) for a in
+                                             ompdal.getAuthorsByChapter(chapter.chapter_id)]})
                         )
 
     # Get digital publication formats, settings, files, and identification codes
@@ -279,12 +322,14 @@ def book():
         publication_format = OMPItem(pf,
                                      OMPSettings(ompdal.getPublicationFormatSettings(
                                          pf.publication_format_id)),
-                                     {'identification_codes': ompdal.getIdentificationCodesByPublicationFormat(pf.publication_format_id),
-                                         'publication_dates': ompdal.getPublicationDatesByPublicationFormat(pf.publication_format_id)}
+                                     {'identification_codes': ompdal.getIdentificationCodesByPublicationFormat(
+                                         pf.publication_format_id),
+                                         'publication_dates': ompdal.getPublicationDatesByPublicationFormat(
+                                             pf.publication_format_id)}
                                      )
         full_file = ompdal.getLatestRevisionOfFullBookFileByPublicationFormat(
             submission_id, pf.publication_format_id)
-        full_epub_file  = ompdal.getLatestRevisionOfEBook(submission_id, pf.publication_format_id)
+        full_epub_file = ompdal.getLatestRevisionOfEBook(submission_id, pf.publication_format_id)
         if full_epub_file:
             publication_format.associated_items['full_file'] = OMPItem(
                 full_epub_file, OMPSettings(ompdal.getSubmissionFileSettings(full_epub_file.file_id)))
@@ -307,19 +352,21 @@ def book():
         physical_publication_formats.append(OMPItem(pf,
                                                     OMPSettings(ompdal.getPublicationFormatSettings(
                                                         pf.publication_format_id)),
-                                                    {'identification_codes': ompdal.getIdentificationCodesByPublicationFormat(pf.publication_format_id),
-                                                        'publication_dates': ompdal.getPublicationDatesByPublicationFormat(pf.publication_format_id)})
+                                                    {
+                                                        'identification_codes': ompdal.getIdentificationCodesByPublicationFormat(
+                                                            pf.publication_format_id),
+                                                        'publication_dates': ompdal.getPublicationDatesByPublicationFormat(
+                                                            pf.publication_format_id)})
                                             )
 
-    pdf = ompdal.getPublicationFormatByName(
-        submission_id, myconf.take('omp.doi_format_name')).first()
-    # Get DOI from the format marked as DOI
-    if pdf:
+    doi = ""
+    submission_doi = ompdal.getSubmissionSettings(submission_id).find(lambda row: row.setting_name == 'pub-id::doi')
+    pdf = ompdal.getPublicationFormatByName(submission_id, myconf.take('omp.doi_format_name')).first()
+    if submission_doi:
+        doi = submission_doi.first().get('setting_value')
+    elif pdf:
         doi = OMPSettings(ompdal.getPublicationFormatSettings(pdf.publication_format_id)).getLocalizedValue(
-            "pub-id::doi", "")    # DOI always has empty locale
-    else:
-        doi = ""
-
+            "pub-id::doi", "")  # DOI always has empty locale
 
     date_published = None
     date_first_published = None
@@ -328,8 +375,9 @@ def book():
     if pdf:
         date_published = dateFromRow(ompdal.getPublicationDatesByPublicationFormat(pdf.publication_format_id, "01")
                                      .first())
-        date_first_published = dateFromRow(ompdal.getPublicationDatesByPublicationFormat(pdf.publication_format_id, "11")
-                                           .first())
+        date_first_published = dateFromRow(
+            ompdal.getPublicationDatesByPublicationFormat(pdf.publication_format_id, "11")
+                .first())
     # 2. Date on which the catalog entry was first published
     if not date_published:
         metadatapublished_date = ompdal.getMetaDataPublishedDates(submission_id).first()
@@ -347,6 +395,22 @@ def book():
     representatives = ompdal.getRepresentativesBySubmission(
         submission_id, myconf.take('omp.representative_id_type'))
 
-    #stats = OMPStats(myconf, db, locale)
+    # stats = OMPStats(myconf, db, locale)
+    onix_types = ONIX_PRODUCT_IDENTIFIER_TYPE_CODES
+    # submissions = sorted(submissions, key=lambda s: s.attributes['series_id'], reverse=True)
+    pfs = digital_publication_formats + physical_publication_formats
+    idntfrs = {}
+
+    for p in pfs:
+        for i in p.associated_items['identification_codes'].as_list():
+            idntfrs['{}.{}'.format(i['code'], p.settings.getLocalizedValue('name', locale))] = (
+                i['value'], i['code'], p.settings.getLocalizedValue('name', locale))
+
+    idntfrs = sorted(idntfrs.items(), key=lambda i: IDENTIFIER_ORDER.index((i[0]) if i in IDENTIFIER_ORDER else '15.PDF'))
+
+
+    category_row = ompdal.getCategoryBySubmissionId(submission_id)
+    category = OMPItem(category_row,
+                       OMPSettings(ompdal.getCategorySettings(category_row.category_id))) if category_row else None
 
     return locals()

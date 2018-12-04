@@ -8,7 +8,7 @@
             <div class="col-lg-3">
                 <article>
                     <div class="post-image">
-		 	<img src="{{=URL(myconf.take('web.application'),'static','images/journals/heieducation.jpg')}} ">
+		 	<img src="https://heiup.uni-heidelberg.de/journals/public/journals/155/cover_issue_2379_de_DE.jpg">
                   </div>
 
                 </article>
@@ -26,12 +26,12 @@
                             </ul>
                             <p>Redaktion</p>
                               <ul>
-                                <li>Kathrin Strobel (verantwortlich)</li>
-								<li>Dr. Felix Heizmann</li>
+                                <!--<li>Kathrin Strobel (verantwortlich)</li>-->
+								                <li>Dr. Felix Heizmann</li>
                               </ul>  
-							<p>Beratende Herausgeber</p>
-							<ul>
-							   <li>Prof. Dr. Tobias Dörfler</li>
+							             <p>Beratende Herausgeber</p>
+							               <ul>
+							                 <li>Prof. Dr. Tobias Dörfler</li>
                                <li>Prof. Dr. Michael Haus</li>
                                <li>Prof. Dr. Jörg Peltzer</li>
                                <li>PD Dr. Stefanie Samida</li>
@@ -40,7 +40,7 @@
                                <li>Dr. Stefan Nessler</li>
                                <li>Dr. Christiane Wienand</li>
                                <li>Dr. Alexander Wohnig</li>
-							</ul>
+							               </ul>
                             <p>Heidelberg University Publishing, Heidelberg</p>
                             <!--<p>ISSN: 2191-6411</p>  -->
                             <!--
@@ -59,12 +59,12 @@
                             </ul>
                             <p>Assistant Editors</p>
                               <ul>
-                                <li>Kathrin Strobel (verantwortlich)</li>
-								<li>Dr. Felix Heizmann</li>
+                                <!--<li>Kathrin Strobel (verantwortlich)</li>-->
+								              <li>Dr. Felix Heizmann</li>
                               </ul>  
-							<p>Consulting Editors</p>
-							<ul>
-							   <li>Prof. Dr. Tobias Dörfler</li>
+							             <p>Consulting Editors</p>
+							                <ul>
+							                  <li>Prof. Dr. Tobias Dörfler</li>
                                <li>Prof. Dr. Michael Haus</li>
                                <li>Prof. Dr. Jörg Peltzer</li>
                                <li>PD Dr. Stefanie Samida</li>
@@ -73,7 +73,7 @@
                                <li>Dr. Stefan Nessler</li>
                                <li>Dr. Christiane Wienand</li>
                                <li>Dr. Alexander Wohnig</li>
-							</ul>
+							                </ul>
                             <p>Heidelberg University Publishing, Heidelberg</p>
                             <!--<p>ISSN: 2191-6411</p>  -->
                             <!--
@@ -113,12 +113,8 @@
              -->
 
                 <div class="box">
-                  <div class="box-gray"  style="height: auto;">
-                 
-                <p class="boxText"><b>{{=T('Information for authors')}}</b></p>
-
-                                 
-
+                  <div class="box-gray"  style="height: auto;">                 
+                    <p class="boxText"><b>{{=T('Information for authors')}}</b></p>
                     <ul class="standard">
                       <li><a href="{{=URL(myconf.take('web.application'),'static','medien/journals/heieducation_autorenhinweise.pdf')}}">Author Guidelines</a></li>
                     </ul>
@@ -126,34 +122,42 @@
                 </div>
                 
           <div class="box">
-            <div class="box-gray"  style="height: auto;">
-                 
+            <div class="box-gray"  style="height: auto;">                 
                 <p class="boxText"><b>{{=T('Contact')}}</b></p>
                     <ul class="standard">
-                      <li><a href="mailto:heied-journal@heiedu.uni-heidelberg.de">Kathrin Strobel</a></li>
+                 {{if session.forced_language =='de': }}                    
+                      <li><a href="mailto:heied-journal@heiedu.uni-heidelberg.de">Redaktion</a></li>
+                 {{elif session.forced_language =='en': }}                      
+                      <li><a href="mailto:heied-journal@heiedu.uni-heidelberg.de">Editors</a></li>  
+                 {{pass}}                         
                     </ul>
                   </div>
                 </div>                
               </div>
-<!--
+
             <div class="btn-group" role="group" aria-label="1">
              <ul class="schaltflaeche">
-				 <li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/issue/current/showToc" title="{{=T('current issue')}}">{{=T('read current issue')}}</a></li>
+				 <li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/heied/issue/current/showToc" title="{{=T('current issue')}}">{{=T('read current issue')}}</a></li>
              </ul>
 			</div>
 			
 			<div class="btn-group" role="group" aria-label="1">
             <ul class="schaltflaeche">
-				 <li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/issue/archive" title="{{=T('Archive')}}">{{=T('Archive')}}</a></li>
+				      <li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/heied/issue/archive" title="{{=T('Archive')}}">{{=T('Archive')}}</a></li>
             </ul> 
 			</div>
-	-->		
-     <div class="post-heading">
-
-     
+      
+			<div class="btn-group" role="group" aria-label="2">
+			 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">{{=T('Purchase')}}</button>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+				  <li role="presentation"><a role="menuitem"  href="https://www.buchhandel.de/buch/heiEDUCATION-JOURNAL-Lehrerbildung-im-Spannungsfeld-der-Diskurse-9783946054962" target='_blank'>buchhandel.de</a></li>
+				  <li role="presentation"><a role="menuitem"  href="https://www.ebook.de/de/product/34484150/heieducation_journal_lehrerbildung_im_spannungsfeld_der_diskurse.html" target='_blank'>ebook.de</a></li>          
+				  <li role="presentation"><a role="menuitem"  href="https://www.amazon.de/heiEDUCATION-JOURNAL-Transdisziplin%C3%A4re-Studien-Lehrerbildung/dp/394605496X/ref=sr_1_1?ie=UTF8&amp;qid=1542366747&amp;sr=8-1&amp;keywords=heieducation+journal" target='_blank'>Amazon</a></li>
+					</ul>
+			</div>      
+	
+     <div class="post-heading">     
                   <h3>heiEDUCATION Journal</h3>
-				  
-
         </div>
 
                  {{if session.forced_language =='de': }}
@@ -165,15 +169,26 @@
 
                  <p><b>dialogisch.</b> Die Rubrik <i>experiment</i> eröffnet ein Forum für den Austausch von Meinungen, für die Kommunikation über die Grenzen der Fächer und Institutionen hinweg sowie für die Diskussion anwendungsbezogener Konzepte.</p>
 
-                 <p><b>digital.</b> Das <i>heiEDUCATION Journal</i> ist als Online-Zeitschrift jederzeit und überall zugänglich. Bei Interesse besteht die Möglichkeit, die Zeitschrift in gedruckter Form zu bestellen (Print on Demand).</p>
+                 <p><b>digital.</b> Das <i>heiEDUCATION Journal</i> ist als Online-Zeitschrift jederzeit und überall zugänglich, kann aber auch in gedruckter Form im Buchhandel vor Ort oder über das Internet bestellt werden (Print on Demand).</p>
 
                 <p><b>peer-reviewed.</b> Alle eingereichten Beiträge werden in einem Blind-Peer-Review-Verfahren von nationalen und internationalen Fachexpertinnen und -experten hinsichtlich ihrer wissenschaftlichen Qualität, ihrer Forschungsaktualität und ihrer Relevanz begutachtet.</p>
 
                 <p><b>fokussiert.</b> Die Ausgaben bieten entweder forschungsaktuelle Einzelbeiträge oder folgen einem von den Herausgebern gesetzten Themenschwerpunkt. Zudem besteht auch für andere Wissenschaftler/teams die Möglichkeit, thematisch fokussierte Einzelausgaben herauszugeben (Special Editions). Bei Interesse wenden Sie sich bitte an <a href="mailto:heied-journal@heiedu.uni-heidelberg.de">heied-journal@heiedu.uni-heidelberg.de</a>.</p>
-				
-                <p>Die erste Ausgabe des <i>heiEDUCATION Journals</i> wird im 1. Quartal 2018 erscheinen.</p>
              {{elif session.forced_language =='en': }}
-                <p>Coming soon</p>
+                <p>Das <i>heiEDUCATION Journal. Transdisziplinäre Studien zur Lehrerbildung</i> ist eine neue fächer- und institutionenübergreifende wissenschaftliche Online-Zeitschrift, die an der <a href="http://www.hse-heidelberg.de/" title="Homepage der Heidelberg School of Education">Heidelberg School of Education</a> verortet ist. Die Heidelberg School of Education ist eine gemeinsame hochschulübergreifende Einrichtung der Pädagogischen Hochschule Heidelberg und der Universität Heidelberg.</p>
+
+                 <p><b>aktuell.</b> In mindestens zwei Ausgaben pro Jahr behandelt das <i>heiEDUCATION Journal</i> aktuelle und relevante Themen der Lehrerbildung aus unterschiedlichen Domänen und Disziplinen.</p>
+
+                 <p><b>transdisziplinär.</b> Die Zeitschrift richtet sich an alle Akteurinnen und Akteure der Lehrerbildung: Wissenschaftlerinnen und Wissenschaftler, Studierende, für die Fort- und Weiterbildung Verantwortliche sowie berufstätige Lehrerinnen und Lehrer.</p>
+
+                 <p><b>dialogisch.</b> Die Rubrik <i>experiment</i> eröffnet ein Forum für den Austausch von Meinungen, für die Kommunikation über die Grenzen der Fächer und Institutionen hinweg sowie für die Diskussion anwendungsbezogener Konzepte.</p>
+
+                 <p><b>digital.</b> Das <i>heiEDUCATION Journal</i> ist als Online-Zeitschrift jederzeit und überall zugänglich, kann aber auch in gedruckter Form im Buchhandel vor Ort oder über das Internet bestellt werden (Print on Demand).</p>
+
+                <p><b>peer-reviewed.</b> Alle eingereichten Beiträge werden in einem Blind-Peer-Review-Verfahren von nationalen und internationalen Fachexpertinnen und -experten hinsichtlich ihrer wissenschaftlichen Qualität, ihrer Forschungsaktualität und ihrer Relevanz begutachtet.</p>
+
+                <p><b>fokussiert.</b> Die Ausgaben bieten entweder forschungsaktuelle Einzelbeiträge oder folgen einem von den Herausgebern gesetzten Themenschwerpunkt. Zudem besteht auch für andere Wissenschaftler/teams die Möglichkeit, thematisch fokussierte Einzelausgaben herauszugeben (Special Editions). Bei Interesse wenden Sie sich bitte an <a href="mailto:heied-journal@heiedu.uni-heidelberg.de">heied-journal@heiedu.uni-heidelberg.de</a>.</p>
+           
 
 
 {{pass}}     
@@ -198,7 +213,7 @@
                 </article>
 
             </div>
- </div>
+          </div>
         </div>
 
 </section>

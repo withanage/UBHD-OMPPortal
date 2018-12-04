@@ -12,7 +12,7 @@
             </div>
             <div class="col-lg-9">
             <div class="btn-group pull-right">
-            <a href="#forthcoming" title="{{=T('Forthcoming')}}"><button class="btn btn-default" type="button">{{=T('Forthcoming')}}</button></a> 
+            <a href="{{=URL('search','authors')}}" title="{{=T('Authors A-Z')}}"><button class="btn btn-default" type="button">{{=T('Authors A-Z')}}</button></a>
             </div>
             {{=b.filter_select}}
             {{try:
@@ -23,7 +23,7 @@
             }}
             {{=b.sort_select}}
 
-            </div>
+            </div> 
         </div>
 
     {{for submission in submissions:}}
@@ -33,7 +33,9 @@
                 <div class="col-lg-3">
                     <article>
                         <div class="post-image">
-                            {{=IMG(_src=coverImageLink(request, press.press_id, submission.attributes.submission_id))}}
+                            <a href="{{=URL('catalog','book/'+str(submission.attributes.submission_id))}}">
+                                {{=IMG(_src=coverImageLink(request, press.press_id, submission.attributes.submission_id))}}
+                            </a>
                         </div>
                     </article>
                 </div>
@@ -75,6 +77,7 @@
      </div>
 
 	{{if session.filters=='':}}
+	<!--
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -92,12 +95,13 @@
                 </div>
           </div>
         </div>  
-        <div class="container">
-         <div class="row">
+        <div class="container">   
+		 
+		<div class="row" id="rannacher">
                 <div class="col-lg-3">
                     <article>
                         <div class="post-image">
-                {{=IMG(_src=URL(myconf.take('web.application'),'static','/images/series/hdaw_dn.jpg'),_alt='', _class='bildrahmen')}}                        
+                {{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_rannacher.jpg'),_alt='', _class='bildrahmen')}}                        
          
                       </div>
                     </article>
@@ -106,25 +110,65 @@
                 <div class="col-lg-9">
                     <article>
                         <div class="post-heading">
-                          <div id="autoren" class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h4>Simon Cubelic, Axel Michaels, Astrid Zotter (Eds.)</h4></div>
-                          <br style="clear: both">
-                              <h4>Studies in Historical Documents from Nepal and India</h4>
+                          <h4>Rolf Rannacher</h4>
+                          <br>
+                              <h4>Lineare Optimierung</h4>
                          </div>
                         {{if session.forced_language =='de': }}
-                        <p>This volume is the outcome of the conference “Studying Documents in Pre-Modern South Asia and Beyond: Problems and Perspective”, held in October 2015 in Heidelberg. In bringing together experts from different fields—including Indology, Tibetology, History, Anthropology, Religious Studies, and Digital Humanties—it aims at exploring and rethinking issues of diplomatics and typology, the place of documents in relation to other texts and literary genres, methods of archiving and editing documents, as well as their “social life”, i.e. the role they play in social, religious and political constellations, the agents and practices of their use, and the norms and institutions they embody and constitute.</p>
-<p>The book is the first volume in the <em>Documenta Nepalica &ndash; Book Series</em>, published by the Heidelberg Academy of Sciences and Humanities in collaboration with the National Archives, Nepal.</p>
-                        <p>To be published February 2018.</p>                        
+                        <p>
+						Dieser einführende Text basiert auf Vorlesungen innerhalb eines mehrsemestrigen Zyklus ”Numerische Mathematik“, die der Autor an den Universitäten Saarbrücken und Heidelberg gehalten hat. Im vorliegenden Band werden die Konzepte numerischer Verfahren zur Lösung linearer Optimierungsaufgaben (sog. ”Lineare Programme“) entwickelt. Dazu gehören neben dem klassischen ”Simplex-Verfahren“ insbesondere auch modernere ”Innere Punkte-Methoden“. Als naheliegende Weiterungen werden auch Methoden für konvexe nichtlineare, speziell quadratische Optimierungsaufgaben diskutiert. Dabei finden sowohl theoretisch-mathematische als auch praktische Aspekte Berücksichtigung. Das Verständnis der Inhalte erfordert nur solche Vorkenntnisse, wie sie üblicherweise in den Grundvorlesungen über Analysis, Lineare Algebra und Numerik vermittelt werden. Zur Erleichterung des Selbststudiums dienen theoretische und praktische Übungsaufgaben mit Lösungen im Anhang.
+                        </p>
+						
+						<p>Erscheint demnächst</p>
 
                         {{elif session.forced_language =='en': }}
-                        <p>This volume is the outcome of the conference “Studying Documents in Pre-Modern South Asia and Beyond: Problems and Perspective”, held in October 2015 in Heidelberg. In bringing together experts from different fields—including Indology, Tibetology, History, Anthropology, Religious Studies, and Digital Humanties—it aims at exploring and rethinking issues of diplomatics and typology, the place of documents in relation to other texts and literary genres, methods of archiving and editing documents, as well as their “social life”, i.e. the role they play in social, religious and political constellations, the agents and practices of their use, and the norms and institutions they embody and constitute.</p>
-<p>The book is the first volume in the <em>Documenta Nepalica &ndash; Book Series</em>, published by the Heidelberg Academy of Sciences and Humanities in collaboration with the National Archives, Nepal.</p>
-                        <p>To be published February 2018.</p>  
+                        <p>
+						This introductory text is based on courses within a multi-semester cycle on “Numerical Mathematics” given by the author at the Universities in Saarbrücken and Heidelberg.
+In the present part basic concepts of numerical methods are presented for solving linear optimization problems (so-called “Linear Programming”). This includes besides the classical ”Simplex method“ also modern ”Interior-point methods“. As natural extensions methods for convex nonlinear, especially quadratic, optimization problems are discussed.
+Theoretical as well as practical aspects are considered. As prerequisite only that prior knowledge is required, which is usually taught in the introductory Analysis, Linear Algebra, and Numerics courses. For facilitating self-learning the book contains theoretical and practical exercises with solutions collected in the appendix.
+                        </p>                        
+						<p>Will be published soon</p>
                         {{pass}}
                     </article>
                 </div>
+        </div> 
+		<div class="row" id="joerdens">
+                <div class="col-lg-3">
+                    <article>
+                        <div class="post-image">
+                {{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_joerdens.jpg'),_alt='', _class='bildrahmen')}}                        
+         
+                      </div>
+                    </article>
+                </div>
+                
+                <div class="col-lg-9">
+                    <article>
+                        <div class="post-heading">
+                          <h4>Andrea Jördens, Joachim Friedrich Quack</h4>
+						  <br>
+                              <h4>Reihe: Studien und Texte aus der Heidelberger Papyrussammlung</h4>
+                         </div>
+                        {{if session.forced_language =='de': }}
+                        <p>Die neue Reihe <i>Studien und Texte aus der Heidelberger Papyrussammlung</i> (STHP)  hat zum Ziel, eine Plattform für die mit der Sammlung verbundenen Publikationen zu bieten. Dies betrifft insbesondere die Herausgabe der dort aufbewahrten Papyri und Ostraka in griechischer, demotischer, koptischer und arabischer Sprache, ohne sich freilich auf reine Editionsbände zu beschränken. Einen Schwerpunkt bilden die am Institut angefertigten Dissertationen. Die STHP können dadurch als weithin sichtbarer Ausweis der vielfältigen Aktivitäten an der Heidelberger Papyrussammlung gelten.</p>
+                        <p>Die Reihe steht in der Nachfolge der 1954 begründeten <i>Veröffentlichungen aus der Heidelberger Papyrussammlung. Neue Folge</i> (VHP.NF), die bislang unter der Ägide der Heidelberger Akademie der Wissenschaften im Universitätsverlag Carl Winter erschien. Für die Herausgabe wird künftig ein Gremium hochrangiger Fachvertreter aus Papyro¬logie und Ägyptologie zuständig sein. Wie schon bisher, werden die Bände auch dar¬über hinaus weiterhin unter Beiziehung der zuständigen Fachkollegen betreut, was die hohe Qualität der bestens eingeführten Reihe auch in Zukunft verbürgt. Mit der paralle¬len Publikation in digitaler Form wird zudem ein direkter Zugriff auf die online gestellten Artefakte ermöglicht und damit die internationale Wahrnehmung der reichen Bestände an Papyri, Ostraka, Pergamenten und Papieren an der Heidelberger Papyrussammlung weiter gestärkt.
+                        </p>                        
+						<p>Erscheint demnächst</p>
+
+                        {{elif session.forced_language =='en': }}
+                        <p>The aim of the <i>Studien und Texte aus der Heidelberger Papyrussammlung</i> (STHP) series is to provide a home for publications related to the collection. In particular, it comprises editions of Greek, Demotic, Coptic, and Arabic papyri and ostraka, but is not limited to editions. Dissertations completed in the Institute constitute a special focus. Through this, the STHP will serve to witness the many and varied activities of the Heidelberg papyrus collection.</p>
+                        <p>Previously, the series was published under the auspices of the Heidelberg Academy of Sciences together with the University press Carl Winter. In the future, the director of the Institute for Papyrology will act as managing editor. As in the past, volumes will be reviewed by scholars in the field, which will ensure the continued high quality of the series. Parallel publication in digital form will guarantee direct online access to the artifacts, something that will further strengthen international recognition of the rich collection of papyrus, ostraka, parchment, and paper holdings in Heidelberg.
+                        </p>                        
+						<p>Will be published soon</p>
+                        {{pass}}
+                    </article>
+                </div>
+        </div> 
         </div>  
+
     </div>	
-    {{pass}}
+	-->
+    {{pass}}  
 
   </section>
 </div>

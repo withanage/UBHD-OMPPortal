@@ -29,12 +29,16 @@ def call():
 def index():
     ompdal = OMPDAL(db, myconf)
     json_list = dict(xml_url='')
-
-
+    if len(request.args) < 2 :
+        raise HTTP(404)
     submission_id = request.args[0]
     file_id = request.args[1]
 
     if str(file_id).endswith('.xml'):
+        path = os.path.join(request.folder, 'static/files/presses', myconf.take('omp.press_id'), 'monographs',
+                            submission_id, 'submission/proof', file_id)
+        if os.path.exists(path) is False:
+            raise HTTP(404)
 
         submission_settings = ompdal.getSubmissionSettings(submission_id)
         series = ompdal.getSeriesBySubmissionId(submission_id)
@@ -57,11 +61,11 @@ def index():
             authors = authors[:-2]
 
         return dict(json_list=XML(gluon.serializers.json(json_list)), authors=authors, font_family=font_family)
-
     else:
         path = os.path.join(request.folder, 'static/files/presses', myconf.take('omp.press_id'), 'monographs',
-                            submission_id, 'submission', file_id)
-    return response.stream(path)
+                            submission_id, 'submission/', file_id)
+        return response.stream(path, chunk_size=1048576)
+
 
 
 def get_setting_value(settings, name):
@@ -87,7 +91,7 @@ def download():
     response.headers['ContentType'] = "application/octet-stream"
     response.headers[
         'Content-Disposition'] = "attachment; filename=" + submission_file
-    return response.stream(path, chunk_size=4096)
+    return response.stream(path, chunk_size=1048576)
 
 
 def download_image():

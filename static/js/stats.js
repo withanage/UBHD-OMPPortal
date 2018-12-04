@@ -68,7 +68,6 @@ full_files = $(".full_file");
   $.each(full_files, function(index, value) {
   for (var prop in total) {
   if (value.id.indexOf(prop) > 0) {
-  console.log(total[prop]);
     total[prop] = total[prop] - value.innerText;
   }
   }

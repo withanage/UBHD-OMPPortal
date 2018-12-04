@@ -100,6 +100,18 @@
                     {{elif session.forced_language=='de':}}
                     <li><a href="{{=request.url}}?lang=en" style="padding-left: 5px;">EN</a></li>
                     {{pass}}
+                    <li>
+                        <img alt="" id="nav-social-media" src="{{=URL('static','images/press/social-media-icons.png')}}" usemap="#socialmap">
+                          <map name="socialmap">
+                            {{if request.url=='/': }}
+                            {{request.url=request.url+myconf.take('web.application')}}
+                            {{pass}}	
+                             <area shape="rect" coords="0,0,30,30" alt="fb" href="https://www.facebook.com/sharer/sharer.php?u={{=myconf.take('web.url')+request.url}}">
+                             <area shape="rect" coords="30,0,60,30" alt="twitter" href="http://twitter.com/home?status={{=myconf.take('web.url')+request.url}}">
+                             <area shape="rect" coords="60,0,90,30" alt="twitter" href="https://www.linkedin.com/shareArticle?mini=true&url={{=myconf.take('web.url')+request.url}}">
+                             <area shape="rect" coords="90,0,120,30" alt="twitter" href="https://plus.google.com/share?url={{=myconf.take('web.url')+request.url}}">
+                          </map> <!--https://www.addthis.com/get/responsive-sharing-buttons-->
+                    </li>
                 </ul>
             </div>
         </div>
@@ -131,23 +143,23 @@
 
                         </div>
                         <!-- second -->
-                        <div class="navbar-collapse collapse pull-right visible-lg hidden-md">
+                        <!--<div class="navbar-collapse collapse pull-right visible-lg hidden-md">
                             <ul class="nav navbar-nav">
                                 <li>
-                                  <img alt="" id="nav-social-media" src="{{=URL('static','images/press/social-media-icons.png')}}" style="height: 30px"  usemap="#socialmap">
+                                  <img alt="" id="nav-social-media" src="{{=URL('static','images/press/social-media-icons.png')}}" usemap="#socialmap">
                                     <map name="socialmap">
 					{{if request.url=='/': }}
 					{{request.url=request.url+myconf.take('web.application')}}
 					{{pass}}	
-                                 <area shape="rect" coords="0,0,30,30" alt="fb" href="https://www.facebook.com/sharer/sharer.php?u={{=myconf.take('web.url')+request.url}}">
+                                        <area shape="rect" coords="0,0,30,30" alt="fb" href="https://www.facebook.com/sharer/sharer.php?u={{=myconf.take('web.url')+request.url}}">
                                         <area shape="rect" coords="30,0,60,30" alt="twitter" href="http://twitter.com/home?status={{=myconf.take('web.url')+request.url}}">
                                         <area shape="rect" coords="60,0,90,30" alt="twitter" href="https://www.linkedin.com/shareArticle?mini=true&url={{=myconf.take('web.url')+request.url}}">
                                         <area shape="rect" coords="90,0,120,30" alt="twitter" href="https://plus.google.com/share?url={{=myconf.take('web.url')+request.url}}">
                                     </map>
                                </li>
-                                <!-- https://www.addthis.com/get/responsive-sharing-buttons -->
+                                 https://www.addthis.com/get/responsive-sharing-buttons 
                             </ul>
-                        </div>
+                        </div>  -->
                     </div>
                 </div>
             </div>
@@ -261,7 +273,8 @@
                 {{pass}}-->     
                  </div>
                  <div class="col-lg-4">
-               <a href="https://pkp.sfu.ca/" title="Homepage PKP - Public Knowledge Project"><img class="" alt="Public Knowledge Project" src="https://books.ub.uni-heidelberg.de/lib/pkp/templates/images/pkp_brand.png"></a>
+               <a href="https://pkp.sfu.ca/" title="Homepage PKP - Public Knowledge Project">{{=IMG(_src=URL(myconf.take('web.application'),'static','images/press/pkp_brand.png'),_alt='')}}</a> 
+
                  </div>
              </div>
          </div>

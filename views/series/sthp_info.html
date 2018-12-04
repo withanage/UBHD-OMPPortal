@@ -1,0 +1,136 @@
+{{extend 'layout.html'}}
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <!--
+            <div class="col-lg-3">
+                                <article>
+                    <div class="post-image">
+		 	{{=IMG(_src=URL('static','files/presses/6/monographs/347/simple/cover.jpg'))}}
+                  </div>
+                </article> 
+                               
+            </div>   
+            -->
+            <div class="col-lg-9">
+               <article>
+
+
+     <div class="post-heading">
+
+        <h3>Studien und Texte aus der Heidelberger Papyrussammlung</h3>
+        </div>
+
+      {{if session.forced_language =='de': }}
+<p>Die neue Reihe <i>Studien und Texte aus der Heidelberger Papyrussammlung </i>(STHP) hat zum Ziel, eine Plattform für die mit der Sammlung verbundenen Publikationen zu bieten. Dies betrifft insbesondere die Herausgabe der dort aufbewahrten Papyri und Ostraka in griechischer, demotischer, koptischer und arabischer Sprache, ohne sich freilich auf reine Editionsbände zu beschränken. Einen Schwerpunkt bilden die am Institut angefertigten Dissertationen. Die STHP können dadurch als weithin sichtbarer Ausweis der vielfältigen Aktivitäten an der Heidelberger Papyrussammlung gelten. 
+</p>
+<p>Die Reihe steht in der Nachfolge der 1954 begründeten <i>Veröffentlichungen aus der Heidelberger Papyrussammlung. Neue Folge </i>(VHP.NF), die bislang unter der Ägide der Heidelberger Akademie der Wissenschaften im Universitätsverlag Carl Winter erschien. Für die Herausgabe wird künftig ein Gremium hochrangiger Fachvertreter aus Papyrologie und Ägyptologie zuständig sein. Wie schon bisher, werden die Bände auch darüber hinaus weiterhin unter Beiziehung der zuständigen Fachkollegen betreut, was die hohe Qualität der bestens eingeführten Reihe auch in Zukunft verbürgt. Mit der parallelen Publikation in digitaler Form wird zudem ein direkter Zugriff auf die online gestellten Artefakte ermöglicht und damit die internationale Wahrnehmung der reichen Bestände an Papyri, Ostraka, Pergamenten und Papieren an der Heidelberger Papyrussammlung weiter gestärkt.</p>
+
+      
+      {{elif session.forced_language =='en': }}                 
+<p>The aim of the <i>Studien und Texte aus der Heidelberger Papyrussammlung </i>(STHP) series is to provide a home for publications related to the collection. In particular, it comprises editions of Greek, Demotic, Coptic, and Arabic papyri and ostraka, but is not limited to editions. Dissertations completed in the Institute constitute a special focus. Through this, the STHP will serve to witness the many and varied activities of the Heidelberg papyrus collection.
+</p>
+<p>Previously, the series was published under the auspices of the Heidelberg Academy of Sciences together with the University press Carl Winter. In the future, the director of the Institute for Papyrology will act as managing editor. As in the past, volumes will be reviewed by scholars in the field, which will ensure the continued high quality of the series. Parallel publication in digital form will guarantee direct online access to the artifacts, something that will further strengthen international recognition of the rich collection of papyrus, ostraka, parchment, and paper holdings in Heidelberg.</p>
+   {{pass}}
+
+                    <div class="widget">
+                        <h5 class="widgetheading"></h5>
+                        <ul class="tags">          
+                            <li>{{=A(T('Volumes'),_href=URL('catalog','series/sthp'))}}
+                        </ul>
+                    </div>
+
+                </article>
+            </div>
+			
+      
+      
+      
+      
+         <div class="col-lg-3">
+          <article>
+            <div class="box">
+
+			           <div class="box-gray alignright" style="height: auto;">
+                 {{if session.forced_language =='de': }}
+                            <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographische Angaben</h5>
+                            
+                            <p>Studien und Texte aus der Heidelberger Papyrussammlung</p>
+                            
+                            <p>Herausgeber</p> 
+                            
+                            <ul>
+                            <li>Prof. Dr. Andrea Jördens<br>
+                            Zentrum für Altertumswissenschaften<br>
+                            - Institut für Papyrologie -<br>
+                            Marstallstr. 6<br>
+                            D - 69117 Heidelberg</li>
+                            
+                            
+                            <li>Prof. Dr. Joachim Friedrich Quack<br>
+                            Zentrum für Altertumswissenschaften<br>
+                            - Ägyptologisches Institut -<br>
+                            Voßstr. 2, Gebäude 4410<br>
+                            D - 69115 Heidelberg</li>
+                            
+                            
+                            <li>Dr. Rodney Ast<br>
+                            Zentrum für Altertumswissenschaften<br>
+                            - Institut für Papyrologie -<br>
+                            Marstallstr. 6<br>
+                            D - 69117 Heidelberg</li>
+                            
+                            <li>Dr. James M. S. Cowey<br>
+                             Zentrum für Altertumswissenschaften<br>
+                            - Institut für Papyrologie -<br>
+                            Marstallstr. 6<br>
+                            D - 69117 Heidelberg</li>
+                            </ul>
+
+                            
+             {{elif session.forced_language =='en': }}
+             
+             <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographic details</h5>
+                            
+                            <p>Studien und Texte aus der Heidelberger Papyrussammlung</p>
+                            
+                            <p>Editors</p>
+                            
+                            <ul> 
+                            <li>Prof. Dr. Andrea Jördens<br>
+                            Zentrum für Altertumswissenschaften<br>
+                            - Institut für Papyrologie -<br>
+                            Marstallstr. 6<br>
+                            D - 69117 Heidelberg</li>
+                            
+                            
+                            <li>Prof. Dr. Joachim Friedrich Quack<br>
+                            Zentrum für Altertumswissenschaften<br>
+                            - Ägyptologisches Institut -<br>
+                            Voßstr. 2, Gebäude 4410<br>
+                            D - 69115 Heidelberg</li>
+                            
+                            
+                            <li>Dr. Rodney Ast<br>
+                            Zentrum für Altertumswissenschaften<br>
+                            - Institut für Papyrologie -<br>
+                            Marstallstr. 6<br>
+                            D - 69117 Heidelberg</li>
+                            
+                            <li>Dr. James M. S. Cowey<br>
+                             Zentrum für Altertumswissenschaften<br>
+                            - Institut für Papyrologie -<br>
+                            Marstallstr. 6<br>
+                            D - 69117 Heidelberg</li> 
+                            </ul>
+                          
+        	{{pass}}
+        </div>   
+      </div>     
+    </article>                                     
+    </div>
+    </div>   
+
+
+</section>

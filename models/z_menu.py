@@ -7,12 +7,13 @@ LICENSE.md
 from ompdal import OMPDAL
 ompdal = OMPDAL(db, myconf)
 
-locale = ''
+
 if session.forced_language == 'en':
     locale = 'en_US'
 elif session.forced_language == 'de':
     locale = 'de_DE'
-
+else:
+    locale = 'de_DE'
 
 
 response.title = settings.title
@@ -84,9 +85,12 @@ response.menu = UL([LI(A(T('Home'),
                     LI(A(T('Journals'),
                          _href=URL('journals',
                                    'index'))),
-                    #LI(A(T('Akademie'),
-                     #    _href=URL('category',
-                      #             'info/hdaw'))),
+			        LI(A(T('Preview'),
+                         _href=URL('catalog',
+                                   'preview'))),
+                    LI(A(T('Akademie'),
+                         _href=URL('category',
+                                   'info/hadw'))),
                     LI(A(T('Campus Media'),
                          _href=URL('category',
                                    'info/campusmedia'))),
@@ -94,7 +98,7 @@ response.menu = UL([LI(A(T('Home'),
                        UL(publishing_dict_list,
                           _class="dropdown-menu"),
                        _class="dropdown"),
-                    #LI(display_form(),  _class="dropdown")
+
 
                     ],
                    _class="nav navbar-nav")

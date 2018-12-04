@@ -1,0 +1,110 @@
+{{extend 'layout.html'}}
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-3">
+                <article>
+                    <div class="post-image">
+		 	{{=IMG(_src=URL('static','files/presses/6/monographs/347/simple/cover.jpg'))}}
+                  </div>
+                </article>                
+            </div>   
+
+            <div class="col-lg-9">
+               <article>
+
+
+     <div class="post-heading">
+
+        <h3>Schriften zur Südwestdeutschen Hofmusik</h3>
+        </div>
+
+      {{if session.forced_language =='de': }}
+<p>Die »Schriften zur Südwestdeutschen Hofmusik« sind eine Open-Access-Publikationsreihe, herausgegeben von der Forschungsstelle »Geschichte der Südwestdeutschen Hofmusik im 18.&nbsp;Jahrhundert« der Heidelberger Akademie der Wissenschaften. Sie dient in erster Linie der Veröffentlichung von Arbeitsergebnissen der Forschungsstelle und mit ihr verbundener Wissenschaftler.
+</p>
+<p>Bei der Erarbeitung der Geschichte des musikalischen Lebens an den Adels- und Fürstenhöfen Südwestdeutschlands im 18.&nbsp;Jahrhundert werden neben musik- und kulturgeschichtlichen auch sozialgeschichtliche und wirtschaftliche Aspekte in die Untersuchungen einbezogen. Vergleichende institutionsgeschichtliche Fragestellungen im gesamteuropäischen Kontext sowie stilkritische Untersuchungen zur Kompositionspraxis, Studien zu Rolle der höfischen Musik in der Entwicklungsgeschichte des modernen Orchesters unter Einbeziehung der Neuerungen im Instrumentenbau des 18.&nbsp;Jahrhunderts sowie Fragen zur historischen Aufführungspraxis bilden weitere Schwerpunkte der Forschungsarbeit. Die Ergebnisse werden sowohl in Form von Monographien und Tagungsberichten als auch von kommentierten Quelleneditionen veröffentlicht.</p>
+
+      
+      {{elif session.forced_language =='en': }}                 
+<p><i>Schriften zur Südwestdeutschen Hofmusik</i> (Writings on South-West German Court Music) are an Open Access publication series edited by the „Südwestdeutsche Hofmusik“ research centre of the Heidelberg Academy of Sciences and Humanities. It primarily publishes the results of the research centre in the form of monographs, conference reports and annotated source editions.
+</p>
+<p>When processing the history of music at the courts of the nobility and rulers of south-west Germany in the eighteenth century, the research has included not only the historical aspects of music and culture, but also social history and economic aspects.  Other focal points for research include a comparison of historical institutional issues in a pan-European context, stylistically critical investigations into the practice of composition, studies into the roll played by court music in the developmental history of the modern orchestra, taking particular account of innovations in instrument manufacture in the eighteenth century, as well as questions about historical performance practice. The results are published as monographs and conference reports, as well as annotated source-editions.</p>
+   {{pass}}
+
+                    <div class="widget">
+                        <h5 class="widgetheading"></h5>
+                        <ul class="tags">          
+                            <li>{{=A(T('Volumes'),_href=URL('catalog','series/hadw_swdh'))}}
+                        </ul>
+                    </div>
+
+                </article>
+            </div>
+			<!--
+         <div class="col-lg-3">
+          <article>
+            <div class="box">
+
+			           <div class="box-gray alignleft" style="height: auto;">
+                 {{if session.forced_language =='de': }}
+                            <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographische Angaben</h5>
+                             <p>Documenta Nepalica</p>
+                            <p>Editors</p>
+                            <p>Chief Editor: Axel Michaels</p>
+                            <p>Editor Board</p>
+                            <p>Research Unit “Documents on the History of Religion and Law of Premodern Nepal”; Heidelberg Academy of Sciences and Humanities:</p>
+                            <ul>
+                              <li>Manik Bajracharya
+                              <li>Simon Cubelic</li>
+                              <li>Rajan Khatiwoda</li>
+                              <li>Astrid Zotter</li>
+                              <li>Christof Zotter</li>
+                            </ul>
+                            <p>Government of Nepal; Ministry of Culture, Tourism and Civil Aviation; Department of Archaeology; National Archives:</p>
+                              <ul>
+                                <li>Bhesh Narayan Dahal
+                                <li>Saubhagya Pradhananga</li>
+                                <li>Niran Rajvamshi</li>
+                                <li>Raju Rimal</li>
+                                <li>Kumar Shrestha</li>
+                              </ul>  
+
+                            
+             {{elif session.forced_language =='en': }}
+             
+             <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographic details</h5>
+                            <p>Heidelberg Studies on Transculturality<br>
+                            
+                            <p>Documenta Nepalica</p>
+                            <p>Editors</p>
+                            <p>Chief Editor: Axel Michaels</p>
+                            <p>Editor Board</p>
+                            <p>Research Unit “Documents on the History of Religion and Law of Premodern Nepal”; Heidelberg Academy of Sciences and Humanities:</p>
+                            <ul>
+                              <li>Manik Bajracharya
+                              <li>Simon Cubelic</li>
+                              <li>Rajan Khatiwoda</li>
+                              <li>Astrid Zotter</li>
+                              <li>Christof Zotter</li>
+                            </ul>
+                            <p>Government of Nepal; Ministry of Culture, Tourism and Civil Aviation; Department of Archaeology; National Archives:</p>
+                              <ul>
+                                <li>Bhesh Narayan Dahal
+                                <li>Saubhagya Pradhananga</li>
+                                <li>Niran Rajvamshi</li>
+                                <li>Raju Rimal</li>
+                                <li>Kumar Shrestha</li>
+                              </ul>  
+                            
+                          
+        	{{pass}}
+        </div>   
+      </div>     
+    </article>                                     
+    </div>-->
+    </div>   
+
+
+</section>
