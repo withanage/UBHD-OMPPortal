@@ -184,6 +184,10 @@
 .content-node.paragraph + .content-node.paragraph {
   text-indent: 1.5em;
 }
+
+td > .content-node.paragraph + .content-node.paragraph {
+  text-indent: 0; 
+} 
   
   
 
