@@ -182,11 +182,13 @@
   
 /*** Einrückung bzw. Abstand zw. zwei aufeinanderfolgenden Paragrafen im Fließtext 7.12.18 voe***/
 .content-node.paragraph + .content-node.paragraph {
-  text-indent: 1.5em;
+   margin-bottom: 0.7em;
+  /*text-indent: 1.5em;*/
 }
 
 td > .content-node.paragraph + .content-node.paragraph {
-  text-indent: 0; 
+  /*text-indent: 0;*/
+  margin-bottom: 0; 
 } 
   
   
