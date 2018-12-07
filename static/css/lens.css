@@ -180,14 +180,12 @@
   display: block !important;
   line-height: 28px !important; }
   
-/*** Einrückung bzw. Abstand zw. zwei aufeinanderfolgenden Paragrafen im Fließtext 7.12.18 voe***/
+/*** Abstand zw. zwei aufeinanderfolgenden Paragrafen im Fließtext sowie Unterdrückung dieses Abstands für <p> innerhalb von Tabellen 7.12.18 voe***/
 .content-node.paragraph + .content-node.paragraph {
    margin-bottom: 0.7em;
-  /*text-indent: 1.5em;*/
 }
 
 td > .content-node.paragraph + .content-node.paragraph {
-  /*text-indent: 0;*/
   margin-bottom: 0; 
 } 
   
