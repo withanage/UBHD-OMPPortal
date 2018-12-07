@@ -179,6 +179,13 @@
   text-align: right;
   display: block !important;
   line-height: 28px !important; }
+  
+/*** Einrückung bzw. Abstand zw. zwei aufeinanderfolgenden Paragrafen im Fließtext 7.12.18 voe***/
+.content-node.paragraph + .content-node.paragraph {
+  text-indent: 1.5em;
+}
+  
+  
 
 /* Heading Node
 -------------------------------------------------------------------------------*/
