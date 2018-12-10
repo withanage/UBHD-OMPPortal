@@ -17,6 +17,12 @@
 
 .content-node.text.title {
   padding-left: 0; }
+  
+/* Abstract */
+
+.abstract {
+  margin-bottom: 2.7em;
+}
 
 /* Paragraph Node
 -------------------------------------------------------------------------------*/
@@ -182,11 +188,11 @@
   
 /*** Abstand zw. zwei aufeinanderfolgenden Paragrafen im Fließtext sowie Unterdrückung dieses Abstands für <p> innerhalb von Tabellen 7.12.18 voe***/
 .content-node.paragraph + .content-node.paragraph {
-   margin-bottom: 0.7em;
+   margin-top: 0.7em;
 }
 
 td > .content-node.paragraph + .content-node.paragraph {
-  margin-bottom: 0; 
+  margin-top: 0; 
 } 
   
   
