@@ -202,7 +202,7 @@ td > .content-node.paragraph + .content-node.paragraph {
   margin-top: 0; 
 } 
   
-.quote .paragraph + .quote .paragraph {
+.quote > .content .content-node.paragraph + .quote > .content .content-node.paragraph {
   margin-top: 0;
 }
 
