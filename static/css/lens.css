@@ -67,6 +67,13 @@
 .content-node.paragraph.margin-right-1 {
   margin-right: 2ex; }
 
+.content-node.paragraph.margin-left-2 {
+  margin-left: 4ex; }
+
+.content-node.paragraph.margin-right-2 {
+  margin-right: 4ex; }
+
+
 .content-node.paragraph.centered {
   text-align: center; }
 
@@ -410,12 +417,17 @@ Box
   border-left: 10px solid #ccc; }
 
 .document .content-node.quote .content-node.paragraph {
-  padding: 10px 40px 10px 40px;
+  padding: 0px 20px 0px 20px;
   /*border-left: 3px solid #ccc; doppelte Ausgabe von Rändern bei Zitaten in Stille, Scholz ... 416/416-69-83162-1-10-20181203.xml*/ }
 
 .surface.content .content-node.quote > .content > .label {
   font-weight: 600;
   padding-bottom: 20px; }
+
+.content-node.quote .content-node.paragraph + .content-node.quote .content-node.paragraph {
+  margin-top: 0;
+}
+
 
 /*
 Citations 
