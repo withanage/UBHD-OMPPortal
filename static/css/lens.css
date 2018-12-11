@@ -202,8 +202,8 @@ td > .content-node.paragraph + .content-node.paragraph {
   margin-top: 0; 
 } 
   /*.quote > .content .content-node.paragraph + .quote > .content .content-node.paragraph*/
-.document .content-node.quote .content-node.paragraph + .document .content-node.quote .content-node.paragraph {
-  margin-top: 0;
+.quote > .content > .paragraph + .paragraph {
+  margin-top: 0 !important;
 }
 
 /* Heading Node
