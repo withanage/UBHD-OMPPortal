@@ -193,7 +193,7 @@
   display: block !important;
   line-height: 28px !important; }
   
-/*** Abstand zw. zwei aufeinanderfolgenden Paragrafen im Fließtext sowie Unterdrückung dieses Abstands für <p> innerhalb von Tabellen 7.12.18 voe***/
+/*** Abstand zw. zwei aufeinanderfolgenden Paragrafen im Fließtext sowie Unterdrückung dieses Abstands für <p> innerhalb von Tabellen und Zitaten 7.12.18 voe***/
 .content-node.paragraph + .content-node.paragraph {
    margin-top: 0.7em;
 }
@@ -202,7 +202,9 @@ td > .content-node.paragraph + .content-node.paragraph {
   margin-top: 0; 
 } 
   
-  
+.content-node.quote .content-node.paragraph + .content-node.quote .content-node.paragraph {
+  margin-top: 0;
+}
 
 /* Heading Node
 -------------------------------------------------------------------------------*/
@@ -423,11 +425,6 @@ Box
 .surface.content .content-node.quote > .content > .label {
   font-weight: 600;
   padding-bottom: 20px; }
-
-.content-node.quote .content-node.paragraph + .content-node.quote .content-node.paragraph {
-  margin-top: 0;
-}
-
 
 /*
 Citations 
