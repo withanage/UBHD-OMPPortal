@@ -1497,9 +1497,15 @@ TOC
 .panel.document .nodes > .content-node > .focus-handle:hover {
   border-left: 3px solid #bbb; }
 
-/** Ticket#66 ***/
+/** Ticket#66 - Nachbesserung: Abstand heading.level-3 erhöhen, gleich halten, wenn heading.level-3 auf andere heading folgt***/
 .panel.content.document > .surface.resource-view.content > .nodes > .content-node.heading.level-3 {
-  padding-top: 20px; }
+  padding-top: 60px; }
+
+.content-node.heading + .content-node.heading.level-3 {
+  padding-top: 20px;
+}
+
+
 
 .panel.content.document > .surface.resource-view.content > .nodes > .content-node.heading.level-4 {
   padding-top: 20px; }
