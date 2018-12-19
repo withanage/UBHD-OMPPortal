@@ -502,7 +502,7 @@ Definition
 .gitter-tabelle td {
   border: 1px solid lightgray;
   border-collapse: collapse;
-  padding: 3px; }
+  padding: 5px; }
 
 /** Layout Daten-Tabelle Issue Nr. 58
  für heiUP auskommentiert, um mehrspaltigen Satz ohne Färbung zu ermöglichen, - neues default ist layout-tabelle, deshalb testweise wieder einkommentiert - 07.08. voe**/
