@@ -485,7 +485,8 @@ Definition
 .layout-tabelle {
   border: 0;
   width: auto;
-  margin-left: 0; }
+  margin-left: 0;
+  margin-bottom: 2em; }
 
 .layout-tabelle td {
   border: 0;
@@ -513,7 +514,8 @@ Definition
 
 .daten-tabelle {
   border: 1px solid #f8f8f8;
-  overflow-x: scroll; }
+  overflow-x: scroll;
+  margin-bottom: 2em; }
 
 .daten-tabelle tr {
   vertical-align: top; }
