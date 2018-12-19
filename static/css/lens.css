@@ -498,7 +498,7 @@ Definition
   border: 1px solid lightgray;
   border-collapse: collapse;
   width: auto;
-  margin-left: 0.5em 0 2em 0;
+  margin: 0.5em 0 2em 0;
    }
 
 .gitter-tabelle td {
