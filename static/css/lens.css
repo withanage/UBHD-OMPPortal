@@ -498,7 +498,7 @@ Definition
   border: 1px solid lightgray;
   border-collapse: collapse;
   width: auto;
-  margin-left: 1em 0 2em 0;
+  margin-left: 0.5em 0 2em 0;
    }
 
 .gitter-tabelle td {
@@ -514,7 +514,7 @@ Definition
 .daten-tabelle {
   border: 1px solid #f8f8f8;
   overflow-x: scroll;
-  margin-top: 1em 
+  margin-top: 0.5em;
   margin-bottom: 2em; }
 
 .daten-tabelle tr {
