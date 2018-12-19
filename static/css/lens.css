@@ -497,8 +497,7 @@ Definition
   border: 1px solid lightgray;
   border-collapse: collapse;
   width: auto;
-  margin-left: 0; 
-  margin-bottom: 2em;}
+  margin-left: 0; }
 
 .gitter-tabelle td {
   border: 1px solid lightgray;
