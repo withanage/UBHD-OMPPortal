@@ -1036,7 +1036,8 @@ article .resources .footnotes .content-node.highlighted .resource-header .toggle
       transition-duration: 0.1s;*/ }
 
 /* Small caps */
-span.annotation.sc {
+span.annotation.sc,
+span.annotation.capitalize {
   font-variant: small-caps; }
 
 span.annotation.formula_reference, span.publication_reference {
