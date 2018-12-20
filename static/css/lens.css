@@ -1130,7 +1130,7 @@ span.annotation.formula_reference, span.publication_reference {
   font-weight: bold; }
 
 .content-node .capitalize {
-  text-transform: uppercase; }
+  /*text-transform: uppercase;*/ }
 
 .content-node .figure_reference {
   background: rgba(153, 0, 0, 0.15);
