@@ -7,7 +7,7 @@
       Kommunikation und Marketing<br />
       Grabengasse 1<br />
       69117 Heidelberg<br />
-      Tel. +49 6221 54-19012<br />
+      Tel. +49 6221 54-19012<br />        
       Fax +49 6221 54-19020<br />
       E-Mail: <a href="mailto:kum@uni-heidelberg.de" title="E-Mail senden an 'Kommunikation und Marketing' der Universität Heidelberg">kum@uni-heidelberg.de</a></p>
       
@@ -148,12 +148,16 @@
                  {{if session.forced_language =='de': }}
                     <p class="boxText"><b>RSS für die aktuelle Ausgabe</b></p>
              {{elif session.forced_language =='en': }}
-                    <p class="boxText"><b>RSS for current issue</b></p>
-{{pass}}                                          
-
-                    <a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/gateway/plugin/WebFeedGatewayPlugin/atom"><img src="http://heiup.uni-heidelberg.de/journals/plugins/generic/webFeed/templates/images/atom10_logo.gif" alt="Atom logo" border="0" /></a><br />
-	<a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/gateway/plugin/WebFeedGatewayPlugin/rss2"><img src="http://heiup.uni-heidelberg.de/journals/plugins/generic/webFeed/templates/images/rss20_logo.gif" alt="RSS2 logo" border="0" /></a><br />
-	<a href="http://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/gateway/plugin/WebFeedGatewayPlugin/rss"><img src="http://heiup.uni-heidelberg.de/journals/plugins/generic/webFeed/templates/images/rss10_logo.gif" alt="RSS1 logo" border="0" /></a>
+                    <p class="boxText"><b>RSS for current issue</b></p>{{pass}}                                          
+                <a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/gateway/plugin/WebFeedGatewayPlugin/atom">
+                   <img alt="Logo Atom" src="{{=URL('static','images/journals/atom10_logo.gif')}}" />
+                </a>
+                <a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/gateway/plugin/WebFeedGatewayPlugin/rss2">
+                   <img alt="Logo RSS 2.0" src="{{=URL('static','images/journals/rss20_logo.gif')}}" />
+                </a>   
+                <a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/gateway/plugin/WebFeedGatewayPlugin/rss">
+                   <img alt="Logo RSS 2.0" src="{{=URL('static','images/journals/rss10_logo.gif')}}" />
+                </a>
                   </div>
                 </div>
              
