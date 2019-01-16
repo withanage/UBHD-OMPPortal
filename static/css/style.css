@@ -1730,6 +1730,8 @@ li.active {
 .box-gray h4 {
 	text-align: left;
 }
+
+
 .boxText {
 	text-align: left;
 }
@@ -1777,20 +1779,16 @@ li.active {
 	background: #f8f8f8 !important;
 	height: 25em !important;
 }
-/* Inhalte iframeÄnderung?.timeline-Header-title {
-	font-size: 14px;
-}
-.SandboxRoot .timeline-Tweet-text {
-	font-size: 12px !important;
-	line-height: 16px !important;
-}
-.timeline-Widget {
-	background: transparent;
-}
-.timeline-footer {
-	background: #f5f5f5;
-}
-*/
+
+
+/*'Empfohlene Zitierweise' auf Buch-Seiten - doi-Angaben-Umbruch in Chrome */
+
+a[href^="https://doi.org/10.17885"] {
+  word-break: break-word;
+  width: 210px;
+  display: block;
+}  
+
 #infoBoxRechts {
 	float: right;
 }
