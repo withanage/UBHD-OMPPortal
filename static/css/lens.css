@@ -221,11 +221,28 @@ td > .content-node.paragraph + .content-node.paragraph {
 .content-node.heading.level-1 .content {
   font-size: 24px; }
 
+.content-node.heading.level-2 {
+  margin-top: 2em;
+}
+
+.content-node.heading.level-2 > .content-node.heading.level-3 {
+  margin-top: 0.75em;
+} 
+
 .content-node.heading.level-2 .content {
   font-size: 21px; }
 
 .content-node.heading.level-3 .content {
   font-size: 18px; }
+
+/** Ticket#66  Hier war padding-top: 20px angegeben - probeweise durch margin-top: 1em ersetzt, ab April 2019 Kommentar löschen - 24.01. voe ***/
+.panel.content.document > .surface.resource-view.content > .nodes > .content-node.heading.level-3 {
+  margin-top: 1em; 
+}
+
+
+.panel.content.document > .surface.resource-view.content > .nodes > .content-node.heading.level-4 {
+  padding-top: 20px; }
 
 /* List Node
 -------------------------------------------------------------------------------*/
@@ -507,7 +524,7 @@ Definition
   padding: 10px; }
 
 /** Layout Daten-Tabelle Issue Nr. 58
- für heiUP auskommentiert, um mehrspaltigen Satz ohne Färbung zu ermöglichen, - neues default ist layout-tabelle, deshalb testweise wieder einkommentiert - 07.08. voe**/
+ für heiUP auskommentiert, um mehrspaltigen Satz ohne Färbung zu ermöglichen, - neues default ist layout-tabelle, deshalb wieder einkommentiert - 07.08. voe**/
 .lens-article .content-node.table > .content {
   padding-left: 0; }
 
@@ -1501,13 +1518,6 @@ TOC
 
 .panel.document .nodes > .content-node > .focus-handle:hover {
   border-left: 3px solid #bbb; }
-
-/** Ticket#66 ***/
-.panel.content.document > .surface.resource-view.content > .nodes > .content-node.heading.level-3 {
-  padding-top: 20px; }
-
-.panel.content.document > .surface.resource-view.content > .nodes > .content-node.heading.level-4 {
-  padding-top: 20px; }
 
 /** Listen **/
 .content.simple {
