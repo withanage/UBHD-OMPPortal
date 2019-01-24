@@ -226,7 +226,7 @@ td > .content-node.paragraph + .content-node.paragraph {
 }
 
 .content-node.heading.level-2 + .content-node.heading.level-3 {
-  margin-top: 0.7em;
+  margin-top: 0.7em !important;
 } 
 
 .content-node.heading.level-2 .content {
