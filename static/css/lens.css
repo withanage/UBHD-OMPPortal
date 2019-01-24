@@ -1332,7 +1332,7 @@ as we have a plugin concept for functionality / panels */
 
 /* Active resource */
 .article .resources .content-node.highlighted .resource-header .name {
-  color: #fff; }
+  color: #888; }
 
 /* active citation */
 .article .resources .citations .content-node.highlighted {
