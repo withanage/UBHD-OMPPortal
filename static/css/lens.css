@@ -225,8 +225,8 @@ td > .content-node.paragraph + .content-node.paragraph {
   margin-top: 2em;
 }
 
-.content-node.heading.level-2  .content-node.heading.level-3 {
-  margin-top: 0.75em;
+.content-node.heading.level-2 + .content-node.heading.level-3 {
+  margin-top: 0.7em;
 } 
 
 .content-node.heading.level-2 .content {
