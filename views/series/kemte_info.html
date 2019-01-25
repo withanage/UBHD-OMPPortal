@@ -1,0 +1,89 @@
+{{extend 'layout.html'}}
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+	
+            <div class="col-lg-3">
+
+                <article>
+                    <div class="post-image">
+		 	{{=IMG(_src=URL('static','files/presses/6/series/48-series.jpg'))}}
+                  </div>
+
+                </article>
+
+            </div>   
+
+            <div class="col-lg-6">
+               <article>
+
+
+     <div class="post-heading">
+
+        <h3>Kulturelles Erbe: Materialität – Text – Edition (KEMTE)</h3>
+        </div>
+      {{if session.forced_language =='de': }}
+<p>Die Reihe <em>Kulturelles Erbe: Materialität – Text – Edition</em> ist am Heidelberg Center for Cultural Heritage (HCCH) angesiedelt. In ihr erscheinen historisch-kritische Editionen sowie Publikationen zu Themen des kulturellen Erbes im engeren Sinne, d.h. zum Schutz von Kulturgütern und der Reflexion darüber sowie zur Materialität, besonderen Präsenz und Praxeologie von Kulturgütern. Alle geistes- und kulturwissenschaftlichen Disziplinen können Bände in der Reihe publizieren; es gibt keine epochale Begrenzung.</p>
+<p>Die Open-Access-Reihe soll die Möglichkeit der Publikation als ‚enhanced eBook‘ anbieten, ein Format, das die Publikation von Forschungstexten und -daten in einer Online-Lesefassung integriert. Damit stärkt die Reihe die am Standort Heidelberg vorhandenen Schwerpunkte nicht nur im Bereich ‚Kulturelles Erbe‘, sondern auch im Bereich der wissenschaftlichen Edition und ihrer Methoden sowie der Digital Humanities. Zudem löst das Format das bisher bestehende Problem, Datenbanken nicht nur nachhaltig zu sichern und an Repositorien anschlussfähig zu machen, sondern sie auch direkt mit den auf ihnen basierenden Forschungs-ergebnissen zu verbinden.</p>
+<p>Einreichungen sind in allen gängigen Wissenschaftssprachen möglich (Deutsch, Englisch, Französisch, Spanisch, Italienisch), erwartet werden zunächst vor allem deutsch- und prospektiv verstärkt englischsprachige Manuskripte.
+</p>
+
+      
+      {{elif session.forced_language =='en': }}                 
+<p>Die Reihe <em>Kulturelles Erbe: Materialität – Text – Edition</em> ist am Heidelberg Center for Cultural Heritage (HCCH) angesiedelt. In ihr erscheinen historisch-kritische Editionen sowie Publikationen zu Themen des kulturellen Erbes im engeren Sinne, d.h. zum Schutz von Kulturgütern und der Reflexion darüber sowie zur Materialität, besonderen Präsenz und Praxeologie von Kulturgütern. Alle geistes- und kulturwissenschaftlichen Disziplinen können Bände in der Reihe publizieren; es gibt keine epochale Begrenzung.</p>
+<p>Die Open-Access-Reihe soll die Möglichkeit der Publikation als ‚enhanced eBook‘ anbieten, ein Format, das die Publikation von Forschungstexten und -daten in einer Online-Lesefassung integriert. Damit stärkt die Reihe die am Standort Heidelberg vorhandenen Schwerpunkte nicht nur im Bereich ‚Kulturelles Erbe‘, sondern auch im Bereich der wissenschaftlichen Edition und ihrer Methoden sowie der Digital Humanities. Zudem löst das Format das bisher bestehende Problem, Datenbanken nicht nur nachhaltig zu sichern und an Repositorien anschlussfähig zu machen, sondern sie auch direkt mit den auf ihnen basierenden Forschungs-ergebnissen zu verbinden.</p>
+<p>Einreichungen sind in allen gängigen Wissenschaftssprachen möglich (Deutsch, Englisch, Französisch, Spanisch, Italienisch), erwartet werden zunächst vor allem deutsch- und prospektiv verstärkt englischsprachige Manuskripte.
+</p>
+   {{pass}}
+<!--
+                    <div class="widget">
+                        <h5 class="widgetheading"></h5>
+                        <ul class="tags">          
+                            <li>{{=A(T('Volumes'),_href=URL('catalog','series/phs'))}}
+                        </ul>
+                    </div>
+-->
+                </article>
+
+			</div>
+         <div class="col-lg-3">
+          <article>
+            <div class="box">
+
+			           <div class="box-gray alignleft" style="height: auto;">
+                 {{if session.forced_language =='de': }}
+				            <h5 style="color: #656565; margin-bottom: 0.5em;margin-top:1em;">Bibliographische Angaben</h5>
+                            <p>Kulturelles Erbe: Materialität – Text – Edition (KEMTE)</p>
+                            <p>Herausgeber<br>
+                            Ludger Lieb, Christian Witschel</p>
+                            
+                            <!--
+                              
+                              <h5 style="color: #656565; margin-bottom: 0.5em;margin-top:1em;">ISSN</h5>
+                            <p>ISSN 2568-7867 (Print)<br>
+                            ISSN 2569-8141 (online)</p>
+                               -->
+                            
+
+             {{elif session.forced_language =='en': }}
+                            <h5 style="color: #656565; margin-bottom: 0.5em;margin-top:1em;">Bibliographic details</h5>                         
+                                <p>Kulturelles Erbe: Materialität – Text – Edition (KEMTE)</p>
+                            <p>Herausgeber<br>
+                            Ludger Lieb, Christian Witschel</p>
+                            <!--
+                              
+                              <h5 style="color: #656565; margin-bottom: 0.5em;margin-top:1em;">ISSN</h5>
+                            <p>ISSN 2568-7867 (Print)<br>
+                            ISSN 2569-8141 (online)</p>
+                               -->
+
+        	{{pass}}
+        </div>   
+      </div>     
+    </article>                                     
+    </div>
+    </div>   
+
+
+</section>
