@@ -1,0 +1,94 @@
+{{extend 'layout.html'}}
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+	
+            <div class="col-lg-3">
+     <!--
+                <article>
+                    <div class="post-image">
+		 	{{=IMG(_src=URL('static','files/presses/6/series/43-series.jpg'))}}
+                  </div>
+
+                </article>
+                   -->
+            </div>   
+
+            <div class="col-lg-6">
+               <article>
+
+
+     <div class="post-heading">
+
+        <h3>Russia and the Asia-Pacific </h3>
+        </div>
+      {{if session.forced_language =='de': }}
+<p><i>Russia and the Asia-Pacific</i> ist die Buchreihe des Arbeitsbereichs “Russlands Nordpazifik”, den das Deutsche Historische Institut Moskau seit dem Frühjahr 2017 in Zusammenarbeit mit dem Lehrstuhl für Russland-Asien-Studien der Ludwig-Maximilians-Universität München aufbaut. Ihr Ziel besteht darin, thematisch interessierte Forscher/innen weltweit zu vernetzen. Im Mittelpunkt steht die Untersuchung regionaler Verflechtungs- und Entflechtungsprozesse zwischen Akteuren der russländischen Pazifikregion und solchen anderer Anrainerstaaten aus historischen wie gegenwartsbezogenen Perspektiven. Indem Russland als pazifische Macht verstanden wird, lässt sich die asiatisch-pazifische Region gesellschaftlich und politisch neu vermessen. </p>
+<p>Arbeitsbereich und Reihe haben einen historischen Schwerpunkt, sind jedoch interdisziplinär angelegt. Der Zeitrahmen reicht vom 18. Jahrhundert bis zur Gegenwart. Entsprechend ist die Reihe nicht nur für historische Arbeiten, sondern auch für Beiträge aus Politik-, Sozial-, Umwelt- und Regionalwissenschaften geeignet. Neben ausgewählten Ergebnissen von einschlägigen Workshops und Konferenzen steht die Reihe Monographien deutscher und internationaler Wissenschaftler/innen offen, nicht zuletzt auch herausragenden Qualifikationsarbeiten. Veröffentlichungen sind auf Englisch und Deutsch möglich. Ein wissenschaftlicher Beirat begleitet die Arbeit der Reihe und wacht über die Einhaltung hoher Qualitätsstandards.</p>
+
+      
+      {{elif session.forced_language =='en': }}                 
+<p><i>Russia and the Asia-Pacific</i> ist die Buchreihe des Arbeitsbereichs “Russlands Nordpazifik”, den das Deutsche Historische Institut Moskau seit dem Frühjahr 2017 in Zusammenarbeit mit dem Lehrstuhl für Russland-Asien-Studien der Ludwig-Maximilians-Universität München aufbaut. Ihr Ziel besteht darin, thematisch interessierte Forscher/innen weltweit zu vernetzen. Im Mittelpunkt steht die Untersuchung regionaler Verflechtungs- und Entflechtungsprozesse zwischen Akteuren der russländischen Pazifikregion und solchen anderer Anrainerstaaten aus historischen wie gegenwartsbezogenen Perspektiven. Indem Russland als pazifische Macht verstanden wird, lässt sich die asiatisch-pazifische Region gesellschaftlich und politisch neu vermessen. </p>
+<p>Arbeitsbereich und Reihe haben einen historischen Schwerpunkt, sind jedoch interdisziplinär angelegt. Der Zeitrahmen reicht vom 18. Jahrhundert bis zur Gegenwart. Entsprechend ist die Reihe nicht nur für historische Arbeiten, sondern auch für Beiträge aus Politik-, Sozial-, Umwelt- und Regionalwissenschaften geeignet. Neben ausgewählten Ergebnissen von einschlägigen Workshops und Konferenzen steht die Reihe Monographien deutscher und internationaler Wissenschaftler/innen offen, nicht zuletzt auch herausragenden Qualifikationsarbeiten. Veröffentlichungen sind auf Englisch und Deutsch möglich. Ein wissenschaftlicher Beirat begleitet die Arbeit der Reihe und wacht über die Einhaltung hoher Qualitätsstandards.</p>
+   {{pass}}
+<!--
+                    <div class="widget">
+                        <h5 class="widgetheading"></h5>
+                        <ul class="tags">          
+                            <li>{{=A(T('Volumes'),_href=URL('catalog','series/phs'))}}
+                        </ul>
+                    </div>
+-->
+                </article>
+
+			</div>
+         <div class="col-lg-3">
+          <article>
+            <div class="box">
+
+			           <div class="box-gray alignleft" style="height: auto;">
+                 {{if session.forced_language =='de': }}
+				            <h5 style="color: #656565; margin-bottom: 0.5em;margin-top:1em;">Bibliographische Angaben</h5>
+                            <p>Russia and the Asia-Pacific</p>
+                            <p>Herausgeber<br>
+                            <ul>
+                            <li>Dr. Benjamin Beuerle (DHIM)</li>
+                            <li>Sandra Dahlke (DHIM)</li>
+                            <li>Andreas Renner (LMU München)</li>
+                            <li>Deutsches Historisches Institut Moskau (DHIM)</li>
+                            </ul>
+                            
+                            <!--
+                              
+                              <h5 style="color: #656565; margin-bottom: 0.5em;margin-top:1em;">ISSN</h5>
+                            <p>ISSN 2568-7867 (Print)<br>
+                            ISSN 2569-8141 (online)</p>
+                               -->
+                            
+
+             {{elif session.forced_language =='en': }}
+                            <h5 style="color: #656565; margin-bottom: 0.5em;margin-top:1em;">Bibliographic details</h5>                         
+                            <p>Series editors</p>
+                            <ul>
+                            <li>Dr. Benjamin Beuerle (DHIM)</li>
+                            <li>Sandra Dahlke (DHIM)</li>
+                            <li>Andreas Renner (LMU München)</li>
+                            <li>Deutsches Historisches Institut Moskau (DHIM)</li>
+                            </ul>
+                            <!--
+                              
+                              <h5 style="color: #656565; margin-bottom: 0.5em;margin-top:1em;">ISSN</h5>
+                            <p>ISSN 2568-7867 (Print)<br>
+                            ISSN 2569-8141 (online)</p>
+                               -->
+
+        	{{pass}}
+        </div>   
+      </div>     
+    </article>                                     
+    </div>
+    </div>   
+
+
+</section>
