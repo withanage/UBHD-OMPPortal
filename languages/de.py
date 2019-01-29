@@ -61,6 +61,7 @@
 'Akademie': 'Akademie',
 'All': 'Alle',
 'Altersempfehlung': 'Altersempfehlung',
+'Analysis': 'Analysis',
 'and': 'und',
 'Ansichtsexemplar': 'Ansichtsexemplar',
 'Anz. der Medien': 'Anz. der Medien',

@@ -119,7 +119,11 @@ Religious aesthetics have gained increasing importance over the past few years i
 		</div>
 		
 		
-    <h4>{{=T('Series')}}</h4>
+	<div class="row">
+        <div class="col-lg-12">
+            <h4>{{=T('Series')}}</h4>
+        </div>   
+	</div>
 			<div class="container" id="joerdens" height="400px">
 		     <div class="row">
 				<div class="col-lg-2">
@@ -141,19 +145,57 @@ Religious aesthetics have gained increasing importance over the past few years i
                         <p>Die neue Reihe <i>Studien und Texte aus der Heidelberger Papyrussammlung</i> (STHP)  hat zum Ziel, eine Plattform für die mit der Sammlung verbundenen Publikationen zu bieten. Dies betrifft insbesondere die Herausgabe der dort aufbewahrten Papyri und Ostraka in griechischer, demotischer, koptischer und arabischer Sprache, ohne sich freilich auf reine Editionsbände zu beschränken. Einen Schwerpunkt bilden die am Institut angefertigten Dissertationen. Die STHP können dadurch als weithin sichtbarer Ausweis der vielfältigen Aktivitäten an der Heidelberger Papyrussammlung gelten.</p>
                         <p>Die Reihe steht in der Nachfolge der 1954 begründeten <i>Veröffentlichungen aus der Heidelberger Papyrussammlung. Neue Folge</i> (VHP.NF), die bislang unter der Ägide der Heidelberger Akademie der Wissenschaften im Universitätsverlag Carl Winter erschien. Für die Herausgabe wird künftig ein Gremium hochrangiger Fachvertreter aus Papyrologie und Ägyptologie zuständig sein. Wie schon bisher, werden die Bände auch darüber hinaus weiterhin unter Beiziehung der zuständigen Fachkollegen betreut, was die hohe Qualität der bestens eingeführten Reihe auch in Zukunft verbürgt. Mit der parallelen Publikation in digitaler Form wird zudem ein direkter Zugriff auf die online gestellten Artefakte ermöglicht und damit die internationale Wahrnehmung der reichen Bestände an Papyri, Ostraka, Pergamenten und Papieren an der Heidelberger Papyrussammlung weiter gestärkt.
                         </p>                        
-						<p>Erscheint demnächst</p>
+						<p>Erscheint Januar 2019</p>
 
                         {{elif session.forced_language =='en': }}
                         <p>The aim of the <i>Studien und Texte aus der Heidelberger Papyrussammlung</i> (STHP) series is to provide a home for publications related to the collection. In particular, it comprises editions of Greek, Demotic, Coptic, and Arabic papyri and ostraka, but is not limited to editions. Dissertations completed in the Institute constitute a special focus. Through this, the STHP will serve to witness the many and varied activities of the Heidelberg papyrus collection.</p>
                         <p>Previously, the series was published under the auspices of the Heidelberg Academy of Sciences together with the University press Carl Winter. In the future, the director of the Institute for Papyrology will act as managing editor. As in the past, volumes will be reviewed by scholars in the field, which will ensure the continued high quality of the series. Parallel publication in digital form will guarantee direct online access to the artifacts, something that will further strengthen international recognition of the rich collection of papyrus, ostraka, parchment, and paper holdings in Heidelberg.
                         </p>                        
-						<p>Coming soon</p>
+						<p>Coming January 2019</p>
                         {{pass}}
 						</p>
 					</article>
 				</div>
 			</div>
 		</div>
+    
+
+			<div class="container" id="phs" height="400px">
+		     <div class="row">
+				<div class="col-lg-2">
+					<article>
+						<div class="post-image">
+							{{=IMG(_src=URL(myconf.take('web.application'),'static','/files/presses/6/series/43-series.jpg'),_alt='', _class='bildrahmen')}}
+						</div>
+					</article>
+				</div>
+				<div class="col-lg-10">
+					<article>
+						<div class="post-heading">
+						    <b>Miriam Régerat-Kobitzsch<br />
+							»Cette reine qui fait une si piètre figure«</b>
+						</div>
+						
+						<p>
+						    {{if session.forced_language =='de': }}
+                        <p>Die französische Königin Maria von Medici (1575–1642) galt in der Nachwelt als vulgär, verschwenderisch, machtbesessen und intrigant, ja sogar als Gattenmörderin. Dies ist das Bild, das die männlich und national geprägte Geschichtsschreibung in Frankreich seit dem Ancien Régime von ihr vermittelt hat. Ihr kulturelles und politisches Wirken wurde hierbei zu einer unbedeutenden weiblichen und italienischen Klammer zwischen der Herrschaft Heinrichs IV. und dem Ministerium Richelieus reduziert. In den historischen Meistererzählungen des 19. Jahrhunderts diente die Schilderung vermeintlicher Verfehlungen Marias von Medici überdies als Beleg für den Siegeszug einer werdenden französischen Nation, die Widerstände immer erfolgreich überwunden hatte.</p>
+                        <p>Dieses Buch untersucht erstmals eingehend die bewegte Rezeption der umstrittenen zweiten Medici-Regentin im 19. Jahrhundert in Frankreich und setzt diese mit dem Bild in Perspektive, das zeitgleich in anderen europäischen Ländern von ihr entwickelt wurde. Warum überdauerten die negativen Motive ihrer Rezeption den Einschnitt der Revolution von 1789? Welchen Platz nahm diese Figur im historischen Diskurs einer sich zunehmend bürgerlich, republikanisch und laizistisch definierenden französischen Nation ein? Die Studie bietet tiefe Einblicke in die Verquickung von Geschichtsschreibung, Gesellschaft und Politik in der europaweiten Krisen- und Umbruchszeit des Nationalismus.
+                        </p>                        
+						<p>Erscheint Sommer 2019</p>
+
+                        {{elif session.forced_language =='en': }}
+                        <p>The aim of the <i>Studien und Texte aus der Heidelberger Papyrussammlung</i> (STHP) series is to provide a home for publications related to the collection. In particular, it comprises editions of Greek, Demotic, Coptic, and Arabic papyri and ostraka, but is not limited to editions. Dissertations completed in the Institute constitute a special focus. Through this, the STHP will serve to witness the many and varied activities of the Heidelberg papyrus collection.</p>
+                        <p>Previously, the series was published under the auspices of the Heidelberg Academy of Sciences together with the University press Carl Winter. In the future, the director of the Institute for Papyrology will act as managing editor. As in the past, volumes will be reviewed by scholars in the field, which will ensure the continued high quality of the series. Parallel publication in digital form will guarantee direct online access to the artifacts, something that will further strengthen international recognition of the rich collection of papyrus, ostraka, parchment, and paper holdings in Heidelberg.
+                        </p>                        
+						<p>Coming in Summer 2019</p>
+                        {{pass}}
+						</p>
+					</article>
+				</div>
+			</div>
+		</div>    
+    
+    
     </div>
 	</div>
 </div>
