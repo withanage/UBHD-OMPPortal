@@ -1797,6 +1797,7 @@ a[href^="https://doi.org/10.17885"] {
 }
 .widget ul.tags li a {
 	color: #FFF;
+  width: auto;
 }
 .navbar-default .navbar-nav > .open > a {
 	padding-left: 10px;
