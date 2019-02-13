@@ -212,7 +212,8 @@ td > .content-node.paragraph + .content-node.paragraph {
 
 .content-node.heading .title, .content-node.heading .content .title .content {         /*war vorher: display: inline, ohne Angabe für line-height - aktuelle Anweisungen eingetragen, um ZAB bei Ausgabe auf Mobilgeräten zu verringern auf Wunsch ak, 13.02.19*/
   display: inline-block;
-  line-height: 1.3em; }
+  line-height: 1.3em;
+  margin-top: 0.8em; }
 
 .content-node.heading .content {
   color: rgba(0, 0, 0, 0.8);
