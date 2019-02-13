@@ -346,6 +346,7 @@
 'Preface': 'Allgemeines',
 'Preview': 'Vorschau',
 'previous %s rows': 'vorherige %s Reihen',
+'Privacy Notice': 'Datenschutzerklärung',
 'Print On Demand': 'Print On Demand',
 'Produktform/Medienart': 'Produktform/Medienart',
 'Produktionsjahr': 'Produktionsjahr',

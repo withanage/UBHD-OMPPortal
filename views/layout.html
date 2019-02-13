@@ -236,6 +236,11 @@
                         <li><a href="{{=URL('campusmedia','index')}}">Campus Media</a></li>
                         <li>{{=T('Publishing')}} | <a href="{{=URL('publishing','for_authors')}}">{{=T('Information for Authors')}}</a></li>
                         <li><a href="{{=URL('contact','imprint')}}">{{=T('Legal Notice')}}</a></li>
+                {{if session.forced_language=='de':}}                        
+                        <li><a href="https://www.uni-heidelberg.de/datenschutzerklaerung_web.html">{{=T('Privacy Notice')}}</a></li>
+                {{elif session.forced_language=='en':}}
+                        <li><a href="https://www.uni-heidelberg.de/privacypolicy_web.html">{{=T('Privacy Notice')}}</a></li>
+                {{pass}}                                
                      </ul>
                  </div>
              </div>
