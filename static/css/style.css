@@ -40,6 +40,11 @@ h4.team_titel {
 	margin-top: 0;
 	line-height: 18px;
 }
+
+h4 {
+  margin-bottom: 10px; 
+  margin-top: 20px; 
+}
 /* ===================================2. layout==================================== */
 .container {
 	padding: 0 20px 0 20px;
