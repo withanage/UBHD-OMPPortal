@@ -48,16 +48,16 @@
   padding: 0px; }
 
 .content-node.paragraph.margin-top-1 {
-  margin-top: 1em; }
+  margin-top: 1em !important; }
 
 .content-node.paragraph.margin-top-2 {
   margin-top: 2em !important; }
 
 .content-node.paragraph.margin-bottom-1 {
-  margin-bottom: 1em; }
+  margin-bottom: 1em !important; }
 
 .content-node.paragraph.margin-bottom-2 {
-  margin-bottom: 2em; }
+  margin-bottom: 2em !important; }
 
 .content-node.paragraph.margin-left-1 {
   margin-left: 2ex; }
