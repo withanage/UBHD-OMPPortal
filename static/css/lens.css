@@ -51,7 +51,7 @@
   margin-top: 1em; }
 
 .content-node.paragraph.margin-top-2 {
-  margin-top: 2em; }
+  margin-top: 2em !important; }
 
 .content-node.paragraph.margin-bottom-1 {
   margin-bottom: 1em; }
