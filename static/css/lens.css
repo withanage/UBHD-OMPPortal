@@ -1555,7 +1555,7 @@ ol.content.ordered {
   padding-left: 20px; }
 
 .content.dash li {
-  background: url("/static/images/list-style-dash.png") no-repeat left 0.82em; }
+  background: url("../images/list-style-dash.png") no-repeat left 0.82em; }
 
 .content.dash li > .content-node.paragraph {
   padding-left: 20px; }
