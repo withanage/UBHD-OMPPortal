@@ -1,0 +1,103 @@
+{{extend 'layout.html'}}
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+	
+            <div class="col-lg-3">
+     <!--
+                <article>
+                    <div class="post-image">
+		 	{{=IMG(_src=URL('static','files/presses/6/series/43-series.jpg'))}}
+                  </div>
+
+                </article>
+                   -->
+            </div>   
+
+            <div class="col-lg-6">
+               <article>
+
+
+     <div class="post-heading">
+      {{if session.forced_language =='de': }}
+        <h3>Antiziganismusforschung interdisziplinär<br />
+            Schriftenreihe der Forschungsstelle Antiziganismus</h3>
+
+      {{elif session.forced_language =='en': }}            
+        <h3>Interdisciplinary Studies in Antigypsyism<br />
+Book series initiated by the Research Centre on Antigypsyism</h3>
+      {{pass}}
+        </div>
+      {{if session.forced_language =='de': }}
+<p><em>Antiziganismusforschung interdisziplinär</em> gibt Einblicke in ein noch junges, aber dynamisches Forschungsfeld, das unterschiedliche methodische Zugänge erfordert. Sowohl bereits etablierte Forscherinnen und Forscher wie Nachwuchswissenschaftlerinnen und -wissenschaftler erhalten die Möglichkeit, neue Forschungsergebnisse in englischer oder deutscher Sprache zu publizieren. Die Reihe zielt darauf ab, die Antiziganismusforschung stärker im akademischen Diskurs zu verankern und Institutionen wie Forschende zusammenzuführen, kurz: sie will Impulsgeber für die weitere Grundlagenarbeit sein.</p>
+<p>Als erste Fachinstitution ihrer Art ist die Forschungsstelle Antiziganismus seit Juli 2017 am Historischen Seminar der Universität Heidelberg angesiedelt; sie wird dauerhaft vom Land Baden-Württemberg gefördert. Die dort tätigen Wissenschaftlerinnen und Wissenschaftler setzen sich mit den vielfältigen Erscheinungsformen des Antiziganismus – verstanden als eine spezifische Form des Rassismus gegen Sinti, Roma und andere als „Zigeuner“ stigmatisierte Gruppen oder Individuen – auseinander. Das Erkenntnisinteresse gilt insbesondere den Mechanismen der antiziganistischen Vorurteilsbildung und deren unterschiedlichen Funktionen in den europäischen Gesellschaften von der Frühen Neuzeit bis in die Gegenwart. 
+</p>
+
+      
+      {{elif session.forced_language =='en': }}                 
+<p><em>Antiziganismusforschung interdisziplinär</em> gibt Einblicke in ein noch junges, aber dynamisches Forschungsfeld, das unterschiedliche methodische Zugänge erfordert. Sowohl bereits etablierte Forscherinnen und Forscher wie Nachwuchswissenschaftlerinnen und -wissenschaftler erhalten die Möglichkeit, neue Forschungsergebnisse in englischer oder deutscher Sprache zu publizieren. Die Reihe zielt darauf ab, die Antiziganismusforschung stärker im akademischen Diskurs zu verankern und Institutionen wie Forschende zusammenzuführen, kurz: sie will Impulsgeber für die weitere Grundlagenarbeit sein.</p> 
+<p>Als erste Fachinstitution ihrer Art ist die Forschungsstelle Antiziganismus seit Juli 2017 am Historischen Seminar der Universität Heidelberg angesiedelt; sie wird dauerhaft vom Land Baden-Württemberg gefördert. Die dort tätigen Wissenschaftlerinnen und Wissenschaftler setzen sich mit den vielfältigen Erscheinungsformen des Antiziganismus – verstanden als eine spezifische Form des Rassismus gegen Sinti, Roma und andere als „Zigeuner“ stigmatisierte Gruppen oder Individuen – auseinander. Das Erkenntnisinteresse gilt insbesondere den Mechanismen der antiziganistischen Vorurteilsbildung und deren unterschiedlichen Funktionen in den europäischen Gesellschaften von der Frühen Neuzeit bis in die Gegenwart. 
+</p>
+   {{pass}}
+<!--
+                    <div class="widget">
+                        <h5 class="widgetheading"></h5>
+                        <ul class="tags">          
+                            <li>{{=A(T('Volumes'),_href=URL('catalog','series/phs'))}}
+                        </ul>
+                    </div>
+-->
+                </article>
+
+			</div>
+         <div class="col-lg-3">
+          <article>
+            <div class="box">
+
+			           <div class="box-gray alignleft" style="height: auto;">
+                 {{if session.forced_language =='de': }}
+				            <h5 style="color: #656565; margin-bottom: 0.5em;margin-top:1em;">Bibliographische Angaben</h5>
+                            <p>Antiziganismusforschung interdisziplinär<br />
+                            Schriftenreihe der Forschungsstelle Antiziganismus</p>
+                            <p>Reihenherausgeber</p>
+                            <ul>
+                              <li>Prof. Dr. Edgar Wolfrum, Heidelberg</li>
+                              <li>Dr. Frank Reuter, Heidelberg</li>
+                              <li>Daniela Gress, Heidelberg</li>
+                            </ul>
+                            
+                            <!--
+                              
+                              <h5 style="color: #656565; margin-bottom: 0.5em;margin-top:1em;">ISSN</h5>
+                            <p>ISSN 2568-7867 (Print)<br>
+                            ISSN 2569-8141 (online)</p>
+                               -->
+                            
+
+             {{elif session.forced_language =='en': }}
+                            <h5 style="color: #656565; margin-bottom: 0.5em;margin-top:1em;">Bibliographic details</h5> 
+                            <p>Interdisciplinary Studies in Antigypsyism<br />
+                            Book series initiated by the Research Centre on Antigypsyism</p>
+                            <p>Series editors</p>
+                            <ul>
+                              <li>Prof. Dr. Edgar Wolfrum, Heidelberg</li>
+                              <li>Dr. Frank Reuter, Heidelberg</li>
+                              <li>Daniela Gress, Heidelberg</li>
+                            </ul>
+                            <!--
+                              
+                              <h5 style="color: #656565; margin-bottom: 0.5em;margin-top:1em;">ISSN</h5>
+                            <p>ISSN 2568-7867 (Print)<br>
+                            ISSN 2569-8141 (online)</p>
+                               -->
+
+        	{{pass}}
+        </div>   
+      </div>     
+    </article>                                     
+    </div>
+    </div>   
+
+
+</section>
