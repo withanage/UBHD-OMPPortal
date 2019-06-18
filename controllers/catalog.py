@@ -307,8 +307,10 @@ def book():
                                   ompdal.getActualAuthorsBySubmission(submission_id, filter_browse=True)]
 
     # Get chapters and chapter authors
+
     chapters = []
     for chapter in ompdal.getChaptersBySubmission(submission_id):
+        print(ompdal.getChapterSettings(chapter.chapter_id))
         chapters.append(OMPItem(chapter,
                                 OMPSettings(ompdal.getChapterSettings(
                                     chapter.chapter_id)),
