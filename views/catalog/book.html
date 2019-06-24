@@ -5,13 +5,13 @@
 {{file_ids=[]}}
 {{if len(request.args)==2:}}
 {{include 'catalog/snippets/chapter.html'}}
-{{BEAUTIFY(response._vars)}}
 
 {{pass}}
 
 
 {{if len(request.args)==1:}}
 
+{{include 'catalog/snippets/book.html'}}
 
 
 {{ cdn = 'https://www.ub.uni-heidelberg.de/cdn' }}
