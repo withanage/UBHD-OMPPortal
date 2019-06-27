@@ -199,10 +199,10 @@
                             <!-- reviews begin -->
                         {{include '../static/omp-resources/views/catalog/reviews.html' }}
                             <!-- reviews end -->
-                        {{bios = [(formatName(e.attributes), e.settings.getLocalizedValue('biography', locale)) for e in editors]}}
+                        {{bios = [(formatName(e.settings), e.settings.getLocalizedValue('biography', locale)) for e in editors]}}
                         {{bios_role = "editor"}}
                         {{if bios == []:}}
-                        {{bios = [(formatName(a.attributes), a.settings.getLocalizedValue('biography', locale)) for a in authors]}}
+                        {{bios = [(formatName(a.settings), a.settings.getLocalizedValue('biography', locale)) for a in authors]}}
                         {{bios_role = "author"}}
                         {{pass}}
                         {{if bios:}}
@@ -246,7 +246,7 @@
                                 <div class="chapter_row">
                                     <div class="chapter_cell">
                                     {{if c_authors and display_authors:}}
-                                        <div class="chapter_author">{{=", ".join([formatName(a.attributes) for a in c_authors])}}</div>
+                                        <div class="chapter_author">{{=", ".join([formatName(a.settings) for a in c_authors])}}</div>
                                     {{pass}}
                                         <div class="chapter_title">{{=c_title}}</div>
                                     {{if c_subtitle:}}
