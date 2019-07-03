@@ -513,15 +513,16 @@ form#commentform textarea {
 }
 #thumbs li {
 	list-style-type: none;
+  height: auto;
 }
 .item-thumbs {
 	position: relative;
 	overflow: hidden;
-	margin-bottom: 30px;
 	cursor: pointer;
 }
-.item-thumbs a + img {
-	width: 100%;
+
+figure > img {
+  margin-top: 1em;
 }
 .item-thumbs .hover-wrap {
 	position: absolute;
@@ -1942,6 +1943,13 @@ footer {
 	width: 70%;
 }
 }
+
+@media (max-width: 592px) {
+#thumbs li {
+  height: 210px;  
+}
+
+}
 @media (max-width:776px) {
 #nav-social-media  {
   padding-right: 25px;
@@ -1973,6 +1981,13 @@ footer {
  {
 .navbar .nav > li > a {
 	margin-left: 10px;
+}
+}
+
+@media (min-width: 1200px)
+{
+#thumbs li {
+  height: 230px;  
 }
 }
 /***Printstyle ***/
