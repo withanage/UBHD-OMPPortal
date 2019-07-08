@@ -6,7 +6,7 @@ LICENSE.md
 '''
 
 from ompdal import OMPDAL, OMPSettings, OMPItem
-from ompformat import dateFromRow, seriesPositionCompare
+from ompformat import dateFromRow, seriesPositionCompare, formatDoi, dateToStr
 
 from ompsolr import OMPSOLR
 from ompbrowse import Browser
@@ -339,9 +339,10 @@ def book():
     for pf in ompdal.getPhysicalPublicationFormats(submission_id, available=True, approved=True):
         physical_publication_formats.append(OMPItem(pf, OMPSettings(ompdal.getPublicationFormatSettings(pf.publication_format_id)), {'identification_codes': ompdal.getIdentificationCodesByPublicationFormat(pf.publication_format_id), 'publication_dates': ompdal.getPublicationDatesByPublicationFormat(pf.publication_format_id)}))
 
+    pdf = ompdal.getPublicationFormatByName(submission_id, myconf.take('omp.doi_format_name')).first()
+
     doi = ""
     submission_doi = ompdal.getSubmissionSettings(submission_id).find(lambda row: row.setting_name == 'pub-id::doi')
-    pdf = ompdal.getPublicationFormatByName(submission_id, myconf.take('omp.doi_format_name')).first()
     if submission_doi:
         doi = submission_doi.first().get('setting_value')
     elif pdf:
@@ -396,12 +397,30 @@ def book():
         series_name = " – ".join([t for t in [series_title.strip(), series_subtitle] if t])
     else:
         series_name = ""
+
     license = submission_settings.getLocalizedValue('rights', locale)
-    LICENSE =DIV()
-    if license != '':
-     LICENSE = DIV(H5(T('Licenses'), _style="color: #656565; margin-bottom: 0.3em;"), XML(license))
+    LICENSE = DIV(H5(T('Licenses'), _style="color: #656565; margin-bottom: 0.3em;"), XML(license))  if license != '' else DIV()
 
 
+    identification_codes = [i for i in [pf.associated_items.get('identification_codes', []) for pf in digital_publication_formats + physical_publication_formats] if i]
+    ic = []
+    ic.append(H5(T("Identifiers"), _style="color: #656565; margin-bottom: 0.5em; margin-top: 1.2em;")  if identification_codes else DIV())
+    ic.append(DIV(A(formatDoi(doi), _href=formatDoi(doi))))
+    for p in idntfrs:
+        if len(p[1]) == 3:
+            if p[1][1] == 22:
+                ic.append(DIV('{} '.format(onix_types.get(str(p[1][1]))), A(p[1][0], _href="http://nbn-resolving.de/" + p[1][0]), _style="margin-top: 0.0em; margin-bottom:5px"))
+            else:
+                ic.append(DIV('{} {} ({})'.format(onix_types.get(str(p[1][1])), p[1][0], p[1][2]), _style="margin-top: 0px;"))
+    IDENTIFICATION_CODES = P(*ic, _style="margin-top: 0.0em;")
+
+    publ = [T('Published'), dateToStr(date_published, locale, "%x"),'.']
+    PUBLISHED_DATE=P(publ, _style = "margin-top: 1.2em;")
+
+    #source
+    source = submission_settings.getLocalizedValue('source', locale)
+    sc = [DIV(_class="separator", _style="margin-top: 1.2em"), P(XML(source), _style="margin-top: 1.2em")] if source else []
+    SOURCE = DIV(*sc)
 
     return locals()
 
