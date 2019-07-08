@@ -421,6 +421,7 @@ def book():
     source = submission_settings.getLocalizedValue('source', locale)
     sc = [DIV(_class="separator", _style="margin-top: 1.2em"), P(XML(source), _style="margin-top: 1.2em")] if source else []
     SOURCE = DIV(*sc)
+    
 
     return locals()
 
