@@ -45,17 +45,8 @@
 
                     <article>
                         <div class="summary">
-                        {{for pf in digital_publication_formats:}}
-                        {{full_file = pf.associated_items.get('full_file')}}
+                        {{=FULL_HTML}}
 
-                        {{if full_file and ("xml" in full_file.attributes.file_type or "html" in full_file.attributes.file_type):}}
-                            <div class="btn-group" role="group" aria-label="1">
-                                <li type="button" class="btn btn-default"><a
-                                        href="{{=downloadLink(request, full_file.attributes, myconf.take('web.url'), full_file.settings.getLocalizedValue("vgWortPublic", ""))}}"
-                                        target="_blank">{{=T('Read')}}</a></li>
-                            </div>
-                        {{pass}}
-                        {{pass}}
                         {{if [(pf.associated_items.get('full_file', None).attributes.file_type != "text/html" or pf.associated_items.get('full_file', None).attributes.file_type != "text/xml") for pf in digital_publication_formats if pf.associated_items.get('full_file', None)].count(True):}}
                             <div class="btn-group" role="group" aria-label="2">
                                 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"

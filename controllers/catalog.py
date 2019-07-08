@@ -6,7 +6,7 @@ LICENSE.md
 '''
 
 from ompdal import OMPDAL, OMPSettings, OMPItem
-from ompformat import dateFromRow, seriesPositionCompare, formatDoi, dateToStr
+from ompformat import dateFromRow, seriesPositionCompare, formatDoi, dateToStr, downloadLink
 
 from ompsolr import OMPSOLR
 from ompbrowse import Browser
@@ -421,7 +421,14 @@ def book():
     source = submission_settings.getLocalizedValue('source', locale)
     sc = [DIV(_class="separator", _style="margin-top: 1.2em"), P(XML(source), _style="margin-top: 1.2em")] if source else []
     SOURCE = DIV(*sc)
-    
+
+    FULL_HTML = DIV()
+    for pf in digital_publication_formats:
+        full_file = pf.associated_items.get('full_file')
+        if full_file and ("xml" in full_file.attributes.file_type or "html" in full_file.attributes.file_type):
+            FULL_HTML = DIV(LI(A(T('Read'), _href=downloadLink(request, full_file.attributes, myconf.take('web.url'), full_file.settings.getLocalizedValue("vgWortPublic", "")), _target="_blank"), _type="button", _class="btn btn-default"), _class="btn-group", _role="group")
+            break
+
 
     return locals()
 
