@@ -37,6 +37,8 @@ ONIX_PRODUCT_IDENTIFIER_TYPE_CODES = {"01": "Proprietary",
                                       }
 IDENTIFIER_ORDER = ['06', '22.PDF', '15.PDF', '15.Hardcover', '15.Softcover', '15.Print', '15.Online','15.EPUB']
 
+def raise400():
+    raise HTTP(400)
 
 def category():
     ignored_submission_id = myconf.take('omp.ignore_submissions') if myconf.take(
@@ -277,39 +279,26 @@ def preview():
     return locals()
 
 def book():
-    def getChapterMetadata(ompdal, submission_id):
-        chapters = []
-        for chapter in ompdal.getChaptersBySubmission(submission_id):
-            chapters.append(OMPItem(chapter,
-                                    OMPSettings(ompdal.getChapterSettings(
-                                            chapter.chapter_id)),
-                                    {
-                                        'authors': [OMPItem(a, OMPSettings(ompdal.getAuthorSettings(a.author_id))) for a
-                                                    in
-                                                    ompdal.getAuthorsByChapter(chapter.chapter_id)]
-                                        })
-                            )
-        return chapters
-
-    submission_id = request.args[0] if request.args else redirect(
-            URL('home', 'index'))
 
     ompdal = OMPDAL(db, myconf)
 
-    press = ompdal.getPress(myconf.take('omp.press_id'))
-
-    if not press or not submission_id.isdigit():
-        redirect(URL('home', 'index'))
-    press_settings = OMPSettings(ompdal.getPressSettings(press.press_id))
-
-    # Get basic submission info (check, if submission is associated with the
-    # actual press and if the submission has been published)
-    submission = ompdal.getPublishedSubmission(
-            submission_id, press_id=myconf.take('omp.press_id'))
-    if not submission:
-        redirect(URL('home', 'index'))
+    submission_id = request.args[0] if request.args  and request.args[0].isdigit() else raise400()
+    press_id = myconf.take('omp.press_id')
+    press = ompdal.getPress(press_id)
+    submission = ompdal.getPublishedSubmission(submission_id, press_id=press_id)
+    if not submission or not press:
+        raise HTTP(400)
 
     submission_settings = OMPSettings(ompdal.getSubmissionSettings(submission_id))
+    press_settings = OMPSettings(ompdal.getPressSettings(press.press_id))
+
+
+    def getChapterMetadata(ompdal, submission_id):
+        chapters = []
+        for chapter in ompdal.getChaptersBySubmission(submission_id):
+            chapters.append(OMPItem(chapter, OMPSettings(ompdal.getChapterSettings(chapter.chapter_id)), {'authors': [OMPItem(a, OMPSettings(ompdal.getAuthorSettings(a.author_id))) for a in ompdal.getAuthorsByChapter(chapter.chapter_id)]}))
+        return chapters
+
 
     chapters = getChapterMetadata(ompdal, submission_id)
 
