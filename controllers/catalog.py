@@ -318,45 +318,26 @@ def book():
     # Get digital publication formats, settings, files, and identification codes
     digital_publication_formats = []
     for pf in ompdal.getDigitalPublicationFormats(submission_id, available=True, approved=True):
-        publication_format = OMPItem(pf,
-                                     OMPSettings(ompdal.getPublicationFormatSettings(
-                                             pf.publication_format_id)),
-                                     {'identification_codes': ompdal.getIdentificationCodesByPublicationFormat(
-                                             pf.publication_format_id),
-                                         'publication_dates': ompdal.getPublicationDatesByPublicationFormat(
-                                                 pf.publication_format_id)}
-                                     )
-        full_file = ompdal.getLatestRevisionOfFullBookFileByPublicationFormat(
-                submission_id, pf.publication_format_id)
+        publication_format = OMPItem(pf, OMPSettings(ompdal.getPublicationFormatSettings(pf.publication_format_id)), {'identification_codes': ompdal.getIdentificationCodesByPublicationFormat(pf.publication_format_id), 'publication_dates': ompdal.getPublicationDatesByPublicationFormat(pf.publication_format_id)})
+        full_file = ompdal.getLatestRevisionOfFullBookFileByPublicationFormat(submission_id, pf.publication_format_id)
         full_epub_file = ompdal.getLatestRevisionOfEBook(submission_id, pf.publication_format_id)
         if full_epub_file:
-            publication_format.associated_items['full_file'] = OMPItem(
-                    full_epub_file, OMPSettings(ompdal.getSubmissionFileSettings(full_epub_file.file_id)))
+            publication_format.associated_items['full_file'] = OMPItem(full_epub_file, OMPSettings(ompdal.getSubmissionFileSettings(full_epub_file.file_id)))
 
         if full_file:
-            publication_format.associated_items['full_file'] = OMPItem(
-                    full_file, OMPSettings(ompdal.getSubmissionFileSettings(full_file.file_id)))
+            publication_format.associated_items['full_file'] = OMPItem(full_file, OMPSettings(ompdal.getSubmissionFileSettings(full_file.file_id)))
+
         digital_publication_formats.append(publication_format)
 
         for chapter in chapters:
-            chapter_file = ompdal.getLatestRevisionOfChapterFileByPublicationFormat(
-                    chapter.attributes.chapter_id, pf.publication_format_id)
+            chapter_file = ompdal.getLatestRevisionOfChapterFileByPublicationFormat(chapter.attributes.chapter_id, pf.publication_format_id)
             if chapter_file:
-                chapter.associated_items.setdefault('files', {})[pf.publication_format_id] = OMPItem(
-                        chapter_file, OMPSettings(ompdal.getSubmissionFileSettings(chapter_file.file_id)))
+                chapter.associated_items.setdefault('files', {})[pf.publication_format_id] = OMPItem(chapter_file, OMPSettings(ompdal.getSubmissionFileSettings(chapter_file.file_id)))
 
     # Get physical publication formats, settings, and identification codes
     physical_publication_formats = []
     for pf in ompdal.getPhysicalPublicationFormats(submission_id, available=True, approved=True):
-        physical_publication_formats.append(OMPItem(pf,
-                                                    OMPSettings(ompdal.getPublicationFormatSettings(
-                                                            pf.publication_format_id)),
-                                                    {
-                                                        'identification_codes': ompdal.getIdentificationCodesByPublicationFormat(
-                                                                pf.publication_format_id),
-                                                        'publication_dates': ompdal.getPublicationDatesByPublicationFormat(
-                                                                pf.publication_format_id)})
-                                            )
+        physical_publication_formats.append(OMPItem(pf, OMPSettings(ompdal.getPublicationFormatSettings(pf.publication_format_id)), {'identification_codes': ompdal.getIdentificationCodesByPublicationFormat(pf.publication_format_id), 'publication_dates': ompdal.getPublicationDatesByPublicationFormat(pf.publication_format_id)}))
 
     doi = ""
     submission_doi = ompdal.getSubmissionSettings(submission_id).find(lambda row: row.setting_name == 'pub-id::doi')
@@ -364,19 +345,15 @@ def book():
     if submission_doi:
         doi = submission_doi.first().get('setting_value')
     elif pdf:
-        doi = OMPSettings(ompdal.getPublicationFormatSettings(pdf.publication_format_id)).getLocalizedValue(
-                "pub-id::doi", "")  # DOI always has empty locale
+        doi = OMPSettings(ompdal.getPublicationFormatSettings(pdf.publication_format_id)).getLocalizedValue("pub-id::doi", "")  # DOI always has empty locale
 
     date_published = None
     date_first_published = None
     # Get the OMP publication date (column publication_date contains latest catalog entry edit date.) Try:
     # 1. Custom publication date entered for a publication format calles "PDF"
     if pdf:
-        date_published = dateFromRow(ompdal.getPublicationDatesByPublicationFormat(pdf.publication_format_id, "01")
-                                     .first())
-        date_first_published = dateFromRow(
-                ompdal.getPublicationDatesByPublicationFormat(pdf.publication_format_id, "11")
-                    .first())
+        date_published = dateFromRow(ompdal.getPublicationDatesByPublicationFormat(pdf.publication_format_id, "01").first())
+        date_first_published = dateFromRow(ompdal.getPublicationDatesByPublicationFormat(pdf.publication_format_id, "11").first())
     # 2. Date on which the catalog entry was first published
     if not date_published:
         metadatapublished_date = ompdal.getMetaDataPublishedDates(submission_id).first()
@@ -387,12 +364,10 @@ def book():
 
     series = ompdal.getSeriesBySubmissionId(submission_id)
     if series:
-        series = OMPItem(series, OMPSettings(
-                ompdal.getSeriesSettings(series.series_id)))
+        series = OMPItem(series, OMPSettings(ompdal.getSeriesSettings(series.series_id)))
 
     # Get purchase info
-    representatives = ompdal.getRepresentativesBySubmission(
-            submission_id, myconf.take('omp.representative_id_type'))
+    representatives = ompdal.getRepresentativesBySubmission(submission_id, myconf.take('omp.representative_id_type'))
 
     # stats = OMPStats(myconf, db, locale)
     onix_types = ONIX_PRODUCT_IDENTIFIER_TYPE_CODES
@@ -409,8 +384,24 @@ def book():
 
 
     category_row = ompdal.getCategoryBySubmissionId(submission_id)
-    category = OMPItem(category_row,
-                       OMPSettings(ompdal.getCategorySettings(category_row.category_id))) if category_row else None
+    category = OMPItem(category_row, OMPSettings(ompdal.getCategorySettings(category_row.category_id))) if category_row else None
+
+    cleanTitle = " ".join([submission_settings.getLocalizedValue('prefix', locale),
+                           submission_settings.getLocalizedValue('title', locale)])
+    subtitle = submission_settings.getLocalizedValue('subtitle', locale)
+    abstract = submission_settings.getLocalizedValue('abstract', locale)
+    if series:
+        series_title = " ".join([series.settings.getLocalizedValue('prefix', locale), series.settings.getLocalizedValue('title', locale)])
+        series_subtitle = series.settings.getLocalizedValue('subtitle', locale)
+        series_name = " – ".join([t for t in [series_title.strip(), series_subtitle] if t])
+    else:
+        series_name = ""
+    license = submission_settings.getLocalizedValue('rights', locale)
+    LICENSE =DIV()
+    if license != '':
+     LICENSE = DIV(H5(T('Licenses'), _style="color: #656565; margin-bottom: 0.3em;"), XML(license))
+
+
 
     return locals()
 

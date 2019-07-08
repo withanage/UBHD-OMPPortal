@@ -11,35 +11,19 @@
                         </div>
                     </article>
 
-                {{
-                cleanTitle = " ".join([submission_settings.getLocalizedValue('prefix', locale), submission_settings.getLocalizedValue('title', locale)])
-                subtitle = submission_settings.getLocalizedValue('subtitle', locale)
-                abstract = submission_settings.getLocalizedValue('abstract', locale)
-                if series:
-                series_title = " ".join([series.settings.getLocalizedValue('prefix', locale), series.settings.getLocalizedValue('title', locale)])
-                series_subtitle = series.settings.getLocalizedValue('subtitle', locale)
-                series_name = " – ".join([t for t in [series_title.strip(), series_subtitle] if t])
-                else:
-                series_name = ""
-                pass
-                }}
-                    <div class="box">
+             <div class="box">
                         <div class="box-gray alignleft" style="height: auto;">
                             <!-- citations begin -->
                             <h5 style="color: #656565; margin-bottom: 0.5em;">{{=T('How to cite this title')}}</h5>
                         {{include '../static/omp-resources/views/catalog/citation.html' }}
                             <!-- citations end-->
 
+                        {{=LICENSE}}
 
-                        {{license=submission_settings.getLocalizedValue('rights', locale)}}
-                        {{if license!='':}}
-                            <h5 style="color: #656565; margin-bottom: 0.3em;">{{=T('Licenses')}}</h5>
-                        {{=XML(license)}}
-                        {{pass}}
 
                         {{identification_codes = [i for i in [pf.associated_items.get('identification_codes', []) for pf in digital_publication_formats+physical_publication_formats] if i]}}
                         {{if identification_codes:}}
-                            <h5 style="color: #656565; margin-bottom: 0.5em; margin-top: 1.2em;">{{=T("Identifiers")}}</h5>
+                            {{=H5(T("Identifiers"),_style="color: #656565; margin-bottom: 0.5em; margin-top: 1.2em;")}}
                         {{pass}}
                             <p style="margin-top: 0.0em;">
                                 {{=DIV(A( formatDoi(doi), _href=formatDoi(doi)))}}
