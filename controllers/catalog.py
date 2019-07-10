@@ -423,12 +423,24 @@ def book():
     SOURCE = DIV(*sc)
 
     FULL_HTML = DIV()
+
     for pf in digital_publication_formats:
         full_file = pf.associated_items.get('full_file')
         if full_file and ("xml" in full_file.attributes.file_type or "html" in full_file.attributes.file_type):
             FULL_HTML = DIV(LI(A(T('Read'), _href=downloadLink(request, full_file.attributes, myconf.take('web.url'), full_file.settings.getLocalizedValue("vgWortPublic", "")), _target="_blank"), _type="button", _class="btn btn-default"), _class="btn-group", _role="group")
             break
 
+
+    attrbs = {"_class": "dropdown-menu", "_role": "menu", "_aria-labelledby_": "dropdownMenu1"}
+    FULL_BINARIES = UL(DIV(), **attrbs)
+    for pf in sorted(digital_publication_formats, key=lambda s: s.settings.getLocalizedValue('name', locale), reverse=True):
+        format_name = pf.settings.getLocalizedValue('name', locale)
+        formats = ['full_file', 'full_epub_file']
+        for i, f in enumerate(formats):
+            full_file = pf.associated_items.get(f)
+            if full_file and not "html" in full_file.attributes.file_type and not "xml" in full_file.attributes.file_type:
+                f_size = full_file.attributes.get('file_size') / (1024 * 1024)
+                FULL_BINARIES.append(LI(A('{} ({} MB)'.format(format_name, f_size), _role="menuitem", _tabindex=i-1, _href=downloadLink(request, full_file.attributes, myconf.take('web.url'),full_file.settings.getLocalizedValue("vgWortPublic", ""))),_role="presentation"))
 
     return locals()
 

@@ -49,47 +49,27 @@
 
                         {{if [(pf.associated_items.get('full_file', None).attributes.file_type != "text/html" or pf.associated_items.get('full_file', None).attributes.file_type != "text/xml") for pf in digital_publication_formats if pf.associated_items.get('full_file', None)].count(True):}}
                             <div class="btn-group" role="group" aria-label="2">
-                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
-                                        data-toggle="dropdown" aria-expanded="true">
-                                {{=T('Download')}}
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                {{for pf in  sorted(digital_publication_formats, key=lambda s:  s.settings.getLocalizedValue('name', locale), reverse=True):}}
-                                {{format_name=pf.settings.getLocalizedValue('name', locale)}}
-                                {{full_epub_file  = pf.associated_items.get('full_epub_file')}}
-                                {{if full_epub_file:}}
-                                {{f_size=full_epub_file.attributes.get('file_size')/(1024*1024)}}
-                                    <li role="presentation"><a role="menuitem" tabindex="0"
-                                                               href="{{=downloadLink(request, full_epub_file.attributes, myconf.take('web.url'), full_epub_file.settings.getLocalizedValue("vgWortPublic", ""))}}">{{='{} ({} MB)'.format(format_name,f_size)}}</a>
-                                    </li>
-                                {{pass}}
-                                {{full_file = pf.associated_items.get('full_file')}}
-
-                                {{if full_file and not "html" in full_file.attributes.file_type and not "xml" in full_file.attributes.file_type:}}
-                                {{f_size=full_file.attributes.get('file_size')/(1024*1024)}}
-                                    <li role="presentation"><a role="menuitem" tabindex="-1"
-                                                               href="{{=downloadLink(request, full_file.attributes, myconf.take('web.url'), full_file.settings.getLocalizedValue("vgWortPublic", ""))}}">
-                                    {{='{} ({} MB)'.format(format_name,f_size)}}</a></li>
-
-
-                                {{pass}}
-                                {{pass}}
-                                </ul>
+                                {{
+                                cts = [T('Download'),SPAN(_class="caret")]
+                                attrbs = {"_class":"btn btn-default dropdown-toggle", "_type":"button", "_id":"dropdownMenu1", "_data-toggle":"dropdown", "_aria-expanded":"true"}
+                                FULL_PDF=BUTTON(*cts,**attrbs)
+                                =FULL_PDF
+                                =FULL_BINARIES
+                                }}
                             </div>
                         {{pass}}
 
                             <div class="btn-group" role="group" aria-label="2">
                             {{if representatives:}}
-                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
-                                        data-toggle="dropdown" aria-expanded="true">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
                                 {{=T('Purchase')}}
                                     <span class="caret"></span>
                                 </button>
+
+
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                                 {{for i in representatives:}}
-                                    <li role="presentation"><a role="menuitem" href="{{=i.url}}"
-                                                               target='_blank'>{{=i.name}}</a></li>
+                                    <li role="presentation"><a role="menuitem" href="{{=i.url}}" target='_blank'>{{=i.name}}</a></li>
                                 {{pass}}
                                 </ul>
                             {{pass}}
