@@ -80,6 +80,7 @@
 'Autoren': 'Autoren',
 'Autoren : Vorname Nachname )': 'Autoren : Vorname Nachname )',
 'Available Databases and Tables': 'Verfügbare Datenbanken und Tabellen',
+'Band': 'Band',
 'Band Nr.': 'Band Nr.',
 'Barcode Position': 'Barcode Position',
 'bei 4/0 Seitenzahl = 1, bei 4/4 Seitenzahl = 2': 'bei 4/0 Seitenzahl = 1, bei 4/4 Seitenzahl = 2',
