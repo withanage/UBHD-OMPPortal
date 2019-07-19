@@ -412,7 +412,7 @@ def book():
                 ic.append(DIV('{} '.format(onix_types.get(str(p[1][1]))), A(p[1][0], _href="http://nbn-resolving.de/" + p[1][0]), _style="margin-top: 0.0em; margin-bottom:5px"))
             else:
                 ic.append(DIV('{} {} ({})'.format(onix_types.get(str(p[1][1])), p[1][0], p[1][2]), _style="margin-top: 0px;"))
-    IDENTIFICATION_CODES = P(*ic, _style="margin-top: 0.0em;")
+    IDENTIFICATION_CODES = DIV(*ic, _style="margin-top: 0.0em;")
 
     publ = '{} {}.'.format(T('Published'), dateToStr(date_published, locale, "%x"))
     PUBLISHED_DATE=P(publ, _style = "margin-top: 1.2em;")
@@ -431,7 +431,7 @@ def book():
             break
 
 
-    attrbs = {"_class": "dropdown-menu", "_role": "menu", "_aria-labelledby_": "dropdownMenu1"}
+    attrbs = {"_class": "dropdown-menu", "_role": "menu", "_aria-labelledby": "dropdownMenu1"}
     FULL_BINARIES = UL(DIV(), **attrbs)
     for pf in sorted(digital_publication_formats, key=lambda s: s.settings.getLocalizedValue('name', locale), reverse=True):
         format_name = pf.settings.getLocalizedValue('name', locale)

@@ -54,8 +54,8 @@
     {{
 
     try:
-      piwik = myconf.take('statistik.piwik_plugin')
-      if int(piwik) == 1:
+      piwik = myconf.take('statistik.piwik_plugin', int)
+      if piwik == 1:
      }}
       <script type="text/javascript">
           var _paq = _paq || [];
@@ -70,8 +70,6 @@
             g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
           })();
       </script>
-       <noscript><img alt="" src="//www.ub.uni-heidelberg.de/piwik/piwik.php?idsite=4" style="border:0;"  /></noscript>
-
 
       {{
       pass
@@ -83,7 +81,7 @@
   </head>
 
   <body>
-  
+
     <!--[if lt IE 8]><p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]-->
     <div class="flash alert alert-dismissable">{{=response.flash or ''}}</div>
     <!-- Navbar ======================================= -->
@@ -105,7 +103,7 @@
                           <map name="socialmap">
                             {{if request.url=='/': }}
                             {{request.url=request.url+myconf.take('web.application')}}
-                            {{pass}}	
+                            {{pass}}
                              <area shape="rect" coords="0,0,30,30" alt="fb" href="https://www.facebook.com/sharer/sharer.php?u={{=myconf.take('web.url')+request.url}}">
                              <area shape="rect" coords="30,0,60,30" alt="twitter" href="http://twitter.com/home?status={{=myconf.take('web.url')+request.url}}">
                              <area shape="rect" coords="60,0,90,30" alt="twitter" href="https://www.linkedin.com/shareArticle?mini=true&url={{=myconf.take('web.url')+request.url}}">
@@ -120,7 +118,7 @@
        <div id="headerLogo" class="col-lg-12 print-url">
          <img alt="" id="heiup-logo" class="screen" src="{{=URL('static','images/press/schriftzug_header.png')}}" />
          <img alt="" id="heiup-logo-print" class="print" src="{{=URL('static','images/press/schriftzug_header_print.png')}}" />
-       </div> 
+       </div>
        </div>
 
 
@@ -150,14 +148,14 @@
                                     <map name="socialmap">
 					{{if request.url=='/': }}
 					{{request.url=request.url+myconf.take('web.application')}}
-					{{pass}}	
+					{{pass}}
                                         <area shape="rect" coords="0,0,30,30" alt="fb" href="https://www.facebook.com/sharer/sharer.php?u={{=myconf.take('web.url')+request.url}}">
                                         <area shape="rect" coords="30,0,60,30" alt="twitter" href="http://twitter.com/home?status={{=myconf.take('web.url')+request.url}}">
                                         <area shape="rect" coords="60,0,90,30" alt="twitter" href="https://www.linkedin.com/shareArticle?mini=true&url={{=myconf.take('web.url')+request.url}}">
                                         <area shape="rect" coords="90,0,120,30" alt="twitter" href="https://plus.google.com/share?url={{=myconf.take('web.url')+request.url}}">
                                     </map>
                                </li>
-                                 https://www.addthis.com/get/responsive-sharing-buttons 
+                                 https://www.addthis.com/get/responsive-sharing-buttons
                             </ul>
                         </div>  -->
                     </div>
@@ -222,25 +220,25 @@
                          Tel.: +49 6221 54-2569<br>
                          E-Mail: heiup@ub.uni-heidelberg.de
                      </address>
-                {{pass}} 
+                {{pass}}
                  </div>
              </div>
              <div class="col-lg-4" >
-                 <div class="widget screen"> 
+                 <div class="widget screen">
                      <ul class="link-list">
                         <li><a href="{{=URL('home','index')}}">{{=T('Home')}}</a></li>
                         <li>{{=T('About us')}} | <a href="{{=URL('about_us','mission_statement')}}">Mission Statement</a></li>
                         <li><a href="{{=URL('catalog','index')}}">{{=T('Books')}}</a></li>
-                        <li><a href="{{=URL('series','index')}}">{{=T('Series')}}</a></li>                         
-                        <li><a href="{{=URL('journals','index')}}">{{=T('Journals')}}</a</li>
+                        <li><a href="{{=URL('series','index')}}">{{=T('Series')}}</a></li>
+                        <li><a href="{{=URL('journals','index')}}">{{=T('Journals')}}</a></li>
                         <li><a href="{{=URL('campusmedia','index')}}">Campus Media</a></li>
                         <li>{{=T('Publishing')}} | <a href="{{=URL('publishing','for_authors')}}">{{=T('Information for Authors')}}</a></li>
                         <li><a href="{{=URL('contact','imprint')}}">{{=T('Legal Notice')}}</a></li>
-                {{if session.forced_language=='de':}}                        
+                {{if session.forced_language=='de':}}
                         <li><a href="https://www.uni-heidelberg.de/datenschutzerklaerung_web.html">{{=T('Privacy Notice')}}</a></li>
                 {{elif session.forced_language=='en':}}
                         <li><a href="https://www.uni-heidelberg.de/privacypolicy_web.html">{{=T('Privacy Notice')}}</a></li>
-                {{pass}}                                
+                {{pass}}
                      </ul>
                  </div>
              </div>
@@ -249,7 +247,7 @@
              <div class="col-lg-4">
                <div id="footer_logo_ub" class="widget"><a href="http://www.ub.uni-heidelberg.de" title="Homepage Universitätsbibliothek Heidelberg"><img alt="Logo - Universität Heidelberg - Universitätsbibliothek Heidelberg" src="{{=URL('static','/images/press/logo_footer_grau.png')}}" /></a>
                </div>
-             </div>                        
+             </div>
          </div>
      </div>
      <div id="sub-footer"  class="screen">
@@ -275,11 +273,10 @@
                      <a href="/contact/imprint.html">Impressum</a>
                 {{elif session.forced_language=='en':}}
                      <a href="/contact/imprint.html">Legal Notice</a>
-                {{pass}}-->     
+                {{pass}}-->
                  </div>
                  <div class="col-lg-4">
-               <a href="https://pkp.sfu.ca/" title="Homepage PKP - Public Knowledge Project">{{=IMG(_src=URL(myconf.take('web.application'),'static','images/press/pkp_brand.png'),_alt='')}}</a> 
-
+                   <a href="https://pkp.sfu.ca/" title="Homepage PKP - Public Knowledge Project">{{=IMG(_src=URL(myconf.take('web.application'),'static','images/press/pkp_brand.png'),_alt='')}}</a>
                  </div>
              </div>
          </div>
@@ -287,7 +284,8 @@
          </footer>
   </div>
     {{end}}
-        <script src="{{=URL('static','js/jquery.flexslider.js')}}"></script>
-    <script src="{{=URL('static','js/bootstrap.min.js')}}"></script>
+  <script src="{{=URL('static','js/jquery.flexslider.js')}}"></script>
+  <script src="{{=URL('static','js/bootstrap.min.js')}}"></script>
+  {{if piwik:}}<noscript><img alt="" src="//www.ub.uni-heidelberg.de/piwik/piwik.php?idsite=4" style="border:0;"/></noscript>{{pass}}
   </body>
 </html>

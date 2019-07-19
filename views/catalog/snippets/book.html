@@ -1,5 +1,4 @@
 <div id="main" class="container">
-
     <section id="content">
         <div style="height: 20px"></div>
         <div class="container">
@@ -7,91 +6,86 @@
                 <div class="col-lg-3">
                     <article>
                         <div class="post-image">
-                        {{=IMG(_src=coverImageLink(request, press.press_id, submission.submission_id))}}
+                            {{=IMG(_src=coverImageLink(request, press.press_id, submission.submission_id), _alt=cleanTitle)}}
                         </div>
                     </article>
 
-             <div class="box">
+                    <div class="box">
                         <div class="box-gray alignleft" style="height: auto;">
                             <!-- citations begin -->
-                        {{=H5(T('How to cite this title'),_style="color: #656565; margin-bottom: 0.5em;")}}
-                        {{include '../static/omp-resources/views/catalog/citation.html' }}
+                            {{=H5(T('How to cite this title'),_style="color: #656565; margin-bottom: 0.5em;")}}
+                            {{include '../static/omp-resources/views/catalog/citation.html' }}
                             <!-- citations end-->
 
-                        {{=LICENSE}}
+                            {{=LICENSE}}
 
-                        {{=IDENTIFICATION_CODES}}
+                            {{=IDENTIFICATION_CODES}}
 
-                        {{=PUBLISHED_DATE}}
+                            {{=PUBLISHED_DATE}}
 
-                        {{=SOURCE}}
+                            {{=SOURCE}}
                             <!-- statistik begin-->
                             <div id="oas-widget" class="applied-to-ojs" style="margin-top: 1.2em">
                                 <div class="btn btn-default" id="statistik-button">{{=T('Statistics')}}</div>
                                 <br/>
                                 <div style="display:none" class="table" id="oas">
-                                {{include '../static/omp-resources/views/catalog/statistik.html' }}
-
+                                    {{include '../static/omp-resources/views/catalog/statistik.html' }}
                                 </div>
-
                             </div>
                             <!-- statistik end -->
-
-
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-9">
-
                     <article>
                         <div class="summary">
-                        {{=FULL_HTML}}
+                            {{=FULL_HTML}}
 
-                        {{if [(pf.associated_items.get('full_file', None).attributes.file_type != "text/html" or pf.associated_items.get('full_file', None).attributes.file_type != "text/xml") for pf in digital_publication_formats if pf.associated_items.get('full_file', None)].count(True):}}
+                            {{if [(pf.associated_items.get('full_file', None).attributes.file_type != "text/html" or pf.associated_items.get('full_file', None).attributes.file_type != "text/xml") for pf in digital_publication_formats if pf.associated_items.get('full_file', None)].count(True):}}
                             <div class="btn-group" role="group" aria-label="2">
                                 {{
-                                cts = [T('Download'),SPAN(_class="caret")]
-                                attrbs = {"_class":"btn btn-default dropdown-toggle", "_type":"button", "_id":"dropdownMenu1", "_data-toggle":"dropdown", "_aria-expanded":"true"}
-                                FULL_PDF=BUTTON(*cts,**attrbs)
-                                =FULL_PDF
-                                =FULL_BINARIES
+                                    cts = [T('Download'),SPAN(_class="caret")]
+                                    attrbs = {"_class":"btn btn-default dropdown-toggle", "_type":"button", "_id":"dropdownMenu1", "_data-toggle":"dropdown", "_aria-expanded":"true"}
+                                    FULL_PDF=BUTTON(*cts,**attrbs)
+                                    =FULL_PDF
+                                    =FULL_BINARIES
                                 }}
                             </div>
-                        {{pass}}
+                            {{pass}}
 
                             <div class="btn-group" role="group" aria-label="2">
-                            {{if representatives:}}
-                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                                {{=T('Purchase')}}
+                                {{if representatives:}}
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
+                                    {{=T('Purchase')}}
                                     <span class="caret"></span>
                                 </button>
 
 
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                {{for i in representatives:}}
+                                    {{for i in representatives:}}
                                     <li role="presentation"><a role="menuitem" href="{{=i.url}}" target='_blank'>{{=i.name}}</a></li>
-                                {{pass}}
+                                    {{pass}}
                                 </ul>
-                            {{pass}}
+                                {{pass}}
                             </div>
                             <div class="btn-group" role="group" aria-label="2">
-                            {{
-                            if 'emails' in myconf:
-                            if 'notification' in myconf['emails']:
-                            if int(myconf['emails']['notification']) == 1:
-                            }}
-							{{ include '../static/omp-resources/views/catalog/recommend.html' }}
-							{{
-                            pass
-                            pass
-                            pass
-                            }}
+                                {{
+                                    if 'emails' in myconf:
+                                    if 'notification' in myconf['emails']:
+                                    if int(myconf['emails']['notification']) == 1:
+                                }}
+                                {{ include '../static/omp-resources/views/catalog/recommend.html' }}
+                                {{
+                                    pass
+                                    pass
+                                    pass
+                                }}
 
                             </div>
                             <div class="btn-group" role="group" aria-label="3">
                                 <button class="btn btn-default" id="anno-btn">
                                     <span class="fa fa-comment">&nbsp;</span>{{=T("Comment")}} (<span
-                                        class="anno-number">...</span>)
+                                    class="anno-number">...</span>)
                                 </button>
                             </div>
                             <div id="anno-block"></div>
@@ -99,120 +93,116 @@
                             <div class="post-heading">
                                 <br/>
                                 <div class="row">
-                                <div id="autoren"  class="col-lg-9 col-md-9 col-xs-7">
-                                    <h5>
-                                    {{if editors:}}
-                                        {{=formatContributors(editors, max_contributors=4)}}
-                                        {{if len(editors) > 1:}}
-                                        {{=T("(Eds.)")}}
-                                        {{else:}}
-                                        {{=T("(Ed.)")}}
-                                        {{pass}}
-                                        {{else:}}
-                                        {{=formatContributors(authors, max_contributors=4)}}
-                                        {{pass}}
-
-                                    </h5>
-
-
-
+                                    <div id="autoren"  class="col-lg-9 col-md-9 col-xs-7">
+                                        <h5>
+                                            {{if editors:}}
+                                            {{=formatContributors(editors, max_contributors=4)}}
+                                            {{if len(editors) > 1:}}
+                                            {{=T("(Eds.)")}}
+                                            {{else:}}
+                                            {{=T("(Ed.)")}}
+                                            {{pass}}
+                                            {{else:}}
+                                            {{=formatContributors(authors, max_contributors=4)}}
+                                            {{pass}}
+                                        </h5>
                                     </div>
-                                {{include 'catalog/snippets/category.html'}}
-                                    </div>
+                                    {{include 'catalog/snippets/category.html'}}
+                                </div>
                             </div>
                             <h3>{{=XML(cleanTitle)}}</h3>
                             <h4>{{=subtitle}}</h4>
-                        {{if series:}}
+                            {{if series:}}
                             <i>{{=A(series_name,_href=URL('series','/info/{}'.format(series.attributes.get('path'))))}}</i>
-                        {{pass}}
+                            {{pass}}
                             <p>
-                                <i class="icon-quote-left"></i>
-                            {{=XML(abstract)}}
+                                <i class="fa fa-quote-left"></i>
+                                {{=XML(abstract)}}
                             </p>
 
                             <!-- reviews begin -->
-                        {{include '../static/omp-resources/views/catalog/reviews.html' }}
+                            {{include '../static/omp-resources/views/catalog/reviews.html' }}
                             <!-- reviews end -->
-                        {{bios = [(formatName(e.settings), e.settings.getLocalizedValue('biography', locale)) for e in editors]}}
-                        {{bios_role = "editor"}}
-                        {{if bios == []:}}
-                        {{bios = [(formatName(a.settings), a.settings.getLocalizedValue('biography', locale)) for a in authors]}}
-                        {{bios_role = "author"}}
-                        {{pass}}
-                        {{if bios:}}
-                        {{num_bios = len([b for b in bios if b[1] != ""])}}
-                        {{if bios_role != "author" or num_bios < 5:}}
-                        {{if num_bios != 0:}}
+                            {{bios = [(formatName(e.settings), e.settings.getLocalizedValue('biography', locale)) for e in editors]}}
+                            {{bios_role = "editor"}}
+                            {{if bios == []:}}
+                            {{bios = [(formatName(a.settings), a.settings.getLocalizedValue('biography', locale)) for a in authors]}}
+                            {{bios_role = "author"}}
+                            {{pass}}
+                            {{if bios:}}
+                            {{num_bios = len([b for b in bios if b[1] != ""])}}
+                            {{if bios_role != "author" or num_bios < 5:}}
+                            {{if num_bios != 0:}}
 
                             <div class="separator"></div>
                             <div class="autor_biografie">
                                 <p>
-                                {{for contributor, bio in bios:}}
-									{{if bio:}}
-									{{=XML(bio)}}
-									{{pass}}
-									{{pass}}
+                                    {{for contributor, bio in bios:}}
+                                    {{if bio:}}
+                                    {{=XML(bio)}}
+                                    {{pass}}
+                                    {{pass}}
                                 </p>
                             </div>
-                        {{pass}}
-                        {{pass}}
-                        {{pass}}
+                            {{pass}}
+                            {{pass}}
+                            {{pass}}
                         </div>
 
                         <div class="widget">
-                        {{if len(chapters) > 0:}}
+                            {{if len(chapters) > 0:}}
                             <div id="downloadTable">
                                 <div class="chapter_row table_head">
                                     <div class="chapter_cell">{{=T('Contents')}}</div>
-                                {{for pf in digital_publication_formats:}}
-                                {{format_name=pf.settings.getLocalizedValue('name', locale)}}
-                                {{if format_name != 'EPUB':}}
+                                    {{for pf in digital_publication_formats:}}
+                                    {{format_name=pf.settings.getLocalizedValue('name', locale)}}
+                                    {{if format_name != 'EPUB':}}
                                     <div class="chapter_cell">{{=TD(format_name)}}</div>
-                                {{pass}}
-                                {{pass}}
+                                    {{pass}}
+                                    {{pass}}
                                 </div>
-                            {{display_authors=haveMultipleAuthors(chapters)}}
-                            {{for c in chapters:}}
-                            {{c_title = c.settings.getLocalizedValue('title', locale)}}
-                            {{c_subtitle = c.settings.getLocalizedValue('subtitle', locale)}}
-                            {{c_authors = c.associated_items.get('authors', [])}}
-                            {{c_files = c.associated_items.get('files', [])}}
+                                {{display_authors=haveMultipleAuthors(chapters)}}
+                                {{for c in chapters:}}
+                                {{c_title = c.settings.getLocalizedValue('title', locale)}}
+                                {{c_subtitle = c.settings.getLocalizedValue('subtitle', locale)}}
+                                {{c_authors = c.associated_items.get('authors', [])}}
+                                {{c_files = c.associated_items.get('files', [])}}
                                 <div class="chapter_row">
                                     <div class="chapter_cell">
-                                    {{if c_authors and display_authors:}}
+                                        {{if c_authors and display_authors:}}
                                         <div class="chapter_author">{{=", ".join([formatName(a.settings) for a in c_authors])}}</div>
-                                    {{pass}}
+                                        {{pass}}
                                         <div class="chapter_title">{{=c_title}}</div>
-                                    {{if c_subtitle:}}
+                                        {{if c_subtitle:}}
                                         <div class="chapter_subtitle">{{=c_subtitle}}</div>
-                                    {{pass}}
+                                        {{pass}}
                                     </div>
-                                {{for pf in digital_publication_formats:}}
-                                {{format_name=pf.settings.getLocalizedValue('name', locale)}}
-                                {{if format_name != 'EPUB':}}
+                                    {{for pf in digital_publication_formats:}}
+                                    {{format_name=pf.settings.getLocalizedValue('name', locale)}}
+                                    {{if format_name != 'EPUB':}}
                                     <div class="chapter_cell">
-                                    {{if c_files:}}
-                                    {{c_file = c_files.get(pf.attributes.publication_format_id)}}
-                                    {{if c_file:}}
-                                    {{if "xml" in c_file.attributes.file_type or "html" in c_file.attributes.file_type:}}
-                                    {{css_class="fa fa-html5"}}
-                                    {{target='_blank'}}
-                                    {{else:}}
-                                    {{css_class="fa fa-file-text-o"}}
-                                    {{target='_self'}}
-                                    {{pass}}
+                                        {{if c_files:}}
+                                        {{c_file = c_files.get(pf.attributes.publication_format_id)}}
+                                        {{if c_file:}}
+                                        {{if "xml" in c_file.attributes.file_type or "html" in c_file.attributes.file_type:}}
+                                        {{css_class="fa fa-html5"}}
+                                        {{target='_blank'}}
+                                        {{else:}}
+                                        {{css_class="fa fa-file-text-o"}}
+                                        {{target='_self'}}
+                                        {{pass}}
                                         <div class="chapter_file">
-                                        {{=A(I(_class=css_class),_target=target, _href=downloadLink(request, c_file.attributes, myconf.take('web.url'), c_file.settings.getLocalizedValue('vgWortPublic', '')))}}
+                                            {{=A(I(_class=css_class),_target=target, _href=downloadLink(request, c_file.attributes, myconf.take('web.url'), c_file.settings.getLocalizedValue('vgWortPublic', '')))}}
                                         </div>
-                                    {{pass}}
-                                    {{pass}}
+                                        {{pass}}
+                                        {{pass}}
                                     </div>
-                                {{pass}}
-                                {{pass}}
+                                    {{pass}}
+                                    {{pass}}
                                 </div>
-                            {{pass}}
+                                {{pass}}
                             </div>
-                        {{pass}}
+                            {{pass}}
                         </div>
                     </article>
                 </div>
