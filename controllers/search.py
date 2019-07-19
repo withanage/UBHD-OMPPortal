@@ -12,11 +12,11 @@ def authors():
     prev_author, prev_index = '',''
     prev = 1
 
-    for i,a in enumerate(ompdal.getAuthorsByPress(press.press_id).as_list()):
-        initial = a['last_name'].decode('utf-8')[:1]
+    for i,a in enumerate(ompdal.getAuthorsByPress(press.press_id)):
+        initial = a['last_name'][:1]
         if initial != prev_index:
             a['initial'] = initial.upper()
-        this_author = '{}{}'.format(a['last_name'], a['first_name'])
+        this_author = unicode('{}{}').format(unicode(a['last_name']), unicode(a['first_name']))
         prev = prev + 1 if prev_author == this_author else 1
         a['index'] = prev
         authors.append(a)

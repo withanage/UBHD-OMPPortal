@@ -1,18 +1,17 @@
 {{extend 'layout.html'}}
 {{import urllib}}
 <div class="container">
-{{=BR()}}
-{{=H1(T("Browse Author Index"))}}
-<div class="btn-group">
+    <div class="row">
+        <div class="col-lg-12">
+            {{=H1(T("Browse Author Index"))}}
+            <div class="btn-group">
 {{for a in sorted(author_index):
-
     =A(a,_href=URL('authors',vars=dict( searchInitial=a.encode('utf-8'))),_class="btn btn-default")
 pass
 
 =A(T('All'),_href=URL('authors'),_class="btn btn-default")
 }}
-</div>
-
+    </div>
 {{
 
 for i,a in enumerate(authors):
@@ -33,4 +32,6 @@ for i,a in enumerate(authors):
 
 pass
 }}
+    </div>
+  </div>
 </div>
