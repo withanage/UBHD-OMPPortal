@@ -7,7 +7,7 @@ press = ompdal.getPress(myconf.take('omp.press_id'))
 
 
 def authors():
-    searchInitial = unicode(request.vars.searchInitial, 'utf-8') if request.vars.searchInitial else None
+    searchInitial = unicode(request.vars.searchInitial, 'utf-8').upper() if request.vars.searchInitial else None
     authors, author_index = [], set()
     prev_author, prev_index = '',''
     prev = 1
@@ -15,13 +15,13 @@ def authors():
     for a in ompdal.getAuthorsByPress(press.press_id):
         last_name = a['last_name']
         first_name = a['first_name']
-        initial = last_name[:1]
+        initial = last_name[:1].upper()
         if initial != prev_index:
-            a['initial'] = initial.upper()
+            a['initial'] = initial
         this_author = unicode('{}{}').format(last_name, first_name)
         prev = prev + 1 if prev_author == this_author else 1
         a['index'] = prev
-        if searchInitial and last_name.startswith(searchInitial):
+        if searchInitial and last_name.upper().startswith(searchInitial):
             authors.append(a)
         elif not searchInitial:
             authors.append(a)
