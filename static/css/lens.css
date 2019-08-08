@@ -197,7 +197,6 @@
 td > .content-node.paragraph + .content-node.paragraph {
   margin-top: 0; }
 
-/*.quote > .content .content-node.paragraph + .quote > .content .content-node.paragraph*/
 .quote > .content > .paragraph + .paragraph {
   margin-top: 0 !important; }
 
@@ -433,6 +432,13 @@ Box
 .content-node.quote > .content {
   padding: 20px;
   border-left: 10px solid #ccc; }
+  
+.content-node.quote-right > .content {
+  padding: 20px 0 20px 0;
+  text-align: right; }  
+
+.content-node.quote-right .content-node.paragraph {
+  margin-top: 0;}
 
 .document .content-node.quote .content-node.paragraph {
   padding: 0px 20px 0px 20px;
