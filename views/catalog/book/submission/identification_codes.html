@@ -1,0 +1,16 @@
+{{
+identification_codes = [i for i in [pf.associated_items.get('identification_codes', []) for pf in digital_publication_formats + physical_publication_formats] if i]
+ic = []
+ic.append(H5(T("Identifiers"), _style="color: #656565; margin-bottom: 0.5em; margin-top: 1.2em;")  if identification_codes else DIV())
+ic.append(DIV(A(formatDoi(doi), _href=formatDoi(doi))))
+for p in idntfrs:
+    if len(p[1]) == 3:
+        if p[1][1] == 22:
+        ic.append(DIV('{} '.format(onix_types.get(str(p[1][1]))), A(p[1][0], _href="http://nbn-resolving.de/" + p[1][0]), _style="margin-top: 0.0em; margin-bottom:5px"))
+        else:
+        ic.append(DIV('{} {} ({})'.format(onix_types.get(str(p[1][1])), p[1][0], p[1][2]), _style="margin-top: 0px;"))
+        pass
+    pass
+pass
+= DIV(*ic, _style="margin-top: 0.0em;")
+}}

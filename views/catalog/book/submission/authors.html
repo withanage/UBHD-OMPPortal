@@ -1,0 +1,15 @@
+<!--authors -->
+<div id="autoren" class="col-lg-9 col-md-9 col-xs-7">
+    <h5>
+    {{if editors:}}
+            {{=formatContributors(editors, max_contributors=4)}}
+            {{if len(editors) > 1:}}
+            {{=T("(Eds.)")}}
+            {{else:}}
+            {{=T("(Ed.)")}}
+            {{pass}}
+            {{else:}}
+            {{=formatContributors(authors, max_contributors=4)}}
+            {{pass}}
+    </h5>
+</div>

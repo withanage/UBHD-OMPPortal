@@ -398,49 +398,10 @@ def book():
     else:
         series_name = ""
 
-    license = submission_settings.getLocalizedValue('rights', locale)
-    LICENSE = DIV(H5(T('Licenses'), _style="color: #656565; margin-bottom: 0.3em;"), XML(license))  if license != '' else DIV()
 
 
-    identification_codes = [i for i in [pf.associated_items.get('identification_codes', []) for pf in digital_publication_formats + physical_publication_formats] if i]
-    ic = []
-    ic.append(H5(T("Identifiers"), _style="color: #656565; margin-bottom: 0.5em; margin-top: 1.2em;")  if identification_codes else DIV())
-    ic.append(DIV(A(formatDoi(doi), _href=formatDoi(doi))))
-    for p in idntfrs:
-        if len(p[1]) == 3:
-            if p[1][1] == 22:
-                ic.append(DIV('{} '.format(onix_types.get(str(p[1][1]))), A(p[1][0], _href="http://nbn-resolving.de/" + p[1][0]), _style="margin-top: 0.0em; margin-bottom:5px"))
-            else:
-                ic.append(DIV('{} {} ({})'.format(onix_types.get(str(p[1][1])), p[1][0], p[1][2]), _style="margin-top: 0px;"))
-    IDENTIFICATION_CODES = DIV(*ic, _style="margin-top: 0.0em;")
-
-    publ = '{} {}.'.format(T('Published'), dateToStr(date_published, locale, "%x"))
-    PUBLISHED_DATE=P(publ, _style = "margin-top: 1.2em;")
-
-    #source
-    source = submission_settings.getLocalizedValue('source', locale)
-    sc = [DIV(_class="separator", _style="margin-top: 1.2em"), P(XML(source), _style="margin-top: 1.2em")] if source else []
-    SOURCE = DIV(*sc)
-
-    FULL_HTML = DIV()
-
-    for pf in digital_publication_formats:
-        full_file = pf.associated_items.get('full_file')
-        if full_file and ("xml" in full_file.attributes.file_type or "html" in full_file.attributes.file_type):
-            FULL_HTML = DIV(LI(A(T('Read'), _href=downloadLink(request, full_file.attributes, myconf.take('web.url'), full_file.settings.getLocalizedValue("vgWortPublic", "")), _target="_blank"), _type="button", _class="btn btn-default"), _class="btn-group", _role="group")
-            break
 
 
-    attrbs = {"_class": "dropdown-menu", "_role": "menu", "_aria-labelledby": "dropdownMenu1"}
-    FULL_BINARIES = UL(DIV(), **attrbs)
-    for pf in sorted(digital_publication_formats, key=lambda s: s.settings.getLocalizedValue('name', locale), reverse=True):
-        format_name = pf.settings.getLocalizedValue('name', locale)
-        formats = ['full_file', 'full_epub_file']
-        for i, f in enumerate(formats):
-            full_file = pf.associated_items.get(f)
-            if full_file and not "html" in full_file.attributes.file_type and not "xml" in full_file.attributes.file_type:
-                f_size = full_file.attributes.get('file_size') / (1024 * 1024)
-                FULL_BINARIES.append(LI(A('{} ({} MB)'.format(format_name, f_size), _role="menuitem", _tabindex=i-1, _href=downloadLink(request, full_file.attributes, myconf.take('web.url'),full_file.settings.getLocalizedValue("vgWortPublic", ""))),_role="presentation"))
 
     return locals()
 

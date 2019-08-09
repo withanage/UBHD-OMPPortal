@@ -1,0 +1,99 @@
+{{if len(request.args)==2:}}
+<div id="main" class="container">
+    <section id="content">
+        <div style="height: 20px"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+
+                    <div class="box">
+                        <div class="box-gray alignleft" style="height: auto;">
+                            <!-- citations begin -->
+                        {{=H5(T('How to cite this title'),_style="color: #656565; margin-bottom: 0.5em;")}}
+                        {{include '../static/omp-resources/views/catalog/citation.html' }}
+                            <!-- citations end-->
+                        {{include 'catalog/book/submission/license.html' }}
+                        {{include 'catalog/book/submission/identification_codes.html' }}
+                        {{include 'catalog/book/submission/published_date.html' }}
+                        {{include 'catalog/book/submission/source.html' }}
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <article>
+                        <div class="summary">
+                        {{include 'catalog/book/submission/html_galley.html'}}
+                        {{include 'catalog/book/submission/pdf_galley.html'}}
+                        <!--purchase -->
+                        {{include 'catalog/book/submission/purchase.html'}}
+                         <!--purchase -->
+
+
+
+                       
+                        {{for c in chapters:}}
+
+                        {{if str(request.args[1]) == 'c{}'.format(c.attributes.chapter_id):}}
+
+                        {{c_title = c.settings.getLocalizedValue('title', locale)}}
+                        {{c_subtitle = c.settings.getLocalizedValue('subtitle', locale)}}
+                        {{c_abstract = c.settings.getLocalizedValue('abstract', locale)}}
+                        {{c_authors = c.associated_items.get('authors', [])}}
+                        {{c_files = c.associated_items.get('files', [])}}
+			{{=BR()}}
+                          <h5>
+			   {{if c_authors:}}	
+				{{for i,author in enumerate(c_authors):}}
+				{{=author.settings._settings.get('givenName').get('en_US' or locale)}}
+				{{=author.settings._settings.get('familyName').get('en_US' or locale)}}
+			  	{{ if len(c_authors)-1 !=i:}}{{=', '}}{{pass}}	
+		         {{pass}}
+		         {{pass}}
+                        </h5>
+
+                     	 <h3>{{=XML(cleanTitle)}}</h3>
+
+                        {{if c_title:}} {{=H4(c_title)}}{{pass}}
+                        {{if c_subtitle:}}{{=H5(c_subtitle)}}{{pass}}
+                        {{if c_abstract:}}{{=XML(c_abstract)}}{{pass}}
+
+                      {{pass}}
+                      {{pass}}
+
+		      {{for pf in digital_publication_formats:}}
+			{{format_name=pf.settings.getLocalizedValue('name', locale)}}
+			{{if format_name != 'EPUB':}}
+			    <div class="chapter_cell">
+			    {{if c_files:}}
+			    {{c_file = c_files.get(pf.attributes.publication_format_id)}}
+			    {{if c_file:}}
+			    {{if "xml" in c_file.attributes.file_type or "html" in c_file.attributes.file_type:}}
+			    {{css_class="fa fa-html5"}}
+			    {{target='_blank'}}
+			    {{else:}}
+			    {{css_class="fa fa-file-text-o"}}
+			    {{target='_self'}}
+			    {{pass}}
+				<div class="chapter_file">
+				{{=A(I(_class=css_class),_target=target, _href=downloadLink(request, c_file.attributes, myconf.take('web.url'), c_file.settings.getLocalizedValue('vgWortPublic', '')))}}
+				</div>
+			    {{pass}}
+			    {{pass}}
+			    </div>
+			{{pass}}
+			{{pass}}
+
+
+                        </div>
+                    </article>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+{{pass}}

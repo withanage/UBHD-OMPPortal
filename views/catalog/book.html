@@ -5,11 +5,11 @@
 {{file_ids=[]}}
 {{if len(request.args)==2:}}
 
-{{include 'catalog/snippets/chapter.html'}}
+{{include 'catalog/book/chapter/index.html'}}
 
 {{pass}}
 
 {{if len(request.args)==1:}}
-{{include 'catalog/whole.html'}}
+{{include 'catalog/book/submission/index.html'}}
 
 {{pass}}

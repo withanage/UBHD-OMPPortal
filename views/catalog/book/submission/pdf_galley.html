@@ -1,0 +1,24 @@
+{{if [(pf.associated_items.get('full_file', None).attributes.file_type != "text/html" or pf.associated_items.get('full_file', None).attributes.file_type != "text/xml") for pf in digital_publication_formats if pf.associated_items.get('full_file', None)].count(True):}}
+<div class="btn-group" role="group" aria-label="2">
+{{
+cts = [T('Download'),SPAN(_class="caret")]
+attrbs = {"_class":"btn btn-default dropdown-toggle", "_type":"button", "_id":"dropdownMenu1", "_data-toggle":"dropdown", "_aria-expanded":"true"}
+=BUTTON(*cts,**attrbs)
+
+attrbs = {"_class": "dropdown-menu", "_role": "menu", "_aria-labelledby": "dropdownMenu1"}
+FULL_BINARIES = UL(DIV(), **attrbs)
+for pf in sorted(digital_publication_formats, key=lambda s: s.settings.getLocalizedValue('name', locale), reverse=True):
+    format_name = pf.settings.getLocalizedValue('name', locale)
+    formats = ['full_file', 'full_epub_file']
+    for i, f in enumerate(formats):
+        full_file = pf.associated_items.get(f)
+        if full_file and not "html" in full_file.attributes.file_type and not "xml" in full_file.attributes.file_type:
+            f_size = full_file.attributes.get('file_size') / (1024 * 1024)
+            FULL_BINARIES.append(LI(A('{} ({} MB)'.format(format_name, f_size), _role="menuitem", _tabindex=i-1, _href=downloadLink(request, full_file.attributes, myconf.take('web.url'),full_file.settings.getLocalizedValue("vgWortPublic", ""))),_role="presentation"))
+        pass
+    pass
+pass
+=FULL_BINARIES
+}}
+</div>
+{{pass}}
