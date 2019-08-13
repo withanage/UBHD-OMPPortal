@@ -22,7 +22,10 @@
             {{if c_authors and display_authors:}}
                 <div class="chapter_author">{{=", ".join([formatName(a.settings) for a in c_authors])}}</div>
             {{pass}}
-                <div class="chapter_title">{{=A(c_title,_href=URL('catalog','book',args=(submission_id, 'c'+str(c_id))))}}</div>
+                <div class="chapter_title">
+                {{A(c_title,_href=URL('catalog','book',args=(submission_id, 'c'+str(c_id))))}}
+                    {{=c_title}}
+                </div>
             {{if c_subtitle:}}
                 <div class="chapter_subtitle">{{=c_subtitle}}</div>
             {{pass}}
