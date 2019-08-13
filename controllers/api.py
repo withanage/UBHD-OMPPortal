@@ -166,14 +166,15 @@ def get_press_info(locale):
 
 def get_authors(book_id):
     authors = {}
-    authors_list = db(
-        (db.authors.submission_id == book_id.submission_id)).select(
-        db.authors.first_name, db.authors.last_name)
-    for i in authors_list:
+    a = ompdal.getAuthorsBySubmission(book_id.submission_id).as_list()
+
+    for i in a:
         authors['type'] = 'person'
         authors['relation'] = 'creators'
-        authors['label'] = i.first_name + " " + i.last_name
-
+        author = ompdal.getAuthorSettings(i['author_id']).as_list()
+        given_name = [i['setting_value'] for i in author if i['setting_name'] == 'givenName'][0]
+        family_name = [i['setting_value'] for i in author if i['setting_name'] == 'familyName'][0]
+        authors['label'] = ' '.join([given_name, family_name])
     return authors
 
 
@@ -188,12 +189,12 @@ def get_book_part(c, chapter_id, part_title):
     for author in author_id_list:
         part_authors.append({"type": "person"})
         part_authors.append({"relation": "creators"})
-        author_name = db(
-            (db.authors.author_id == author['author_id'])).select(
-            db.authors.first_name, db.authors.last_name).first()
-        if author_name:
-            part_authors.append(
-                {'name': author_name['first_name'] + " " + author_name['last_name']})
+        #author_name = db(
+        #    (db.authors.author_id == author['author_id'])).select(
+        #    db.authors.first_name, db.authors.last_name).first()
+        #if author_name:
+        #    part_authors.append(
+        #        {'name': author_name['first_name'] + " " + author_name['last_name']})
     if part_authors:
         bookpart["associate_via_hierarchy"] = [part_authors]
     return bookpart
@@ -225,7 +226,7 @@ def get_chapters(book_id):
             db.submission_file_settings.setting_value == db.submission_chapters.chapter_id)).select(
         db.submission_chapters.chapter_id,
         db.submission_file_settings.file_id,
-        orderby=db.submission_chapters.chapter_seq)
+        orderby=db.submission_chapters.seq)
     return chapters
 
 
