@@ -10,10 +10,13 @@ for pf in sorted(digital_publication_formats, key=lambda s: s.settings.getLocali
     format_name = pf.settings.getLocalizedValue('name', locale)
     formats = ['']
     c_file = c_files.get(pf.attributes.publication_format_id)
-    #f_size = c_file.attributes.get('file_size') / (1024 * 1024)
+    if c_file:
+    f_size = c_file.attributes.get('file_size') / (1024 * 1024)
     hreflink= _href=downloadLink(request, c_file.attributes, myconf.take('web.url'), c_file.settings.getLocalizedValue("vgWortPublic", ""))
     if format_name.lower() == 'pdf':
-    c_pdf.append(LI(A(format_name,_href=hreflink)))
+    c_pdf.append(LI(A('{} ({} MB)'.format(format_name, f_size),_href=hreflink)))
+    pass
+
     pass
 
     pass
