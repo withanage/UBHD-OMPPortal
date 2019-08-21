@@ -24,7 +24,7 @@
                 <div class="chapter_author">{{=", ".join([formatName(a.settings) for a in c_authors])}}</div>
             {{pass}}
                 <div class="chapter_title">
-                 {{if c_pub_id_doi or True:}}
+                 {{if c_pub_id_doi:}}
                 {{=A(c_title,_href=URL('catalog','book',args=(submission_id, 'c'+str(c_id))))}}
                  {{else:}}
                 {{=c_title}}
