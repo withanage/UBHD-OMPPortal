@@ -1,11 +1,16 @@
 {{if len(request.args)==2:}}
+   {{c_title = c.settings.getLocalizedValue('title', locale)}}
+                        {{c_subtitle = c.settings.getLocalizedValue('subtitle', locale)}}
+                        {{c_abstract = c.settings.getLocalizedValue('abstract', locale)}}
+                        {{c_authors = c.associated_items.get('authors', [])}}
+                        {{c_files = c.associated_items.get('files', [])}}
 <div id="main" class="container">
     <section id="content">
         <div style="height: 20px"></div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
-
+                    {{include 'catalog/book/submission/cover_image.html' }}
                     <div class="box">
                         <div class="box-gray alignleft" style="height: auto;">
                             <!-- citations begin -->
@@ -23,67 +28,69 @@
                 <div class="col-lg-9">
                     <article>
                         <div class="summary">
-                        {{include 'catalog/book/submission/html_galley.html'}}
-                        {{include 'catalog/book/submission/pdf_galley.html'}}
+
+
+                        {{include 'catalog/book/chapter/html_galley.html'}}
+                        {{include 'catalog/book/chapter/pdf_galley.html'}}
                         <!--purchase -->
-                        {{include 'catalog/book/submission/purchase.html'}}
-                         <!--purchase -->
 
 
-
-                       
-                        {{for c in chapters:}}
-
-                        {{if str(request.args[1]) == 'c{}'.format(c.attributes.chapter_id):}}
-
-                        {{c_title = c.settings.getLocalizedValue('title', locale)}}
-                        {{c_subtitle = c.settings.getLocalizedValue('subtitle', locale)}}
-                        {{c_abstract = c.settings.getLocalizedValue('abstract', locale)}}
-                        {{c_authors = c.associated_items.get('authors', [])}}
-                        {{c_files = c.associated_items.get('files', [])}}
-			{{=BR()}}
+			            {{=BR()}}
                           <h5>
-			   {{if c_authors:}}	
-				{{for i,author in enumerate(c_authors):}}
-				{{=author.settings._settings.get('givenName').get('en_US' or locale)}}
-				{{=author.settings._settings.get('familyName').get('en_US' or locale)}}
-			  	{{ if len(c_authors)-1 !=i:}}{{=', '}}{{pass}}	
-		         {{pass}}
-		         {{pass}}
+                           {{if c_authors:}}
+                            {{for i,author in enumerate(c_authors):}}
+                            {{=author.settings._settings.get('givenName').get('en_US' or locale)}}
+                            {{=author.settings._settings.get('familyName').get('en_US' or locale)}}
+                            {{ if len(c_authors)-1 !=i:}}{{=', '}}{{pass}}
+                             {{pass}}
+                             {{pass}}
                         </h5>
 
-                     	 <h3>{{=XML(cleanTitle)}}</h3>
-
-                        {{if c_title:}} {{=H4(c_title)}}{{pass}}
+                     	{{if c_title:}} {{=H3(c_title)}}{{pass}}
                         {{if c_subtitle:}}{{=H5(c_subtitle)}}{{pass}}
                         {{if c_abstract:}}{{=XML(c_abstract)}}{{pass}}
 
-                      {{pass}}
-                      {{pass}}
 
-		      {{for pf in digital_publication_formats:}}
-			{{format_name=pf.settings.getLocalizedValue('name', locale)}}
-			{{if format_name != 'EPUB':}}
-			    <div class="chapter_cell">
-			    {{if c_files:}}
-			    {{c_file = c_files.get(pf.attributes.publication_format_id)}}
-			    {{if c_file:}}
-			    {{if "xml" in c_file.attributes.file_type or "html" in c_file.attributes.file_type:}}
-			    {{css_class="fa fa-html5"}}
-			    {{target='_blank'}}
-			    {{else:}}
-			    {{css_class="fa fa-file-text-o"}}
-			    {{target='_self'}}
-			    {{pass}}
-				<div class="chapter_file">
-				{{=A(I(_class=css_class),_target=target, _href=downloadLink(request, c_file.attributes, myconf.take('web.url'), c_file.settings.getLocalizedValue('vgWortPublic', '')))}}
-				</div>
-			    {{pass}}
-			    {{pass}}
-			    </div>
-			{{pass}}
-			{{pass}}
+                        <div id="downloadTable">
+                            <div class="chapter_row table_head">
+                            <div class="chapter_cell">{{=T('Contents')}}</div>
+                            <div class="chapter_cell"></div>
+                            <div class="chapter_cell"></div>
+                            </div>
+                            {{for pf in digital_publication_formats:}}
+                                {{format_name=pf.settings.getLocalizedValue('name', locale)}}
+                                    {{if format_name != 'EPUB':}}
 
+                                            {{if c:}}
+                                                {{c_file = c_files.get(pf.attributes.publication_format_id)}}
+                                                {{if c_file:}}
+                                                    {{if "xml" in c_file.attributes.file_type or "html" in c_file.attributes.file_type:}}
+                                                        {{format='HTML'}}
+                                                        {{css_class="fa fa-html5 fa-lg"}}
+                                                        {{target='_blank'}}
+                                                    {{else:}}
+                                                        {{format='PDF'}}
+                                                        {{css_class="fa fa-file-text-o fa-lg"}}
+                                                        {{target='_self'}}
+                                                    {{pass}} <!--- if xml -->
+                                            <div class="chapter_row">
+                                                <div class="chapter_cell"> {{=format}}</div>
+                                                <div class="chapter_cell">
+                                                    <div class="chapter_file pull-right">
+                                                        {{=A(I(_class=css_class),_target=target, _href=downloadLink(request, c_file.attributes, myconf.take('web.url'), c_file.settings.getLocalizedValue('vgWortPublic', '')))}}
+                                                    </div>
+                                                </div>
+                                                <div class="chapter_cell"> </div>
+                                            </div>
+                                            {{pass}}  <!--if c -->
+
+                                        {{pass}}
+
+                                    {{pass}}  <!--if -->
+                            {{pass}} <!--for -->
+
+                        </div>
+                        <!--downloadTable -->
 
                         </div>
                     </article>

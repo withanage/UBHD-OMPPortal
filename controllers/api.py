@@ -87,7 +87,9 @@ def oastatistik():
     subs = {}
     title, publication_format_settings_doi = '', None
     for book_id in submissions:
-
+       if book_id.submission_id != 301 :
+           pass
+       else:
         # full book
         publication_format_settings = get_publication_format_settings(book_id)
         if publication_format_settings:
@@ -165,17 +167,28 @@ def get_press_info(locale):
 
 
 def get_authors(book_id):
-    authors = {}
+    authors = []
     a = ompdal.getAuthorsBySubmission(book_id.submission_id).as_list()
 
     for i in a:
-        authors['type'] = 'person'
-        authors['relation'] = 'creators'
+        author = {}
+        author['type'] = 'person'
+        author['relation'] = 'creators'
         author = ompdal.getAuthorSettings(i['author_id']).as_list()
-        given_name = [i['setting_value'] for i in author if i['setting_name'] == 'givenName'][0]
-        family_name = [i['setting_value'] for i in author if i['setting_name'] == 'familyName'][0]
-        authors['label'] = ' '.join([given_name, family_name])
+        #family_name, given_name = get_author_name(author)
+        #author['label'] = given_name + ' ' + family_name
+        authors.append(author)
     return authors
+
+
+def get_author_name(author):
+    given_name, family_name = '', ''
+    for i in author:
+        if i['setting_name'] == 'givenName':
+            given_name = i['setting_value']
+        if i['setting_name'] == 'familyName':
+            family_name = i['setting_value']
+    return family_name, given_name
 
 
 def get_book_part(c, chapter_id, part_title):
@@ -184,23 +197,20 @@ def get_book_part(c, chapter_id, part_title):
         bookpart["label"] = part_title['setting_value']
     bookpart["norm_id"] = myconf.take('statistik.id') + ':' + chapter_id
     bookpart["type"] = "part"
-    part_authors = []
-    author_id_list = get_author_id_list(c)
-    for author in author_id_list:
-        part_authors.append({"type": "person"})
-        part_authors.append({"relation": "creators"})
-        #author_name = db(
-        #    (db.authors.author_id == author['author_id'])).select(
-        #    db.authors.first_name, db.authors.last_name).first()
-        #if author_name:
-        #    part_authors.append(
-        #        {'name': author_name['first_name'] + " " + author_name['last_name']})
-    if part_authors:
-        bookpart["associate_via_hierarchy"] = [part_authors]
+    chapter_autors = []
+    authors = get_chapter_authors(c).as_list()
+    for i in authors:
+        chapter_autors.append({"type": "person"})
+        chapter_autors.append({"relation": "creators"})
+        author = ompdal.getAuthorSettings(i['author_id']).as_list()
+        family_name, given_name = get_author_name(author)
+        chapter_autors.append({'name': ' '.join([given_name, family_name])})
+    if chapter_autors:
+        bookpart["associate_via_hierarchy"] = chapter_autors
     return bookpart
 
 
-def get_author_id_list(c):
+def get_chapter_authors(c):
     author_id_list = db(
         db.submission_chapter_authors.chapter_id == int(
             c['submission_chapters']['chapter_id'])).select(

@@ -3,13 +3,14 @@
 {{from ompdal import OMPDAL}}
 {{from datetime import datetime}}
 {{file_ids=[]}}
+
+{{if len(request.args)==1:}}
+
+{{include 'catalog/book/submission/index.html'}}
+{{pass}}
 {{if len(request.args)==2:}}
 
 {{include 'catalog/book/chapter/index.html'}}
 
 {{pass}}
 
-{{if len(request.args)==1:}}
-{{include 'catalog/book/submission/index.html'}}
-
-{{pass}}

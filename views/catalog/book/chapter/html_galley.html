@@ -1,0 +1,13 @@
+{{
+
+FULL_HTML = DIV()
+
+for pf in digital_publication_formats:
+    c_file = c_files.get(pf.attributes.publication_format_id)
+    if c_file and ("xml" in c_file.attributes.file_type or "html" in c_file.attributes.file_type):
+        = DIV(LI(A(T('Read'), _href=downloadLink(request, c_file.attributes, myconf.take('web.url'), c_file.settings.getLocalizedValue("vgWortPublic", "")), _target="_blank"), _type="button", _class="btn btn-default"), _class="btn-group", _role="group")
+    pass
+pass
+
+}}
+

@@ -1,0 +1,22 @@
+<div class="btn-group" role="group" aria-label="2">
+{{
+cts = [T('Download'),SPAN(_class="caret")]
+attrbs = {"_class":"btn btn-default dropdown-toggle", "_type":"button", "_id":"dropdownMenu1", "_data-toggle":"dropdown", "_aria-expanded":"true"}
+=BUTTON(*cts,**attrbs)
+
+attrbs = {"_class": "dropdown-menu", "_role": "menu", "_aria-labelledby": "dropdownMenu1"}
+c_pdf = UL(DIV(), **attrbs)
+for pf in sorted(digital_publication_formats, key=lambda s: s.settings.getLocalizedValue('name', locale), reverse=True):
+    format_name = pf.settings.getLocalizedValue('name', locale)
+    formats = ['']
+    c_file = c_files.get(pf.attributes.publication_format_id)
+    #f_size = c_file.attributes.get('file_size') / (1024 * 1024)
+    hreflink= _href=downloadLink(request, c_file.attributes, myconf.take('web.url'), c_file.settings.getLocalizedValue("vgWortPublic", ""))
+    if format_name.lower() == 'pdf':
+    c_pdf.append(LI(A(format_name,_href=hreflink)))
+    pass
+
+    pass
+=c_pdf
+}}
+</div>
