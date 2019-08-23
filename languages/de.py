@@ -76,6 +76,7 @@
 'Auslieferungstermin': 'Auslieferungstermin',
 'author': 'Autor',
 'authors': 'Autor',
+'Author Guidelines': 'Autorenhinweise',
 'Authors A-Z': 'Autoren A-Z',
 'Autoren': 'Autoren',
 'Autoren : Vorname Nachname )': 'Autoren : Vorname Nachname )',
