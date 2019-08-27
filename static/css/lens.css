@@ -60,16 +60,21 @@
   margin-bottom: 2em !important; }
 
 .content-node.paragraph.margin-left-1 {
-  margin-left: 2ex; }
+  margin-left: 2ex;
+  display: block !important; }
 
 .content-node.paragraph.margin-right-1 {
-  margin-right: 2ex; }
+  margin-right: 2ex; 
+  display: block !important; }
 
 .content-node.paragraph.margin-left-2 {
-  margin-left: 4ex; }
-
+  margin-left: 4ex; 
+  display: block !important; }
+  
 .content-node.paragraph.margin-right-2 {
-  margin-right: 4ex; }
+  margin-right: 4ex; 
+  display: block !important; }
+
 
 .content-node.paragraph.centered {
   text-align: center; }
