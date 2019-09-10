@@ -2008,7 +2008,7 @@ footer {
 }
 .print-url::after {
 	color: #656565 !important;
-	content: "http://heiup.uni-heidelberg.de";
+	content: "https://heiup.uni-heidelberg.de";
 	float: right;
 	font-size: 9pt;
 }
