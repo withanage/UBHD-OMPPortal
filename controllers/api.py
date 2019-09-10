@@ -69,7 +69,7 @@ def get_series_info(b):
     s_t = s_t.first().get('setting_value') if s_t else None
     if series:
         r = {"label":s_t,
-        'norm_id': 'url:{}/catalog/series/{}'.format(remove_url_prefix(myconf.take('web.url')),sp),
+        'id': 'url:{}/catalog/series/{}'.format(remove_url_prefix(myconf.take('web.url')),sp),
         "type": "collection",
              "associate_via_hierarchy":[get_press_info(locale) ]}
     return r
@@ -109,12 +109,12 @@ def oastatistik():
             full["label"] = title
             full["type"] = "volume"
 
-            full = get_as(authors, full, press_info, series_info)
+            full = get_as(full, press_info, series_info)
 
             if publication_format_settings_doi:
-                full["norm_id"] = publication_format_settings_doi['setting_value']
+                full["id"] = publication_format_settings_doi['setting_value']
             else:
-                full["norm_id"] = "XXXXXXXXXXXXXXXXXXXX"
+                full["id"] = "XXXXXXXXXXXXXXXXXXXX"
             file_name = str(book_id.submission_id) + '-' + str(f.file_id) + \
                 '-' + str(f.original_file_name.rsplit('.')[1])
             subs[file_name] = full
@@ -125,7 +125,7 @@ def oastatistik():
 
         if publication_format_settings_doi:
             fullbook["norm_id"] = publication_format_settings_doi['setting_value']
-        fullbook = get_as(authors, fullbook, press_info, series_info)
+        fullbook = get_as(fullbook, press_info, series_info)
 
         chapters = get_chapters(book_id)
         for c in chapters:
@@ -145,19 +145,18 @@ def oastatistik():
     return sj.dumps(subs, separators=(',', ':'), sort_keys=True)
 
 
-def get_as(authors, fullbook, press_info, series_info):
+def get_as(fullbook, press_info, series_info):
     fullbook["associate_via_hierarchy"] = []
     if series_info:
         fullbook["associate_via_hierarchy"].append(series_info)
     else:
         fullbook["associate_via_hierarchy"].append(press_info)
-    fullbook["associate_via_hierarchy"].append(authors)
     return fullbook
 
 
 def get_press_info(locale):
     press_info = {
-        'norm_id': 'url:{}/{}'.format(remove_url_prefix(myconf.take('web.url')), myconf.take('web.application')),
+        'id': 'url:{}/{}'.format(remove_url_prefix(myconf.take('web.url')), myconf.take('web.application')),
         'type': 'press',
         'label': db(((db.press_settings.locale == locale) & (
         db.press_settings.press_id == myconf.take('omp.press_id')) & (
@@ -195,18 +194,18 @@ def get_book_part(c, chapter_id, part_title):
     bookpart = {}
     if part_title:
         bookpart["label"] = part_title['setting_value']
-    bookpart["norm_id"] = myconf.take('statistik.id') + ':' + chapter_id
+    bookpart["id"] = myconf.take('statistik.id') + ':' + chapter_id
     bookpart["type"] = "part"
-    chapter_autors = []
-    authors = get_chapter_authors(c).as_list()
-    for i in authors:
-        chapter_autors.append({"type": "person"})
-        chapter_autors.append({"relation": "creators"})
-        author = ompdal.getAuthorSettings(i['author_id']).as_list()
-        family_name, given_name = get_author_name(author)
-        chapter_autors.append({'name': ' '.join([given_name, family_name])})
-    if chapter_autors:
-        bookpart["associate_via_hierarchy"] = chapter_autors
+    # chapter_autors = []
+    # authors = get_chapter_authors(c).as_list()
+    # for i in authors:
+    #     chapter_autors.append({"type": "person"})
+    #     chapter_autors.append({"relation": "creators"})
+    #     author = ompdal.getAuthorSettings(i['author_id']).as_list()
+    #     family_name, given_name = get_author_name(author)
+    #     chapter_autors.append({'name': ' '.join([given_name, family_name])})
+    # if chapter_autors:
+    #     bookpart["associate_via_hierarchy"] = chapter_autors
     return bookpart
 
 
