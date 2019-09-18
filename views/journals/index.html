@@ -118,7 +118,40 @@ At least twice a year the journal publishes original research on teacher educati
             </div>                
           </article>            
         </div>        
-      </div>             
+      </div>    
+    <div class="row">            
+      <div class="col-lg-2">                
+        <article>                    
+          <div class="post-image">		 	
+            <img alt="" src="{{=URL(myconf.take('web.application'),'static','images/journals/tcs.jpg')}} ">                  
+          </div>                
+        </article>            
+      </div>            
+      <div class="col-lg-10">               
+        <article>                        
+          <div class="post-heading">			             						
+            <div class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h3>The Journal of Transcultural Studies</h3>
+            </div>                               
+            <br style="clear: both">                        
+          </div>                        
+          <p>{{if session.forced_language =='de': }} <i>The Journal of Transcultural Studies</i> ist eine Peer-Review-geprüfte Open-Access-Zeitschrift, die sich als Forum zur Verbreitung von Wissen und Forschung zur Transkulturalität in allen Disziplinen versteht. Sie wird vom Exzellenzcluster „Asien und Europa im globalen Kontext. Die Dynamiken der Transkulturalität“ der Ruprecht-Karls-Universität Heidelberg herausgegeben.
+          {{elif session.forced_language =='en': }} <i>The Journal of Transcultural Studies</i> is a peer-reviewed, open-access journal committed to promoting the knowledge and research of transculturality in all disciplines. It is published by the Cluster of Excellence “Asia and Europe in a Global Context: The Dynamics of Transculturality” of the Ruprecht-Karls-Universität Heidelberg.
+          {{pass}}                              
+          </p>                    
+          <div class="widget">                        
+            <h5 class="widgetheading"></h5>                        
+            <ul class="tags">        	       	   
+              <li>
+              <a href="{{=URL(myconf.take('web.application'),'journals','tcs')}}">{{=T('More' )}}</a>
+              </li>
+              <li>
+              <a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/index">{{=T('View Journal')}}</a>
+              </li>                        
+            </ul>                    
+          </div>                
+        </article>            
+      </div>        
+    </div>	  
     <div class="row">            
       <div class="col-lg-2">                
         <article>                    
@@ -227,39 +260,7 @@ At least twice a year the journal publishes original research on teacher educati
         </article>      
       </div>    
     </div>                     
-    <div class="row">            
-      <div class="col-lg-2">                
-        <article>                    
-          <div class="post-image">		 	
-            <img alt="" src="{{=URL(myconf.take('web.application'),'static','images/journals/tcs.jpg')}} ">                  
-          </div>                
-        </article>            
-      </div>            
-      <div class="col-lg-10">               
-        <article>                        
-          <div class="post-heading">			             						
-            <div class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h3>Transcultural Studies</h3>
-            </div>                               
-            <br style="clear: both">                        
-          </div>                        
-          <p>{{if session.forced_language =='de': }} <i>Transcultural Studies</i> ist eine Peer-Review-geprüfte Open-Access-Zeitschrift, die sich als Forum zur Verbreitung von Wissen und Forschung zur Transkulturalität in allen Disziplinen versteht. Sie wird vom Exzellenzcluster „Asien und Europa im globalen Kontext. Die Dynamiken der Transkulturalität“ der Ruprecht-Karls-Universität Heidelberg herausgegeben.
-          {{elif session.forced_language =='en': }} <i>Transcultural Studies</i> is a peer-reviewed, open-access journal committed to promoting the knowledge and research of transculturality in all disciplines. It is published by the Cluster of Excellence “Asia and Europe in a Global Context: The Dynamics of Transculturality” of the Ruprecht-Karls-Universität Heidelberg.
-          {{pass}}                              
-          </p>                    
-          <div class="widget">                        
-            <h5 class="widgetheading"></h5>                        
-            <ul class="tags">        	       	   
-              <li>
-              <a href="{{=URL(myconf.take('web.application'),'journals','tcs')}}">{{=T('More' )}}</a>
-              </li>
-              <li>
-              <a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/index">{{=T('View Journal')}}</a>
-              </li>                        
-            </ul>                    
-          </div>                
-        </article>            
-      </div>        
-    </div>
+
     
     </div> <!-- ./container -->		
 <!--	
