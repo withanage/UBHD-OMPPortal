@@ -114,13 +114,17 @@ $('.flexslider').flexslider();
 			<div class="col-lg-3">
               <div class="box">
                 <div class="box-gray aligncenter">{{if session.forced_language =='de': }} 
-                  <p class="boxText"><b>Frankfurter Buchmesse</b><br>Besuchen Sie heiUP auf der Buchmesse! Halle 4.1. Stand B92.
-                  </p>{{elif session.forced_language =='en': }} 
-                  <p class="boxText"><b>Frankfurter Buchmesse</b><br>Besuchen Sie heiUP auf der Buchmesse! Halle 4.1. Stand B92. 
+				  <h4>Frankfurter Buchmesse</h4>
+                  <p class="boxText">Besuchen Sie heiUP auf der Buchmesse! Halle 4.1. Stand B92.
+                  </p>{{elif session.forced_language =='en': }}
+                  <h4>Frankfurter Buchmesse</h4>				  
+                  <p class="boxText">Besuchen Sie heiUP auf der Buchmesse! Halle 4.1. Stand B92. 
                   </p>{{pass}} 
                 </div>
                 <div class="box-bottom"> 
+				<!--
                     {{=A(T('More Information'),_href=URL('about_us','mission_statement'))}}
+					-->
                 </div>
               </div>
             </div> 
