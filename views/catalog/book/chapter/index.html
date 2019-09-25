@@ -39,8 +39,12 @@
                           <h5>
                            {{if c_authors:}}
                             {{for i,author in enumerate(c_authors):}}
-                            {{=author.settings._settings.get('givenName').get('en_US' or locale)}}
-                            {{=author.settings._settings.get('familyName').get('en_US' or locale)}}
+                            {{givenName=author.settings._settings.get('givenName') }}
+                            {{firstName=author.settings._settings.get('familyName') }}
+
+                            {{if len(givenName.keys()) > 0:}}{{ = givenName.get(givenName.keys()[0]) }} {{pass}}
+                            {{if len(firstName.keys()) > 0:}}{{ = firstName.get(firstName.keys()[0]) }} {{pass}}
+
                             {{ if len(c_authors)-1 !=i:}}{{=', '}}{{pass}}
                              {{pass}}
                              {{pass}}
