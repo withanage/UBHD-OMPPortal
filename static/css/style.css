@@ -1648,6 +1648,10 @@ ul.portfolio li article a i {
 	width:100%;
 	max-width:300px;
 }
+
+.post-image > a[href^="https://doi.org/10.17885"] {
+  width: 100%; 
+}
 .container {
 	padding: 0;
 }
