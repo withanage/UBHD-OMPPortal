@@ -14,6 +14,17 @@
                     <div class="box">
                         <div class="box-gray alignleft" style="height: auto;">
                             <!-- citations begin -->
+                        {{=H5(T('How to cite this chapter'),_style="color: #656565; margin-bottom: 0.5em;")}}
+                        <p>
+                            {{=formatCitation(cleanTitle, subtitle, authors, editors, date_published,
+                                              press_settings.getLocalizedValue('location', ''),
+                                              press_settings.getLocalizedValue('publisher', ''),
+                                              doi, locale, series_name=series_name,
+                                              series_pos=submission.series_position,
+                                              max_contrib=3, date_first_published=date_first_published,
+                                              chapter=c)}}
+                            {{=A(formatDoi(chapter_doi), _href=formatDoi(chapter_doi))}}
+                        </p>
                         {{=H5(T('How to cite this title (volume)'),_style="color: #656565; margin-bottom: 0.5em;")}}
                         {{include '../static/omp-resources/views/catalog/citation.html' }}
                             <!-- citations end-->
@@ -33,23 +44,10 @@
                         {{include 'catalog/book/chapter/html_galley.html'}}
                         {{include 'catalog/book/chapter/pdf_galley.html'}}
                         <!--purchase -->
-
-
-			            {{=BR()}}
-                          <h5>
-                           {{if c_authors:}}
-                            {{for i,author in enumerate(c_authors):}}
-                            {{givenName=author.settings._settings.get('givenName') }}
-                            {{firstName=author.settings._settings.get('familyName') }}
-
-                            {{if len(givenName.keys()) > 0:}}{{ = givenName.get(givenName.keys()[0]) }} {{pass}}
-                            {{if len(firstName.keys()) > 0:}}{{ = firstName.get(firstName.keys()[0]) }} {{pass}}
-
-                            {{ if len(c_authors)-1 !=i:}}{{=', '}}{{pass}}
-                             {{pass}}
-                             {{pass}}
-                        </h5>
-
+			            <br>
+                        {{if c_authors:}}
+                        <h5>{{=formatContributors(c_authors, max_contributors=4)}}</h5>
+                        {{pass}}
                      	{{if c_title:}} {{=H3(c_title)}}{{pass}}
                         {{if c_subtitle:}}{{=H5(c_subtitle)}}{{pass}}
                         {{if c_abstract:}}{{=XML(c_abstract)}}{{pass}}
