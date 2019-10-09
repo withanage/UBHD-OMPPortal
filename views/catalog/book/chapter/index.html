@@ -13,7 +13,7 @@
                     {{include 'catalog/book/submission/cover_image.html' }}
                     <div class="box">
                         <div class="box-gray alignleft" style="height: auto;">
-                            <!-- citations begin -->
+                        <!-- citations begin -->
                         {{=H5(T('How to cite this chapter'),_style="color: #656565; margin-bottom: 0.5em;")}}
                         <p>
                             {{=formatCitation(cleanTitle, subtitle, authors, editors, date_published,
@@ -25,9 +25,7 @@
                                               chapter=c)}}
                             {{=A(formatDoi(chapter_doi), _href=formatDoi(chapter_doi))}}
                         </p>
-                        {{=H5(T('How to cite this title (volume)'),_style="color: #656565; margin-bottom: 0.5em;")}}
-                        {{include '../static/omp-resources/views/catalog/citation.html' }}
-                            <!-- citations end-->
+                        <!-- citations end-->
                         {{include 'catalog/book/submission/license.html' }}
                         {{include 'catalog/book/submission/identification_codes.html' }}
                         {{include 'catalog/book/submission/published_date.html' }}

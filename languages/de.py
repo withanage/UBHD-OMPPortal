@@ -228,6 +228,7 @@
 'How to cite this title (volume)': 'Zitierempfehlung (Buch)',
 'Höhe der Trimbox': 'Höhe der Trimbox',
 'Identifiers': 'Identifikatoren',
+'Identifiers (Book)': 'Identifikatoren (Buch)',
 'import': 'Importieren',
 'Import/Export': 'Importieren/Exportieren',
 'Imprint': 'Imprint',
