@@ -1643,6 +1643,10 @@ ul.portfolio li article a i {
 @media (max-width:360px) {
 }
 /*Änderungen WWW*/
+li.show {
+  display: list-item !important;
+}
+
 .bildrahmen, .post-image img {
 	border: 1px solid #cdcbcc;
 	width:100%;
