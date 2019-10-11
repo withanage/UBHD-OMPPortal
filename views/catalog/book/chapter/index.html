@@ -15,16 +15,7 @@
                         <div class="box-gray alignleft" style="height: auto;">
                         <!-- citations begin -->
                         {{=H5(T('How to cite this chapter'),_style="color: #656565; margin-bottom: 0.5em;")}}
-                        <p>
-                            {{=formatCitation(cleanTitle, subtitle, authors, editors, date_published,
-                                              press_settings.getLocalizedValue('location', ''),
-                                              press_settings.getLocalizedValue('publisher', ''),
-                                              doi, locale, series_name=series_name,
-                                              series_pos=submission.series_position,
-                                              max_contrib=3, date_first_published=date_first_published,
-                                              chapter=c)}}
-                            {{=A(formatDoi(chapter_doi), _href=formatDoi(chapter_doi))}}
-                        </p>
+                        {{include '../static/omp-resources/views/catalog/citation.html' }}
                         <!-- citations end-->
                         {{include 'catalog/book/submission/license.html' }}
                         {{include 'catalog/book/submission/identification_codes.html' }}
