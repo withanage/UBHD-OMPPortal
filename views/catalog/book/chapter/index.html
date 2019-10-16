@@ -1,9 +1,4 @@
 {{if len(request.args)==2:}}
-   {{c_title = c.settings.getLocalizedValue('title', locale)}}
-                        {{c_subtitle = c.settings.getLocalizedValue('subtitle', locale)}}
-                        {{c_abstract = c.settings.getLocalizedValue('abstract', locale)}}
-                        {{c_authors = c.associated_items.get('authors', [])}}
-                        {{c_files = c.associated_items.get('files', [])}}
 <div id="main" class="container">
     <section id="content">
         <div style="height: 20px"></div>

@@ -341,8 +341,15 @@ def book():
             if chapter_file:
                 i.associated_items.setdefault('files', {})[pf.publication_format_id] = OMPItem(chapter_file, OMPSettings(ompdal.getSubmissionFileSettings(chapter_file.file_id)))
             if chapter_id > 0 and chapter_id == i.attributes.chapter_id:
-                chapter_doi = i.settings.getLocalizedValue(DOI_SETTING_NAME, '')
                 c = i
+    if c:
+        c_title = c.settings.getLocalizedValue('title', locale)
+        c_subtitle = c.settings.getLocalizedValue('subtitle', locale)
+        c_abstract = c.settings.getLocalizedValue('abstract', locale)
+        c_authors = c.associated_items.get('authors', [])
+        c_files = c.associated_items.get('files', {})
+        chapter_doi = i.settings.getLocalizedValue(DOI_SETTING_NAME, '')
+
 
     # Get physical publication formats, settings, and identification codes
     physical_publication_formats = []
