@@ -111,20 +111,17 @@ Entangled Histories</h3>
       <div class="row">
         <div class="col-lg-12">
           <div class="row">
-		  	
-           <div class="col-lg-3">
-              <div class="box">
-                <div class="box-gray aligncenter">{{if session.forced_language =='de': }} 
-                  <p class="boxText"><b>Heidelberg University Publishing</b> ist ein Open-Access-Verlag für qualitätsgeprüfte wissenschaftliche Publikationen. Wir unterstützen Open Access als Publikationsmodell für die Verbreitung hervorragender Forschungsergebnisse und setzen Open-Source-Software für die gemeinsame Entwicklung der zugrunde liegenden Publikationstechnologien ein. 
-                  </p>{{elif session.forced_language =='en': }} 
-                  <p class="boxText"><b>Heidelberg University Publishing</b> is an open-access publisher of high-quality, peer-reviewed academic works. We endorse open access as a publishing model to distribute outstanding research results and use open-source software for the collaborative development of underlying publishing technologies. 
-                  </p>{{pass}} 
+		  	          <div class="col-lg-3">              
+                <div class="box">
+                  <div class="box-gray aligncenter">
+                <h4>{{=T('Preview')}} 2019/2020</h4>
+                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','images/about_us/profile/cover_programm.png'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('static','/medien/heiUP_Programmheft2019.pdf'))}} 
+      					</div>
+                  <div class="box-bottom">{{=A(T('Download'),_href=URL('static','/medien/heiUP_Programmheft2019.pdf'))}}
+                  </div>
                 </div>
-                <div class="box-bottom"> 
-                    {{=A(T('More Information'),_href=URL('about_us','mission_statement'))}}
-                </div>
-              </div>
-            </div>
+          </div>					  
+
         
         <div class="col-lg-3">              
                 <div class="box">
@@ -138,8 +135,7 @@ Entangled Histories</h3>
           </div> 
 		  
 
-					
-		  
+
 
 
             <div id="boxAktuelles" class="col-lg-6">
@@ -177,7 +173,21 @@ Entangled Histories</h3>
             <div class="row">
 			
 		
-<div class="col-lg-3">              
+			       <div class="col-lg-3">
+              <div class="box">
+                <div class="box-gray aligncenter">{{if session.forced_language =='de': }} 
+                  <p class="boxText"><b>Heidelberg University Publishing</b> ist ein Open-Access-Verlag für qualitätsgeprüfte wissenschaftliche Publikationen. Wir unterstützen Open Access als Publikationsmodell für die Verbreitung hervorragender Forschungsergebnisse und setzen Open-Source-Software für die gemeinsame Entwicklung der zugrunde liegenden Publikationstechnologien ein. 
+                  </p>{{elif session.forced_language =='en': }} 
+                  <p class="boxText"><b>Heidelberg University Publishing</b> is an open-access publisher of high-quality, peer-reviewed academic works. We endorse open access as a publishing model to distribute outstanding research results and use open-source software for the collaborative development of underlying publishing technologies. 
+                  </p>{{pass}} 
+                </div>
+                <div class="box-bottom"> 
+                    {{=A(T('More Information'),_href=URL('about_us','mission_statement'))}}
+                </div>
+              </div>
+            </div>
+            
+					<div class="col-lg-3">              
                 <div class="box">
                   <div class="box-gray aligncenter">
                 <h4>{{=T('New Titles')}}</h4>
@@ -187,6 +197,8 @@ Entangled Histories</h3>
                   </div>
                 </div>
           </div>
+		  
+            
 		  	<div class="col-lg-3">              
                 <div class="box">
                   <div class="box-gray aligncenter">
@@ -197,16 +209,6 @@ Entangled Histories</h3>
                   </div>
                 </div>
           </div>
-          <div class="col-lg-3">              
-                <div class="box">
-                  <div class="box-gray aligncenter">
-                <h4>{{=T('Preview')}} 2019/2020</h4>
-                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','images/about_us/profile/cover_programm.png'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('static','/medien/heiUP_Programmheft2019.pdf'))}} 
-      					</div>
-                  <div class="box-bottom">{{=A(T('Download'),_href=URL('static','/medien/heiUP_Programmheft2019.pdf'))}}
-                  </div>
-                </div>
-          </div>					  
 
 
 		  	<div class="col-lg-3">              
