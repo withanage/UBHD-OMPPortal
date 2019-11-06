@@ -68,9 +68,9 @@ def oastatistik():
     context_id = myconf.take('omp.press_id')
     stats_id = myconf.take('statistik.id')
     db_submissions = db.submissions
-    q = ((db_submissions.context_id == context_id) & (db_submissions.status == 3) & (
-                db_submissions.submission_id == 286))
+    q = ((db_submissions.context_id == context_id) & (db_submissions.status == 3))
     submissions = db(q).select(db_submissions.submission_id, orderby=(db_submissions.submission_id))
+
 
     for submission in submissions:
 
