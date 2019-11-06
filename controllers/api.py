@@ -61,187 +61,108 @@ def remove_url_prefix(url):
     return ''.join(urls)
 
 
-def get_series_info(b):
-    r = None
-    series = ompdal.getSeriesBySubmissionId(b['submission_id'])
-    s_id = series.get('series_id') if series else ''
-    sp = series.get('path') if series else ''
-    s_t = db((db.series_settings.series_id == s_id) & (db.series_settings.locale == locale) & (
-                db.series_settings.setting_name == 'title')).select()
-    s_t = s_t.first().get('setting_value') if s_t else None
-    if series:
-        r = {
-            "label"                  : s_t,
-            'id'                     : 'url:{}/catalog/series/{}'.format(remove_url_prefix(myconf.take('web.url')), sp),
-            "type"                   : "collection",
-            "associate_via_hierarchy": [get_press_info(locale)]
-        }
-    return r
-
-
 def oastatistik():
+    ompdal = OMPDAL(db, myconf)
+    result = []
     locale = 'de_DE'
-    if session.forced_language == 'en':
-        locale = 'en_US'
-    query = (
-            (db.submissions.context_id == myconf.take('omp.press_id')) & (
-            db.submissions.status == 3) & (
-                    db.submission_settings.submission_id == db.submissions.submission_id) & (
-                    db.submission_settings.locale == locale))
-    submissions = db(query).select(db.submission_settings.ALL, orderby=db.submissions.submission_id)
-    subs = {}
-    title, publication_format_settings_doi = '', None
-    for book_id in submissions:
-        # full book
-        publication_format_settings = get_publication_format_settings(book_id)
-        if publication_format_settings:
-            publication_format_settings_doi = get_publication_format_settings_doi(publication_format_settings,
-                                                                                  publication_format_settings_doi)
+    context_id = myconf.take('omp.press_id')
+    stats_id = myconf.take('statistik.id')
+    db_submissions = db.submissions
+    q = ((db_submissions.context_id == context_id) & (db_submissions.status == 3) & (
+                db_submissions.submission_id == 286))
+    submissions = db(q).select(db_submissions.submission_id, orderby=(db_submissions.submission_id))
 
-        if book_id.setting_name == 'title':
-            title = book_id.setting_value
+    for submission in submissions:
 
-        #authors = get_authors(book_id)
-        full_files = get_full_books(book_id)
-        press_info = get_press_info(locale)
-        series_info = get_series_info(book_id)
+        submission_id = submission.submission_id
+        pfs = ompdal.getAllPublicationFormatsBySubmission(submission_id).as_list()
+        docs = [{
+            'type': 'FD',
+            'id'  : '{}-{}-{}'.format(stats_id, submission_id, 'fd')
+            }]
+        norm_id = 'MD:{}:{}'.format(stats_id, submission_id)
+        volume = {
+            "id"  : norm_id,
+            "type": "volume",
 
-        for f in full_files:
-            full = {}
-            full["label"] = title
-            full["type"] = "volume"
+            }
+        for pf in pfs:
+            publication_format_id = pf["publication_format_id"]
+            files = ompdal.getLatestRevisionOfFullBookFileByPublicationFormat(submission_id, publication_format_id)
 
-            full = get_as(full, press_info, series_info)
-            statics_id = str(book_id.submission_id) + '-' + str(f.file_id)
+            if files:
+                file_info = files.as_dict()
+                file_name = file_info['original_file_name'].rsplit('.')
+                if file_name:
+                    file_type = file_name[1]
+                    doc = {
+                        "id"  : '{}-{}-{}-{}'.format(stats_id, submission_id, file_info['file_id'], file_type.lower()),
+                        "type": file_type.upper()
+                        }
+                    docs.append(doc)
+        volume["doc_id"] = docs
+        # submission
+        submission_settings = ompdal.getSubmissionSettings(submission_id).as_list()
 
-            if publication_format_settings_doi:
-                full["norm_id"] = publication_format_settings_doi['setting_value']
-            else:
-                full["id"] = myconf.take('statistik.id') + ':' + statics_id
+        for setting in submission_settings:
+            if setting["locale"] == locale and setting["setting_name"] == 'title':
+                volume["title"] = setting["setting_value"]
+            if setting["setting_name"] == 'pub-id::doi':
+                volume["norm_id"] = setting["setting_value"]
 
-            file_name = statics_id + '-' + str(f.original_file_name.rsplit('.')[1])
-            subs[file_name] = full
+        result.append(volume)
 
-        fullbook = {}
-        fullbook["label"] = title
-        fullbook["type"] = "volume"
+        chapters = ompdal.getChaptersBySubmission(submission_id).as_list()
 
-        if publication_format_settings_doi:
-            fullbook["norm_id"] = publication_format_settings_doi['setting_value']
-        fullbook = get_as(fullbook, press_info, series_info)
+        for chapter in chapters:
+            chapter_id = chapter["chapter_id"]
 
-        chapters = get_chapters(book_id)
-        for c in chapters:
-            chapter_id = str(book_id['submission_id']) + '-' + str(c['submission_chapters']['chapter_id'])
-            type = db(db.submission_files.file_id == c['submission_file_settings']['file_id']).select(
-                    db.submission_files.original_file_name).first()['original_file_name'].rsplit('.')[1]
-            file_id = str(book_id['submission_id']) + '-' + \
-                      str(c['submission_file_settings']['file_id']) + '-' + str(type)
+            doc_id_chapters = [{
+                'type': 'FD',
+                'id'  : '{}-{}-c{}-{}'.format(stats_id, submission_id, chapter_id, 'fd')
+                }]
+            for pf in pfs:
+                publication_format_id = pf["publication_format_id"]
+                chapter_file = ompdal.getLatestRevisionOfChapterFileByPublicationFormat(chapter_id,
+                                                                                        publication_format_id)
 
-            subs[file_id] = []
-            part_title = get_parts_title(c, locale)
-            bookpart = get_book_part(c, chapter_id, part_title)
-            subs[file_id] = bookpart
-            subs[file_id]["associate_via_hierarchy"] = [fullbook]
+                if chapter_file:
+                    chapter_file_info = chapter_file.as_dict()
+                    chapter_file_name = chapter_file_info['original_file_name'].rsplit('.')
+                    if chapter_file_name:
+                        file_type = chapter_file_name[1]
+                        chapter_doc = {
+                            "id"  : '{}-{}-{}-{}'.format(stats_id, submission_id, chapter_file_info['file_id'],
+                                                         file_type.lower()),
+                            "type": file_type.upper()
+                            }
 
-    return sj.dumps(subs, separators=(',', ':'), sort_keys=True)
+                    chapter_settings = ompdal.getChapterSettings(chapter_id).as_list()
+                    for chapter_setting in chapter_settings:
+                        if chapter_setting["setting_name"] == 'pub-id::doi':
+                            doc_id_chapters.append({"norm_id": chapter_setting["setting_value"]})
 
+            doc_id_chapters.append(chapter_doc)
 
-def get_as(fullbook, press_info, series_info):
-    fullbook["associate_via_hierarchy"] = []
-    if series_info:
-        fullbook["associate_via_hierarchy"].append(series_info)
-    else:
-        fullbook["associate_via_hierarchy"].append(press_info)
-    return fullbook
+            chs_ = {
+                "id"    : "MD:{}:{}-c{}".format(stats_id, submission_id, chapter_id),
+                "type"  : "part",
+                "parent": norm_id,
+                "doc_id": doc_id_chapters
+                }
+            chapter_settings = ompdal.getChapterSettings(chapter_id).as_list()
+            for chapter_setting in chapter_settings:
+                if chapter_setting["locale"] == locale and chapter_setting["setting_name"] == 'title':
+                    chs_["title"] = chapter_setting["setting_value"]
+                if chapter_setting["locale"] == locale and chapter_setting["setting_name"] == 'pub-id::doi':
+                    chs_["norm_id"] = chapter_setting["setting_value"]
 
+            result.append(chs_)
 
-def get_press_info(locale):
-    press_info = {
-        'id'   : 'url:{}/{}'.format(remove_url_prefix(myconf.take('web.url')), myconf.take('web.application')),
-        'type' : 'press',
-        'label': db(((db.press_settings.locale == locale) & (
-                db.press_settings.press_id == myconf.take('omp.press_id')) & (
-                             db.press_settings.setting_name == 'name'))).select().first()['setting_value']
-        }
-    return press_info
-
-
-def get_authors(book_id):
-    authors = []
-    a = ompdal.getAuthorsBySubmission(book_id.submission_id).as_list()
-
-    for i in a:
-        author = {}
-        author['type'] = 'person'
-        author['relation'] = 'creators'
-        author = ompdal.getAuthorSettings(i['author_id']).as_list()
-        # family_name, given_name = get_author_name(author)
-        # author['label'] = given_name + ' ' + family_name
-        authors.append(author)
-    return authors
+    return sj.dumps(result, separators=(',', ':'), sort_keys=False)
 
 
-def get_author_name(author):
-    given_name, family_name = '', ''
-    for i in author:
-        if i['setting_name'] == 'givenName':
-            given_name = i['setting_value']
-        if i['setting_name'] == 'familyName':
-            family_name = i['setting_value']
-    return family_name, given_name
-
-
-def get_book_part(c, chapter_id, part_title):
-    bookpart = {}
-    if part_title:
-        bookpart["label"] = part_title['setting_value']
-    bookpart["id"] = myconf.take('statistik.id') + ':' + chapter_id
-    bookpart["type"] = "part"
-    # chapter_autors = []
-    # authors = get_chapter_authors(c).as_list()
-    # for i in authors:
-    #     chapter_autors.append({"type": "person"})
-    #     chapter_autors.append({"relation": "creators"})
-    #     author = ompdal.getAuthorSettings(i['author_id']).as_list()
-    #     family_name, given_name = get_author_name(author)
-    #     chapter_autors.append({'name': ' '.join([given_name, family_name])})
-    # if chapter_autors:
-    #     bookpart["associate_via_hierarchy"] = chapter_autors
-    return bookpart
-
-
-def get_chapter_authors(c):
-    author_id_list = db(
-            db.submission_chapter_authors.chapter_id == int(
-                    c['submission_chapters']['chapter_id'])).select(
-            db.submission_chapter_authors.author_id,
-            orderby=db.submission_chapter_authors.seq)
-    return author_id_list
-
-
-def get_parts_title(c, locale):
-    part_title = db(
-            (db.submission_chapter_settings.chapter_id == int(
-                    c['submission_chapters']['chapter_id'])) & (
-                    db.submission_chapter_settings.locale == locale) & (
-                    db.submission_chapter_settings.setting_name == 'title')).select(
-            db.submission_chapter_settings.setting_value).first()
-    return part_title
-
-
-def get_chapters(book_id):
-    chapters = db(
-            (db.submission_chapters.submission_id == book_id['submission_id']) & (
-                    db.submission_file_settings.setting_name == 'chapterID') & (
-                    db.submission_file_settings.setting_value == db.submission_chapters.chapter_id)).select(
-            db.submission_chapters.chapter_id,
-            db.submission_file_settings.file_id,
-            orderby=db.submission_chapters.seq)
-    return chapters
-
-
-def get_full_books(book_id):
+def get_submission_files(book_id):
     full_files = db(
             (db.submission_files.genre_id == myconf.take('omp.monograph_type_id')) & (
                     db.submission_files.file_stage > 5) & (
@@ -270,7 +191,7 @@ def get_publication_format_settings(book_id):
                     db.publication_format_settings.publication_format_id)).select(
             db.publication_format_settings.publication_format_id,
             db.publication_format_settings.setting_value)
-    return publication_format_settings
+    return publication_format_setting
 
 
 def csl():
