@@ -78,7 +78,7 @@ def oastatistik():
         pfs = ompdal.getAllPublicationFormatsBySubmission(submission_id).as_list()
         docs = [{
             'type': 'FD',
-            'id'  : '{}-{}-{}'.format(stats_id, submission_id, 'fd')
+            'id'  : '{}:{}-{}'.format(stats_id, submission_id, 'fd')
             }]
         norm_id = 'MD:{}:{}'.format(stats_id, submission_id)
         volume = {
@@ -96,7 +96,7 @@ def oastatistik():
                 if file_name:
                     file_type = file_name[1]
                     doc = {
-                        "id"  : '{}-{}-{}-{}'.format(stats_id, submission_id, file_info['file_id'], file_type.lower()),
+                        "id"  : '{}:{}-{}-{}'.format(stats_id, submission_id, file_info['file_id'], file_type.lower()),
                         "type": file_type.upper()
                         }
                     docs.append(doc)
@@ -119,7 +119,7 @@ def oastatistik():
 
             doc_id_chapters = [{
                 'type': 'FD',
-                'id'  : '{}-{}-c{}-{}'.format(stats_id, submission_id, chapter_id, 'fd')
+                'id'  : '{}:{}-c{}-{}'.format(stats_id, submission_id, chapter_id, 'fd')
                 }]
             for pf in pfs:
                 publication_format_id = pf["publication_format_id"]
@@ -132,7 +132,7 @@ def oastatistik():
                     if chapter_file_name:
                         file_type = chapter_file_name[1]
                         chapter_doc = {
-                            "id"  : '{}-{}-{}-{}'.format(stats_id, submission_id, chapter_file_info['file_id'],
+                            "id"  : '{}:{}-{}-{}'.format(stats_id, submission_id, chapter_file_info['file_id'],
                                                          file_type.lower()),
                             "type": file_type.upper()
                             }
