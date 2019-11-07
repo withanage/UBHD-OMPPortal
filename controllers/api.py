@@ -10,6 +10,7 @@ from ompdal import OMPDAL
 from ompcsl import OMPCSL
 from os.path import join
 
+
 response.headers['Content-Type'] = 'application/json'
 response.view = 'generic.json'
 url = join(request.env.http_host, request.application, request.controller)
@@ -159,7 +160,11 @@ def oastatistik():
 
             result.append(chs_)
 
-    return sj.dumps(result, separators=(',', ':'), sort_keys=False)
+    jsonl = ''
+    for s in result:
+        jsonl += sj.dumps(s, separators=(',', ':'))+'\n'
+
+    return jsonl
 
 
 def get_submission_files(book_id):
