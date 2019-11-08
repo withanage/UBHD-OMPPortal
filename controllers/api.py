@@ -63,6 +63,7 @@ def remove_url_prefix(url):
 
 
 def oastatistik():
+
     ompdal = OMPDAL(db, myconf)
     result = []
     locale = 'de_DE'
@@ -138,8 +139,6 @@ def oastatistik():
                             "type": file_type.upper()
                             }
 
-
-
             doc_id_chapters.append(chapter_doc)
 
             chs_ = {
@@ -156,8 +155,6 @@ def oastatistik():
                     chs_["norm_id"] = chapter_setting["setting_value"]
 
             result.append(chs_)
-
-
 
     return sj.dumps(result, separators=(',', ':'))
 
