@@ -138,10 +138,7 @@ def oastatistik():
                             "type": file_type.upper()
                             }
 
-                    chapter_settings = ompdal.getChapterSettings(chapter_id).as_list()
-                    for chapter_setting in chapter_settings:
-                        if chapter_setting["setting_name"] == 'pub-id::doi':
-                            doc_id_chapters.append({"norm_id": chapter_setting["setting_value"]})
+
 
             doc_id_chapters.append(chapter_doc)
 
@@ -155,16 +152,14 @@ def oastatistik():
             for chapter_setting in chapter_settings:
                 if chapter_setting["locale"] == locale and chapter_setting["setting_name"] == 'title':
                     chs_["title"] = chapter_setting["setting_value"]
-                if chapter_setting["locale"] == locale and chapter_setting["setting_name"] == 'pub-id::doi':
+                if chapter_setting["setting_name"] == 'pub-id::doi':
                     chs_["norm_id"] = chapter_setting["setting_value"]
 
             result.append(chs_)
 
-    jsonl = ''
-    for s in result:
-        jsonl += sj.dumps(s, separators=(',', ':'))+'\n'
 
-    return jsonl
+
+    return sj.dumps(result, separators=(',', ':'))
 
 
 def get_submission_files(book_id):
