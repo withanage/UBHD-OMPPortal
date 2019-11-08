@@ -139,7 +139,7 @@ def oastatistik():
                             "type": file_type.upper()
                             }
 
-            doc_id_chapters.append(chapter_doc)
+                        doc_id_chapters.append(chapter_doc)
 
             chs_ = {
                 "id"    : "MD:{}:{}-c{}".format(stats_id, submission_id, chapter_id),
