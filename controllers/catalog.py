@@ -348,7 +348,7 @@ def book():
         c_abstract = c.settings.getLocalizedValue('abstract', locale)
         c_authors = c.associated_items.get('authors', [])
         c_files = c.associated_items.get('files', {})
-        chapter_doi = i.settings.getLocalizedValue(DOI_SETTING_NAME, '')
+        chapter_doi = c.settings.getLocalizedValue(DOI_SETTING_NAME, '')
 
 
     # Get physical publication formats, settings, and identification codes
