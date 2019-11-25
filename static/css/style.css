@@ -343,6 +343,12 @@ section.callaction {
 	color: #eee;
 	text-decoration: none;
 }
+
+a[href^="https://doi.org/10.17885"] {
+  word-break: break-all;
+  width: 170px;
+  display: block;
+}
 /* ===================================9. Section:Bottom==================================== */
 #bottom {
 	background: #fcfcfc;
