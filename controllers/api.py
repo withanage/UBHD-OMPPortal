@@ -78,12 +78,20 @@ def oastatistik():
 
         submission_id = submission.submission_id
 
+        metadata_published_date = ompdal.getMetaDataPublishedDates(submission_id).first()
+        date_published = metadata_published_date.date_logged if metadata_published_date else None
+        if not date_published:
+            date_published = submission.date_status_modified
+        year = date_published.year  if date_published else []
+
+
         norm_id = '{}:{}'.format(stats_id, submission_id)
         volume = {
             "id"  : 'MD:{}'.format(norm_id),
             "type": "volume",
-
             }
+        if year:
+            volume['year'] = year
 
         volume["doc_id"] = '{}'.format(norm_id)
         # submission
