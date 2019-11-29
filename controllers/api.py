@@ -77,32 +77,15 @@ def oastatistik():
     for submission in submissions:
 
         submission_id = submission.submission_id
-        pfs = ompdal.getAllPublicationFormatsBySubmission(submission_id).as_list()
-        docs = [{
-            'type': 'FD',
-            'id'  : '{}:{}-{}'.format(stats_id, submission_id, 'fd')
-            }]
-        norm_id = 'MD:{}:{}'.format(stats_id, submission_id)
+
+        norm_id = '{}:{}'.format(stats_id, submission_id)
         volume = {
-            "id"  : norm_id,
+            "id"  : 'MD:{}'.format(norm_id),
             "type": "volume",
 
             }
-        for pf in pfs:
-            publication_format_id = pf["publication_format_id"]
-            files = ompdal.getLatestRevisionOfFullBookFileByPublicationFormat(submission_id, publication_format_id)
 
-            if files:
-                file_info = files.as_dict()
-                file_name = file_info['original_file_name'].rsplit('.')
-                if file_name:
-                    file_type = file_name[1]
-                    doc = {
-                        "id"  : '{}:{}-{}-{}'.format(stats_id, submission_id, file_info['file_id'], file_type.lower()),
-                        "type": file_type.upper()
-                        }
-                    docs.append(doc)
-        volume["doc_id"] = docs
+        volume["doc_id"] = '{}'.format(norm_id)
         # submission
         submission_settings = ompdal.getSubmissionSettings(submission_id).as_list()
 
@@ -119,33 +102,12 @@ def oastatistik():
         for chapter in chapters:
             chapter_id = chapter["chapter_id"]
 
-            doc_id_chapters = [{
-                'type': 'FD',
-                'id'  : '{}:{}-c{}-{}'.format(stats_id, submission_id, chapter_id, 'fd')
-                }]
-            for pf in pfs:
-                publication_format_id = pf["publication_format_id"]
-                chapter_file = ompdal.getLatestRevisionOfChapterFileByPublicationFormat(chapter_id,
-                                                                                        publication_format_id)
-
-                if chapter_file:
-                    chapter_file_info = chapter_file.as_dict()
-                    chapter_file_name = chapter_file_info['original_file_name'].rsplit('.')
-                    if chapter_file_name:
-                        file_type = chapter_file_name[1]
-                        chapter_doc = {
-                            "id"  : '{}:{}-{}-{}'.format(stats_id, submission_id, chapter_file_info['file_id'],
-                                                         file_type.lower()),
-                            "type": file_type.upper()
-                            }
-
-                        doc_id_chapters.append(chapter_doc)
-
+            chapter_norm_id = "{}:{}-c{}".format(stats_id, submission_id, chapter_id)
             chs_ = {
-                "id"    : "MD:{}:{}-c{}".format(stats_id, submission_id, chapter_id),
+                "id"    : 'MD:{}'.format(chapter_norm_id),
                 "type"  : "part",
                 "parent": norm_id,
-                "doc_id": doc_id_chapters
+                "doc_id": chapter_norm_id
                 }
             chapter_settings = ompdal.getChapterSettings(chapter_id).as_list()
             for chapter_setting in chapter_settings:
