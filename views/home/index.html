@@ -42,8 +42,7 @@ $('.flexslider').flexslider();
               <li>
               <img alt="" src="{{=URL('static','images/press/slideshow/03_latin-arabic.jpg')}}" />
               {{if session.forced_language =='de': }} 
-              <div class="flex-caption hidden-xs hidden-sm"><h3>Daniel G. König (Hrsg.)<br />Latin and Arabic: 
-Entangled Histories</h3>
+              <div class="flex-caption hidden-xs hidden-sm"><h3>Daniel G. König (Hrsg.)<br />Latin and Arabic: Entangled Histories</h3>
                 {{=A(T('More'),_href=URL('catalog','book/448'), _class='btn btn-theme')}}    
 
               </div>
@@ -111,7 +110,20 @@ Entangled Histories</h3>
       <div class="row">
         <div class="col-lg-12">
           <div class="row">
-		  <div class="col-lg-3">
+		  
+        <div class="col-lg-3">              
+                <div class="box">
+                  <div class="box-gray aligncenter">
+                <h4>{{=T('New Titles')}}</h4>
+                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/550/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/550'))}} 
+      					</div>
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/550'))}}
+                  </div>
+                </div>
+        </div> 	          
+          
+          
+          <div class="col-lg-3">
                 <div class="box">
                   <div class="box-gray aligncenter">
                 <h4>{{=T('New Titles')}}</h4>
@@ -122,24 +134,6 @@ Entangled Histories</h3>
                 </div>
               </div>
 			  
-		  <div class="col-lg-3">
-                <div class="box">
-                  <div class="box-gray aligncenter">
-                <h4>{{=T('New Titles')}}</h4>
-					{{=IMG(_src=URL('static','images/journals/cover_studium-generale.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
-                  </div>
-                  <div class="box-bottom"><a href="https://heiup.uni-heidelberg.de/journals/index.php/generale/issue/view/2389" title="{{=T('current issue')}}">{{=T('More Information')}}</a>
-                  </div>
-                </div>
-              </div>
-         
-
-          
-
-		  
-		  
-
-
 
 
             <div id="boxAktuelles" class="col-lg-6">
@@ -177,7 +171,8 @@ Entangled Histories</h3>
             <div class="row">
 			
 		
-			       <div class="col-lg-3">
+        
+		  <div class="col-lg-3">
               <div class="box">
                 <div class="box-gray aligncenter">{{if session.forced_language =='de': }} 
                   <p class="boxText"><b>Heidelberg University Publishing</b> ist ein Open-Access-Verlag für qualitätsgeprüfte wissenschaftliche Publikationen. Wir unterstützen Open Access als Publikationsmodell für die Verbreitung hervorragender Forschungsergebnisse und setzen Open-Source-Software für die gemeinsame Entwicklung der zugrunde liegenden Publikationstechnologien ein. 
@@ -191,18 +186,16 @@ Entangled Histories</h3>
               </div>
             </div>
             
-
-        <div class="col-lg-3">              
+		  <div class="col-lg-3">
                 <div class="box">
                   <div class="box-gray aligncenter">
                 <h4>{{=T('New Titles')}}</h4>
-                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/534/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/534'))}} 
-      					</div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/534'))}}
+					{{=IMG(_src=URL('static','images/journals/cover_studium-generale.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
+                  </div>
+                  <div class="box-bottom"><a href="https://heiup.uni-heidelberg.de/journals/index.php/generale/issue/view/2389" title="{{=T('current issue')}}">{{=T('More Information')}}</a>
                   </div>
                 </div>
-          </div> 		
-                
+              </div>
 
 
          <div class="col-lg-3">              
@@ -216,17 +209,17 @@ Entangled Histories</h3>
                 </div>
         </div>
 
-
-		  	<div class="col-lg-3">              
+        <div class="col-lg-3">              
                 <div class="box">
                   <div class="box-gray aligncenter">
-                <h4>{{=T('Forthcoming')}}</h4>
-                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/series/43-series.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','preview#regerat'))}} 
+                <h4>{{=T('New Titles')}}</h4>
+                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/534/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/534'))}} 
       					</div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','preview#regerat'))}}
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/534'))}}
                   </div>
                 </div>
-          </div>
+        </div> 
+
 
 
 		  	<!--<div class="col-lg-3">              
@@ -241,18 +234,6 @@ Entangled Histories</h3>
           </div>--> 
 		  
  
-
-
-            
-
-          
-      	
-
-
-
-
-
-
                              
                 <!--<div>-->
                 <!-- TWITTER TIMELINE-->
@@ -281,7 +262,21 @@ Entangled Histories</h3>
           <div class="row">
             <div class="col-lg-12">
             <div class="row">
-    		  	<div class="col-lg-3">              
+    		
+
+		  	<div class="col-lg-3">              
+                <div class="box">
+                  <div class="box-gray aligncenter">
+                <h4>{{=T('Forthcoming')}}</h4>
+                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/series/43-series.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','preview#regerat'))}} 
+      					</div>
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','preview#regerat'))}}
+                  </div>
+                </div>
+          </div>
+
+            
+            <div class="col-lg-3">              
                     <div class="box">
                       <div class="box-gray aligncenter">
                     <h4>{{=T('Forthcoming')}}</h4>
@@ -292,20 +287,6 @@ Entangled Histories</h3>
                     </div>
               </div>
                       
-           
-          
-		  	<div class="col-lg-3">              
-                <div class="box">
-                  <div class="box-gray aligncenter">
-                <h4>{{=T('Forthcoming')}}</h4>
-                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_scharrer.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','preview#scharrer'))}} 
-      					</div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','preview#scharrer'))}}
-                  </div>
-                </div>
-          </div>
-          
-      
 		
 			
        <div class="col-lg-6">
@@ -324,18 +305,7 @@ Entangled Histories</h3>
                   </div>
                 </div>
               </div>
-    
-            <!--<div class="col-lg-3">
-                <div class="box">
-                  <div class="box-gray aligncenter">
-                <h4>{{=T('Forthcoming')}}</h4>
-					{{=IMG(_src=URL('static','images/journals/cover_studium-generale_wasser.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
-                  </div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('campusmedia','generale'))}}
-                  </div>
-                </div>
-              </div> -->
-           
+
              </div>
            </div>
           </div>
