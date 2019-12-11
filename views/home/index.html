@@ -27,17 +27,10 @@ $('.flexslider').flexslider();
               </div>{{pass}} 
               </li>
               <li>
-              <img alt="" src="{{=URL('static','images/press/slideshow/02_geschichte-physik.jpg')}}" />
-              {{if session.forced_language =='de': }} 
-              <div class="flex-caption hidden-xs hidden-sm"><h3>Heintze, DeKieviet, Hüfner <br /><span style="font-size: 0.95em;">Geschichte der Physik an der Universität Heidelberg</span></h3>
-                {{=A(T('More'),_href=URL('catalog','book/441'), _class='btn btn-theme')}}    
-              </div>
-              {{elif session.forced_language =='en': }} 
-              <div class="flex-caption hidden-xs hidden-sm"><h3>Heintze, DeKieviet, Hüfner <br /><span style="font-size: 0.95em;">Geschichte der Physik an der Universität Heidelberg</span></h3>
-                {{=A(T('More'),_href=URL('catalog','book/441'), _class='btn btn-theme')}} 
-              </div>
-              {{pass}} 
-              
+              <img alt="" src="{{=URL('static','images/press/slideshow/02_leisure.jpg')}}" />
+              <div class="flex-caption hidden-xs hidden-sm"><h3>Wagner, Yeh, Menegon, Weller<br /><span style="font-size: 0.95em;">Testing the Margins of Leisure</span></h3>
+                {{=A(T('More'),_href=URL('catalog','book/550'), _class='btn btn-theme')}}    
+              </div>              
               </li> 
               <li>
               <img alt="" src="{{=URL('static','images/press/slideshow/03_latin-arabic.jpg')}}" />
@@ -49,28 +42,23 @@ $('.flexslider').flexslider();
               {{elif session.forced_language =='en': }} 
               <div class="flex-caption hidden-xs hidden-sm"><h3>Daniel König (Ed.) <br />Latin and Arabic – Entangled Histories</h3>
                 {{=A(T('More Information'),_href=URL('catalog','book/448'), _class='btn btn-theme')}}
-
               </div>
               {{pass}} 
               </li>                            
               <li>
-              <img alt="" src="{{=URL('static','images/press/slideshow/04_transcultural-studies.jpg')}}" />{{if session.forced_language =='de': }} 
-              <div class="flex-caption hidden-xs hidden-sm"><h3>The Journal of Transcultural Studies</h3>
-                {{=A(T('More'),_href=URL('journals','tcs'), _class='btn btn-theme')}}    
+              <img alt="" src="{{=URL('static','images/press/slideshow/04_europa.jpg')}}" /> 
+              <div class="flex-caption hidden-xs hidden-sm"><h3>Studium Generale<br /> Europa – Realität und Vision</h3>
+                <a href="https://heiup.uni-heidelberg.de/journals/index.php/generale/issue/view/2389" class="btn btn-theme">{{=T('More')}}</a>
 
-
-              </div>{{elif session.forced_language =='en': }} 
-              <div class="flex-caption hidden-xs hidden-sm"><h3>The Journal of Transcultural Studies</h3>
-                {{=A(T('More'),_href=URL('journals','tcs'), _class='btn btn-theme')}}
-              </div>{{pass}} 
+              </div>
               </li>
               <li>
               <img alt=""  src="{{=URL('static','images/press/slideshow/05_ub_treppenhaus.jpg')}}" />{{if session.forced_language =='de': }} 
               <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('UB Heidelberg Digitale Informations- versorgung')}}</h3>              
-                <a href="http://www.ub.uni-heidelberg.de/Welcome.html" class="btn btn-theme">Mehr</a>
+                <a href="https://www.ub.uni-heidelberg.de/Welcome.html" class="btn btn-theme">Mehr</a>
               </div>{{elif session.forced_language =='en': }} 
               <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('Heidelberg University Library - Digital Information Supply')}}</h3>
-                <a href="http://www.ub.uni-heidelberg.de/Englisch/Welcome.html?lang=en" class="btn btn-theme">More Information</a>
+                <a href="https://www.ub.uni-heidelberg.de/Englisch/Welcome.html?lang=en" class="btn btn-theme">More Information</a>
               </div>{{pass}} 
               </li>
               <li>
