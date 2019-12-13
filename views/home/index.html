@@ -68,9 +68,9 @@ $('.flexslider').flexslider();
               </li>
               <li>{{if session.forced_language =='de': }} 
               <img alt="" src="{{=URL('static','images/press/slideshow/08_weihnachten.jpg')}}" />
-              </div>{{elif session.forced_language =='en': }} 
+                {{elif session.forced_language =='en': }} 
               <img alt="" src="{{=URL('static','images/press/slideshow/08_christmas.jpg')}}" />
-              </div>{{pass}} 
+              {{pass}} 
               </li>
             </ul>
           </div>
