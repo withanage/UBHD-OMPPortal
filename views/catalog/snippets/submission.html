@@ -1,5 +1,5 @@
 <div class="row">
-	<div id="autoren" class="col-lg-9 col-md-9 col-xs-7">
+	<div id="autoren" class="col-lg-9 col-md-12">
 	<h4>
 		{{editors = submission.associated_items.get('editors', [])}}
 		{{authors = submission.associated_items.get('authors', [])}}
@@ -19,7 +19,7 @@
 
 		{{ category = submission.associated_items.get('category', None)}}
 		{{if category:}}
-	<div class="spartenmarker col-lg-3 col-md-3 col-xs-5">
+	<div class="spartenmarker col-lg-3 col-md-12">
 		{{category_path=ompdal.getCategory(category.attributes.get('category_id')).get('path')}}
 
 		{{=A(category.settings.getLocalizedValue('title', locale),_href=URL('category','info/'+str(category_path)))}}
