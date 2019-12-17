@@ -1656,7 +1656,7 @@ li.show {
 .bildrahmen, .post-image img {
 	border: 1px solid #cdcbcc;
 	width:100%;
-	max-width:300px;
+	max-width:300px !important;
 }
 
 .post-image > a[href^="https://doi.org/10.17885"] {
