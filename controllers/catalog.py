@@ -260,7 +260,7 @@ def index():
     session.filters = request.vars.get('filter_by').strip('[').strip(']') if request.vars.get(
         'filter_by') else session.get('filters', '')
     session.per_page = int(request.vars.get('per_page')) if request.vars.get('per_page') else int(
-        session.get('per_page', 100))
+        session.get('per_page', 20))
     if request.vars.get('sort_by'):
         session.sort_by = request.vars.get('sort_by')
     elif session.get('sort_by'):
