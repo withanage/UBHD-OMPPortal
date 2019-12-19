@@ -72,11 +72,30 @@ def oastatistik():
     db_submissions = db.submissions
     q = ((db_submissions.context_id == context_id) & (db_submissions.status == 3))
     submissions = db(q).select(db_submissions.submission_id, orderby=(db_submissions.submission_id))
+    press_path = ompdal.getPress(context_id).get('path')
 
+    series_list = ompdal.getSeriesByPress(context_id)
+
+    for series in series_list:
+        if series:
+            s = {}
+            dbs = db.series_settings
+            title = db(
+                (dbs.series_id == series.get('series_id')) & (dbs.locale == locale) & (dbs.setting_name == 'title')).select(
+                dbs.setting_value)
+
+            series_norm_id = '{}:{}:{}'.format(stats_id, press_path, series.get('path'))
+            s['doc_id'] = series_norm_id
+            s['type'] = 'collection'
+            s['title'] = title.first().get('setting_value') or ''
+            s['id'] = 'MD:{}'.format(series_norm_id)
+
+            result.append(s)
 
     for submission in submissions:
 
         submission_id = submission.submission_id
+        norm_id = '{}:{}'.format(stats_id, submission_id)
 
         metadata_published_date = ompdal.getMetaDataPublishedDates(submission_id).first()
         date_published = metadata_published_date.date_logged if metadata_published_date else None
@@ -85,7 +104,6 @@ def oastatistik():
         year = date_published.year  if date_published else []
 
 
-        norm_id = '{}:{}'.format(stats_id, submission_id)
         volume = {
             "id"  : 'MD:{}'.format(norm_id),
             "type": "volume",
@@ -97,12 +115,16 @@ def oastatistik():
         # submission
         submission_settings = ompdal.getSubmissionSettings(submission_id).as_list()
 
+        srs = ompdal.getSeriesBySubmissionId(submission_id)
+        series_norm_id = '{}:{}:{}'.format(stats_id, press_path, srs.get('path')) if srs else []
+
         for setting in submission_settings:
             if setting["locale"] == locale and setting["setting_name"] == 'title':
                 volume["title"] = setting["setting_value"]
             if setting["setting_name"] == 'pub-id::doi':
                 volume["norm_id"] = setting["setting_value"]
-
+            if series_norm_id:
+                volume["parent_id"] ='MD:{}'.format(series_norm_id)
         result.append(volume)
 
         chapters = ompdal.getChaptersBySubmission(submission_id).as_list()
