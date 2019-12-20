@@ -14,14 +14,6 @@
             <div class="btn-group pull-right">
             <a href="{{=URL('search','authors')}}" title="{{=T('Authors A-Z')}}"><button class="btn btn-default" type="button">{{=T('Authors A-Z')}}</button></a>
             </div>
-            {{=b.filter_select}}
-            {{try:
-            del b.sort_select[1][4]
-            except:
-            pass
-
-            }}
-            {{=b.sort_select}}
 
             </div>
         </div>
@@ -76,8 +68,8 @@
             <div class="col-lg-3">
             </div>
              <div class="col-lg-9">
-                {{=b.navigation_list}}
-             {{=b.navigation_select}}
+                {{=navigation_list}}
+             {{=navigation_select}}
              </div>
             </div>
      </div>

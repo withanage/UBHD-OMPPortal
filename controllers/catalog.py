@@ -10,6 +10,7 @@ from ompformat import dateFromRow, seriesPositionCompare, formatDoi, dateToStr, 
 
 from ompsolr import OMPSOLR
 from ompbrowse import Browser
+from gluon import current
 import json
 from datetime import datetime
 
@@ -234,9 +235,9 @@ def index():
     else:
         session.sort_by = 'datePublished-2'
     '''
-    current = int(request.vars.get('page_nr', 1)) - 1
-    page_begin = current * session.per_page
-    page_end = (current+1) * session.per_page
+    current_page = int(request.vars.get('page_nr', 1)) - 1
+    page_begin = current_page * session.per_page
+    page_end = (current_page+1) * session.per_page
 
 
     submission_rows = ompdal.getSubmissionsRangeByPress(press.press_id, page_begin,page_end, ignored_submission_id)
@@ -274,23 +275,34 @@ def index():
 
         submissions.append(submission)
 
-    all_submissions = ompdal.getSubmissionsByPress(press.press_id, ignored_submission_id)
-    # item_list = []
-    # for s in all_submissions:
-    #     submission = OMPItem(s, OMPSettings(ompdal.getSubmissionSettings(s.submission_id)),)
-    #     category_row = ompdal.getCategoryBySubmissionId(s.submission_id)
-    #     if category_row:
-    #         submission.associated_items['category'] = OMPItem(category_row, OMPSettings(ompdal.getCategorySettings(category_row.category_id)))
-    #
-    #     item_list.append(submission)
+    all_submissions = len(ompdal.getSubmissionsByPress(press.press_id, ignored_submission_id))
+    navigation_select = get_navigation_select() if all_submissions > 20 else DIV()
+    navigation_list = get_navigation_list(current_page, all_submissions, session.per_page)  if all_submissions > 20 else DIV()
 
-
-    b = Browser(all_submissions, current, locale, session.get('per_page'), session.get('sort_by'), session.get('filters'))
-
-    #submissions = b.process_submissions(b.submissions)
 
     return locals()
 
+def get_navigation_list(current_page, all_submissions, per_page):
+        li = []
+        al = {'_aria-label': "Page navigation"}
+        total = all_submissions / per_page + 1 if all_submissions % per_page > 0 else all_submissions / per_page
+        for i in range(0, total):
+            l = A(i + 1, _href=URL('index?page_nr=' + str(i + 1)))
+            li.append(LI(l, _class="active")) if i == current_page else li.append(LI(l))
+
+        return TAG.nav(UL(li, _class="pagination pull-left"), **al)
+
+
+def get_navigation_select():
+    per_page = [10, 20, 30]
+    li = [LI(A(i, _href=URL('index?per_page=' + str(i)))) for i in per_page]
+    ul = UL(li, _class="dropdown-menu")
+    button_cs = {
+        "_type"         : "button", "_class": "btn btn-default dropdown-toggle", "_data-toggle": "dropdown",
+        "_aria-haspopup": "true", "_aria-expanded": "false"
+        }
+    button = TAG.button(current.T("Results per Page"), SPAN(_class='caret'), **button_cs)
+    return DIV(button, ul, _class="btn-group pull-left")
 def preview():
     return locals()
 
