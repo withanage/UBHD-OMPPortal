@@ -281,6 +281,7 @@ def index():
         category_row = ompdal.getCategoryBySubmissionId(s.submission_id)
         if category_row:
             submission.associated_items['category'] = OMPItem(category_row, OMPSettings(ompdal.getCategorySettings(category_row.category_id)))
+
         item_list.append(submission)
 
 
