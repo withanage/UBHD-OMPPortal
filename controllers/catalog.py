@@ -275,17 +275,17 @@ def index():
         submissions.append(submission)
 
     all_submissions = ompdal.getSubmissionsByPress(press.press_id, ignored_submission_id)
-    item_list = []
-    for s in all_submissions:
-        submission = OMPItem(s, OMPSettings(ompdal.getSubmissionSettings(s.submission_id)),)
-        category_row = ompdal.getCategoryBySubmissionId(s.submission_id)
-        if category_row:
-            submission.associated_items['category'] = OMPItem(category_row, OMPSettings(ompdal.getCategorySettings(category_row.category_id)))
+    # item_list = []
+    # for s in all_submissions:
+    #     submission = OMPItem(s, OMPSettings(ompdal.getSubmissionSettings(s.submission_id)),)
+    #     category_row = ompdal.getCategoryBySubmissionId(s.submission_id)
+    #     if category_row:
+    #         submission.associated_items['category'] = OMPItem(category_row, OMPSettings(ompdal.getCategorySettings(category_row.category_id)))
+    #
+    #     item_list.append(submission)
 
-        item_list.append(submission)
 
-
-    b = Browser(item_list, current, locale, session.get('per_page'), session.get('sort_by'), session.get('filters'))
+    b = Browser(all_submissions, current, locale, session.get('per_page'), session.get('sort_by'), session.get('filters'))
 
     #submissions = b.process_submissions(b.submissions)
 
