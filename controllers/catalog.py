@@ -222,7 +222,24 @@ def index():
         'omp.ignore_submissions') else -1
 
     submissions = []
-    submission_rows = ompdal.getSubmissionsByPress(press.press_id, ignored_submission_id)
+    session.filters = request.vars.get('filter_by').strip('[').strip(']') if request.vars.get(
+            'filter_by') else session.get('filters', '')
+    session.per_page = int(request.vars.get('per_page')) if request.vars.get('per_page') else int(
+            session.get('per_page', 20))
+    '''
+    if request.vars.get('sort_by'):
+        session.sort_by = request.vars.get('sort_by')
+    elif session.get('sort_by'):
+        session.sort_by = session.get('sort_by')
+    else:
+        session.sort_by = 'datePublished-2'
+    '''
+    current = int(request.vars.get('page_nr', 1)) - 1
+    page_begin = current * session.per_page
+    page_end = (current+1) * session.per_page
+
+
+    submission_rows = ompdal.getSubmissionsRangeByPress(press.press_id, page_begin,page_end, ignored_submission_id)
 
     for submission_row in submission_rows:
         authors = [OMPItem(author, OMPSettings(ompdal.getAuthorSettings(author.author_id)))
@@ -257,21 +274,19 @@ def index():
 
         submissions.append(submission)
 
-    session.filters = request.vars.get('filter_by').strip('[').strip(']') if request.vars.get(
-        'filter_by') else session.get('filters', '')
-    session.per_page = int(request.vars.get('per_page')) if request.vars.get('per_page') else int(
-        session.get('per_page', 20))
-    if request.vars.get('sort_by'):
-        session.sort_by = request.vars.get('sort_by')
-    elif session.get('sort_by'):
-        session.sort_by = session.get('sort_by')
-    else:
-        session.sort_by = 'datePublished-2'
+    all_submissions = ompdal.getSubmissionsByPress(press.press_id, ignored_submission_id)
+    item_list = []
+    for s in all_submissions:
+        submission = OMPItem(s, OMPSettings(ompdal.getSubmissionSettings(s.submission_id)),)
+        category_row = ompdal.getCategoryBySubmissionId(s.submission_id)
+        if category_row:
+            submission.associated_items['category'] = OMPItem(category_row, OMPSettings(ompdal.getCategorySettings(category_row.category_id)))
+        item_list.append(submission)
 
-    current = int(request.vars.get('page_nr', 1)) - 1
 
-    b = Browser(submissions, current, locale, session.get('per_page'), session.get('sort_by'), session.get('filters'))
-    submissions = b.process_submissions(b.submissions)
+    b = Browser(item_list, current, locale, session.get('per_page'), session.get('sort_by'), session.get('filters'))
+
+    #submissions = b.process_submissions(b.submissions)
 
     return locals()
 
