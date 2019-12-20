@@ -124,7 +124,7 @@ def oastatistik():
             if setting["setting_name"] == 'pub-id::doi':
                 volume["norm_id"] = setting["setting_value"]
             if series_norm_id:
-                volume["parent_id"] ='MD:{}'.format(series_norm_id)
+                volume["parent"] ='MD:{}'.format(series_norm_id)
         result.append(volume)
 
         chapters = ompdal.getChaptersBySubmission(submission_id).as_list()
