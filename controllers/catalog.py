@@ -286,7 +286,7 @@ def get_navigation_list(current_page, all_submissions, per_page):
         li = []
         al = {'_aria-label': "Page navigation"}
         total = all_submissions / per_page + 1 if all_submissions % per_page > 0 else all_submissions / per_page
-        for i in range(0, total):
+        for i in range(0, int(total)):
             l = A(i + 1, _href=URL('index?page_nr=' + str(i + 1)))
             li.append(LI(l, _class="active")) if i == current_page else li.append(LI(l))
 
