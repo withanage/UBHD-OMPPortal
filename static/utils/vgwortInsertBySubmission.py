@@ -72,4 +72,4 @@ if __name__ == '__main__':
     if os.path.isfile(c):
         get_excel(c)
     else:
-        (print c, 'is', 'undefined')
+        print(c, 'is', 'undefined')
