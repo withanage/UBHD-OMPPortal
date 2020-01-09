@@ -20,7 +20,7 @@ def insert_sfs(name, file_id, value):
     d = db.submission_file_settings
     r = db((d.setting_name == name) & (d.file_id == file_id)).select()
     if len(r) == 0:
-        print file_id, name, value, 'updated'
+        print(file_id, name, value, 'updated')
         s = db.submission_file_settings.insert(
             setting_name=name,
             file_id=file_id,
