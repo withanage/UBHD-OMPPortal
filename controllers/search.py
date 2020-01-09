@@ -20,7 +20,7 @@ def authors():
         initial = last_name[:1].upper()
         if initial != prev_index:
             a['initial'] = initial
-        this_author = unicode('{}{}').format(last_name, first_name)
+        this_author = '{}{}'.format(last_name, first_name)
         prev = prev + 1 if prev_author == this_author else 1
         a['index'] = prev
         if searchInitial and last_name.upper().startswith(searchInitial):
