@@ -136,7 +136,7 @@ def oastatistik():
             chs_ = {
                 "id"    : 'MD:{}'.format(chapter_norm_id),
                 "type"  : "part",
-                "parent": norm_id,
+                "parent": 'MD:{}'.format(norm_id),
                 "doc_id": chapter_norm_id
                 }
             chapter_settings = ompdal.getChapterSettings(chapter_id).as_list()
