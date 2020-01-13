@@ -25,7 +25,7 @@ def info():
         redirect(URL('home', 'index'))
     series_path = request.args[0]
 
-    if exists(request.folder + 'views/series/' + series_path + "_info.html"):
+    if exists(request.folder + '/views/series/' + series_path + "_info.html"):
         content = "series/" + series_path + "_info.html"
     else:
         redirect(URL('home', 'index'))
