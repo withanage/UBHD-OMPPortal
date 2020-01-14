@@ -62,6 +62,37 @@ def remove_url_prefix(url):
     return ''.join(urls)
 
 
+
+def search():
+    ompdal = OMPDAL(db, myconf)
+    result = {}
+    items = []
+    locale = 'de_DE'
+    context_id = myconf.take('omp.press_id')
+    stats_id = myconf.take('statistik.id')
+    db_submissions = db.submissions
+    q = ((db_submissions.context_id == context_id) & (db_submissions.status == 3))
+    submissions = db(q).select(db_submissions.submission_id, orderby=(db_submissions.submission_id))
+    press_path = ompdal.getPress(context_id).get('path')
+    for s in submissions:
+        submission_id = s["submission_id"]
+
+        submission_settings = ompdal.getSubmissionSettings(submission_id).as_list()
+        fullTitle = {}
+        for setting in submission_settings:
+            if setting["setting_name"] == 'title':
+                fullTitle[setting["locale"]] = setting["setting_value"]
+
+
+
+        items.append({"id": submission_id})
+        items.append({"fulltitle": fullTitle})
+
+        result["items"] = items
+
+
+        return sj.dumps(result, separators=(',', ':'))
+
 def oastatistik():
 
     ompdal = OMPDAL(db, myconf)
