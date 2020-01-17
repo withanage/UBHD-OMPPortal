@@ -9,7 +9,9 @@ import gluon.contrib.simplejson as sj
 from ompdal import OMPDAL
 from ompcsl import OMPCSL
 from os.path import join
-
+from ompformat import dateFromRow, seriesPositionCompare, formatDoi, dateToStr, downloadLink
+import re
+import json
 
 response.headers['Content-Type'] = 'application/json'
 response.view = 'generic.json'
@@ -62,39 +64,107 @@ def remove_url_prefix(url):
     return ''.join(urls)
 
 
-
 def search():
     ompdal = OMPDAL(db, myconf)
     result = {}
     items = []
-    locale = 'de_DE'
     context_id = myconf.take('omp.press_id')
-    stats_id = myconf.take('statistik.id')
     db_submissions = db.submissions
-    q = ((db_submissions.context_id == context_id) & (db_submissions.status == 3))
-    submissions = db(q).select(db_submissions.submission_id, orderby=(db_submissions.submission_id))
-    press_path = ompdal.getPress(context_id).get('path')
+    STATUS_PUBLISHED = 3
+    q = ((db_submissions.context_id == context_id) & (db_submissions.status == STATUS_PUBLISHED))
+    submissions = db(q).select(orderby=(db_submissions.submission_id))
+
     for s in submissions:
+        item = []
         submission_id = s["submission_id"]
+        item.append({"id": submission_id})
+        item.append({"locale": s["locale"]})
+        item.append({"dateSubmitted": str(s["date_submitted"])})
+        item.append({"lastModified": str(s["last_modified"])})
+        item.append({"dateStatusModified": str(s["date_status_modified"])})
 
+        # formats
+        pdf = ompdal.getPublicationFormatByName(submission_id, myconf.take('omp.doi_format_name')).first()
+        if pdf:
+            date_published = dateFromRow(
+                ompdal.getPublicationDatesByPublicationFormat(pdf.publication_format_id, "01").first())
+            item.append({"datePublished": str(date_published)})
+
+        item.append({"status": {"id": STATUS_PUBLISHED, "label": "Published"}})
+
+        # submission settings
         submission_settings = ompdal.getSubmissionSettings(submission_id).as_list()
-        fullTitle = {}
-        for setting in submission_settings:
-            if setting["setting_name"] == 'title':
-                fullTitle[setting["locale"]] = setting["setting_value"]
+        dc = {"abstract": {}, "prefix": {}, "source": {}, "subtitle": {}, "title": {}, "type": {}}
+        for s in submission_settings:
+            for k in dc:
+                if s["setting_name"] == k:
+                    dc[k][s["locale"]] = s['setting_value']
+        item.append(dc)
+        # series
+        series_id = s.get("series_id")
+        if series_id:
+            series = {"id": series_id, "position": s["series_position"]}
+            series_settings = ompdal.getSeriesSettings(series_id)
+            for srs in series_settings:
+                if srs["setting_name"] == 'title':
+                    if not series.get("title"):
+                        series["title"] = {}
+                    series["title"][srs["locale"]] = srs["setting_value"]
+
+            item.append({"series": series})
+        # controlled vocabularies
+        cv = ompdal.getControlledVocabsBySubmission(submission_id).as_list()
+
+        vocabs = {}
+
+        keywords = ["submissionAgency","submissionDiscipline", "submissionKeyword", "submissionSubject"]
+        for keyword in keywords:
+            cv_ids = list(filter(lambda x:x['symbolic']==keyword, cv))
+            cv_id = cv_ids[0]["controlled_vocab_id"] if cv_ids else []
+            cv_entries = ompdal.getControlledVocabEntriesByID(cv_id) if cv_id else []
+
+            for i in cv_entries:
+                entries = ompdal.controlledVocabEntrySettingsByID(i["controlled_vocab_entry_id"]).as_list()
+                entry = entries[0] if entries else []
+                if entry:
+                    if not vocabs.get(keyword):
+                         vocabs[keyword] = {}
+                    if not vocabs[keyword].get(entry['locale']):
+                        vocabs[keyword][entry['locale']] = []
+
+                    vocabs[keyword][entry['locale']].append(entry["setting_value"])
+            if vocabs.get(keyword):
+                vocabs[ re.sub('^submission', '', keyword).lower()] = vocabs.pop(keyword)
+        item.append(vocabs)
+        # authors
+        authors = []
+        contribs = ompdal.getAuthorsBySubmission(submission_id).as_list()
+        author_properties = ["affiliation", "bibliography", "familyName", "givenName", "orcid"]
+
+        for contrib in contribs:
+
+            author = {}
+            author_settings = ompdal.getAuthorSettings(contrib["author_id"]).as_list()
+            for setting in author_settings:
+                author[setting['setting_name']] = setting["setting_value"]
+
+            authors.append(author)
+
+        item.append({"authors":authors})
 
 
 
-        items.append({"id": submission_id})
-        items.append({"fulltitle": fullTitle})
-
-        result["items"] = items
+        category_settings = ompdal.getCategoryBySubmissionId(submission_id)
 
 
-        return sj.dumps(result, separators=(',', ':'))
+        items.append(item)
+
+    result["items"] = items
+
+    return sj.dumps(result, separators=(',', ':'))
+
 
 def oastatistik():
-
     ompdal = OMPDAL(db, myconf)
     result = []
     locale = 'de_DE'
@@ -112,8 +182,9 @@ def oastatistik():
             s = {}
             dbs = db.series_settings
             title = db(
-                (dbs.series_id == series.get('series_id')) & (dbs.locale == locale) & (dbs.setting_name == 'title')).select(
-                dbs.setting_value)
+                    (dbs.series_id == series.get('series_id')) & (dbs.locale == locale) & (
+                                dbs.setting_name == 'title')).select(
+                    dbs.setting_value)
 
             series_norm_id = '{}:{}:{}'.format(stats_id, press_path, series.get('path'))
             s['doc_id'] = series_norm_id
@@ -132,8 +203,7 @@ def oastatistik():
         date_published = metadata_published_date.date_logged if metadata_published_date else None
         if not date_published:
             date_published = submission.date_status_modified
-        year = date_published.year  if date_published else []
-
+        year = date_published.year if date_published else []
 
         volume = {
             "id"  : 'MD:{}'.format(norm_id),
@@ -155,7 +225,7 @@ def oastatistik():
             if setting["setting_name"] == 'pub-id::doi':
                 volume["norm_id"] = setting["setting_value"]
             if series_norm_id:
-                volume["parent"] ='MD:{}'.format(series_norm_id)
+                volume["parent"] = 'MD:{}'.format(series_norm_id)
         result.append(volume)
 
         chapters = ompdal.getChaptersBySubmission(submission_id).as_list()

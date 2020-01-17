@@ -462,7 +462,34 @@ db.define_table('t_license_settings',
                 primarykey=["license_id" ,"locale", "setting_name"],
                 )
 
+db.define_table('controlled_vocabs',
+                Field( "controlled_vocab_id", "integer"),
+                Field("symbolic", "string", length=48),
+                Field("assoc_type", "integer"),
+                Field("assoc_id", "integer"),
+                migrate = False,
+                primarykey=["controlled_vocab_id"],
+                )
 
+
+db.define_table('controlled_vocab_entries',
+                Field( "controlled_vocab_entry_id", "integer"),
+                Field( "controlled_vocab_id", "integer"),
+                Field("seq", "integer"),
+                migrate = False,
+                primarykey=["controlled_vocab_entry_id"],
+                )
+
+
+db.define_table('controlled_vocab_entry_settings',
+                Field( "controlled_vocab_entry_id", "integer"),
+                Field("locale", "string", length=6),
+                Field("setting_name", "string",length=48),
+                Field("setting_value", "string"),
+                Field("setting_type", "string"),
+                migrate = False,
+                primarykey=["controlled_vocab_entry_id" ,"locale", "setting_name"],
+                )
 #
 # request_client = ''
 # if request.client:
