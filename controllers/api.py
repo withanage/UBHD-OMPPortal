@@ -65,6 +65,9 @@ def remove_url_prefix(url):
 
 
 def search():
+
+
+
     ompdal = OMPDAL(db, myconf)
     result = {}
     items = []
@@ -117,7 +120,6 @@ def search():
         # controlled vocabularies
         cv = ompdal.getControlledVocabsBySubmission(submission_id).as_list()
 
-
         keywords = ["submissionAgency", "submissionDiscipline", "submissionKeyword", "submissionSubject"]
         for keyword in keywords:
             cv_ids = list(filter(lambda x: x['symbolic'] == keyword, cv))
@@ -136,11 +138,9 @@ def search():
                     item[keyword][entry['locale']].append(entry["setting_value"])
             if item.get(keyword):
                 item[re.sub('^submission', '', keyword).lower()] = item.pop(keyword)
-        #item.append(vocabs)
-        # authors
         authors = []
+
         contribs = ompdal.getAuthorsBySubmission(submission_id).as_list()
-        author_properties = ["affiliation", "bibliography", "familyName", "givenName", "orcid"]
 
         for contrib in contribs:
 
@@ -148,13 +148,43 @@ def search():
             author_settings = ompdal.getAuthorSettings(contrib["author_id"]).as_list()
             for setting in author_settings:
                 author[setting['setting_name']] = setting["setting_value"]
-
             authors.append(author)
 
         item["authors"] = authors
 
         category_settings = ompdal.getCategoryBySubmissionId(submission_id)
 
+        # galleys
+        galleys = []
+        pdfName = "PDF"
+        PdfFormats = ompdal.getPublicationFormatByName(submission_id, pdfName)
+
+        for pdf in PdfFormats:
+            pdfObject = {"id": pdf["publication_format_id"],"label":pdfName}
+
+            e_file = ompdal.getLatestRevisionOfFullBookFileByPublicationFormat(submission_id,pdf["publication_format_id"])
+            pdfObject["urlRemote"] = myconf.take('web.url') + downloadLink(request, e_file, myconf.take('web.url'), [], "")
+
+
+
+            fileKeys = ['file_id', 'revision', 'file_stage', 'genre_id', 'original_file_name']
+            pdfObject["file"] = {k: e_file.get(k) for k in fileKeys}
+
+            e_file_settings = ompdal.getSubmissionFileSettings(e_file["file_id"]).as_list()
+
+            for setting in e_file_settings:
+                if not pdfObject["file"].get(setting['setting_name']):
+                    pdfObject["file"][setting['setting_name']] = {}
+                pdfObject["file"][setting['setting_name']][setting['locale']] = setting["setting_value"]
+
+            if pdfObject["file"].get("vgWortPublic"):
+                pdfObject["file"].pop("vgWortPublic")
+            if pdfObject["file"].get("vgWortPrivate"):
+                pdfObject["file"].pop("vgWortPrivate")
+
+            galleys.append(pdfObject)
+
+        item["galleys"] = galleys
         # import pprint
         # print(pprint.pprint(item))
         items.append(item)
