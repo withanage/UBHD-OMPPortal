@@ -75,22 +75,22 @@ def search():
     submissions = db(q).select(orderby=(db_submissions.submission_id))
 
     for s in submissions:
-        item = []
+        item = {}
         submission_id = s["submission_id"]
-        item.append({"id": submission_id})
-        item.append({"locale": s["locale"]})
-        item.append({"dateSubmitted": str(s["date_submitted"])})
-        item.append({"lastModified": str(s["last_modified"])})
-        item.append({"dateStatusModified": str(s["date_status_modified"])})
+        item["id"] = submission_id
+        item["locale"] = s["locale"]
+        item["dateSubmitted"] = str(s["date_submitted"])
+        item["lastModified"] = str(s["last_modified"])
+        item["dateStatusModified"] = str(s["date_status_modified"])
 
         # formats
         pdf = ompdal.getPublicationFormatByName(submission_id, myconf.take('omp.doi_format_name')).first()
         if pdf:
             date_published = dateFromRow(
-                ompdal.getPublicationDatesByPublicationFormat(pdf.publication_format_id, "01").first())
-            item.append({"datePublished": str(date_published)})
+                    ompdal.getPublicationDatesByPublicationFormat(pdf.publication_format_id, "01").first())
+            item["datePublished"] = str(date_published)
 
-        item.append({"status": {"id": STATUS_PUBLISHED, "label": "Published"}})
+        item["status"] = {"id": STATUS_PUBLISHED, "label": "Published"}
 
         # submission settings
         submission_settings = ompdal.getSubmissionSettings(submission_id).as_list()
@@ -98,8 +98,10 @@ def search():
         for s in submission_settings:
             for k in dc:
                 if s["setting_name"] == k:
-                    dc[k][s["locale"]] = s['setting_value']
-        item.append(dc)
+                    if not item.get(k):
+                        item[k] = {}
+                    item[k][s["locale"]] = s['setting_value']
+
         # series
         series_id = s.get("series_id")
         if series_id:
@@ -111,15 +113,14 @@ def search():
                         series["title"] = {}
                     series["title"][srs["locale"]] = srs["setting_value"]
 
-            item.append({"series": series})
+            item["series"] = series
         # controlled vocabularies
         cv = ompdal.getControlledVocabsBySubmission(submission_id).as_list()
 
-        vocabs = {}
 
-        keywords = ["submissionAgency","submissionDiscipline", "submissionKeyword", "submissionSubject"]
+        keywords = ["submissionAgency", "submissionDiscipline", "submissionKeyword", "submissionSubject"]
         for keyword in keywords:
-            cv_ids = list(filter(lambda x:x['symbolic']==keyword, cv))
+            cv_ids = list(filter(lambda x: x['symbolic'] == keyword, cv))
             cv_id = cv_ids[0]["controlled_vocab_id"] if cv_ids else []
             cv_entries = ompdal.getControlledVocabEntriesByID(cv_id) if cv_id else []
 
@@ -127,15 +128,15 @@ def search():
                 entries = ompdal.controlledVocabEntrySettingsByID(i["controlled_vocab_entry_id"]).as_list()
                 entry = entries[0] if entries else []
                 if entry:
-                    if not vocabs.get(keyword):
-                         vocabs[keyword] = {}
-                    if not vocabs[keyword].get(entry['locale']):
-                        vocabs[keyword][entry['locale']] = []
+                    if not item.get(keyword):
+                        item[keyword] = {}
+                    if not item[keyword].get(entry['locale']):
+                        item[keyword][entry['locale']] = []
 
-                    vocabs[keyword][entry['locale']].append(entry["setting_value"])
-            if vocabs.get(keyword):
-                vocabs[ re.sub('^submission', '', keyword).lower()] = vocabs.pop(keyword)
-        item.append(vocabs)
+                    item[keyword][entry['locale']].append(entry["setting_value"])
+            if item.get(keyword):
+                item[re.sub('^submission', '', keyword).lower()] = item.pop(keyword)
+        #item.append(vocabs)
         # authors
         authors = []
         contribs = ompdal.getAuthorsBySubmission(submission_id).as_list()
@@ -150,13 +151,12 @@ def search():
 
             authors.append(author)
 
-        item.append({"authors":authors})
-
-
+        item["authors"] = authors
 
         category_settings = ompdal.getCategoryBySubmissionId(submission_id)
 
-
+        # import pprint
+        # print(pprint.pprint(item))
         items.append(item)
 
     result["items"] = items
@@ -183,7 +183,7 @@ def oastatistik():
             dbs = db.series_settings
             title = db(
                     (dbs.series_id == series.get('series_id')) & (dbs.locale == locale) & (
-                                dbs.setting_name == 'title')).select(
+                            dbs.setting_name == 'title')).select(
                     dbs.setting_value)
 
             series_norm_id = '{}:{}:{}'.format(stats_id, press_path, series.get('path'))
