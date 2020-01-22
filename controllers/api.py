@@ -90,6 +90,7 @@ def submissions():
     q = ((db_submissions.context_id == context_id) & (db_submissions.status == STATUS_PUBLISHED))
     submissions = db(q).select(orderby=(db_submissions.submission_id)).as_list()
 
+
     for s in submissions:
         item = {}
         item["id"] = s["submission_id"]
@@ -97,7 +98,8 @@ def submissions():
         item["dateSubmitted"] = str(s["date_submitted"])
         item["lastModified"] = str(s["last_modified"])
         item["dateStatusModified"] = str(s["date_status_modified"])
-
+        path = URL(a=request.application, c='api', f='submission', args=[s["submission_id"]])
+        item["submission"]  =  myconf.take('web.url')+'/'+path
 
         items.append(item)
 
