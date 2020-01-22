@@ -192,22 +192,23 @@ def submission():
 
         e_file = ompdal.getLatestRevisionOfFullBookFileByPublicationFormat(submission_id,
                                                                            pf["publication_format_id"])
-        pdfObject["urlRemote"] = myconf.take('web.url') + downloadLink(request, e_file, myconf.take('web.url'), [],
-                                                                       "")
+        if e_file:
+            pdfObject["urlRemote"] = myconf.take('web.url') + downloadLink(request, e_file, myconf.take('web.url'), [],
+                                                                           "")
 
-        fileKeys = ['file_id', 'revision', 'file_stage', 'genre_id', 'original_file_name']
-        pdfObject["file"] = {k: e_file.get(k) for k in fileKeys}
+            fileKeys = ['file_id', 'revision', 'file_stage', 'genre_id', 'original_file_name']
+            pdfObject["file"] = {k: e_file.get(k) for k in fileKeys}
 
-        e_file_settings = ompdal.getSubmissionFileSettings(e_file["file_id"]).as_list()
+            e_file_settings = ompdal.getSubmissionFileSettings(e_file["file_id"]).as_list()
 
-        for setting in e_file_settings:
-            if not pdfObject["file"].get(setting['setting_name']):
-                pdfObject["file"][setting['setting_name']] = {}
-            pdfObject["file"][setting['setting_name']][setting['locale']] = setting["setting_value"]
+            for setting in e_file_settings:
+                if not pdfObject["file"].get(setting['setting_name']):
+                    pdfObject["file"][setting['setting_name']] = {}
+                pdfObject["file"][setting['setting_name']][setting['locale']] = setting["setting_value"]
 
-        for p in ["vgWortPublic", "vgWortPrivate"]:
-            if pdfObject["file"].get(p):
-                pdfObject["file"].pop(p)
+            for p in ["vgWortPublic", "vgWortPrivate"]:
+                if pdfObject["file"].get(p):
+                    pdfObject["file"].pop(p)
 
         galleys.append(pdfObject)
     item["galleys"] = galleys
