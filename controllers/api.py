@@ -67,7 +67,7 @@ def remove_url_prefix(url):
 
 
 def search():
-    apiToken = myconf.take('search.api_token')
+    apiToken = myconf.take('web.api_token')
 
     #if apiToken != request.vars.get('apiToken'):
     #    raise HTTP(404,"Error")
