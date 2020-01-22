@@ -19,13 +19,15 @@ url = join(request.env.http_host, request.application, request.controller)
 
 ompdal = OMPDAL(db, myconf)
 press = ompdal.getPress(myconf.take('omp.press_id'))
+STATUS_PUBLISHED = 3
+locale = ''
 
 if session.forced_language == 'en':
     locale = 'en_US'
 elif session.forced_language == 'de':
     locale = 'de_DE'
-else:
-    locale = ''
+
+
 
 
 @request.restful()
@@ -65,16 +67,19 @@ def remove_url_prefix(url):
 
 
 def search():
+    apiToken = myconf.take('search.api_token')
 
-
+    #if apiToken != request.vars.get('apiToken'):
+    #    raise HTTP(404,"Error")
 
     ompdal = OMPDAL(db, myconf)
     result = {}
     items = []
     context_id = myconf.take('omp.press_id')
     db_submissions = db.submissions
-    STATUS_PUBLISHED = 3
+
     q = ((db_submissions.context_id == context_id) & (db_submissions.status == STATUS_PUBLISHED))
+    q = ((db_submissions.context_id == context_id) & (db_submissions.status == STATUS_PUBLISHED) & (db_submissions.submission_id==48))
     submissions = db(q).select(orderby=(db_submissions.submission_id))
 
     for s in submissions:
@@ -87,10 +92,10 @@ def search():
         item["dateStatusModified"] = str(s["date_status_modified"])
 
         # formats
-        pdf = ompdal.getPublicationFormatByName(submission_id, myconf.take('omp.doi_format_name')).first()
-        if pdf:
+        pf = ompdal.getPublicationFormatByName(submission_id, myconf.take('omp.doi_format_name')).first()
+        if pf:
             date_published = dateFromRow(
-                    ompdal.getPublicationDatesByPublicationFormat(pdf.publication_format_id, "01").first())
+                    ompdal.getPublicationDatesByPublicationFormat(pf.publication_format_id, "01").first())
             item["datePublished"] = str(date_published)
 
         item["status"] = {"id": STATUS_PUBLISHED, "label": "Published"}
@@ -159,13 +164,13 @@ def search():
         pdfName = "PDF"
         PdfFormats = ompdal.getPublicationFormatByName(submission_id, pdfName)
 
-        for pdf in PdfFormats:
-            pdfObject = {"id": pdf["publication_format_id"],"label":pdfName}
+        for pf in PdfFormats:
+            pdfObject = {"id": pf["publication_format_id"], "label": pdfName}
 
-            e_file = ompdal.getLatestRevisionOfFullBookFileByPublicationFormat(submission_id,pdf["publication_format_id"])
-            pdfObject["urlRemote"] = myconf.take('web.url') + downloadLink(request, e_file, myconf.take('web.url'), [], "")
-
-
+            e_file = ompdal.getLatestRevisionOfFullBookFileByPublicationFormat(submission_id,
+                                                                               pf["publication_format_id"])
+            pdfObject["urlRemote"] = myconf.take('web.url') + downloadLink(request, e_file, myconf.take('web.url'), [],
+                                                                           "")
 
             fileKeys = ['file_id', 'revision', 'file_stage', 'genre_id', 'original_file_name']
             pdfObject["file"] = {k: e_file.get(k) for k in fileKeys}
@@ -177,16 +182,44 @@ def search():
                     pdfObject["file"][setting['setting_name']] = {}
                 pdfObject["file"][setting['setting_name']][setting['locale']] = setting["setting_value"]
 
-            if pdfObject["file"].get("vgWortPublic"):
-                pdfObject["file"].pop("vgWortPublic")
-            if pdfObject["file"].get("vgWortPrivate"):
-                pdfObject["file"].pop("vgWortPrivate")
+            for p in ["vgWortPublic", "vgWortPrivate"]:
+                if pdfObject["file"].get(p):
+                    pdfObject["file"].pop(p)
+
 
             galleys.append(pdfObject)
 
         item["galleys"] = galleys
-        # import pprint
-        # print(pprint.pprint(item))
+        # chapters
+        chapter_rows = ompdal.getChaptersBySubmission(submission_id).as_list()
+
+        chapters = []
+
+        for c in chapter_rows:
+            chapter = {}
+            chapter['id'] = c["chapter_id"]
+            chapter['seq'] = c["seq"]
+            chapter_settings = ompdal.getChapterSettings(c["chapter_id"]).as_list()
+            for s in chapter_settings:
+                setting_name = s["setting_name"]
+                if not chapter.get(setting_name):
+                    chapter[setting_name] = {}
+                chapter[setting_name][s["locale"]] = s['setting_value']
+                galleys = []
+                for pf in PdfFormats:
+                    pdfObject = {"id": pf["publication_format_id"], "label": pdfName}
+                    chapter_file = ompdal.getLatestRevisionOfChapterFileByPublicationFormat(c["chapter_id"],pf.publication_format_id)
+                    fileKeys = ['file_id', 'revision', 'file_stage', 'genre_id', 'original_file_name']
+                    pdfObject["file"] = {k: e_file.get(k) for k in fileKeys}
+                    pdfObject["urlRemote"] = myconf.take('web.url') + downloadLink(request, chapter_file,myconf.take('web.url'), [],"")
+                    galleys.append(pdfObject)
+
+                chapter["galleys"] = galleys
+
+            chapters.append(chapter)
+
+        item["chapters"] = chapters
+
         items.append(item)
 
     result["items"] = items
