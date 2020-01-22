@@ -67,7 +67,18 @@ def remove_url_prefix(url):
 
 
 def search():
-    apiToken = myconf.take('web.api_token')
+    def getAuthorList(contribs):
+        authors = []
+        for contrib in contribs:
+
+            author = {}
+            author_settings = ompdal.getAuthorSettings(contrib["author_id"]).as_list()
+            for setting in author_settings:
+                author[setting['setting_name']] = setting["setting_value"]
+            authors.append(author)
+        return authors
+
+    #apiToken = myconf.take('web.api_token')
 
     #if apiToken != request.vars.get('apiToken'):
     #    raise HTTP(404,"Error")
@@ -79,7 +90,7 @@ def search():
     db_submissions = db.submissions
 
     q = ((db_submissions.context_id == context_id) & (db_submissions.status == STATUS_PUBLISHED))
-    q = ((db_submissions.context_id == context_id) & (db_submissions.status == STATUS_PUBLISHED) & (db_submissions.submission_id==48))
+    q = ((db_submissions.context_id == context_id) & (db_submissions.status == STATUS_PUBLISHED) & (db_submissions.submission_id==448))
     submissions = db(q).select(orderby=(db_submissions.submission_id))
 
     for s in submissions:
@@ -143,19 +154,9 @@ def search():
                     item[keyword][entry['locale']].append(entry["setting_value"])
             if item.get(keyword):
                 item[re.sub('^submission', '', keyword).lower()] = item.pop(keyword)
-        authors = []
 
         contribs = ompdal.getAuthorsBySubmission(submission_id).as_list()
-
-        for contrib in contribs:
-
-            author = {}
-            author_settings = ompdal.getAuthorSettings(contrib["author_id"]).as_list()
-            for setting in author_settings:
-                author[setting['setting_name']] = setting["setting_value"]
-            authors.append(author)
-
-        item["authors"] = authors
+        item["authors"] = getAuthorList(contribs)
 
         category_settings = ompdal.getCategoryBySubmissionId(submission_id)
 
@@ -200,6 +201,9 @@ def search():
             chapter['id'] = c["chapter_id"]
             chapter['seq'] = c["seq"]
             chapter_settings = ompdal.getChapterSettings(c["chapter_id"]).as_list()
+
+            contribs = ompdal.getAuthorsByChapter(c["chapter_id"]).as_list()
+            chapter["authors"] = getAuthorList(contribs)
             for s in chapter_settings:
                 setting_name = s["setting_name"]
                 if not chapter.get(setting_name):
@@ -209,12 +213,13 @@ def search():
                 for pf in PdfFormats:
                     pdfObject = {"id": pf["publication_format_id"], "label": pdfName}
                     chapter_file = ompdal.getLatestRevisionOfChapterFileByPublicationFormat(c["chapter_id"],pf.publication_format_id)
-                    fileKeys = ['file_id', 'revision', 'file_stage', 'genre_id', 'original_file_name']
-                    pdfObject["file"] = {k: e_file.get(k) for k in fileKeys}
-                    pdfObject["urlRemote"] = myconf.take('web.url') + downloadLink(request, chapter_file,myconf.take('web.url'), [],"")
-                    galleys.append(pdfObject)
-
-                chapter["galleys"] = galleys
+                    if chapter_file:
+                        fileKeys = ['file_id', 'revision', 'file_stage', 'genre_id', 'original_file_name']
+                        pdfObject["file"] = {k: chapter_file.get(k) for k in fileKeys}
+                        pdfObject["urlRemote"] = myconf.take('web.url') + downloadLink(request, chapter_file,myconf.take('web.url'), [],"")
+                        galleys.append(pdfObject)
+                if galleys:
+                    chapter["galleys"] = galleys
 
             chapters.append(chapter)
 
@@ -225,6 +230,9 @@ def search():
     result["items"] = items
 
     return sj.dumps(result, separators=(',', ':'))
+
+
+
 
 
 def oastatistik():
