@@ -99,7 +99,7 @@ def submissions():
         item["lastModified"] = str(s["last_modified"])
         item["dateStatusModified"] = str(s["date_status_modified"])
         path = URL(a=request.application, c='api', f='submission', args=[s["submission_id"]])
-        item["submission"]  =  myconf.take('web.url')+'/'+path
+        item["submission"]  =  myconf.take('web.url')+path
 
         items.append(item)
 
