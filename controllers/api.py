@@ -28,8 +28,6 @@ elif session.forced_language == 'de':
     locale = 'de_DE'
 
 
-
-
 @request.restful()
 def index():
     """
@@ -66,173 +64,184 @@ def remove_url_prefix(url):
     return ''.join(urls)
 
 
-def search():
-    def getAuthorList(contribs):
-        authors = []
-        for contrib in contribs:
+def getAuthorList(contribs):
+    authors = []
+    for contrib in contribs:
 
-            author = {}
-            author_settings = ompdal.getAuthorSettings(contrib["author_id"]).as_list()
-            for setting in author_settings:
-                author[setting['setting_name']] = setting["setting_value"]
-            authors.append(author)
-        return authors
+        author = {}
+        author_settings = ompdal.getAuthorSettings(contrib["author_id"]).as_list()
+        for setting in author_settings:
+            author[setting['setting_name']] = setting["setting_value"]
+        authors.append(author)
+    return authors
 
-    #apiToken = myconf.take('web.api_token')
 
-    #if apiToken != request.vars.get('apiToken'):
+def submissions():
+    # apiToken = myconf.take('web.api_token')
+
+    # if apiToken != request.vars.get('apiToken'):
     #    raise HTTP(404,"Error")
 
-    ompdal = OMPDAL(db, myconf)
     result = {}
     items = []
     context_id = myconf.take('omp.press_id')
     db_submissions = db.submissions
 
     q = ((db_submissions.context_id == context_id) & (db_submissions.status == STATUS_PUBLISHED))
-    q = ((db_submissions.context_id == context_id) & (db_submissions.status == STATUS_PUBLISHED) & (db_submissions.submission_id==448))
-    submissions = db(q).select(orderby=(db_submissions.submission_id))
+    submissions = db(q).select(orderby=(db_submissions.submission_id)).as_list()
 
     for s in submissions:
         item = {}
-        submission_id = s["submission_id"]
-        item["id"] = submission_id
+        item["id"] = s["submission_id"]
         item["locale"] = s["locale"]
         item["dateSubmitted"] = str(s["date_submitted"])
         item["lastModified"] = str(s["last_modified"])
         item["dateStatusModified"] = str(s["date_status_modified"])
 
-        # formats
-        pf = ompdal.getPublicationFormatByName(submission_id, myconf.take('omp.doi_format_name')).first()
-        if pf:
-            date_published = dateFromRow(
-                    ompdal.getPublicationDatesByPublicationFormat(pf.publication_format_id, "01").first())
-            item["datePublished"] = str(date_published)
-
-        item["status"] = {"id": STATUS_PUBLISHED, "label": "Published"}
-
-        # submission settings
-        submission_settings = ompdal.getSubmissionSettings(submission_id).as_list()
-        dc = {"abstract": {}, "prefix": {}, "source": {}, "subtitle": {}, "title": {}, "type": {}}
-        for s in submission_settings:
-            for k in dc:
-                if s["setting_name"] == k:
-                    if not item.get(k):
-                        item[k] = {}
-                    item[k][s["locale"]] = s['setting_value']
-
-        # series
-        series_id = s.get("series_id")
-        if series_id:
-            series = {"id": series_id, "position": s["series_position"]}
-            series_settings = ompdal.getSeriesSettings(series_id)
-            for srs in series_settings:
-                if srs["setting_name"] == 'title':
-                    if not series.get("title"):
-                        series["title"] = {}
-                    series["title"][srs["locale"]] = srs["setting_value"]
-
-            item["series"] = series
-        # controlled vocabularies
-        cv = ompdal.getControlledVocabsBySubmission(submission_id).as_list()
-
-        keywords = ["submissionAgency", "submissionDiscipline", "submissionKeyword", "submissionSubject"]
-        for keyword in keywords:
-            cv_ids = list(filter(lambda x: x['symbolic'] == keyword, cv))
-            cv_id = cv_ids[0]["controlled_vocab_id"] if cv_ids else []
-            cv_entries = ompdal.getControlledVocabEntriesByID(cv_id) if cv_id else []
-
-            for i in cv_entries:
-                entries = ompdal.controlledVocabEntrySettingsByID(i["controlled_vocab_entry_id"]).as_list()
-                entry = entries[0] if entries else []
-                if entry:
-                    if not item.get(keyword):
-                        item[keyword] = {}
-                    if not item[keyword].get(entry['locale']):
-                        item[keyword][entry['locale']] = []
-
-                    item[keyword][entry['locale']].append(entry["setting_value"])
-            if item.get(keyword):
-                item[re.sub('^submission', '', keyword).lower()] = item.pop(keyword)
-
-        contribs = ompdal.getAuthorsBySubmission(submission_id).as_list()
-        item["authors"] = getAuthorList(contribs)
-
-        category_settings = ompdal.getCategoryBySubmissionId(submission_id)
-
-        # galleys
-        galleys = []
-        pdfName = "PDF"
-        PdfFormats = ompdal.getPublicationFormatByName(submission_id, pdfName)
-
-        for pf in PdfFormats:
-            pdfObject = {"id": pf["publication_format_id"], "label": pdfName}
-
-            e_file = ompdal.getLatestRevisionOfFullBookFileByPublicationFormat(submission_id,
-                                                                               pf["publication_format_id"])
-            pdfObject["urlRemote"] = myconf.take('web.url') + downloadLink(request, e_file, myconf.take('web.url'), [],
-                                                                           "")
-
-            fileKeys = ['file_id', 'revision', 'file_stage', 'genre_id', 'original_file_name']
-            pdfObject["file"] = {k: e_file.get(k) for k in fileKeys}
-
-            e_file_settings = ompdal.getSubmissionFileSettings(e_file["file_id"]).as_list()
-
-            for setting in e_file_settings:
-                if not pdfObject["file"].get(setting['setting_name']):
-                    pdfObject["file"][setting['setting_name']] = {}
-                pdfObject["file"][setting['setting_name']][setting['locale']] = setting["setting_value"]
-
-            for p in ["vgWortPublic", "vgWortPrivate"]:
-                if pdfObject["file"].get(p):
-                    pdfObject["file"].pop(p)
-
-
-            galleys.append(pdfObject)
-
-        item["galleys"] = galleys
-        # chapters
-        chapter_rows = ompdal.getChaptersBySubmission(submission_id).as_list()
-
-        chapters = []
-
-        for c in chapter_rows:
-            chapter = {}
-            chapter['id'] = c["chapter_id"]
-            chapter['seq'] = c["seq"]
-            chapter_settings = ompdal.getChapterSettings(c["chapter_id"]).as_list()
-
-            contribs = ompdal.getAuthorsByChapter(c["chapter_id"]).as_list()
-            chapter["authors"] = getAuthorList(contribs)
-            for s in chapter_settings:
-                setting_name = s["setting_name"]
-                if not chapter.get(setting_name):
-                    chapter[setting_name] = {}
-                chapter[setting_name][s["locale"]] = s['setting_value']
-                galleys = []
-                for pf in PdfFormats:
-                    pdfObject = {"id": pf["publication_format_id"], "label": pdfName}
-                    chapter_file = ompdal.getLatestRevisionOfChapterFileByPublicationFormat(c["chapter_id"],pf.publication_format_id)
-                    if chapter_file:
-                        fileKeys = ['file_id', 'revision', 'file_stage', 'genre_id', 'original_file_name']
-                        pdfObject["file"] = {k: chapter_file.get(k) for k in fileKeys}
-                        pdfObject["urlRemote"] = myconf.take('web.url') + downloadLink(request, chapter_file,myconf.take('web.url'), [],"")
-                        galleys.append(pdfObject)
-                if galleys:
-                    chapter["galleys"] = galleys
-
-            chapters.append(chapter)
-
-        item["chapters"] = chapters
 
         items.append(item)
 
+    result["itemsMax"] = len(submissions)
     result["items"] = items
 
     return sj.dumps(result, separators=(',', ':'))
 
 
+def submission():
 
+    if len(request.args) == 0 :
+        raise HTTP(404)
+    submission_id = request.args[0]
+
+    context_id = myconf.take('omp.press_id')
+    db_submissions = db.submissions
+
+    q = ((db_submissions.context_id == context_id) & (db_submissions.status == STATUS_PUBLISHED) & (db_submissions.submission_id==submission_id))
+    submissions = db(q).select(orderby=(db_submissions.submission_id))
+    if submissions:
+        submission = submissions.first()
+    else:
+        raise HTTP(404)
+
+    item = {}
+
+    item["id"] = submission_id
+    item["locale"] = submission["locale"]
+    item["dateSubmitted"] = str(submission["date_submitted"])
+    item["lastModified"] = str(submission["last_modified"])
+    item["dateStatusModified"] = str(submission["date_status_modified"])
+    # formats
+    pf = ompdal.getPublicationFormatByName(submission_id, myconf.take('omp.doi_format_name')).first()
+    if pf:
+        date_published = dateFromRow(
+                ompdal.getPublicationDatesByPublicationFormat(pf.publication_format_id, "01").first())
+        item["datePublished"] = str(date_published)
+    item["status"] = {"id": STATUS_PUBLISHED, "label": "Published"}
+    # submission settings
+    submission_settings = ompdal.getSubmissionSettings(submission_id).as_list()
+    dc = {"abstract": {}, "prefix": {}, "source": {}, "subtitle": {}, "title": {}, "type": {}}
+    for submission in submission_settings:
+        for k in dc:
+            if submission["setting_name"] == k:
+                if not item.get(k):
+                    item[k] = {}
+                item[k][submission["locale"]] = submission['setting_value']
+    # series
+    series_id = submission.get("series_id")
+    if series_id:
+        series = {"id": series_id, "position": submission["series_position"]}
+        series_settings = ompdal.getSeriesSettings(series_id)
+        for srs in series_settings:
+            if srs["setting_name"] == 'title':
+                if not series.get("title"):
+                    series["title"] = {}
+                series["title"][srs["locale"]] = srs["setting_value"]
+
+        item["series"] = series
+    # controlled vocabularies
+    cv = ompdal.getControlledVocabsBySubmission(submission_id).as_list()
+    keywords = ["submissionAgency", "submissionDiscipline", "submissionKeyword", "submissionSubject"]
+    for keyword in keywords:
+        cv_ids = list(filter(lambda x: x['symbolic'] == keyword, cv))
+        cv_id = cv_ids[0]["controlled_vocab_id"] if cv_ids else []
+        cv_entries = ompdal.getControlledVocabEntriesByID(cv_id) if cv_id else []
+
+        for i in cv_entries:
+            entries = ompdal.controlledVocabEntrySettingsByID(i["controlled_vocab_entry_id"]).as_list()
+            entry = entries[0] if entries else []
+            if entry:
+                if not item.get(keyword):
+                    item[keyword] = {}
+                if not item[keyword].get(entry['locale']):
+                    item[keyword][entry['locale']] = []
+
+                item[keyword][entry['locale']].append(entry["setting_value"])
+        if item.get(keyword):
+            item[re.sub('^submission', '', keyword).lower()] = item.pop(keyword)
+    contribs = ompdal.getAuthorsBySubmission(submission_id).as_list()
+    item["authors"] = getAuthorList(contribs)
+    category_settings = ompdal.getCategoryBySubmissionId(submission_id)
+    # galleys
+    galleys = []
+    pdfName = "PDF"
+    PdfFormats = ompdal.getPublicationFormatByName(submission_id, pdfName)
+    for pf in PdfFormats:
+        pdfObject = {"id": pf["publication_format_id"], "label": pdfName}
+
+        e_file = ompdal.getLatestRevisionOfFullBookFileByPublicationFormat(submission_id,
+                                                                           pf["publication_format_id"])
+        pdfObject["urlRemote"] = myconf.take('web.url') + downloadLink(request, e_file, myconf.take('web.url'), [],
+                                                                       "")
+
+        fileKeys = ['file_id', 'revision', 'file_stage', 'genre_id', 'original_file_name']
+        pdfObject["file"] = {k: e_file.get(k) for k in fileKeys}
+
+        e_file_settings = ompdal.getSubmissionFileSettings(e_file["file_id"]).as_list()
+
+        for setting in e_file_settings:
+            if not pdfObject["file"].get(setting['setting_name']):
+                pdfObject["file"][setting['setting_name']] = {}
+            pdfObject["file"][setting['setting_name']][setting['locale']] = setting["setting_value"]
+
+        for p in ["vgWortPublic", "vgWortPrivate"]:
+            if pdfObject["file"].get(p):
+                pdfObject["file"].pop(p)
+
+        galleys.append(pdfObject)
+    item["galleys"] = galleys
+    # chapters
+    chapter_rows = ompdal.getChaptersBySubmission(submission_id).as_list()
+    chapters = []
+    for c in chapter_rows:
+        chapter = {}
+        chapter['id'] = c["chapter_id"]
+        chapter['seq'] = c["seq"]
+        chapter_settings = ompdal.getChapterSettings(c["chapter_id"]).as_list()
+
+        contribs = ompdal.getAuthorsByChapter(c["chapter_id"]).as_list()
+        chapter["authors"] = getAuthorList(contribs)
+        for submission in chapter_settings:
+            setting_name = submission["setting_name"]
+            if not chapter.get(setting_name):
+                chapter[setting_name] = {}
+            chapter[setting_name][submission["locale"]] = submission['setting_value']
+            galleys = []
+            for pf in PdfFormats:
+                pdfObject = {"id": pf["publication_format_id"], "label": pdfName}
+                chapter_file = ompdal.getLatestRevisionOfChapterFileByPublicationFormat(c["chapter_id"],
+                                                                                        pf.publication_format_id)
+                if chapter_file:
+                    fileKeys = ['file_id', 'revision', 'file_stage', 'genre_id', 'original_file_name']
+                    pdfObject["file"] = {k: chapter_file.get(k) for k in fileKeys}
+                    pdfObject["urlRemote"] = myconf.take('web.url') + downloadLink(request, chapter_file,
+                                                                                   myconf.take('web.url'), [], "")
+                    galleys.append(pdfObject)
+            if galleys:
+                chapter["galleys"] = galleys
+
+        chapters.append(chapter)
+    item["chapters"] = chapters
+    return sj.dumps(item, separators=(',', ':'))
 
 
 def oastatistik():
