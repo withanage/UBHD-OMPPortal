@@ -230,13 +230,13 @@ def submission():
 
 def createFile(e_file, pf):
 
-    fileKeys = ['file_id', 'revision', 'file_stage', 'genre_id', 'original_file_name']
+    fileKeys = ['file_id', 'revision', 'file_stage', 'genre_id', 'original_file_name','date_modified']
     privateFields = ["vgWortPublic", "vgWortPrivate", "chapterid", "chapterId", "chapterID"]
 
     pdfObject = {"id": pf["publication_format_id"], "label": primaryFormat}
-    pdfObject["urlRemote"] = myconf.take('web.url') + downloadLink(request, e_file, myconf.take('web.url'), [], "")
+    pdfObject["urlPublished"] = myconf.take('web.url') + downloadLink(request, e_file, myconf.take('web.url'), [], "")
 
-    pdfObject["file"] = {k: e_file.get(k) for k in fileKeys}
+    pdfObject["file"] = {k: str(e_file.get(k)) for k in fileKeys}
     e_file_settings = ompdal.getSubmissionFileSettings(e_file["file_id"]).as_list()
     for setting in e_file_settings:
         if not pdfObject["file"].get(setting['setting_name']):
