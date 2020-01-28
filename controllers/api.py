@@ -136,6 +136,7 @@ def submission():
     item["dateSubmitted"] = str(submission["date_submitted"])
     item["lastModified"] = str(submission["last_modified"])
     item["dateStatusModified"] = str(submission["date_status_modified"])
+    item["urlPublished"] = myconf.take('web.url') + URL(  a=request.application, c='catalog',f='book',args=[submission_id])
     # formats
     pf = ompdal.getPublicationFormatByName(submission_id, myconf.take('omp.doi_format_name')).first()
     if pf:
