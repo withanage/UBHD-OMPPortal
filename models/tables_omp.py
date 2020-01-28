@@ -403,6 +403,7 @@ db.define_table("user_group_settings",
                 Field("setting_name", "string"),
                 Field("setting_value", "string"),
                 Field("setting_type", "string"),
+                primarykey=['user_group_id',"locale","setting_name"],
                 migrate=False
                 )
 

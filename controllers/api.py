@@ -67,14 +67,18 @@ def remove_url_prefix(url):
 
 def getAuthorList(contribs):
     authors = []
+    author_available = False
     for contrib in contribs:
-
+        us_ = db.user_group_settings
+        auth_type = db((us_.user_group_id == contrib["user_group_id"]) & (us_.setting_name=="nameLocaleKey") & (us_.setting_value=="default.groups.name.author")).select(us_.user_group_id)
+        if len(auth_type) > 0:
+            author_available = True
         author = {}
         author_settings = ompdal.getAuthorSettings(contrib["author_id"]).as_list()
         for setting in author_settings:
             author[setting['setting_name']] = setting["setting_value"]
         authors.append(author)
-    return authors
+    return [authors, author_available]
 
 
 def submissions():
@@ -183,7 +187,9 @@ def submission():
 
     # authors
     contribs = ompdal.getAuthorsBySubmission(submission_id).as_list()
-    item["authors"] = getAuthorList(contribs)
+    item["authors"] = getAuthorList(contribs)[0]
+    item["type"] ="monograph" if  getAuthorList(contribs)[1] else 'edited volume'
+
     category_settings = ompdal.getCategoryBySubmissionId(submission_id)
 
     # galleys
@@ -204,6 +210,7 @@ def submission():
         ch = {}
         ch['id'] = c["chapter_id"]
         ch['seq'] = c["seq"]
+        ch['type'] = "chapter"
         chapter_settings = ompdal.getChapterSettings(c["chapter_id"]).as_list()
 
         contribs = ompdal.getAuthorsByChapter(c["chapter_id"]).as_list()
@@ -216,8 +223,7 @@ def submission():
             ch[st][submission["locale"]] = submission['setting_value']
             galleys = []
             for pf in formats:
-                e_file = ompdal.getLatestRevisionOfChapterFileByPublicationFormat(c["chapter_id"],
-                                                                                  pf.publication_format_id)
+                e_file = ompdal.getLatestRevisionOfChapterFileByPublicationFormat(c["chapter_id"],pf.publication_format_id)
                 if e_file:
                     galleys.append(createFile(e_file, pf))
             if galleys:
