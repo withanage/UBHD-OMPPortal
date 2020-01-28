@@ -125,18 +125,19 @@ def submission():
                 db_submissions.submission_id == submission_id))
     submissions = db(q).select(orderby=(db_submissions.submission_id))
     if submissions:
-        submission = submissions.first()
+        chapter = submissions.first()
     else:
         raise HTTP(404)
 
     item = {}
 
     item["id"] = submission_id
-    item["locale"] = submission["locale"]
-    item["dateSubmitted"] = str(submission["date_submitted"])
-    item["lastModified"] = str(submission["last_modified"])
-    item["dateStatusModified"] = str(submission["date_status_modified"])
-    item["urlPublished"] = myconf.take('web.url') + URL(  a=request.application, c='catalog',f='book',args=[submission_id])
+    item["locale"] = chapter["locale"]
+    item["dateSubmitted"] = str(chapter["date_submitted"])
+    item["lastModified"] = str(chapter["last_modified"])
+    item["dateStatusModified"] = str(chapter["date_status_modified"])
+
+    item["urlPublished"] =  myconf.take('web.url') + URL(a=request.application, c='catalog', f='book', args=[submission_id])
     # formats
     pf = ompdal.getPublicationFormatByName(submission_id, myconf.take('omp.doi_format_name')).first()
     if pf:
@@ -147,16 +148,16 @@ def submission():
     # submission settings
     submission_settings = ompdal.getSubmissionSettings(submission_id).as_list()
     dc = {"abstract": {}, "prefix": {}, "source": {}, "subtitle": {}, "title": {}, "type": {}}
-    for submission in submission_settings:
+    for chapter in submission_settings:
         for k in dc:
-            if submission["setting_name"] == k:
+            if chapter["setting_name"] == k:
                 if not item.get(k):
                     item[k] = {}
-                item[k][submission["locale"]] = submission['setting_value']
+                item[k][chapter["locale"]] = chapter['setting_value']
     # series
-    series_id = submission.get("series_id")
+    series_id = chapter.get("series_id")
     if series_id:
-        series = {"id": series_id, "position": submission["series_position"]}
+        series = {"id": series_id, "position": chapter["series_position"]}
         series_settings = ompdal.getSeriesSettings(series_id)
         for srs in series_settings:
             if srs["setting_name"] == 'title':
@@ -209,6 +210,7 @@ def submission():
     chapters = []
     for c in chapter_rows:
         ch = {}
+        urlPublished = False
         ch['id'] = c["chapter_id"]
         ch['seq'] = c["seq"]
         ch['type'] = "chapter"
@@ -217,11 +219,14 @@ def submission():
         contribs = ompdal.getAuthorsByChapter(c["chapter_id"]).as_list()
         ch["authors"] = getAuthorList(contribs)
 
-        for submission in chapter_settings:
-            st = submission["setting_name"]
+        for chapter in chapter_settings:
+            st = chapter["setting_name"]
+            if st=='pub-id::doi':
+                ch['urlPublished'] =  myconf.take('web.url') + URL(a=request.application, c='catalog', f='book', args=[submission_id,'c'+str(c['chapter_id'])])
+
             if not ch.get(st):
                 ch[st] = {}
-            ch[st][submission["locale"]] = submission['setting_value']
+            ch[st][chapter["locale"]] = chapter['setting_value']
             galleys = []
             for pf in formats:
                 e_file = ompdal.getLatestRevisionOfChapterFileByPublicationFormat(c["chapter_id"],pf.publication_format_id)
