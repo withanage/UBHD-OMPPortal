@@ -217,7 +217,7 @@ def submission():
         chapter_settings = ompdal.getChapterSettings(c["chapter_id"]).as_list()
 
         contribs = ompdal.getAuthorsByChapter(c["chapter_id"]).as_list()
-        ch["authors"] = getAuthorList(contribs)
+        ch["authors"] = getAuthorList(contribs)[0]
 
         for chapter in chapter_settings:
             st = chapter["setting_name"]
