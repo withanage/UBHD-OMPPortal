@@ -71,8 +71,9 @@ $.getJSON(url, function (data) {
         var chapter_div = '#' + chapter_ids[i].replace(':', '_');
 
         var chapter_val = setValue(data, chapter_ids[i]);
-
-        $(chapter_div).text(chapter_val);
+        if (parseInt(chapter_val)!==0) {
+            $(chapter_div).text(chapter_val);
+        }
 
         chapter_total += chapter_val;
 
