@@ -39,43 +39,36 @@ function typesort(a, b){
 }
 
 
-var script = 'oastats-json.cgi';
-var url = "../../../cgi-bin/" + script + "?repo=omphp&type=json&ids=" + ids+"&uid="+guid();
+
+var url = "https://statistik.ub.uni-heidelberg.de/oa_statistik/doc_id/period/?doc_id="+ ids+','+b_id+"&uid="+guid();
+console.info(url);
 $.getJSON( url, function( data ) {
-  var totals = {};
-  $.each(data, function (key, value) {
-  totals[key] = value.all_years.reduce(function (prev, elem) { return prev + parseInt(elem.volltext); }, 0);
-  });
-  var statsTableChapters = document.getElementById('statsTableChapters');
-  var a_k, full_files;
-  var total = {};
-  for (let k in totals){
-$("#" + k).text(totals[k]);
-  a_k = k.split("-");
-  if (a_k.length === 3) {
+  var totals = 0;
+  for (var i = 0; i < ids.length; i++) {
+    var id =  '#'+ids[i].replace(':','_');
+    var val = setValue(ids[i]);
+    $(id).text(val);
+    totals += val;
 
-if (total[a_k[2]] !== undefined){
-total[a_k[2]] = total[a_k[2]] + totals[k];
-}
-else {
-total[a_k[2]] = totals[k];
-}
-}
-}
-
-
-full_files = $(".full_file");
-  $.each(full_files, function(index, value) {
-  for (var prop in total) {
-  if (value.id.indexOf(prop) > 0) {
-    total[prop] = total[prop] - value.innerText;
   }
-  }
-  });
-  for (var prop in total) {
-var s = $("#total-chapter-" + prop);
-  s.text(total[prop]);
-}
+  $("#total-chapter-files").text(totals);
+
+  // book
+
+  function setValue(elem) {
+    try {
+      total = data.items[elem].sum.requests;
+      }
+      catch (e) {
+      console.log(b_id[elem],'does not have any values');
+      }
+      return total;
+    };
+
+
+   normalized_b_id =  b_id[0].replace(':','_');
+  $("#"+normalized_b_id).text(setValue(b_id[0]));
+
   }).fail(function() {
       $('#statistik-button').hide();
       console.log("statistik service unavaliable");
