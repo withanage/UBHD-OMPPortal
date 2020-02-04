@@ -86,9 +86,8 @@ def download():
     submission_file = request.args[1]
     path = os.path.join(request.folder, 'static/files/presses', myconf.take('omp.press_id'), 'monographs',
                         submission_id, 'submission/proof', submission_file)
-    response.headers['ContentType'] = "application/octet-stream"
-    response.headers[
-        'Content-Disposition'] = "attachment; filename=" + submission_file
+    response.headers['ContentType'] = "application/pdf"
+    #response.headers['Content-Disposition'] = "attachment; filename=" + submission_file
     return response.stream(path, chunk_size=1048576)
 
 
