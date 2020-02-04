@@ -68,7 +68,7 @@ if __name__ == '__main__':
     p = sys.argv[0].split('/')
     p.pop()  # removes file name
     p.append('vgwort.xls')
-    c = os.path.join(*p)
+    c = '/'+os.path.join(*p)
     if os.path.isfile(c):
         get_excel(c)
     else:
