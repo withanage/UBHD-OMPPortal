@@ -19,6 +19,8 @@ url = join(request.env.http_host, request.application, request.controller)
 
 ompdal = OMPDAL(db, myconf)
 press = ompdal.getPress(myconf.take('omp.press_id'))
+web_url = myconf.take('web.url')
+
 STATUS_PUBLISHED = 3
 primaryFormat = "PDF"
 locale = ''
@@ -104,7 +106,7 @@ def submissions():
         item["lastModified"] = str(s["last_modified"])
         item["dateStatusModified"] = str(s["date_status_modified"])
         path = URL(a=request.application, c='api', f='submission', args=[s["submission_id"]])
-        item["submission"] = myconf.take('web.url') + path
+        item["submission"] = web_url + path
 
         items.append(item)
 
@@ -158,7 +160,7 @@ def submission():
     item["lastModified"] = str(submission["last_modified"])
     item["dateStatusModified"] = str(submission["date_status_modified"])
 
-    item["urlPublished"] = myconf.take('web.url') + URL(a=request.application, c='catalog', f='book',
+    item["urlPublished"] = web_url + URL(a=request.application, c='catalog', f='book',
                                                         args=[submission_id])
     # formats
     pf = ompdal.getPublicationFormatByName(submission_id, myconf.take('omp.doi_format_name')).first()
@@ -179,13 +181,13 @@ def submission():
     # series
     series_id = submission.get("series_id")
     if series_id:
-        series_url = myconf.take('web.url') + URL(a=request.application, c='api', f='series', args=[series_id])
+        series_url = web_url + URL(a=request.application, c='api', f='series', args=[series_id])
 
 
         series_path = ompdal.getSeriesBySubmissionId(submission_id).as_dict()["path"]
         series = {"id": series_url, "position": submission["series_position"]}
 
-        series["urlPublished"] = myconf.take('web.url') + URL(a=request.application, c='series', f='info',args=[series_path])
+        series["urlPublished"] = web_url + URL(a=request.application, c='series', f='info',args=[series_path])
 
         item["series"] = series
     # controlled vocabularies
@@ -243,7 +245,7 @@ def submission():
         for chapter in chapter_settings:
             st = chapter["setting_name"]
             if st == 'pub-id::doi':
-                ch['urlPublished'] = myconf.take('web.url') + URL(a=request.application, c='catalog', f='book',
+                ch['urlPublished'] = web_url + URL(a=request.application, c='catalog', f='book',
                                                                   args=[submission_id, 'c' + str(c['chapter_id'])])
 
             if not ch.get(st):
@@ -268,7 +270,7 @@ def createFile(e_file, pf):
     privateFields = ["vgWortPublic", "vgWortPrivate", "chapterid", "chapterId", "chapterID"]
 
     pdfObject = {"id": pf["publication_format_id"], "label": primaryFormat}
-    pdfObject["urlPublished"] = myconf.take('web.url') + downloadLink(request, e_file, myconf.take('web.url'), [], "")
+    pdfObject["urlPublished"] = web_url + downloadLink(request, e_file, web_url, [], "")
 
     pdfObject["file"] = {k: str(e_file.get(k)) for k in fileKeys}
     e_file_settings = ompdal.getSubmissionFileSettings(e_file["file_id"]).as_list()
