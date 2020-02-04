@@ -70,7 +70,8 @@ def getAuthorList(contribs):
     author_available = False
     for contrib in contribs:
         us_ = db.user_group_settings
-        auth_type = db((us_.user_group_id == contrib["user_group_id"]) & (us_.setting_name=="nameLocaleKey") & (us_.setting_value=="default.groups.name.author")).select(us_.user_group_id)
+        auth_type = db((us_.user_group_id == contrib["user_group_id"]) & (us_.setting_name == "nameLocaleKey") & (
+                    us_.setting_value == "default.groups.name.author")).select(us_.user_group_id)
         if len(auth_type) > 0:
             author_available = True
         author = {}
@@ -113,6 +114,26 @@ def submissions():
     return sj.dumps(result, separators=(',', ':'))
 
 
+def series():
+
+    if len(request.args) == 0:
+        raise HTTP(404)
+    series_id = request.args[0]
+    series_settings = ompdal.getSeriesSettings(series_id)
+    series = {"id": series_id}
+    for srs in series_settings:
+        sn = srs["setting_name"]
+        locale_ = srs["locale"]
+        if not series.get(sn):
+            series[sn] = {}
+        if not series.get(sn).get(locale_):
+            series[sn][locale_] = {}
+        series[sn][locale_] = srs["setting_value"]
+
+
+    return sj.dumps(series, separators=(',', ':'))
+
+
 def submission():
     if len(request.args) == 0:
         raise HTTP(404)
@@ -122,22 +143,23 @@ def submission():
     db_submissions = db.submissions
 
     q = ((db_submissions.context_id == context_id) & (db_submissions.status == STATUS_PUBLISHED) & (
-                db_submissions.submission_id == submission_id))
+            db_submissions.submission_id == submission_id))
     submissions = db(q).select(orderby=(db_submissions.submission_id))
     if submissions:
-        chapter = submissions.first()
+        submission = submissions.first()
     else:
         raise HTTP(404)
 
     item = {}
 
     item["id"] = submission_id
-    item["locale"] = chapter["locale"]
-    item["dateSubmitted"] = str(chapter["date_submitted"])
-    item["lastModified"] = str(chapter["last_modified"])
-    item["dateStatusModified"] = str(chapter["date_status_modified"])
+    item["locale"] = submission["locale"]
+    item["dateSubmitted"] = str(submission["date_submitted"])
+    item["lastModified"] = str(submission["last_modified"])
+    item["dateStatusModified"] = str(submission["date_status_modified"])
 
-    item["urlPublished"] =  myconf.take('web.url') + URL(a=request.application, c='catalog', f='book', args=[submission_id])
+    item["urlPublished"] = myconf.take('web.url') + URL(a=request.application, c='catalog', f='book',
+                                                        args=[submission_id])
     # formats
     pf = ompdal.getPublicationFormatByName(submission_id, myconf.take('omp.doi_format_name')).first()
     if pf:
@@ -148,22 +170,22 @@ def submission():
     # submission settings
     submission_settings = ompdal.getSubmissionSettings(submission_id).as_list()
     dc = {"abstract": {}, "prefix": {}, "source": {}, "subtitle": {}, "title": {}, "type": {}}
-    for chapter in submission_settings:
+    for ss in submission_settings:
         for k in dc:
-            if chapter["setting_name"] == k:
+            if ss["setting_name"] == k:
                 if not item.get(k):
                     item[k] = {}
-                item[k][chapter["locale"]] = chapter['setting_value']
+                item[k][ss["locale"]] = ss['setting_value']
     # series
-    series_id = chapter.get("series_id")
+    series_id = submission.get("series_id")
     if series_id:
-        series = {"id": series_id, "position": chapter["series_position"]}
-        series_settings = ompdal.getSeriesSettings(series_id)
-        for srs in series_settings:
-            if srs["setting_name"] == 'title':
-                if not series.get("title"):
-                    series["title"] = {}
-                series["title"][srs["locale"]] = srs["setting_value"]
+        series_url = myconf.take('web.url') + URL(a=request.application, c='api', f='series', args=[series_id])
+
+
+        series_path = ompdal.getSeriesBySubmissionId(submission_id).as_dict()["path"]
+        series = {"id": series_url, "position": submission["series_position"]}
+
+        series["urlPublished"] = myconf.take('web.url') + URL(a=request.application, c='series', f='info',args=[series_path])
 
         item["series"] = series
     # controlled vocabularies
@@ -190,7 +212,7 @@ def submission():
     # authors
     contribs = ompdal.getAuthorsBySubmission(submission_id).as_list()
     item["authors"] = getAuthorList(contribs)[0]
-    item["type"] ="monograph" if  getAuthorList(contribs)[1] else 'edited volume'
+    item["type"] = "monograph" if getAuthorList(contribs)[1] else 'edited volume'
 
     category_settings = ompdal.getCategoryBySubmissionId(submission_id)
 
@@ -203,7 +225,6 @@ def submission():
         if e_file:
             galleys.append(createFile(e_file, pf))
     item["galleys"] = galleys
-
 
     # chapters
     chapter_rows = ompdal.getChaptersBySubmission(submission_id).as_list()
@@ -221,15 +242,17 @@ def submission():
 
         for chapter in chapter_settings:
             st = chapter["setting_name"]
-            if st=='pub-id::doi':
-                ch['urlPublished'] =  myconf.take('web.url') + URL(a=request.application, c='catalog', f='book', args=[submission_id,'c'+str(c['chapter_id'])])
+            if st == 'pub-id::doi':
+                ch['urlPublished'] = myconf.take('web.url') + URL(a=request.application, c='catalog', f='book',
+                                                                  args=[submission_id, 'c' + str(c['chapter_id'])])
 
             if not ch.get(st):
                 ch[st] = {}
             ch[st][chapter["locale"]] = chapter['setting_value']
             galleys = []
             for pf in formats:
-                e_file = ompdal.getLatestRevisionOfChapterFileByPublicationFormat(c["chapter_id"],pf.publication_format_id)
+                e_file = ompdal.getLatestRevisionOfChapterFileByPublicationFormat(c["chapter_id"],
+                                                                                  pf.publication_format_id)
                 if e_file:
                     galleys.append(createFile(e_file, pf))
             if galleys:
@@ -241,8 +264,7 @@ def submission():
 
 
 def createFile(e_file, pf):
-
-    fileKeys = ['file_id', 'revision', 'file_stage', 'genre_id', 'original_file_name','date_modified']
+    fileKeys = ['file_id', 'revision', 'file_stage', 'genre_id', 'original_file_name', 'date_modified']
     privateFields = ["vgWortPublic", "vgWortPrivate", "chapterid", "chapterId", "chapterID"]
 
     pdfObject = {"id": pf["publication_format_id"], "label": primaryFormat}
