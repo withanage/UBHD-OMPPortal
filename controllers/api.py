@@ -67,21 +67,29 @@ def remove_url_prefix(url):
     return ''.join(urls)
 
 
-def getAuthorList(contribs):
+def getAuthorList(submission_id, chapter_id=0):
+    contribs = []
+    aut = db.authors
+    ugs = db.user_group_settings
+    sca = db.submission_chapter_authors
+    if chapter_id > 0:
+        contribs = db(sca.chapter_id == chapter_id).select(sca.author_id, distinct=True).as_list()
+    else:
+        contribs = db((aut.submission_id == submission_id) & (aut.user_group_id == ugs.user_group_id) & (ugs.setting_name=='abbrev') & (ugs.setting_value != "CA")).select(aut.author_id, distinct=True).as_list()
+
     authors = []
-    author_available = False
     for contrib in contribs:
-        us_ = db.user_group_settings
-        auth_type = db((us_.user_group_id == contrib["user_group_id"]) & (us_.setting_name == "nameLocaleKey") & (
-                    us_.setting_value == "default.groups.name.author")).select(us_.user_group_id)
-        if len(auth_type) > 0:
-            author_available = True
         author = {}
+        role = db((ugs.user_group_id == aut.user_group_id) & (aut.author_id == contrib["author_id"]) & (
+                    ugs.setting_name == "name")).select(ugs.setting_value)
+        if role:
+            author["role"] = role.first().as_dict().get("setting_value")
+
         author_settings = ompdal.getAuthorSettings(contrib["author_id"]).as_list()
         for setting in author_settings:
             author[setting['setting_name']] = setting["setting_value"]
         authors.append(author)
-    return [authors, author_available]
+    return authors
 
 
 def submissions():
@@ -117,7 +125,6 @@ def submissions():
 
 
 def series():
-
     if len(request.args) == 0:
         raise HTTP(404)
     series_id = request.args[0]
@@ -131,7 +138,6 @@ def series():
         if not series.get(sn).get(locale_):
             series[sn][locale_] = {}
         series[sn][locale_] = srs["setting_value"]
-
 
     return sj.dumps(series, separators=(',', ':'))
 
@@ -161,12 +167,12 @@ def submission():
     item["dateStatusModified"] = str(submission["date_status_modified"])
 
     item["urlPublished"] = web_url + URL(a=request.application, c='catalog', f='book',
-                                                        args=[submission_id])
+                                         args=[submission_id])
     # formats
     pf = ompdal.getPublicationFormatByName(submission_id, myconf.take('omp.doi_format_name')).first()
     if pf:
         date_published = dateFromRow(
-                ompdal.getPublicationDatesByPublicationFormat(pf.publication_format_id, "01").first())
+            ompdal.getPublicationDatesByPublicationFormat(pf.publication_format_id, "01").first())
         item["datePublished"] = str(date_published)
     item["status"] = {"id": STATUS_PUBLISHED, "label": "Published"}
     # submission settings
@@ -183,11 +189,10 @@ def submission():
     if series_id:
         series_url = web_url + URL(a=request.application, c='api', f='series', args=[series_id])
 
-
         series_path = ompdal.getSeriesBySubmissionId(submission_id).as_dict()["path"]
         series = {"id": series_url, "position": submission["series_position"]}
 
-        series["urlPublished"] = web_url + URL(a=request.application, c='series', f='info',args=[series_path])
+        series["urlPublished"] = web_url + URL(a=request.application, c='series', f='info', args=[series_path])
 
         item["series"] = series
     # controlled vocabularies
@@ -212,11 +217,13 @@ def submission():
             item[re.sub('^submission', '', keyword).lower()] = item.pop(keyword)
 
     # authors
-    contribs = ompdal.getAuthorsBySubmission(submission_id).as_list()
-    item["authors"] = getAuthorList(contribs)[0]
-    item["type"] = "monograph" if getAuthorList(contribs)[1] else 'edited volume'
 
-    category_settings = ompdal.getCategoryBySubmissionId(submission_id)
+    item["authors"] = getAuthorList(submission_id)
+
+    s_authors = db((db.authors.submission_id == submission_id) & (db.authors.user_group_id == 98)).select(
+        db.authors.author_id)
+
+    item["type"] = "monograph" if len(s_authors) > 0 else 'edited volume'
 
     # galleys
     galleys = []
@@ -240,13 +247,14 @@ def submission():
         chapter_settings = ompdal.getChapterSettings(c["chapter_id"]).as_list()
 
         contribs = ompdal.getAuthorsByChapter(c["chapter_id"]).as_list()
-        ch["authors"] = getAuthorList(contribs)[0]
+
+        ch["authors"] = getAuthorList(submission_id, c["chapter_id"])
 
         for chapter in chapter_settings:
             st = chapter["setting_name"]
             if st == 'pub-id::doi':
                 ch['urlPublished'] = web_url + URL(a=request.application, c='catalog', f='book',
-                                                                  args=[submission_id, 'c' + str(c['chapter_id'])])
+                                                   args=[submission_id, 'c' + str(c['chapter_id'])])
 
             if not ch.get(st):
                 ch[st] = {}
@@ -302,9 +310,9 @@ def oastatistik():
             s = {}
             dbs = db.series_settings
             title = db(
-                    (dbs.series_id == series.get('series_id')) & (dbs.locale == locale) & (
-                            dbs.setting_name == 'title')).select(
-                    dbs.setting_value)
+                (dbs.series_id == series.get('series_id')) & (dbs.locale == locale) & (
+                        dbs.setting_name == 'title')).select(
+                dbs.setting_value)
 
             series_norm_id = '{}:{}:{}'.format(stats_id, press_path, series.get('path'))
             s['doc_id'] = series_norm_id
@@ -326,9 +334,9 @@ def oastatistik():
         year = date_published.year if date_published else []
 
         volume = {
-            "id"  : 'MD:{}'.format(norm_id),
+            "id": 'MD:{}'.format(norm_id),
             "type": "volume",
-            }
+        }
         if year:
             volume['year'] = year
 
@@ -355,11 +363,11 @@ def oastatistik():
 
             chapter_norm_id = "{}:{}-c{}".format(stats_id, submission_id, chapter_id)
             chs_ = {
-                "id"    : 'MD:{}'.format(chapter_norm_id),
-                "type"  : "part",
+                "id": 'MD:{}'.format(chapter_norm_id),
+                "type": "part",
                 "parent": 'MD:{}'.format(norm_id),
                 "doc_id": chapter_norm_id
-                }
+            }
             chapter_settings = ompdal.getChapterSettings(chapter_id).as_list()
             for chapter_setting in chapter_settings:
                 if chapter_setting["locale"] == locale and chapter_setting["setting_name"] == 'title':
@@ -374,33 +382,33 @@ def oastatistik():
 
 def get_submission_files(book_id):
     full_files = db(
-            (db.submission_files.genre_id == myconf.take('omp.monograph_type_id')) & (
-                    db.submission_files.file_stage > 5) & (
-                    db.submission_files.submission_id == book_id.submission_id)).select(
-            db.submission_files.submission_id,
-            db.submission_files.file_id,
-            db.submission_files.original_file_name)
+        (db.submission_files.genre_id == myconf.take('omp.monograph_type_id')) & (
+                db.submission_files.file_stage > 5) & (
+                db.submission_files.submission_id == book_id.submission_id)).select(
+        db.submission_files.submission_id,
+        db.submission_files.file_id,
+        db.submission_files.original_file_name)
     return full_files
 
 
 def get_publication_format_settings_doi(publication_format_settings, publication_format_settings_doi):
     publication_format_settings_doi = db(
-            (db.publication_format_settings.setting_name == 'pub-id::doi') & (
-                    db.publication_format_settings.publication_format_id == publication_format_settings.first()[
-                'publication_format_id']) & (
-                    publication_format_settings.first()['setting_value'] == myconf.take('omp.doi_format_name'))).select(
-            db.publication_format_settings.setting_value).first()
+        (db.publication_format_settings.setting_name == 'pub-id::doi') & (
+                db.publication_format_settings.publication_format_id == publication_format_settings.first()[
+            'publication_format_id']) & (
+                publication_format_settings.first()['setting_value'] == myconf.take('omp.doi_format_name'))).select(
+        db.publication_format_settings.setting_value).first()
     return publication_format_settings_doi
 
 
 def get_publication_format_settings(book_id):
     publication_format_settings = db(
-            (db.publication_format_settings.setting_name == 'name') & (
-                    db.publication_formats.submission_id == book_id['submission_id']) & (
-                    db.publication_formats.publication_format_id ==
-                    db.publication_format_settings.publication_format_id)).select(
-            db.publication_format_settings.publication_format_id,
-            db.publication_format_settings.setting_value)
+        (db.publication_format_settings.setting_name == 'name') & (
+                db.publication_formats.submission_id == book_id['submission_id']) & (
+                db.publication_formats.publication_format_id ==
+                db.publication_format_settings.publication_format_id)).select(
+        db.publication_format_settings.publication_format_id,
+        db.publication_format_settings.setting_value)
     return publication_format_setting
 
 
