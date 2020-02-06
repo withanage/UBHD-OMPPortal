@@ -75,6 +75,19 @@ def category():
                                  submission_row.submission_id)),
                              {'authors': authors, 'editors': editors}
                              )
+        if editors:
+            suffix = T("(Eds.)") if len(editors) > 1 else T("(Ed.)")
+            attribution = "{} {}".format(formatContributors(editors, max_contributors=4), suffix)
+        elif authors:
+            attribution = formatContributors(authors, max_contributors=4)
+            if translators:
+                attribution = "{} , {} {}".format(
+                    attribution,
+                    formatContributors(translators, max_contributors=4), T("(Transl.)"))
+        else:
+            attribution = formatContributors(chapter_authors, max_contributors=4)
+        submission.associated_items['attribution'] = attribution
+
         series_row = ompdal.getSeries(submission_row.series_id)
         if series_row:
             submission.associated_items['series'] = OMPItem(
@@ -127,15 +140,36 @@ def series():
         series_row.series_id, ignored_submission_id=ignored_submission_id, status=3)
     submissions = []
     for submission_row in submission_rows:
-        authors = [OMPItem(author, OMPSettings(ompdal.getAuthorSettings(author.author_id)))
-                   for author in ompdal.getAuthorsBySubmission(submission_row.submission_id)]
-        editors = [OMPItem(editor, OMPSettings(ompdal.getAuthorSettings(editor.author_id)))
-                   for editor in ompdal.getEditorsBySubmission(submission_row.submission_id)]
+        # Get contributors and contributor settings
+        contributors_by_group = defaultdict(list)
+        for contrib in ompdal.getAuthorsBySubmission(submission_row.submission_id, filter_browse=True):
+            contrib_item = OMPItem(contrib, OMPSettings(ompdal.getAuthorSettings(contrib.author_id)))
+            contributors_by_group[contrib.user_group_id].append(contrib_item)
+
+        editors = contributors_by_group[myconf.take('omp.editor_id', cast=int)]
+        authors = contributors_by_group[myconf.take('omp.author_id', cast=int)]
+        chapter_authors = contributors_by_group[myconf.take('omp.chapter_author_id', cast=int)]
+        translators = []
+
+        if myconf.get('omp.translator_id'):
+            translators = contributors_by_group[int(myconf.take('omp.translator_id'))]
         submission = OMPItem(submission_row,
                              OMPSettings(ompdal.getSubmissionSettings(
                                  submission_row.submission_id)),
-                             {'authors': authors, 'editors': editors}
+                             {'authors': authors, 'editors': editors, 'translators': translators}
                              )
+        if editors:
+            suffix = T("(Eds.)") if len(editors) > 1 else T("(Ed.)")
+            attribution = "{} {}".format(formatContributors(editors, max_contributors=4), suffix)
+        elif authors:
+            attribution = formatContributors(authors, max_contributors=4)
+            if translators:
+                attribution = "{} , {} {}".format(
+                    attribution,
+                    formatContributors(translators, max_contributors=4), T("(Transl.)"))
+        else:
+            attribution = formatContributors(chapter_authors, max_contributors=4)
+        submission.associated_items['attribution'] = attribution
 
         category_row = ompdal.getCategoryBySubmissionId(submission_row.submission_id)
         if category_row:
@@ -273,6 +307,18 @@ def index():
                             'frontpage_url': frontpage_url, 'chapter_authors': chapter_authors
                              }
                              )
+        if editors:
+            suffix = T("(Eds.)") if len(editors) > 1 else T("(Ed.)")
+            attribution = "{} {}".format(formatContributors(editors, max_contributors=4), suffix)
+        elif authors:
+            attribution = formatContributors(authors, max_contributors=4)
+            if translators:
+                attribution = "{} , {} {}".format(
+                    attribution,
+                    formatContributors(translators, max_contributors=4), T("(Transl.)"))
+        else:
+            attribution = formatContributors(chapter_authors, max_contributors=4)
+        submission.associated_items['attribution'] = attribution
 
         category_row = ompdal.getCategoryBySubmissionId(
             submission_row.submission_id)
