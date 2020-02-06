@@ -5,13 +5,11 @@ Distributed under the GNU GPL v3. For full terms see the file
 LICENSE.md
 '''
 
-import gluon.contrib.simplejson as sj
 from ompdal import OMPDAL
 from ompcsl import OMPCSL
 from os.path import join
 from ompformat import dateFromRow, seriesPositionCompare, formatDoi, dateToStr, downloadLink
 import re
-import json
 
 response.headers['Content-Type'] = 'application/json'
 response.view = 'generic.json'
@@ -121,7 +119,7 @@ def submissions():
     result["itemsMax"] = len(submissions)
     result["items"] = items
 
-    return sj.dumps(result, separators=(',', ':'))
+    return response.json(result)
 
 
 def series():
@@ -139,7 +137,8 @@ def series():
             series[sn][locale_] = {}
         series[sn][locale_] = srs["setting_value"]
 
-    return sj.dumps(series, separators=(',', ':'))
+
+    return response.json(series)
 
 
 def submission():
@@ -167,12 +166,12 @@ def submission():
     item["dateStatusModified"] = str(submission["date_status_modified"])
 
     item["urlPublished"] = web_url + URL(a=request.application, c='catalog', f='book',
-                                         args=[submission_id])
+                                                        args=[submission_id])
     # formats
     pf = ompdal.getPublicationFormatByName(submission_id, myconf.take('omp.doi_format_name')).first()
     if pf:
         date_published = dateFromRow(
-            ompdal.getPublicationDatesByPublicationFormat(pf.publication_format_id, "01").first())
+                ompdal.getPublicationDatesByPublicationFormat(pf.publication_format_id, "01").first())
         item["datePublished"] = str(date_published)
     item["status"] = {"id": STATUS_PUBLISHED, "label": "Published"}
     # submission settings
@@ -188,6 +187,7 @@ def submission():
     series_id = submission.get("series_id")
     if series_id:
         series_url = web_url + URL(a=request.application, c='api', f='series', args=[series_id])
+
 
         series_path = ompdal.getSeriesBySubmissionId(submission_id).as_dict()["path"]
         series = {"id": series_url, "position": submission["series_position"]}
@@ -254,7 +254,7 @@ def submission():
             st = chapter["setting_name"]
             if st == 'pub-id::doi':
                 ch['urlPublished'] = web_url + URL(a=request.application, c='catalog', f='book',
-                                                   args=[submission_id, 'c' + str(c['chapter_id'])])
+                                                                  args=[submission_id, 'c' + str(c['chapter_id'])])
 
             if not ch.get(st):
                 ch[st] = {}
@@ -270,7 +270,7 @@ def submission():
 
         chapters.append(ch)
     item["chapters"] = chapters
-    return sj.dumps(item, separators=(',', ':'))
+    return response.json(item)
 
 
 def createFile(e_file, pf):
@@ -428,4 +428,4 @@ def csl():
         # Invalid argument
         raise HTTP(400, e.message)
 
-    return sj.dumps(cls_data, separators=(',', ':'), sort_keys=True)
+    return response.json(cls_data)

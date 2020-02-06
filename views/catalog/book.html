@@ -1,16 +1,87 @@
 {{extend 'layout.html'}}
-{{from ompformat import formatCitation, formatContributors, formatName, dateFromRow, dateToStr, formatONIXDate, formatONIXDateWithText, coverImageLink, downloadLink, haveMultipleAuthors, formatDoi}}
+{{from ompformat import formatContributors, formatName, dateFromRow, dateToStr, formatONIXDate, formatONIXDateWithText, coverImageLink, downloadLink, haveMultipleAuthors, formatDoi}}
 {{from ompdal import OMPDAL}}
 {{from datetime import datetime}}
 {{file_ids=[]}}
 
-{{if len(request.args)==1:}}
+<div id="main" class="container">
+    <section id="content">
+        <div style="height: 20px"></div>
+            <div class="row">
+                <div class="col-lg-3">
+                    {{include 'catalog/book/submission/cover_image.html' }}
+                    <div class="box">
+                        <div class="box-gray alignleft" style="height: auto;">
+                            <!-- citations begin -->
+                            {{=H5(T('How to cite this title'),_style="color: #656565; margin-bottom: 0.5em;")}}
+                            {{include '../static/omp-resources/views/catalog/citation.html' }}
+                            <!-- citations end-->
+                            {{include 'catalog/book/submission/license.html' }}
+                            {{include 'catalog/book/submission/identification_codes.html' }}
+                            {{include 'catalog/book/submission/published_date.html' }}
+                            {{include 'catalog/book/submission/source.html' }}
+                            <!-- statistik begin-->
+                            <div id="oas-widget" class="applied-to-ojs" style="margin-top: 1.2em">
+                                <div class="btn btn-default" id="statistik-button">{{=T('Statistics')}}</div>
+                                <br/>
+                                <div style="display:none" class="table" id="oas">
+                                {{include '../static/omp-resources/views/catalog/statistik.html' }}
+                                </div>
+                            </div>
+                            <!-- statistik end -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <article>
+                        <div class="summary">
+                        {{include 'catalog/book/submission/html_galley.html'}}
+                        {{include 'catalog/book/submission/pdf_galley.html'}}
+                        <!--purchase -->
+                        {{include 'catalog/book/submission/purchase.html'}}
+                         <!--purchase -->
+                         <!--recommend -->
+                        <div class="btn-group" role="group" aria-label="2">
+                            {{if 'emails' in myconf and 'notification' in myconf['emails'] and  int(myconf['emails']['notification']) == 1: }}
+                            {{ include '../static/omp-resources/views/catalog/recommend.html' }}
+                            {{ pass }}
 
-{{include 'catalog/book/submission/index.html'}}
-{{pass}}
-{{if len(request.args)==2:}}
+                        </div>
+                        <!--recommend -->
+                        <!--annotation -->
+                        <div class="btn-group" role="group" aria-label="3">
+                            <button class="btn btn-default" id="anno-btn">
+                                <span class="fa fa-comment">&nbsp;</span>{{=T("Comment")}} (<span
+                                    class="anno-number">...</span>)
+                            </button>
+                        </div>
+                        <div id="anno-block"></div>
 
-{{include 'catalog/book/chapter/index.html'}}
+                        <!--annotation -->
+                        <div class="post-heading">
+                            <br/>
+                            <div class="row">
+                                <!--authors -->
+                                <div id="autoren" class="col-lg-9 col-md-9 col-xs-7">
+                                    <h5>
+                                        {{=attribution}}
+                                    </h5>
+                                </div>
+                                {{include 'catalog/snippets/category.html'}}
+                            </div>
+                        </div>
 
-{{pass}}
-
+                        <h3>{{=XML(cleanTitle)}}</h3>
+                        <h4>{{=subtitle}}</h4>
+                        {{if series:}}<i>{{=A(series_name,_href=URL('series','/info',args=[series.attributes.get('path')]))}}</i>{{pass}}
+                        {{if abstract:}}<p>{{=XML(abstract)}}</p> {{pass}}
+                        {{include '../static/omp-resources/views/catalog/reviews.html' }}
+                        {{include 'catalog/book/submission/author_biography.html'}}
+                        {{include 'catalog/book/submission/chapter_list.html'}}
+                        </div>
+                    </article>
+                </div>
+            </div>
+    </section>
+</div>
+{{include 'catalog/book/submission/annotation.html'}}

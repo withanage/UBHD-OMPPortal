@@ -1,4 +1,9 @@
-{{if len(request.args)==2:}}
+{{extend 'layout.html'}}
+{{from ompformat import formatCitation2, formatContributors, formatName, dateFromRow, dateToStr, formatONIXDate, formatONIXDateWithText, coverImageLink, downloadLink, haveMultipleAuthors, formatDoi}}
+{{from ompdal import OMPDAL}}
+{{from datetime import datetime}}
+{{file_ids=[]}}
+
 <div id="main" class="container">
     <section id="content">
         <div style="height: 20px"></div>
@@ -86,7 +91,3 @@
         </div>
     </section>
 </div>
-
-
-
-{{pass}}

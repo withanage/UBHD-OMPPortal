@@ -25,14 +25,7 @@
                 <div class="col-xs-4 col-sm-6 col-md-4 col-lg-3">
                     <article>
                         <div class="post-image">
-                            {{
-                             reference_link=URL('catalog','book/'+str(submission.attributes.submission_id))
-                            for s in submission.associated_items.get("digital_publication_formats"):
-                                if s['remote_url'] :
-                                reference_link= s['remote_url']
-                                pass
-                             pass
-                            }}
+                            {{reference_link=submission.associated_items["frontpage_url"]}}
                             <a href="{{=reference_link}}">{{=IMG(_src=coverImageLink(request, press.press_id, submission.attributes.submission_id))}}</a>
                         </div>
                     </article>
@@ -42,21 +35,21 @@
                         <div class="post-heading">
                             {{include 'catalog/snippets/submission.html'}}
                             {{series = submission.associated_items.get('series', None)}}
-
                             {{if series:}}
                                 {{series_title = series.settings.getLocalizedValue('title', locale)}}
                                 {{series_subtitle = series.settings.getLocalizedValue('subtitle', locale)}}
                                 <i>{{=series_title}}{{ if series_subtitle: }} – {{=series_subtitle}}{{pass}}{{if submission.attributes.series_position:}}, {{=formatSeriesPosition(submission.attributes.series_position)}}{{pass}}</i>
                             {{pass}}
                         </div>
-                        <p>
-                            <i class="icon-quote-left"></i>
-                            {{abstract = submission.settings.getLocalizedValue('abstract', locale)}}
-                            {{if abstract:}}
-                                {{=XML(abstract)}}
-                            {{pass}}
-                        </p>
-                        {{include 'catalog/snippets/reference.html'}}
+                        {{abstract = submission.settings.getLocalizedValue('abstract', locale)}}
+                        {{if abstract:}}
+                            <p><i class="icon-quote-left"></i>{{=XML(abstract)}}</p>
+                        {{pass}}
+                        <div class="widget">
+                            <ul class="tags">
+                                <li><a href="{{=reference_link}}">{{=T('More information' )}}</a></li>
+                            </ul>
+                        </div>
                     </article>
                 </div>
             </div>

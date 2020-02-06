@@ -29,15 +29,6 @@ def title(t):
     return '<a href="#" data-toggle="dropdown" data-hover="dropdown"  class="dropdown-toggle" >{} <b class=" icon-angle-down"></b></a> '.format(
         T(t))
 
-def category_setting(c, name):
-    return ompdal.getLocalizedCategorySettings(ompdal.getCategoryByPathAndPress(c['path'], press_id).get('category_id'),
-                                               name, locale)['setting_value']
-
-
-category_list = [LI(A(category_setting(c,'title'), _href=URL(
-    'category', '/'.join(['info', c['path']])))) for c in categories.as_list()]
-
-
 about_us_dict = [['mission_statement', T('Mission Statement')],
                  ['profile', T('Profile')],
                  ['advisory_board', T('Advisory Board')],
