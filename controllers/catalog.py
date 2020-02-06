@@ -297,9 +297,7 @@ def index():
     navigation_select = get_navigation_select() if all_submissions > 20 else DIV()
     navigation_list = get_navigation_list(current_page, all_submissions, session.per_page)  if all_submissions > 20 else DIV()
 
-    for query, time in db._timings:
-        print("{} {}".format(query, time))
-    print("DB Queries: {}, Total time (s): {}".format(len(db._timings), sum(map(lambda x: x[1], db._timings))))
+    #print("DB Queries: {}, Total time (s): {}".format(len(db._timings), sum(map(lambda x: x[1], db._timings))))
 
     return locals()
 
