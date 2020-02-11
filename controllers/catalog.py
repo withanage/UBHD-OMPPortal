@@ -7,11 +7,11 @@ LICENSE.md
 from collections import defaultdict
 
 from ompdal import OMPDAL, OMPSettings, OMPItem, DOI_SETTING_NAME
-from ompformat import dateFromRow, seriesPositionCompare, formatDoi, formatCitation, formatChapterCitation, formatContributors, formatName
+import ompformat
 
 from ompsolr import OMPSOLR
 from ompbrowse import Browser
-from gluon import current
+
 
 ONIX_PRODUCT_IDENTIFIER_TYPE_CODES = {"01": "Proprietary",
                                       "02": "ISBN-10",
@@ -66,27 +66,22 @@ def category():
         category_row.category_id, ignored_submission_id=ignored_submission_id, status=3)
     submissions = []
     for submission_row in submission_rows:
-        authors = [OMPItem(author, OMPSettings(ompdal.getAuthorSettings(author.author_id))) for author in
-                   ompdal.getAuthorsBySubmission(submission_row.submission_id)]
-        editors = [OMPItem(editor, OMPSettings(ompdal.getAuthorSettings(editor.author_id))) for editor in
-                   ompdal.getEditorsBySubmission(submission_row.submission_id)]
+        contributors_by_group = defaultdict(list)
+        for contrib in ompdal.getAuthorsBySubmission(submission_row.submission_id, filter_browse=True):
+            contrib_item = OMPItem(contrib, OMPSettings(ompdal.getAuthorSettings(contrib.author_id)))
+            contributors_by_group[contrib.user_group_id].append(contrib_item)
+
+        editors = contributors_by_group[myconf.take('omp.editor_id', cast=int)]
+        authors = contributors_by_group[myconf.take('omp.author_id', cast=int)]
+        chapter_authors = contributors_by_group[myconf.take('omp.chapter_author_id', cast=int)]
+        translators = []
+        if myconf.get('omp.translator_id'):
+            translators = contributors_by_group[int(myconf.take('omp.translator_id'))]
         submission = OMPItem(submission_row,
                              OMPSettings(ompdal.getSubmissionSettings(
                                  submission_row.submission_id)),
-                             {'authors': authors, 'editors': editors}
-                             )
-        if editors:
-            suffix = T("(Eds.)") if len(editors) > 1 else T("(Ed.)")
-            attribution = "{} {}".format(formatContributors(editors, max_contributors=4), suffix)
-        elif authors:
-            attribution = formatContributors(authors, max_contributors=4)
-            if translators:
-                attribution = "{} , {} {}".format(
-                    attribution,
-                    formatContributors(translators, max_contributors=4), T("(Transl.)"))
-        else:
-            attribution = formatContributors(chapter_authors, max_contributors=4)
-        submission.associated_items['attribution'] = attribution
+                             {'authors': authors, 'editors': editors})
+        submission.associated_items['attribution'] = ompformat.formatAttribution()
 
         series_row = ompdal.getSeries(submission_row.series_id)
         if series_row:
@@ -98,7 +93,7 @@ def category():
             submission.associated_items['category'] = OMPItem(
                 category_row, OMPSettings(ompdal.getCategorySettings(category_row.category_id)))
 
-        publication_dates = [dateFromRow(pd) for pf in
+        publication_dates = [ompformat.dateFromRow(pd) for pf in
                              ompdal.getAllPublicationFormatsBySubmission(submission_row.submission_id)
                              for pd in ompdal.getPublicationDatesByPublicationFormat(pf.publication_format_id)]
         if publication_dates:
@@ -158,25 +153,15 @@ def series():
                                  submission_row.submission_id)),
                              {'authors': authors, 'editors': editors, 'translators': translators}
                              )
-        if editors:
-            suffix = T("(Eds.)") if len(editors) > 1 else T("(Ed.)")
-            attribution = "{} {}".format(formatContributors(editors, max_contributors=4), suffix)
-        elif authors:
-            attribution = formatContributors(authors, max_contributors=4)
-            if translators:
-                attribution = "{} , {} {}".format(
-                    attribution,
-                    formatContributors(translators, max_contributors=4), T("(Transl.)"))
-        else:
-            attribution = formatContributors(chapter_authors, max_contributors=4)
-        submission.associated_items['attribution'] = attribution
+        submission.associated_items['attribution'] = ompformat.formatAttribution(editors, authors,
+            translators, chapter_authors)
 
         category_row = ompdal.getCategoryBySubmissionId(submission_row.submission_id)
         if category_row:
             submission.associated_items['category'] = OMPItem(
                 category_row, OMPSettings(ompdal.getCategorySettings(category_row.category_id)))
 
-        publication_dates = [dateFromRow(pd) for pf in
+        publication_dates = [ompformat.dateFromRow(pd) for pf in
                              ompdal.getAllPublicationFormatsBySubmission(submission_row.submission_id, available=True,
                                                                          approved=True) for pd in
                              ompdal.getPublicationDatesByPublicationFormat(pf.publication_format_id)]
@@ -290,7 +275,7 @@ def index():
 
         if myconf.get('omp.translator_id'):
             translators = contributors_by_group[int(myconf.take('omp.translator_id'))]
-        publication_dates = [dateFromRow(pd) for pf in
+        publication_dates = [ompformat.dateFromRow(pd) for pf in
                              ompdal.getAllPublicationFormatsBySubmission(submission_row.submission_id, available=True,
                                                                          approved=True)
                              for pd in ompdal.getPublicationDatesByPublicationFormat(pf.publication_format_id)]
@@ -307,18 +292,8 @@ def index():
                             'frontpage_url': frontpage_url, 'chapter_authors': chapter_authors
                              }
                              )
-        if editors:
-            suffix = T("(Eds.)") if len(editors) > 1 else T("(Ed.)")
-            attribution = "{} {}".format(formatContributors(editors, max_contributors=4), suffix)
-        elif authors:
-            attribution = formatContributors(authors, max_contributors=4)
-            if translators:
-                attribution = "{} , {} {}".format(
-                    attribution,
-                    formatContributors(translators, max_contributors=4), T("(Transl.)"))
-        else:
-            attribution = formatContributors(chapter_authors, max_contributors=4)
-        submission.associated_items['attribution'] = attribution
+        submission.attribution = ompformat.formatAttribution(editors, authors, translators,
+                                                             chapter_authors)
 
         category_row = ompdal.getCategoryBySubmissionId(
             submission_row.submission_id)
@@ -366,7 +341,7 @@ def get_navigation_select():
         "_type"         : "button", "_class": "btn btn-default dropdown-toggle", "_data-toggle": "dropdown",
         "_aria-haspopup": "true", "_aria-expanded": "false"
         }
-    button = TAG.button(current.T("Results per Page"), SPAN(_class='caret'), **button_cs)
+    button = TAG.button(T("Results per Page"), SPAN(_class='caret'), **button_cs)
     return DIV(button, ul, _class="btn-group pull-left")
 def preview():
     return locals()
@@ -461,8 +436,8 @@ def book():
     # Get the OMP publication date (column publication_date contains latest catalog entry edit date.) Try:
     # 1. Custom publication date entered for a publication format calles "PDF"
     if pdf:
-        date_published = dateFromRow(ompdal.getPublicationDatesByPublicationFormat(pdf.publication_format_id, "01").first())
-        date_first_published = dateFromRow(ompdal.getPublicationDatesByPublicationFormat(pdf.publication_format_id, "11").first())
+        date_published = ompformat.dateFromRow(ompdal.getPublicationDatesByPublicationFormat(pdf.publication_format_id, "01").first())
+        date_first_published = ompformat.dateFromRow(ompdal.getPublicationDatesByPublicationFormat(pdf.publication_format_id, "11").first())
     # 2. Date on which the catalog entry was first published
     if not date_published:
         metadatapublished_date = ompdal.getMetaDataPublishedDates(submission_id).first()
@@ -504,28 +479,28 @@ def book():
         series_subtitle = series.settings.getLocalizedValue('subtitle', locale)
         series_name = " – ".join([t for t in [series_title.strip(), series_subtitle] if t])
 
-    citation = formatCitation(cleanTitle, subtitle, authors, editors, translators, date_published,
+    citation = ompformat.formatCitation(cleanTitle, subtitle, authors, editors, translators, date_published,
                               press_settings.getLocalizedValue('location', ''),
                               press_settings.getLocalizedValue('publisher', ''), locale=locale,
                               series_name=series_name, series_pos=submission.series_position,
                               max_contrib=3, date_first_published=date_first_published)
     if editors:
         suffix = T("(Eds.)") if len(editors) > 1 else T("(Ed.)")
-        attribution = "{} {}".format(formatContributors(editors, max_contributors=4), suffix)
-        title_attribution = "{} {}".format(formatName(editors[0].settings), T('(Ed.)'))
+        attribution = "{} {}".format(ompformat.formatContributors(editors, max_contributors=4), suffix)
+        title_attribution = "{} {}".format(ompformat.formatName(editors[0].settings), T('(Ed.)'))
     elif authors:
-        attribution = formatContributors(authors, max_contributors=4)
-        title_attribution = formatName(authors[0].settings)
+        attribution = ompformat.formatContributors(authors, max_contributors=4)
+        title_attribution = ompformat.formatName(authors[0].settings)
         if translators:
-            attribution = "{} , {} {}".format(attribution, formatContributors(translators, max_contributors=4), T("(Transl.)"))
+            attribution = "{} , {} {}".format(attribution, ompformat.formatContributors(translators, max_contributors=4), T("(Transl.)"))
     else:
-        attribution = formatContributors(chapter_authors, max_contributors=4)
-        title_attribution = formatName(chapter_authors[0].settings)
+        attribution = ompformat.formatContributors(chapter_authors, max_contributors=4)
+        title_attribution = ompformat.formatName(chapter_authors[0].settings)
 
     response.title = "{}: {} - {}".format(title_attribution, cleanTitle, settings.short_title if settings.short_title else settings.title)
 
     if c:
         # Select different template for chapters
-        citation = formatChapterCitation(citation, c, locale)
+        citation = ompformat.formatChapterCitation(citation, c, locale)
         response.view = 'catalog/book/chapter/index.html'
     return locals()
