@@ -73,6 +73,8 @@
 
                         <h3>{{=XML(cleanTitle)}}</h3>
                         <h4>{{=subtitle}}</h4>
+                        {{if additional_attribution:}}<h5>{{=additional_attribution}}</h5>{{pass}}
+
                         {{if series:}}<i>{{=A(series_name,_href=URL('series','/info',args=[series.attributes.get('path')]))}}</i>{{pass}}
                         {{if abstract:}}<p>{{=XML(abstract)}}</p> {{pass}}
                         {{include '../static/omp-resources/views/catalog/reviews.html' }}

@@ -81,7 +81,14 @@ def category():
                              OMPSettings(ompdal.getSubmissionSettings(
                                  submission_row.submission_id)),
                              {'authors': authors, 'editors': editors})
-        submission.associated_items['attribution'] = ompformat.formatAttribution()
+        if authors:
+            attribution = ompformat.formatContributors(authors, max_contributors=4, with_and=True)
+            additional_attribution = ompformat.formatAttribution(editors, [], translators, [])
+        else:
+            attribution = ompformat.formatAttribution(editors, [], [], chapter_authors)
+            additional_attribution = ""
+        submission.attribution = attribution
+        submission.additional_attribution = additional_attribution
 
         series_row = ompdal.getSeries(submission_row.series_id)
         if series_row:
@@ -151,10 +158,16 @@ def series():
         submission = OMPItem(submission_row,
                              OMPSettings(ompdal.getSubmissionSettings(
                                  submission_row.submission_id)),
-                             {'authors': authors, 'editors': editors, 'translators': translators}
-                             )
-        submission.associated_items['attribution'] = ompformat.formatAttribution(editors, authors,
-            translators, chapter_authors)
+                             {'authors': authors, 'editors': editors, 'translators': translators,
+                             'chapter_authors': chapter_authors})
+        if authors:
+            attribution = ompformat.formatContributors(authors, max_contributors=4, with_and=True)
+            additional_attribution = ompformat.formatAttribution(editors, [], translators, [])
+        else:
+            attribution = ompformat.formatAttribution(editors, [], [], chapter_authors)
+            additional_attribution = ""
+        submission.attribution = attribution
+        submission.additional_attribution = additional_attribution
 
         category_row = ompdal.getCategoryBySubmissionId(submission_row.submission_id)
         if category_row:
@@ -292,8 +305,14 @@ def index():
                             'frontpage_url': frontpage_url, 'chapter_authors': chapter_authors
                              }
                              )
-        submission.attribution = ompformat.formatAttribution(editors, authors, translators,
-                                                             chapter_authors)
+        if authors:
+            attribution = ompformat.formatContributors(authors, max_contributors=4, with_and=True)
+            additional_attribution = ompformat.formatAttribution(editors, [], translators, [])
+        else:
+            attribution = ompformat.formatAttribution(editors, [], [], chapter_authors)
+            additional_attribution = ""
+        submission.attribution = attribution
+        submission.additional_attribution = additional_attribution
 
         category_row = ompdal.getCategoryBySubmissionId(
             submission_row.submission_id)
@@ -380,6 +399,7 @@ def book():
 
     editors = contributors_by_group[myconf.take('omp.editor_id', cast=int)]
     authors = contributors_by_group[myconf.take('omp.author_id', cast=int)]
+    chapter_authors = contributors_by_group[myconf.take('omp.chapter_author_id', cast=int)]
     translators = []
 
     if myconf.get('omp.translator_id'):
@@ -484,14 +504,18 @@ def book():
                               press_settings.getLocalizedValue('publisher', ''), locale=locale,
                               series_name=series_name, series_pos=submission.series_position,
                               max_contrib=3, date_first_published=date_first_published)
-    if editors:
-        suffix = T("(Eds.)") if len(editors) > 1 else T("(Ed.)")
-        title_attribution = "{} {}".format(ompformat.formatName(editors[0].settings), T('(Ed.)'))
-    elif authors:
+    if authors:
+        attribution = ompformat.formatContributors(authors, max_contributors=4, with_and=True)
+        additional_attribution = ompformat.formatAttribution(editors, [], translators, [])
         title_attribution = ompformat.formatName(authors[0].settings)
+    elif editors:
+        title_attribution = "{} {}".format(ompformat.formatName(editors[0].settings), T('(Ed.)'))
+        attribution = ompformat.formatAttribution(editors, [], [], chapter_authors)
+        additional_attribution = ""
     else:
         title_attribution = ompformat.formatName(chapter_authors[0].settings)
-    attribution = ompformat.formatAttribution(editors, authors, translators, chapter_authors)
+        attribution = ompformat.formatAttribution([], [], [], chapter_authors)
+        additional_attribution = ""
 
     response.title = "{}: {} - {}".format(title_attribution, cleanTitle, settings.short_title if settings.short_title else settings.title)
 

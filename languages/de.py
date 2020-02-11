@@ -171,7 +171,7 @@
 'Druckfarbe': 'Druckfarbe',
 'E-mail': 'E-mail',
 'ed': 'Hrsg',
-'edited by': 'herausgegeben von'
+'edited by': 'herausgegeben von',
 'Edit current record': 'Diesen Eintrag editieren',
 'Editor': 'Herausgeber',
 'Editors': 'Herausgeber',
