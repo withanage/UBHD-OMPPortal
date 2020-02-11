@@ -36,6 +36,7 @@
 '&bdquo;Campus Media&rdquo;': '&bdquo;Campus Media&rdquo;',
 '(Ed.)': '(Hrsg.)',
 '(Eds.)': '(Hrsg.)',
+'(Transl.)': '(Übers.)',
 ', ': ', ',
 '.': '.',
 '2': '2',
@@ -170,6 +171,7 @@
 'Druckfarbe': 'Druckfarbe',
 'E-mail': 'E-mail',
 'ed': 'Hrsg',
+'edited by': 'herausgegeben von'
 'Edit current record': 'Diesen Eintrag editieren',
 'Editor': 'Herausgeber',
 'Editors': 'Herausgeber',

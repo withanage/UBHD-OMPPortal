@@ -486,16 +486,12 @@ def book():
                               max_contrib=3, date_first_published=date_first_published)
     if editors:
         suffix = T("(Eds.)") if len(editors) > 1 else T("(Ed.)")
-        attribution = "{} {}".format(ompformat.formatContributors(editors, max_contributors=4), suffix)
         title_attribution = "{} {}".format(ompformat.formatName(editors[0].settings), T('(Ed.)'))
     elif authors:
-        attribution = ompformat.formatContributors(authors, max_contributors=4)
         title_attribution = ompformat.formatName(authors[0].settings)
-        if translators:
-            attribution = "{} , {} {}".format(attribution, ompformat.formatContributors(translators, max_contributors=4), T("(Transl.)"))
     else:
-        attribution = ompformat.formatContributors(chapter_authors, max_contributors=4)
         title_attribution = ompformat.formatName(chapter_authors[0].settings)
+    attribution = ompformat.formatAttribution(editors, authors, translators, chapter_authors)
 
     response.title = "{}: {} - {}".format(title_attribution, cleanTitle, settings.short_title if settings.short_title else settings.title)
 
