@@ -55,7 +55,7 @@ function setValue(data, id) {
 
 };
 
-var url = "https://statistik.ub.uni-heidelberg.de/oa_statistik/doc_id/period/?doc_id=" + chapter_ids + ',' + book_id + "&uid=" + guid();
+var url = "https://statistik.ub.uni-heidelberg.de/oa_statistik/doc_id/period/?doc_id=" +  book_id +','+ chapter_ids  +"&uid=" + guid();
 
 /**
  *  get data from url and set values
