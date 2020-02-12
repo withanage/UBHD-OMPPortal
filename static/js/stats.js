@@ -50,7 +50,7 @@ function setValue(data, id) {
         return total;
 
     } catch (e) {
-        console.info(e, id, 'does not have any values');
+        console.info( id, 'does not have any values');
     }
 
 };
@@ -71,11 +71,11 @@ $.getJSON(url, function (data) {
         var chapter_div = '#' + chapter_ids[i].replace(':', '_');
 
         var chapter_val = setValue(data, chapter_ids[i]);
-        if (parseInt(chapter_val)!==0) {
-            $(chapter_div).text(chapter_val);
-        }
 
-        chapter_total += chapter_val;
+        if (parseInt(chapter_val)!==0  & chapter_val !== undefined) {
+            $(chapter_div).text(chapter_val);
+            chapter_total += chapter_val;
+        }
 
     }
 
