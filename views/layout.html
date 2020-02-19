@@ -140,6 +140,21 @@
                                 {{=response.menu}}
 
                         </div>
+
+                        <form class="navbar-form" action="{{=URL(c='search',f='index')}}">
+                          <div class="form-group">
+                            <div class="input-group">
+                              <input style="width:110px" type="text" class="form-control" placeholder="Search" name="q"/>
+                              <span class="input-group-btn">
+                                <button class="btn btn-primary" type="submit">
+                                  <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                              </span>
+                            </div>
+                          </div>
+
+                        </form>
+                      </div>
                         <!-- second -->
                         <!--<div class="navbar-collapse collapse pull-right visible-lg hidden-md">
                             <ul class="nav navbar-nav">
