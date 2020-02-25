@@ -4,7 +4,7 @@ Copyright (c) 2015 Heidelberg University Library
 Distributed under the GNU GPL v3. For full terms see the file
 LICENSE.md
 '''
-import gluon.contrib.simplejson as sj
+import gluon.contrib.simplejson as sj # nicht löschen
 from ompdal import OMPDAL
 from ompcsl import OMPCSL
 from os.path import join
