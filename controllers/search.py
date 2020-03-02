@@ -8,7 +8,7 @@ press = ompdal.getPress(myconf.take('omp.press_id'))
 
 def index():
     context = dict()
-    context['q'] = request.vars.q
+    context['q'] = request.vars.q if request.vars.q else ''
 
     return context
 
