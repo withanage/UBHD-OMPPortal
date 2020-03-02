@@ -271,10 +271,10 @@ def index():
     page_end = (current_page+1) * session.per_page
 
 
-    submission_rows = ompdal.getSubmissionsRangeByPress(press.press_id, page_begin, page_end,
-                                                        ignored_submission_id)
+    submission_rows = ompdal.getPublishedSubmissionsRangeByPressSorted(
+        press.press_id, page_begin, page_end, ignored_submission_id, order_by_ascending=False)
 
-    for submission_row in submission_rows:
+    for submission_row in (row.submissions for row in submission_rows):
         # Get contributors and contributor settings
         contributors_by_group = defaultdict(list)
         for contrib in ompdal.getAuthorsBySubmission(submission_row.submission_id, filter_browse=True):
