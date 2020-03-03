@@ -47,6 +47,71 @@
     
    <div class="row">
         <div class="col-lg-12">
+		
+			<div class="container" id="mandoki" height="400px">
+		     <div class="row">
+				<div class="col-lg-2">
+					<article>
+						<div class="post-image">
+							{{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_mandoki.jpg'),_alt='', _class='bildrahmen')}}
+						</div>
+					</article>
+				</div>
+				<div class="col-lg-10">
+					<article>
+						<div class="post-heading" id="regerat">
+						    <b>{{if session.forced_language =='de': }}Christiane Brosius, Roberta Mandoki (Hrsg.){{elif session.forced_language =='en': }}Christiane Brosius, Roberta Mandoki (Eds.){{pass}}<br />
+							Caring for Old Age. Perspectives from South Asia</b><br>
+							<i>Heidelberg Studies on Transculturality, 8</i>
+						</div>
+						
+						<p>
+						    {{if session.forced_language =='de': }}
+                        <p>Neben zunehmender Urbanisierung und Mobilität erleben viele Gesellschaften gleichzeitig steigende Lebenserwartungen und ein Älterwerden ihrer Gesamtbevölkerung. Solch grundlegende demografische und strukturelle Veränderungen spiegeln sich in einer Vielzahl von Narrativen und Strategien wider, wie ein „gutes Alter(n)“ angesichts sich rapide transformierender Umgebungen, der Mobilität von Menschen und sich wandelnder sozialer Beziehungen aussehen kann. Dieser Band erforscht die transkulturellen Dimensionen von Alter(n) und Care in ethnografischen und literarischen Fallstudien sowohl in Südasien als auch in einer südasiatischen Studie in Europa. Die elf Beiträge dieses Bandes setzen sich kritisch mit eurozentrischen Aspekten in der Alter(n)sforschung auseinander und untersuchen, wie Perspektiven aus dem Globalen Süden transkulturelle Verflechtungen und Konnektivitäten von Care- und Alter(n)serfahrungen aufzeigen können.</p>                        
+						<p>Erscheint April 2020</p>
+
+                        {{elif session.forced_language =='en': }}
+                        <p>Many societies are experiencing growing longevity and population ageing simultaneously with increasing urbanization and mobilities. Such fundamental demographic and structural shifts have been reflected in a multitude of narratives and strategies how to “age well” in view of rapidly transforming environments, mobilities of people and changing social relations. This volume explores the transcultural dimensions of ageing and care through close-up ethnographic and literary case studies in South Asia, as well as one European case study from a South Asian researcher’s view. By critically engaging with Eurocentric aspects in ageing studies, the eleven contributions of this volume highlight how perspectives from the Global South shed light on transcultural entanglements and connectivities of experiences of care and ageing.</p>                        
+						<p>Coming April 2020</p>
+                        {{pass}}
+						</p>
+					</article>
+				</div>
+			</div>
+		</div>   
+    
+		<div class="container" id="phs" height="400px">
+		     <div class="row">
+				<div class="col-lg-2">
+					<article>
+						<div class="post-image">
+							{{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_enderwitz.jpg'),_alt='', _class='bildrahmen')}}
+						</div>
+					</article>
+				</div>
+				<div class="col-lg-10">
+					<article>
+						<div class="post-heading" id="regerat">
+						    <b>{{if session.forced_language =='de': }}Sarah Kiyanrad, Rebecca Sauer, Jan Scholz (Hrsg.){{elif session.forced_language =='en': }}Sarah Kiyanrad, Rebecca Sauer, Jan Scholz (Eds.){{pass}}<br />
+							{{if session.forced_language =='de': }}Islamische Selbst-Bilder. Festschrift für Susanne Enderwitz{{elif session.forced_language =='en': }}Islamic self portraits. Festschrift for Susanne Enderwitz{{pass}}</b><br>
+							<i>Pariser Historische Studien, 115</i>
+						</div>
+						
+						<p>
+						    {{if session.forced_language =='de': }}
+                        <p>In der Islamkunde wird seit einigen Jahren sehr lebhaft diskutiert, inwieweit „Horizonte des Individuellen“ in literarischen und dokumentarischen Quellen wahrnehmbar sind. Der Band ist bewusst nicht als kumulativ strukturierte Festgabe konzipiert, sondern soll vielmehr an fachwissenschaftlich relevante Diskussionen anknüpfen. Mit Beiträgen von Lale Behzadi, Michael Ursinus, Henning Sievert, Paula Schrode, Johannes Zimmermann, Ines Weinrich u.v.a.</p>                        
+						<p>Erscheint Frühjahr 2020</p>
+
+                        {{elif session.forced_language =='en': }}
+                        <p>Going beyond the framework of a mere “Festschrift” in cumulative terms, this volume aims at contributing to recent discussions in the subject area of Middle Eastern studies focusing on individual and autobiographical voices discernible in pre-modern and contemporary Muslim societies. This approach reflects Prof Susanne Enderwitz’ seminal works on the topics of autobiography/autofiction and Islamicate expressions of identity. Among the contributors are Lale Behzadi, Michael Ursinus, Henning Sievert, Paula Schrode, Johannes Zimmermann, Ines Weinrich, and many others.</p>                        
+						<p>Coming Spring 2020</p>
+                        {{pass}}
+						</p>
+					</article>
+				</div>
+			</div>
+		</div>   
+    
 
 			<div class="container" id="phs" height="400px">
 		     <div class="row">
@@ -84,34 +149,6 @@
 			</div>
 		</div>   
     
-    <div class="container" id="scharrer" height="400px">
-		     <div class="row">
-				<div class="col-lg-2">
-					<article>
-						<div class="post-image">
-							{{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_scharrer.jpg'),_alt='', _class='bildrahmen')}}
-						</div>
-					</article>
-				</div>
-				<div class="col-lg-10">
-					<article>
-						<div class="post-heading">
-						  <b>Margret Scharrer, Heiko Laß, Matthias Müller (Hrsg.)<br />
-							   Musiktheater im höfischen Raum des frühneuzeitlichen Europa</b><br>
-							   <i>Höfische Kultur interdisziplinär, 1</i>
-						</div>
-						    {{if session.forced_language =='de': }}						
-            <p>Die Vereinigung der Künste im „Gesamtkunstwerk“ der höfischen Oper bildete zwar schon wiederholt den Gegenstand musikwissenschaftlicher Forschungen, doch wurde beispielsweise die spezifisch räumlich-architektonische Seite der höfischen Oper bislang kaum beachtet. Musiktheater meint aber szenische Aufführung und Architektur gleichermaßen. Beide bildeten wesentliche Komponenten herrschaftlicher Repräsentation im 17. und 18. Jahrhundert. Im Alten Reich veranlasste daher nicht nur der reichsständische Adel musiktheatrale Aufführungen, sondern auch kleinere Höfe brachten Ballette und Opern auf die Bühne. Die interdisziplinären Beiträge einer Tagung des Rudolstädter Arbeitskreises zur Residenzkultur widmen sich dem Thema in einer europäischen Perspektive und erläutern die vielfältigen Verbindungen, die zwischen dem Musiktheater und dem höfischen Raum im architektonischen, politisch-kulturellen sowie sozialen Sinn bestanden.</p>
- 
-            <p>Erscheint Frühjahr 2020</p>
-                {{elif session.forced_language =='en': }}
-						<p>The unification of the arts in the "Gesamtkunstwerk" of courtly opera has repeatedly been the subject of musicological research, but so far, for example, the specific spatial-architectural side of courtly opera has hardly been considered. Music theater means scenic performance and architecture alike. Both formed essential components of lordly representation in the 17th and 18th centuries. In the Old Kingdom, therefore, not only the aristocratic nobility arranged music-theatrical performances, but smaller courts also brought ballets and operas on stage. The interdisciplinary contributions of a conference of the Rudolstädter Arbeitskreis zur Residenzkultur deal with the topic in a European perspective and explain the diverse connections that existed between the music theater and the courtly space in the architectural, political-cultural and social sense.</p>
-            <p>Coming Spring 2020</p>
-                        {{pass}}
-					</article>
-				</div>
-			</div>
-		</div>
 
 
 		<!--<div class="container" id="wolbring" height="400px">
