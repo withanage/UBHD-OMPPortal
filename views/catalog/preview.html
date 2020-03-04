@@ -12,7 +12,7 @@
 	</div>
 
 
-<!--    <div class="row">
+ <div class="row">
         <div class="col-lg-12">
             <div class="container" id="vorschau" height="400px">
 		     <div class="row">
@@ -25,14 +25,20 @@
 				</div>
 				<div class="col-lg-10">
 					<article>
-						<div class="post-heading">{{=A(T('Download'),_href=URL('static','/medien/heiUP_Programmheft2019.pdf'))}}
+                        {{if session.forced_language =='de': }}
+						<div class="post-heading">
+<a href="{{=URL('static','/medien/heiUP_Programmheft2019.pdf'))}}">Vorschau und lieferbare Titel Herbst 2019</a>
+						</div>
+                        {{elif session.forced_language =='en': }}
+						<div class="post-heading">
+<a href="{{=URL('static','/medien/heiUP_Programmheft2019.pdf'))}}">Publishing Programme Autumn 2019</a>
 						</div>
 					</article>
 				</div>
 			</div>
 	     </div>
        </div>
-    </div> -->
+    </div> 
 
     <div class="row">
         <div class="col-lg-12">
