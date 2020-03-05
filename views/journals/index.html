@@ -5,6 +5,44 @@
       <div class="col-lg-2">        
         <article>          
           <div class="post-image">            
+            <img alt="" src="https://heiup.uni-heidelberg.de/journals/public/journals/157/cover_issue_2392_de_DE.jpg">          
+          </div>        
+        </article>      
+      </div>      
+      <div class="col-lg-10">        
+        <article>          
+          <div class="post-heading">          
+            <div class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h3>Cursor_</h3>
+            </div>                 
+            <br style="clear: both">          
+          </div>          
+                       {{if session.forced_language =='de': }}          
+            <p>Cursor_ ist eine theologische Open-Access-Zeitschrift, die fachwissenschaftliche Diskussionen, innovative Publikationsformate und verschiedene Öffentlichkeiten digital zusammenbringt. Cursor_ versteht sich als theologische Werkstatt, in der Fragen an der Schnittstelle kirchlicher, wissenschaftlicher und gesellschaftlicher Debatten interdisziplinär und innovativ bearbeitet werden. Dabei verbindet Cursor_ wissenschaftliche Textformate (peer reviewed) mit innovativen Publikationsformaten („Theologie in einfacher Sprache”, Laborberichte, essayistische Texte u.a.) und nutzt die Möglichkeiten digitaler Plattformen für inklusivere und partizipativere Diskussionen.       
+            </p>        
+{{elif session.forced_language =='en': }}         
+            <p>Cursor_ is a theological open access journal with the aim of bringing academic debates, innovative formats, and different publics together digitally. Cursor_ is a theological workshop where questions at the intersection of church, academy and society are treated in an interdisciplinary and innovative way. Cursor_ connects peer reviewed academic writing with innovative formats (“theology in simple language”, “lab reports”, essayistic texts, etc.). It uses the possibilities of digital platforms for more inclusive and participatory discussions.       
+            </p>               
+{{pass}}            
+          <div class="widget">            
+            <h5 class="widgetheading"></h5>            
+            <ul class="tags">
+<!--			
+              <li>              
+              <a href="{{=URL(myconf.take('web.application'),'journals','cursor')}}">{{=T('More' )}}</a>              
+              </li>              
+			  -->
+              <li>              
+              <a href="https://heiup.uni-heidelberg.de/journals/index.php/cursor/index">{{=T('View Journal')}}</a>              
+              </li>            
+            </ul>          
+          </div>        
+        </article>      
+      </div>    
+    </div> 
+    <div class="row">      
+      <div class="col-lg-2">        
+        <article>          
+          <div class="post-image">            
             <img alt="" src="{{=URL(myconf.take('web.application'),'static','images/journals/cover_heso.jpg')}} ">          
           </div>        
         </article>      
