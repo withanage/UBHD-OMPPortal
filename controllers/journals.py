@@ -21,6 +21,9 @@ def heied():
 
 def heso():
     return dict()
+    
+def cursor():
+    return dict()
 	
 def home():
     return dict()
