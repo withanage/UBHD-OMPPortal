@@ -1,0 +1,168 @@
+{{extend 'layout.html'}}
+
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+	
+            <div class="col-lg-3">
+                <article>
+                  <div class="post-image">
+		 	              <img src="{{=URL(myconf.take('web.application'),'static','images/journals/cover_heso.jpg')}} ">
+                  </div>
+
+                </article>
+                
+                <div class="box">
+			             <div class="box-gray alignleft" style="height: auto;">
+                 {{if session.forced_language =='de': }}
+                            <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographische Angaben</h5>
+                            <p>Cursor_ Zeitschrift für explorative Theologie (CZeTh)<br>
+
+                            <p>Herausgeberinnen und Herausgeber</p>
+                            <ul>
+							  <li>Arne Bachmann</li>
+                              <li>Dennis Dietz</li>
+                              <li>Benedikt Friedrich</li>
+                              <li>Rasmus Nagel</li>
+                              <li>Frederike van Oorschot</li>
+                              <li>Hanna Reichel</li>
+                              <li>Thomas Renkert</li>
+                            </ul>
+							
+							<p>Wissenschaftlicher Beirat<br>
+							Matthias Blümke, Tobias Braune-Krickau, Georg Bucher, Mikkel Christophersen, Patrick Ebert, Julia Enxing, Andreas Gerlach, Emilia Handke, Henning Hupe, Sebastian Krug, Tobias Künkler, Daniel Lenski, Kerstin Menzel, Hendrik Stoppel, Lisanne Teuchert, Verena Schlarb, Christoph Wiesinger</p>
+							
+                            <p>Redaktion<br>Wechselnde Teams aus mindestens zwei Herausgeber_innen und Mitgliedern des Beirats</p>
+
+							<p>Gutachterinnen und Gutachter</p>
+							<ul>
+							   <li>Acht anonyme Gutachterinnen und Gutachter aus dem In- und Ausland</li>
+							</ul>
+                            <p>Heidelberg University Publishing, Heidelberg</p>
+                            <p>eISSN: 2699-3406<br>
+							ISSN 2699-3392</p>
+
+
+                            <!--
+                            <p>Dieses Werk ist unter der<br> <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons-Lizenz 4.0<br /> (CC BY-SA 4.0)</a> veröffentlicht.<br>
+                            <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0"><img alt="Creative Commons Lizenz BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p>
+                            -->
+
+             {{elif session.forced_language =='en': }}
+             
+<h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographic details</h5>
+                            <p>Cursor_ Zeitschrift für explorative Theologie (CZeTh)<br>
+                            <p>Editors</p>
+                            <ul>
+							  <li>Arne Bachmann</li>
+                              <li>Dennis Dietz</li>
+                              <li>Benedikt Friedrich</li>
+                              <li>Rasmus Nagel</li>
+                              <li>Frederike van Oorschot</li>
+                              <li>Hanna Reichel</li>
+                              <li>Thomas Renkert</li>
+                            </ul>
+							
+							<p>Wissenschaftlicher Beirat<br>
+							Matthias Blümke, Tobias Braune-Krickau, Georg Bucher, Mikkel Christophersen, Patrick Ebert, Julia Enxing, Andreas Gerlach, Emilia Handke, Henning Hupe, Sebastian Krug, Tobias Künkler, Daniel Lenski, Kerstin Menzel, Hendrik Stoppel, Lisanne Teuchert, Verena Schlarb, Christoph Wiesinger</p>
+							
+                            <p>Redaktion<br>Wechselnde Teams aus mindestens zwei Herausgeber_innen und Mitgliedern des Beirats</p>
+
+							<p>Gutachterinnen und Gutachter</p>
+							<ul>
+							   <li>Acht anonyme Gutachterinnen und Gutachter aus dem In- und Ausland</li>
+							</ul>
+                            <p>Heidelberg University Publishing, Heidelberg</p>
+                            <p>eISSN: 2699-3406<br>
+							ISSN 2699-3392</p>
+{{pass}}                  
+                   </div>
+
+
+             
+                                         
+                  </div>
+ </div>   
+
+            
+            <div class="col-lg-9">
+		
+               <article>
+
+        <div id="infoBoxRechts" class="col-lg-3">           
+          <div class="box">
+            <div class="box-gray"  style="height: auto;">
+                 
+                <p class="boxText"><b>{{=T('Contact')}}</b></p>
+                  <a href="mailto:thomas.renkert@dwi.uni-heidelberg.de">Thomas Renkert</a>
+                  </div>
+                </div>                
+              </div>
+
+            <div class="btn-group" role="group" aria-label="1">
+             <ul class="schaltflaeche">
+				 <li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/cursor/issue/current/showToc" title="{{=T('current issue')}}">{{=T('read current issue')}}</a></li>
+             </ul>
+			</div>
+			
+			<div class="btn-group" role="group" aria-label="1">
+            <ul class="schaltflaeche">
+				 <li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/cursor/issue/archive" title="{{=T('Archive')}}">{{=T('Archive')}}</a></li>
+            </ul> 
+			</div>
+			<!--
+			<div class="btn-group" role="group" aria-label="2">
+			 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">{{=T('Purchase')}}</button>
+					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+				<li role="presentation"><a role="menuitem"  href="https://www.buchhandel.de/suche/ergebnisse?query=re%3DX-3532-2188-0" target='_blank'>buchhandel.de</a></li>
+				<li role="presentation"><a role="menuitem"  href="https://www.amazon.de/s/ref=nb_sb_noss/261-4627677-1555346?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&url=search-alias%3Daps&field-keywords=handbuch+europ%C3%A4ische+sprachkritik+online" target='_blank'>Amazon</a></li>
+					</ul>
+			</div>
+		-->
+     <div class="post-heading">
+
+     
+                  <h3>Cursor_ Zeitschrift für explorative Theologie</h3>
+				  
+
+        </div>
+
+                 {{if session.forced_language =='de': }}
+                 <p><i>Cursor_ Zeitschrift für explorative Theologie</i> ist ein theologisches Open-Access-Projekt, das fachwissenschaftliche Diskussionen, innovative Publikationsformate und verschiedene Öffentlichkeiten digital zusammenbringt. Cursor_ versteht sich als theologische Werkstatt, in der Fragen an der Schnittstelle kirchlicher, wissenschaftlicher und gesellschaftlicher Debatten interdisziplinär und innovativ bearbeitet werden. Dabei verbindet Cursor_ wissenschaftliche Textformate (peer reviewed) mit innovativen Publikationsformaten („Theologie in einfacher Sprache”, Laborberichte, essayistische Texte u. a.) und nutzt die Möglichkeiten digitaler Plattformen für inklusivere und partizipativere Diskussionen.</p>
+				 <h4>Zweistufiges Publikationsverfahren</h4>
+				 <p>Eine Besonderheit ist das zweistufige Publikationsverfahren: Zunächst werden die deut¬schen oder englischen Texte auf der Plattform <a href="https://cursor.pubpub.org/" tile="Link zu PubPub">PubPub</a> veröffentlicht. Die vom MIT für Open-Science-Projekte entwickelte Plattform bietet vielfältige Möglichkeiten zur Diskussion und Vernetzung von Texten und anderen digitalen Diskursen. Leser_innen und Autor_innen können den Text kommentieren und diskutieren. Nach sechs Monaten offener Diskussion können die Autor_innen ggf. eine überarbeitete Version des Artikels hochladen. Die überarbeiteten Artikel einer thematischen Ausgabe werden als E-Journal und Print-Ausgabe bei heiUP publiziert. Die Verbindung von PubPub und heiUP bietet eine Möglichkeit, die fluiden Diskurse einer Open-Science-Plattform mit einem etablierten Publikationsforum mit großer Reichweite zu verbinden. So werden die Beiträge nachhaltig und zitationsfähig in den wissenschaftlichen Diskurs eingespeist und können zugleich bleibender Referenzpunkt digitaler Debatten bleiben.</p>
+				 <h4>Redaktion und Textformate</h4>
+				 <p>Die Ausgaben erscheinen halbjährlich und sind thematisch fokussiert. Die Redaktionen der Ausgaben werden von Teams gestaltet, die sich aus je mindestens zwei Herausgeber¬_innen und Mitgliedern des internationalen und interdisziplinären Beirats zusammensetzen. Um Diskursgrenzen zu überbrücken, werden klassische wissenschaftliche Aufsätze und inno¬vative Textformate zu gleichen Teilen zusammengestellt. Die wissenschaftlichen Aufsätze durchlaufen ein Peer-Review-Verfahren, getragen von externen Fachwissenschaftler_innen.</p>
+             {{elif session.forced_language =='en': }}
+                 <p><i>Cursor_ Zeitschrift für explorative Theologie</i> ist ein theologisches Open-Access-Projekt, das fachwissenschaftliche Diskussionen, innovative Publikationsformate und verschiedene Öffentlichkeiten digital zusammenbringt. Cursor_ versteht sich als theologische Werkstatt, in der Fragen an der Schnittstelle kirchlicher, wissenschaftlicher und gesellschaftlicher Debatten interdisziplinär und innovativ bearbeitet werden. Dabei verbindet Cursor_ wissenschaftliche Textformate (peer reviewed) mit innovativen Publikationsformaten („Theologie in einfacher Sprache”, Laborberichte, essayistische Texte u. a.) und nutzt die Möglichkeiten digitaler Plattformen für inklusivere und partizipativere Diskussionen.</p>
+				 <h4>Zweistufiges Publikationsverfahren</h4>
+				 <p>Eine Besonderheit ist das zweistufige Publikationsverfahren: Zunächst werden die deut¬schen oder englischen Texte auf der Plattform <a href="https://cursor.pubpub.org/" tile="Link zu PubPub">PubPub</a> veröffentlicht. Die vom MIT für Open-Science-Projekte entwickelte Plattform bietet vielfältige Möglichkeiten zur Diskussion und Vernetzung von Texten und anderen digitalen Diskursen. Leser_innen und Autor_innen können den Text kommentieren und diskutieren. Nach sechs Monaten offener Diskussion können die Autor_innen ggf. eine überarbeitete Version des Artikels hochladen. Die überarbeiteten Artikel einer thematischen Ausgabe werden als E-Journal und Print-Ausgabe bei heiUP publiziert. Die Verbindung von PubPub und heiUP bietet eine Möglichkeit, die fluiden Diskurse einer Open-Science-Plattform mit einem etablierten Publikationsforum mit großer Reichweite zu verbinden. So werden die Beiträge nachhaltig und zitationsfähig in den wissenschaftlichen Diskurs eingespeist und können zugleich bleibender Referenzpunkt digitaler Debatten bleiben.</p>
+				 <h4>Redaktion und Textformate</h4>
+				 <p>Die Ausgaben erscheinen halbjährlich und sind thematisch fokussiert. Die Redaktionen der Ausgaben werden von Teams gestaltet, die sich aus je mindestens zwei Herausgeber¬_innen und Mitgliedern des internationalen und interdisziplinären Beirats zusammensetzen. Um Diskursgrenzen zu überbrücken, werden klassische wissenschaftliche Aufsätze und inno¬vative Textformate zu gleichen Teilen zusammengestellt. Die wissenschaftlichen Aufsätze durchlaufen ein Peer-Review-Verfahren, getragen von externen Fachwissenschaftler_innen.</p>
+             {{pass}}     
+
+
+                    <div class="widget">
+                        <h5 class="widgetheading"></h5>
+                 {{if session.forced_language =='de': }}
+                        <ul class="tags">
+                            <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/cursor/index">zur Zeitschrift</a></li>
+                        </ul>
+             {{elif session.forced_language =='en': }}
+                        <ul class="tags">
+                            <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/cursor/index">View Journal</a></li>
+                        </ul>
+{{pass}}     
+                 
+                    </div>
+ 
+                     			
+			
+                </article>
+
+            </div>
+ </div>
+        </div>
+
+</section>
