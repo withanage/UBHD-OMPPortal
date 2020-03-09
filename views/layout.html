@@ -235,9 +235,9 @@
                         <li>{{=T('Publishing')}} | <a href="{{=URL('publishing','for_authors')}}">{{=T('Information for Authors')}}</a></li>
                         <li><a href="{{=URL('contact','imprint')}}">{{=T('Legal Notice')}}</a></li>
                 {{if session.forced_language=='de':}}
-                        <li><a href="https://www.uni-heidelberg.de/datenschutzerklaerung_web.html">{{=T('Privacy Notice')}}</a></li>
+                        <li><a href="https://www.uni-heidelberg.de/de/datenschutzerklaerung">{{=T('Privacy Notice')}}</a></li>
                 {{elif session.forced_language=='en':}}
-                        <li><a href="https://www.uni-heidelberg.de/privacypolicy_web.html">{{=T('Privacy Notice')}}</a></li>
+                        <li><a href="https://www.uni-heidelberg.de/en/data-protection-declaration">{{=T('Privacy Notice')}}</a></li>
                 {{pass}}
                      </ul>
                  </div>
@@ -245,7 +245,7 @@
              <div class="col-lg-4">
              </div>
              <div class="col-lg-4">
-               <div id="footer_logo_ub" class="widget"><a href="http://www.ub.uni-heidelberg.de" title="Homepage Universitätsbibliothek Heidelberg"><img alt="Logo - Universität Heidelberg - Universitätsbibliothek Heidelberg" src="{{=URL('static','/images/press/logo_footer_grau.png')}}" /></a>
+               <div id="footer_logo_ub" class="widget"><a href="https://www.ub.uni-heidelberg.de" title="Homepage Universitätsbibliothek Heidelberg"><img alt="Logo - Universität Heidelberg - Universitätsbibliothek Heidelberg" src="{{=URL('static','/images/press/logo_footer_grau.png')}}" /></a>
                </div>
              </div>
          </div>
