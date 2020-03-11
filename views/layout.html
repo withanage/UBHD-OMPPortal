@@ -51,32 +51,7 @@
     (left_sidebar_enabled and 1 or 0)+(right_sidebar_enabled and 1 or 0)]
     }}
 
-    {{
 
-    try:
-      piwik = myconf.take('statistik.piwik_plugin', int)
-      if piwik == 1:
-     }}
-      <script type="text/javascript">
-          var _paq = _paq || [];
-          _paq.push(["setDomains", ["*.heiup.uni-heidelberg.de","*.heiup.uni-heidelberg.de"]]);
-          _paq.push(['trackPageView']);
-          _paq.push(['enableLinkTracking']);
-          (function() {
-            var u="//www.ub.uni-heidelberg.de/piwik/";
-            _paq.push(['setTrackerUrl', u+'piwik.php']);
-            _paq.push(['setSiteId', '4']);
-            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-            g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-          })();
-      </script>
-
-      {{
-      pass
-    except BaseException:
-      raise HTTP(404,"statistik plugin not defined : add piwik_plugin=1  or 0 in appconfig.ini")
-
-    }}
 
   </head>
 
@@ -286,6 +261,6 @@
     {{end}}
   <script src="{{=URL('static','js/jquery.flexslider.js')}}"></script>
   <script src="{{=URL('static','js/bootstrap.min.js')}}"></script>
-  {{if piwik:}}<noscript><img alt="" src="//www.ub.uni-heidelberg.de/piwik/piwik.php?idsite=4" style="border:0;"/></noscript>{{pass}}
+
   </body>
 </html>
