@@ -1742,6 +1742,14 @@ li.active {
 	border: none;
 }
 /**Inhaltsbereich**/
+
+/* Buch Download-Button auf Buchseite */
+
+#dropdownMenu1 {
+  background: #900;
+  color: white;
+}
+    
 .box-gray h4 {
 	text-align: left;
 }
