@@ -180,7 +180,8 @@ def series():
                              ompdal.getPublicationDatesByPublicationFormat(pf.publication_format_id)]
         if publication_dates:
             submission.associated_items['publication_dates'] = publication_dates
-        submissions[row_id] = submission
+        order_id = submission_row.series_position if submission_row.get('series_position') else row_id
+        submissions[order_id] = submission
 
     import natsort as ns
     s = ns.natsorted(submissions.items(), reverse=True)
