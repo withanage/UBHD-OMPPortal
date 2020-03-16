@@ -102,7 +102,7 @@
 'Books': 'Bücher',
 'Breite der Trimbox': 'Breite der Trimbox',
 'Browse Author Index': 'Autor/innenverzeichnis durchblättern',
-'Book Download': 'Buch Download',
+'Book Download': 'Download Buch',
 'Buchtitel (OMP)': 'Buchtitel (OMP)',
 'Buy this book': 'Dieses Buch kaufen',
 'by': 'bei',
