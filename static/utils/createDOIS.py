@@ -5,16 +5,20 @@
 python3.5 /home/withanage/projects/web2py3/web2py/web2py.py -R  /home/withanage/projects/web2py3/web2py/applications/UBHD_OMPPortal/static/utils/imagesJATSXMLBySubmission.py   --shell UBHD_OMPPortal  -M
 '''
 
-from gluon import DAL
+import xlsxwriter
 from ompdal import OMPDAL
 
 ompdal = OMPDAL(db, myconf)
 PRESS_ID = myconf.get('omp.press_id')
 
-s = db.submissions
-sc = db.submission_chapters
 a = db.authors
 aus = db.author_settings
+pf = db.publication_formats
+pfs = db.publication_format_settings
+s = db.submissions
+sc = db.submission_chapters
+sca = db.submission_chapter_authors
+ugs = db.user_group_settings
 
 submissions_rows = db(s.context_id == PRESS_ID).select(s.submission_id).as_list()
 
@@ -22,25 +26,87 @@ submissions = sorted(list(map(lambda s: s['submission_id'], submissions_rows)))
 
 submission_chapters = []
 
+
+def getSetting(settingsList, name):
+    result = [settings['setting_value'] for settings in settingsList if settings['setting_name'] == name]
+    setting = result[0] if result else ''
+    return setting
+
+
+def getAuthors(authors_rows, roles, submission):
+    authors = []
+    for author in authors_rows:
+        ast = ompdal.getAuthorSettings(author['author_id']).as_list()
+        authors.append(' '.join([getSetting(ast, 'givenName'), getSetting(ast, 'familyName')]))
+        role = db((ugs.user_group_id == a.user_group_id) & (a.author_id == author["author_id"]) & (
+                ugs.setting_name == "abbrev")).select(ugs.setting_value)
+        role = role.first().get('setting_value') if role else []
+        if role in roles:
+            submission['authors'] = ', '.join(authors)
+
+    return submission
+
+
 for s in submissions:
     chapter_rows = db(sc.submission_id == s).select(sc.chapter_id).as_list()
-    submission ={"submission": s, "chapter": "", "type": "Band"}
+    submission = {"submission": s, "chapter": "", "type": "Band"}
+
+    submission_rows = ompdal.getSubmissionSettings(s)
+    if submission_rows:
+        submission['title'] = getSetting(submission_rows.as_list(), 'title')
+        submission['doi'] = getSetting(submission_rows.as_list(), '"pub-id::doi')
+
     authors_rows = db(a.submission_id == s).select(a.author_id).as_list()
+    roles = ['AU', 'VE']
+    submission = getAuthors(authors_rows, roles, submission)
 
-    for author in authors_rows:
-        author_settings = db(aus.author_id ==author['author_id']).select(aus.setting_name,aus.setting_value).as_list()
-        authors_rows = ', '.join(sorted(list(map(lambda s: ' '.join([s['givenName'], s['familyName']]), author_settings))))
-        submission['authors_rows'] = authors_rows
+    if submission_rows:
+        submission['title'] = getSetting(submission_rows.as_list(), 'title')
+        submission['doi'] = getSetting(submission_rows.as_list(), 'pub-id::doi')
+        if not submission['doi']:
+            pfs = db(pf.submission_id == s).select(pf.publication_format_id).as_list()
 
+            for p in list(map(lambda s: s['publication_format_id'], pfs)):
+                pfs_rows = ompdal.getPublicationFormatSettings(p).as_list()
+                if not submission['doi']:
+                    submission['doi'] = getSetting(pfs_rows, 'pub-id::doi')
 
     submission_chapters.append(submission)
-    for chapter in chapter_rows:
-        submission_chapters.append({"submission":s,"chapter":chapter['chapter_id'], "type":"Kapitel"})
 
+    for c in chapter_rows:
+        chapter = {"submission": s, "chapter": c['chapter_id'], "type": "Kapitel"}
+        chapter_authors_rows = db(sca.chapter_id == c['chapter_id']).select(sca.author_id).as_list()
+        if chapter_authors_rows:
+            chapter = getAuthors(chapter_authors_rows, ['CA'], chapter)
 
-#sfor sch in submission_chapters:
+        chapter_settings_rows = ompdal.getChapterSettings(c['chapter_id']).as_list()
+        chapter['title'] = getSetting(chapter_settings_rows, 'title')
+        chapter['doi'] = getSetting(chapter_settings_rows, 'pub-id::doi')
+        if chapter['doi']:
+            submission_chapters.append(chapter)
 
-#submission_chapter_authors
+workbook = xlsxwriter.Workbook('doi.xlsx')
+worksheet = workbook.add_worksheet()
+worksheet.set_column(0, 0, 20)
+worksheet.set_column(1, 1, 40)
+worksheet.set_column(2, 2, 70)
+worksheet.set_column(3, 3, 30)
 
-print()
+worksheet.write_string(0, 0, "ID")
+worksheet.write_string(0, 1, "Autor")
+worksheet.write_string(0, 2, "Titel")
+worksheet.write_string(0, 3, "DOI")
+worksheet.write_string(0, 4, "Typ")
 
+for row, v in enumerate(submission_chapters):
+    row += 1
+    if v['type'] == 'Band':
+        worksheet.write_string(row, 0, str(v['submission']))
+    else:
+        worksheet.write_string(row, 0, '-c'.join([str(v['submission']), str(v['chapter'])]))
+    if v.get('authors'):   worksheet.write_string(row, 1, v['authors'])
+    if v.get('title'): worksheet.write_string(row, 2, v['title'])
+    worksheet.write_url(row, 3, v['doi'])
+    worksheet.write_string(row, 4, v['type'])
+
+workbook.close()
