@@ -4,12 +4,14 @@
 @author: wit
 python3.5 /home/withanage/projects/web2py3/web2py/web2py.py -R  /home/withanage/projects/web2py3/web2py/applications/UBHD_OMPPortal/static/utils/imagesJATSXMLBySubmission.py   --shell UBHD_OMPPortal  -M
 '''
-
+import sys
 import xlsxwriter
 from ompdal import OMPDAL
 
 ompdal = OMPDAL(db, myconf)
 PRESS_ID = myconf.get('omp.press_id')
+
+
 
 a = db.authors
 aus = db.author_settings
@@ -28,24 +30,50 @@ submission_chapters = []
 
 
 def getSetting(settingsList, name):
-    result = [settings['setting_value'] for settings in settingsList if settings['setting_name'] == name]
-    setting = result[0] if result else ''
-    return setting
+    result = ''. join(set([settings['setting_value'] for settings in settingsList if settings['setting_name'] == name]))
+    return result
 
 
 def getAuthors(authors_rows, roles, submission):
     authors = []
     for author in authors_rows:
         ast = ompdal.getAuthorSettings(author['author_id']).as_list()
-        authors.append(' '.join([getSetting(ast, 'givenName'), getSetting(ast, 'familyName')]))
+
         role = db((ugs.user_group_id == a.user_group_id) & (a.author_id == author["author_id"]) & (
                 ugs.setting_name == "abbrev")).select(ugs.setting_value)
         role = role.first().get('setting_value') if role else []
         if role in roles:
-            submission['authors'] = ', '.join(authors)
+            authors.append(' '.join([getSetting(ast, 'givenName'), getSetting(ast, 'familyName')]))
+
+    submission['authors'] = ', '.join(authors)
 
     return submission
 
+def setWorksheetStyle(workbook):
+    worksheet = workbook.add_worksheet()
+    worksheet.set_column(0, 0, 20)
+    worksheet.set_column(1, 1, 40)
+    worksheet.set_column(2, 2, 70)
+    worksheet.set_column(3, 3, 50)
+    worksheet.write_string(0, 0, "ID")
+    worksheet.write_string(0, 1, "Autor")
+    worksheet.write_string(0, 2, "Titel")
+    worksheet.write_string(0, 3, "DOI")
+    worksheet.write_string(0, 4, "Typ")
+    return worksheet
+
+
+def setWorksheetData(worksheet):
+    for row, v in enumerate(submission_chapters):
+        row += 1
+        if v['type'] == 'Band':
+            worksheet.write_string(row, 0, str(v['submission']))
+        else:
+            worksheet.write_string(row, 0, '-c'.join([str(v['submission']), str(v['chapter'])]))
+        if v.get('authors'):   worksheet.write_string(row, 1, v['authors'])
+        if v.get('title'): worksheet.write_string(row, 2, v['title'])
+        worksheet.write_url(row, 3, ''.join(['https://', v['doi']]))
+        worksheet.write_string(row, 4, v['type'])
 
 for s in submissions:
     chapter_rows = db(sc.submission_id == s).select(sc.chapter_id).as_list()
@@ -58,6 +86,7 @@ for s in submissions:
 
     authors_rows = db(a.submission_id == s).select(a.author_id).as_list()
     roles = ['AU', 'VE']
+
     submission = getAuthors(authors_rows, roles, submission)
 
     if submission_rows:
@@ -70,8 +99,7 @@ for s in submissions:
                 pfs_rows = ompdal.getPublicationFormatSettings(p).as_list()
                 if not submission['doi']:
                     submission['doi'] = getSetting(pfs_rows, 'pub-id::doi')
-
-    submission_chapters.append(submission)
+    if submission['doi']:   submission_chapters.append(submission)
 
     for c in chapter_rows:
         chapter = {"submission": s, "chapter": c['chapter_id'], "type": "Kapitel"}
@@ -85,28 +113,11 @@ for s in submissions:
         if chapter['doi']:
             submission_chapters.append(chapter)
 
-workbook = xlsxwriter.Workbook('doi.xlsx')
-worksheet = workbook.add_worksheet()
-worksheet.set_column(0, 0, 20)
-worksheet.set_column(1, 1, 40)
-worksheet.set_column(2, 2, 70)
-worksheet.set_column(3, 3, 30)
+file_path = '{}{}{}{}{}'.format(request.env.web2py_path, '/applications/', request.application,
+                                              '/static/utils/','doi.xlsx')
+workbook = xlsxwriter.Workbook(file_path)
 
-worksheet.write_string(0, 0, "ID")
-worksheet.write_string(0, 1, "Autor")
-worksheet.write_string(0, 2, "Titel")
-worksheet.write_string(0, 3, "DOI")
-worksheet.write_string(0, 4, "Typ")
-
-for row, v in enumerate(submission_chapters):
-    row += 1
-    if v['type'] == 'Band':
-        worksheet.write_string(row, 0, str(v['submission']))
-    else:
-        worksheet.write_string(row, 0, '-c'.join([str(v['submission']), str(v['chapter'])]))
-    if v.get('authors'):   worksheet.write_string(row, 1, v['authors'])
-    if v.get('title'): worksheet.write_string(row, 2, v['title'])
-    worksheet.write_url(row, 3, v['doi'])
-    worksheet.write_string(row, 4, v['type'])
+worksheet = setWorksheetStyle(workbook)
+setWorksheetData(worksheet)
 
 workbook.close()
