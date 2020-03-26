@@ -10,9 +10,9 @@ from ompdal import OMPDAL
 
 ompdal = OMPDAL(db, myconf)
 PRESS_ID = myconf.get('omp.press_id')
-
-
-
+OUTPUT_PATH = '{}{}{}{}{}'.format(request.env.web2py_path, '/applications/', request.application,'/static/utils/','doi.xlsx')
+DOI_DATA = []
+# tables
 a = db.authors
 aus = db.author_settings
 pf = db.publication_formats
@@ -22,19 +22,13 @@ sc = db.submission_chapters
 sca = db.submission_chapter_authors
 ugs = db.user_group_settings
 
-submissions_rows = db(s.context_id == PRESS_ID).select(s.submission_id).as_list()
 
-submissions = sorted(list(map(lambda s: s['submission_id'], submissions_rows)))
-
-submission_chapters = []
-
-
-def getSetting(settingsList, name):
+def getTableSetting(settingsList, name):
     result = ''. join(set([settings['setting_value'] for settings in settingsList if settings['setting_name'] == name]))
     return result
 
 
-def getAuthors(authors_rows, roles, submission):
+def getAuthorsByRoles(authors_rows, roles, submission):
     authors = []
     for author in authors_rows:
         ast = ompdal.getAuthorSettings(author['author_id']).as_list()
@@ -43,7 +37,7 @@ def getAuthors(authors_rows, roles, submission):
                 ugs.setting_name == "abbrev")).select(ugs.setting_value)
         role = role.first().get('setting_value') if role else []
         if role in roles:
-            authors.append(' '.join([getSetting(ast, 'givenName'), getSetting(ast, 'familyName')]))
+            authors.append(' '.join([getTableSetting(ast, 'givenName'), getTableSetting(ast, 'familyName')]))
 
     submission['authors'] = ', '.join(authors)
 
@@ -55,16 +49,13 @@ def setWorksheetStyle(workbook):
     worksheet.set_column(1, 1, 40)
     worksheet.set_column(2, 2, 70)
     worksheet.set_column(3, 3, 50)
-    worksheet.write_string(0, 0, "ID")
-    worksheet.write_string(0, 1, "Autor")
-    worksheet.write_string(0, 2, "Titel")
-    worksheet.write_string(0, 3, "DOI")
-    worksheet.write_string(0, 4, "Typ")
+    for i,value  in enumerate(['ID','Autoren','Titel','DOI','Type']):
+            worksheet.write_string(0, i, value)
     return worksheet
 
 
 def setWorksheetData(worksheet):
-    for row, v in enumerate(submission_chapters):
+    for row, v in enumerate(DOI_DATA):
         row += 1
         if v['type'] == 'Band':
             worksheet.write_string(row, 0, str(v['submission']))
@@ -75,49 +66,59 @@ def setWorksheetData(worksheet):
         worksheet.write_url(row, 3, ''.join(['https://', v['doi']]))
         worksheet.write_string(row, 4, v['type'])
 
-for s in submissions:
+
+def createChapters(s):
     chapter_rows = db(sc.submission_id == s).select(sc.chapter_id).as_list()
-    submission = {"submission": s, "chapter": "", "type": "Band"}
+    for c in chapter_rows:
+        chapter = {"submission": s, "chapter": c['chapter_id'], "type": "Kapitel"}
+        chapter_authors_rows = db(sca.chapter_id == c['chapter_id']).select(sca.author_id).as_list()
+        if chapter_authors_rows:
+            chapter = getAuthorsByRoles(chapter_authors_rows, ['CA'], chapter)
 
+        chapter_settings_rows = ompdal.getChapterSettings(c['chapter_id']).as_list()
+        chapter['title'] = getTableSetting(chapter_settings_rows, 'title')
+        chapter['doi'] = getTableSetting(chapter_settings_rows, 'pub-id::doi')
+
+        if chapter['doi']:  DOI_DATA.append(chapter)
+    return chapter_rows
+
+
+def createSubmission(s):
     submission_rows = ompdal.getSubmissionSettings(s)
-    if submission_rows:
-        submission['title'] = getSetting(submission_rows.as_list(), 'title')
-        submission['doi'] = getSetting(submission_rows.as_list(), '"pub-id::doi')
-
     authors_rows = db(a.submission_id == s).select(a.author_id).as_list()
-    roles = ['AU', 'VE']
 
-    submission = getAuthors(authors_rows, roles, submission)
-
+    submission = {"submission": s, "chapter": "", "type": "Band"}
+    submission = getAuthorsByRoles(authors_rows, ['AU', 'VE'], submission)
     if submission_rows:
-        submission['title'] = getSetting(submission_rows.as_list(), 'title')
-        submission['doi'] = getSetting(submission_rows.as_list(), 'pub-id::doi')
+        submission['title'] = getTableSetting(submission_rows.as_list(), 'title')
+        submission['doi'] = getTableSetting(submission_rows.as_list(), 'pub-id::doi')
         if not submission['doi']:
             pfs = db(pf.submission_id == s).select(pf.publication_format_id).as_list()
 
             for p in list(map(lambda s: s['publication_format_id'], pfs)):
                 pfs_rows = ompdal.getPublicationFormatSettings(p).as_list()
                 if not submission['doi']:
-                    submission['doi'] = getSetting(pfs_rows, 'pub-id::doi')
-    if submission['doi']:   submission_chapters.append(submission)
+                    submission['doi'] = getTableSetting(pfs_rows, 'pub-id::doi')
 
-    for c in chapter_rows:
-        chapter = {"submission": s, "chapter": c['chapter_id'], "type": "Kapitel"}
-        chapter_authors_rows = db(sca.chapter_id == c['chapter_id']).select(sca.author_id).as_list()
-        if chapter_authors_rows:
-            chapter = getAuthors(chapter_authors_rows, ['CA'], chapter)
+    if submission['doi']:   DOI_DATA.append(submission)
+    return submission
 
-        chapter_settings_rows = ompdal.getChapterSettings(c['chapter_id']).as_list()
-        chapter['title'] = getSetting(chapter_settings_rows, 'title')
-        chapter['doi'] = getSetting(chapter_settings_rows, 'pub-id::doi')
-        if chapter['doi']:
-            submission_chapters.append(chapter)
 
-file_path = '{}{}{}{}{}'.format(request.env.web2py_path, '/applications/', request.application,
-                                              '/static/utils/','doi.xlsx')
-workbook = xlsxwriter.Workbook(file_path)
+def createSubmissionsList():
+    global s
+    submissions_rows = db(s.context_id == PRESS_ID).select(s.submission_id).as_list()
+    submissions = sorted(list(map(lambda s: s['submission_id'], submissions_rows)))
+    for s in submissions:
+        createSubmission(s)
+        createChapters(s)
 
-worksheet = setWorksheetStyle(workbook)
-setWorksheetData(worksheet)
 
-workbook.close()
+def createExcelSheet():
+    createSubmissionsList()
+    workbook = xlsxwriter.Workbook(OUTPUT_PATH)
+    worksheet = setWorksheetStyle(workbook)
+    setWorksheetData(worksheet)
+    workbook.close()
+
+
+createExcelSheet()
