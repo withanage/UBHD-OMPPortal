@@ -16,7 +16,7 @@ DOI_DATA = []
 
 class SubmissionDOI:
 
-	def __init__(self):
+	def __init__ (self):
 		self.a = db.authors
 		self.aus = db.author_settings
 		self.pf = db.publication_formats
@@ -26,11 +26,9 @@ class SubmissionDOI:
 		self.sca = db.submission_chapter_authors
 		self.ugs = db.user_group_settings
 
-
-	def getTableSetting (self,settingsList, name):
+	def getTableSetting (self, settingsList, name):
 		result = ''.join(set([settings['setting_value'] for settings in settingsList if settings['setting_name'] == name]))
 		return result
-
 
 	def getAuthorsByRoles (self, authors_rows, roles, submission):
 		authors = []
@@ -47,7 +45,6 @@ class SubmissionDOI:
 
 		return submission
 
-
 	def setWorksheetStyle (self, workbook):
 		worksheet = workbook.add_worksheet()
 
@@ -61,7 +58,6 @@ class SubmissionDOI:
 
 		return worksheet
 
-
 	def setWorksheetData (self, worksheet):
 		for row, v in enumerate(DOI_DATA):
 			row += 1
@@ -74,22 +70,19 @@ class SubmissionDOI:
 			worksheet.write_url(row, 3, ''.join(['https://', v['doi']]))
 			worksheet.write_string(row, 4, v['type'])
 
-
 	def createChapters (self, s):
 		chapter_rows = db(self.sc.submission_id == s).select(self.sc.chapter_id).as_list()
 		for c in chapter_rows:
 			chapter = {"submission": s, "chapter": c['chapter_id'], "type": "Kapitel"}
+			chapter_settings_rows = ompdal.getChapterSettings(c['chapter_id']).as_list()
+			chapter['title'] = self.getTableSetting(chapter_settings_rows, 'title')
+			chapter['doi'] = self.getTableSetting(chapter_settings_rows, 'pub-id::doi')
 			chapter_authors_rows = db(self.sca.chapter_id == c['chapter_id']).select(self.sca.author_id).as_list()
 			if chapter_authors_rows:
 				chapter = self.getAuthorsByRoles(chapter_authors_rows, ['CA'], chapter)
 
-			chapter_settings_rows = ompdal.getChapterSettings(c['chapter_id']).as_list()
-			chapter['title'] = self.getTableSetting(chapter_settings_rows, 'title')
-			chapter['doi'] = self.getTableSetting(chapter_settings_rows, 'pub-id::doi')
-
 			if chapter['doi']:  DOI_DATA.append(chapter)
 		return chapter_rows
-
 
 	def createSubmissionsList (self):
 		submissions_rows = db(self.sb.context_id == PRESS_ID).select(self.sb.submission_id).as_list()
@@ -97,7 +90,6 @@ class SubmissionDOI:
 		for s in submissions:
 			self.createSubmission(s)
 			self.createChapters(s)
-
 
 	def createSubmission (self, s):
 		submission_rows = ompdal.getSubmissionSettings(s)
@@ -109,16 +101,17 @@ class SubmissionDOI:
 			submission['title'] = self.getTableSetting(submission_rows.as_list(), 'title')
 			submission['doi'] = self.getTableSetting(submission_rows.as_list(), 'pub-id::doi')
 			if not submission['doi']:
-				pfs = db(self.pf.submission_id == s).select(self.pf.publication_format_id).as_list()
-
-				for p in list(map(lambda s: s['publication_format_id'], pfs)):
-					pfs_rows = ompdal.getPublicationFormatSettings(p).as_list()
-					if not submission['doi']:
-						submission['doi'] = self.getTableSetting(pfs_rows, 'pub-id::doi')
+				self.getPublicationFormatDOI(s, submission)
 
 		if submission['doi']:   DOI_DATA.append(submission)
 		return submission
 
+	def getPublicationFormatDOI (self, s, submission):
+		pfs = db(self.pf.submission_id == s).select(self.pf.publication_format_id).as_list()
+		for p in list(map(lambda s: s['publication_format_id'], pfs)):
+			pfs_rows = ompdal.getPublicationFormatSettings(p).as_list()
+			if not submission['doi']:
+				submission['doi'] = self.getTableSetting(pfs_rows, 'pub-id::doi')
 
 	def createExcelSheet (self):
 		self.createSubmissionsList()
@@ -126,6 +119,7 @@ class SubmissionDOI:
 		worksheet = self.setWorksheetStyle(workbook)
 		self.setWorksheetData(worksheet)
 		workbook.close()
+
 
 sd = SubmissionDOI()
 sd.createExcelSheet()
