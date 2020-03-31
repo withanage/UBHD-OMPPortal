@@ -33,16 +33,24 @@
                         {{include 'catalog/book/chapter/html_galley.html'}}
                         {{include 'catalog/book/chapter/pdf_galley.html'}}
                         <!--purchase -->
-			            <br>
-                        {{if c_authors:}}
-                        <h5>{{=formatContributors(c_authors, max_contributors=4)}}</h5>
+                        <div class="post-heading">
+  			               <br />
+                          <div class="row">
+                          {{if c_authors:}}
+                          <>
+                          <div id="autoren" class="col-lg-9 col-md-9 col-xs-7">
+                            <h5>{{=formatContributors(c_authors, max_contributors=4)}}</h5>
+                          </div>
+                        
                         {{pass}}
+                        </div>
+                        </div>
                      	{{if c_title:}} {{=H3(c_title)}}{{pass}}
                         {{if c_subtitle:}}{{=H5(c_subtitle)}}{{pass}}
                         {{if c_abstract:}}{{=XML(c_abstract)}}{{pass}}
 
                         <div style="margin-top:40px"></div>
-                        <div id="downloadTable">
+                        <!--<div id="downloadTable">   Download-Tabelle auskommentiert - dabei vorhandene Kommentare 'umflossen' - 31.03.20 voe
                             <div class="chapter_row table_head">
                             <div class="chapter_cell">{{=T('Contents')}}</div>
                             <div class="chapter_cell"></div>
@@ -63,8 +71,8 @@
                                                         {{format='PDF'}}
                                                         {{css_class="fa fa-file-text-o fa-lg"}}
                                                         {{target='_self'}}
-                                                    {{pass}} <!--- if xml -->
-                                            <div class="chapter_row">
+                                                    {{pass}} Download-Tabelle unten auskommentiert - 31.03. voe--> <!--- if xml -->
+                                            <!--<div class="chapter_row">
                                                 <div class="chapter_cell"> {{=format}}</div>
                                                 <div class="chapter_cell">
                                                     <div class="chapter_file pull-right">
@@ -73,15 +81,14 @@
                                                 </div>
                                                 <div class="chapter_cell"> </div>
                                             </div>
-                                            {{pass}}  <!--if c -->
+                                            {{pass}} Download-Tabell auskommentiert voe --> <!--if c -->
 
-                                        {{pass}}
+                                        <!--{{pass}}
 
-                                    {{pass}}  <!--if -->
-                            {{pass}} <!--for -->
+                                    {{pass}} Download Tabelle auskommentiert voe -->  <!--if -->
+                            <!--{{pass}} Download-Tab. auskommentiert voe <!--for -->
 
-                        </div>
-                        <!--downloadTable -->
+                       <!-- </div>  downloadTable -->
 
                         </div>
                     </article>

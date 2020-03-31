@@ -118,6 +118,7 @@
 'Categories': 'Sparten',
 'category': 'sparte',
 'Category': 'Sparte',
+'Chapter Download': 'Kapitel Download',
 'Chapters': 'Kapitel',
 'Check to delete': 'Auswählen um zu löschen',
 'Choose citation style': 'Zitationsstil auswählen',
