@@ -15,8 +15,13 @@ DOI_DATA = []
 
 
 class SubmissionDOI:
+	"""
+	Submission DOI Class
+
+	"""
 
 	def __init__ (self):
+
 		self.a = db.authors
 		self.aus = db.author_settings
 		self.pf = db.publication_formats
@@ -26,8 +31,14 @@ class SubmissionDOI:
 		self.sca = db.submission_chapter_authors
 		self.ugs = db.user_group_settings
 
-	def getTableSetting (self, settingsList, name):
-		result = ''.join(set([settings['setting_value'] for settings in settingsList if settings['setting_name'] == name]))
+	def getTableSetting (self, settings_list, name):
+		"""
+		get table setting from OMP
+		:param settings_list: array
+		:param name:
+		:return:
+		"""
+		result = ''.join(set([settings['setting_value'] for settings in settings_list if settings['setting_name'] == name]))
 		return result
 
 	def getAuthorsByRoles (self, authors_rows, roles, submission):
