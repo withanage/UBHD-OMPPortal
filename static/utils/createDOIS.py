@@ -92,7 +92,7 @@ class SubmissionDOI:
 			if chapter_authors_rows:
 				chapter = self.getAuthorsByRoles(chapter_authors_rows, ['CA'], chapter)
 
-			if chapter['doi']:  DOI_DATA.append(chapter)
+			if chapter.get('doi'):  DOI_DATA.append(chapter)
 		return chapter_rows
 
 	def createSubmissionsList (self):
@@ -114,7 +114,7 @@ class SubmissionDOI:
 			if not submission['doi']:
 				self.getPublicationFormatDOI(s, submission)
 
-		if submission['doi']:   DOI_DATA.append(submission)
+		if submission.get('doi'):   DOI_DATA.append(submission)
 		return submission
 
 	def getPublicationFormatDOI (self, s, submission):
