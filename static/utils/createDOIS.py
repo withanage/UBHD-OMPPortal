@@ -32,16 +32,12 @@ class SubmissionDOI:
 		self.ugs = db.user_group_settings
 
 	def getTableSetting (self, settings_list, name):
-		"""
-		get table setting from OMP
-		:param settings_list: array
-		:param name:
-		:return:
-		"""
+
 		result = ''.join(set([settings['setting_value'] for settings in settings_list if settings['setting_name'] == name]))
 		return result
 
 	def getAuthorsByRoles (self, authors_rows, roles, submission):
+
 		authors = []
 		for author in authors_rows:
 			ast = ompdal.getAuthorSettings(author['author_id']).as_list()
@@ -57,6 +53,7 @@ class SubmissionDOI:
 		return submission
 
 	def setWorksheetStyle (self, workbook):
+
 		worksheet = workbook.add_worksheet()
 
 		worksheet.set_column(0, 0, 20)
@@ -70,6 +67,7 @@ class SubmissionDOI:
 		return worksheet
 
 	def setWorksheetData (self, worksheet):
+
 		for row, v in enumerate(DOI_DATA):
 			row += 1
 			if v['type'] == 'Band':
