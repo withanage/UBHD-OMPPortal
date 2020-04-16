@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 '''
-@author: wit
-python3.5 /home/withanage/projects/web2py3/web2py/web2py.py -R  /home/withanage/projects/web2py3/web2py/applications/UBHD_OMPPortal/static/utils/imagesJATSXMLBySubmission.py   --shell UBHD_OMPPortal  -M
+@author: withanage
+python3 $WEB2PY_PATH/web2py.py -R  $WEB2PY_PATH/applications/UBHD_OMPPortal/static/utils/createDOIS.py   --shell UBHD_OMPPortal  -M
 '''
 import sys
 import xlsxwriter
