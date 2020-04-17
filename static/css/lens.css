@@ -16,7 +16,8 @@
   background-color: grey; }
 
 .content-node.text.title {
-  padding-left: 0; }
+  padding-left: 0;
+  font-weight: 600; }
 
 /* Abstract */
 .abstract {
