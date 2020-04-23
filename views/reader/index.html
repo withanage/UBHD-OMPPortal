@@ -44,8 +44,8 @@
         };
         var qs = {};
         qs.url = [window.location.origin,'{{=myconf.take("web.application")}}',
-            'static', 'files', 'presses',  '{{=myconf.take("omp.press_id")}}', 'monographs',
-            '{{=request.args[0]}}','submission', 'proof','{{=request.args[1]}}'].join('/');
+            'reader','download',
+            '{{=request.args[0]}}','{{=request.args[1]}}'].join('/');
         var documentURL = "data/example.xml";
         $(function() {
 
