@@ -8,12 +8,10 @@ def eintrag():
 
         dl = list(filter(lambda e: e['locale'] == locale and e['setting_name'] == 'description', n))
         description = XML(dl[0]['setting_value']) if dl else ''
-        return locals()
-
-
-
-
+        if len(description) > 0:
+            return locals()
+        else:
+            raise HTTP(400, T('No Content'))
 
     else:
-        session.flash = T('invalid request')
-        redirect(URL('index'))
+        raise HTTP(400, T('No Content'))
