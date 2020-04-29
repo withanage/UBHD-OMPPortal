@@ -1,5 +1,5 @@
-/* 
- 
+/*
+
  * Copyright 07-Jan-2016, 12:52:49
  *
  * Author    : Dulip Withanage , University of Heidelberg
@@ -24,60 +24,76 @@
  */
 
 function guid() {
-  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-    s4() + '-' + s4() + s4() + s4();
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+        s4() + '-' + s4() + s4() + s4();
 }
 
 function s4() {
-  return Math.floor((1 + Math.random()) * 0x10000)
-    .toString(16)
-    .substring(1);
+    return Math.floor((1 + Math.random()) * 0x10000)
+        .toString(16)
+        .substring(1);
 }
 
-function typesort(a, b){
+function typesort(a, b) {
     return a.split('-')[2] > b.split('-')[2];
 }
 
+/**
+ *
+ * @param data Response data
+ * @param id  input id
+ * @returns { value}
+ */
+function setValue(data, id) {
+    try {
+        total = data.items[id].sum.requests;
+        return total;
 
-var script = 'oastats-json.cgi';
-var url = "../../../cgi-bin/" + script + "?repo=omphp&type=json&ids=" + ids+"&uid="+guid();
-$.getJSON( url, function( data ) {
-  var totals = {};
-  $.each(data, function (key, value) {
-  totals[key] = value.all_years.reduce(function (prev, elem) { return prev + parseInt(elem.volltext); }, 0);
-  });
-  var statsTableChapters = document.getElementById('statsTableChapters');
-  var a_k, full_files;
-  var total = {};
-  for (let k in totals){
-$("#" + k).text(totals[k]);
-  a_k = k.split("-");
-  if (a_k.length === 3) {
+    } catch (e) {
+        console.info( id, 'does not have any values');
+    }
 
-if (total[a_k[2]] !== undefined){
-total[a_k[2]] = total[a_k[2]] + totals[k];
-}
-else {
-total[a_k[2]] = totals[k];
-}
-}
-}
+};
+
+var url = "https://statistik.ub.uni-heidelberg.de/oa_statistik/doc_id/period/?doc_id=" +  book_id +','+ chapter_ids  +"&uid=" + guid();
+
+/**
+ *  get data from url and set values
+ */
+$.getJSON(url, function (data) {
+
+    var chapter_total = 0;
+
+    // set chapter  values
+
+    for (var i = 0; i < chapter_ids.length; i++) {
+
+        var chapter_div = '#' + chapter_ids[i].replace(':', '_');
+
+        var chapter_val = setValue(data, chapter_ids[i]);
+
+        if (parseInt(chapter_val)!==0  & chapter_val !== undefined) {
+            $(chapter_div).text(chapter_val);
+            chapter_total += chapter_val;
+        }
+
+    }
+
+    // set chapter total
+    $("#total-chapter-files").text(chapter_total);
 
 
-full_files = $(".full_file");
-  $.each(full_files, function(index, value) {
-  for (var prop in total) {
-  if (value.id.indexOf(prop) > 0) {
-    total[prop] = total[prop] - value.innerText;
-  }
-  }
-  });
-  for (var prop in total) {
-var s = $("#total-chapter-" + prop);
-  s.text(total[prop]);
-}
-  }).fail(function() {
-      $('#statistik-button').hide();
-      console.log("statistik service unavaliable");
-  });
-  
+
+    // set book value(s)
+
+    var b = book_id[0].replace(':', '_');
+
+    $("#" + b).text(setValue(data, book_id));
+
+}).fail(function () {
+
+    $('#statistik-button').hide();
+
+    console.error("statistik service unavaliable");
+});
+

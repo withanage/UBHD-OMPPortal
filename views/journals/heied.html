@@ -8,14 +8,15 @@
             <div class="col-lg-3">
                 <article>
                     <div class="post-image">
-		 	<img src="https://heiup.uni-heidelberg.de/journals/public/journals/155/cover_issue_2379_de_DE.jpg">
+		 	          <img src="https://heiup.uni-heidelberg.de/journals/public/journals/155/cover_issue_2393_de_DE.jpg">
                   </div>
 
                 </article>
-                
+
+              {{if session.forced_language =='de': }}                
                 <div class="box">
 			             <div class="box-gray alignleft" style="height: auto;">
-                 {{if session.forced_language =='de': }}
+
                             <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographische Angaben</h5>
                             <p>heiEDUCATION Journal<br>
 
@@ -27,7 +28,7 @@
                             <p>Redaktion</p>
                               <ul>
                                 <!--<li>Kathrin Strobel (verantwortlich)</li>-->
-								                <li>Dr. Felix Heizmann</li>
+								                <li>Dr. Corinna Assmann</li>
                               </ul>  
 							             <p>Beratende Herausgeber</p>
 							               <ul>
@@ -41,16 +42,21 @@
                                <li>Dr. Christiane Wienand</li>
                                <li>Dr. Alexander Wohnig</li>
 							               </ul>
-                            <p>Heidelberg University Publishing, Heidelberg</p>
-                            <!--<p>ISSN: 2191-6411</p>  -->
+                            <p>Heidelberg School of Education</p>
+                            <p>ISSN 2569-8524 (Print)<br>
+							ISSN 2626-983X (online)</p>
                             <!--
                             <p>Dieses Werk ist unter der<br> <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons-Lizenz 4.0<br /> (CC BY-SA 4.0)</a> veröffentlicht.<br>
                             <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0"><img alt="Creative Commons Lizenz BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p>
                             -->
+                   </div>
+                 </div>                            
 
              {{elif session.forced_language =='en': }}
+                <div class="box">
+			             <div class="box-gray alignleft" style="height: auto;">
              
-<h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographic details</h5>
+                      <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographic details</h5>
                             <p>heiEDUCATION Journal<br>
                             <p>Editors</p>
                             <ul>
@@ -60,7 +66,7 @@
                             <p>Assistant Editors</p>
                               <ul>
                                 <!--<li>Kathrin Strobel (verantwortlich)</li>-->
-								              <li>Dr. Felix Heizmann</li>
+								              <li>Dr. Corinna Assmann</li>
                               </ul>  
 							             <p>Consulting Editors</p>
 							                <ul>
@@ -74,49 +80,36 @@
                                <li>Dr. Christiane Wienand</li>
                                <li>Dr. Alexander Wohnig</li>
 							                </ul>
-                            <p>Heidelberg University Publishing, Heidelberg</p>
-                            <!--<p>ISSN: 2191-6411</p>  -->
+                            <p>Heidelberg School of Education</p>
+                            <p>ISSN 2569-8524 (Print)<br>
+							ISSN 2626-983X (online)</p>
                             <!--
                             <p>This work is licensed under a <br> <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons License 4.0<br> (CC BY-SA 4.0)</a>.<br>
                             <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; License CC BY-SA 4.0"><img alt="Creative Commons License BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p>             
 -->
-{{pass}}                  
+                 
                    </div>
-
-
-             
-                                         
                   </div>
+{{pass}} 
  </div>   
 
             
-            <div class="col-lg-9">
+         <div class="col-lg-9">
 		
-               <article>
+           <article>
 
-        <div id="infoBoxRechts" class="col-lg-3">
-		<!--
-          <div class="box">
-            <div class="box-gray"  style="height: auto;">
-	
-                 {{if session.forced_language =='de': }}
-                <p class="boxText"><b>RSS für die aktuelle Ausgabe</b></p>
-             {{elif session.forced_language =='en': }}
-                <p class="boxText"><b>RSS for current issue</b></p>
-{{pass}}                                          
-
-                    <a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/gateway/plugin/WebFeedGatewayPlugin/atom"><img src="http://heiup.uni-heidelberg.de/journals/plugins/generic/webFeed/templates/images/atom10_logo.gif" alt="Atom logo" border="0" /></a><br />
-	<a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/gateway/plugin/WebFeedGatewayPlugin/rss2"><img src="http://heiup.uni-heidelberg.de/journals/plugins/generic/webFeed/templates/images/rss20_logo.gif" alt="RSS2 logo" border="0" /></a><br />
-	<a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/gateway/plugin/WebFeedGatewayPlugin/rss"><img src="http://heiup.uni-heidelberg.de/journals/plugins/generic/webFeed/templates/images/rss10_logo.gif" alt="RSS1 logo" border="0" /></a>
-                  </div>
-                </div>
-             -->
+              <div id="infoBoxRechts" class="col-lg-3">
 
                 <div class="box">
                   <div class="box-gray"  style="height: auto;">                 
                     <p class="boxText"><b>{{=T('Information for authors')}}</b></p>
                     <ul class="standard">
-                      <li><a href="{{=URL(myconf.take('web.application'),'static','medien/journals/heieducation_autorenhinweise.pdf')}}">Author Guidelines</a></li>
+                 {{if session.forced_language =='de': }}
+                      <li><a href="{{=URL(myconf.take('web.application'),'static','medien/journals/heieducation_autorenhinweise.pdf')}}">{{=T('Author Guidelines')}}</a></li>
+                 {{elif session.forced_language =='en': }}                      
+                      <li><a href="{{=URL(myconf.take('web.application'),'static','medien/journals/heieducation_authorguidelines.pdf')}}">{{=T('Author Guidelines')}}</a></li>
+                 {{pass}}                         
+
                     </ul>
                   </div>
                 </div>
@@ -160,7 +153,7 @@
                   <h3>heiEDUCATION Journal</h3>
         </div>
 
-                 {{if session.forced_language =='de': }}
+{{if session.forced_language =='de': }}
                  <p>Das <i>heiEDUCATION Journal. Transdisziplinäre Studien zur Lehrerbildung</i> ist eine neue fächer- und institutionenübergreifende wissenschaftliche Online-Zeitschrift, die an der <a href="http://www.hse-heidelberg.de/" title="Homepage der Heidelberg School of Education">Heidelberg School of Education</a> verortet ist. Die Heidelberg School of Education ist eine gemeinsame hochschulübergreifende Einrichtung der Pädagogischen Hochschule Heidelberg und der Universität Heidelberg.</p>
 
                  <p><b>aktuell.</b> In mindestens zwei Ausgaben pro Jahr behandelt das <i>heiEDUCATION Journal</i> aktuelle und relevante Themen der Lehrerbildung aus unterschiedlichen Domänen und Disziplinen.</p>
@@ -174,24 +167,28 @@
                 <p><b>peer-reviewed.</b> Alle eingereichten Beiträge werden in einem Blind-Peer-Review-Verfahren von nationalen und internationalen Fachexpertinnen und -experten hinsichtlich ihrer wissenschaftlichen Qualität, ihrer Forschungsaktualität und ihrer Relevanz begutachtet.</p>
 
                 <p><b>fokussiert.</b> Die Ausgaben bieten entweder forschungsaktuelle Einzelbeiträge oder folgen einem von den Herausgebern gesetzten Themenschwerpunkt. Zudem besteht auch für andere Wissenschaftler/teams die Möglichkeit, thematisch fokussierte Einzelausgaben herauszugeben (Special Editions). Bei Interesse wenden Sie sich bitte an <a href="mailto:heied-journal@heiedu.uni-heidelberg.de">heied-journal@heiedu.uni-heidelberg.de</a>.</p>
-             {{elif session.forced_language =='en': }}
-                <p>Das <i>heiEDUCATION Journal. Transdisziplinäre Studien zur Lehrerbildung</i> ist eine neue fächer- und institutionenübergreifende wissenschaftliche Online-Zeitschrift, die an der <a href="http://www.hse-heidelberg.de/" title="Homepage der Heidelberg School of Education">Heidelberg School of Education</a> verortet ist. Die Heidelberg School of Education ist eine gemeinsame hochschulübergreifende Einrichtung der Pädagogischen Hochschule Heidelberg und der Universität Heidelberg.</p>
 
-                 <p><b>aktuell.</b> In mindestens zwei Ausgaben pro Jahr behandelt das <i>heiEDUCATION Journal</i> aktuelle und relevante Themen der Lehrerbildung aus unterschiedlichen Domänen und Disziplinen.</p>
+{{elif session.forced_language =='en': }}
+                 <p>The <i>heiEDUCATION Journal. Transdisziplinäre Studien zur Lehrerbildung</i> is a new multidisciplinary and trans-institutional scientific online journal. The journal is affiliated with the <a href="http://www.hse-heidelberg.de/" title="Homepage Heidelberg School of Education">Heidelberg School of Education</a>, which is a joint venture of Heidelberg University and the Heidelberg University of Education, with both institutions of higher education equally vested.</p>
 
-                 <p><b>transdisziplinär.</b> Die Zeitschrift richtet sich an alle Akteurinnen und Akteure der Lehrerbildung: Wissenschaftlerinnen und Wissenschaftler, Studierende, für die Fort- und Weiterbildung Verantwortliche sowie berufstätige Lehrerinnen und Lehrer.</p>
+                 <p><b>current.</b> In at least two issues per year, the heiEDUCATION Journal addresses current and relevant topics in teacher education from different domains and disciplines.</p>
 
-                 <p><b>dialogisch.</b> Die Rubrik <i>experiment</i> eröffnet ein Forum für den Austausch von Meinungen, für die Kommunikation über die Grenzen der Fächer und Institutionen hinweg sowie für die Diskussion anwendungsbezogener Konzepte.</p>
+                 <p><b>transdisciplinary.</b> The journal addresses all actors involved in the field of teacher education: university teachers, researchers, students, those responsible for further and continuing education, as well as professional teachers.</p>
 
-                 <p><b>digital.</b> Das <i>heiEDUCATION Journal</i> ist als Online-Zeitschrift jederzeit und überall zugänglich, kann aber auch in gedruckter Form im Buchhandel vor Ort oder über das Internet bestellt werden (Print on Demand).</p>
+                 <p><b>dialogic.</b> The column <i>experiment</i> opens up a forum for exchanging opinions, for communicating across the boundaries of subjects and institutions, and for discussing concepts in application.</p>
 
-                <p><b>peer-reviewed.</b> Alle eingereichten Beiträge werden in einem Blind-Peer-Review-Verfahren von nationalen und internationalen Fachexpertinnen und -experten hinsichtlich ihrer wissenschaftlichen Qualität, ihrer Forschungsaktualität und ihrer Relevanz begutachtet.</p>
+                 <p><b>digital.</b> As an online journal, the <i>heiEDUCATION Journal</i> is accessible from anywhere at anytime. It is certainly also possible to order a print version on demand.</p>
 
-                <p><b>fokussiert.</b> Die Ausgaben bieten entweder forschungsaktuelle Einzelbeiträge oder folgen einem von den Herausgebern gesetzten Themenschwerpunkt. Zudem besteht auch für andere Wissenschaftler/teams die Möglichkeit, thematisch fokussierte Einzelausgaben herauszugeben (Special Editions). Bei Interesse wenden Sie sich bitte an <a href="mailto:heied-journal@heiedu.uni-heidelberg.de">heied-journal@heiedu.uni-heidelberg.de</a>.</p>
-           
+                <p><b>peer-reviewed.</b> All submitted contributions are reviewed by national and international experts in the field in a double-blind peer review process. Accepted submissions should meet a high academic standard, offer state-of-the-art research, and be relevant.</p>
 
+                <p><b>focused.</b> The issues either comprise single contributions of current research or follow a thematic focus set by the publishers. Moreover, (teams of) researchers can apply to publish single issues on a thematic focus (Special Editions). If you are interested, please contact us at <a href="mailto:heied-journal@heiedu.uni-heidelberg.de">heied-journal@heiedu.uni-heidelberg.de</a>.</p>
 
 {{pass}}     
+
+
+
+
+
 <!--
 
                     <div class="widget">

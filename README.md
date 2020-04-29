@@ -1,10 +1,10 @@
 # UBHD-OMPPortal
-UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp](https://pkp.sfu.ca/) 's [Open Monograph Press](https://pkp.sfu.ca/omp/)  written in python programming language and  based on the python web framework [web2py](http://www.web2py.com).
+ UBHD-OMPPortal is a flexible, responsive Frontend portal for monograph management.
 
-  * [Installation](https://github.com/UB-Heidelberg/UBHD-OMPPortal/blob/master/static/docs/INSTALL.md)
+  
   
   * [Demo](#demo)  , [Features](#features)
-  * Plugins  [Solr Search](https://github.com/UB-Heidelberg/UBHD-OMPPortal/blob/master/static/docs/SOLR.md), [VGWort Pixel Import](https://github.com/UB-Heidelberg/UBHD-OMPPortal/blob/master/static/docs/VGWORT.md)
+  
   * [License](#license) and [Credits](#Credits)
 
 # Demo
@@ -15,7 +15,7 @@ UBHD-OMPPortal is a flexible, responsive Frontend portal for [pkp](https://pkp.s
 # Features
 - Responsive design (based on twitter bootstrap)
 - Easy multilingual support
-- Intergrated-HTML viewer (based on [lens](https://github.com/elifesciences/lens/))
+- Intergrated-HTML viewer
 - Native [JATS](http://jats.nlm.nih.gov/) XML support for OMP
 - Chapter level metadata for monographs and edited volumes
 - Social sharing  (without using external plugins)

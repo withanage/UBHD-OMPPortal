@@ -1,0 +1,24 @@
+{{bios = [(formatName(e.settings), e.settings.getLocalizedValue('biography', locale)) for e in editors]}}
+{{bios_role = "editor"}}
+{{if bios == []:}}
+    {{bios = [(formatName(a.settings), a.settings.getLocalizedValue('biography', locale)) for a in authors]}}
+    {{bios_role = "author"}}
+{{pass}}
+{{if bios:}}
+    {{num_bios = len([b for b in bios if b[1] != ""])}}
+    {{if bios_role != "author" or num_bios < 5:}}
+        {{if num_bios != 0:}}
+
+        <div class="separator"></div>
+        <div class="autor_biografie">
+            <p>
+            {{for contributor, bio in bios:}}
+                {{if bio:}}
+                    {{=XML(bio)}}
+                {{pass}}
+            {{pass}}
+            </p>
+        </div>
+        {{pass}}
+    {{pass}}
+{{pass}}

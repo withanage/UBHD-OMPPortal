@@ -10,6 +10,7 @@ settings = Storage()
 
 settings.migrate = True
 settings.title = 'Heidelberg University Publishing - heiUP'
+settings.short_title = 'heiUP'
 settings.subtitle = ''
 settings.author_email = 'heiup@ub.uni-heidelberg.de'
 settings.keywords = 'heiUP, Heidelberg University Publishing, Universitätsverlag Heidelberg, Universitätsbibliothek Heidelberg, Universität Heidelberg, digitales Publizieren, Open Access, omp, python, mysql, knv, onix'

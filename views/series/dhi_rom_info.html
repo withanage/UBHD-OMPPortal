@@ -1,0 +1,83 @@
+{{extend 'layout.html'}}
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+	
+            <div class="col-lg-3">
+                <article>
+                    <div class="post-image">
+		 	            {{=IMG(_src=URL('static','files/presses/6/series/54-series.jpg'))}}
+                  </div>
+                </article>
+                
+            </div>   
+
+            <div class="col-lg-6">
+               <article>
+
+
+     <div class="post-heading">
+        {{if session.forced_language =='de': }}
+        <h3>Online-Schriften des DHI Rom. Neue Reihe<br>
+        Pubblicazioni online del DHI Roma. Nuova serie</h3>
+		{{elif session.forced_language =='en': }}
+		<h3>Online-Schriften des DHI Rom. Neue Reihe<br>
+        Pubblicazioni online del DHI Roma. Nuova serie</h3>
+		{{pass}}
+     </div>
+      {{if session.forced_language =='de': }}
+<p><i>Online-Schriften des DHI Rom. Neue Reihe | Pubblicazioni online del DHI Roma. Nuova serie</i> ist eine Open-Access-Schriftenreihe, die vom Deutschen Historischen Institut in Rom herausgegeben wird. In mehreren Sprachen veröffentlicht sie wissenschaftliche Monografien, Aufsatzbände und Editionen zur italienischen Geschichte und Musikgeschichte sowie zur Geschichte der deutsch-italienischen Beziehungen in transregionalen bzw. transnationalen Zusammenhängen vom frühen Mittelalter bis zur jüngsten Vergangenheit. Alle Bände durchlaufen ein doppeltes Blind-Peer-Review.</p>
+<p>Die Bände 1 und 2 sowie die erste Auflage von Band 3 sind sowohl auf der Webseite des <a href="http://dhi-roma.it/index.php?id=online-schriften-dhi-rom" title="Homepage DHI ROM, Veröffentlichung DHI Roma">DHI Rom</a> als auch auf der Publikationsplattform der Max Weber Stiftung <a href="https://perspectivia.net/receive/pnet_mods_00000794" title="Publikationsplattform perspectivia.net, Online-Schriften des DHI Rom">perspectivia.net</a> erschienen.</p>
+  
+      
+      {{elif session.forced_language =='en': }}                 
+	  <p><i>Online-Schriften des DHI Rom. Neue Reihe | Pubblicazioni online del DHI Roma. Nuova serie</i> è una collana open access dell’Istituto Storico Germanico di Roma. In essa si pubblicano, in varie lingue, monografie, volumi collettanei ed edizioni di carattere scientifico sulla storia d'Italia e della musica italiana, nonché sulla storia dei rapporti italo-tedeschi, in contesti transregionali e transnazionali; l'arco temporale coperto si estende dal medioevo al passato più recente. Tutti i volumi sono sottoposti a doppia blind peer review.</p>
+<p>I volumi 1 e 2 e la prima edizione del volume 3 sono stati pubblicati sia sul sito web del <a href="http://dhi-roma.it/index.php?id=online-schriften-dhi-rom" title="Homepage DHI ROM, Publication DHI Roma">DHI Roma</a> che sulla piattaforma della fondazione Max Weber <a href="https://perspectivia.net/receive/pnet_mods_00000794" title="Publikationsplattform perspectivia.net, online publication DHI Rome">perspectivia.net</a>.</p>     
+
+<p><i>Online-Schriften des DHI Rom. Neue Reihe | Pubblicazioni online del DHI Roma. Nuova serie</i> is an open access series edited by the German Historical Institute in Rome. In various languages it publishes monographs, collective volumes and scientific editions on the history of Italy and Italian music as well as on the history of Italian-German relations in trans-regional and transnational contexts, covering the time frame between the Middle Ages to recent past. All volumes are subject to double-blind peer review.</p>
+<p>Volumes 1 and 2 as well as the first edition of volume 3 have been published on the website of the <a href="http://dhi-roma.it/index.php?id=online-schriften-dhi-rom" title="Homepage DHI ROM, Publication DHI Roma">DHI Rom</a> and on the publication platform of the Max Weber Foundation <a href="https://perspectivia.net/receive/pnet_mods_00000794" title="Publikationsplattform perspectivia.net, online publication DHI Rome">perspectivia.net</a>.</p>     
+        {{pass}}
+
+                    <div class="widget">
+                        <h5 class="widgetheading"></h5>
+                        <ul class="tags">          
+                            <li>{{=A(T('Volumes'),_href=URL('catalog','series/dhi_rom'))}}
+                        </ul>
+                    </div>
+
+
+                </article>
+                
+            </div>
+               <div class="col-lg-3">
+          <article>
+            <div class="box">
+
+			           <div class="box-gray alignleft" style="height: auto;">
+                 {{if session.forced_language =='de': }}
+                            <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographische Angaben</h5>
+							<p>Online-Schriften des DHI Rom. Neue Reihe | Pubblicazioni online del DHI Roma. Nuova serie <br>
+
+                            <p>Redaktion<br>
+							Prof. Dr. Alexander Koller<br>
+                            E-Mail: koller@dhi-roma.it<br> <br>
+                            Deutsches Historisches Institut Rom (DHIR)</p>
+
+             {{elif session.forced_language =='en': }}
+             
+             <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographic details</h5>                          
+                            <p>Online-Schriften des DHI Rom. Neue Reihe | Pubblicazioni online del DHI Roma. Nuova serie <br>
+
+                            <p>Editor<br>
+							Prof. Dr. Alexander Koller<br>
+                            E-Mail: koller@dhi-roma.it<br> <br>
+                            Deutsches Historisches Institut Rom (DHIR)</p>
+        
+        	{{pass}}
+        </div>   
+      </div>     
+    </article>                                     
+    </div>
+    </div>   
+</section>

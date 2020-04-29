@@ -1,159 +1,242 @@
 {{extend 'layout.html'}}
 <div id="main" class="container">
-    <div class="row">
+  
+    
+   <div class="row">
         <div class="col-lg-12">
-            <h3>  {{if session.forced_language =='de': }}
+
+            <h3>{{if session.forced_language =='de': }}
                 Vorschau
                 {{elif session.forced_language =='en': }}
                 Preview
             {{pass}}
-            </h3>
-        </div>   
-	</div>
-
-
-	<div class="row">
-        <div class="col-lg-12">
-            <h4>{{=T('Books')}}</h4>
-        </div>   
-	</div>
-	
-   <div class="row">
-        <div class="col-lg-12">
-
-		
-		<div class="container" id="becker" height="400px">
+            </h3>        
+        
+            <div class="container" id="vorschau" height="400px">
 		     <div class="row">
 				<div class="col-lg-2">
 					<article>
 						<div class="post-image">
-							{{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_becker.jpg'),_alt='', _class='bildrahmen')}}
+                            {{=A(IMG(_src=URL(myconf.take('web.application'),'static','images/about_us/profile/cover_programm.png'),_alt='', _class='bildrahmen'),_href=URL('static','/medien/heiUP_Programmheft2019.pdf'))}} 
+						</div>
+					</article>
+				</div>
+				<div class="col-lg-10">
+					<article>
+                        {{if session.forced_language =='de': }}
+						<div class="post-heading"><b>Vorschau und lieferbare Titel 2019/2020</b>
+						</div>
+                        <p>Alle zurzeit lieferbaren und bis Herbst 2020 geplanten Titel finden Sie in unserer aktuellen Verlagsvorschau.</p> 
+                        <p>
+                        <a href="{{=URL('static','/medien/heiUP_Programmheft2019.pdf')}}"><button class="btn btn-default" type="button">Download</button></a></p>
+                        {{elif session.forced_language =='en': }}
+						<div class="post-heading"><b>Publishing Programme 2019/2020</b>
+						</div>
+                        <p>All presently available and upcoming titles are listed in our current publisher's preview.</p>
+                        <p><a href="{{=URL('static','/medien/heiUP_Programmheft2019.pdf')}}"><button class="btn btn-default" type="button">Download</button></a></p>
+                        {{pass}}                        
+					</article>
+				</div>
+			</div>
+	     </div>
+         
+		    <h4>{{if session.forced_language =='de': }}
+                Erscheint in Kürze
+                {{elif session.forced_language =='en': }}
+                Coming soon
+            {{pass}}
+            </h4>
+            
+		<!--	<div class="container" id="mandoki" height="400px">
+		     <div class="row">
+				<div class="col-lg-2">
+					<article>
+						<div class="post-image">
+							{{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_mandoki.jpg'),_alt='', _class='bildrahmen')}}
 						</div>
 					</article>
 				</div>
 				<div class="col-lg-10">
 					<article>
 						<div class="post-heading">
-						    <b>Nadine Becker<br />
-							Die goldenen Siegelringe der Ägäischen Bronzezeit</b>
+						    <b>{{if session.forced_language =='de': }}Christiane Brosius, Roberta Mandoki (Hrsg.){{elif session.forced_language =='en': }}Christiane Brosius, Roberta Mandoki (Eds.){{pass}}<br />
+							Caring for Old Age. Perspectives from South Asia</b><br>
+							<i>Heidelberg Studies on Transculturality, 8</i>
 						</div>
 						
 						<p>
 						    {{if session.forced_language =='de': }}
-                        <p>
-						Aufgrund ihres hohen Materialwerts und ihrer aussagekräftigen Ikonographie fanden ägäische Siegelringe in der Forschung bereits mehrfach Beachtung. Dabei stand häufig die Analyse und Interpretation der Bilder im Fokus. Eine Gesamtbetrachtung dieser äußerst komplexen archäologischen Gattung und ihrer vielfältigen Funktionen innerhalb der minoisch-mykenischen Administration und Gesellschaft fehlte jedoch bisher. In der vorliegenden Arbeit werden erstmalig nicht nur erhaltene Ringe, sondern auch Abdrücke goldener Siegelringe auf Tonplomben systematisch untersucht, was ein neues Verständnis der Gattung und deren Wandel im Laufe der Ägäischen Bronzezeit ermöglicht.</p>
-						
-						<p>Erscheint Dezember 2018</p>
+                        <p>Neben zunehmender Urbanisierung und Mobilität erleben viele Gesellschaften gleichzeitig steigende Lebenserwartungen und ein Älterwerden ihrer Gesamtbevölkerung. Solch grundlegende demografische und strukturelle Veränderungen spiegeln sich in einer Vielzahl von Narrativen und Strategien wider, wie ein „gutes Alter(n)“ angesichts sich rapide transformierender Umgebungen, der Mobilität von Menschen und sich wandelnder sozialer Beziehungen aussehen kann. Dieser Band erforscht die transkulturellen Dimensionen von Alter(n) und Care in ethnografischen und literarischen Fallstudien sowohl in Südasien als auch in einer südasiatischen Studie in Europa. Die elf Beiträge dieses Bandes setzen sich kritisch mit eurozentrischen Aspekten in der Alter(n)sforschung auseinander und untersuchen, wie Perspektiven aus dem Globalen Süden transkulturelle Verflechtungen und Konnektivitäten von Care- und Alter(n)serfahrungen aufzeigen können.</p>                        
+						<p>Erscheint April 2020</p>
 
                         {{elif session.forced_language =='en': }}
-                        <p>
-						Due to their high material value and their meaningful iconography, Aegean signet rings have already attracted considerable attention in research. The focus was often on the analysis and interpretation of images, however, an overall consideration of this extremely complex archaeological genre and its diverse functions within the Minoan-Mycenaean administration and society was lacking so far. For the first time, not only preserved rings but also imprints of signet rings on sealings are systematically investigated in this work, which allows a new understanding of the material and its transformation during the Aegean Bronze Age.</p>                        
-						<p>Coming December 2018</p>
+                        <p>Many societies are experiencing growing longevity and population ageing simultaneously with increasing urbanization and mobilities. Such fundamental demographic and structural shifts have been reflected in a multitude of narratives and strategies how to “age well” in view of rapidly transforming environments, mobilities of people and changing social relations. This volume explores the transcultural dimensions of ageing and care through close-up ethnographic and literary case studies in South Asia, as well as one European case study from a South Asian researcher’s view. By critically engaging with Eurocentric aspects in ageing studies, the eleven contributions of this volume highlight how perspectives from the Global South shed light on transcultural entanglements and connectivities of experiences of care and ageing.</p>                        
+						<p>Coming April 2020</p>
                         {{pass}}
 						</p>
 					</article>
 				</div>
 			</div>
-		</div>
+		</div>      -->
     
-    <div class="container" id="dorpmueller" height="400px">
+		<div class="container" id="enderwitz" height="400px">
 		     <div class="row">
 				<div class="col-lg-2">
 					<article>
 						<div class="post-image">
-							{{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_dorpmueller.jpg'),_alt='', _class='bildrahmen')}}
+							{{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_enderwitz.jpg'),_alt='', _class='bildrahmen')}}
 						</div>
 					</article>
 				</div>
 				<div class="col-lg-10">
 					<article>
 						<div class="post-heading">
-						    <b>Sabine Dorpmüller, Jan Scholz, Max Stille, Ines Weinrich (Eds.)<br />
-							Religion and Aesthetic Experience: Drama – Sermons – Literature</b>
+						    <b>{{if session.forced_language =='de': }}Sarah Kiyanrad, Rebecca Sauer, Jan Scholz (Hrsg.){{elif session.forced_language =='en': }}Sarah Kiyanrad, Rebecca Sauer, Jan Scholz (Eds.){{pass}}<br />
+							{{if session.forced_language =='de': }}Islamische Selbstbilder. Festschrift für Susanne Enderwitz{{elif session.forced_language =='en': }}Islamic self portraits. Festschrift for Susanne Enderwitz{{pass}}</b>
 						</div>
 						
 						<p>
 						    {{if session.forced_language =='de': }}
-                        <p>
-Die Religionsästhetik hat in den vergangenen Jahren an Bedeutung innerhalb der Religions- und Islamwissenschaft gewonnen. Dieser Band betont die transkulturellen Dimensionen der theoretischen Grundlagen der Religionsästhetik und bietet Fallstudien über die Rolle ästhetischer Erfahrung in religiösen Kontexten. Diese umfassen islamische Predigten im Nahen Osten und Südasien, islamische religiöse Gesänge, ein Korankapitel, einen deutschen Performance-Künstler, indische rasa-Theorie und arabische wie bengalische Literatur. Zusammen zeigen die Autoren die Fruchtbarkeit der Analyse ästhetischer Formen von religiöser Vermittlung über verschiedene Regionen und Gattungen hinweg auf.</p>
-						
-						<p>Erscheint Dezember 2018</p>
+                        <p>In der Islamkunde wird seit einigen Jahren sehr lebhaft diskutiert, inwieweit „Horizonte des Individuellen“ in literarischen und dokumentarischen Quellen wahrnehmbar sind. Der Band ist bewusst nicht als kumulativ strukturierte Festgabe konzipiert, sondern soll vielmehr an fachwissenschaftlich relevante Diskussionen anknüpfen. Mit Beiträgen von Lale Behzadi, Michael Ursinus, Henning Sievert, Paula Schrode, Johannes Zimmermann, Ines Weinrich u.v.a.</p>                        
+						<p>Erscheint Frühjahr 2020</p>
 
                         {{elif session.forced_language =='en': }}
-                        <p>
-Religious aesthetics have gained increasing importance over the past few years in the fields of Religious studies and Islamic studies. This volume highlights the transcultural dimensions of the theoretical foundations of religious aesthetics. It explores aesthetic experience in the religious field through a series of case studies. These include Islamic sermons from the Middle East and South Asia, Islamic religious chanting, a chapter of the Qurʾān, a German performance artist, Indian rasa theory, and Arabic and Bengali literature. Together, the authors demonstrate that the analysis of the aesthetic forms of religious mediation across regions and genres is a fruitful approach to transcultural studies.</p>                        
-						<p>Coming December 2018</p>
+                        <p>Going beyond the framework of a mere “Festschrift” in cumulative terms, this volume aims at contributing to recent discussions in the subject area of Middle Eastern studies focusing on individual and autobiographical voices discernible in pre-modern and contemporary Muslim societies. This approach reflects Prof Susanne Enderwitz’ seminal works on the topics of autobiography/autofiction and Islamicate expressions of identity. Among the contributors are Lale Behzadi, Michael Ursinus, Henning Sievert, Paula Schrode, Johannes Zimmermann, Ines Weinrich, and many others.</p>                        
+						<p>Coming Spring 2020</p>
                         {{pass}}
 						</p>
 					</article>
 				</div>
 			</div>
-		</div>    
-		
-		<div class="container" id="bartelmann" height="400px">
+		</div>   
+    
+
+			<div class="container" id="regerat" height="400px">
 		     <div class="row">
 				<div class="col-lg-2">
 					<article>
 						<div class="post-image">
-							{{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_bartelmann.jpg'),_alt='', _class='bildrahmen')}}
+							{{=IMG(_src=URL(myconf.take('web.application'),'static','/files/presses/6/series/43-series.jpg'),_alt='', _class='bildrahmen')}}
 						</div>
 					</article>
 				</div>
 				<div class="col-lg-10">
 					<article>
 						<div class="post-heading">
-						  <b>Matthias Bartelmann<br />
-							   General Relativity</b>
+						    <b>Miriam Régerat-Kobitzsch<br />
+							»Cette reine qui fait une si piètre figure«</b><br>
+							<i>Pariser Historische Studien, 115</i>
+						</div>
+						
+						<p>
+						    {{if session.forced_language =='de': }}
+                        <p>Die französische Königin Maria von Medici (1575–1642) galt in der Nachwelt als vulgär, verschwenderisch, machtbesessen und intrigant, ja sogar als Gattenmörderin. Dies ist das Bild, das die männlich und national geprägte Geschichtsschreibung in Frankreich seit dem Ancien Régime von ihr vermittelt hat. Ihr kulturelles und politisches Wirken wurde hierbei zu einer unbedeutenden weiblichen und italienischen Klammer zwischen der Herrschaft Heinrichs IV. und dem Ministerium Richelieus reduziert. In den historischen Meistererzählungen des 19. Jahrhunderts diente die Schilderung vermeintlicher Verfehlungen Marias von Medici überdies als Beleg für den Siegeszug einer werdenden französischen Nation, die Widerstände immer erfolgreich überwunden hatte.</p>
+                        <p>Dieses Buch untersucht erstmals eingehend die bewegte Rezeption der umstrittenen zweiten Medici-Regentin im 19. Jahrhundert in Frankreich und setzt diese mit dem Bild in Perspektive, das zeitgleich in anderen europäischen Ländern von ihr entwickelt wurde. Warum überdauerten die negativen Motive ihrer Rezeption den Einschnitt der Revolution von 1789? Welchen Platz nahm diese Figur im historischen Diskurs einer sich zunehmend bürgerlich, republikanisch und laizistisch definierenden französischen Nation ein? Die Studie bietet tiefe Einblicke in die Verquickung von Geschichtsschreibung, Gesellschaft und Politik in der europaweiten Krisen- und Umbruchszeit des Nationalismus.
+                        </p>                        
+						<p>Erscheint Frühjahr 2020</p>
+
+                        {{elif session.forced_language =='en': }}
+                        <p>Die französische Königin Maria von Medici (1575–1642) galt in der Nachwelt als vulgär, verschwenderisch, machtbesessen und intrigant, ja sogar als Gattenmörderin. Dies ist das Bild, das die männlich und national geprägte Geschichtsschreibung in Frankreich seit dem Ancien Régime von ihr vermittelt hat. Ihr kulturelles und politisches Wirken wurde hierbei zu einer unbedeutenden weiblichen und italienischen Klammer zwischen der Herrschaft Heinrichs IV. und dem Ministerium Richelieus reduziert. In den historischen Meistererzählungen des 19. Jahrhunderts diente die Schilderung vermeintlicher Verfehlungen Marias von Medici überdies als Beleg für den Siegeszug einer werdenden französischen Nation, die Widerstände immer erfolgreich überwunden hatte.</p>
+                        <p>Dieses Buch untersucht erstmals eingehend die bewegte Rezeption der umstrittenen zweiten Medici-Regentin im 19. Jahrhundert in Frankreich und setzt diese mit dem Bild in Perspektive, das zeitgleich in anderen europäischen Ländern von ihr entwickelt wurde. Warum überdauerten die negativen Motive ihrer Rezeption den Einschnitt der Revolution von 1789? Welchen Platz nahm diese Figur im historischen Diskurs einer sich zunehmend bürgerlich, republikanisch und laizistisch definierenden französischen Nation ein? Die Studie bietet tiefe Einblicke in die Verquickung von Geschichtsschreibung, Gesellschaft und Politik in der europaweiten Krisen- und Umbruchszeit des Nationalismus.
+                        </p>                        
+						<p>Coming Spring 2020</p>
+                        {{pass}}
+						</p>
+					</article>
+				</div>
+			</div>
+		</div>   
+    
+
+
+		<!--<div class="container" id="wolbring" height="400px">
+		     <div class="row">
+				<div class="col-lg-2">
+					<article>
+						<div class="post-image">
+							{{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_wolbring.jpg'),_alt='', _class='bildrahmen')}}
+						</div>
+					</article>
+				</div>
+				<div class="col-lg-10">
+					<article>
+						<div class="post-heading">
+						  <b>Michael Wolbring<br />
+							   Melchior Goldast und der &sbquo;Codex Manesse&rsquo;. Mit besonderer Berücksichtigung seiner &sbquo;Hypomnemata in aulicorum Poetarum Carmina amatoria&rsquo;</b>
 						</div>
 						    {{if session.forced_language =='de': }}						
-            <p>Einsteins allgemeine Relativitätstheorie ist nach wie vor die gültige Theorie der Gravitation und hat sich in zahlreichen Tests und Messungen bewährt. Sie beruht auf einfachen Prinzipien und verbindet die Geometrie der Raumzeit mit deren Masse-Energie-Inhalt. In diesem Vorlesungsskript werden zunächst die physikalischen Grundlagen erläutert und die nötigen differentialgeometrischen Werkzeuge bereitgelegt. Nach der Begründung der Feldgleichungen wird die Bewegung im Gravitationsfeld besprochen und gezeigt, welche Eigenschaften schwacher Gravitationsfelder aus den Feldgleichungen folgen. Lösungen für kompakte Objekte und schwarze Löcher werden hergeleitet und diskutiert, ebenso wie kosmologische Modelle. Zwei astrophysikalische Anwendungen der allgemeinen Relativitätstheorie schließen das Skript ab.</p>
- 
-            <p>Erscheint Frühjahr 2019</p>
+            <p>In der Zeit um 1600 setzt sich der Schweizer Humanist und Jurist Melchior Goldast von Haiminsfeld (1576/78–1635) intensiv mit der Literatur des Mittelalters auseinander. Seine besondere Aufmerksamkeit findet die bedeutendste mittelalterliche Lyrikhandschrift in deutscher Sprache, der ›Codex Manesse‹. Goldast fertigt umfangreiche Notizen zu der Handschrift an, zitiert und ediert sie in Teilen in seinen gedruckten Werken und macht sie so erstmals einer größeren Öffentlichkeit bekannt. Mehr als die Begeisterung für die Lyrik des Mittelalters sind es aber vor allen Dingen tagespolitische Wirkinteressen, die den Calvinisten Goldast bei seiner Arbeit antreiben.</p>
+            <p>Erscheint Frühjahr 2020</p>
+            
                 {{elif session.forced_language =='en': }}
-						<p>Einstein‘s theory of general relativity is still the valid theory of gravity and has been confirmed by numerous tests and measurements. It is built upon simple principles and relates the geometry of space-time to its matter-energy content. These lecture notes begin by introducing the physical principles and by preparing the necessary mathematical tools taken from differential geometry. Beginning with Einstein’s field equations, which are introduced in two different ways in the lecture, the motion of test particles in a gravitational field is then discussed, and it is shown how the properties of weak gravitational fields follow from the field equations. Solutions for compact objects and black holes are derived and discussed as well as cosmological models. Two applications of general relativity to astrophysics conclude the lecture notes.</p>  
-             <p>Coming in Spring 2019</p>
+						<p>In the period around 1600, the Swiss humanist and lawyer Melchior Goldast von Haiminsfeld (1576/78–1635) focuses his scholarly work on the literature of the Middle Ages. His attention is particularly drawn to the most important medieval lyric manuscript in German, the Codex Manesse. Goldast makes extensive notes on the manuscript, quotes from it and edits parts of it, thus making it known to a wider public for the first time. Rather than an enthusiasm for the poetry of the Middle Ages, however, it is above all his interest in the politics of the day that motivates the Calvinist Goldast.</p>  
+             <p>Coming in Autumn/Winter 2019/20</p>
                         {{pass}}
 					</article>
 				</div>
 			</div>
-		</div>
-		
-		
-    <h4>{{=T('Series')}}</h4>
-			<div class="container" id="joerdens" height="400px">
+		</div>  -->
+  
+
+        <div class="container" id="guenkel" height="400px">
 		     <div class="row">
 				<div class="col-lg-2">
 					<article>
 						<div class="post-image">
-							{{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_joerdens.jpg'),_alt='', _class='bildrahmen')}}
+							{{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_guenkel.jpg'),_alt='', _class='bildrahmen')}}
 						</div>
 					</article>
 				</div>
 				<div class="col-lg-10">
 					<article>
 						<div class="post-heading">
-						    <b>Andrea Jördens, Joachim Friedrich Quack (Hg.)<br />
-							Studien und Texte aus der Heidelberger Papyrussammlung</b>
+						  <b>Ute Günkel-Maschek<br />
+							   Minoische Bild-Räume. Neue Untersuchungen zu den Wandmalereien des spätbronzezeitlichen Palastes von Knossos</b><br>
 						</div>
-						
-						<p>
-						    {{if session.forced_language =='de': }}
-                        <p>Die neue Reihe <i>Studien und Texte aus der Heidelberger Papyrussammlung</i> (STHP)  hat zum Ziel, eine Plattform für die mit der Sammlung verbundenen Publikationen zu bieten. Dies betrifft insbesondere die Herausgabe der dort aufbewahrten Papyri und Ostraka in griechischer, demotischer, koptischer und arabischer Sprache, ohne sich freilich auf reine Editionsbände zu beschränken. Einen Schwerpunkt bilden die am Institut angefertigten Dissertationen. Die STHP können dadurch als weithin sichtbarer Ausweis der vielfältigen Aktivitäten an der Heidelberger Papyrussammlung gelten.</p>
-                        <p>Die Reihe steht in der Nachfolge der 1954 begründeten <i>Veröffentlichungen aus der Heidelberger Papyrussammlung. Neue Folge</i> (VHP.NF), die bislang unter der Ägide der Heidelberger Akademie der Wissenschaften im Universitätsverlag Carl Winter erschien. Für die Herausgabe wird künftig ein Gremium hochrangiger Fachvertreter aus Papyrologie und Ägyptologie zuständig sein. Wie schon bisher, werden die Bände auch darüber hinaus weiterhin unter Beiziehung der zuständigen Fachkollegen betreut, was die hohe Qualität der bestens eingeführten Reihe auch in Zukunft verbürgt. Mit der parallelen Publikation in digitaler Form wird zudem ein direkter Zugriff auf die online gestellten Artefakte ermöglicht und damit die internationale Wahrnehmung der reichen Bestände an Papyri, Ostraka, Pergamenten und Papieren an der Heidelberger Papyrussammlung weiter gestärkt.
-                        </p>                        
-						<p>Erscheint demnächst</p>
-
-                        {{elif session.forced_language =='en': }}
-                        <p>The aim of the <i>Studien und Texte aus der Heidelberger Papyrussammlung</i> (STHP) series is to provide a home for publications related to the collection. In particular, it comprises editions of Greek, Demotic, Coptic, and Arabic papyri and ostraka, but is not limited to editions. Dissertations completed in the Institute constitute a special focus. Through this, the STHP will serve to witness the many and varied activities of the Heidelberg papyrus collection.</p>
-                        <p>Previously, the series was published under the auspices of the Heidelberg Academy of Sciences together with the University press Carl Winter. In the future, the director of the Institute for Papyrology will act as managing editor. As in the past, volumes will be reviewed by scholars in the field, which will ensure the continued high quality of the series. Parallel publication in digital form will guarantee direct online access to the artifacts, something that will further strengthen international recognition of the rich collection of papyrus, ostraka, parchment, and paper holdings in Heidelberg.
-                        </p>                        
-						<p>Coming soon</p>
+						    {{if session.forced_language =='de': }}						
+            <p>Der vorliegende Band stellt eine neue Analyse der Wandbilder vor, die vor über 100 Jahren an den Wänden des bedeutendsten Zentrums der minoischen Kultur, des Palastes von Knossos, gefunden wurden. Im Mittelpunkt der Untersuchungen steht der Begriff des Bild-Raums, eine theoretisch begründete, relationale Verknüpfung von Bildelementen, Menschen, Handlungen und Orten. Das Ziel ist es, basierend auf dem Wanddekor einzelner Gebäudetrakte ein besseres Verständnis der einst mit ihnen verbundenen Rituale, Ideen und Personen zu gewinnen. In ausführlichen Fallstudien werden die Bild-Räume dreier bedeutender Palastareale analysiert, rekonstruiert und in ihren spätbronzezeitlichen Kontext gestellt.</p>
+            <p>Erscheint Frühjahr 2020</p>
+            
+                {{elif session.forced_language =='en': }}
+						<p>This volume presents a new analysis of the wall paintings discovered over a hundred years ago in one of the most important centres of Minoan culture, the palace at Knossos. Introducing the theoretical concept of Bild-Raum, a relational construct linking pictorial elements with humans, actions and places, the aim is to produce new insights as to the types of rituals, ideas and people which can be related with individual parts of the palace based on the decoration painted on the walls. The images and architecture of three key areas of the palace are studied in broad detail, improving our understanding of performances and people involved and their role within the complex history of the Late Bronze Age palace at Knossos.</p>  
+             <p>Coming in Spring 2020</p>
                         {{pass}}
-						</p>
 					</article>
 				</div>
 			</div>
 		</div>
+		
+		<div class="container" id="wenzel" height="400px">
+		     <div class="row">
+				<div class="col-lg-2">
+					<article>
+						<div class="post-image">
+							{{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_ps.jpg'),_alt='', _class='bildrahmen')}}
+						</div>
+					</article>
+				</div>
+				<div class="col-lg-10">
+					<article>
+						<div class="post-heading">
+						  <b>Christian Wenzel<br />
+							   »Ruine d'estat«<br>
+							   Sicherheit in den Debatten der französischen Religionskriege, 1557–1589</b><br>
+							   <i>Pariser Historische Studien, 116</i>
+						</div>
+						    {{if session.forced_language =='de': }}						
+            <p>Sicherheit – ein für die französischen Religionskriege ebenso zentrales wie noch weitgehend unerforschtes Thema. Christian Wenzel analysiert Vorstellungen von Sicherheit sowie ihre Funktion in den französischen Religionskriegen erstmals systematisch und mit Blick auf zeitgenössische Deutungsmuster. Anschaulich zeichnet die Studie eine breite Sicherheitsdebatte nach, die die Konflikte zwischen 1557 und 1589 maßgeblich prägte. Das ermöglicht nicht nur eine neue Perspektive auf zentrale Knotenpunkte und Entwicklungslinien, sondern leistet mit dem hier entwickelten Konzept der »historischen Sicherheitskommunikation« auch einen Beitrag zur historischen Sicherheitsforschung und zeigt die Vielschichtigkeit frühneuzeitlicher Sicherheitsvorstellungen.</p>
+            <p>Erscheint Frühjahr 2020</p>
+            
+                {{elif session.forced_language =='en': }}
+						<p>Security – a category that is as important as neglected when it comes to the French Wars of Religion in the 16th century. Christian Wenzel systematically traces imaginations of security as well as their function in the French Wars of Religion for the first time, with a close focus on the perspective of the historical actors. The present study vividly recounts a broad security debate which influenced the conflicts between 1557 and 1589 to a significant degree. Thereby, the study enables not only new perspectives on pivotal junctions and processes; by introducing “Historical Security Communication” as a heuristic approach, it also contributes to Historical Security Studies and casts a light on the complexity of early modern semantics of security.</p>  
+             <p>Coming in Spring 2020</p>
+                        {{pass}}
+					</article>
+				</div>
+			</div>
+		</div>
+
+    
     </div>
 	</div>
 </div>

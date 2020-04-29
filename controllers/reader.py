@@ -9,6 +9,7 @@ LICENSE.md
 import os
 import json
 from ompdal import OMPDAL, OMPSettings, OMPItem
+import ompformat
 from os.path import exists
 import gluon
 
@@ -52,15 +53,12 @@ def index():
         cssStylesDict = json.loads(cssStylesStr)
         font_family = cssStylesDict.get('font-face').get('family') if  cssStylesDict.get('font-face') else 'Source Sans Pro'
 
-        authors_list = db((db.authors.submission_id == submission_id)).select(
-            db.authors.first_name, db.authors.last_name)
-        authors = ''
-        for i in authors_list:
-            authors += i.first_name + ' ' + i.last_name + ', '
-        if authors.endswith(', '):
-            authors = authors[:-2]
 
-        return dict(json_list=XML(gluon.serializers.json(json_list)), authors=authors, font_family=font_family)
+        authors = [OMPItem(author, OMPSettings(ompdal.getAuthorSettings(author.author_id)))
+                   for author in ompdal.getAuthorsBySubmission(submission_id)]
+        authors_string = ', '.join((ompformat.formatName(a.settings) for a in authors))
+
+        return dict(json_list=XML(gluon.serializers.json(json_list)), authors=authors_string, font_family=font_family)
     else:
         path = os.path.join(request.folder, 'static/files/presses', myconf.take('omp.press_id'), 'monographs',
                             submission_id, 'submission/', file_id)
@@ -88,9 +86,8 @@ def download():
     submission_file = request.args[1]
     path = os.path.join(request.folder, 'static/files/presses', myconf.take('omp.press_id'), 'monographs',
                         submission_id, 'submission/proof', submission_file)
-    response.headers['ContentType'] = "application/octet-stream"
-    response.headers[
-        'Content-Disposition'] = "attachment; filename=" + submission_file
+    response.headers['ContentType'] = "application/pdf"
+    #response.headers['Content-Disposition'] = "attachment; filename=" + submission_file
     return response.stream(path, chunk_size=1048576)
 
 

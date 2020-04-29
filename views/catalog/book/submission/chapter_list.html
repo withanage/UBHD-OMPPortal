@@ -1,0 +1,65 @@
+<div class="widget">
+{{if len(chapters) > 0:}}
+    <div id="downloadTable">
+        <div class="chapter_row table_head">
+            <div class="chapter_cell">{{=T('Contents')}}</div>
+                {{for pf in digital_publication_formats:}}
+                {{format_name=pf.settings.getLocalizedValue('name', locale)}}
+                {{if format_name != 'EPUB':}}
+                    <div class="chapter_cell">{{=TD(format_name)}}</div>
+                {{pass}}
+                {{pass}}
+            </div>
+    {{display_authors=haveMultipleAuthors(chapters)}}
+    {{for c in chapters:}}
+    {{c_title = c.settings.getLocalizedValue('title', locale)}}
+    {{c_subtitle = c.settings.getLocalizedValue('subtitle', locale)}}
+    {{c_pub_id_doi = c.settings._settings.get('pub-id::doi')}}
+    {{c_authors = c.associated_items.get('authors', [])}}
+    {{c_files = c.associated_items.get('files', [])}}
+    {{c_id = c.attributes.chapter_id}}
+        <div class="chapter_row">
+            <div class="chapter_cell">
+            {{if c_authors and display_authors:}}
+                <div class="chapter_author">{{=", ".join([formatName(a.settings) for a in c_authors])}}</div>
+            {{pass}}
+                <div class="chapter_title">
+                 {{if c_pub_id_doi:}}
+                {{=A(c_title,_href=URL('catalog','book',args=(submission_id, 'c'+str(c_id))))}}
+                 {{else:}}
+                {{=c_title}}
+                {{pass}}
+                </div>
+            {{if c_subtitle:}}
+                <div class="chapter_subtitle">{{=c_subtitle}}</div>
+
+            {{pass}}
+            </div>
+        {{for pf in digital_publication_formats:}}
+        {{format_name=pf.settings.getLocalizedValue('name', locale)}}
+        {{if format_name != 'EPUB':}}
+            <div class="chapter_cell">
+            {{if c_files:}}
+            {{c_file = c_files.get(pf.attributes.publication_format_id)}}
+            {{if c_file:}}
+            {{if "xml" in c_file.attributes.file_type or "html" in c_file.attributes.file_type:}}
+            {{css_class="fa fa-html5"}}
+            {{target='_blank'}}
+            {{else:}}
+            {{css_class="fa fa-file-text-o"}}
+            {{target='_self'}}
+            {{pass}}
+                <div class="chapter_file">
+
+                {{=A(I(_class=css_class),_target=target, _href=downloadLink(request, c_file.attributes, myconf.take('web.url'), c_file.settings.getLocalizedValue('vgWortPublic', '')))}}
+                </div>
+            {{pass}}
+            {{pass}}
+            </div>
+        {{pass}}
+        {{pass}}
+        </div>
+    {{pass}}
+    </div>
+</div>
+{{pass}}

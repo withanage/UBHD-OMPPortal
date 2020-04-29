@@ -1,25 +1,12 @@
 <div class="row">
-	<div id="autoren" class="col-lg-9 col-md-9 col-xs-7">
-	<h4>
-		{{editors = submission.associated_items.get('editors', [])}}
-		{{authors = submission.associated_items.get('authors', [])}}
-		{{if editors:}}
-			{{=formatContributors(editors, max_contributors=4)}}
-				{{if len(editors) > 1:}}
-					{{=T("(Eds.)")}}
-				{{else:}}
-					{{=T("(Ed.)")}}
-				{{pass}}
-		{{else:}}
-			{{=formatContributors(authors, max_contributors=4)}}
-		{{pass}}
-	</h4>
+	<div id="autoren" class="col-lg-9 col-md-12">
+	<h4>{{=submission.attribution}}</h4>
 	</div>
 
 
 		{{ category = submission.associated_items.get('category', None)}}
 		{{if category:}}
-	<div class="spartenmarker col-lg-3 col-md-3 col-xs-5">
+	<div class="spartenmarker col-lg-3 col-md-12">
 		{{category_path=ompdal.getCategory(category.attributes.get('category_id')).get('path')}}
 
 		{{=A(category.settings.getLocalizedValue('title', locale),_href=URL('category','info/'+str(category_path)))}}
@@ -35,3 +22,4 @@
 		<br />{{=subtitle}}
 	{{pass}}
 </h4>
+{{if submission.additional_attribution:}}<h5>{{=submission.additional_attribution}}</h5>{{pass}}

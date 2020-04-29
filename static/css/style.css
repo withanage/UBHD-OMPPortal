@@ -1,7 +1,7 @@
 /* ==== Google font ==== */
-	@import url(https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700,700italic&subset=latin,latin-ext);
-	/*@import url('http://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:300,400,600,700');
-*/
+	/*@import url(https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700,700italic&subset=latin,latin-ext);*/
+	@import url('fonts.css');
+
 	/**Originalfont des Templates:font-family:'Open Sans', Arial, sans-serif;
 */
 /* === prettify === */
@@ -39,6 +39,11 @@ h4.team_titel {
 	margin-bottom: 10px;
 	margin-top: 0;
 	line-height: 18px;
+}
+
+h4 {
+  margin-bottom: 10px; 
+  margin-top: 20px; 
 }
 /* ===================================2. layout==================================== */
 .container {
@@ -235,7 +240,6 @@ header ul.nav li ul li ul {
 	border-right: none;
 	border-bottom: none;
 	border-left: none;
-	border-bottom-color: none;
 	content: none;
 }
 ul.nav li.dropdown a {
@@ -265,8 +269,7 @@ select.selectmenu {
 }
 .flex-caption {
 	background: none;
-	-ms-filter: progid: DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endColorstr=#4C000000);
-	filter: progid: DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endColorstr=#4C000000);
+
 	zoom: 1;
 }
 .flex-caption {
@@ -339,6 +342,12 @@ section.callaction {
 .box-bottom a:hover {
 	color: #eee;
 	text-decoration: none;
+}
+
+a[href^="https://doi.org/10.17885"] {
+  word-break: break-all;
+  width: 170px;
+  display: block;
 }
 /* ===================================9. Section:Bottom==================================== */
 #bottom {
@@ -508,15 +517,16 @@ form#commentform textarea {
 }
 #thumbs li {
 	list-style-type: none;
+  height: auto;
 }
 .item-thumbs {
 	position: relative;
 	overflow: hidden;
-	margin-bottom: 30px;
 	cursor: pointer;
 }
-.item-thumbs a + img {
-	width: 100%;
+
+figure > img {
+  margin-top: 1em;
 }
 .item-thumbs .hover-wrap {
 	position: absolute;
@@ -581,7 +591,7 @@ ul.portfolio-categ li {
 }
 ul.portfolio-categ li a {
 	display: block;
-	padding: 35x 0 35x 0;
+	padding: 35px 0 35px 0;
 	color: #353535;
 }
 ul.portfolio-categ li.active a:hover, ul.portfolio-categ li a:hover, ul.portfolio-categ li a:focus, ul.portfolio-categ li a:active {
@@ -1028,7 +1038,7 @@ ul.meta-post li a {
 }
 .chapter_author {
 	color: #000;
-	font-size: 80%;
+	font-size: 100%;
 	font-style: italic;
 	margin-bottom: 0.2em;
 }
@@ -1271,8 +1281,6 @@ ul.time-post li {
 }
 ul.time-post li a img:hover {
 	opacity: 0.8;
-/* For IE 5-7 */
-	filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=80);
 /* For IE 8 8 */
 	-MS-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=80)";
 }
@@ -1295,7 +1303,6 @@ ul.time-post li.time {
 	color: #919191;
 }
 .post-meta strong {
-	font-weight: 200px;
 	color: #c7c7c7;
 }
 .item .text {
@@ -1642,10 +1649,18 @@ ul.portfolio li article a i {
 @media (max-width:360px) {
 }
 /*Änderungen WWW*/
+li.show {
+  display: list-item !important;
+}
+
 .bildrahmen, .post-image img {
 	border: 1px solid #cdcbcc;
 	width:100%;
-	max-width:300px;
+	max-width:300px !important;
+}
+
+.post-image > a[href^="https://doi.org/10.17885"] {
+  width: 100%; 
 }
 .container {
 	padding: 0;
@@ -1727,9 +1742,19 @@ li.active {
 	border: none;
 }
 /**Inhaltsbereich**/
+
+/* Buch Download-Button auf Buchseite */
+
+#dropdownMenu1 {
+  background: #900;
+  color: white;
+}
+    
 .box-gray h4 {
 	text-align: left;
 }
+
+
 .boxText {
 	text-align: left;
 }
@@ -1777,20 +1802,16 @@ li.active {
 	background: #f8f8f8 !important;
 	height: 25em !important;
 }
-/* Inhalte iframeÄnderung?.timeline-Header-title {
-	font-size: 14px;
-}
-.SandboxRoot .timeline-Tweet-text {
-	font-size: 12px !important;
-	line-height: 16px !important;
-}
-.timeline-Widget {
-	background: transparent;
-}
-.timeline-footer {
-	background: #f5f5f5;
-}
-*/
+
+
+/*'Empfohlene Zitierweise' auf Buch-Seiten - doi-Angaben-Umbruch in Chrome */
+
+a[href^="https://doi.org/10.17885"] {
+  word-break: break-word;
+  width: 210px;
+  display: block;
+}  
+
 #infoBoxRechts {
 	float: right;
 }
@@ -1799,6 +1820,7 @@ li.active {
 }
 .widget ul.tags li a {
 	color: #FFF;
+  width: auto;
 }
 .navbar-default .navbar-nav > .open > a {
 	padding-left: 10px;
@@ -1836,6 +1858,8 @@ ul.standard li {
 	content: "■";
 	font-size: 165%;
 }
+
+
 /*Filterfunktion Seite catalog*/
 .dropdown-menu li a {
 	border-bottom: 0;
@@ -1916,7 +1940,7 @@ footer {
 	display: none;
 }
 @media (max-width:220px) {
-#spartenmarker:: after {
+#spartenmarker::after {
 	content: none;
 }
 #autoren {
@@ -1938,6 +1962,13 @@ footer {
 	width: 70%;
 }
 }
+
+@media (max-width: 592px) {
+#thumbs li {
+  height: 210px;  
+}
+
+}
 @media (max-width:776px) {
 #nav-social-media  {
   padding-right: 25px;
@@ -1958,6 +1989,10 @@ footer {
 	padding-right: 0;
 }
 
+.spartenmarker {
+    text-align: left;
+}
+
 }
 @media (max-width:1199px) {
 .box-gray {
@@ -1969,6 +2004,13 @@ footer {
  {
 .navbar .nav > li > a {
 	margin-left: 10px;
+}
+}
+
+@media (min-width: 1200px)
+{
+#thumbs li {
+  height: 230px;  
 }
 }
 /***Printstyle ***/
@@ -1989,7 +2031,7 @@ footer {
 }
 .print-url::after {
 	color: #656565 !important;
-	content: "http://heiup.uni-heidelberg.de";
+	content: "https://heiup.uni-heidelberg.de";
 	float: right;
 	font-size: 9pt;
 }

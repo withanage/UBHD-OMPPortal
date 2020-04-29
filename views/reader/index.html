@@ -3,6 +3,7 @@
 <meta charset="UTF-8">
 <head>
     <title>{{=myconf.take("web.application")}} {{=authors}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic -->
     <link href="{{=URL('static','css/fonts.css')}}" rel='stylesheet'   type='text/css'>
 
@@ -28,7 +29,7 @@
 
 
     </script>
-    <script type="text/javascript" src="https://beta.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML-full"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=MML_HTMLorMML-full"></script>
     <!--script type="text/javascript" src="{{=URL('static','js/MathJax.js')}}"/-->
     <script type="text/javascript">
         let locales = {
@@ -43,8 +44,8 @@
         };
         var qs = {};
         qs.url = [window.location.origin,'{{=myconf.take("web.application")}}',
-            'static', 'files', 'presses',  '{{=myconf.take("omp.press_id")}}', 'monographs',
-            '{{=request.args[0]}}','submission', 'proof','{{=request.args[1]}}'].join('/');
+            'reader','download',
+            '{{=request.args[0]}}','{{=request.args[1]}}'].join('/');
         var documentURL = "data/example.xml";
         $(function() {
 
