@@ -45,8 +45,10 @@ static/monographs
 static/series
 static/utils/bookStatsConfig.json
 static/utils/vgwort.xls
+static/utils/doi.xlsx
 static/utils/*.log
 static/files
+static/sitemap.xml
 private/*
 errors/*
 private/

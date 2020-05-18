@@ -50,7 +50,7 @@ def index():
                                           OMPItem(u, OMPSettings(ompdal.getCategorySettings(u.category_id)))
                                           for u in ompdal.getCategoriesBySeries(row.series_id)]
                                       }))
-
-    all_series.sort(key=lambda s: cur_locale.strxfrm(s.settings.getLocalizedValue('title', lang)))
+    # order by title
+    # all_series.sort(key=lambda s: cur_locale.strxfrm(s.settings.getLocalizedValue('title', lang)))
 
     return locals()

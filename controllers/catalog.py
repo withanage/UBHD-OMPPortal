@@ -140,9 +140,10 @@ def series():
         ompdal.getSeriesSettings(series_row.series_id)))
     submission_rows = ompdal.getSubmissionsBySeries(
         series_row.series_id, ignored_submission_id=ignored_submission_id, status=3)
-    submissions = []
-    for submission_row in submission_rows:
-        # Get contributors and contributor settings
+    submissions = {}
+
+    for row_id, submission_row in enumerate(submission_rows):
+
         contributors_by_group = defaultdict(list)
         for contrib in ompdal.getAuthorsBySubmission(submission_row.submission_id, filter_browse=True):
             contrib_item = OMPItem(contrib, OMPSettings(ompdal.getAuthorSettings(contrib.author_id)))
@@ -152,14 +153,13 @@ def series():
         authors = contributors_by_group[myconf.take('omp.author_id', cast=int)]
         chapter_authors = contributors_by_group[myconf.take('omp.chapter_author_id', cast=int)]
         translators = []
-
         if myconf.get('omp.translator_id'):
             translators = contributors_by_group[int(myconf.take('omp.translator_id'))]
         submission = OMPItem(submission_row,
                              OMPSettings(ompdal.getSubmissionSettings(
                                  submission_row.submission_id)),
-                             {'authors': authors, 'editors': editors, 'translators': translators,
-                             'chapter_authors': chapter_authors})
+                             {'authors': authors, 'editors': editors, 'chapter_authors': chapter_authors}
+                             )
         if authors:
             attribution = ompformat.formatContributors(authors, max_contributors=4, with_and=True)
             additional_attribution = ompformat.formatAttribution(editors, [], translators, [])
@@ -180,13 +180,12 @@ def series():
                              ompdal.getPublicationDatesByPublicationFormat(pf.publication_format_id)]
         if publication_dates:
             submission.associated_items['publication_dates'] = publication_dates
-        submissions.append(submission)
+        order_id = submission_row.series_position if submission_row.get('series_position') else row_id
+        submissions[order_id] = submission
 
-    sort_option = ompdal.getSeriesSettings(series_row.series_id).find(lambda row: row.setting_name == 'sortOption')
-    sortby = sort_option.first()
-    b = Browser(submissions, 0, locale, 100, sortby.get('setting_value'), [])
-    submissions = b.process_submissions(submissions)
-
+    import natsort as ns
+    s = ns.natsorted(submissions.items(), reverse=True)
+    submissions = [i[1] for i in s]
     series.associated_items['submissions'] = submissions
 
     return locals()
@@ -271,10 +270,10 @@ def index():
     page_end = (current_page+1) * session.per_page
 
 
-    submission_rows = ompdal.getSubmissionsRangeByPress(press.press_id, page_begin, page_end,
-                                                        ignored_submission_id)
+    submission_rows = ompdal.getPublishedSubmissionsRangeByPressSorted(
+        press.press_id, page_begin, page_end, ignored_submission_id, order_by_ascending=False)
 
-    for submission_row in submission_rows:
+    for submission_row in (row.submissions for row in submission_rows):
         # Get contributors and contributor settings
         contributors_by_group = defaultdict(list)
         for contrib in ompdal.getAuthorsBySubmission(submission_row.submission_id, filter_browse=True):
