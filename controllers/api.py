@@ -4,7 +4,6 @@ Copyright (c) 2015 Heidelberg University Library
 Distributed under the GNU GPL v3. For full terms see the file
 LICENSE.md
 '''
-#import gluon.contrib.simplejson as sj # nicht löschen
 from ompdal import OMPDAL
 from ompcsl import OMPCSL
 from os.path import join
@@ -379,7 +378,7 @@ def oastatistik():
 
             result.append(chs_)
 
-    return sj.dumps(result, separators=(',', ':'))
+    return response.json(result)
 
 
 def get_submission_files(book_id):
