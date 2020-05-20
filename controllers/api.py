@@ -4,7 +4,7 @@ Copyright (c) 2015 Heidelberg University Library
 Distributed under the GNU GPL v3. For full terms see the file
 LICENSE.md
 '''
-import gluon.contrib.simplejson as sj # nicht löschen
+#import gluon.contrib.simplejson as sj # nicht löschen
 from ompdal import OMPDAL
 from ompcsl import OMPCSL
 from os.path import join
@@ -71,10 +71,12 @@ def getAuthorList(submission_id, chapter_id=0):
     ugs = db.user_group_settings
     sca = db.submission_chapter_authors
     if chapter_id > 0:
-        contribs = db(sca.chapter_id == chapter_id).select(sca.author_id, distinct=True).as_list()
+        contribs = db(
+            (sca.submission_id == submission_id)
+            & (sca.chapter_id == chapter_id)
+            & (sca.author_id != 0)).select(sca.author_id, distinct=True).as_list()
     else:
-        contribs = db((aut.submission_id == submission_id) & (aut.user_group_id == ugs.user_group_id) & (ugs.setting_name=='abbrev') & (ugs.setting_value != "CA")).select(aut.author_id, distinct=True).as_list()
-
+        contribs = db((aut.submission_id == submission_id) & (aut.user_group_id == ugs.user_group_id) & (ugs.setting_name=='abbrev') & (ugs.setting_value != "CA")).select(aut.author_id, distinct=True).as_list()    
     authors = []
     for contrib in contribs:
         author = {}
