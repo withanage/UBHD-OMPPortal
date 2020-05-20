@@ -4,42 +4,43 @@
 		<div class="col-lg-9">
 			<form class="form-horizontal" id="graphq-form" action="https://digi.ub.uni-heidelberg.de/Suchindex/cgi-bin/graphq.cgi">
 				<input name="ui_lang" type="hidden" value="{{=session.forced_language}}">
+				<input name="resultset_restriction" type="hidden" value="higher">
+				<input name="fq" type="hidden" value="url_s:https\:\/\/heiup.uni-heidelberg.de*">				
 				<div class="form-group">
 					<label for="inputQuery1" class="col-sm-2 control-label">Begriff</label>
 					<div class="col-sm-10">
 						<input id="inputQuery1" type="text" name="q" class="form-control" placeholder="Suchbegriff" value="{{=q}}">
 					</div>
 				</div>
-				<div class="form-inline">
-					<div class="form-group">
-						<label for="inputSort" data-text='sort by'>Sortiere nach</label>
-						<select id="inputSort" name="sort" class="form-control input-sm"></select>
-					</div>
-					<button name='begin'>
-						<i class="fa fa-fast-backward"></i>
-					</button>
-					<button name='back'>
-						<i class="fa fa-caret-left fa-lg"></i>
-					</button>
-					<select name="start">
-						<!-- hier KEINE <option> anlegen, die würde sonst bei form.serialize() berücksichtigt!-->
-					</select>
-					<button name='forward'>
-						<i class="fa fa-caret-right fa-lg"></i>
-					</button>
-					<button name='end'>
-						<i class="fa fa-fast-forward"></i>
-					</button>
-				</div>
-				 <div class="form-group">
+				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
 						<input data-text='search' type="submit" value="">
 					</div>
 				</div>
-				<input name="resultset_restriction" type="hidden" value="higher">
-				<input name="fq" type="hidden" value="domain_s:heiup.uni-heidelberg.de">
+				<div class="form-inline">
+					<div class="form-group">
+						<label for="inputSort" class="control-label" data-text='sort by'>Sortiere nach</label>
+						<select id="inputSort" name="sort" class="form-control input-sm"></select>
+					</div>
+					<div class="btn-group" role="group" aria-label="Pagination">
+						<button name='begin' class="btn btn-default">
+							<i class="fa fa-fast-backward"></i>
+						</button>
+						<button name='back' class="btn btn-default">
+							<i class="fa fa-caret-left fa-lg"></i>
+						</button>
+						<select name="start" class="btn btn-default">
+							<!-- hier KEINE <option> anlegen, die würde sonst bei form.serialize() berücksichtigt!-->
+						</select>
+						<button name='forward' class="btn btn-default">
+							<i class="fa fa-caret-right fa-lg"></i>
+						</button>
+						<button name='end' class="btn btn-default">
+							<i class="fa fa-fast-forward"></i>
+						</button>
+					</div>
+				</div>				
 			</form>
-
 			<div id="graphq-result">
 			</div>
 		</div>
@@ -76,23 +77,42 @@ ul.hits { /* komplette Treffer Highlighting-Zeilen */
 	margin-left: 0;
 }
 
+ul.hierarchy {
+	padding-left: 0;
+	margin-left: 0;
+}
+
+
+ul.hierarchy li a .hit_highlight,
+ul.highlighting li a .hit_highlight {
+   font-weight:bold;
+   text-decoration:none;
+   font-style:italic;
+}
+
 /* Highlighting-Zeilen aus nicht-angezeigten Metadaten */
 ul[class*='highlighting_meta'] li a {
 	font-family:monospace;
 }
 
 ul.highlighting {
-	margin-left: 1.2em;
+	margin-left: 0;
 	list-style-type: none;
 }
+
 ul[class*=highlighting_text] li:after{ /* TODO: müsste eigentlich NICHT highlighting_meta_... sein */
 	content: " ...";
 }
 ul.highlighting li a {
 	color: #444;
-}
-a {
 	text-decoration: none;
+}
+
+ul.highlighting li a:before {
+   font-family: FontAwesome;
+   content:"\f016";
+   margin-right:8px;
+   font-style:normal;
 }
 
 /* Docs aus journals.ub */
@@ -117,7 +137,7 @@ li.hit {
 	clear: left;
 }
 
-li.hit ul {
+li.hit ul.highlighting {
 	padding-left: 42px;
 }
 
@@ -209,7 +229,7 @@ li em {
 	max-width: 15%;
 	display: table-cell;
 }
-.facet div table tr td:hover {
+.facet_entry:hover {
 	background-color: #eee;
 }
 .facet ul {
@@ -218,7 +238,7 @@ li em {
 	margin-bottom: 0;
 	list-style-type: none;
 }
-.facet ul li:hover {
+ul.facet_applied li:hover {
 	text-decoration: line-through;
 	background-color: #eee;
 }
@@ -252,18 +272,19 @@ $(function () { // "=" document.ready
 	gqc.result = $('#graphq-result');
 	gqc.result_facet = $('#graphq-result-facet');
 	gqc.facetParameterStr = '&facet=true&facet.mincount=1' +
-					'&facet.field=type_s' + // '&facet.field={!ex=type_s}type_s' -- siehe auch graphq.js/getFilterByFacet() -- geht noch nicht - org.apache.solr.search.SyntaxError: Expected identifier at pos 8 str='{!graph !tag=$_tt0 from=$_tt1 v=$_tt2 to=$_tt3 }'
-					'&facet.field=meta_name_ss' +
-					'&facet.field=meta_periodical_title_s' +
-					'&facet.field=meta_subject_ss' +
-					'&facet.field=meta_name_aut_firstchar_ss' +
-					'&facet.field=meta_language_ss' +
-					'&facet.field=parent_ids' +
-					'&f.parent_ids.facet.contains=/classification/' +
-					'&facet.range=meta_date_dtrs' +
-					'&f.meta_date_dtrs.facet.range.start=0000-01-01T00:00:00Z' +
-					'&f.meta_date_dtrs.facet.range.end=2100-01-01T00:00:00Z' +
-					'&f.meta_date_dtrs.facet.range.gap=%2B1YEAR'; // +1YEAR */
+          '&facet.field=type_s' + // '&facet.field={!ex=type_s}type_s' -- siehe auch graphq.js/getFilterByFacet() -- geht noch nicht - org.apache.solr.search.SyntaxError: Expected identifier at pos 8 str='{!graph !tag=$_tt0 from=$_tt1 v=$_tt2 to=$_tt3 }'
+          '&facet.field=meta_name_ss' +
+          '&facet.field=meta_periodical_title_s' +
+          '&facet.field=meta_subject_ss' +
+          '&facet.field=meta_name_aut_firstchar_ss' +
+          '&facet.field=meta_language_ss' +
+          '&facet.field=parent_ids' +
+          '&f.parent_ids.facet.matches=/classification/%28$3F%21by_%29' + // negative lookahead: no /classification/by_
+          '&facet.range=meta_date_dtrs' +
+          '&f.meta_date_dtrs.facet.range.start=0000-01-01T00:00:00Z' +
+          '&f.meta_date_dtrs.facet.range.end=2100-01-01T00:00:00Z' +
+          '&f.meta_date_dtrs.facet.range.gap=%2B1YEAR' + // +1YEAR
+          '&f.meta_date_dtrs.facet.mincount=1'; // no .range ??
 
 	// TODO up.ui_lang[0]? Aber dann auch <input name='ui_lang' type='hidden'...> anlegen!
 	if (gqc.form.find('input[name="ui_lang"]').length > 0) {
