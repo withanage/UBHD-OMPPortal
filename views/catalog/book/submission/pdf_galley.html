@@ -1,7 +1,7 @@
 {{if [(pf.associated_items.get('full_file', None).attributes.file_type != "text/html" or pf.associated_items.get('full_file', None).attributes.file_type != "text/xml") for pf in digital_publication_formats if pf.associated_items.get('full_file', None)].count(True):}}
 <div class="btn-group" role="group" aria-label="2">
 {{
-cts = [T('Book Download'),SPAN(_class="caret")]
+cts = [T('Book Download (PDF)'),SPAN(_class="caret")]
 attrbs = {"_class":"btn btn-default dropdown-toggle", "_type":"button", "_id":"dropdownMenu1", "_data-toggle":"dropdown", "_aria-expanded":"true"}
 =BUTTON(*cts,**attrbs)
 
