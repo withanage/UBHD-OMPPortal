@@ -1743,7 +1743,16 @@ li.active {
 }
 /**Inhaltsbereich**/
 
-/* Buch Download-Button auf Buchseite */
+/* Button-Leiste auf Buchseite */
+
+.summary > .btn-group:first-child > .btn.btn-default:first-child {
+  background: #900;
+}
+
+.summary > .btn-group:first-child > .btn.btn-default:first-child > a {
+    color: #ffffff;
+}
+
 
 #dropdownMenu1 {
   background: #900;
