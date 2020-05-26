@@ -7,7 +7,7 @@ LICENSE.md
 from ompdal import OMPDAL
 from ompcsl import OMPCSL
 from os.path import join
-from ompformat import dateFromRow, seriesPositionCompare, formatDoi, dateToStr, downloadLink
+from ompformat import dateFromRow, seriesPositionCompare, formatDoi, dateToStr, downloadLink, coverImageLink
 import re
 
 response.headers['Content-Type'] = 'application/json'
@@ -271,6 +271,8 @@ def submission():
 
         chapters.append(ch)
     item["chapters"] = chapters
+    # cover image url    
+    item["coverImageUrl"] = coverImageLink(request, context_id, submission_id)
     return response.json(item)
 
 
