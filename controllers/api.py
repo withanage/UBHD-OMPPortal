@@ -272,7 +272,7 @@ def submission():
         chapters.append(ch)
     item["chapters"] = chapters
     # cover image url    
-    item["coverImageUrl"] = coverImageLink(request, context_id, submission_id)
+    item["coverImageUrl"] = web_url + coverImageLink(request, context_id, submission_id)
     return response.json(item)
 
 
