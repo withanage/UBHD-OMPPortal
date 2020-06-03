@@ -263,13 +263,13 @@ ul.facet_applied li:hover {
 import { getUrlParameters, GraphQueryClient } from 'https://digi.ub.uni-heidelberg.de/Suchindex/htdocs/graphq.js';
 let gqc;
 $(function () { // "=" document.ready
-	gqc = new GraphQueryClient();
+  gqc = new GraphQueryClient();
 
-	gqc.prepareDocOpt.hl = true;
-	gqc.form = $('#graphq-form');
-	gqc.result = $('#graphq-result');
-	gqc.result_facet = $('#graphq-result-facet');
-	gqc.facetParameterStr = '&facet=true&facet.mincount=1' +
+  gqc.prepareDocOpt.hl = true;
+  gqc.form = $('#graphq-form');
+  gqc.result = $('#graphq-result');
+  gqc.result_facet = $('#graphq-result-facet');
+  gqc.facetParameterStr = '&facet=true&facet.mincount=1' +
           '&facet.field=type_s' + // '&facet.field={!ex=type_s}type_s' -- siehe auch graphq.js/getFilterByFacet() -- geht noch nicht - org.apache.solr.search.SyntaxError: Expected identifier at pos 8 str='{!graph !tag=$_tt0 from=$_tt1 v=$_tt2 to=$_tt3 }'
           '&facet.field=meta_name_ss' +
           '&facet.field=meta_periodical_title_s' +
@@ -277,87 +277,99 @@ $(function () { // "=" document.ready
           '&facet.field=meta_name_aut_firstchar_ss' +
           '&facet.field=meta_language_ss' +
           '&facet.field=parent_ids' +
-          '&f.parent_ids.facet.matches=/classification/%28$3F%21by_%29' + // negative lookahead: no /classification/by_
+          '&facet.field=domain_s' +
+          // OOPS ^ und $ sind implizit??
+          '&f.parent_ids.facet.matches=' + encodeURIComponent('((/??.*?)??/classification/(?!by_)|/digi\\.ub\\.uni-heidelberg\\.de/collection/sammlung).*') + // (?!...) = negative lookahead: no /classification/by_
           '&facet.range=meta_date_dtrs' +
           '&f.meta_date_dtrs.facet.range.start=0000-01-01T00:00:00Z' +
           '&f.meta_date_dtrs.facet.range.end=2100-01-01T00:00:00Z' +
           '&f.meta_date_dtrs.facet.range.gap=%2B1YEAR' + // +1YEAR
           '&f.meta_date_dtrs.facet.mincount=1'; // no .range ??
 
-	// TODO up.ui_lang[0]? Aber dann auch <input name='ui_lang' type='hidden'...> anlegen!
-	if (gqc.form.find('input[name="ui_lang"]').length > 0) {
-		gqc.ui_lang = gqc.form.find('input[name="ui_lang"]')[0].value.replace(/^de.*/, 'ger').replace(/^en.*/, 'eng').replace(/^it.*/, 'ita');
-	}
+  // TODO up.ui_lang[0]? Aber dann auch <input name='ui_lang' type='hidden'...> anlegen!
+  if (gqc.form.find('input[name="ui_lang"]').length > 0) {
+    gqc.ui_lang = gqc.form.find('input[name="ui_lang"]')[0].value.replace(/^de.*/, 'ger').replace(/^en.*/, 'eng').replace(/^it.*/, 'ita');
+  }
 
-	const rr = gqc.form.find('select[name="resultset_restriction"]');
-	'auto,higher,lower,none'.split(',').forEach(w => {
-		$(`<option value='${w}'>` + gqc.translate(`resultset_restriction|${w}`) + '</option>').appendTo(rr);
-	});
-	const so = gqc.form.find('select[name="sort"]');
-	'sort_title_s asc,sort_name_s asc,sort_shelflocator_s asc,sort_date_dt asc,score asc'.split(',').forEach(w => {
-		$(`<option value='${w}'>` + gqc.translate(`sort|${w}`) + '</option>').appendTo(so);
-	});
-	const qfo = gqc.form.find('select[name="qf"]');
-	',m,meta_title_txt,meta_name_txt,meta_name_aut_txt,meta_subject_txt,meta_classification_txt,meta_shelflocator_txt,t'.split(',').forEach(w => {
-		$(`<option value='${w}'>` + gqc.translate(`qf|${w}`) + '</option>').appendTo(qfo); // befüllt tatsächlich alle qfo's
-	});
+  const rr = gqc.form.find('select[name="resultset_restriction"]');
+  'auto,higher,lower,none'.split(',').forEach(w => {
+    $(`<option value='${w}'>` + gqc.translate(`resultset_restriction|${w}`) + '</option>').appendTo(rr);
+  });
+  const so = gqc.form.find('select[name="sort"]');
+  'sort_title_s asc;sort_name_s asc;sort_shelflocator_s asc;sort_date_dt asc;score asc;if(eq(strdist("journals.ub.uni-heidelberg.de",domain_s,edit),1), 200, if(eq(strdist("digi.ub.uni-heidelberg.de",domain_s,edit),1), 300, 100)) asc,sort_title_s asc;if(eq(strdist("journals.ub.uni-heidelberg.de",domain_s,edit),1), 200, if(eq(strdist("digi.ub.uni-heidelberg.de",domain_s,edit),1), 300, 100)) asc,sort_name_s asc;if(eq(strdist("journals.ub.uni-heidelberg.de",domain_s,edit),1), 200, if(eq(strdist("digi.ub.uni-heidelberg.de",domain_s,edit),1), 300, 100)) asc,sort_date_dt asc'.split(';').forEach(w => {
+    $(`<option value='${w}'>` + gqc.translate(`sort|${w}`) + '</option>').appendTo(so);
+  });
+  let selNr = 0;
+  const qfo = gqc.form.find('select[name="qf"]');
 
-	const up = getUrlParameters();
-	if (typeof up.q !== 'undefined') {
-		if (typeof up.q[0] !== 'undefined') gqc.form.find('input[name="q"]')[0].value = up.q[0];
-		if (typeof up.q[1] !== 'undefined') gqc.form.find('input[name="q"]')[1].value = up.q[1];
-		if (typeof up.q[2] !== 'undefined') gqc.form.find('input[name="q"]')[2].value = up.q[2];
-		if (typeof up.q[3] !== 'undefined') gqc.form.find('input[name="q"]')[3].value = up.q[3];
-	}
-	if (typeof up.fq !== 'undefined') {
-		if (typeof up.fq[0] !== 'undefined') gqc.form.find('input[name="fq"]')[0].value = up.fq[0];
-		if (typeof up.fq[1] !== 'undefined') gqc.form.find('input[name="fq"]')[1].value = up.fq[1];
-		if (typeof up.fq[2] !== 'undefined') gqc.form.find('input[name="fq"]')[2].value = up.fq[2];
-	}
-	if (typeof up.resultset_restriction !== 'undefined') gqc.form.find('select[name="resultset_restriction"]').val(up.resultset_restriction[0]);
-	if (typeof up.sort !== 'undefined') gqc.form.find('select[name="sort"]').val(up.sort[0]);
-	if (typeof up.start !== 'undefined') {
-		const s = gqc.form.find('select[name="start"]');
-		$(`<option value='${up.start}'>${up.start + 1}</option>`).appendTo(s); // es gibt noch keine <option> in html
-	}
-	gqc.prevQuery = gqc.form.serialize().replace(/&start=\d+/, ''); // damit nicht wegen "changed" query gleich wieder auf 0 zurückgesetzt wird
+  for(let i = 0; i < qfo.length; i++) {
+    ',m,meta_title_txt,meta_name_txt,meta_name_aut_txt,meta_date_txt,meta_subject_txt,meta_classification_txt,meta_shelflocator_txt,t'.split(',').forEach(w => {
+      let selected = '';
+      if (selNr === 0 && w === 'meta_name_txt') selected = 'selected';
+      if (selNr === 1 && w === 'meta_title_txt') selected = 'selected';
+      if (selNr === 2 && w === 'meta_subject_txt') selected = 'selected';
+      if (selNr === 3 && w === '') selected = 'selected';
+      $(`<option value='${w}' ${selected}>` + gqc.translate(`qf|${w}`) + '</option>').appendTo(qfo[i]);
+    });
+    selNr++;
+  };
 
-	// Übersetzungen:
-	gqc.form.find('[data-text]').each((i, o) => {
-		o = $(o);
-		const tn = o.prop('tagName');
-		const t = gqc.translate(o.attr('data-text'));
-		if (tn === 'SPAN') {
-			o.text(t);
-		}
-		if (tn === 'INPUT') {
-			o.attr('value', t);
-		}
-	});
+  const up = getUrlParameters();
+  if (typeof up.q !== 'undefined') {
+    if (typeof up.q[0] !== 'undefined') gqc.form.find('input[name="q"]')[0].value = up.q[0];
+    if (typeof up.q[1] !== 'undefined') gqc.form.find('input[name="q"]')[1].value = up.q[1];
+    if (typeof up.q[2] !== 'undefined') gqc.form.find('input[name="q"]')[2].value = up.q[2];
+    if (typeof up.q[3] !== 'undefined') gqc.form.find('input[name="q"]')[3].value = up.q[3];
+  }
+  if (typeof up.fq !== 'undefined') {
+    if (typeof up.fq[0] !== 'undefined') gqc.form.find('input[name="fq"]')[0].value = up.fq[0];
+    if (typeof up.fq[1] !== 'undefined') gqc.form.find('input[name="fq"]')[1].value = up.fq[1];
+    if (typeof up.fq[2] !== 'undefined') gqc.form.find('input[name="fq"]')[2].value = up.fq[2];
+  }
+  if (typeof up.resultset_restriction !== 'undefined') gqc.form.find('select[name="resultset_restriction"]').val(up.resultset_restriction[0]);
+  if (typeof up.sort !== 'undefined') gqc.form.find('select[name="sort"]').val(up.sort[0]);
+  if (typeof up.start !== 'undefined') {
+    const s = gqc.form.find('select[name="start"]');
+    $(`<option value='${up.start}'>${up.start + 1}</option>`).appendTo(s); // es gibt noch keine <option> in html
+  }
+  gqc.prevQuery = gqc.form.serialize().replace(/&start=\d+/, ''); // damit nicht wegen "changed" query gleich wieder auf 0 zurückgesetzt wird
 
-	const redirect = gqc.form.data('redirect');
-	if (typeof redirect === 'undefined') {
-		gqc.formQuery();
-	}
+  // Übersetzungen:
+  gqc.form.find('[data-text]').each((i, o) => {
+    o = $(o);
+    const tn = o.prop('tagName');
+    const t = gqc.translate(o.attr('data-text'));
+    if (tn === 'INPUT') {
+      o.attr('value', t);
+    }
+    else {
+      o.text(t); // SPAN, BUTTON
+    }
+  });
 
-	gqc.form.keydown(e => {
-		if (e.keyCode !== 13) { return; }
-		e.preventDefault();
-		if (typeof redirect === 'undefined') { // wie darunter
-			gqc.formQuery();
-		} else {
-			window.open(redirect + '?' + gqc.form.serialize(), 'graphqRedirect');
-		}
-	});
+  const redirect = gqc.form.data('redirect');
+  if (typeof redirect === 'undefined') {
+    gqc.formQuery();
+  }
 
-	// https://stackoverflow.com/questions/1960240/jquery-ajax-submit-form
-	$('#graphq-form').submit(function (e) {
-		e.preventDefault(); // avoid to execute the actual submit of the form.
-		if (typeof redirect === 'undefined') {
-			gqc.formQuery();
-		} else {
-			window.open(redirect + '?' + gqc.form.serialize(), 'graphqRedirect');
-		}
-	});
+  gqc.form.keydown(e => {
+    if (e.keyCode !== 13) { return; }
+    e.preventDefault();
+    if (typeof redirect === 'undefined') { // wie darunter
+      gqc.formQuery();
+    } else {
+      window.open(redirect + '?' + gqc.form.serialize(), 'graphqRedirect');
+    }
+  });
+
+  // https://stackoverflow.com/questions/1960240/jquery-ajax-submit-form
+  $('#graphq-form').submit(function (e) {
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+    if (typeof redirect === 'undefined') {
+      gqc.formQuery();
+    } else {
+      window.open(redirect + '?' + gqc.form.serialize(), 'graphqRedirect');
+    }
+  });
 });
 </script>
