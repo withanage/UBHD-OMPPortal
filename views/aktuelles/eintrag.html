@@ -2,8 +2,39 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
-            <h3>{{=title}}</h3>
-            {{=description}}
+            <h3>Aktuelles</h3>
         </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-9 news-content">
+			<div class="news">
+            	<div class="news-date">{{=date}}</div>
+            	<h4>{{=title}}</h4>
+            	<p>{{=short_description}}</p>
+            	{{=description}}
+        	</div>
+        </div>
+        <div class="col-lg-3 news-archive-content">
+            <div class="news-archive">
+                  <h4>Archive</h4>
+                  <ul>
+                  	{{for year in archive:}}
+                    <li class="current-news-year">{{=year}}
+                        <ul>
+                        {{for month in archive[year]:}}
+                           <li>{{=month}}
+                           		<ul>
+                           			{{for announcement in archive[year][month]:}}
+                           			<li><a href="{{=URL('eintrag', args=[announcement['id']])}}">{{=announcement['title']}}</a></li>
+                           			{{pass}}
+                           		</ul>
+                           </li>
+                        {{pass}}
+                        </ul>
+                     </li>
+                    {{pass}}
+                  </ul>
+              </div>
+         </div>
     </div>
 </div>
