@@ -16,7 +16,7 @@ $('.flexslider').flexslider();
             <ul class="slides">
               <li>{{if session.forced_language =='de': }} 
               <img alt="" src="{{=URL('static','images/press/slideshow/01_claim_tablet.de.jpg')}}" />
-              <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('Das Profil von heiUP')}}</h3>
+              <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('Das Profil von heiUP')}} </h3>
                 {{=A(T('More'),_href=URL('about_us','profile'), _class='btn btn-theme')}}
                 <!--<a href="./about_us/profile.html" class="btn btn-theme">Mehr</a>-->
               </div>{{elif session.forced_language =='en': }} 
