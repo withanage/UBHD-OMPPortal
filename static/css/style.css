@@ -42,8 +42,8 @@ h4.team_titel {
 }
 
 h4 {
-  margin-bottom: 10px; 
-  margin-top: 20px; 
+  margin-bottom: 10px;
+  margin-top: 20px;
 }
 /* ===================================2. layout==================================== */
 .container {
@@ -172,7 +172,7 @@ header .nav .caret {
 		overflow: hidden;
 		max-height:100%;
 }
- 
+
 .dropdown-menu li:last-child {
 	padding-bottom: 0 !important;
 	margin-bottom: 0;
@@ -1660,7 +1660,7 @@ li.show {
 }
 
 .post-image > a[href^="https://doi.org/10.17885"] {
-  width: 100%; 
+  width: 100%;
 }
 .container {
 	padding: 0;
@@ -1758,7 +1758,7 @@ li.active {
   background: #900;
   color: white;
 }
-    
+
 .box-gray h4 {
 	text-align: left;
 }
@@ -1819,7 +1819,7 @@ a[href^="https://doi.org/10.17885"] {
   word-break: break-word;
   width: 210px;
   display: block;
-}  
+}
 
 #infoBoxRechts {
 	float: right;
@@ -1974,7 +1974,7 @@ footer {
 
 @media (max-width: 592px) {
 #thumbs li {
-  height: 210px;  
+  height: 210px;
 }
 
 }
@@ -2019,7 +2019,7 @@ footer {
 @media (min-width: 1200px)
 {
 #thumbs li {
-  height: 230px;  
+  height: 230px;
 }
 }
 /***Printstyle ***/
@@ -2078,4 +2078,11 @@ img {
 }
 #anno-block .panel-title a:hover {
 	color: white !important;
+}
+
+/** Aktuelles Archiv **/
+.news-archive .panel-title a {
+    display: block;
+    padding: 10px 15px;
+    margin: -10px -15px;
 }
