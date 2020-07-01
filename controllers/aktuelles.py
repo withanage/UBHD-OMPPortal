@@ -1,4 +1,6 @@
 import ompformat
+import datetime
+import calendar
 
 def eintrag():
     if request.args and request.args[0] :
@@ -14,6 +16,11 @@ def eintrag():
         date = ompformat.dateToStr(n['date_posted'], locale)
 
         archive = ompdal.getAnnouncementsByPressGroupedByYearAndMonth(press_id, locale)
+
+        current_year = datetime.datetime.now().year
+
+        def month_to_literal(month_int):
+            return T(calendar.month_name[month_int])
 
         return locals()
         #if len(description) > 0:
