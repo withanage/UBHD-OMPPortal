@@ -16,7 +16,7 @@ $('.flexslider').flexslider();
             <ul class="slides">
               <li>{{if session.forced_language =='de': }} 
               <img alt="" src="{{=URL('static','images/press/slideshow/01_claim_tablet.de.jpg')}}" />
-              <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('Das Profil von heiUP')}}</h3>
+              <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('Das Profil von heiUP')}} </h3>
                 {{=A(T('More'),_href=URL('about_us','profile'), _class='btn btn-theme')}}
                 <!--<a href="./about_us/profile.html" class="btn btn-theme">Mehr</a>-->
               </div>{{elif session.forced_language =='en': }} 
@@ -85,29 +85,26 @@ $('.flexslider').flexslider();
       <div class="row">
         <div class="col-lg-12">
           <div class="row">
-		   <div class="col-lg-3">
-                <div class="box">
-                  <div class="box-gray aligncenter">
-                <h4>{{=T('New Titles')}}</h4>
-					{{=IMG(_src=URL('static','images/journals/cover_studium-generale2.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
-                  </div>
-                  <div class="box-bottom"><a href="https://heiup.uni-heidelberg.de/journals/index.php/generale/index" title="{{=T('current issue')}}">{{=T('More Information')}}</a>
-                  </div>
-                </div>
-          </div>
-
 		<div class="col-lg-3">              
                 <div class="box">
                   <div class="box-gray aligncenter">
                 <h4>{{=T('New Titles')}}</h4>
-                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/631/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/631'))}} 
+                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/540/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/540'))}} 
       			 </div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/631'))}}
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/540'))}}
                   </div>
                 </div>
-          </div>
-		  
-
+          </div>     
+		<div class="col-lg-3">              
+                <div class="box">
+                  <div class="box-gray aligncenter">
+                <h4>{{=T('New Titles')}}</h4>
+                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/513/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/513'))}} 
+      			 </div>
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/513'))}}
+                  </div>
+                </div>
+          </div>     
 
 
 
@@ -145,6 +142,7 @@ $('.flexslider').flexslider();
           <div class="col-lg-12">
             <div class="row">
 
+
 			<div class="col-lg-3">
               <div class="box">
                 <div class="box-gray aligncenter">{{if session.forced_language =='de': }} 
@@ -157,44 +155,40 @@ $('.flexslider').flexslider();
                     {{=A(T('More Information'),_href=URL('about_us','mission_statement'))}}
                 </div>
               </div>
-            </div>			
+            </div>
+		   <div class="col-lg-3">
+                <div class="box">
+                  <div class="box-gray aligncenter">
+                <h4>{{=T('New Titles')}}</h4>
+					{{=IMG(_src=URL('static','images/journals/heieducation.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
+                  </div>
+                  <div class="box-bottom"><a href="https://heiup.uni-heidelberg.de/journals/index.php/heied/index" title="{{=T('current issue')}}">{{=T('More Information')}}</a>
+                  </div>
+                </div>
+          </div>
+
+		   <div class="col-lg-3">
+                <div class="box">
+                  <div class="box-gray aligncenter">
+                <h4>{{=T('New Titles')}}</h4>
+					{{=IMG(_src=URL('static','images/journals/cover_studium-generale2.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
+                  </div>
+                  <div class="box-bottom"><a href="https://heiup.uni-heidelberg.de/journals/index.php/generale/index" title="{{=T('current issue')}}">{{=T('More Information')}}</a>
+                  </div>
+                </div>
+          </div>            
 		<div class="col-lg-3">              
                 <div class="box">
                   <div class="box-gray aligncenter">
                 <h4>{{=T('New Titles')}}</h4>
-                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/566/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/566'))}} 
+                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/631/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/631'))}} 
       			 </div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/566'))}}
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/631'))}}
                   </div>
                 </div>
-          </div>
-		  
-		<div class="col-lg-3">              
-                <div class="box">
-                  <div class="box-gray aligncenter">
-                <h4>{{=T('New Titles')}}</h4>
-                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/597/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/597'))}} 
-      			 </div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/597'))}}
-                  </div>
-                </div>
-          </div>
-		  
-          <div class="col-lg-3">
-                <div class="box">
-                  <div class="box-gray aligncenter">
-                <h4>{{=T('New Titles')}}</h4>
-				    <img src="https://heiup.uni-heidelberg.de/journals/public/journals/157/cover_issue_2392_de_DE.jpg" alt="" style="width:145px;" class="bildrahmen">
-                  </div>
-                  <div class="box-bottom"><a href="https://heiup.uni-heidelberg.de/journals/index.php/cursor/issue/view/2392" title="{{=T('current issue')}}">{{=T('More Information')}}</a>
-                  </div>
-                </div>
-              </div>
-              
+          </div>            			
 
-          
-
-		
+		  
  
                              
                 <!--<div>-->
@@ -221,26 +215,25 @@ $('.flexslider').flexslider();
         <div class="row">
           <div class="col-lg-12">
             <div class="row">		  
-        <div class="col-lg-3">              
+		<div class="col-lg-3">              
                 <div class="box">
                   <div class="box-gray aligncenter">
                 <h4>{{=T('New Titles')}}</h4>
-                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/469/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/469'))}} 
+                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/566/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/566'))}} 
       			 </div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/469'))}}
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/566'))}}
                   </div>
                 </div>
           </div>
-        
-
+    
  
           <div class="col-lg-3">
                 <div class="box">
                   <div class="box-gray aligncenter">
                 <h4>{{=T('Forthcoming')}}</h4>
-                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','/files/presses/6/series/43-series.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','preview#regerat'))}} 
+                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_enderwitz.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','preview#enderwitz'))}} 
                   </div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','preview#regerat'))}}
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','preview#enderwitz'))}}
                   </div>
                 </div>
           </div>
