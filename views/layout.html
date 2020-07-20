@@ -114,11 +114,11 @@
 
                     </div>
                     <!-- BEGIN Searchbox -->
-                    <form class="navbar-form navbar-left" action="{{=URL(c='search')}}" role="search" >
+                    <form class="navbar-form navbar-right" action="{{=URL(c='search',f='index')}}" role="search" >
                       <div class="form-group">
                         <div class="input-group">
                             <label class="sr-only" for="navbar-search-input">{{=T('Suchbegriff')}}</label>
-                            <input id="navbar-search-input" type="text" class="form-control" placeholder="{{=T('Search')}}" name="q" style="width: 135px"/>
+                            <input id="navbar-search-input" type="text" class="form-control" placeholder="{{=T('Search')}}" name="q" style="width: 150px"/>
                           <span class="input-group-btn">
                             <button class="btn btn-primary" type="submit">
                               <span class="glyphicon glyphicon-search"></span>
