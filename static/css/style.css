@@ -1919,7 +1919,7 @@ li > h5 {
 	margin-bottom: 0;
 	margin-top: 1em;
 }
-/** Bildunterschrift Galerie Ruperto Carola **/
+/** Bildunterschrift Galerie Ruperto Carola und Aktuelles-Seite **/
 figcaption {
 	font-size: 0.8em;
 	line-height: 1.4em;
@@ -1929,6 +1929,18 @@ figcaption {
 .btn .caret {
 	margin-left: 5px;
 }
+
+/**Aktuelles-Seite Bildcontainer **/
+.img-container-right {
+    float: right; 
+    margin-left: 30px;
+}
+
+.img-container-left {
+    float: left; 
+    margin-right: 30px;
+}
+
 /*** Footer ****/
 footer {
 	padding-left: 10px;
