@@ -61,7 +61,7 @@ def display_form():
     return form
 
 
-response.menu = UL([LI(A(I(_class="fa fa-home fa-1x"), _href=URL('home', 'index'))),
+response.menu = UL([LI(A(I(_class="fa fa-home"), _href=URL('home', 'index'))),
                     LI(XML(title('About us')),
                         UL(about_us_list,
                            _class="dropdown-menu"),
