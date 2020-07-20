@@ -7,7 +7,7 @@
 				<input name="resultset_restriction" type="hidden" value="higher">
 				<input name="fq" type="hidden" value="url_s:https\:\/\/heiup.uni-heidelberg.de*">				
 				<div class="form-group">
-					<label for="inputQuery1" class="col-sm-2 control-label">Begriff</label>
+					<label for="inputQuery1" class="col-sm-2 control-label">{{=T('Begriffe')}}</label>
 					<div class="col-sm-10">
 						<input id="inputQuery1" type="text" name="q" class="form-control" placeholder="Suchbegriff" value="{{=q}}">
 					</div>
@@ -119,12 +119,13 @@ ul.highlighting li a:before {
 }
 /* Docs aus heiup */
 .domain_heiup_uni-heidelberg_de {
-	background-color: #efe;
+	background-color: #eeffee;
 }
 /* docs aus digi.ub */
 .domain_digi_ub_uni-heidelberg_de {
 	background-color: #fee;
 }
+
 /* nach dem Haupttitel alle Unterelemente(=docs) (Bände, Kapitel, ...) mit Zeilenumbruch und Pfeil davor */
 ul.hierarchy li:not(:first-child):before {
 	content: " → ";
