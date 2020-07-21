@@ -37,10 +37,12 @@
                     </select>
                     <input class="form-control input" name="q" id="graphq-form-suchkriterium4" type="text">
                 </p>
-                <p id="treffernavigation">
+                
+                <div class="treffer-fieldset">
                     <div class="form-inline">
                         <label for="inputSort" class="control-label" data-text='sort by'>Sortiere nach</label>
                         <select id="inputSort" name="sort" class="form-control input-sm"></select>
+                        
                         <div class="btn-group" role="group" aria-label="Pagination">
                             <button name='begin' class="btn btn-default">
                                 <i class="fa fa-fast-backward"></i>
@@ -59,17 +61,17 @@
                             </button>
                         </div>
                     </div>
-                </p>
-				<p>
-					<div class="col-sm-offset-2 col-sm-10">
+                </div>
+                
+				<div class="col-sm-10">
                         <label for="search">Suche</label>                    
 						<input data-text='search' type="submit" value="">
-					</div>
-				</p>
-
+				</div>
 			</form>
+
 			<div id="graphq-result">
 			</div>
+
 		</div>
 		<div class="col-lg-3">
 			<div id="graphq-result-facet" class="facets">
