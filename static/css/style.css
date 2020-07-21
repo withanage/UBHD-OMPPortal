@@ -1977,7 +1977,8 @@ label[for="graphq-form-suchkriterium1"], label[for="graphq-form-suchkriterium2"]
     margin: 0
 }
 
-.hits li.hit {
+.hits li.hit,
+.hierarchy.domain_heiup_uni-heidelberg_de li {
     list-style-type: none;
 } 
 .hit img {
