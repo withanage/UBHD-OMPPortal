@@ -2,42 +2,70 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-9">
-			<form class="form-horizontal" id="graphq-form" action="https://digi.ub.uni-heidelberg.de/Suchindex/cgi-bin/graphq.cgi">
+            <h2>{{=T('Suche')}}</h2>
+			<form id="graphq-form" action="https://digi.ub.uni-heidelberg.de/Suchindex/cgi-bin/graphq.cgi">
 				<input name="ui_lang" type="hidden" value="{{=session.forced_language}}">
 				<input name="resultset_restriction" type="hidden" value="higher">
-				<input name="fq" type="hidden" value="url_s:https\:\/\/heiup.uni-heidelberg.de*">				
-				<div class="form-group">
-					<label for="inputQuery1" class="col-sm-2 control-label">{{=T('Begriffe')}}</label>
-					<div class="col-sm-10">
-						<input id="inputQuery1" type="text" name="q" class="form-control" placeholder="Suchbegriff" value="{{=q}}">
-					</div>
-				</div>
-				<div class="form-group">
+				<input name="fq" type="hidden" value="url_s:https\:\/\/heiup.uni-heidelberg.de*">
+                <input name="fq" id="graphq-form-suchkriterium1" type="hidden" value=""><!-- Platzhalter für von formGraphq auszufüllende Felder -->
+                <input name="fq" id="graphq-form-suchkriterium1" type="hidden" value=""><!-- Platzhalter für von formGraphq auszufüllende Felder -->
+                <input name="fq" id="graphq-form-suchkriterium1" type="hidden" value=""><!-- Platzhalter für von formGraphq auszufüllende Felder -->
+                <input name="fq" id="graphq-form-suchkriterium1" type="hidden" value=""><!-- Platzhalter für von formGraphq auszufüllende Felder -->
+                <p class="form-inline">
+                    <label for="q">Suchkriterium 1</label>
+                    <select class="form-control input" name="qf">
+                    </select>
+                    <input class="form-control input" name="q" id="q" type="text">
+                </p>
+
+                <p class="form-inline">
+                    <label for="graphq-form-suchkriterium2">Suchkriterium 2</label>
+                    <select class="form-control input" name="qf">
+                    </select>
+                    <input class="form-control input" name="q" id="graphq-form-suchkriterium2" type="text">
+                </p>
+
+                <p class="form-inline">
+                    <label for="graphq-form-suchkriterium3">Suchkriterium 3</label>
+                    <select class="form-control input" name="qf">
+                    </select>
+                    <input class="form-control input" name="q" id="graphq-form-suchkriterium3" type="text">
+                </p>
+                <p class="form-inline">
+                    <label for="graphq-form-suchkriterium4">Suchkriterium 4</label>
+                    <select class="form-control input" name="qf">
+                    </select>
+                    <input class="form-control input" name="q" id="graphq-form-suchkriterium4" type="text">
+                </p>
+                <p id="treffernavigation">
+                    <div class="form-inline">
+                        <label for="inputSort" class="control-label" data-text='sort by'>Sortiere nach</label>
+                        <select id="inputSort" name="sort" class="form-control input-sm"></select>
+                        <div class="btn-group" role="group" aria-label="Pagination">
+                            <button name='begin' class="btn btn-default">
+                                <i class="fa fa-fast-backward"></i>
+                            </button>
+                            <button name='back' class="btn btn-default">
+                                <i class="fa fa-caret-left fa-lg"></i>
+                            </button>
+                            <select name="start" class="btn btn-default">
+                                <!-- hier KEINE <option> anlegen, die würde sonst bei form.serialize() berücksichtigt!-->
+                            </select>
+                            <button name='forward' class="btn btn-default">
+                                <i class="fa fa-caret-right fa-lg"></i>
+                            </button>
+                            <button name='end' class="btn btn-default">
+                                <i class="fa fa-fast-forward"></i>
+                            </button>
+                        </div>
+                    </div>
+                </p>
+				<p>
 					<div class="col-sm-offset-2 col-sm-10">
 						<input data-text='search' type="submit" value="">
 					</div>
-				</div>
-				<div class="form-inline">
-					<label for="inputSort" class="control-label" data-text='sort by'>Sortiere nach</label>
-					<select id="inputSort" name="sort" class="form-control input-sm"></select>
-					<div class="btn-group" role="group" aria-label="Pagination">
-						<button name='begin' class="btn btn-default">
-							<i class="fa fa-fast-backward"></i>
-						</button>
-						<button name='back' class="btn btn-default">
-							<i class="fa fa-caret-left fa-lg"></i>
-						</button>
-						<select name="start" class="btn btn-default">
-							<!-- hier KEINE <option> anlegen, die würde sonst bei form.serialize() berücksichtigt!-->
-						</select>
-						<button name='forward' class="btn btn-default">
-							<i class="fa fa-caret-right fa-lg"></i>
-						</button>
-						<button name='end' class="btn btn-default">
-							<i class="fa fa-fast-forward"></i>
-						</button>
-					</div>
-				</div>				
+				</p>
+
 			</form>
 			<div id="graphq-result">
 			</div>
@@ -48,329 +76,27 @@
 		</div>
 	</div>
 </div>
-<style type="text/css">
-	/*Eingabe-Formular*/
-
-#graphq-form {
-margin-top: 1em;
-/*  margin: 0 auto;
-	width: 50%;*/
-}
-
-/* Abstand zum Formular */
-#graphq-result {
-	margin-top: 1em;
-}
-
-ul {
-	list-style-type: none;
-}
-
-/* Es gibt 2 Arten von Highlighting: das der ANGEZEIGTEN Metadaten (momentan <u>...</u>, in prepareDoc() und escapeHtml() codiert)
-und den Highlight-Zeilen unterhalb der Metadaten, die aus nicht-angezeigten Metadaten (subjects, ...)
-als auch Volltext kommen können */
-
-ul.hits { /* komplette Treffer Highlighting-Zeilen */
-	padding-left: 0;
-	margin-left: 0;
-}
-
-ul.hierarchy {
-	padding-left: 0;
-	margin-left: 0;
-}
-
-
-ul.hierarchy li a .hit_highlight,
-ul.highlighting li a .hit_highlight {
-   font-weight:bold;
-   text-decoration:none;
-   font-style:italic;
-}
-
-/* Highlighting-Zeilen aus nicht-angezeigten Metadaten */
-ul[class*='highlighting_meta'] li a {
-	font-family:monospace;
-}
-
-ul.highlighting {
-	margin-left: 0;
-	list-style-type: none;
-}
-
-ul[class*=highlighting_text] li:after{ /* TODO: müsste eigentlich NICHT highlighting_meta_... sein */
-	content: " ...";
-}
-ul.highlighting li a {
-	color: #444;
-	text-decoration: none;
-}
-
-ul.highlighting li a:before {
-   font-family: FontAwesome;
-   content:"\f016";
-   margin-right:8px;
-   font-style:normal;
-}
-
-/* Docs aus journals.ub */
-.domain_journals_ub_uni-heidelberg_de {
-	background-color: #eef;
-}
-/* Docs aus heiup */
-.domain_heiup_uni-heidelberg_de {
-	background-color: #eeffee;
-}
-/* docs aus digi.ub */
-.domain_digi_ub_uni-heidelberg_de {
-	background-color: #fee;
-}
-
-/* nach dem Haupttitel alle Unterelemente(=docs) (Bände, Kapitel, ...) mit Zeilenumbruch und Pfeil davor */
-ul.hierarchy li:not(:first-child):before {
-	content: " → ";
-}
-
-li.hit {
-	margin-bottom: 10px;
-	clear: left;
-}
-
-li.hit ul.highlighting {
-	padding-left: 42px;
-}
-
-/* Introimage */
-li.hit img {
-	float: left;
-	max-width: 38px;
-	max-height: 38px;
-	/*height: auto;*/
-}
-
-/* besitzende Einrichtung; wird momentan nicht ausgegeben -- zu viel Text, z. B. »Universitätsbibliothek Heidelberg« vor Signatur*/
-.meta_physicallocation {
-	color: #444;
-	font-size: 70%;
-}
-
-/* Signatur */
-.meta_shelflocator {
-	color: #444;
-}
-/* Damit man sieht, wo der Autor/Titel anfängt */
-.meta_shelflocator:after {
-	content: " | ";
-}
-
-/* Titel */
-.meta_title {
-	color: #900;
-}
-/* Für alle Docs, die keine Metadaten haben, bei denen statt dessen der (übersetzte) Type ausgegeben wird
-PS: Es gibt auch welche ohne type... -- die werden als »-- Ø --« ausgegeben
-*/
-.meta_type {
-	color: #944;
-	font-style: italic;
-}
-
-.meta_page {
-	color: #000;
-	font-style: italic;
-}
-
-/* Namen */
-.meta_name {
-	color: #000;
-}
-
-/* Erscheinungsort und -jahr */
-.meta_place_date {
-	color: #444;
-}
-
-/* für die ohne Biblio und ohne Type */
-.meta_empty {
-	color: #944;
-}
-
-/* Highlighting der Fundstellen in den Highlighting-Zeilen */
-li em {
-	background-color: #FFFFF0;
-}
-
-/* Alle Facetten */
-.facets {
-	float:right;
-	font-size:80%;
-}
-
-.facet {
-	max-height:200px;
-	overflow:scroll;
-}
-
-.facet_title {
-	font-weight: bold;
-}
-
-.facet_entry {
-	display: table-row;
-}
-
-.facet_word {
-	min-width: 75%;
-	display: table-cell;
-}
-.facet_count {
-	text-align: right;
-	max-width: 15%;
-	display: table-cell;
-}
-.facet_entry:hover {
-	background-color: #eee;
-}
-.facet ul {
-	padding-left: 0;
-	margin-top: 0;
-	margin-bottom: 0;
-	list-style-type: none;
-}
-ul.facet_applied li:hover {
-	text-decoration: line-through;
-	background-color: #eee;
-}
-
-/* Fehlermeldungen, z. B. Suche nach »"asdf« oder »(xyz« oder »xyz:1« */
-.error {
-	border: 2px solid #800;
-	font-family: monospace;
-	color: #800;
-	max-width: 60em;
-}
-
-/*ul.highlighting_text_ocr_ft {
-	background-color: #FFFFF0;
-}*/
-
-.test {
-	background-color:#edf;
-}
-
-</style>
-<script type="module" src="https://digi.ub.uni-heidelberg.de/Suchindex/htdocs/graphq.js"></script>
 <script type="module">
-import { getUrlParameters, GraphQueryClient } from 'https://digi.ub.uni-heidelberg.de/Suchindex/htdocs/graphq.js';
-let gqc;
+import { GraphQueryClient } from 'https://digi.ub.uni-heidelberg.de/Suchindex/htdocs/graphq.js';
 $(function () { // "=" document.ready
-  gqc = new GraphQueryClient();
+    const gqc = new GraphQueryClient();
+    {{if session.forced_language =='en': }}
+    gqc.ui_lang = 'eng';
+    gqc.locale = 'en-US';
+    {{pass}}
+    gqc.form = $('#graphq-form');
 
-  gqc.prepareDocOpt.hl = true;
-  gqc.form = $('#graphq-form');
-  gqc.result = $('#graphq-result');
-  gqc.result_facet = $('#graphq-result-facet');
-  gqc.facetParameterStr = '&facet=true&facet.mincount=1' +
-          '&facet.field=type_s' + // '&facet.field={!ex=type_s}type_s' -- siehe auch graphq.js/getFilterByFacet() -- geht noch nicht - org.apache.solr.search.SyntaxError: Expected identifier at pos 8 str='{!graph !tag=$_tt0 from=$_tt1 v=$_tt2 to=$_tt3 }'
-          '&facet.field=meta_name_ss' +
-          '&facet.field=meta_periodical_title_s' +
-          '&facet.field=meta_subject_ss' +
-          '&facet.field=meta_name_aut_firstchar_ss' +
-          '&facet.field=meta_language_ss' +
-          '&facet.field=parent_ids' +
-          '&facet.field=domain_s' +
-          // OOPS ^ und $ sind implizit??
-          '&f.parent_ids.facet.matches=' + encodeURIComponent('((/??.*?)??/classification/(?!by_)|/digi\\.ub\\.uni-heidelberg\\.de/collection/sammlung).*') + // (?!...) = negative lookahead: no /classification/by_
-          '&facet.range=meta_date_dtrs' +
-          '&f.meta_date_dtrs.facet.range.start=0000-01-01T00:00:00Z' +
-          '&f.meta_date_dtrs.facet.range.end=2100-01-01T00:00:00Z' +
-          '&f.meta_date_dtrs.facet.range.gap=%2B1YEAR' + // +1YEAR
-          '&f.meta_date_dtrs.facet.mincount=1'; // no .range ??
+    gqc.result = $('#graphq-result');
+    gqc.result_facet = $('#graphq-result-facet');
 
-  // TODO up.ui_lang[0]? Aber dann auch <input name='ui_lang' type='hidden'...> anlegen!
-  if (gqc.form.find('input[name="ui_lang"]').length > 0) {
-    gqc.ui_lang = gqc.form.find('input[name="ui_lang"]')[0].value.replace(/^de.*/, 'ger').replace(/^en.*/, 'eng').replace(/^it.*/, 'ita');
-  }
+    gqc.translateWordList['qf|meta_name_txt'] = { ger: 'Autor, Körperschaft, Hrsg., etc.', eng: 'Author, Corporate, Editor, etc.' };
+    gqc.formOptions.qfo = gqc.formOptions.qfo.filter(e => e !== 'meta_name_aut_txt');
 
-  const rr = gqc.form.find('select[name="resultset_restriction"]');
-  'auto,higher,lower,none'.split(',').forEach(w => {
-    $(`<option value='${w}'>` + gqc.translate(`resultset_restriction|${w}`) + '</option>').appendTo(rr);
-  });
-  const so = gqc.form.find('select[name="sort"]');
-  'sort_title_s asc;sort_name_s asc;sort_shelflocator_s asc;sort_date_dt asc;score asc;if(eq(strdist("journals.ub.uni-heidelberg.de",domain_s,edit),1), 200, if(eq(strdist("digi.ub.uni-heidelberg.de",domain_s,edit),1), 300, 100)) asc,sort_title_s asc;if(eq(strdist("journals.ub.uni-heidelberg.de",domain_s,edit),1), 200, if(eq(strdist("digi.ub.uni-heidelberg.de",domain_s,edit),1), 300, 100)) asc,sort_name_s asc;if(eq(strdist("journals.ub.uni-heidelberg.de",domain_s,edit),1), 200, if(eq(strdist("digi.ub.uni-heidelberg.de",domain_s,edit),1), 300, 100)) asc,sort_date_dt asc'.split(';').forEach(w => {
-    $(`<option value='${w}'>` + gqc.translate(`sort|${w}`) + '</option>').appendTo(so);
-  });
-  let selNr = 0;
-  const qfo = gqc.form.find('select[name="qf"]');
-
-  for(let i = 0; i < qfo.length; i++) {
-    ',m,meta_title_txt,meta_name_txt,meta_name_aut_txt,meta_date_txt,meta_subject_txt,meta_classification_txt,meta_shelflocator_txt,t'.split(',').forEach(w => {
-      let selected = '';
-      if (selNr === 0 && w === 'meta_name_txt') selected = 'selected';
-      if (selNr === 1 && w === 'meta_title_txt') selected = 'selected';
-      if (selNr === 2 && w === 'meta_subject_txt') selected = 'selected';
-      if (selNr === 3 && w === '') selected = 'selected';
-      $(`<option value='${w}' ${selected}>` + gqc.translate(`qf|${w}`) + '</option>').appendTo(qfo[i]);
-    });
-    selNr++;
-  };
-
-  const up = getUrlParameters();
-  if (typeof up.q !== 'undefined') {
-    if (typeof up.q[0] !== 'undefined') gqc.form.find('input[name="q"]')[0].value = up.q[0];
-    if (typeof up.q[1] !== 'undefined') gqc.form.find('input[name="q"]')[1].value = up.q[1];
-    if (typeof up.q[2] !== 'undefined') gqc.form.find('input[name="q"]')[2].value = up.q[2];
-    if (typeof up.q[3] !== 'undefined') gqc.form.find('input[name="q"]')[3].value = up.q[3];
-  }
-  if (typeof up.fq !== 'undefined') {
-    if (typeof up.fq[0] !== 'undefined') gqc.form.find('input[name="fq"]')[0].value = up.fq[0];
-    if (typeof up.fq[1] !== 'undefined') gqc.form.find('input[name="fq"]')[1].value = up.fq[1];
-    if (typeof up.fq[2] !== 'undefined') gqc.form.find('input[name="fq"]')[2].value = up.fq[2];
-  }
-  if (typeof up.resultset_restriction !== 'undefined') gqc.form.find('select[name="resultset_restriction"]').val(up.resultset_restriction[0]);
-  if (typeof up.sort !== 'undefined') gqc.form.find('select[name="sort"]').val(up.sort[0]);
-  if (typeof up.start !== 'undefined') {
-    const s = gqc.form.find('select[name="start"]');
-    $(`<option value='${up.start}'>${up.start + 1}</option>`).appendTo(s); // es gibt noch keine <option> in html
-  }
-  gqc.prevQuery = gqc.form.serialize().replace(/&start=\d+/, ''); // damit nicht wegen "changed" query gleich wieder auf 0 zurückgesetzt wird
-
-  // Übersetzungen:
-  gqc.form.find('[data-text]').each((i, o) => {
-    o = $(o);
-    const tn = o.prop('tagName');
-    const t = gqc.translate(o.attr('data-text'));
-    if (tn === 'INPUT') {
-      o.attr('value', t);
-    }
-    else {
-      o.text(t); // SPAN, BUTTON
-    }
-  });
-
-  const redirect = gqc.form.data('redirect');
-  if (typeof redirect === 'undefined') {
-    gqc.formQuery();
-  }
-
-  gqc.form.keydown(e => {
-    if (e.keyCode !== 13) { return; }
-    e.preventDefault();
-    if (typeof redirect === 'undefined') { // wie darunter
-      gqc.formQuery();
-    } else {
-      window.open(redirect + '?' + gqc.form.serialize(), 'graphqRedirect');
-    }
-  });
-
-  // https://stackoverflow.com/questions/1960240/jquery-ajax-submit-form
-  $('#graphq-form').submit(function (e) {
-    e.preventDefault(); // avoid to execute the actual submit of the form.
+    gqc.setupForm();
+    gqc.urlParameterToForm();
+    const redirect = gqc.form.data('redirect');
     if (typeof redirect === 'undefined') {
-      gqc.formQuery();
-    } else {
-      window.open(redirect + '?' + gqc.form.serialize(), 'graphqRedirect');
+        gqc.formQuery();
     }
-  });
 });
 </script>
