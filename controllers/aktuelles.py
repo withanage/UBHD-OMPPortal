@@ -2,8 +2,17 @@ import ompformat
 import datetime
 import calendar
 
+
+def index():
+    announcements = ompdal.getAnnouncementsByPress(press_id)
+    if announcements:
+        return redirect(URL('eintrag', args=[announcements[0].announcement_id]))
+    else:
+        return HTTP(404, T("No announcements"))
+
+
 def eintrag():
-    if request.args and request.args[0] :
+    if request.args and request.args[0]:
         announcement_id = request.args[0]
 
         n = ompdal.getAnnouncementWithSettings(announcement_id)
@@ -23,13 +32,10 @@ def eintrag():
             return T(calendar.month_name[month_int])
 
         return locals()
-        #if len(description) > 0:
+        # if len(description) > 0:
         #    return locals()
-        #else:
+        # else:
         #    raise HTTP(404, T('No Content'))
 
     else:
         raise HTTP(404, T('No Content'))
-
-def archiv():
-    return dict()
