@@ -1709,11 +1709,23 @@ header .navbar-nav > li {
 	padding-top: 0;
 	padding-bottom: 0;
 }
-.navbar .nav > li > a {
-	padding-left: 20px;
+.navbar .nav > li > a {          /*eigentlich .nav.navbar-nav > li > a ?*/
+	padding-left: 15px; /*padding-left: 20px;*/ 
 	padding-right: 0;
 	margin-left: 10px;
 }
+.nav.navbar-nav > li > a > .fa-home::before {
+    font-size: 1.13em;
+}
+
+.navbar-form.navbar-right > .form-group {
+    margin-right: 30px;
+}
+
+.navbar-form.navbar-right > .form-group > .input-group > .input-group-btn > .btn.btn-primary {
+    height: 34px;
+}
+
 .navbar-default .navbar-nav > .open > a {
 	background: #f5f5f5;
 }
@@ -1940,6 +1952,37 @@ figcaption {
     float: left; 
     margin-right: 30px;
 }
+
+/*** Anzeige Suchergebnisse ***/
+
+
+.hits > hit > img {
+    width: 50px;
+    height: auto;
+}
+
+.hierarchy.domain_heiup_uni-heidelberg_de {
+    background-color: transparent;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    margin-top: 2em;
+}
+
+.hit ul.highlighting {
+    font-size: 0.9em;
+    padding-left: 70px;
+}
+
+.highlighting.highlighting_text_pdf_ft li {
+    font-size: 0.9em;
+    line-height: 1.2em;
+    margin-bottom: 0.5em;
+    margin-left: 20px;
+}
+
 
 /*** Footer ****/
 footer {
