@@ -1961,7 +1961,10 @@ label[for="graphq-form-suchkriterium1"], label[for="graphq-form-suchkriterium2"]
 
 /*** Anzeige Suchergebnisse ***/
 
-
+.treffer-fieldset {
+    background: #f5f5f5;
+    padding: 10px;
+}
 .hits > hit > img {
     width: 50px;
     height: auto;
