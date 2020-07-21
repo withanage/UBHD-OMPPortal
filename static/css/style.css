@@ -2002,6 +2002,16 @@ label[for="graphq-form-suchkriterium1"], label[for="graphq-form-suchkriterium2"]
 
 }
 
+/**Anzeige Facetten**/
+.facet_title {
+    display: inline-block;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 1.1em;
+    margin-bottom: 0.3em;
+    margin-top: 1em;
+    padding-left: 2px;
+}    
 
 /*** Footer ****/
 footer {
