@@ -1953,6 +1953,12 @@ figcaption {
     margin-right: 30px;
 }
 
+/*** Suchformular ***/
+label[for="graphq-form-suchkriterium1"], label[for="graphq-form-suchkriterium2"], label[for="graphq-form-suchkriterium3"], label[for="graphq-form-suchkriterium4"], label[for="search"] {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
 /*** Anzeige Suchergebnisse ***/
 
 
