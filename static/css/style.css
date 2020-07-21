@@ -2003,6 +2003,10 @@ label[for="graphq-form-suchkriterium1"], label[for="graphq-form-suchkriterium2"]
 }
 
 /**Anzeige Facetten**/
+#graphq-result:not(:empty) + #graphq-result-facet {
+    display: block;
+}
+
 .facet_title {
     display: inline-block;
     font-size: 1em;
@@ -2012,6 +2016,20 @@ label[for="graphq-form-suchkriterium1"], label[for="graphq-form-suchkriterium2"]
     margin-top: 1em;
     padding-left: 2px;
 }    
+
+.facet_entry {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5em;
+    padding: 1px;
+    }
+
+.facet_entry:hover {
+    background: #e9e9e9;
+    padding: 1px;
+}
 
 /*** Footer ****/
 footer {
