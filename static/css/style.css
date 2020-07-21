@@ -1958,6 +1958,13 @@ label[for="graphq-form-suchkriterium1"], label[for="graphq-form-suchkriterium2"]
     position: absolute;
     clip: rect(1px, 1px, 1px, 1px);
 }
+#graphq-form label {
+    width: 30%;
+}
+
+#graphq-form input {
+    width: 50%;
+}
 
 /*** Anzeige Suchergebnisse ***/
 
@@ -1965,31 +1972,33 @@ label[for="graphq-form-suchkriterium1"], label[for="graphq-form-suchkriterium2"]
     background: #f5f5f5;
     padding: 10px;
 }
-.hits > hit > img {
-    width: 50px;
+
+.hits {
+    margin: 0
+}
+
+.hits li.hit {
+    list-style-type: none;
+} 
+.hit img {
+    width: 30%;
+    max-width: 100px;
     height: auto;
 }
 
-.hierarchy.domain_heiup_uni-heidelberg_de {
-    background-color: transparent;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 20px;
-    margin-top: 2em;
+.hierarchy.domain_heiup_uni-heidelberg_de,
+.hit ul.highlighting {
+    
+    padding-left: 0;
+    
 }
 
-.hit ul.highlighting {
-    font-size: 0.9em;
-    padding-left: 70px;
-}
+
 
 .highlighting.highlighting_text_pdf_ft li {
     font-size: 0.9em;
-    line-height: 1.2em;
-    margin-bottom: 0.5em;
-    margin-left: 20px;
+    list-style-type: none;
+
 }
 
 
