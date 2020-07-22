@@ -1986,6 +1986,7 @@ label[for="graphq-form-suchkriterium1"], label[for="graphq-form-suchkriterium2"]
 
 .hits li.hit,
 .hierarchy.domain_heiup_uni-heidelberg_de li,
+.hierarchy.domain_journals_ub_uni-heidelberg_de li,
 .highlighting.highlighting_text_pdf_ft li {
     list-style-type: none;
 } 
@@ -1996,6 +1997,12 @@ label[for="graphq-form-suchkriterium1"], label[for="graphq-form-suchkriterium2"]
     max-width: 100px;
     height: auto;
 }
+
+.hit img::after {
+  content: ""; 
+  display: block; 
+  clear: both; 
+} 
 
 .hierarchy.domain_journals_ub_uni-heidelberg_de,
 .hierarchy.domain_heiup_uni-heidelberg_de {
