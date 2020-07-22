@@ -1978,19 +1978,11 @@ label[for="graphq-form-suchkriterium1"], label[for="graphq-form-suchkriterium2"]
 }
 
 
-
 .hits > li {
-     border-bottom: 1px solid #f5f5f5;
-     display: flow-root;
-     margin-left: calc(min(30%, 100px) + 20px);
-     /*min-height: 150px;*/      
-}
-
-.hits > li > img {
-     float: left;
-     margin-bottom: 1em;
-     margin-left: calc(max(-30%, -100px) - 20px);
-     padding-bottom: 0.75em;      
+    border-bottom: 1px solid #f5f5f5;
+    margin-bottom: 1em;
+    min-height: 150px;
+    padding-bottom: 0.75em;
 }
 
  
@@ -2004,15 +1996,12 @@ li.goto_first_hit {
     list-style-type: none;
 } 
 
-/*.hit img {
+.hit img {
     position: absolute;
     width: 30%;
     max-width: 100px;
     height: auto;
-} */
-
-
-
+}
 
 
 .hierarchy.domain_journals_ub_uni-heidelberg_de,
