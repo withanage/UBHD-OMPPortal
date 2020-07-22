@@ -2101,12 +2101,22 @@ li.type_monograph a::before {
 }
 
 
-
-
-@screen and (max-width: 380px) {
-.hit img {
-	display: none;
+@media screen and (max-width:767px) {
+ 
+#graphq-form input {
+    width: 100%;
 }
+
+.treffer-fieldset {
+    width: 85%;
+}
+
+ 
+    }
+
+ @media screen and (max-width:450px) {
+.hit img {
+    display: none;
 }
 
 
@@ -2184,7 +2194,7 @@ li.type_monograph a::before {
 
 .treffercontainer > .col-xs-4 {
     order: 1;
-    flex-basis: 100%;
+    flex-basis: 94%;
 }
 
 .treffercontainer > .col-xs-8 {
@@ -2193,10 +2203,8 @@ li.type_monograph a::before {
 }
 }
 
- @media screen and (max-width:450px) {
-.hit img {
-    display: none;
-}
+
+
 
 .hierarchy.domain_journals_ub_uni-heidelberg_de,
 .hierarchy.domain_heiup_uni-heidelberg_de,
