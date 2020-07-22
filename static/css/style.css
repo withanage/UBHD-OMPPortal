@@ -1978,14 +1978,26 @@ label[for="graphq-form-suchkriterium1"], label[for="graphq-form-suchkriterium2"]
 }
 
 
-.hits > li {
+.hits > li.hit {
     border-bottom: 1px solid #f5f5f5;
     margin-bottom: 1em;
     min-height: 150px;
     padding-bottom: 0.75em;
 }
 
- 
+.hits > li.goto_first_hit {
+    cursor: pointer;
+    text-align: right;
+} 
+
+.hits > li.goto_first_hit::after {
+    font-family: FontAwesome;
+    content: "\f0d8";
+    margin-right: 8px;
+    font-style: normal;
+    float: right;
+    font-size: x-large;
+}     
 
 .hits li.hit,
 .hierarchy.domain_heiup_uni-heidelberg_de li,
@@ -2031,6 +2043,11 @@ li.goto_first_hit {
     text-indent: -20px;
 }
 
+
+li.type_monograph {
+    line-height: 1em;
+    margin-bottom: 0.5em;
+}
 
 li.type_monograph a::before {
     font-family: FontAwesome;
