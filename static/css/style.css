@@ -1977,12 +1977,21 @@ label[for="graphq-form-suchkriterium1"], label[for="graphq-form-suchkriterium2"]
     margin: 0
 }
 
+
+.hits li.hit {
+    margin-bottom: 1em;
+    border-bottom: 1px solid #f5f5f5;
+    padding-bottom: 0.75em;
+}
+
 .hits li.hit,
-.hierarchy.domain_heiup_uni-heidelberg_de li {
+.hierarchy.domain_heiup_uni-heidelberg_de li,
+.highlighting.highlighting_text_pdf_ft li {
     list-style-type: none;
 } 
 
 .hit img {
+    position: absolute;
     width: 30%;
     max-width: 100px;
     height: auto;
@@ -1992,25 +2001,36 @@ label[for="graphq-form-suchkriterium1"], label[for="graphq-form-suchkriterium2"]
     margin-left: 120px;
 }
 
+
+.hierarchy.domain_heiup_uni-heidelberg_de li {
+    margin-left: 20px;        
+    text-indent: -20px;
+}
+
 .highlighting.highlighting_text_pdf_ft {
     margin-left: 150px;
 }
 
 
+
+
 .highlighting.highlighting_text_pdf_ft li {
     font-size: 0.9em;
-    list-style-type: none;
+    line-height: 1.3em;
+    margin-bottom: 0.3em;
+    margin-left: 20px;        
+    text-indent: -20px;
 }
 
 
-li.type_monograph::before {
+li.type_monograph a::before {
     font-family: FontAwesome;
     content: "\f02d";
     margin-right: 8px;
     font-style: normal;
 }
 
-.highlighting.highlighting_text_pdf_ft li::before {
+.highlighting.highlighting_text_pdf_ft li a::before {
     font-family: FontAwesome;
     content: "\f016";
     margin-right: 8px;
