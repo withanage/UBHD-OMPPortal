@@ -1979,21 +1979,19 @@ label[for="graphq-form-suchkriterium1"], label[for="graphq-form-suchkriterium2"]
 
 
 .hits li.hit {
-    margin-bottom: 1em;
     border-bottom: 1px solid #f5f5f5;
+    margin-bottom: 1em;
+    min-height: 150px;
     padding-bottom: 0.75em;
 }
 
-.hits li.hit::after {
-  content: ""; 
-  display: block; 
-  clear: both; 
-} 
+ 
 
 .hits li.hit,
 .hierarchy.domain_heiup_uni-heidelberg_de li,
 .hierarchy.domain_journals_ub_uni-heidelberg_de li,
-.highlighting.highlighting_text_pdf_ft li {
+.highlighting.highlighting_text_pdf_ft li,
+li.goto-first-hit {
     list-style-type: none;
 } 
 
