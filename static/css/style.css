@@ -2105,21 +2105,20 @@ li.type_monograph a::before {
  
 #graphq-form input {
     width: 100%;
-}
+ }
 
 .treffer-fieldset {
     width: 85%;
 }
-
  
-    }
+}
 
  @media screen and (max-width:450px) {
 .hit img {
     display: none;
 }
 
-
+}
 /**Anzeige Facetten**/
 
 
