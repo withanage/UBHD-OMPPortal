@@ -1984,6 +1984,12 @@ label[for="graphq-form-suchkriterium1"], label[for="graphq-form-suchkriterium2"]
     padding-bottom: 0.75em;
 }
 
+.hits li.hit::after {
+  content: ""; 
+  display: block; 
+  clear: both; 
+} 
+
 .hits li.hit,
 .hierarchy.domain_heiup_uni-heidelberg_de li,
 .hierarchy.domain_journals_ub_uni-heidelberg_de li,
@@ -1998,11 +2004,7 @@ label[for="graphq-form-suchkriterium1"], label[for="graphq-form-suchkriterium2"]
     height: auto;
 }
 
-.hit img::after {
-  content: ""; 
-  display: block; 
-  clear: both; 
-} 
+
 
 .hierarchy.domain_journals_ub_uni-heidelberg_de,
 .hierarchy.domain_heiup_uni-heidelberg_de {
