@@ -1994,14 +1994,18 @@ label[for="inputSort"] {
     margin-left: 22%;
 }
 
-
+@screen and (max-width: 767px) {
+#graphq-form input {
+	width: 100%;
+}
+}
 
 
 /*** Anzeige Suchergebnisse ***/
 
 
 
-.numfound {
+.numFound {
     margin-bottom: 1em;
 }    
 
@@ -2226,6 +2230,12 @@ footer {
 .navbar-toggle.btn {
   margin-right: 45px;
 }
+
+
+.navbar-form.navbar-right > .form-group {
+    margin-left: 30px;
+}
+
 
 }
 @media (max-width:993px)
