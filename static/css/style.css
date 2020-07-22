@@ -2111,6 +2111,10 @@ li.type_monograph a::before {
 
 
 /**Anzeige Facetten**/
+
+.treffercontainer {
+    display: flex;
+}
 #graphq-result:not(:empty) + #graphq-result-facet {
     display: block;
 }
