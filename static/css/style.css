@@ -2114,6 +2114,11 @@ li.type_monograph a::before {
     flex-grow: 100;
 }
 
+.facet_more_entry {
+  display: none !important;
+}
+
+
 /*** Footer ****/
 footer {
 	padding-left: 10px;
