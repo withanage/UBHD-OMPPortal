@@ -2113,8 +2113,8 @@ li.type_monograph a::before {
  
 }
 
- @media screen and (max-width:450px) {
-.hit img {
+@media screen and (max-width:450px) {
+li.hit > img {
     display: none;
 }
 
