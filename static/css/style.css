@@ -1997,6 +1997,7 @@ label[for="graphq-form-suchkriterium1"], label[for="graphq-form-suchkriterium2"]
     height: auto;
 }
 
+.hierarchy.domain_journals_ub_uni-heidelberg_de,
 .hierarchy.domain_heiup_uni-heidelberg_de {
     margin-left: 120px;
 }
@@ -2007,6 +2008,7 @@ label[for="graphq-form-suchkriterium1"], label[for="graphq-form-suchkriterium2"]
     text-indent: -20px;
 }
 
+.highlighting.highlighting_meta_abstract_txt,
 .highlighting.highlighting_text_pdf_ft {
     margin-left: 150px;
 }
@@ -2019,7 +2021,7 @@ label[for="graphq-form-suchkriterium1"], label[for="graphq-form-suchkriterium2"]
     line-height: 1.3em;
     margin-bottom: 0.3em;
     margin-left: 15px;        
-    text-indent: -23px;
+    text-indent: -20px;
 }
 
 
@@ -2074,7 +2076,7 @@ li.type_monograph a::before {
 }    
 
 .facet_checkbox {
-    margin-right: 5px;
+    margin-right: 5px !important;
 }
 
 .facet_entry {
