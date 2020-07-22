@@ -2200,10 +2200,6 @@ li.type_monograph a::before {
     order: 2;
     flex-basis: 100%;
 }
-}
-
-
-
 
 .hierarchy.domain_journals_ub_uni-heidelberg_de,
 .hierarchy.domain_heiup_uni-heidelberg_de,
@@ -2211,7 +2207,7 @@ li.type_monograph a::before {
 .highlighting.highlighting_text_pdf_ft {
     margin-left: 0;
 }
- }
+}
 
 
 /*** Footer ****/
