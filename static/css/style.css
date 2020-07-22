@@ -1981,26 +1981,45 @@ label[for="graphq-form-suchkriterium1"], label[for="graphq-form-suchkriterium2"]
 .hierarchy.domain_heiup_uni-heidelberg_de li {
     list-style-type: none;
 } 
+
 .hit img {
     width: 30%;
     max-width: 100px;
     height: auto;
 }
 
-.hierarchy.domain_heiup_uni-heidelberg_de,
-.hit ul.highlighting {
-    
-    padding-left: 0;
-    
+.hierarchy.domain_heiup_uni-heidelberg_de {
+    margin-left: 120px;
 }
 
+.highlighting.highlighting_text_pdf_ft {
+    margin-left: 150px;
+}
 
 
 .highlighting.highlighting_text_pdf_ft li {
     font-size: 0.9em;
     list-style-type: none;
-
 }
+
+
+li.type_monograph::before {
+    font-family: FontAwesome;
+    content: "\f02d";
+    margin-right: 8px;
+    font-style: normal;
+}
+
+.highlighting.highlighting_text_pdf_ft li::before {
+    font-family: FontAwesome;
+    content: "\f016";
+    margin-right: 8px;
+    font-style: normal;
+}
+
+
+
+
 
 /**Anzeige Facetten**/
 #graphq-result:not(:empty) + #graphq-result-facet {
