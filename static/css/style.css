@@ -2063,7 +2063,7 @@ li.type_monograph a::before {
 }
 #graphq-result-facet {
     background: #f5f5f5;
-    font-size: 0.85em;
+    font-size: 1em;
     margin-left: 10px;
     overflow: hidden;
     padding: 10px;
@@ -2091,6 +2091,7 @@ li.type_monograph a::before {
     align-items: center;
     cursor: pointer;
     display: flex;
+    font-size: 0.85em;    
     justify-content: space-between;
     margin-bottom: 0.5em;
     padding: 1px;
