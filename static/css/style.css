@@ -2023,7 +2023,7 @@ li.goto_first_hit {
 
 
 
-
+.highlighting.highlighting_meta_abstract_txt li,
 .highlighting.highlighting_text_pdf_ft li {
     font-size: 0.9em;
     line-height: 1.3em;
@@ -2040,6 +2040,7 @@ li.type_monograph a::before {
     font-style: normal;
 }
 
+.highlighting.highlighting_meta_abstract_txt li a::before,
 .highlighting.highlighting_text_pdf_ft li a::before {
     font-family: FontAwesome;
     content: "\f016";
