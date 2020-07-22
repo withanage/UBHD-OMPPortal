@@ -2112,9 +2112,8 @@ li.type_monograph a::before {
 
 /**Anzeige Facetten**/
 
-.treffercontainer {
-    display: flex;
-}
+
+
 #graphq-result:not(:empty) + #graphq-result-facet {
     display: block;
 }
@@ -2175,6 +2174,30 @@ li.type_monograph a::before {
 .facet_more_entry {
   display: none !important;
 }
+
+@media screen and (max-width:993px) {
+
+.treffercontainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.treffercontainer > .col-xs-4 {
+    order: 1;
+    flex-basis: 100%;
+}
+
+.treffercontainer > .col-xs-8 {
+    order: 2;
+    flex-basis: 100%;
+}
+}
+
+ @media screen and (max-width:450px) {
+.hit img {
+    display: none;
+}
+ }
 
 
 /*** Footer ****/
