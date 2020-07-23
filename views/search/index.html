@@ -97,6 +97,7 @@ $(function () { // "=" document.ready
     gqc.result = $('#graphq-result');
     gqc.result_facet = $('#graphq-result-facet');
 
+    gqc.translateWordList['ff|domain_s'] = { ger: 'Bücher / Zeitschriften', eng: 'Books / Journals' };
     gqc.translateWordList['qf|meta_name_txt'] = { ger: 'Autor, Körperschaft, Hrsg., etc.', eng: 'Author, Corporate, Editor, etc.' };
     gqc.formOptions.qfo = gqc.formOptions.qfo.filter(e => e !== 'meta_name_aut_txt');
 
