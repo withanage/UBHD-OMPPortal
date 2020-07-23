@@ -2051,6 +2051,10 @@ li.goto_first_hit {
     height: auto;
 }
 
+.hit_highlight {
+    background: yellow;
+}
+
 
 .hierarchy.domain_journals_ub_uni-heidelberg_de,
 .hierarchy.domain_heiup_uni-heidelberg_de {
@@ -2078,6 +2082,11 @@ li.goto_first_hit {
     margin-left: 15px;        
     text-indent: -20px;
 }
+
+.highlighting.highlighting_meta_abstract_txt li a,
+.highlighting.highlighting_text_pdf_ft li a {
+    color: #333;
+    }
 
 
 li.type_monograph {
