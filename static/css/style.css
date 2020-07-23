@@ -1966,26 +1966,74 @@ label[for="graphq-form-suchkriterium1"], label[for="graphq-form-suchkriterium2"]
     width: 50%;
 }
 
-/*** Anzeige Suchergebnisse ***/
 
 .treffer-fieldset {
     background: #f5f5f5;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 1em;
     padding: 10px;
+    width: 71%;    
 }
+
+.treffer-fieldset .form-inline:nth-of-type(1) {
+    flex-basis: 100%;
+}
+
+
+label[for="inputSort"] {
+    text-align: right;
+    padding-right: 10px;
+}                
+
+.treffer-fieldset > .btn-group {
+    display: flex;
+    align-items: stretch;
+    flex-basis: 100%;
+    margin-left: 22%;
+}
+
+@screen and (max-width: 767px) {
+#graphq-form input {
+	width: 100%;
+}
+}
+
+
+/*** Anzeige Suchergebnisse ***/
+
+
+
+.numFound {
+    margin-bottom: 1em;
+}    
 
 .hits {
     margin: 0
 }
 
 
-.hits > li {
+.hits > li.hit {
     border-bottom: 1px solid #f5f5f5;
     margin-bottom: 1em;
     min-height: 150px;
     padding-bottom: 0.75em;
 }
 
- 
+.hits > li.goto_first_hit {
+    cursor: pointer;
+    text-align: right;
+} 
+
+.hits > li.goto_first_hit::after {
+    font-family: FontAwesome;
+    content: "\f0d8";
+    margin-right: 8px;
+    font-style: normal;
+    float: right;
+    font-size: x-large;
+}     
 
 .hits li.hit,
 .hierarchy.domain_heiup_uni-heidelberg_de li,
@@ -2001,6 +2049,10 @@ li.goto_first_hit {
     width: 30%;
     max-width: 100px;
     height: auto;
+}
+
+.hit_highlight {
+    background: yellow;
 }
 
 
@@ -2031,6 +2083,16 @@ li.goto_first_hit {
     text-indent: -20px;
 }
 
+.highlighting.highlighting_meta_abstract_txt li a,
+.highlighting.highlighting_text_pdf_ft li a {
+    color: #333;
+    }
+
+
+li.type_monograph {
+    line-height: 1em;
+    margin-bottom: 0.5em;
+}
 
 li.type_monograph a::before {
     font-family: FontAwesome;
@@ -2048,16 +2110,34 @@ li.type_monograph a::before {
 }
 
 
+@media screen and (max-width:767px) {
+ 
+#graphq-form input {
+    width: 100%;
+ }
 
-
-@screen and (max-width: 380px) {
-.hit img {
-	display: none;
+.treffer-fieldset {
+    width: 85%;
 }
+ 
 }
 
+@media screen and (max-width:450px) {
+li.hit > img {
+    display: none;
+}
+.hierarchy.domain_journals_ub_uni-heidelberg_de,
+.hierarchy.domain_heiup_uni-heidelberg_de,
+.highlighting.highlighting_meta_abstract_txt,
+.highlighting.highlighting_text_pdf_ft {
+    margin-left: 0;
+}
 
+}
 /**Anzeige Facetten**/
+
+
+
 #graphq-result:not(:empty) + #graphq-result-facet {
     display: block;
 }
@@ -2065,6 +2145,7 @@ li.type_monograph a::before {
     background: #f5f5f5;
     font-size: 1em;
     margin-left: 10px;
+    margin-top: 1.5em;
     overflow: hidden;
     padding: 10px;
 }
@@ -2116,6 +2197,26 @@ li.type_monograph a::before {
 
 .facet_more_entry {
   display: none !important;
+}
+
+@media screen and (max-width:993px) {
+
+.treffercontainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.treffercontainer > .col-xs-4 {
+    order: 1;
+    flex-basis: 94%;
+}
+
+.treffercontainer > .col-xs-8 {
+    order: 2;
+    flex-basis: 100%;
+}
+
+
 }
 
 
@@ -2176,6 +2277,12 @@ footer {
 .navbar-toggle.btn {
   margin-right: 45px;
 }
+
+
+.navbar-form.navbar-right > .form-group {
+    margin-left: 30px;
+}
+
 
 }
 @media (max-width:993px)
