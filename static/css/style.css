@@ -2040,7 +2040,8 @@ label[for="inputSort"] {
 .hierarchy.domain_journals_ub_uni-heidelberg_de li,
 .highlighting.highlighting_text_pdf_ft li,
 .highlighting.highlighting_meta_abstract_txt li,
-li.goto_first_hit {
+li.goto_first_hit,
+.highlighting_meta_subject_txt li {
     list-style-type: none;
 } 
 
@@ -2057,7 +2058,8 @@ li.goto_first_hit {
 
 
 .hierarchy.domain_journals_ub_uni-heidelberg_de,
-.hierarchy.domain_heiup_uni-heidelberg_de {
+.hierarchy.domain_heiup_uni-heidelberg_de,
+.highlighting_meta_subject_txt {
     margin-left: 120px;
 }
 
