@@ -2103,10 +2103,15 @@ li.type_monograph a::before {
     font-style: normal;
 }
 
-.highlighting.highlighting_meta_abstract_txt li a::before,
+.highlighting.highlighting_meta_abstract_txt li a::before {
+    font-family: FontAwesome;
+    content: "\f13b";
+    margin-right: 8px;
+    font-style: normal;
+}
 .highlighting.highlighting_text_pdf_ft li a::before {
     font-family: FontAwesome;
-    content: "\f016";
+    content: "\f1c1";
     margin-right: 8px;
     font-style: normal;
 }
