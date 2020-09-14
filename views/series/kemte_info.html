@@ -20,10 +20,9 @@
 
 
      <div class="post-heading">
-
+      {{if session.forced_language =='de': }}
         <h3>Kulturelles Erbe: Materialität – Text – Edition (KEMTE)</h3>
         </div>
-      {{if session.forced_language =='de': }}
         <p>Die Reihe <em>Kulturelles Erbe: Materialität – Text – Edition</em> ist am Heidelberg Center for Cultural Heritage (HCCH) und  am Sonderforschungsbereich 933 &bdquo;Materiale Textkulturen&ldquo; angesiedelt. In ihr erscheinen historisch-kritische Editionen sowie Publikationen zu Themen des kulturellen Erbes im engeren Sinne, d.h. zum Schutz von Kulturgütern und der Reflexion darüber sowie zur Materialität, besonderen Präsenz und Praxeologie von Kulturgütern. Alle geistes- und kulturwissenschaftlichen Disziplinen können Bände in der Reihe publizieren; es gibt keine epochale Begrenzung.</p>
         <p>Die Open-Access-Reihe soll die Möglichkeit der Publikation als ‚enhanced eBook‘ anbieten, ein Format, das die Publikation von Forschungstexten und -daten in einer Online-Lesefassung integriert. Damit stärkt die Reihe die am Standort Heidelberg vorhandenen Schwerpunkte nicht nur im Bereich ‚Kulturelles Erbe‘, sondern auch im Bereich der wissenschaftlichen Edition und ihrer Methoden sowie der Digital Humanities. Zudem löst das Format das bisher bestehende Problem, Datenbanken nicht nur nachhaltig zu sichern und an Repositorien anschlussfähig zu machen, sondern sie auch direkt mit den auf ihnen basierenden Forschungsergebnissen zu verbinden.</p>
         <p>Einreichungen sind in allen gängigen Wissenschaftssprachen möglich (Deutsch, Englisch, Französisch, Spanisch, Italienisch), erwartet werden zunächst vor allem deutsch- und prospektiv verstärkt englischsprachige Manuskripte.
@@ -31,7 +30,9 @@
 
       
       {{elif session.forced_language =='en': }}                 
-        <p>The book series <em>Cultural Heritage: Materiality—Text—Edition</em> is based at the ‘Heidelberg Center for Cultural Heritage’ (HCCH) and at the Collaborative Research Center 933 ‘Material Text Cultures’. It publishes volumes on cultural heritage in the broader sense, with a particular focus on reflections on the protection of cultural goods and cultural heritage. Volumes dealing with the materiality, specific presence and praxeology of cultural goods are especially encouraged. The series is also open for historical-critical editions.</p>
+        <h3>Cultural Heritage: Materiality&mdash;Text&mdash;Edition (KEMTE)</h3>
+
+        <p>The book series <em>Cultural Heritage: Materiality&mdash;Text&mdash;Edition</em> is based at the ‘Heidelberg Center for Cultural Heritage’ (HCCH) and at the Collaborative Research Center 933 ‘Material Text Cultures’. It publishes volumes on cultural heritage in the broader sense, with a particular focus on reflections on the protection of cultural goods and cultural heritage. Volumes dealing with the materiality, specific presence and praxeology of cultural goods are especially encouraged. The series is also open for historical-critical editions.</p>
         <p>All scholars of humanities and cultural sciences can publish volumes in the series; there is no epochal limit. Submissions are possible in all scholarly common languages (German, English, French, Spanish, Italian) with a focus on German and English.</p>
         <p>The Open Access series is published in print and online. Moreover, volumes can be published as ‘enhanced eBooks’—an online reading version that can integrate text and research data. The ‘enhanced eBook’-format is a solution not only for ensuring the sustainability of research data and linking them to repositories, but also for the hitherto existing problem of combining research data and research results based on them.</p>
         <p>The book series is peer reviewed.</p>
@@ -90,7 +91,7 @@
 
              {{elif session.forced_language =='en': }}
                             <h5 style="color: #656565; margin-bottom: 0.5em;margin-top:1em;">Bibliographic details</h5>                         
-                                <p>Kulturelles Erbe: Materialität&nbsp;– Text&nbsp;– Edition (KEMTE)</p>
+                                <p>Cultural Heritage: Materiality&mdash;Text&mdash;Edition (KEMTE)</p>
                             <p>Editorial Board</p>
                             <ul>
                             <li>Ludger Lieb, Christian Witschel</li>
