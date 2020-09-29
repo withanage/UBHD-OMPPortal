@@ -12,9 +12,11 @@ for pf in sorted(digital_publication_formats, key=lambda s: s.settings.getLocali
     c_file = c_files.get(pf.attributes.publication_format_id)
     if c_file:
     f_size = c_file.attributes.get('file_size') / (1024 * 1024)
-    hreflink= _href=downloadLink(request, c_file.attributes, myconf.take('web.url'), c_file.settings.getLocalizedValue("vgWortPublic", ""))
+    vgwPixelPublic = c_file.settings.getLocalizedValue("vgWortPublic", "")
+    onclick = "vgwPixelCall('" + vgwPixelPublic+ "')" if vgwPixelPublic else ""
+    file_url = downloadLink(request, c_file.attributes, myconf.take('web.url'))
     if format_name.lower() == 'pdf':
-    c_pdf.append(LI(A('{}'.format(format_name, f_size),_href=hreflink)))
+    c_pdf.append(LI(A('{}'.format(format_name, f_size),_href=file_url, _onclick=onclick, _target="_target")))
     pass
 
     pass

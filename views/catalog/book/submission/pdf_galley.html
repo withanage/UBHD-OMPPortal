@@ -14,7 +14,9 @@ for pf in sorted(digital_publication_formats, key=lambda s: s.settings.getLocali
         full_file = pf.associated_items.get(f)
         if full_file and not "html" in full_file.attributes.file_type and not "xml" in full_file.attributes.file_type:
             f_size = round(full_file.attributes.get('file_size') / (1024 * 1024))
-            FULL_BINARIES.append(LI(A('{} ({} MB)'.format(format_name, f_size), _role="menuitem", _tabindex=i-1, _href=downloadLink(request, full_file.attributes, myconf.take('web.url'),full_file.settings.getLocalizedValue("vgWortPublic", ""))),_role="presentation"))
+            vgwPixelPublic = full_file.settings.getLocalizedValue("vgWortPublic", "")
+            onclick = "vgwPixelCall('" + vgwPixelPublic+ "')" if vgwPixelPublic else ""
+            FULL_BINARIES.append(LI(A('{} ({} MB)'.format(format_name, f_size), _role="menuitem", _tabindex=i-1, _onclick=onclick, _href=downloadLink(request, full_file.attributes, myconf.take('web.url')), _target="_target"),_role="presentation"))
         pass
     pass
 pass
