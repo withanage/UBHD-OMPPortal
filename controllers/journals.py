@@ -24,6 +24,9 @@ def heso():
     
 def cursor():
     return dict()
+
+def bkgd():
+    return dict()    
 	
 def home():
     return dict()
