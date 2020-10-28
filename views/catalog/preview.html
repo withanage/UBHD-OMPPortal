@@ -17,23 +17,23 @@
 				<div class="col-lg-2">
 					<article>
 						<div class="post-image">
-                            {{=A(IMG(_src=URL(myconf.take('web.application'),'static','images/about_us/profile/cover_programm.png'),_alt='', _class='bildrahmen'),_href=URL('static','/medien/heiUP_Programmheft2019.pdf'))}} 
+                            {{=A(IMG(_src=URL(myconf.take('web.application'),'static','images/about_us/profile/cover_programm.png'),_alt='', _class='bildrahmen'),_href=URL('static','/medien/heiUP_Programmheft2020-21.pdf'))}} 
 						</div>
 					</article>
 				</div>
 				<div class="col-lg-10">
 					<article>
                         {{if session.forced_language =='de': }}
-						<div class="post-heading"><b>Vorschau und lieferbare Titel 2019/2020</b>
+						<div class="post-heading"><b>Vorschau und lieferbare Titel 2020/2021</b>
 						</div>
-                        <p>Alle zurzeit lieferbaren und bis Herbst 2020 geplanten Titel finden Sie in unserer aktuellen Verlagsvorschau.</p> 
+                        <p>Alle zurzeit lieferbaren und bis Herbst 2021 geplanten Titel finden Sie in unserer aktuellen Verlagsvorschau.</p> 
                         <p>
-                        <a href="{{=URL('static','/medien/heiUP_Programmheft2019.pdf')}}"><button class="btn btn-default" type="button">Download</button></a></p>
+                        <a href="{{=URL('static','/medien/heiUP_Programmheft2020-21.pdf')}}"><button class="btn btn-default" type="button">Download</button></a></p>
                         {{elif session.forced_language =='en': }}
-						<div class="post-heading"><b>Publishing Programme 2019/2020</b>
+						<div class="post-heading"><b>Publishing Programme 2020/2021</b>
 						</div>
                         <p>All presently available and upcoming titles are listed in our current publisher's preview.</p>
-                        <p><a href="{{=URL('static','/medien/heiUP_Programmheft2019.pdf')}}"><button class="btn btn-default" type="button">Download</button></a></p>
+                        <p><a href="{{=URL('static','/medien/heiUP_Programmheft2020-21.pdf')}}"><button class="btn btn-default" type="button">Download</button></a></p>
                         {{pass}}                        
 					</article>
 				</div>
