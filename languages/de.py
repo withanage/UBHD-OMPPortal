@@ -425,6 +425,7 @@
 'Save model as...': 'Speichere Vorlage als...',
 'search': 'search',
 'Search': 'Suche',
+'search term': 'Suchbegriff',
 'Semantic': 'Semantik',
 'Send': 'Verschicken',
 'Sendedatum': 'Sendedatum',
