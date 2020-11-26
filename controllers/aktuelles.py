@@ -17,7 +17,7 @@ def eintrag():
 
         n = ompdal.getAnnouncementWithSettings(announcement_id)
 
-        title = n.get('title', {}).get(locale, '')
+        title = XML(n.get('title', {}).get(locale, ''))
 
         description = XML(n.get('description', {}).get(locale, ''))
         short_description = XML(n.get('descriptionShort', {}).get(locale, ''))
@@ -27,6 +27,9 @@ def eintrag():
         archive = ompdal.getAnnouncementsByPressGroupedByYearAndMonth(press_id, locale)
 
         current_year = datetime.datetime.now().year
+
+        # Helper functions for the template
+        strip_tags = ompformat.strip_tags
 
         def month_to_literal(month_int):
             return T(calendar.month_name[month_int])

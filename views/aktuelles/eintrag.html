@@ -34,7 +34,7 @@
                               <h5>{{=month_to_literal(month)}}</h5>
                               <ul>
                                 {{for announcement in archive[year][month]:}}
-                                <li><a href="{{=URL('eintrag', args=[announcement['id']])}}">{{=announcement['title']}}</a></li>
+                                <li><a href="{{=URL('eintrag', args=[announcement['id']])}}">{{=strip_tags(announcement['title'])}}</a></li>
                                 {{pass}}
                               </ul>
                             </li>
