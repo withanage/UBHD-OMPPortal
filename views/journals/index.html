@@ -227,6 +227,42 @@ At least twice a year the journal publishes original research on teacher educati
         </article>            
       </div>        
     </div>	  
+
+    <div class="row">            
+      <div class="col-lg-2">                
+        <article>                    
+          <div class="post-image">		 	
+            <img alt="" src="{{=URL(myconf.take('web.application'),'static','images/journals/mial.png')}} ">                  
+          </div>                
+        </article>            
+      </div>            
+      <div class="col-lg-10">               
+        <article>                  
+          <div class="post-heading">		             						
+            <div class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h3>Das Mittelalter</h3>
+            </div>
+            <br style="clear: both">                        
+          </div>                        
+          <p>                            
+           {{if session.forced_language =='de': }} Der Mediävistenverband e.V. veröffentlicht seit 1996 die halbjährlich erscheinende Zeitschrift ‚Das Mittelalter. Perspektiven mediävistischer Forschung‘, die sich als Forum für die interdisziplinäre Mediävistik versteht. Die Hefte sind thematisch ausgerichtet, vereinigen Beiträge aus mindestens drei verschiedenen Disziplinen und behandeln aktuelle Fragstellungen aus allen Bereichen der Mediävistik.
+           {{elif session.forced_language =='en': }} Since 1996, the Mediävistenverband e.V. has published the biannual magazine 'Das Mittelalter. Perspektiven mediävistischer Forschung', which sees itself as a forum for interdisciplinary medieval studies. The issues are thematically oriented, combine contributions from at least three different disciplines and deal with current issues from all areas of medieval studies.
+           {{pass}}                              
+          </p>                    
+          <!--<div class="widget">                        
+            <h5 class="widgetheading"></h5>                        
+            <ul class="tags">        	       	   
+              <li>
+              <a href="{{=URL(myconf.take('web.application'),'journals','mial')}}">{{=T('More' )}}</a>
+              </li>
+              <li>
+              <a href="http://heiup.uni-heidelberg.de/journals/index.php/mial/index">{{=T('View Journal')}}</a>
+              </li>                        
+            </ul>                    
+          </div> -->               
+        </article>            
+      </div>        
+    </div>
+
     <div class="row">            
       <div class="col-lg-2">                
         <article>                    

@@ -1,0 +1,183 @@
+{{extend 'layout.html'}}
+
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+	
+            <div class="col-lg-3">
+                <article>
+                    <div class="post-image">
+		 	<img src="{{=URL(myconf.take('web.application'),'static','images/journals/mial.jpg')}} ">
+                  </div>
+
+                </article>
+                
+                <div class="box">
+			             <div class="box-gray alignleft" style="height: auto;">
+                 {{if session.forced_language =='de': }}
+                            <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographische Angaben</h5>
+                            <p>The Journal of Transcultural Studies<br>
+                            
+                            <p>Herausgeber</p>
+                            <ul>
+                              <li>Monica Juneja</li>
+                              <li>Joachim Kurtz</li>
+							  <li>Diamantis Panagiotopoulos </li>
+							  <li>Michael Radich </li>
+                              <li>Rudolf Wagner (†)</li>
+                            </ul>
+							<!--
+                            <p>Managing Editor</p>
+                              <ul>
+                                <li>Russell Ó Ríagaín</li>
+                              </ul>  
+							  -->
+                            <p>Heidelberg University Publishing, Heidelberg</p>
+                            <p>ISSN: 2191-6411 (Online)</p>  
+
+                            <p>Dieses Werk ist unter der<br> <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons-Lizenz 4.0<br /> (CC BY-SA 4.0)</a> veröffentlicht.<br>
+                            <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0"><img alt="Creative Commons Lizenz BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p>
+
+                             
+             {{elif session.forced_language =='en': }}
+             
+<h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographic details</h5>
+                            <p>The Journal of Transcultural Studies<br>
+                            
+                            <p>Editors</p>
+                            <ul>
+                              <li>Monica Juneja</li>
+                              <li>Joachim Kurtz</li>
+							  <li>Diamantis Panagiotopoulos </li>
+							  <li>Michael Radich </li>
+                              <li>Rudolf Wagner (†)</li>
+                            </ul>
+							<!--
+                            <p>Managing Editor</p>
+                              <ul>
+                                <li>Russell Ó Ríagaín</li>
+                              </ul>  
+							  -->
+                            <p>Heidelberg University Publishing, Heidelberg</p>
+                            <p>ISSN: 2191-6411 (Online)</p>  
+
+                            <p>This work is licensed under a <br> <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons License 4.0<br> (CC BY-SA 4.0)</a>.<br>
+                            <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; License CC BY-SA 4.0"><img alt="Creative Commons License BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p>             
+
+{{pass}}                  
+                   </div>
+
+
+             
+                                         
+                  </div>
+ </div>   
+
+            
+            <div class="col-lg-9">
+               <article>
+        <div id="infoBoxRechts" class="col-lg-3">
+          <div class="box">
+            <div class="box-gray"  style="height: auto;">
+                 {{if session.forced_language =='de': }}
+                <p class="boxText"><b>RSS für die aktuelle Ausgabe</b></p>
+             {{elif session.forced_language =='en': }}
+                <p class="boxText"><b>RSS for current issue</b></p>{{pass}}                                          
+                <a href="https://heiup.uni-heidelberg.de/journals/index.php/transcultural/gateway/plugin/WebFeedGatewayPlugin/atom">
+                   <img alt="Logo Atom" src="{{=URL('static','images/journals/atom10_logo.gif')}}" />
+                </a>
+                <a href="https://heiup.uni-heidelberg.de/journals/index.php/transcultural/gateway/plugin/WebFeedGatewayPlugin/rss2">
+                   <img alt="Logo RSS 2.0" src="{{=URL('static','images/journals/rss20_logo.gif')}}" />
+                </a>   
+                <a href="https://heiup.uni-heidelberg.de/journals/index.php/transcultural/gateway/plugin/WebFeedGatewayPlugin/rss">
+                   <img alt="Logo RSS 2.0" src="{{=URL('static','images/journals/rss10_logo.gif')}}" />
+                </a>
+                  </div>
+                </div>
+             
+
+                <div class="box">
+                  <div class="box-gray"  style="height: auto;">
+                 
+                <p class="boxText"><b>{{=T('Information for authors')}}</b></p>
+
+                                 
+
+                    <ul class="standard">
+                      <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/about/submissions#authorGuidelines">Author Guidelines</a></li>
+                    </ul>
+                  </div>
+                </div>
+                
+          <div class="box">
+            <div class="box-gray"  style="height: auto;">
+                 
+                <p class="boxText"><b>{{=T('Contact')}}</b></p>
+                    <ul class="standard">
+                      <li><a href="mailto:jts-editors@hcts.uni-heidelberg.de">Redaktion</a></li>
+                    </ul>
+                  </div>
+                </div>                
+              </div>
+
+            <div class="btn-group" role="group" aria-label="1">
+             <ul class="schaltflaeche">
+				 <li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/issue/current/showToc" title="{{=T('current issue')}}">{{=T('read current issue')}}</a></li>
+             </ul>
+			</div>
+			
+			<div class="btn-group" role="group" aria-label="1">
+            <ul class="schaltflaeche">
+				 <li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/transcultural/issue/archive" title="{{=T('Archive')}}">{{=T('Archive')}}</a></li>
+            </ul> 
+			</div>
+			
+     <div class="post-heading">
+     
+                 {{if session.forced_language =='de': }}     
+                  <h3>Das Mittelalter</h3>
+                 {{elif session.forced_language =='en': }}
+                  <h3>Das Mittelalter (The Middle Ages)</h3>
+{{pass}}     
+                  
+        </div>
+
+                 {{if session.forced_language =='de': }}
+                 
+<p>Der Mediävistenverband e.V. veröffentlicht seit 1996 die halbjährlich erscheinende Zeitschrift ‚Das Mittelalter. Perspektiven mediävistischer Forschung‘, die sich als Forum für die interdisziplinäre Mediävistik versteht. Die Hefte sind thematisch ausgerichtet, vereinigen Beiträge aus mindestens drei verschiedenen Disziplinen und behandeln aktuelle Fragstellungen aus allen Bereichen der Mediävistik. Der Thementeil wird ergänzt durch einen umfangreichen Rezensionsteil, in dem wichtige Neuerscheinungen (Monographien, Editionen, Sammelbände) vorgestellt werden. Seit 2018 unterliegen alle Aufsätze der Zeitschrift einem Peer Review-Verfahren.</p>
+<p>Der Mediävistenverband lädt in regelmäßigen Abständen in einem <a href="https://heiup.uni-heidelberg.de/journals/index.php/mial/call-for-issues" title="Online Journal 'Das Mittelalter', Call for Issues">‚Call for Issues‘</a> dazu ein, Vorschläge für die Gestaltung von Themenheften bei der Schriftführung einzureichen.  Präsidium und wissenschaftlicher Beirat prüfen die eingegangenen Vorschläge und treffen eine thematische Auswahl. Die Herausgeber*innen eines Themenhefts veröffentlichen einen <a href="https://heiup.uni-heidelberg.de/journals/index.php/mial/call-for-papers" title="Online Journal 'Das Mittelalter', Call for Papers">‚Call for Papers‘</a>, wählen in Abstimmung mit dem wissenschaftlichen Beirat potentielle Beiträge aus und organisieren eine Autor*innenkonferenz, auf der die begutachteten Aufsätze diskutiert werden.</p>
+                 
+
+             {{elif session.forced_language =='en': }}
+
+<p>Since 1996, the Mediävistenverband e.V. has published the biannual magazine ‘Das Mittelalter: Perspektiven mediävistischer Forschung’, which sees itself as a forum for interdisciplinary medieval studies. The issues are thematically oriented, combine contributions from at least three different disciplines and deal with current issues from all areas of medieval studies. The thematic section is supplemented by a comprehensive review section in which important new publications (monographs, editions, anthologies) are presented. Since 2018, all articles of the journal are subject to a peer review process.</p>
+<p>The Medievalists' Association has a regular <a href="https://heiup.uni-heidelberg.de/journals/index.php/mial/call-for-issues?lang=en" title="Online Journal 'Das Mittelalter', Call for Issues">'Call for Issues'</a>, inviting submissions for proposals for the design of thematic booklets during the writing process.  The Presidium and Scientific Advisory Board examine the suggestions received and make a thematic selection. The editors of a thematic issue publish a <a href="https://heiup.uni-heidelberg.de/journals/index.php/mial/call-for-papers?lang=en" title="Online Journal 'Das Mittelalter', Call for Papers">'Call for Papers'</a>, select potential contributions in consultation with the scientific advisory board, and organise an authors' conference at which the reviewed articles are discussed.</p>
+
+
+{{pass}}     
+
+
+                    <div class="widget">
+                        <h5 class="widgetheading"></h5>
+                 {{if session.forced_language =='de': }}
+                        <ul class="tags">
+                            <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/mial/index">zur Zeitschrift</a></li>
+                        </ul>
+             {{elif session.forced_language =='en': }}
+                        <ul class="tags">
+                            <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/mial/index">View Journal</a></li>
+                        </ul>
+{{pass}}     
+                       
+                    </div>
+
+                     			
+			
+                </article>
+ 
+            </div>
+ </div>
+        </div>
+
+</section>
