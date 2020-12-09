@@ -33,3 +33,6 @@ def cursor():
 
 def bkgd():
     return dict()
+
+def mial():
+    return dict()
