@@ -355,21 +355,28 @@ def get_navigation_select():
         }
     button = TAG.button(T("Results per Page"), SPAN(_class='caret'), **button_cs)
     return DIV(button, ul, _class="btn-group pull-left")
+
+
 def preview():
     return locals()
+
 
 def book():
 
     ompdal = OMPDAL(db, myconf)
 
-    submission_id = request.args[0] if request.args  and request.args[0].isdigit() else raise400()
+    submission_id = request.args[0] if request.args and request.args[0].isdigit() else raise400()
     press_id = myconf.take('omp.press_id')
     press = ompdal.getPress(press_id)
     submission = ompdal.getPublishedSubmission(submission_id, press_id=press_id)
-    chapter_id = int(str(request.args[1])[1:]) if len(request.args) > 1 else 0
-
     if not submission or not press:
         raise HTTP(400)
+    if len(request.args) > 1 and request.args[1][0] == 'c' and request.args[1][1:].isdigit():
+        chapter_id = int(request.args[1][1:])
+    elif len(request.args) > 1:
+        redirect(URL(r=request, args=request.args[0:1]))
+    else:
+        chapter_id = 0
 
     submission_settings = OMPSettings(ompdal.getSubmissionSettings(submission_id))
     press_settings = OMPSettings(ompdal.getPressSettings(press.press_id))
