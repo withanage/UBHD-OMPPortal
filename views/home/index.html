@@ -27,21 +27,37 @@ $('.flexslider').flexslider();
               </div>{{pass}} 
               </li>
               <li>
-              <img alt="" src="{{=URL('static','images/press/slideshow/02_islamische-selbstbilder.png')}}" />
-              <div class="flex-caption hidden-xs hidden-sm"><h3>Kiyanrad, Sauer, Scholz (Hrsg.)<br />Islamische Selbstbilder –<br />Festschrift für Susanne Enderwitz</h3>
-                {{=A(T('More'),_href=URL('catalog','book/531'), _class='btn btn-theme')}}    
+              <img alt="" src="{{=URL('static','images/press/slideshow/02_antizyganismus.png')}}" />
+              <div class="flex-caption hidden-xs hidden-sm">
+{{if session.forced_language =='de': }}                 
+                <h3>Mladenova et al. (Hrsg.)<br />Antiziganismus und Film</h3>
+{{elif session.forced_language =='en': }}                 
+                <h3>Mladenova et al. (Eds.)<br />Antigypsyism and Film</h3>  
+{{pass}}                               
+                {{=A(T('More'),_href=URL('catalog','book/650'), _class='btn btn-theme')}}    
               </div>
               </li>                            
               <li>
-              <img alt="" src="{{=URL('static','images/press/slideshow/03_phs-115.png')}}" />
-              <div class="flex-caption hidden-xs hidden-sm"><h3>Miriam Régerat-Kobitzsch<br />» Cette reine qui fait une si piètre figure «</h3>
-                {{=A(T('More'),_href=URL('catalog','book/540'), _class='btn btn-theme')}}    
+              <img alt="" src="{{=URL('static','images/press/slideshow/03_korpusgrammatik.png')}}" />
+              <div class="flex-caption hidden-xs hidden-sm">
+{{if session.forced_language =='de': }}                  
+                <h3 style="font-size: 23px">Konopka, Wöllstein, Felder (Hrsg.)<br />Bausteine einer Korpusgrammatik des Deutschen</h3>
+{{elif session.forced_language =='en': }}   
+                <h3 style="font-size: 23px">Konopka, Wöllstein, Felder (Eds.)<br />Bausteine einer Korpusgrammatik des Deutschen</h3>
+{{pass}}                 
+                <a href="https://heiup.uni-heidelberg.de/journals/index.php/bkgd/issue/view/2407" class="btn btn-theme">{{=T('More Information')}}</a>   
               </div>              
               </li> 
               <li>
-              <img alt="" src="{{=URL('static','images/press/slideshow/04_negation.png')}}" /> 
-              <div class="flex-caption hidden-xs hidden-sm"><h3>Ouafaa Qaddioui<br /> <span style="font-size: smaller">Zur Negation im Gegenwartsdeutschen und im Modernen Hocharabisch</span></h3>
-                {{=A(T('More'),_href=URL('catalog','book/582'), _class='btn btn-theme')}} 
+              <img alt="" src="{{=URL('static','images/press/slideshow/04_dhi-rom.png')}}" />
+              <div class="flex-caption hidden-xs hidden-sm">
+{{if session.forced_language =='de': }}                
+              
+              <h3 style="font-size: 23px">Amedeo Osti Guerrazzi (Hrsg.)<br />Le udienze di Mussolini durante la Repubblica Sociale Italiana, 1943–1945</span></h3>
+{{elif session.forced_language =='en': }}                 
+              <h3 style="font-size: 23px">Amedeo Osti Guerrazzi (Hrsg.)<br />Le udienze di Mussolini durante la Repubblica Sociale Italiana, 1943–1945</span></h3>
+{{pass}}               
+                {{=A(T('More'),_href=URL('catalog','book/522'), _class='btn btn-theme')}} 
 
               </div>
               </li>
@@ -66,12 +82,12 @@ $('.flexslider').flexslider();
               <li>
               <img alt="" src="{{=URL('static','images/press/slideshow/07_dem_lebendigen_geist.jpg')}}" />
               </li>
-              <!--<li>{{if session.forced_language =='de': }} 
-              <img alt="" src="{{=URL('static','images/press/slideshow/08_weihnachten.jpg')}}" />
+              <li>{{if session.forced_language =='de': }} 
+              <img alt="" src="{{=URL('static','images/press/slideshow/08_weihnachten.png')}}" />
                 {{elif session.forced_language =='en': }} 
-              <img alt="" src="{{=URL('static','images/press/slideshow/08_christmas.jpg')}}" />
+              <img alt="" src="{{=URL('static','images/press/slideshow/08_christmas.png')}}" />
               {{pass}} 
-              </li>-->
+              </li>
             </ul>
           </div>
           <!-- ./Slideshow -->
