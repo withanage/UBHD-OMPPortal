@@ -18,7 +18,11 @@
               Fax: +49 6221 54 2623<br>
               Email: <a href="mailto:heiup-orders@ub.uni-heidelberg.de">heiup-orders@ub.uni-heidelberg.de</a>
             </p>  
-
+              {{if session.forced_language=='de':}}            
+            <p>Aufgrund der Corona-bedingten Einschränkungen und unterbrochenen Verkehrswege ist der Versand von Paketen in zahlreiche Länder außerhalb der EU gegenwärtig nicht oder nur mit sehr langen Lieferzeiten möglich. Wir versenden daher im Moment keine Bücher an Länder außerhalb der EU (Schweiz ausgenommen). Wir bitten um Ihr Verständnis.</p> 
+              {{elif session.forced_language=='en':}}            
+            <p>Due to the corona-related restrictions we are currently not sending any books to countries outside the EU (with the exception of Switzerland). We apologize for any inconvenience.</p>
+              {{pass}}
 
 
         </div>
