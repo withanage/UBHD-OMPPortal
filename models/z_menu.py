@@ -16,7 +16,6 @@ else:
     locale = 'de_DE'
 
 
-
 response.title = settings.title
 response.subtitle = settings.subtitle
 response.meta.keywords = settings.keywords
@@ -30,6 +29,7 @@ def title(t):
     return '<a href="#" data-toggle="dropdown" data-hover="dropdown"  class="dropdown-toggle" >{} <b class=" icon-angle-down"></b></a> '.format(
         T(t))
 
+
 about_us_dict = [['mission_statement', T('Mission Statement')],
                  ['profile', T('Profile')],
                  ['advisory_board', T('Advisory Board')],
@@ -37,8 +37,8 @@ about_us_dict = [['mission_statement', T('Mission Statement')],
                  ['partners', T('Partners')],
                  ['technology', T('Technology')]
                  ]
-about_us_list = [LI(A(i[1], _href=URL('about_us', i[0])))
-                 for i in about_us_dict]
+about_us_list = [LI(A(T('News'), _href=URL('aktuelles', 'index')))] + [LI(A(i[1], _href=URL('about_us', i[0])))
+                                                                       for i in about_us_dict]
 
 
 publishing_dict = [['for_authors', T('Information for Authors')],
