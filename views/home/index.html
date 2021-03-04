@@ -165,16 +165,6 @@ $('.flexslider').flexslider();
         <div class="row">
           <div class="col-lg-12">
             <div class="row"> 
-		<div class="col-lg-3">              
-                <div class="box">
-                  <div class="box-gray aligncenter">
-                <h4>{{=T('New Titles')}}</h4>
-                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/651/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/651'))}} 
-      			 </div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/651'))}}
-                  </div>
-                </div>
-        </div> 
 
 			<div class="col-lg-3">
               <div class="box">
@@ -188,7 +178,18 @@ $('.flexslider').flexslider();
                     {{=A(T('More Information'),_href=URL('about_us','mission_statement'))}}
                 </div>
               </div>
-            </div>     
+            </div> 
+            
+		<div class="col-lg-3">              
+                <div class="box">
+                  <div class="box-gray aligncenter">
+                <h4>{{=T('New Titles')}}</h4>
+                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/651/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/651'))}} 
+      			 </div>
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/651'))}}
+                  </div>
+                </div>
+        </div>                 
 
 		<div class="col-lg-3">              
                 <div class="box">
