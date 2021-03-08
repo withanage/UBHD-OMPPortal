@@ -101,6 +101,18 @@ $('.flexslider').flexslider();
       <div class="row">
         <div class="col-lg-12">
           <div class="row">
+		<div class="col-lg-3">              
+                <div class="box">
+                  <div class="box-gray aligncenter">
+                <h4>{{=T('New Titles')}}</h4>
+                <a href="https://heiup.uni-heidelberg.de/journals/index.php/transcultural/issue/view/2410" title="{{=T('current issue')}}">{{=IMG(_src=URL('static','images/journals/cover_tcs.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}</a>
+
+      			 </div>
+                  <div class="box-bottom"><a href="https://heiup.uni-heidelberg.de/journals/index.php/transcultural/issue/view/2410" title="{{=T('current issue')}}">{{=T('More Information')}}</a>
+                  </div>
+                </div>
+          </div>   
+
 
 		<div class="col-lg-3">              
                 <div class="box">
@@ -112,21 +124,7 @@ $('.flexslider').flexslider();
                   </div>
                 </div>
         </div> 
-
-
-		<div class="col-lg-3">              
-                <div class="box">
-                  <div class="box-gray aligncenter">
-                <h4>{{=T('New Titles')}}</h4>
-                <a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/view/2409" title="{{=T('current issue')}}">{{=IMG(_src=URL('static','images/campusmedia/cover_02_2021.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}</a>
-
-      			 </div>
-                  <div class="box-bottom"><a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/view/2409" title="{{=T('current issue')}}">{{=T('More Information')}}</a>
-                  </div>
-                </div>
-          </div>                             
-
-
+                         
 
 
 
@@ -179,7 +177,17 @@ $('.flexslider').flexslider();
                 </div>
               </div>
             </div> 
-            
+ 		<div class="col-lg-3">              
+                <div class="box">
+                  <div class="box-gray aligncenter">
+                <h4>{{=T('New Titles')}}</h4>
+                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/650/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/650'))}} 
+      			 </div>
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/650'))}}
+                  </div>
+                </div>
+        </div>    
+		
 		<div class="col-lg-3">              
                 <div class="box">
                   <div class="box-gray aligncenter">
@@ -203,16 +211,7 @@ $('.flexslider').flexslider();
                 </div>
           </div>            
             
-		<div class="col-lg-3">              
-                <div class="box">
-                  <div class="box-gray aligncenter">
-                <h4>{{=T('New Titles')}}</h4>
-                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/650/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/650'))}} 
-      			 </div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/650'))}}
-                  </div>
-                </div>
-        </div>             
+           
             
 
 
@@ -241,6 +240,7 @@ $('.flexslider').flexslider();
         <div class="row">
           <div class="col-lg-12">
             <div class="row">	
+		
           <div class="col-lg-3">
                 <div class="box">
                   <div class="box-gray aligncenter">
