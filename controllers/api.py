@@ -84,9 +84,14 @@ def getAuthorList(submission_id, chapter_id=0):
         if role:
             author["role"] = role.first().as_dict().get("setting_value")
 
-        author_settings = ompdal.getAuthorSettings(contrib["author_id"]).as_list()
-        for setting in author_settings:
-            author[setting['setting_name']] = setting["setting_value"]
+        author_settings = ompdal.getAuthorSettings(contrib["author_id"])
+        # Handle localized settings
+        for row in author_settings:
+            if row.locale:
+                author.setdefault(row.setting_name, {})[row.locale] = row.setting_value
+            else:
+                author[row.setting_name] = row.setting_value
+
         authors.append(author)
     return authors
 
