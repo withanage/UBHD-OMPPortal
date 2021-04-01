@@ -47,27 +47,9 @@
             </div>   
 
             
-            <div class="col-lg-9">
+            <div class="col-lg-6">
                <article>
                
-                <div id="infoBoxRechts" class="col-lg-3">
-
-                <div class="box">
-                  <div class="box-gray"  style="height: auto;">
-                    <!--<p class="boxText"></p>-->
-
-                    <ul class="standard">
-{{if session.forced_language =='de': }}                    
-                      <li>{{=A(T('Author Style Guide'),_href=URL('static','medien/journals/mial_richtlinien-autoren.pdf'))}}</li>
-{{elif session.forced_language =='en': }}                      
-                      <li>{{=A(T('Author Style Guide'),_href=URL('static','medien/journals/mial_stylesheet-authors.pdf'))}}</li>
-{{pass}}  
-                      <li>{{=A(T('Reviewer Style Guide'),_href=URL('static','medien/journals/mial_richtlinien-rezensenten.pdf'))}}</li>                      
-                    </ul>
-                  </div>
-                </div>
-                
-              </div> 
 
             <!--<div class="btn-group" role="group" aria-label="1">
              <ul class="schaltflaeche">
@@ -137,6 +119,27 @@
                 </article>
  
             </div>
+            <div id="infoBoxRechts" class="col-lg-3">
+
+                <div class="box">
+                  <div class="box-gray"  style="height: auto;">
+{{if session.forced_language =='de': }}
+                    <p class="boxText"><b>Informationen zum Download</b></p>
+{{elif session.forced_language =='en': }}
+                    <p class="boxText"><b>Information to download</b></p>
+{{pass}}
+                    <ul class="standard">
+{{if session.forced_language =='de': }}                    
+                      <li>{{=A(T('Author Style Guide'),_href=URL('static','medien/journals/mial_richtlinien-autoren.pdf'))}}</li>
+{{elif session.forced_language =='en': }}                      
+                      <li>{{=A(T('Author Style Guide'),_href=URL('static','medien/journals/mial_stylesheet-authors.pdf'))}}</li>
+{{pass}}  
+                      <li>{{=A(T('Reviewer Style Guide'),_href=URL('static','medien/journals/mial_richtlinien-rezensenten.pdf'))}}</li>                      
+                    </ul>
+                  </div>
+                </div>
+                
+              </div>             
  </div>
         </div>
 
