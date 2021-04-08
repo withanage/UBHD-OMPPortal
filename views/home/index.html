@@ -16,7 +16,7 @@ $('.flexslider').flexslider();
             <ul class="slides">
               <li>{{if session.forced_language =='de': }} 
               <img alt="" src="{{=URL('static','images/press/slideshow/01_claim_tablet.de.jpg')}}" />
-              <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('Das Profil von heiUP')}}</h3>
+              <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('Das Profil von heiUP')}} </h3>
                 {{=A(T('More'),_href=URL('about_us','profile'), _class='btn btn-theme')}}
                 <!--<a href="./about_us/profile.html" class="btn btn-theme">Mehr</a>-->
               </div>{{elif session.forced_language =='en': }} 
@@ -27,21 +27,37 @@ $('.flexslider').flexslider();
               </div>{{pass}} 
               </li>
               <li>
-              <img alt="" src="{{=URL('static','images/press/slideshow/02_dorf.png')}}" />
-              <div class="flex-caption hidden-xs hidden-sm"><h3>Rüdiger<br /> Thomsen-Fürst<br />»Es ist nur ein Dorf«</h3>
-                {{=A(T('More'),_href=URL('catalog','book/566'), _class='btn btn-theme')}}    
+              <img alt="" src="{{=URL('static','images/press/slideshow/02_antizyganismus.png')}}" />
+              <div class="flex-caption hidden-xs hidden-sm">
+{{if session.forced_language =='de': }}                 
+                <h3>Mladenova et al. (Hrsg.)<br />Antiziganismus und Film</h3>
+{{elif session.forced_language =='en': }}                 
+                <h3>Mladenova et al. (Eds.)<br />Antigypsyism and Film</h3>  
+{{pass}}                               
+                {{=A(T('More'),_href=URL('catalog','book/650'), _class='btn btn-theme')}}    
               </div>
               </li>                            
               <li>
-              <img alt="" src="{{=URL('static','images/press/slideshow/03_caring.png')}}" />
-              <div class="flex-caption hidden-xs hidden-sm"><h3>Christiane Brosius, Roberta Mandoki<br />Caring for Old Age</h3>
-                {{=A(T('More'),_href=URL('catalog','book/597'), _class='btn btn-theme')}}    
+              <img alt="" src="{{=URL('static','images/press/slideshow/03_korpusgrammatik.png')}}" />
+              <div class="flex-caption hidden-xs hidden-sm">
+{{if session.forced_language =='de': }}                  
+                <h3 style="font-size: 23px">Konopka, Wöllstein, Felder (Hrsg.)<br />Bausteine einer Korpusgrammatik des Deutschen</h3>
+{{elif session.forced_language =='en': }}   
+                <h3 style="font-size: 23px">Konopka, Wöllstein, Felder (Eds.)<br />Bausteine einer Korpusgrammatik des Deutschen</h3>
+{{pass}}                 
+                <a href="https://heiup.uni-heidelberg.de/journals/index.php/bkgd/issue/view/2407" class="btn btn-theme">{{=T('More Information')}}</a>   
               </div>              
               </li> 
               <li>
-              <img alt="" src="{{=URL('static','images/press/slideshow/04_musiktheater.png')}}" /> 
-              <div class="flex-caption hidden-xs hidden-sm"><h3>Scharrer, Laß, Müller<br /> Musiktheater im höfischen Raum &hellip;</h3>
-                {{=A(T('More'),_href=URL('catalog','book/469'), _class='btn btn-theme')}} 
+              <img alt="" src="{{=URL('static','images/press/slideshow/04_dhi-rom.png')}}" />
+              <div class="flex-caption hidden-xs hidden-sm">
+{{if session.forced_language =='de': }}                
+              
+              <h3 style="font-size: 23px">Amedeo Osti Guerrazzi (Hrsg.)<br />Le udienze di Mussolini durante la Repubblica Sociale Italiana, 1943–1945</span></h3>
+{{elif session.forced_language =='en': }}                 
+              <h3 style="font-size: 23px">Amedeo Osti Guerrazzi (Hrsg.)<br />Le udienze di Mussolini durante la Repubblica Sociale Italiana, 1943–1945</span></h3>
+{{pass}}               
+                {{=A(T('More'),_href=URL('catalog','book/522'), _class='btn btn-theme')}} 
 
               </div>
               </li>
@@ -67,9 +83,9 @@ $('.flexslider').flexslider();
               <img alt="" src="{{=URL('static','images/press/slideshow/07_dem_lebendigen_geist.jpg')}}" />
               </li>
               <!--<li>{{if session.forced_language =='de': }} 
-              <img alt="" src="{{=URL('static','images/press/slideshow/08_weihnachten.jpg')}}" />
+              <img alt="" src="{{=URL('static','images/press/slideshow/08_weihnachten.png')}}" />
                 {{elif session.forced_language =='en': }} 
-              <img alt="" src="{{=URL('static','images/press/slideshow/08_christmas.jpg')}}" />
+              <img alt="" src="{{=URL('static','images/press/slideshow/08_christmas.png')}}" />
               {{pass}} 
               </li>-->
             </ul>
@@ -79,38 +95,42 @@ $('.flexslider').flexslider();
       </div>
     </div>
   </section>
-  
+                                                        
   <section id="content">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <div class="row">
+		<div class="col-lg-3">              
+                <div class="box">
+                  <div class="box-gray aligncenter">
+                <h4>{{=T('New Titles')}}</h4>
+                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/746/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/746'))}} 
+      			 </div>
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/746'))}}
+                  </div>
+                </div>
+        </div> 
 
 		<div class="col-lg-3">              
                 <div class="box">
                   <div class="box-gray aligncenter">
                 <h4>{{=T('New Titles')}}</h4>
-                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/631/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/631'))}} 
+                <a href="https://heiup.uni-heidelberg.de/journals/index.php/transcultural/issue/view/2410" title="{{=T('current issue')}}">{{=IMG(_src=URL('static','images/journals/cover_tcs.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}</a>
+
       			 </div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/631'))}}
+                  <div class="box-bottom"><a href="https://heiup.uni-heidelberg.de/journals/index.php/transcultural/issue/view/2410" title="{{=T('current issue')}}">{{=T('More Information')}}</a>
                   </div>
                 </div>
-          </div>
-		  
-		<div class="col-lg-3">              
-                <div class="box">
-                  <div class="box-gray aligncenter">
-                <h4>{{=T('New Titles')}}</h4>
-                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/566/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/566'))}} 
-      			 </div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/566'))}}
-                  </div>
-                </div>
-          </div>
+          </div>   
 
 
 
+                         
 
+
+
+          
 
 
             <div id="boxAktuelles" class="col-lg-6">
@@ -141,11 +161,10 @@ $('.flexslider').flexslider();
         </div>
 
        
-       
         
         <div class="row">
           <div class="col-lg-12">
-            <div class="row">
+            <div class="row"> 
 
 			<div class="col-lg-3">
               <div class="box">
@@ -159,44 +178,45 @@ $('.flexslider').flexslider();
                     {{=A(T('More Information'),_href=URL('about_us','mission_statement'))}}
                 </div>
               </div>
-            </div>			
-
+            </div> 
 		<div class="col-lg-3">              
                 <div class="box">
                   <div class="box-gray aligncenter">
                 <h4>{{=T('New Titles')}}</h4>
-                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/597/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/597'))}} 
+                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/822/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/822'))}} 
       			 </div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/597'))}}
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/822'))}}
                   </div>
                 </div>
-          </div>
-		  
-          <div class="col-lg-3">
+        </div>             
+ 		<div class="col-lg-3">              
                 <div class="box">
                   <div class="box-gray aligncenter">
                 <h4>{{=T('New Titles')}}</h4>
-				    <img src="https://heiup.uni-heidelberg.de/journals/public/journals/157/cover_issue_2392_de_DE.jpg" alt="" style="width:145px;" class="bildrahmen">
-                  </div>
-                  <div class="box-bottom"><a href="https://heiup.uni-heidelberg.de/journals/index.php/cursor/issue/view/2392" title="{{=T('current issue')}}">{{=T('More Information')}}</a>
-                  </div>
-                </div>
-              </div>
-              
-        <div class="col-lg-3">              
-                <div class="box">
-                  <div class="box-gray aligncenter">
-                <h4>{{=T('New Titles')}}</h4>
-                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/469/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/469'))}} 
+                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/650/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/650'))}} 
       			 </div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/469'))}}
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/650'))}}
                   </div>
                 </div>
-          </div>
-          
-
+        </div>    
 		
- 
+		<div class="col-lg-3">              
+                <div class="box">
+                  <div class="box-gray aligncenter">
+                <h4>{{=T('New Titles')}}</h4>
+                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/651/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/651'))}} 
+      			 </div>
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/651'))}}
+                  </div>
+                </div>
+        </div>                 
+
+            
+            
+           
+            
+
+
                              
                 <!--<div>-->
                 <!-- TWITTER TIMELINE-->
@@ -221,28 +241,26 @@ $('.flexslider').flexslider();
           </div><!-- ./zweite Boxen-Reihe-->
         <div class="row">
           <div class="col-lg-12">
-            <div class="row">		  
-
-        
-          <div class="col-lg-3">
-                <div class="box">
-                  <div class="box-gray aligncenter">
-                <h4>{{=T('New Titles')}}</h4>
-					{{=IMG(_src=URL('static','images/journals/cover_tcs.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}
-                  </div>
-                  <div class="box-bottom"><a href="https://heiup.uni-heidelberg.de/journals/index.php/transcultural/index" title="{{=T('current issue')}}">{{=T('More Information')}}</a>
-                  </div>
-                </div>
-          </div>
-
- 
+            <div class="row">	
+		
           <div class="col-lg-3">
                 <div class="box">
                   <div class="box-gray aligncenter">
                 <h4>{{=T('Forthcoming')}}</h4>
-                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','/files/presses/6/series/43-series.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','preview#regerat'))}} 
+                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_konopka-fitzner.jpg'),_alt='',_style='width:145px', _class='bildrahmen'))}} 
                   </div>
-                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','preview#regerat'))}}
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','preview#konopka-fitzner'))}}
+                  </div>
+                </div>
+          </div>
+           
+          <div class="col-lg-3">
+                <div class="box">
+                  <div class="box-gray aligncenter">
+                <h4>{{=T('Forthcoming')}}</h4>
+                {{=A(IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_bonner.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','preview#bonner'))}} 
+                  </div>
+                  <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','preview#bonner'))}}
                   </div>
                 </div>
           </div>

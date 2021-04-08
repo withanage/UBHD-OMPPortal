@@ -17,23 +17,23 @@
 				<div class="col-lg-2">
 					<article>
 						<div class="post-image">
-                            {{=A(IMG(_src=URL(myconf.take('web.application'),'static','images/about_us/profile/cover_programm.png'),_alt='', _class='bildrahmen'),_href=URL('static','/medien/heiUP_Programmheft2019.pdf'))}} 
+                            {{=A(IMG(_src=URL(myconf.take('web.application'),'static','images/about_us/profile/cover_programm.png'),_alt='', _class='bildrahmen'),_href=URL('static','/medien/heiUP_Programmheft2020-21.pdf'))}} 
 						</div>
 					</article>
 				</div>
 				<div class="col-lg-10">
 					<article>
                         {{if session.forced_language =='de': }}
-						<div class="post-heading"><b>Vorschau und lieferbare Titel 2019/2020</b>
+						<div class="post-heading"><b>Vorschau und lieferbare Titel 2020/2021</b>
 						</div>
-                        <p>Alle zurzeit lieferbaren und bis Herbst 2020 geplanten Titel finden Sie in unserer aktuellen Verlagsvorschau.</p> 
+                        <p>Alle zurzeit lieferbaren und bis Herbst 2021 geplanten Titel finden Sie in unserer aktuellen Verlagsvorschau.</p> 
                         <p>
-                        <a href="{{=URL('static','/medien/heiUP_Programmheft2019.pdf')}}"><button class="btn btn-default" type="button">Download</button></a></p>
+                        <a href="{{=URL('static','/medien/heiUP_Programmheft2020-21.pdf')}}"><button class="btn btn-default" type="button">Download</button></a></p>
                         {{elif session.forced_language =='en': }}
-						<div class="post-heading"><b>Publishing Programme 2019/2020</b>
+						<div class="post-heading"><b>Publishing Programme 2020/2021</b>
 						</div>
                         <p>All presently available and upcoming titles are listed in our current publisher's preview.</p>
-                        <p><a href="{{=URL('static','/medien/heiUP_Programmheft2019.pdf')}}"><button class="btn btn-default" type="button">Download</button></a></p>
+                        <p><a href="{{=URL('static','/medien/heiUP_Programmheft2020-21.pdf')}}"><button class="btn btn-default" type="button">Download</button></a></p>
                         {{pass}}                        
 					</article>
 				</div>
@@ -41,201 +41,191 @@
 	     </div>
          
 		    <h4>{{if session.forced_language =='de': }}
-                Erscheint in Kürze
+                Erscheint demnächst
                 {{elif session.forced_language =='en': }}
                 Coming soon
             {{pass}}
             </h4>
             
-		<!--	<div class="container" id="mandoki" height="400px">
+       
+
+
+
+        
+<!-- Winter 2020 bzw. 20/21-->
+
+
+
+        <div class="container" id="konopka-fitzner" height="400px">
 		     <div class="row">
 				<div class="col-lg-2">
 					<article>
 						<div class="post-image">
-							{{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_mandoki.jpg'),_alt='', _class='bildrahmen')}}
+							{{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_konopka-fitzner.jpg'),_alt='', _class='bildrahmen')}}
 						</div>
 					</article>
 				</div>
 				<div class="col-lg-10">
 					<article>
 						<div class="post-heading">
-						    <b>{{if session.forced_language =='de': }}Christiane Brosius, Roberta Mandoki (Hrsg.){{elif session.forced_language =='en': }}Christiane Brosius, Roberta Mandoki (Eds.){{pass}}<br />
-							Caring for Old Age. Perspectives from South Asia</b><br>
-							<i>Heidelberg Studies on Transculturality, 8</i>
-						</div>
-						
-						<p>
-						    {{if session.forced_language =='de': }}
-                        <p>Neben zunehmender Urbanisierung und Mobilität erleben viele Gesellschaften gleichzeitig steigende Lebenserwartungen und ein Älterwerden ihrer Gesamtbevölkerung. Solch grundlegende demografische und strukturelle Veränderungen spiegeln sich in einer Vielzahl von Narrativen und Strategien wider, wie ein „gutes Alter(n)“ angesichts sich rapide transformierender Umgebungen, der Mobilität von Menschen und sich wandelnder sozialer Beziehungen aussehen kann. Dieser Band erforscht die transkulturellen Dimensionen von Alter(n) und Care in ethnografischen und literarischen Fallstudien sowohl in Südasien als auch in einer südasiatischen Studie in Europa. Die elf Beiträge dieses Bandes setzen sich kritisch mit eurozentrischen Aspekten in der Alter(n)sforschung auseinander und untersuchen, wie Perspektiven aus dem Globalen Süden transkulturelle Verflechtungen und Konnektivitäten von Care- und Alter(n)serfahrungen aufzeigen können.</p>                        
-						<p>Erscheint April 2020</p>
-
-                        {{elif session.forced_language =='en': }}
-                        <p>Many societies are experiencing growing longevity and population ageing simultaneously with increasing urbanization and mobilities. Such fundamental demographic and structural shifts have been reflected in a multitude of narratives and strategies how to “age well” in view of rapidly transforming environments, mobilities of people and changing social relations. This volume explores the transcultural dimensions of ageing and care through close-up ethnographic and literary case studies in South Asia, as well as one European case study from a South Asian researcher’s view. By critically engaging with Eurocentric aspects in ageing studies, the eleven contributions of this volume highlight how perspectives from the Global South shed light on transcultural entanglements and connectivities of experiences of care and ageing.</p>                        
-						<p>Coming April 2020</p>
-                        {{pass}}
-						</p>
-					</article>
-				</div>
-			</div>
-		</div>      -->
-    
-		<div class="container" id="enderwitz" height="400px">
-		     <div class="row">
-				<div class="col-lg-2">
-					<article>
-						<div class="post-image">
-							{{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_enderwitz.jpg'),_alt='', _class='bildrahmen')}}
-						</div>
-					</article>
-				</div>
-				<div class="col-lg-10">
-					<article>
-						<div class="post-heading">
-						    <b>{{if session.forced_language =='de': }}Sarah Kiyanrad, Rebecca Sauer, Jan Scholz (Hrsg.){{elif session.forced_language =='en': }}Sarah Kiyanrad, Rebecca Sauer, Jan Scholz (Eds.){{pass}}<br />
-							{{if session.forced_language =='de': }}Islamische Selbstbilder. Festschrift für Susanne Enderwitz{{elif session.forced_language =='en': }}Islamic self portraits. Festschrift for Susanne Enderwitz{{pass}}</b>
-						</div>
-						
-						<p>
-						    {{if session.forced_language =='de': }}
-                        <p>In der Islamkunde wird seit einigen Jahren sehr lebhaft diskutiert, inwieweit „Horizonte des Individuellen“ in literarischen und dokumentarischen Quellen wahrnehmbar sind. Der Band ist bewusst nicht als kumulativ strukturierte Festgabe konzipiert, sondern soll vielmehr an fachwissenschaftlich relevante Diskussionen anknüpfen. Mit Beiträgen von Lale Behzadi, Michael Ursinus, Henning Sievert, Paula Schrode, Johannes Zimmermann, Ines Weinrich u.v.a.</p>                        
-						<p>Erscheint Frühjahr 2020</p>
-
-                        {{elif session.forced_language =='en': }}
-                        <p>Going beyond the framework of a mere “Festschrift” in cumulative terms, this volume aims at contributing to recent discussions in the subject area of Middle Eastern studies focusing on individual and autobiographical voices discernible in pre-modern and contemporary Muslim societies. This approach reflects Prof Susanne Enderwitz’ seminal works on the topics of autobiography/autofiction and Islamicate expressions of identity. Among the contributors are Lale Behzadi, Michael Ursinus, Henning Sievert, Paula Schrode, Johannes Zimmermann, Ines Weinrich, and many others.</p>                        
-						<p>Coming Spring 2020</p>
-                        {{pass}}
-						</p>
-					</article>
-				</div>
-			</div>
-		</div>   
-    
-
-			<div class="container" id="regerat" height="400px">
-		     <div class="row">
-				<div class="col-lg-2">
-					<article>
-						<div class="post-image">
-							{{=IMG(_src=URL(myconf.take('web.application'),'static','/files/presses/6/series/43-series.jpg'),_alt='', _class='bildrahmen')}}
-						</div>
-					</article>
-				</div>
-				<div class="col-lg-10">
-					<article>
-						<div class="post-heading">
-						    <b>Miriam Régerat-Kobitzsch<br />
-							»Cette reine qui fait une si piètre figure«</b><br>
-							<i>Pariser Historische Studien, 115</i>
-						</div>
-						
-						<p>
-						    {{if session.forced_language =='de': }}
-                        <p>Die französische Königin Maria von Medici (1575–1642) galt in der Nachwelt als vulgär, verschwenderisch, machtbesessen und intrigant, ja sogar als Gattenmörderin. Dies ist das Bild, das die männlich und national geprägte Geschichtsschreibung in Frankreich seit dem Ancien Régime von ihr vermittelt hat. Ihr kulturelles und politisches Wirken wurde hierbei zu einer unbedeutenden weiblichen und italienischen Klammer zwischen der Herrschaft Heinrichs IV. und dem Ministerium Richelieus reduziert. In den historischen Meistererzählungen des 19. Jahrhunderts diente die Schilderung vermeintlicher Verfehlungen Marias von Medici überdies als Beleg für den Siegeszug einer werdenden französischen Nation, die Widerstände immer erfolgreich überwunden hatte.</p>
-                        <p>Dieses Buch untersucht erstmals eingehend die bewegte Rezeption der umstrittenen zweiten Medici-Regentin im 19. Jahrhundert in Frankreich und setzt diese mit dem Bild in Perspektive, das zeitgleich in anderen europäischen Ländern von ihr entwickelt wurde. Warum überdauerten die negativen Motive ihrer Rezeption den Einschnitt der Revolution von 1789? Welchen Platz nahm diese Figur im historischen Diskurs einer sich zunehmend bürgerlich, republikanisch und laizistisch definierenden französischen Nation ein? Die Studie bietet tiefe Einblicke in die Verquickung von Geschichtsschreibung, Gesellschaft und Politik in der europaweiten Krisen- und Umbruchszeit des Nationalismus.
-                        </p>                        
-						<p>Erscheint Frühjahr 2020</p>
-
-                        {{elif session.forced_language =='en': }}
-                        <p>Die französische Königin Maria von Medici (1575–1642) galt in der Nachwelt als vulgär, verschwenderisch, machtbesessen und intrigant, ja sogar als Gattenmörderin. Dies ist das Bild, das die männlich und national geprägte Geschichtsschreibung in Frankreich seit dem Ancien Régime von ihr vermittelt hat. Ihr kulturelles und politisches Wirken wurde hierbei zu einer unbedeutenden weiblichen und italienischen Klammer zwischen der Herrschaft Heinrichs IV. und dem Ministerium Richelieus reduziert. In den historischen Meistererzählungen des 19. Jahrhunderts diente die Schilderung vermeintlicher Verfehlungen Marias von Medici überdies als Beleg für den Siegeszug einer werdenden französischen Nation, die Widerstände immer erfolgreich überwunden hatte.</p>
-                        <p>Dieses Buch untersucht erstmals eingehend die bewegte Rezeption der umstrittenen zweiten Medici-Regentin im 19. Jahrhundert in Frankreich und setzt diese mit dem Bild in Perspektive, das zeitgleich in anderen europäischen Ländern von ihr entwickelt wurde. Warum überdauerten die negativen Motive ihrer Rezeption den Einschnitt der Revolution von 1789? Welchen Platz nahm diese Figur im historischen Diskurs einer sich zunehmend bürgerlich, republikanisch und laizistisch definierenden französischen Nation ein? Die Studie bietet tiefe Einblicke in die Verquickung von Geschichtsschreibung, Gesellschaft und Politik in der europaweiten Krisen- und Umbruchszeit des Nationalismus.
-                        </p>                        
-						<p>Coming Spring 2020</p>
-                        {{pass}}
-						</p>
-					</article>
-				</div>
-			</div>
-		</div>   
-    
-
-
-		<!--<div class="container" id="wolbring" height="400px">
-		     <div class="row">
-				<div class="col-lg-2">
-					<article>
-						<div class="post-image">
-							{{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_wolbring.jpg'),_alt='', _class='bildrahmen')}}
-						</div>
-					</article>
-				</div>
-				<div class="col-lg-10">
-					<article>
-						<div class="post-heading">
-						  <b>Michael Wolbring<br />
-							   Melchior Goldast und der &sbquo;Codex Manesse&rsquo;. Mit besonderer Berücksichtigung seiner &sbquo;Hypomnemata in aulicorum Poetarum Carmina amatoria&rsquo;</b>
+						  <b>Sebastian Fitzner<br />
+							   Ein Haus für Herkules</b><br>
+                               <i>Höfische Kultur Interdisziplinär (HKI) 3</i>
 						</div>
 						    {{if session.forced_language =='de': }}						
-            <p>In der Zeit um 1600 setzt sich der Schweizer Humanist und Jurist Melchior Goldast von Haiminsfeld (1576/78–1635) intensiv mit der Literatur des Mittelalters auseinander. Seine besondere Aufmerksamkeit findet die bedeutendste mittelalterliche Lyrikhandschrift in deutscher Sprache, der ›Codex Manesse‹. Goldast fertigt umfangreiche Notizen zu der Handschrift an, zitiert und ediert sie in Teilen in seinen gedruckten Werken und macht sie so erstmals einer größeren Öffentlichkeit bekannt. Mehr als die Begeisterung für die Lyrik des Mittelalters sind es aber vor allen Dingen tagespolitische Wirkinteressen, die den Calvinisten Goldast bei seiner Arbeit antreiben.</p>
-            <p>Erscheint Frühjahr 2020</p>
-            
-                {{elif session.forced_language =='en': }}
-						<p>In the period around 1600, the Swiss humanist and lawyer Melchior Goldast von Haiminsfeld (1576/78–1635) focuses his scholarly work on the literature of the Middle Ages. His attention is particularly drawn to the most important medieval lyric manuscript in German, the Codex Manesse. Goldast makes extensive notes on the manuscript, quotes from it and edits parts of it, thus making it known to a wider public for the first time. Rather than an enthusiasm for the poetry of the Middle Ages, however, it is above all his interest in the politics of the day that motivates the Calvinist Goldast.</p>  
-             <p>Coming in Autumn/Winter 2019/20</p>
-                        {{pass}}
-					</article>
-				</div>
-			</div>
-		</div>  -->
-  
+                        <p>Eigens für die fürstlichen Architekturmodelle ließ Landgraf Karl Anfang des 18. Jahrhunderts das Modellhaus errichten, ein bis dato ungewöhnliches Gebäude, das eine vielbeachtete Sehenswürdigkeit seiner Zeit wurde. Darin befand sich auch das jegliche Maße sprengende Modell des berühmtesten Kasseler Kunstwerks, des Karlsbergs mit Herkules. Anhand neu erschlossener Pläne, Akten und zeitgenössischer Reisebeschreibungen wird hier erstmals die Geschichte dieses singulären Baus und seiner fast einhundertjährigen Sammlungsgeschichte nacherzählt und – mit Blicken auf Berlin, Sankt Petersburg und Versailles – die anhaltende Bedeutung von Modellen nachgezeichnet.</p>
 
-        <div class="container" id="guenkel" height="400px">
-		     <div class="row">
-				<div class="col-lg-2">
-					<article>
-						<div class="post-image">
-							{{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_guenkel.jpg'),_alt='', _class='bildrahmen')}}
-						</div>
-					</article>
-				</div>
-				<div class="col-lg-10">
-					<article>
-						<div class="post-heading">
-						  <b>Ute Günkel-Maschek<br />
-							   Minoische Bild-Räume. Neue Untersuchungen zu den Wandmalereien des spätbronzezeitlichen Palastes von Knossos</b><br>
-						</div>
-						    {{if session.forced_language =='de': }}						
-            <p>Der vorliegende Band stellt eine neue Analyse der Wandbilder vor, die vor über 100 Jahren an den Wänden des bedeutendsten Zentrums der minoischen Kultur, des Palastes von Knossos, gefunden wurden. Im Mittelpunkt der Untersuchungen steht der Begriff des Bild-Raums, eine theoretisch begründete, relationale Verknüpfung von Bildelementen, Menschen, Handlungen und Orten. Das Ziel ist es, basierend auf dem Wanddekor einzelner Gebäudetrakte ein besseres Verständnis der einst mit ihnen verbundenen Rituale, Ideen und Personen zu gewinnen. In ausführlichen Fallstudien werden die Bild-Räume dreier bedeutender Palastareale analysiert, rekonstruiert und in ihren spätbronzezeitlichen Kontext gestellt.</p>
-            <p>Erscheint Frühjahr 2020</p>
+            <p>Erscheint Winter 2020/21</p>
             
                 {{elif session.forced_language =='en': }}
-						<p>This volume presents a new analysis of the wall paintings discovered over a hundred years ago in one of the most important centres of Minoan culture, the palace at Knossos. Introducing the theoretical concept of Bild-Raum, a relational construct linking pictorial elements with humans, actions and places, the aim is to produce new insights as to the types of rituals, ideas and people which can be related with individual parts of the palace based on the decoration painted on the walls. The images and architecture of three key areas of the palace are studied in broad detail, improving our understanding of performances and people involved and their role within the complex history of the Late Bronze Age palace at Knossos.</p>  
-             <p>Coming in Spring 2020</p>
-                        {{pass}}
-					</article>
-				</div>
-			</div>
-		</div>
-		
-		<div class="container" id="wenzel" height="400px">
-		     <div class="row">
-				<div class="col-lg-2">
-					<article>
-						<div class="post-image">
-							{{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_ps.jpg'),_alt='', _class='bildrahmen')}}
-						</div>
-					</article>
-				</div>
-				<div class="col-lg-10">
-					<article>
-						<div class="post-heading">
-						  <b>Christian Wenzel<br />
-							   »Ruine d'estat«<br>
-							   Sicherheit in den Debatten der französischen Religionskriege, 1557–1589</b><br>
-							   <i>Pariser Historische Studien, 116</i>
-						</div>
-						    {{if session.forced_language =='de': }}						
-            <p>Sicherheit – ein für die französischen Religionskriege ebenso zentrales wie noch weitgehend unerforschtes Thema. Christian Wenzel analysiert Vorstellungen von Sicherheit sowie ihre Funktion in den französischen Religionskriegen erstmals systematisch und mit Blick auf zeitgenössische Deutungsmuster. Anschaulich zeichnet die Studie eine breite Sicherheitsdebatte nach, die die Konflikte zwischen 1557 und 1589 maßgeblich prägte. Das ermöglicht nicht nur eine neue Perspektive auf zentrale Knotenpunkte und Entwicklungslinien, sondern leistet mit dem hier entwickelten Konzept der »historischen Sicherheitskommunikation« auch einen Beitrag zur historischen Sicherheitsforschung und zeigt die Vielschichtigkeit frühneuzeitlicher Sicherheitsvorstellungen.</p>
-            <p>Erscheint Frühjahr 2020</p>
-            
-                {{elif session.forced_language =='en': }}
-						<p>Security – a category that is as important as neglected when it comes to the French Wars of Religion in the 16th century. Christian Wenzel systematically traces imaginations of security as well as their function in the French Wars of Religion for the first time, with a close focus on the perspective of the historical actors. The present study vividly recounts a broad security debate which influenced the conflicts between 1557 and 1589 to a significant degree. Thereby, the study enables not only new perspectives on pivotal junctions and processes; by introducing “Historical Security Communication” as a heuristic approach, it also contributes to Historical Security Studies and casts a light on the complexity of early modern semantics of security.</p>  
-             <p>Coming in Spring 2020</p>
+						<p>Dedicated to housing courtly architectural models, Landgrave Karl founded the so-called Modellhaus at the beginning of the 18th-century, an unusual  building which went on to become one of the most admired sights of its time. The collection included, most importantly, a monumental model of the most famous of all the Kassel artworks, namely the statue of Hercules overlooking the extensive Karlsberg gardens. Through recently discovered plans, files, and contemporary travel memoirs, this book retraces the story of this unique building and its collection which lasted almost a century, guiding us through Berlin, Saint Petersburg, and Versailles, to reveal the continuing importance of models.
+</p>
+
+             <p>Coming in Winter 2020/21</p>
                         {{pass}}
 					</article>
 				</div>
 			</div>
 		</div>
 
+        <div class="container" id="verdoot" height="400px">
+		     <div class="row">
+				<div class="col-lg-2">
+					<article>
+						<div class="post-image">
+							{{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_verdoot.jpg'),_alt='', _class='bildrahmen')}}
+						</div>
+					</article>
+				</div>
+				<div class="col-lg-10">
+					<article>
+						<div class="post-heading">
+						  <b>Jérôme Verdoot<br />
+							   Une clôture hermétique? Isolement régulier et intérêts séculiers au monastère Saint-Pierre de Lobbes (VIIe–XIVe siècle)</b><br>
+                               <i>Pariser Historische Studien 119</i>
+						</div>
+						    {{if session.forced_language =='de': }}						
+                        <p>Im Mittelalter rechtfertigten die Benediktinerabteien ihre Existenz durch ihre Isolation von der Welt, was insbesondere durch den Topos des "desertus locus" bestätigt wurde, die zeigen, dass sich die Gründer von Abteien fernab jeglicher Zivilisation niederließen. Um zu überleben, mussten die Abteien der umliegenden Gesellschaft Waren oder Dienstleistungen abgewinnen (Oblaten, Nahrung, Schutz ...) und dafür andere zur Verfügung stellen (politische Unterstützung, Gastfreundschaft ...). Mittelalterliche Klöster waren daher tief in die Gesellschaft integriert, auch wenn sie vorgaben, von der Gesellschaft isoliert zu sein. Dieses Paradoxon des klösterlichen Lebens wird häufig in Ordensforschungen erwähnt, viel seltener jedoch für das Studium bestimmter Ordenseinrichtungen. Ziel dieses Buches ist es, diesen theoretischen Rahmen mit der Realität zu konfrontieren, die die Mönche der Abtei Saint-Pierre in Lobbes (Hennegau, Belgien) seit der Gründung dieses Klosters (7. Jahrhundert) bis zum Ende des 14. Jahrhundert gelebt haben. Konkret werden die Wechselwirkungen zwischen der Abtei und ihrem politischen und wirtschaftlichen Umfeld analysiert.</p>
+            <p>Erscheint Winter 2020/21</p>
+            
+                {{elif session.forced_language =='en': }}
+						<p>Au Moyen Âge, les abbayes bénédictines justifiaient leur existence par leur isolement, prétention affirmée à travers, notamment, le <em>topos</em> du <em>locus desertus</em> montrant des saints fondateurs d’abbayes s’installer loin de toute civilisation. Or, pour subsister, les abbayes devaient retirer des biens ou des services de la société englobante (oblats, nourriture, protection…) et, en échange, en fournir d’autres (soutien politique, hospitalité…). Les monastères médiévaux étaient donc profondément intégrés dans la société tout en prétendant en être isolés. Ce paradoxe de la vie monastique est souvent utilisé dans les <em>Ordensforschungen</em>, bien plus rarement pour l’étude d’institutions spécifiques. Le présent ouvrage a pour objectif de confronter ce cadre théorique à la réalité vécue par les moines de l’abbaye Saint-Pierre de Lobbes (Hainaut, Belgique), du vii<sup>e</sup> siècle, date de sa fondation, jusqu’à la fin du xiv<sup>e</sup>.</p>
+                        <p>In the Middle Ages, the very existence of Benedictine monasteries was based on their proclaimed isolation from the world, a tenet diametrically opposed to their means of subsistence. Indeed, in order to extract goods from society (oblates, food, protection…), abbeys had to provide tangible goods and services in exchange (political support, hospitality…); monasteries were deeply integrated into medieval society while claiming to be isolated from it. This paradox of monastic life is often referred to in the <em>Ordenforschungen</em> or study of the monastic orders, but it is rarely used when it comes to studying specific institutions. This book aims to test the validity of this theoretical framework against the reality as lived by the monks of the Abbey of St Peter of Lobbes (Hainault, Belgium), from its founding until the turn of the 14th and 15th centuries. In particular, it analyses the interactions between the abbey and its political and economic environment.</p>
+</p>
+
+             <p>Coming in Winter 2020/21</p>
+                        {{pass}}
+					</article>
+				</div>
+			</div>
+		</div>        
+        
+<!-- Frühjahr 2021-->        
+        
+		<div class="container" id="bonner" height="400px">
+		     <div class="row">
+				<div class="col-lg-2">
+					<article>
+						<div class="post-image">
+							{{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_bonner.jpg'),_alt='', _class='bildrahmen')}}
+						</div>
+					</article>
+				</div>
+				<div class="col-lg-10">
+					<article>
+						<div class="post-heading">
+						  <b>Marc Bonner {{=T('(Ed.)')}}<br />
+						  {{if session.forced_language =='de': }}
+							   Game | World | Architectonics. Transdisciplinary Approaches on Structures and Mechanics, Levels and Spaces, Aesthetics and Perception
+						  {{elif session.forced_language =='en': }}
+						       Game | World | Architectonics. Transdisciplinary Approaches on Structures and Mechanics, Levels and Spaces, Aesthetics and Perception
+                          {{pass}}	
+                          </b>						  
+						</div>
+						    {{if session.forced_language =='de': }}						
+            <p>In ihrer aktuellen digitalen, bildlichen wie auch viralen Ubiquität muss Architektur nicht mehr körperlich präsent sein und doch füllt sie eine vermittelnde Rolle aus. Als mediales Scharnier verschränkt sie unterschiedliche Disziplinen der Medien und Künste mit der Alltagswirklichkeit. Das Konzept der Architektonik umschreibt hierbei in weitem Sinne die architektonischen Implikationen der Computerspiele, um Architektur in Spielwelten als auch die Architektur der Computerspiele selbst greifbar zu machen.</p>
+            <p>Dieser Sammelband bündelt transdisziplinäre Zugriffe rund um die Themen Raum, Architektur, Wahrnehmung von und Weltenbau in Computerspielen und deren medienspezifischen Eigenschaften. Ziel ist es aufzuzeigen, wie und unter welchen Aspekten sich digitale Spielwelten konstituieren. Die Beiträge verlassen dabei ausgetretene Pfade von Medienwissenschaft und Game Studies und fokussieren auf die räumlichen, architektonischen und weltförmigen Phänomene aktueller digitaler Medienkultur.</p>
+            <p>Erscheint Frühjahr 2021</p>
+            
+                {{elif session.forced_language =='en': }}
+						<p>In its current digital, pictorial and viral ubiquity, architecture no longer has to be bodily present, but has a mediating role. As a medial hinge it folds different disciplines of media and art onto the realm of the everyday. Here, the idea of architectonics can be understood as the architectural implications of computer games in a broader sense to address the matter of architecture in game worlds as well as the architecture of computer games themselves.</p>
+                        <p>This anthology bundles transdisciplinary approaches around the topics of space, architecture, perception of and worldbuilding in computer games and their media-specific properties. The aim is to show how and under which aspects digital game worlds are constituted. The contributions depart from the beaten tracks of media and game studies, focusing on spatial, architectural and world-shaped phenomena within current digital media culture.</p>  
+             <p>Coming in Spring 2021</p>
+                        {{pass}}
+					</article>
+				</div>
+			</div>
+		</div>  
+        
+		<div class="container" id="pagel" height="400px">
+		     <div class="row">
+				<div class="col-lg-2">
+					<article>
+						<div class="post-image">
+							{{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_pagel.jpg'),_alt='', _class='bildrahmen')}}
+						</div>
+					</article>
+				</div>
+				<div class="col-lg-10">
+					<article>
+						<div class="post-heading">
+						  <b>Steve Pagel<br />
+						  {{if session.forced_language =='de': }}
+							   Die Wurzeln der Kontaktlinguistik. 
+							   Zur Entstehung des Sprachkontaktparadigmas in der Sprachwissenschaft
+						  {{elif session.forced_language =='en': }}
+						       The roots of contact linguistics.
+							   On the emergence of the language contact paradigm in the science of language
+                          {{pass}}	
+                          </b>						  
+						</div>
+						    {{if session.forced_language =='de': }}						
+            <p>Das Nachdenken über Sprachkontakt und Sprachmischung ist von Anfang an Teil der europäisch-abendländischen Beschäftigung mit Sprache. Angefangen bei Platon, ist es lange ein recht unaufgeregtes Nachdenken, bis sich im 19. Jhd. der Blickwinkel radikal ändert: die Normalität ist weg, Kontakt und Mischung werden erst zu einem Forschungstabu und nur wenig später zum Forschungsfokus, aus dem eine eigene Disziplin, die Kontaktlinguistik hervorgeht. Dieses Buch erzählt erstmals die ganze Geschichte der Erforschung von Sprachkontakt bis an die Schwelle zum 20. Jhd. und zeigt, wie kritisch-historiografische Studien helfen können, aktuelle Debatten (z.B. in der Kreolistik) einzuordnen und voranzubringen.</p>
+            <p>Erscheint Frühjahr 2021</p>
+            
+                {{elif session.forced_language =='en': }}
+						<p>Reflecting on language contact and language mixing is part of the European-Western occupation with language from the beginning. Starting with Plato, it is for a long time a rather unexcited reflection, until in the 19th century, the perspective changes radically: the normality of cases of contact and mixing is gone, they become a research taboo first and only a little later a research focus, from which a separate discipline, contact linguistics, emerges. This book, for the first time, tells the whole story of the study of language contact up to the 20th century, and shows how critical-historiographic studies can help to understand and advance current debates (for example, in creolistics).</p>  
+             <p>Coming in Spring 2021</p>
+                        {{pass}}
+					</article>
+				</div>
+			</div>
+		</div>
+        
+		<div class="container" id="weissen" height="400px">
+		     <div class="row">
+				<div class="col-lg-2">
+					<article>
+						<div class="post-image">
+                   {{=IMG(_src=URL('static','files/presses/6/monographs/675/simple/cover.jpg'),_alt='',_class='bildrahmen')}}   
+						</div>
+					</article>
+				</div>
+				<div class="col-lg-10">
+					<article>
+						<div class="post-heading">
+						  <b>Kurt Weissen <br />
+						  {{if session.forced_language =='de': }}
+							   Die Marktstrategien der florentinischen Banken bei der Kurie 
+						  {{elif session.forced_language =='en': }}
+						       Die Marktstrategien der florentinischen Banken bei der Kurie 
+                          {{pass}}	
+                          </b>						  
+						</div>
+						    {{if session.forced_language =='de': }}						
+            <p>Die florentinischen Banken beherrschten mit ihren Filialnetzen und Partnern die internationalen Geldgeschäfte des 15. Jahrhunderts. Dank ihrer Präsenz an den wichtigen Handelszentren des Kontinents dominierten die Händler-Bankiers aus der Toskana die bargeldlose Abwicklung der großen Geldtransfers aus ganz Europa an die römische Kurie. Kurt Weissen untersucht, wie Kurienbankiers wie die Alberti und die Medici Deutschland von Brügge und Venedig aus an dieses Zahlungssystem anschlossen. Er zeigt auf, welche Rolle dabei die Gründung eigener Niederlassungen in Lübeck, Köln, Basel und Konstanz spielten und welche Bedeutung Kooperationen mit deutschen Handelsgesellschaften zukam.</p>
+            <p>Erscheint 2021</p>
+            
+                {{elif session.forced_language =='en': }}
+						<p>With their branch networks and partners, the Florentine banks dominated  international monetary transactions of the 15th century. Thanks to their presence in the main commercial centres of the continent, the merchant bankers from Tuscany dominated the cashless processing of large transfers of money from all over Europe to the Roman Curia. Kurt Weissen examines how curia bankers, such as the Alberti and the Medici, connected Germany to this payment system via Bruges and Venice. He analyses the role played by the establishment of branches in Lübeck, Cologne, Basel and Constance and the importance of cooperation with German merchant companies.
+</p>  
+             <p>Coming in 2021</p>
+                        {{pass}}
+					</article>
+				</div>
+			</div>
+		</div>            
+      
     
     </div>
 	</div>

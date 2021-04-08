@@ -1,0 +1,111 @@
+{{extend 'layout.html'}}
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+            <h2>{{=T('Suche')}}</h2>
+			<form id="graphq-form" action="https://digi.ub.uni-heidelberg.de/Suchindex/cgi-bin/graphq.cgi">
+				<input name="ui_lang" type="hidden" value="{{=session.forced_language}}">
+				<input name="resultset_restriction" type="hidden" value="higher">
+				<input name="fq" type="hidden" value="url_s:https\:\/\/heiup.uni-heidelberg.de*">
+                <input name="fq" id="graphq-form-suchkriterium1" type="hidden" value=""><!-- Platzhalter für von formGraphq auszufüllende Felder -->
+                <input name="fq" id="graphq-form-suchkriterium1" type="hidden" value=""><!-- Platzhalter für von formGraphq auszufüllende Felder -->
+                <input name="fq" id="graphq-form-suchkriterium1" type="hidden" value=""><!-- Platzhalter für von formGraphq auszufüllende Felder -->
+                <input name="fq" id="graphq-form-suchkriterium1" type="hidden" value=""><!-- Platzhalter für von formGraphq auszufüllende Felder -->
+                <p class="form-inline">
+                    <label for="graphq-form-suchkriterium1">Suchkriterium 1</label>
+                    <select class="form-control input" name="qf">
+                    </select>
+                    <input class="form-control input" name="q" id="q" type="text">
+                </p>
+
+                <p class="form-inline">
+                    <label for="graphq-form-suchkriterium2">Suchkriterium 2</label>
+                    <select class="form-control input" name="qf">
+                    </select>
+                    <input class="form-control input" name="q" id="graphq-form-suchkriterium2" type="text">
+                </p>
+
+                <p class="form-inline">
+                    <label for="graphq-form-suchkriterium3">Suchkriterium 3</label>
+                    <select class="form-control input" name="qf">
+                    </select>
+                    <input class="form-control input" name="q" id="graphq-form-suchkriterium3" type="text">
+                </p>
+                <p class="form-inline">
+                    <label for="graphq-form-suchkriterium4">Suchkriterium 4</label>
+                    <select class="form-control input" name="qf">
+                    </select>
+                    <input class="form-control input" name="q" id="graphq-form-suchkriterium4" type="text">
+                </p>
+                
+                <div class="treffer-fieldset">
+                    <p class="form-inline">
+                        <label for="inputSort" class="control-label" data-text='sort by'>Sortiere nach</label>
+                        <select id="inputSort" name="sort" class="form-control input-sm"></select>
+                    </p>    
+                    <p class="form-inline">                       
+                        <div class="btn-group" role="group" aria-label="Pagination">
+                            <button name='begin' class="btn btn-default">
+                                <i class="fa fa-fast-backward"></i>
+                            </button>
+                            <button name='back' class="btn btn-default">
+                                <i class="fa fa-caret-left fa-lg"></i>
+                            </button>
+                            <select name="start" class="btn btn-default">
+                                <!-- hier KEINE <option> anlegen, die würde sonst bei form.serialize() berücksichtigt!-->
+                            </select>
+                            <button name='forward' class="btn btn-default">
+                                <i class="fa fa-caret-right fa-lg"></i>
+                            </button>
+                            <button name='end' class="btn btn-default">
+                                <i class="fa fa-fast-forward"></i>
+                            </button>
+                        </div>
+                       </p> 
+                </div>
+                        <label for="search">Suche</label>                    
+						<input class="btn btn-default" data-text='search' type="submit" value="Suche">
+			</form>
+        </div> <!--./col-xs-12-->
+ 	</div>
+ 
+    <div class="row">
+       <div class="treffercontainer"> 
+        <div class="col-xs-8">
+			<div id="graphq-result">
+			</div>
+        </div>    
+
+
+		<div class="col-xs-4">
+			<div id="graphq-result-facet" class="facets">
+			</div>
+		</div>
+     </div> 
+	</div>
+</div>
+<script type="module">
+import { GraphQueryClient } from 'https://digi.ub.uni-heidelberg.de/Suchindex/htdocs/graphq.js';
+$(function () { // "=" document.ready
+    const gqc = new GraphQueryClient();
+    {{if session.forced_language =='en': }}
+    gqc.ui_lang = 'eng';
+    gqc.locale = 'en-US';
+    {{pass}}
+    gqc.form = $('#graphq-form');
+
+    gqc.result = $('#graphq-result');
+    gqc.result_facet = $('#graphq-result-facet');
+
+    gqc.translateWordList['ff|domain_s'] = { ger: 'Bücher / Zeitschriften', eng: 'Books / Journals' };
+    gqc.translateWordList['qf|meta_name_txt'] = { ger: 'Autor, Körperschaft, Hrsg., etc.', eng: 'Author, Corporate, Editor, etc.' };
+    gqc.formOptions.qfo = gqc.formOptions.qfo.filter(e => e !== 'meta_name_aut_txt');
+
+    gqc.setupForm();
+    gqc.urlParameterToForm();
+    const redirect = gqc.form.data('redirect');
+    if (typeof redirect === 'undefined') {
+        gqc.formQuery();
+    }
+});
+</script>

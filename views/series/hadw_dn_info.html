@@ -1,4 +1,4 @@
-{{extend 'layout.html'}}
+    {{extend 'layout.html'}}
 
 <section id="content">
     <div class="container">
@@ -24,13 +24,13 @@
 		<h4>Book Series</h4>
         </div>
       {{if session.forced_language =='de': }}
-<p><i>Documenta Nepalica: Book Series</i> ist eine Open Access und Print on Demand erscheinende Publikationsreihe, die gemeinsam von der Forschungsstelle „Religions- und rechtsgeschichtliche Quellen des vormodernen Nepal“ der Heidelberger Akademie der Wissenschaften und dem nepalischen Nationalarchiv herausgegeben wird.<!--Dies ist ein Test-Kommentar--></p> 
+<p><i>Documenta Nepalica: Book Series</i> ist eine Open Access und Print on Demand erscheinende Publikationsreihe, die von der Forschungsstelle „Religions- und rechtsgeschichtliche Quellen des vormodernen Nepal“ der Heidelberger Akademie der Wissenschaften herausgegeben wird.<!--Dies ist ein Test-Kommentar--></p> 
 <p>Sie dient der Veröffentlichung von Forschungsarbeiten zu historischen Dokumenten und verwandten Texten aus Nepal und dem Himalaya-Raum. Das Publikationsspektrum umfasst sowohl Editionen, Übersetzungen und philologische Untersuchungen einzelner Texte und Textkorpora als auch Studien zu deren Kontexten. Die Reihe zielt darauf,  Arbeiten mit verschiedenen disziplinären und interdisziplinären Ansätzen zu versammeln, besonders aus der Indologie, Tibetologie, Linguistik, Geschichtswissenschaft, Ethnologie, Religionswissenschaft, den Digital Humanities oder verwandten Wissenschaften.
 </p>
 
       
       {{elif session.forced_language =='en': }}                 
-<p><i>Documenta Nepalica: Book Series</i> is an open-access and print-on-demand publication series. It is jointly edited by the Research Unit “Documents on the History of Religion and Law of Premodern Nepal” of the Heidelberg Academy of Sciences and Humanities and the National Archives of Nepal.</p>
+<p><i>Documenta Nepalica: Book Series</i> is an open-access and print-on-demand publication series. It is edited by the Research Unit “Documents on the History of Religion and Law of Premodern Nepal” of the Heidelberg Academy of Sciences and Humanities.</p>
 <p>In its aim to disseminate research results on historical documents and related texts from Nepal and the Himalayan region, it brings out editions, translations and philological studies of particular texts or text corpora, along with contextual background studies. The series welcomes contributions representing different disciplinary and interdisciplinary approaches, including but not limited to Indology, Tibetology, linguistics, history, anthropology, religious studies, and digital humanities. 
 </p>
    {{pass}}
@@ -43,15 +43,7 @@
                     </div>
 
                 </article>
-				<!--
-                            <div class="solidline">
-                            </div>
 
-							<div class="row">
-								 <div class="col-lg-6">{{=IMG(_src=URL('static','images/series/hadw_logo_blau.png'),_style='width:330px')}}</div>
-								 <div class="col-lg-6">{{=IMG(_src=URL('static','images/series/Emblem_of_Nepal.png'),_style='width:150px')}}</div>
-							</div>
-							-->
 
 			</div>
          <div class="col-lg-3">
@@ -61,7 +53,7 @@
 			           <div class="box-gray alignleft" style="height: auto;">
                  {{if session.forced_language =='de': }}
 				            <p>{{=IMG(_src=URL('static','images/series/hadw_logo_blau.png'),_style='width:230px')}}</p>
-							<p style="overflow:hidden;">{{=IMG(_src=URL('static','images/series/Emblem_of_Nepal.png'),_style='width:80px; float:left;')}}<span style="float:left; font-size:90%;line-height:1.2em;margin-top:1em;">Government of Nepal<br />National Archives</span></p>
+							<!--<p style="overflow:hidden;">{{=IMG(_src=URL('static','images/series/Emblem_of_Nepal.png'),_style='width:80px; float:left;')}}<span style="float:left; font-size:90%;line-height:1.2em;margin-top:1em;">Government of Nepal<br />National Archives</span></p>-->
                             <h5 style="color: #656565; margin-bottom: 0.5em;margin-top:1em;">Bibliographische Angaben</h5>
                              <p>Documenta Nepalica</p>
                             <p>Editors</p>
@@ -75,30 +67,16 @@
                               <li>Astrid Zotter</li>
                               <li>Christof Zotter</li>
                             </ul>
-                            <p>Government of Nepal, National Archives:</p>
-                              <ul>
-                                <li>Bhesh Narayan Dahal
-                                <li>Saubhagya Pradhananga</li>
-                                <li>Niran Rajvamshi</li>
-                                <li>Raju Rimal</li>
-                                <li>Kumar Shrestha</li>
-                              </ul> 
                               
                               <h5 style="color: #656565; margin-bottom: 0.5em;margin-top:1em;">ISSN</h5>
                             <p>ISSN 2568-7867 (Print)<br>
                             ISSN 2569-8141 (online)</p>
                                
-                            <!--<p>Exzellenzcluster „Asien und Europa im globalen Kontext”, Heidelberg</p>
-                            <h5 style="color: #656565; margin-bottom: 0.5em;">ISSN</h5>
-                            <p>ISSN 2365-7987 (Print)<br>
-                            ISSN 2365-7995 (eISSN)</p>-->  
-                            <!-- <h5 style="color: #656565; margin-bottom: 0.5em;">Lizenz</h5>
-                            <p>Dieses Werk ist unter der<br> <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons-Lizenz 4.0<br /> (CC BY-SA 4.0)</a> veröffentlicht.<br>
-                            <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0"><img alt="Creative Commons Lizenz BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p>-->
+
 
              {{elif session.forced_language =='en': }}
                             <p>{{=IMG(_src=URL('static','images/series/hadw_logo_blau.png'),_style='width:230px')}}</p>
-							<p style="overflow:hidden;">{{=IMG(_src=URL('static','images/series/Emblem_of_Nepal.png'),_style='width:80px; float:left;')}}<span style="float:left; font-size:90%;line-height:1.2em;margin-top:1em;">Government of Nepal<br />National Archives</span></p>
+							<!--<p style="overflow:hidden;">{{=IMG(_src=URL('static','images/series/Emblem_of_Nepal.png'),_style='width:80px; float:left;')}}<span style="float:left; font-size:90%;line-height:1.2em;margin-top:1em;">Government of Nepal<br />National Archives</span></p>  -->
                             <h5 style="color: #656565; margin-bottom: 0.5em;margin-top:1em;">Bibliographic details</h5>                         
                             <p>Documenta Nepalica</p>
                             <p>Editors</p>
@@ -112,27 +90,11 @@
                               <li>Astrid Zotter</li>
                               <li>Christof Zotter</li>
                             </ul>
-                            <p>Government of Nepal, National Archives:</p>
-                              <ul>
-                                <li>Bhesh Narayan Dahal
-                                <li>Saubhagya Pradhananga</li>
-                                <li>Niran Rajvamshi</li>
-                                <li>Raju Rimal</li>
-                                <li>Kumar Shrestha</li>
-                              </ul>  
                             
                             <h5 style="color: #656565; margin-bottom: 0.5em;margin-top:1em;">ISSN</h5>
                             <p>ISSN 2568-7867 (Print)<br>
                             ISSN 2569-8141 (online)</p>
 
-                            
-                            <!--<p>Cluster of Excellence „Asia and Europe in a global context”, Heidelberg </p>
-                            <h5 style="color: #656565; margin-bottom: 0.5em;">ISSN</h5>
-                            <p>ISSN 2365-7987 (Print)<br>
-                            ISSN 2365-7995 (eISSN)</p>-->  
-                            <!--<h5 style="color: #656565; margin-bottom: 0.5em;">Licenses</h5>
-                            <p>This work is licensed under a<br> <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons License 4.0<br /> (CC BY-SA 4.0)</a>.<br>
-                            <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; License CC BY-SA 4.0"><img alt="Creative Commons License BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p> -->
 
         	{{pass}}
         </div>   

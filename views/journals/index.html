@@ -5,6 +5,44 @@
       <div class="col-lg-2">        
         <article>          
           <div class="post-image">            
+		 	<img src="{{=URL(myconf.take('web.application'),'static','images/journals/cover_bkgd.jpg')}} ">        
+          </div>        
+        </article>      
+      </div>      
+      <div class="col-lg-10">        
+        <article>          
+          <div class="post-heading">          
+            <div class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h3>Bausteine einer Korpusgrammatik des Deutschen</h3>
+            </div>                 
+            <br style="clear: both">          
+          </div>          
+                       {{if session.forced_language =='de': }}          
+            <p><i>Bausteine einer Korpusgrammatik des Deutschen</i> ist eine Schriftenreihe mit korpuslinguistischen Untersuchungen zur deutschen Grammatik, die momentan am Leibniz-Institut für Deutsche Sprache in Mannheim (IDS) durchgeführt werden. Die Reihe setzt sich zum Ziel, mit modernen korpuslinguistischen Methoden die Vielfalt und Variabilität der deutschen Grammatik in großer Detailschärfe zu erfassen und gleichzeitig für die Validierbarkeit der Ergebnisse zu sorgen. Nach und nach entstehen so Bausteine einer neuen, konsequent korpuslinguistisch fundierten Grammatik des Deutschen. Neben begutachteten Texten in Form von Grammatikkapiteln werden Ergebnisse korpuslinguistisch-statistischer Analysen und bei ausgewählten Themen die zugrundeliegenden Sprachdaten veröffentlicht.      
+            </p>        
+{{elif session.forced_language =='en': }}         
+            <p><i>Bausteine einer Korpusgrammatik des Deutschen</i> (“Building blocks towards a corpus grammar of German”) is a series presenting corpus linguistic studies on German grammar conducted at the Leibniz Institute for the German Language in Mannheim (IDS). Using state-of-the-art corpus linguistic methodology, the series aims to capture the diversity and variability of German grammar at a high resolution. At the same time, it aims to ensure the study results are verifiable. Issue by issue, the series will add “building blocks” for a new, consistently corpus-based grammar of German. In addition to the peer-reviewed texts, which are written in the style of grammar chapters, the series publishes the results of statistical analyses and, for selected topics, the underlying data sets.       
+            </p>               
+{{pass}}            
+         <div class="widget">            
+            <h5 class="widgetheading"></h5>            
+            <ul class="tags">
+			
+              <li>              
+              <a href="{{=URL(myconf.take('web.application'),'journals','bkgd')}}">{{=T('More' )}}</a>              
+              </li>              
+              <li>              
+              <a href="https://heiup.uni-heidelberg.de/journals/index.php/bkgd/index">{{=T('View Journal')}}</a>              
+              </li>            
+            </ul>          
+          </div>        
+        </article>      
+      </div>    
+    </div> 
+
+    <div class="row">      
+      <div class="col-lg-2">        
+        <article>          
+          <div class="post-image">            
             <img alt="" src="https://heiup.uni-heidelberg.de/journals/public/journals/157/cover_issue_2392_de_DE.jpg">          
           </div>        
         </article>      
@@ -17,10 +55,10 @@
             <br style="clear: both">          
           </div>          
                        {{if session.forced_language =='de': }}          
-            <p>Cursor_ ist eine theologische Open-Access-Zeitschrift, die fachwissenschaftliche Diskussionen, innovative Publikationsformate und verschiedene Öffentlichkeiten digital zusammenbringt. Cursor_ versteht sich als theologische Werkstatt, in der Fragen an der Schnittstelle kirchlicher, wissenschaftlicher und gesellschaftlicher Debatten interdisziplinär und innovativ bearbeitet werden. Dabei verbindet Cursor_ wissenschaftliche Textformate (peer reviewed) mit innovativen Publikationsformaten („Theologie in einfacher Sprache”, Laborberichte, essayistische Texte u.a.) und nutzt die Möglichkeiten digitaler Plattformen für inklusivere und partizipativere Diskussionen.       
+            <p><i>Cursor_</i> ist eine theologische Open-Access-Zeitschrift, die fachwissenschaftliche Diskussionen, innovative Publikationsformate und verschiedene Öffentlichkeiten digital zusammenbringt. <i>Cursor_</i> versteht sich als theologische Werkstatt, in der Fragen an der Schnittstelle kirchlicher, wissenschaftlicher und gesellschaftlicher Debatten interdisziplinär und innovativ bearbeitet werden. Dabei verbindet <i>Cursor_</i> wissenschaftliche Textformate (peer reviewed) mit innovativen Publikationsformaten („Theologie in einfacher Sprache”, Laborberichte, essayistische Texte u.a.) und nutzt die Möglichkeiten digitaler Plattformen für inklusivere und partizipativere Diskussionen.       
             </p>        
 {{elif session.forced_language =='en': }}         
-            <p>Cursor_ is a theological open access journal with the aim of bringing academic debates, innovative formats, and different publics together digitally. Cursor_ is a theological workshop where questions at the intersection of church, academy and society are treated in an interdisciplinary and innovative way. Cursor_ connects peer reviewed academic writing with innovative formats (“theology in simple language”, “lab reports”, essayistic texts, etc.). It uses the possibilities of digital platforms for more inclusive and participatory discussions.       
+            <p><i>Cursor_</i> is a theological open access journal with the aim of bringing academic debates, innovative formats, and different publics together digitally. <i>Cursor_</i> is a theological workshop where questions at the intersection of church, academy and society are treated in an interdisciplinary and innovative way. <i>Cursor_</i> connects peer reviewed academic writing with innovative formats (“theology in simple language”, “lab reports”, essayistic texts, etc.). It uses the possibilities of digital platforms for more inclusive and participatory discussions.       
             </p>               
 {{pass}}            
           <div class="widget">            
@@ -120,7 +158,7 @@
         <div class="col-lg-2">      
           <article>        
             <div class="post-image">            
-              <img alt="" src="https://heiup.uni-heidelberg.de/journals/public/journals/155/cover_issue_2393_de_DE.jpg">        
+					{{=IMG(_src=URL('static','images/journals/cover_heieducation.jpg'),_alt='',_class='bildrahmen')}}    
             </div>      
           </article>    
         </div>    
@@ -171,8 +209,8 @@ At least twice a year the journal publishes original research on teacher educati
             </div>                               
             <br style="clear: both">                        
           </div>                        
-          <p>{{if session.forced_language =='de': }} <i>The Journal of Transcultural Studies</i> ist eine Peer-Review-geprüfte Open-Access-Zeitschrift, die sich als Forum zur Verbreitung von Wissen und Forschung zur Transkulturalität in allen Disziplinen versteht. Sie wird vom Exzellenzcluster „Asien und Europa im globalen Kontext. Die Dynamiken der Transkulturalität“ der Ruprecht-Karls-Universität Heidelberg herausgegeben.
-          {{elif session.forced_language =='en': }} <i>The Journal of Transcultural Studies</i> is a peer-reviewed, open-access journal committed to promoting the knowledge and research of transculturality in all disciplines. It is published by the Cluster of Excellence “Asia and Europe in a Global Context: The Dynamics of Transculturality” of the Ruprecht-Karls-Universität Heidelberg.
+          <p>{{if session.forced_language =='de': }} <i>The Journal of Transcultural Studies</i> ist eine Peer-Review-geprüfte Open-Access-Zeitschrift, die sich als Forum zur Verbreitung von Wissen und Forschung zur Transkulturalität in allen Disziplinen versteht. Sie wird vom Heidelberg Center for Transcultural Studies (HCTS) der Universität Heidelberg herausgegeben.
+          {{elif session.forced_language =='en': }} <i>The Journal of Transcultural Studies</i> is a peer-reviewed, open-access journal committed to promoting the knowledge and research of transculturality in all disciplines. It is published by the Heidelberg Center for Transcultural Studies (HCTS) at Heidelberg University.
           {{pass}}                              
           </p>                    
           <div class="widget">                        
@@ -189,6 +227,42 @@ At least twice a year the journal publishes original research on teacher educati
         </article>            
       </div>        
     </div>	  
+
+    <div class="row">            
+      <div class="col-lg-2">                
+        <article>                    
+          <div class="post-image">		 	
+            <img alt="" src="{{=URL(myconf.take('web.application'),'static','images/journals/cover_mial.jpg')}} ">                  
+          </div>                
+        </article>            
+      </div>            
+      <div class="col-lg-10">               
+        <article>                  
+          <div class="post-heading">		             						
+            <div class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h3>Das Mittelalter</h3>
+            </div>
+            <br style="clear: both">                        
+          </div>                        
+          <p>                            
+           {{if session.forced_language =='de': }} Der Mediävistenverband e.V. veröffentlicht seit 1996 die halbjährlich erscheinende Zeitschrift ‚Das Mittelalter. Perspektiven mediävistischer Forschung‘, die sich als Forum für die interdisziplinäre Mediävistik versteht. Die Hefte sind thematisch ausgerichtet, vereinigen Beiträge aus mindestens drei verschiedenen Disziplinen und behandeln aktuelle Fragstellungen aus allen Bereichen der Mediävistik.
+           {{elif session.forced_language =='en': }} Since 1996, the Mediävistenverband e.V. has published the biannual magazine 'Das Mittelalter. Perspektiven mediävistischer Forschung', which sees itself as a forum for interdisciplinary medieval studies. The issues are thematically oriented, combine contributions from at least three different disciplines and deal with current issues from all areas of medieval studies.
+           {{pass}}                              
+          </p>                    
+          <div class="widget">                        
+            <h5 class="widgetheading"></h5>                        
+            <ul class="tags">        	       	   
+              <li>
+              <a href="{{=URL(myconf.take('web.application'),'journals','mial')}}">{{=T('More' )}}</a>
+              </li>
+             <!-- <li>
+              <a href="http://heiup.uni-heidelberg.de/journals/index.php/mial/index">{{=T('View Journal')}}</a>
+              </li>-->                        
+            </ul>                    
+          </div>              
+        </article>            
+      </div>        
+    </div>
+
     <div class="row">            
       <div class="col-lg-2">                
         <article>                    
@@ -227,7 +301,7 @@ At least twice a year the journal publishes original research on teacher educati
       <div class="col-lg-2">        
         <article>          
           <div class="post-image">            
-            <img alt="" src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/cover_15_2019.jpg')}}">          
+            <img alt="" src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/cover_02_2021.jpg')}}">          
           </div>        
         </article>      
       </div>      
@@ -242,8 +316,8 @@ At least twice a year the journal publishes original research on teacher educati
             <br style="clear: both">          
           </div>          
           <p>
-          {{if session.forced_language =='de': }} Das Forschungsmagazin „Ruperto Carola“ berichtet über wissenschaftliche Erkenntnisse und laufende Forschungsvorhaben der Universität Heidelberg. Jede seiner Ausgaben ist einem gesellschaftlich relevanten Schwerpunktthema gewidmet, zu dem Heidelberger Forscherinnen und Forscher über Disziplinen und Fächer hinweg ihre wissenschaftliche Arbeit vorstellen. Herausgeber des Magazins ist der Rektor der Universität Heidelberg, die redaktionelle Verantwortung liegt bei der Stabsstelle „Kommunikation und Marketing“. 
-          {{elif session.forced_language =='en': }} The "Ruperto Carola" research journal reports on scientific findings and current research activities at Heidelberg University. Every issue is dedicated to a central theme of high social relevance, to which Heidelberg scholars contribute by presenting related research projects across the entire range of disciplines and subjects. The journal is published by the President of Heidelberg University and edited by the "Communications and Marketing" team. 
+          {{if session.forced_language =='de': }} Das Forschungsmagazin <i>Ruperto Carola</i> berichtet über wissenschaftliche Erkenntnisse und laufende Forschungsvorhaben der Universität Heidelberg. Jede seiner Ausgaben ist einem gesellschaftlich relevanten Schwerpunktthema gewidmet, zu dem Heidelberger Forscherinnen und Forscher über Disziplinen und Fächer hinweg ihre wissenschaftliche Arbeit vorstellen. Herausgeber des Magazins ist der Rektor der Universität Heidelberg, die redaktionelle Verantwortung liegt bei der Stabsstelle „Kommunikation und Marketing“. 
+          {{elif session.forced_language =='en': }} The <i>Ruperto Carola</i> research journal reports on scientific findings and current research activities at Heidelberg University. Every issue is dedicated to a central theme of high social relevance, to which Heidelberg scholars contribute by presenting related research projects across the entire range of disciplines and subjects. The journal is published by the President of Heidelberg University and edited by the "Communications and Marketing" team. 
           {{pass}}            
           </p>          
           <div class="widget">            
@@ -264,7 +338,7 @@ At least twice a year the journal publishes original research on teacher educati
       <div class="col-lg-2">        
         <article>          
           <div class="post-image">            
-            <img alt="" src="{{=URL(myconf.take('web.application'),'static','images/journals/cover_studium-generale2.jpg')}} ">          
+            <img alt="" src="{{=URL(myconf.take('web.application'),'static','images/journals/cover_studium-generale2020.jpg')}} ">          
           </div>        
         </article>      
       </div>      
@@ -279,8 +353,8 @@ At least twice a year the journal publishes original research on teacher educati
             <br style="clear: both">          
           </div>          
           <p>
-          {{if session.forced_language =='de': }} Die Publikationen des Studium Generale sind von der gleichnamigen Vorlesungsreihe abgeleitet, die in jedem Semester ein Schwerpunktthema aufgreift und für die interessierte Öffentlichkeit aufbereitet. Herausgeber ist der zuständige Prorektor und Vorsitzende der Kommission Studium Generale, die redaktionelle Verantwortung liegt bei der Abteilung Wissensaustausch. 
-          {{elif session.forced_language =='en': }} Die Publikationen des Studium Generale sind von der gleichnamigen Vorlesungsreihe abgeleitet, die in jedem Semester ein Schwerpunktthema aufgreift und für die interessierte Öffentlichkeit aufbereitet. Herausgeber ist der zuständige Prorektor und Vorsitzende der Kommission Studium Generale, die redaktionelle Verantwortung liegt bei der Abteilung Wissensaustausch. 
+          {{if session.forced_language =='de': }} Die Publikationen des <i>Studium Generale</i> sind von der gleichnamigen Vorlesungsreihe abgeleitet, die in jedem Semester ein Schwerpunktthema aufgreift und für die interessierte Öffentlichkeit aufbereitet. Herausgeber ist der zuständige Prorektor und Vorsitzende der Kommission Studium Generale, die redaktionelle Verantwortung liegt bei der Abteilung Wissensaustausch. 
+          {{elif session.forced_language =='en': }} Die Publikationen des <i>Studium Generale</i> sind von der gleichnamigen Vorlesungsreihe abgeleitet, die in jedem Semester ein Schwerpunktthema aufgreift und für die interessierte Öffentlichkeit aufbereitet. Herausgeber ist der zuständige Prorektor und Vorsitzende der Kommission Studium Generale, die redaktionelle Verantwortung liegt bei der Abteilung Wissensaustausch. 
           {{pass}}            
           </p>          
           <div class="widget">            

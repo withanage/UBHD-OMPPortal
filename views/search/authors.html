@@ -1,38 +1,38 @@
 {{extend 'layout.html'}}
 {{import urllib}}
 <div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            {{=H1(T("Browse Author Index"))}}
-            <div class="btn-group">
+	<div class="row">
+		<div class="col-lg-12">
+			{{=H1(T("Browse Author Index"))}}
+			<div class="btn-group">
 {{for a in author_index:
-    =A(a,_href=URL('authors',vars=dict( searchInitial=a.encode('utf-8'))),_class="btn btn-default")
+	=A(a,_href=URL('authors',vars=dict( searchInitial=a.encode('utf-8'))),_class="btn btn-default")
 pass
 
 =A(T('All'),_href=URL('authors'),_class="btn btn-default")
 }}
-    </div>
-            <br>
+	</div>
+			<br>
 {{
 
 for i,a in enumerate(authors):
-    if (a.get('initial')):
-        =H5(a['initial'])
-    pass
-    if a['index']==1:
-        =A(a['last_name'],', ',a['first_name'],' ',_href=URL('catalog','book',args=a['submission_id']))
-    else:
-         =A(SPAN(_class="glyphicon glyphicon-new-window small"),' ',_href=URL('catalog','book',args=a['submission_id']))
-    pass
+	if (a.get('initial')):
+		=H5(a['initial'])
+	pass
+	if a['index']==1:
+		=A(a['last_name'],', ',a['first_name'],' ',_href=URL('catalog','book',args=a['submission_id']))
+	else:
+		 =A(SPAN(_class="glyphicon glyphicon-new-window small"),' ',_href=URL('catalog','book',args=a['submission_id']))
+	pass
 
-    if i < len(authors) -1 :
-        if authors[i+1]['index']==1:
-            =BR()
-        pass
-    pass
+	if i < len(authors) -1 :
+		if authors[i+1]['index']==1:
+			=BR()
+		pass
+	pass
 
 pass
 }}
-    </div>
+	</div>
   </div>
 </div>

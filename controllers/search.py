@@ -6,6 +6,13 @@ ompdal = OMPDAL(db, myconf)
 press = ompdal.getPress(myconf.take('omp.press_id'))
 
 
+def index():
+    context = dict()
+    context['q'] = request.vars.q if request.vars.q else ''
+
+    return context
+
+
 def authors():
     searchInitial = request.vars.searchInitial.upper() if request.vars.searchInitial else None
     authors = []

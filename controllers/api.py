@@ -4,11 +4,10 @@ Copyright (c) 2015 Heidelberg University Library
 Distributed under the GNU GPL v3. For full terms see the file
 LICENSE.md
 '''
-import gluon.contrib.simplejson as sj # nicht löschen
 from ompdal import OMPDAL
 from ompcsl import OMPCSL
 from os.path import join
-from ompformat import dateFromRow, seriesPositionCompare, formatDoi, dateToStr, downloadLink
+from ompformat import dateFromRow, seriesPositionCompare, formatDoi, dateToStr, downloadLink, coverImageLink
 import re
 
 response.headers['Content-Type'] = 'application/json'
@@ -71,10 +70,12 @@ def getAuthorList(submission_id, chapter_id=0):
     ugs = db.user_group_settings
     sca = db.submission_chapter_authors
     if chapter_id > 0:
-        contribs = db(sca.chapter_id == chapter_id).select(sca.author_id, distinct=True).as_list()
+        contribs = db(
+            (sca.submission_id == submission_id)
+            & (sca.chapter_id == chapter_id)
+            & (sca.author_id != 0)).select(sca.author_id, distinct=True).as_list()
     else:
-        contribs = db((aut.submission_id == submission_id) & (aut.user_group_id == ugs.user_group_id) & (ugs.setting_name=='abbrev') & (ugs.setting_value != "CA")).select(aut.author_id, distinct=True).as_list()
-
+        contribs = db((aut.submission_id == submission_id) & (aut.user_group_id == ugs.user_group_id) & (ugs.setting_name=='abbrev') & (ugs.setting_value != "CA")).select(aut.author_id, distinct=True).as_list()    
     authors = []
     for contrib in contribs:
         author = {}
@@ -83,9 +84,14 @@ def getAuthorList(submission_id, chapter_id=0):
         if role:
             author["role"] = role.first().as_dict().get("setting_value")
 
-        author_settings = ompdal.getAuthorSettings(contrib["author_id"]).as_list()
-        for setting in author_settings:
-            author[setting['setting_name']] = setting["setting_value"]
+        author_settings = ompdal.getAuthorSettings(contrib["author_id"])
+        # Handle localized settings
+        for row in author_settings:
+            if row.locale:
+                author.setdefault(row.setting_name, {})[row.locale] = row.setting_value
+            else:
+                author[row.setting_name] = row.setting_value
+
         authors.append(author)
     return authors
 
@@ -270,6 +276,8 @@ def submission():
 
         chapters.append(ch)
     item["chapters"] = chapters
+    # cover image url    
+    item["coverImageUrl"] = web_url + coverImageLink(request, context_id, submission_id)
     return response.json(item)
 
 
@@ -377,7 +385,7 @@ def oastatistik():
 
             result.append(chs_)
 
-    return sj.dumps(result, separators=(',', ':'))
+    return response.json(result)
 
 
 def get_submission_files(book_id):

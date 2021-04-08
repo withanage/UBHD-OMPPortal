@@ -5,6 +5,8 @@ Distributed under the GNU GPL v3. For full terms see the file
 LICENSE.md
 '''
 
+from omptables import define_omp_tables
+
 #########################################################################
 # This scaffolding model makes your app work on Google App Engine too
 # File is released under public domain and you can use without limitations
@@ -118,3 +120,5 @@ auth.settings.reset_password_requires_verification = True
 mail.settings.server = settings.email_server
 mail.settings.sender = settings.email_sender
 mail.settings.login = settings.email_login
+
+define_omp_tables(db)

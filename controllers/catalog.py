@@ -140,10 +140,8 @@ def series():
         ompdal.getSeriesSettings(series_row.series_id)))
     submission_rows = ompdal.getSubmissionsBySeries(
         series_row.series_id, ignored_submission_id=ignored_submission_id, status=3)
-    submissions = {}
-
-    for row_id, submission_row in enumerate(submission_rows):
-
+    submissions = []
+    for submission_row in submission_rows:
         contributors_by_group = defaultdict(list)
         for contrib in ompdal.getAuthorsBySubmission(submission_row.submission_id, filter_browse=True):
             contrib_item = OMPItem(contrib, OMPSettings(ompdal.getAuthorSettings(contrib.author_id)))
@@ -180,12 +178,8 @@ def series():
                              ompdal.getPublicationDatesByPublicationFormat(pf.publication_format_id)]
         if publication_dates:
             submission.associated_items['publication_dates'] = publication_dates
-        order_id = submission_row.series_position if submission_row.get('series_position') else row_id
-        submissions[order_id] = submission
+        submissions.append(submission)
 
-    import natsort as ns
-    s = ns.natsorted(submissions.items(), reverse=True)
-    submissions = [i[1] for i in s]
     series.associated_items['submissions'] = submissions
 
     return locals()
@@ -361,21 +355,28 @@ def get_navigation_select():
         }
     button = TAG.button(T("Results per Page"), SPAN(_class='caret'), **button_cs)
     return DIV(button, ul, _class="btn-group pull-left")
+
+
 def preview():
     return locals()
+
 
 def book():
 
     ompdal = OMPDAL(db, myconf)
 
-    submission_id = request.args[0] if request.args  and request.args[0].isdigit() else raise400()
+    submission_id = request.args[0] if request.args and request.args[0].isdigit() else raise400()
     press_id = myconf.take('omp.press_id')
     press = ompdal.getPress(press_id)
     submission = ompdal.getPublishedSubmission(submission_id, press_id=press_id)
-    chapter_id = int(str(request.args[1])[1:]) if len(request.args) > 1 else 0
-
     if not submission or not press:
         raise HTTP(400)
+    if len(request.args) > 1 and request.args[1][0] == 'c' and request.args[1][1:].isdigit():
+        chapter_id = int(request.args[1][1:])
+    elif len(request.args) > 1:
+        redirect(URL(r=request, args=request.args[0:1]))
+    else:
+        chapter_id = 0
 
     submission_settings = OMPSettings(ompdal.getSubmissionSettings(submission_id))
     press_settings = OMPSettings(ompdal.getPressSettings(press.press_id))
@@ -506,10 +507,11 @@ def book():
     if authors:
         attribution = ompformat.formatContributors(authors, max_contributors=4, with_and=True)
         additional_attribution = ompformat.formatAttribution(editors, [], translators, [])
-        title_attribution = ompformat.formatName(authors[0].settings)
+        title_attribution = attribution
     elif editors:
-        title_attribution = "{} {}".format(ompformat.formatName(editors[0].settings), T('(Ed.)'))
-        attribution = ompformat.formatAttribution(editors, [], [], chapter_authors)
+        suffix = T("(Eds.)") if len(editors) > 1 else T("(Ed.)")
+        title_attribution = "{} {}".format(ompformat.formatContributors(editors, max_contributors=4, with_and=True), suffix)
+        attribution = "{} {}".format(ompformat.formatContributors(editors, max_contributors=100, with_and=True), suffix)
         additional_attribution = ""
     else:
         title_attribution = ompformat.formatName(chapter_authors[0].settings)

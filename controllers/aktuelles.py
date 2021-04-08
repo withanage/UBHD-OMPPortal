@@ -1,17 +1,44 @@
+import ompformat
+import datetime
+import calendar
+
+
+def index():
+    announcements = ompdal.getAnnouncementsByPress(press_id)
+    if announcements:
+        return redirect(URL('eintrag', args=[announcements[0].announcement_id]))
+    else:
+        return HTTP(404, T("No announcements"))
+
+
 def eintrag():
-    if request.args and request.args[0] :
+    if request.args and request.args[0]:
         announcement_id = request.args[0]
-        n = ompdal.getAnnouncementSettings(announcement_id).as_list()
 
-        t = list(filter(lambda e: e['locale'] == locale and e['setting_name'] == 'title', n))
-        title = XML(t[0]['setting_value']) if t else ''
+        n = ompdal.getAnnouncementWithSettings(announcement_id)
 
-        dl = list(filter(lambda e: e['locale'] == locale and e['setting_name'] == 'description', n))
-        description = XML(dl[0]['setting_value']) if dl else ''
-        if len(description) > 0:
-            return locals()
-        else:
-            raise HTTP(400, T('No Content'))
+        title = XML(n.get('title', {}).get(locale, ''))
+
+        description = XML(n.get('description', {}).get(locale, ''))
+        short_description = XML(n.get('descriptionShort', {}).get(locale, ''))
+
+        date = ompformat.dateToStr(n['date_posted'], locale)
+
+        archive = ompdal.getAnnouncementsByPressGroupedByYearAndMonth(press_id, locale)
+
+        current_year = datetime.datetime.now().year
+
+        # Helper functions for the template
+        strip_tags = ompformat.strip_tags
+
+        def month_to_literal(month_int):
+            return T(calendar.month_name[month_int])
+
+        return locals()
+        # if len(description) > 0:
+        #    return locals()
+        # else:
+        #    raise HTTP(404, T('No Content'))
 
     else:
-        raise HTTP(400, T('No Content'))
+        raise HTTP(404, T('No Content'))

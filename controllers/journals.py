@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
-'''
-Copyright (c) 2015 Heidelberg University Library
+"""
+Copyright (c) 2020 Heidelberg University Library
 Distributed under the GNU GPL v3. For full terms see the file
 LICENSE.md
-'''
+"""
+
 
 def index():
+    response.title = '{}: {}'.format(settings.title, T('Journals'))
     return dict()
 
 
@@ -16,14 +18,21 @@ def religions():
 def tcs():
     return dict()
 
+
 def heied():
     return dict()
 
+
 def heso():
     return dict()
-    
+
+
 def cursor():
     return dict()
-	
-def home():
+
+
+def bkgd():
+    return dict()
+
+def mial():
     return dict()

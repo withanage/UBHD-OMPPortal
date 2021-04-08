@@ -7,7 +7,7 @@
             <div class="col-lg-3">
                 <article>
                     <div class="post-image">
-					           {{=IMG(_src=URL('static','images/catalog/cover_showandtell.jpg'))}}            
+					           {{=IMG(_src=URL('static','files/presses/6/monographs/481/simple/cover.jpg'))}}            
                   </div>
                 </article>
             </div>   
@@ -18,19 +18,19 @@
                 <h3>Einsichten – Kataloge der Universitätsbibliothek Heidelberg</h3>
              </div>
 			  {{if session.forced_language =='de': }}
-			  <p>Mit "Einsichten  - Ausstellungskataloge der Universitätsbibliothek Heidelberg" begründet die Universitätsbibliothek Heidelberg 2019 eine neue Schriftenreihe für ihre Ausstellungskataloge, in denen in Kooperation mit Instituten der Heidelberger Universität aber auch mit auswärtigen Partnern überwiegend hauseigene Bestände präsentiert werden. Mit ihren Ausstellungen erfüllt die Universitätsbibliothek Heidelberg ihren öffentlichen Auftrag zur Vermittlung des kulturellen Erbes.</p>
+			  <p>Mit &bdquo;Einsichten – Ausstellungskataloge der Universitätsbibliothek Heidelberg&ldquo; begründet die Universitätsbibliothek Heidelberg 2019 eine neue Schriftenreihe für ihre Ausstellungskataloge, in denen in Kooperation mit Instituten der Heidelberger Universität aber auch mit auswärtigen Partnern überwiegend hauseigene Bestände präsentiert werden. Mit ihren Ausstellungen erfüllt die Universitätsbibliothek Heidelberg ihren öffentlichen Auftrag zur Vermittlung des kulturellen Erbes.</p>
 			  {{elif session.forced_language =='en': }}
-			  <p>With "Einsichten - Ausstellungskataloge der Universitätsbibliothek Heidelberg" (Insights - Exhibition Catalogues of the Heidelberg University Library), the Heidelberg University Library launches a new series for its exhibition catalogues in 2019. In cooperation with institutes of the Heidelberg University, but also with external partners, these publications present mainly its own holdings. With its exhibitions, the Heidelberg University Library fulfils its public mission to communicate cultural heritage.</p>
+			  <p>With &ldquo;Einsichten – Ausstellungskataloge der Universitätsbibliothek Heidelberg&rdquo; (Insights – Exhibition Catalogues of the Heidelberg University Library), the Heidelberg University Library launches a new series for its exhibition catalogues in 2019. In cooperation with institutes of the Heidelberg University, but also with external partners, these publications present mainly its own holdings. With its exhibitions, the Heidelberg University Library fulfils its public mission to communicate cultural heritage.</p>
 			  {{pass}}
 	  
      
 
-                    <!--<div class="widget">
+                    <div class="widget">
                         <h5 class="widgetheading"></h5>
                         <ul class="tags">          
                             <li>{{=A(T('Volumes'),_href=URL('catalog','series/einsichten'))}}
                         </ul>
-                    </div>-->
+                    </div>
           </article>
         </div> 
 
@@ -46,26 +46,13 @@
 						  <p>Kontakt</p>
 
 						<p>Dr. Maria Effinger<br>
-						Telefon: 06221-54 3561<br/>
+						Telefon: 06221-54 3561<br>
                         E-Mail: effinger@ub.uni-heidelberg.de</p>
-                            
-                            <!--<p>Herausgeber</p>
-                            <ul>
-                              <li>Reuven Amitai, Jerusalem
-                              <li>David Armitage, Harvard</li>
-                              <li>Christiane Brosius, Heidelberg</li>                              
-                            </ul>
-                            <p>Managing Editor</p>
-                              <ul>
-                                <li>Russell Ó Ríagaín</li>
-                              </ul>  
-                            <p>Exzellenzcluster „Asien und Europa im globalen Kontext”, Heidelberg</p>-->
+
                             <h5 style="color: #656565; margin-bottom: 0.5em;">ISSN</h5>
                             <p>ISSN 2628-5479 (Print)<br>
                             ISSN 2628-5495 (eISSN)</p> 
-                            <!-- <h5 style="color: #656565; margin-bottom: 0.5em;">Lizenz</h5>
-                            <p>Dieses Werk ist unter der<br> <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons-Lizenz 4.0<br /> (CC BY-SA 4.0)</a> veröffentlicht.<br>
-                            <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0"><img alt="Creative Commons Lizenz BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p>-->
+
 
              {{elif session.forced_language =='en': }}
              
@@ -76,25 +63,13 @@
                             <p>Contact</p>
 
 						<p>Dr. Maria Effinger<br>
-						Phone: 06221-54 3561<br/>
-                        E-ail: effinger@ub.uni-heidelberg.de</p>
-                            <!--<p>Series Editors</p>
-                            <ul>
-                              <li>Reuven Amitai, Jerusalem
-                              <li>David Armitage, Harvard</li>
-                              <li>Christiane Brosius, Heidelberg</li>                         
-                            </ul>
-                            <p>Managing Editor</p>
-                              <ul>
-                                <li>Russell Ó Ríagaín</li>
-                              </ul>  
-                            <p>Cluster of Excellence „Asia and Europe in a global context”, Heidelberg </p>  -->
+						Phone: +49 6221-54 3561<br>
+                        E-mail: effinger@ub.uni-heidelberg.de</p>
+
                             <h5 style="color: #656565; margin-bottom: 0.5em;">ISSN</h5>
                             <p>ISSN 2628-5479 (Print)<br>
                             ISSN 2628-5495 (eISSN)</p>  
-                            <!--<h5 style="color: #656565; margin-bottom: 0.5em;">Licenses</h5>
-                            <p>This work is licensed under a<br> <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons License 4.0<br /> (CC BY-SA 4.0)</a>.<br>
-                            <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; License CC BY-SA 4.0"><img alt="Creative Commons License BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p> -->
+
 
         	{{pass}}
                   </div>   
@@ -104,54 +79,6 @@
     
     </div>   
 
-    <!--<div class="row">
-
-        <div class="col-lg-3" style="float: right;">
-          <article>
-
-
-        <div class="box">
-                       
-             {{if session.forced_language =='de': }}
-          <div class="box">
-			           <div class="box-gray alignleft" style="height: auto; padding-bottom: 5px;">
-                <p class="boxText"><b>Hinweise für Autoren</b></p>
-                    <ul class="standard">
-                      <li><a href="http://www.asia-europe.uni-heidelberg.de/de/forschung/dfg-project/information-for-authors.html">Information for Authors</a></li>
-                    </ul>
-                  </div>
-          </div>
-                
-          <div class="box" style="margin-bottom: 1em;">
-			           <div class="box-gray alignleft" style="height: auto;">
-                <p class="boxText"><b>Kontakt</b></p>
-                    <ul class="standard">
-                      <li><a href="mailto:russell.oriagain@asia-europe.uni-heidelberg.de">Russell Ó Ríagaín</a></li>
-                    </ul>
-                  </div>
-                </div>     
-                
-             {{elif session.forced_language =='en': }}
-          <div class="box">
-        <div class="box-gray alignleft" style="height: auto; padding-bottom: 5px;">
-                <p class="boxText"><b>Information for Authors</b></p>
-                    <ul class="standard">
-                      <li><a href="http://www.asia-europe.uni-heidelberg.de/de/forschung/dfg-project/information-for-authors.html">Information for Authors</a></li>
-                    </ul>
-                  </div>
-          </div>
-                
-          <div class="box" style="margin-bottom: 1em;">
-			           <div class="box-gray alignleft" style="height: auto;">
-                <p class="boxText"><b>Contact</b></p>
-                    <ul class="standard">
-                      <li><a href="mailto:russell.oriagain@asia-europe.uni-heidelberg.de">Russell Ó Ríagaín</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-           </article>   
-           {{pass}}
-     </div> -->
+  
    </div> 
 </section>
