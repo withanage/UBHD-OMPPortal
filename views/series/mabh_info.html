@@ -1,1 +1,146 @@
+{{extend 'layout.html'}}
 
+<section id="content">
+    <div class="container">
+        <div class="row">
+	
+            <div class="col-lg-3">
+                <article>
+                    <div class="post-image">
+					<!--{{=IMG(_src=URL('static','files/presses/6/monographs/580/simple/cover.jpg'))}}-->
+            
+                  </div>
+
+                </article>
+            </div>   
+
+            <div class="col-lg-6">
+               <article>
+
+
+     <div class="post-heading">
+
+        <h3>Das Mittelalter. Perspektiven mediävistischer Forschung. Beihefte</h3>
+        </div>
+      {{if session.forced_language =='de': }}
+<p>Die Schriftenreihe bietet ein interdisziplinäres Forum für hochwertige, thematisch fokussierte Sammel- und Konferenzbände und mediävistische Monographien. Sie ergänzt die Zeitschrift ‚Das Mittelalter. Perspektiven mediävistischer Forschung‘ des <a href="www.mediaevistenverband.de" title="Zur Homepage">Mediävistenverbandes</a> und rich-tet sich thematisch an alle im Verband und im Advisory Board vertretenen Disziplinen von der Byzantinistik und Latinistik über die neusprachlichen Philologien und die Geschichtswissen-schaften bis hin zur Theologie. Leitlinie eines jeden Bandes ist die Interdisziplinarität im Sinne einer Überwindung der traditionellen Grenzen zwischen den Disziplinen wie auch nationaler Zuschnitte. Kriterien für die Aufnahme in die Reihe sind wissenschaftliche Relevanz, metho-dische Solidität und innovative Fragestellungen. Der Internationalität der Forschung wird unter anderem auch dadurch Rechnung getragen, dass die Publikationen außer in Deutsch auch in Englisch erscheinen können. </p>
+
+
+      
+      {{elif session.forced_language =='en': }}                 
+<p>The open-access series offers a forum for double-blind peer-reviewed, thematically focussed anthologies and selected conference proceedings, as well as monographs on topics from the field of medieval studies. As such it complements the journal <em>Das Mittelalter. Perspektiven mediävistischer Forschung</em>, published by the <a href="www.mediaevistenverband.de" title="To the homepage">Mediävistenverband</a> (Association of Medieval Studies) and aims at covering all the different disciplines represented by the association. The scope thus ranges from the study of history and theology, Byzantine and Latin studies, to mod-ern language philologies. Each volume aims at overcoming the traditional borders between the different disciplines and national traditions. Selection criteria for publication in the series are scholarly relevance, methodological solidity, and an innovative approach. In order to increase international impact and visibility, texts can be either in German or English.</p>
+
+ {{pass}}
+                 <!--
+<div class="widget">
+                        <h5 class="widgetheading"></h5>
+                        <ul class="tags">          
+                            <li>{{=A(T('Volumes'),_href=URL('catalog','series/mabh'))}}
+                        </ul>
+                    </div>
+
+                </article>
+                
+            </div>
+-->
+               <div class="col-lg-3">
+          <article>
+            <div class="box">
+
+			           <div class="box-gray alignleft" style="height: auto;">
+                 {{if session.forced_language =='de': }}
+                            <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographische Angaben</h5>
+                                                        
+                            <p>Reihenherausgeber/innen</p>
+                            <ul>
+                              <li>Ingrid Baumgärtner, Universität Kassel</li>
+                              <li>Stephan Conermann, Universität Bonn</li>
+                              <li>Thomas Honegger, Universität Jena</li>
+                            </ul>
+                   
+                            <h5 style="color: #656565; margin-bottom: 0.5em;">Kontakt</h5>
+                            E-Mail: <a href="mailto:ibaum@uni-kassel.de">ibaum@uni-kassel.de</a>
+                   
+                            <h5 style="color: #656565; margin-bottom: 0.5em;">Advisory Board </h5>
+                            <p>bestehend aus den Beiratsmitgliedern des Mediävistenverbands, für die Wahlperiode 2021 bis 2023 sind dies
+                              <ul>
+                                <li>Brigitte Burrichter, Romanistik, Universität Würzburg</li>
+                                <li>Eva von Contzen, Anglistik, Universität Freiburg</li>
+                                <li>Philippe Depreux, Geschichte, Universität Hamburg</li>
+                                <li>Wolfram Drews, Geschichte, Universität Münster</li>
+                                <li>Stephan Dusil, Rechtsgeschichte, Universität Tübingen</li>
+                                <li>Juliane von Fircks, Kunstgeschichte, Universität Jena</li>
+                                <li>Albrecht Fuess, Islamwissenschaften, Universität Marburg</li>
+                                <li>Michael Grünbart, Byzantinistik, Universität Münster</li>
+                                <li>Irene Holzer, Musikwissenschaft, LMU München</li>
+                                <li>Manfred Kern, Germanistik, Universität Salzburg</li>
+                                <li>Katrin Kogman-Appel, Jüdische Studien, Universität Münster</li>
+                                <li>Karl-Heinz Leven, Medizingeschichte, Universität Erlangen</li>
+                                <li>Christine Magin, Historische Grundwissenschaften, Universität Greifswald</li>
+                                <li>Isabella Mandrella, Philosophie, LMU München</li>
+                                <li>Natascha Mehler, Archäologie, Universität Tübingen</li>
+                                <li>Carla Meyer-Schlenkrich, Geschichte, Universität Köln</li>
+                                <li>Matthias Müller, Kunstgeschichte, Universität Mainz</li>
+                                <li>Jonathan Reinert, Theologie, Universität Tübingen</li>
+                                <li>Bernd Roling, Lateinische Philologie/Mittellatein, FU Berlin</li>
+                                <li>Roland Scheel, Skandinavistik, Universität Göttingen</li>
+                                <li>Andreas Sieber, Didaktik/Universität und Schule, Universität Passau</li>
+                                <li>Regina Toepfer, Germanistik, Universität Braunschweig</li>
+                                <li>Gabriel Viehhauser, Digitale Mediävistik, Universität Stuttgart</li>
+                              </ul>
+                            </p>
+                            <h5 style="color: #656565; margin-bottom: 0.5em;">ISSN</h5>
+                            <p>SSN 2698-212 (Print)<br>ISSN 2748-3614 (online)</p>
+              
+
+             {{elif session.forced_language =='en': }}
+             
+             <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographic details</h5>                          
+                            <p>Series Editors</p>
+                            <ul>
+                              <li>Ingrid Baumgärtner, Universität Kassel</li>
+                              <li>Stephan Conermann, Universität Bonn</li>
+                              <li>Thomas Honegger, Universität Jena</li>
+                            </ul>
+                   
+                            <h5 style="color: #656565; margin-bottom: 0.5em;">Contact</h5>
+                            E-Mail: <a href="mailto:ibaum@uni-kassel.de">ibaum@uni-kassel.de</a>
+                   
+                            <h5 style="color: #656565; margin-bottom: 0.5em;">Advisory Board </h5>
+                            <p>bestehend aus den Beiratsmitgliedern des Mediävistenverbands, für die Wahlperiode 2021 bis 2023 sind dies
+                              <ul>
+                                <li>Brigitte Burrichter, Romanistik, Universität Würzburg</li>
+                                <li>Eva von Contzen, Anglistik, Universität Freiburg</li>
+                                <li>Philippe Depreux, Geschichte, Universität Hamburg</li>
+                                <li>Wolfram Drews, Geschichte, Universität Münster</li>
+                                <li>Stephan Dusil, Rechtsgeschichte, Universität Tübingen</li>
+                                <li>Juliane von Fircks, Kunstgeschichte, Universität Jena</li>
+                                <li>Albrecht Fuess, Islamwissenschaften, Universität Marburg</li>
+                                <li>Michael Grünbart, Byzantinistik, Universität Münster</li>
+                                <li>Irene Holzer, Musikwissenschaft, LMU München</li>
+                                <li>Manfred Kern, Germanistik, Universität Salzburg</li>
+                                <li>Katrin Kogman-Appel, Jüdische Studien, Universität Münster</li>
+                                <li>Karl-Heinz Leven, Medizingeschichte, Universität Erlangen</li>
+                                <li>Christine Magin, Historische Grundwissenschaften, Universität Greifswald</li>
+                                <li>Isabella Mandrella, Philosophie, LMU München</li>
+                                <li>Natascha Mehler, Archäologie, Universität Tübingen</li>
+                                <li>Carla Meyer-Schlenkrich, Geschichte, Universität Köln</li>
+                                <li>Matthias Müller, Kunstgeschichte, Universität Mainz</li>
+                                <li>Jonathan Reinert, Theologie, Universität Tübingen</li>
+                                <li>Bernd Roling, Lateinische Philologie/Mittellatein, FU Berlin</li>
+                                <li>Roland Scheel, Skandinavistik, Universität Göttingen</li>
+                                <li>Andreas Sieber, Didaktik/Universität und Schule, Universität Passau</li>
+                                <li>Regina Toepfer, Germanistik, Universität Braunschweig</li>
+                                <li>Gabriel Viehhauser, Digitale Mediävistik, Universität Stuttgart</li>
+                              </ul>
+                            </p>
+                            <h5 style="color: #656565; margin-bottom: 0.5em;">ISSN</h5>
+                            <p>SSN 2698-212 (Print)<br>ISSN 2748-3614 (online)</p>
+        	{{pass}}
+        </div>   
+      </div>     
+    </article>                                     
+    </div>
+    </div>   
+
+</section>
