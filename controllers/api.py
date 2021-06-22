@@ -75,7 +75,7 @@ def getAuthorList(submission_id, chapter_id=0):
             & (sca.chapter_id == chapter_id)
             & (sca.author_id != 0)).select(sca.author_id, distinct=True).as_list()
     else:
-        contribs = db((aut.submission_id == submission_id) & (aut.user_group_id == ugs.user_group_id) & (ugs.setting_name=='abbrev') & (ugs.setting_value != "CA")).select(aut.author_id, distinct=True).as_list()    
+        contribs = db((aut.submission_id == submission_id) & (aut.user_group_id == ugs.user_group_id) & (ugs.setting_name=='abbrev') & (ugs.setting_value != "CA")).select(aut.author_id, distinct=True).as_list()
     authors = []
     for contrib in contribs:
         author = {}
@@ -276,7 +276,7 @@ def submission():
 
         chapters.append(ch)
     item["chapters"] = chapters
-    # cover image url    
+    # cover image url
     item["coverImageUrl"] = web_url + coverImageLink(request, context_id, submission_id)
     return response.json(item)
 
@@ -286,7 +286,7 @@ def createFile(e_file, pf):
     privateFields = ["vgWortPublic", "vgWortPrivate", "chapterid", "chapterId", "chapterID"]
 
     pdfObject = {"id": pf["publication_format_id"], "label": primaryFormat}
-    pdfObject["urlPublished"] = web_url + downloadLink(request, e_file, web_url, [], "")
+    pdfObject["urlPublished"] = web_url + downloadLink(e_file)
 
     pdfObject["file"] = {k: str(e_file.get(k)) for k in fileKeys}
     e_file_settings = ompdal.getSubmissionFileSettings(e_file["file_id"]).as_list()
