@@ -88,4 +88,11 @@
             </div>
     </section>
 </div>
-{{include 'catalog/book/submission/annotation.html'}}
+{{include '../static/omp-resources/views/catalog/annotation-scripts.html' }}
+<script>
+    $(function () {
+        document.styleSheets[0].insertRule(`#anno-block .dropdown-menu .active a { color: white !important; }`, 0)
+        insertAnnoFrontend({collection: 'heiup', language: "{{=T.accepted_language or 'de'}}"})
+    })
+</script>
+
