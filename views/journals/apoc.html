@@ -1,0 +1,157 @@
+{{extend 'layout.html'}}
+
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+	
+            <div class="col-lg-3">
+                <article>
+                    <div class="post-image">
+		 	<!--<img src="{{=URL(myconf.take('web.application'),'static','images/journals/cover_apoc.jpg')}} ">-->
+                  </div>
+
+                </article>
+                
+                <div class="box">
+			             <div class="box-gray alignleft" style="height: auto;">
+{{if session.forced_language =='de': }}
+                            <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographische Angaben</h5>
+                            <p>Apocalyptica</p>
+                            
+                            <p>Herausgeber</p>
+                            <p>Käte Hamburger Centre for Apocalyptic and Post-Apocalyptic Studies | CAPAS</p>
+                            <ul>
+                              <li>Prof. Dr. Robert Folger</li>
+                              <li>Dr. Jenny Stümer</li>
+                              <li>Dr. Felicitas Loest</li>
+                            </ul>                            
+                            <!--<p>ISSN: 0949-0345 (Online)</p>-->  
+
+                            <!--<p>Dieses Werk ist unter der<br> <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons-Lizenz 4.0<br /> (CC BY-SA 4.0)</a> veröffentlicht.<br>
+                            <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0"><img alt="Creative Commons Lizenz BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p>-->
+
+                             
+{{elif session.forced_language =='en': }}
+             
+<h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographic details</h5>
+                            <p>Apocalyptica</p>
+                            
+                            <p>Editors</p>
+							  
+                            <p>Käte Hamburger Centre for Apocalyptic and Post-Apocalyptic Studies | CAPAS</p>
+                            <ul>
+                              <li>Prof. Dr. Robert Folger</li>
+                              <li>Dr. Jenny Stümer</li>
+                              <li>Dr. Felicitas Loest</li>
+                            </ul>
+
+                            <!--<p>ISSN: 0949-0345 (Online)</p>--> 
+                            
+                            <!--<p>This work is licensed under a <br> <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons License 4.0<br> (CC BY-SA 4.0)</a>.<br>
+                            <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; License CC BY-SA 4.0"><img alt="Creative Commons License BY-SA 4.0" src="/static/images/catalog/cc_by-sa-4-0_88x31.png" /></a></p>-->             
+
+{{pass}}                  
+                            </div>
+                                        
+                  </div>
+            </div>   
+
+            
+            <div class="col-lg-6">
+               <article>
+               
+
+            <!--<div class="btn-group" role="group" aria-label="1">
+             <ul class="schaltflaeche">
+				 <li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/apoc/issue/current/showToc" title="{{=T('current issue')}}">{{=T('read current issue')}}</a></li>
+             </ul>
+			</div>
+			
+			<div class="btn-group" role="group" aria-label="1">
+            <ul class="schaltflaeche">
+				 <li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/apoc/issue/archive" title="{{=T('Archive')}}">{{=T('Archive')}}</a></li>
+            </ul> 
+			</div>-->
+			
+     <div class="post-heading">
+     
+            {{if session.forced_language =='de': }}     
+                  <h3>Apocalyptica</h3>
+            {{elif session.forced_language =='en': }}
+                  <h3>Apocalyptica</h3>
+            {{pass}}     
+                  
+        </div>
+
+                 {{if session.forced_language =='de': }}
+                 
+<p><em>Apocalyptica</em> is an interdisciplinary, international, double-blind, and peer-reviewed open access journal published by the Käte Hamburger Centre for Apocalyptic and Post-apocalyptic Studies at Heidelberg University. </p>
+<p>The journal publishes incisive analyses and diverse perspectives regarding the end of worlds. It provides an international and interdisciplinary platform for theoretical explorations, methodological considerations and experimental case studies concerned with the apocalypse. Fostering a diverse and international research perspective and encouraging interdisciplinary exchanges, publications include a combination of open call submissions and contributions by our CAPAS fellows that consider the many sides of apocalyptic thinking in order to investigate an archive of the apocalyptic imaginary and to explore experiences of the apocalypse and post-apocalypse as they unsettle the past, present, and future. </p>
+<p><em>Apocalyptica</em> publishes research from a broad range of fields in order to champion the potential of critical thinking and cultural analysis in the humanities as well as the social and cultural sciences as an imaginative and (potentially) transformative force. Occasionally, where appropriate, contributions also draw on the environmental and natural sciences. Our aim is to encourage the production of transdisciplinary knowledge and debate on the apocalypse as a figure of thought, discursive node, and/or line of flight, an assemblage of images, a concrete historical experience, and an empirical phenomenon.</p>
+            <!-- <div class="btn-group" role="group" aria-label="1">
+                <ul class="schaltflaeche">
+				 <li class="btn btn-default" type="button">{{=A(T('Call for Papers (PDF)'),_href=URL('static','medien/journals/mittelalter_cfp_03-2021.pdf'))}} </li>
+                </ul> 
+			</div> -->
+     
+
+             {{elif session.forced_language =='en': }}
+<p><em>Apocalyptica</em> is an interdisciplinary, international, double-blind, and peer-reviewed open access journal published by the Käte Hamburger Centre for Apocalyptic and Post-apocalyptic Studies at Heidelberg University. </p>
+<p>The journal publishes incisive analyses and diverse perspectives regarding the end of worlds. It provides an international and interdisciplinary platform for theoretical explorations, methodological considerations and experimental case studies concerned with the apocalypse. Fostering a diverse and international research perspective and encouraging interdisciplinary exchanges, publications include a combination of open call submissions and contributions by our CAPAS fellows that consider the many sides of apocalyptic thinking in order to investigate an archive of the apocalyptic imaginary and to explore experiences of the apocalypse and post-apocalypse as they unsettle the past, present, and future. </p>
+<p><em>Apocalyptica</em> publishes research from a broad range of fields in order to champion the potential of critical thinking and cultural analysis in the humanities as well as the social and cultural sciences as an imaginative and (potentially) transformative force. Occasionally, where appropriate, contributions also draw on the environmental and natural sciences. Our aim is to encourage the production of transdisciplinary knowledge and debate on the apocalypse as a figure of thought, discursive node, and/or line of flight, an assemblage of images, a concrete historical experience, and an empirical phenomenon.</p>
+
+
+          <!-- <div class="btn-group" role="group" aria-label="1">
+                <ul class="schaltflaeche">
+				 <li class="btn btn-default" type="button">{{=A(T('Call for Papers (PDF)'),_href=URL('static','medien/journals/mittelalter_cfp_03-2021.pdf'))}} </li>
+                </ul> 
+			</div> 
+
+{{pass}}     
+
+
+                    <div class="widget">
+                        <h5 class="widgetheading"></h5>
+                 {{if session.forced_language =='de': }}
+                        <ul class="tags">
+                            <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/mial/index">zur Zeitschrift</a></li>
+                        </ul>
+             {{elif session.forced_language =='en': }}
+                        <ul class="tags">
+                            <li><a href="http://heiup.uni-heidelberg.de/journals/index.php/mial/index">View Journal</a></li>
+                        </ul>
+{{pass}}     
+                       
+                    </div>-->
+
+                     			
+			
+                </article>
+ 
+            </div>
+            <!--<div id="infoBoxRechts" class="col-lg-3">
+
+                <div class="box">
+                  <div class="box-gray"  style="height: auto;">
+{{if session.forced_language =='de': }}
+                    <p class="boxText"><b>Informationen zum Download</b></p>
+{{elif session.forced_language =='en': }}
+                    <p class="boxText"><b>Information to download</b></p>
+{{pass}}
+                    <ul class="standard">
+{{if session.forced_language =='de': }}                    
+                      <li>{{=A(T('Author Style Guide'),_href=URL('static','medien/journals/mial_richtlinien-autoren.pdf'))}}</li>
+{{elif session.forced_language =='en': }}                      
+                      <li>{{=A(T('Author Style Guide'),_href=URL('static','medien/journals/mial_stylesheet-authors.pdf'))}}</li>
+{{pass}}  
+                      <li>{{=A(T('Reviewer Style Guide'),_href=URL('static','medien/journals/mial_richtlinien-rezensenten.pdf'))}}</li>                      
+                    </ul>
+                  </div>
+                </div>
+                
+              </div>       -->      
+ </div>
+        </div>
+
+</section>

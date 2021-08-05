@@ -1,6 +1,50 @@
 {{extend 'layout.html'}}
 <section id="content">    
   <div class="container"> 
+
+    <div class="row">      
+      <div class="col-lg-2">        
+        <article>          
+          <div class="post-image">            
+		 	<!--<img src="{{=URL(myconf.take('web.application'),'static','images/journals/preview.png')}}">-->        
+          </div>        
+        </article>      
+      </div>      
+      <div class="col-lg-10">        
+        <article>          
+          <div class="post-heading">          
+            <div class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h3>Apocalyptica</h3>
+            </div>                 
+            <br style="clear: both">          
+          </div>          
+{{if session.forced_language =='de': }}          
+            <p><i>Apocalyptica</i> is an interdisciplinary, international, double-blind peer-reviewed, open access journal published by the Käte Hamburger Centre for Apocalyptic and Post-Apocalyptic Studies (CAPAS) at Heidelberg University. The journal publishes incisive analyses from diverse perspectives regarding the end of worlds.     
+            </p>        
+            <p>The journal publishes research from a broad range of fields in order to champion the potential of critical thinking and cultural analysis in the humanities as well as the social and cultural sciences. Apocalyptica encourages the production of cross-disciplinary knowledge and debate on the apocalypse as a figure of thought, a discursive node, a historical experience of past and present, and an empirical phenomenon.
+            </p>
+
+{{elif session.forced_language =='en': }}         
+            <p><i>Apocalyptica</i> is an interdisciplinary, international, double-blind peer-reviewed, open access journal published by the Käte Hamburger Centre for Apocalyptic and Post-Apocalyptic Studies (CAPAS) at Heidelberg University. The journal publishes incisive analyses from diverse perspectives regarding the end of worlds.     
+            </p>        
+            <p>The journal publishes research from a broad range of fields in order to champion the potential of critical thinking and cultural analysis in the humanities as well as the social and cultural sciences. Apocalyptica encourages the production of cross-disciplinary knowledge and debate on the apocalypse as a figure of thought, a discursive node, a historical experience of past and present, and an empirical phenomenon.
+            </p>               
+{{pass}}            
+         <div class="widget">            
+            <h5 class="widgetheading"></h5>            
+            <ul class="tags">
+              <li>              
+              <a href="{{=URL(myconf.take('web.application'),'journals','apoc')}}">{{=T('More')}}</a>              
+              </li>              
+             <!-- <li>              
+              <a href="https://heiup.uni-heidelberg.de/journals/index.php/bkgd/index">{{=T('View Journal')}}</a>              
+              </li>-->            
+            </ul>          
+          </div>        
+        </article>      
+      </div>    
+    </div> 
+
+
     <div class="row">      
       <div class="col-lg-2">        
         <article>          
