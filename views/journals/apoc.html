@@ -21,10 +21,26 @@
                             <p>Herausgeber</p>
                             <p>Käte Hamburger Centre for Apocalyptic and Post-Apocalyptic Studies | CAPAS</p>
                             <ul>
-                              <li>Prof. Dr. Robert Folger</li>
-                              <li>Dr. Jenny Stümer</li>
-                              <li>Dr. Felicitas Loest</li>
-                            </ul>                            
+                              <li>Robert Folger</li>
+                              <li>Jenny Stümer</li>
+                              <li>Felicitas Loest</li>
+                            </ul>         
+
+                            <p>Redaktioneller Beirat</p>
+                            <ul>
+                                <li>Stefan Bargheer, Aarhus University</li>
+								<li>André Butz, Heidelberg University</li>
+								<li>Lorenzo DiTommaso, Concordia University Montreal</li>
+								<li>Jack Halberstam, Columbia University</li>
+								<li>Jessica Hurley, George Mason University</li>
+								<li>Maria Manuel Lisboa, Cambridge University</li>
+								<li>Collin McAllister, University of Colorado Springs</li>
+								<li>Audra Mitchell, Wilfrid Laurier University</li>
+								<li>Luna Nájera, Yale University</li>
+								<li>Joanna Page, Cambridge University</li>
+								<li>Oxana Timofeeva, European University of St Petersburg</li>
+							</ul>
+							
                             <!--<p>ISSN: 0949-0345 (Online)</p>-->  
 
                             <!--<p>Dieses Werk ist unter der<br> <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons-Lizenz 4.0<br /> (CC BY-SA 4.0)</a> veröffentlicht.<br>
@@ -40,11 +56,25 @@
 							  
                             <p>Käte Hamburger Centre for Apocalyptic and Post-Apocalyptic Studies | CAPAS</p>
                             <ul>
-                              <li>Prof. Dr. Robert Folger</li>
-                              <li>Dr. Jenny Stümer</li>
-                              <li>Dr. Felicitas Loest</li>
+                              <li>Robert Folger</li>
+                              <li>Jenny Stümer</li>
+                              <li>Felicitas Loest</li>
                             </ul>
 
+                            <p>Editorial</p>
+                            <ul>
+                                <li>Stefan Bargheer, Aarhus University</li>
+								<li>André Butz, Heidelberg University</li>
+								<li>Lorenzo DiTommaso, Concordia University Montreal</li>
+								<li>Jack Halberstam, Columbia University</li>
+								<li>Jessica Hurley, George Mason University</li>
+								<li>Maria Manuel Lisboa, Cambridge University</li>
+								<li>Collin McAllister, University of Colorado Springs</li>
+								<li>Audra Mitchell, Wilfrid Laurier University</li>
+								<li>Luna Nájera, Yale University</li>
+								<li>Joanna Page, Cambridge University</li>
+								<li>Oxana Timofeeva, European University of St Petersburg</li>
+							</ul>
                             <!--<p>ISSN: 0949-0345 (Online)</p>--> 
                             
                             <!--<p>This work is licensed under a <br> <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Homepage Creative Commons; Lizenz CC BY-SA 4.0">Creative Commons License 4.0<br> (CC BY-SA 4.0)</a>.<br>
@@ -59,6 +89,23 @@
             
             <div class="col-lg-9">
                <article>
+			    <div id="infoBoxRechts" class="col-lg-3">
+
+                <div class="box">
+                  <div class="box-gray"  style="height: auto;">                 
+                    <p class="boxText"><b>{{=T('Information for authors')}}</b></p>
+                    <ul class="standard">
+                 {{if session.forced_language =='de': }}
+                      <li><a href="{{=URL(myconf.take('web.application'),'static','medien/journals/cfp_apocalyptica_capas.pdf')}}">{{=T('Call for papers')}}</a></li>
+                 {{elif session.forced_language =='en': }}                      
+                      <li><a href="{{=URL(myconf.take('web.application'),'static','medien/journals/cfp_apocalyptica_capas.pdf')}}">{{=T('Call for papers')}}</a></li>
+                 {{pass}}
+                      <li><a href="https://capas.pubpub.org/about-apocalyptica">{{if session.forced_language =='de': }}Weitere Informationen auf pubpub.org{{elif session.forced_language =='en': }}More information on pubpub.org{{pass}}   			 
+                    </ul>
+                  </div>
+                </div>             
+              </div>
+			   
             <!--<div class="btn-group" role="group" aria-label="1">
              <ul class="schaltflaeche">
 				 <li type="button" class="btn btn-default"><a href="http://heiup.uni-heidelberg.de/journals/index.php/apoc/issue/current/showToc" title="{{=T('current issue')}}">{{=T('read current issue')}}</a></li>
