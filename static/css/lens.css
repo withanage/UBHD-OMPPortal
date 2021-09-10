@@ -1809,32 +1809,6 @@ body.loading .spinner-wrapper {
 /** Hinzugefügt am 10.9.2021 von nw für die Veröffentlichung mit ID 862:
  * Siehe https://gitlab.ub.uni-heidelberg.de/wit/verlag-portale/-/issues/423#note_27132
  */
-
-@font-face {
-  font-family: Junicode;
-  src: url('https://www.ub.uni-heidelberg.de/cdn/junicode/latest/unicode-wgd.woff') format('woff'), url('https://www.ub.uni-heidelberg.de/cdn/junicode/latest/Junicode-wgd.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: Junicode;
-  src: url('https://www.ub.uni-heidelberg.de/cdn/junicode/latest/Junicode-Bold.woff') format('woff'), url('https://www.ub.uni-heidelberg.de/cdn/junicode/latest/Junicode-Bold.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
-}
-@font-face {
-  font-family: Junicode;
-  src: url('https://www.ub.uni-heidelberg.de/cdn/junicode/latest/Junicode-Italic.woff') format('woff'), url('https://www.ub.uni-heidelberg.de/cdn/junicode/latest/Junicode-Italic.ttf') format('truetype');
-  font-weight: normal;
-  font-style: italic;
-}
-@font-face {
-  font-family: Junicode;
-  src: url('https://www.ub.uni-heidelberg.de/cdn/junicode/latest/Junicode-BoldItalic.woff') format('woff'), url('https://www.ub.uni-heidelberg.de/cdn/junicode/latest/Junicode-BoldItalic.ttf') format('truetype');
-  font-weight: bold;
-  font-style: italic;
-}
-
 body[data-submission-id="862"] {
   font-family: Junicode;
 }
