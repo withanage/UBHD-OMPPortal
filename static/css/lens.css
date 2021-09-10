@@ -65,15 +65,15 @@
   display: block !important; }
 
 .content-node.paragraph.margin-right-1 {
-  margin-right: 2ex; 
+  margin-right: 2ex;
   display: block !important; }
 
 .content-node.paragraph.margin-left-2 {
-  margin-left: 4ex; 
+  margin-left: 4ex;
   display: block !important; }
-  
+
 .content-node.paragraph.margin-right-2 {
-  margin-right: 4ex; 
+  margin-right: 4ex;
   display: block !important; }
 
 
@@ -237,7 +237,7 @@ td > .content-node.paragraph + .content-node.paragraph {
 
 .content-node.heading.level-2 + .content-node.heading.level-3 {
   margin-top: 0.7em !important;
-} 
+}
 
 .content-node.heading.level-2 .content {
   font-size: 21px; }
@@ -438,10 +438,10 @@ Box
 .content-node.quote > .content {
   padding: 20px;
   border-left: 10px solid #ccc; }
-  
+
 .content-node.quote-right > .content {
   padding: 20px 0 20px 0;
-  text-align: right; }  
+  text-align: right; }
 
 .content-node.quote-right .content-node.paragraph {
   margin-top: 0;}
@@ -455,7 +455,7 @@ Box
   padding-bottom: 20px; }
 
 /*
-Citations 
+Citations
 --------------------------------------- */
 .lens-article .resources .content-node.citation .resource-header .name {
   font-weight: normal;
@@ -480,7 +480,7 @@ Citations
   padding-right: 20px; }
 
 /*
-Definition 
+Definition
 --------------------------------------- */
 .lens-article .content-node.definition .description {
   font-size: 16px; }
@@ -585,7 +585,7 @@ Definition
   padding-bottom: 10px; }
 
 /*
-Contributor 
+Contributor
 --------------------------------------- */
 .lens-article .resources .content-node.contributor .resource-header .name {
   font-weight: normal;
@@ -1619,7 +1619,7 @@ body.reader {
   clear: both; }
 
 /*
-General Layout 
+General Layout
 --------------------------------------- */
 #container {
   position: relative;
@@ -1805,3 +1805,36 @@ body.loading .spinner-wrapper {
 
 .altmetrics-panel .altmetrics {
   padding: 20px; }
+
+/** Hinzugefügt am 10.9.2021 von nw für die Veröffentlichung mit ID 862:
+ * Siehe https://gitlab.ub.uni-heidelberg.de/wit/verlag-portale/-/issues/423#note_27132
+ */
+
+@font-face {
+  font-family: Junicode;
+  src: url('https://www.ub.uni-heidelberg.de/cdn/junicode/latest/unicode-wgd.woff') format('woff'), url('https://www.ub.uni-heidelberg.de/cdn/junicode/latest/Junicode-wgd.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: Junicode;
+  src: url('https://www.ub.uni-heidelberg.de/cdn/junicode/latest/Junicode-Bold.woff') format('woff'), url('https://www.ub.uni-heidelberg.de/cdn/junicode/latest/Junicode-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: Junicode;
+  src: url('https://www.ub.uni-heidelberg.de/cdn/junicode/latest/Junicode-Italic.woff') format('woff'), url('https://www.ub.uni-heidelberg.de/cdn/junicode/latest/Junicode-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: Junicode;
+  src: url('https://www.ub.uni-heidelberg.de/cdn/junicode/latest/Junicode-BoldItalic.woff') format('woff'), url('https://www.ub.uni-heidelberg.de/cdn/junicode/latest/Junicode-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+body[data-submission-id="862"] {
+  font-family: Junicode;
+}
