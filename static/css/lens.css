@@ -1812,3 +1812,10 @@ body.loading .spinner-wrapper {
 body[data-submission-id="862"] {
   font-family: Junicode;
 }
+
+/** Hinzugefügt am 2.12.2021 von nw für die Veröffentlichung mit ID 900:
+ * Siehe https://gitlab.ub.uni-heidelberg.de/wit/verlag-portale/-/issues/423#note_29197
+ */
+body[data-submission-id="900"] {
+  font-family: Junicode;
+}
