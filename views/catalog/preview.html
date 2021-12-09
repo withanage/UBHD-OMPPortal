@@ -80,7 +80,43 @@
 		   </div> 
 
  
-        
+
+		   <div class="container" id="cremer" height="400px">
+			<div class="row">
+			   <div class="col-lg-2">
+				   <article>
+					   <div class="post-image">
+						   {{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_cremer.jpg'),_alt='', _class='bildrahmen')}}
+					   </div>
+				   </article>
+			   </div>
+			   <div class="col-lg-10">
+				   <article>
+					   <div class="post-heading">
+						 <b>Annette C. Cremer, Alexander Jendorff ({{=T('Eds.')}})<br />
+						 {{if session.forced_language =='de': }}
+							  Die Wurzeln der Kontaktlinguistik. 
+							  Zur Entstehung des Sprachkontaktparadigmas in der Sprachwissenschaft
+						 {{elif session.forced_language =='en': }}
+							  The roots of contact linguistics.
+							  On the emergence of the language contact paradigm in the science of language
+						 {{pass}}	
+						 </b>						  
+					   </div>
+						   {{if session.forced_language =='de': }}						
+		   <p>Unternehmerisches Engagement von Adeligen wurde in der europäischen Frühen Neuzeit unterschiedlich bewertet, galt aber tendenziell als nicht standesgemäß. Dennoch war das Wirtschaften, das am Gewinn orientierte Handeln des Adels, eine ökonomische Notwendigkeit und stellte eine Selbstverständlichkeit dar. Der Band spürt dieser Ambivalenz anhand von europäischen Beispielen zwischen 1600 und 1900 in verschiedenen Adelsrängen und unterschiedlichen Feldern wirtschaftlichen Handelns nach. Er zeigt, dass das Engagement des Adels in den europäischen Wirtschaftsprozessen nicht zu unterschätzen ist, und öffnet das bislang unterrepräsentierte Forschungsfeld einer neuerlichen Betrachtung.</p>
+		   <p>Erscheint im Winter 2021/22</p>
+		   
+			   {{elif session.forced_language =='en': }}
+					   <p>Entrepreneurial activity by nobles was highly debated in the European Early Modern period. Generally, it was considered socially inappropriate. Nevertheless, profit-oriented activities of the nobility were an economic necessity and an everyday matter. The volume traces this ambivalence, using European examples between 1600 and 1900 from various ranks of the nobility and different fields of economic activity. It shows that the involvement of the nobility in European economic processes should not be underestimated. The book opens up an underrepresented field of research for a more in-depth examination.</p>  
+			<p>Coming in Winter 2021/22</p>
+					   {{pass}}
+				   </article>
+			   </div>
+		   </div>
+	   </div>
+
+
 		<div class="container" id="pagel" height="400px">
 		     <div class="row">
 				<div class="col-lg-2">
