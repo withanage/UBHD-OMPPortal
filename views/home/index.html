@@ -82,12 +82,13 @@ $('.flexslider').flexslider();
               <li>
               <img alt="" src="{{=URL('static','images/press/slideshow/07_dem_lebendigen_geist.jpg')}}" />
               </li>
-              <!--<li>{{if session.forced_language =='de': }} 
-              <img alt="" src="{{=URL('static','images/press/slideshow/08_weihnachten.png')}}" />
-                {{elif session.forced_language =='en': }} 
-              <img alt="" src="{{=URL('static','images/press/slideshow/08_christmas.png')}}" />
-              {{pass}} 
-              </li>-->
+              <li>
+              <img alt="" src="{{=URL('static','images/press/slideshow/08_weihnachten.png')}}" />{{if session.forced_language =='de': }} 
+              <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('heiUP wünscht Ihnen ein frohes Fest!')}}</h3>
+                </div>{{elif session.forced_language =='en': }} 
+              <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('Season's Greetings from all of us at heiUP!')}}</h3>
+                </div>{{pass}} 
+              </li>
             </ul>
           </div>
           <!-- ./Slideshow -->
