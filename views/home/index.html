@@ -82,13 +82,13 @@ $('.flexslider').flexslider();
               <li>
               <img alt="" src="{{=URL('static','images/press/slideshow/07_dem_lebendigen_geist.jpg')}}" />
               </li>
-              <li>
+              <!-- <li>
               <img alt="" src="{{=URL('static','images/press/slideshow/08_weihnachten.png')}}" />{{if session.forced_language =='de': }} 
               <div class="flex-caption hidden-xs hidden-sm"><h3 style="font-size: 2.2em">heiUP wünscht Ihnen ein frohes Fest!</h3>
                 </div>{{elif session.forced_language =='en': }} 
               <div class="flex-caption hidden-xs hidden-sm"><h3 style="font-size: 2.2em">Season's Greetings from all of us at heiUP!</h3>
                 </div>{{pass}} 
-              </li>
+              </li>-->
             </ul>
           </div>
           <!-- ./Slideshow -->
@@ -102,6 +102,18 @@ $('.flexslider').flexslider();
       <div class="row">
         <div class="col-lg-12">
           <div class="row">
+
+            <div class="col-lg-3">              
+              <div class="box">
+                <div class="box-gray aligncenter">
+              <h4>{{=T('New Titles')}}</h4>
+              <a href="https://heiup.uni-heidelberg.de/journals/index.php/heied/issue/view/2412" title="{{=T('current issue')}}">{{=IMG(_src=URL('journals','public/journals/155/cover_issue_2412_de_DE.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}</a> 
+               </div>
+                <div class="box-bottom"><a href="https://heiup.uni-heidelberg.de/heied/issue/view/2412" title="{{=T('current issue')}}">{{=T('More Information')}}</a>
+                </div>
+              </div>
+            </div>
+
             <div class="col-lg-3">              
               <div class="box">
                 <div class="box-gray aligncenter">
@@ -112,17 +124,6 @@ $('.flexslider').flexslider();
                 </div>
               </div>
             </div>
-
-            <div class="col-lg-3">              
-              <div class="box">
-                <div class="box-gray aligncenter">
-              <h4>{{=T('New Titles')}}</h4>
-              {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/816/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/816'))}} 
-			        </div>
-                <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/816'))}}
-                </div>
-              </div>
-            </div> 
 
             <div id="boxAktuelles" class="col-lg-6">
               <div class="box">
@@ -173,6 +174,17 @@ $('.flexslider').flexslider();
               <div class="box">
                 <div class="box-gray aligncenter">
               <h4>{{=T('New Titles')}}</h4>
+              {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/816/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/816'))}} 
+			        </div>
+                <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/816'))}}
+                </div>
+              </div>
+            </div> 
+
+            <div class="col-lg-3">              
+              <div class="box">
+                <div class="box-gray aligncenter">
+              <h4>{{=T('New Titles')}}</h4>
               {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/973/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/973'))}} 
 			        </div>
                 <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/973'))}}
@@ -190,19 +202,6 @@ $('.flexslider').flexslider();
                 </div>
               </div>
             </div> 
-
-            <div class="col-lg-3">              
-              <div class="box">
-                <div class="box-gray aligncenter">
-              <h4>{{=T('New Titles')}}</h4>
-              <a href="https://heiup.uni-heidelberg.de/journals/index.php/bkgd/issue/view/2417" title="{{=T('current issue')}}">{{=IMG(_src=URL('static','files/presses/6/monographs/993/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}</a> 
-               </div>
-                <div class="box-bottom"><a href="https://heiup.uni-heidelberg.de/journals/index.php/bkgd/issue/view/2417" title="{{=T('current issue')}}">{{=T('More Information')}}</a>
-                </div>
-              </div>
-            </div>
-
-
 
                           
                 <!--<div>-->
@@ -229,16 +228,18 @@ $('.flexslider').flexslider();
         <div class="row">
           <div class="col-lg-12">
             <div class="row">
+
               <div class="col-lg-3">              
                 <div class="box">
                   <div class="box-gray aligncenter">
                 <h4>{{=T('New Titles')}}</h4>
-                <a href="https://heiup.uni-heidelberg.de/journals/index.php/mial/issue/view/2419" title="{{=T('current issue')}}">{{=IMG(_src=URL('static','images/journals/cover_mial.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}</a> 
+                <a href="https://heiup.uni-heidelberg.de/journals/index.php/bkgd/issue/view/2417" title="{{=T('current issue')}}">{{=IMG(_src=URL('static','files/presses/6/monographs/993/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen')}}</a> 
                  </div>
-                  <div class="box-bottom"><a href="https://heiup.uni-heidelberg.de/journals/index.php/mial/issue/view/2419" title="{{=T('current issue')}}">{{=T('More Information')}}</a>
+                  <div class="box-bottom"><a href="https://heiup.uni-heidelberg.de/journals/index.php/bkgd/issue/view/2417" title="{{=T('current issue')}}">{{=T('More Information')}}</a>
                   </div>
                 </div>
               </div>
+  
 
           <div class="col-lg-3">
                 <div class="box">
