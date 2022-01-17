@@ -308,7 +308,7 @@ def oastatistik():
     stats_id = myconf.take('statistik.id')
     db_submissions = db.submissions
     q = ((db_submissions.context_id == context_id) & (db_submissions.status == 3))
-    submissions = db(q).select(db_submissions.submission_id, orderby=(db_submissions.submission_id))
+    submissions = db(q).select(db_submissions.submission_id, db_submissions.locale, orderby=(db_submissions.submission_id))
     press_path = ompdal.getPress(context_id).get('path')
 
     series_list = ompdal.getSeriesByPress(context_id)
@@ -356,7 +356,7 @@ def oastatistik():
         series_norm_id = '{}:{}:{}'.format(stats_id, press_path, srs.get('path')) if srs else []
 
         for setting in submission_settings:
-            if setting["locale"] == locale and setting["setting_name"] == 'title':
+            if setting["locale"] == submission.locale and setting["setting_name"] == 'title':
                 volume["title"] = setting["setting_value"]
             if setting["setting_name"] == 'pub-id::doi':
                 volume["norm_id"] = setting["setting_value"]
@@ -378,7 +378,7 @@ def oastatistik():
             }
             chapter_settings = ompdal.getChapterSettings(chapter_id).as_list()
             for chapter_setting in chapter_settings:
-                if chapter_setting["locale"] == locale and chapter_setting["setting_name"] == 'title':
+                if chapter_setting["locale"] == submission.locale and chapter_setting["setting_name"] == 'title' and chapter_setting["setting_value"]:
                     chs_["title"] = chapter_setting["setting_value"]
                 if chapter_setting["setting_name"] == 'pub-id::doi':
                     chs_["norm_id"] = chapter_setting["setting_value"]
