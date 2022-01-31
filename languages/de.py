@@ -373,6 +373,7 @@
 'Postfach': 'Postfach',
 'Powered by': 'Unterstützt von',
 'Preface': 'Allgemeines',
+'Press and public relations': 'Presse- und Öffentlichkeitsarbeit',
 'Preview': 'Vorschau',
 'previous %s rows': 'vorherige %s Reihen',
 'Print On Demand': 'Print On Demand',
