@@ -70,6 +70,7 @@ if __name__ == '__main__':
     p.append('vgwort.xls')
     c = '/'+os.path.join(*p)
     if os.path.isfile(c):
+        print('Reading vgwort pixel tokens from file', c)
         get_excel(c)
     else:
         print(c, 'is', 'undefined')
