@@ -1720,6 +1720,7 @@ header .navbar-nav > li {
 
 .navbar-form.navbar-right > .form-group {
     margin-right: 30px;
+    width: 187px; /* eingefügt von nw. Damit rechts bündigkeit neben den Navigations links wider funktioniert */
 }
 
 .navbar-form.navbar-right > .form-group > .input-group > .input-group-btn > .btn.btn-primary {
