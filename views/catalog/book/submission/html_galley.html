@@ -5,7 +5,7 @@ FULL_HTML = DIV()
 for pf in digital_publication_formats:
     full_file = pf.associated_items.get('full_file')
     if full_file and ("xml" in full_file.attributes.file_type or "html" in full_file.attributes.file_type):
-        = DIV(LI(A(T('Read (HTML)'), _href=downloadLink(request, full_file.attributes, myconf.take('web.url'), full_file.settings.getLocalizedValue("vgWortPublic", "")), _target="_blank"), _type="button", _class="btn btn-default"), _class="btn-group", _role="group")
+        = DIV(LI(A(T('Read (HTML)'), _href=downloadLink(full_file.attributes), _target="_blank"), _type="button", _class="btn btn-default"), _class="btn-group", _role="group")
     pass
 pass
 

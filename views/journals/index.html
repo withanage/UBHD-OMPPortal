@@ -1,11 +1,53 @@
 {{extend 'layout.html'}}
 <section id="content">    
   <div class="container"> 
+
     <div class="row">      
       <div class="col-lg-2">        
         <article>          
           <div class="post-image">            
-		 	<img src="{{=URL(myconf.take('web.application'),'static','images/journals/cover_bkgd.jpg')}} ">        
+		 	<img src="{{=URL(myconf.take('web.application'),'static','images/journals/cover_apocalyptica.jpg')}}">     
+          </div>        
+        </article>      
+      </div>      
+      <div class="col-lg-10">        
+        <article>          
+          <div class="post-heading">          
+            <div class="col-lg-9 col-md-9 col-xs-7" style="padding-left: 0;"><h3>Apocalyptica</h3>
+            </div>                 
+            <br style="clear: both">          
+          </div>          
+{{if session.forced_language =='de': }}          
+            <p><i>Apocalyptica</i> ist eine interdisziplinäre und internationale, durch Peer-Review geprüfte Open-Access-Zeitschrift, die vom Käte Hamburger Kolleg für Apokalyptische und Postapokalyptische Studien der Universität Heidelberg herausgegeben wird. Die Zeitschrift veröffentlicht prägnante Analysen und diverse Perspektiven auf das Ende von Welten.</p>        
+            <p><i>Apocalyptica</i> veröffentlicht Forschungsarbeiten aus einem breiten Spektrum von Bereichen, um das Potenzial des kritischen Denkens und der kulturellen Analyse in den Geistes-, Sozial- und Kulturwissenschaften als imaginative und (potenziell) transformative Kraft zu fördern. Ziel von <i>Apocalyptica</i> ist, die transdisziplinäre Wissensproduktion und die Auseinandersetzung mit der Apokalypse als Denkfigur, diskursiven Knotenpunkt und/oder Fluchtlinie, Gefüge von Bildern, konkrete historische Erfahrung und als empirisches Phänomen zu fördern.</p>
+
+{{elif session.forced_language =='en': }}         
+            <p><i>Apocalyptica</i> is an interdisciplinary, international, double-blind peer-reviewed, open access journal published by the Käte Hamburger Centre for Apocalyptic and Post-Apocalyptic Studies (CAPAS) at Heidelberg University. The journal publishes incisive analyses from diverse perspectives regarding the end of worlds.     
+            </p>        
+            <p>The journal publishes research from a broad range of fields in order to champion the potential of critical thinking and cultural analysis in the humanities as well as the social and cultural sciences. Apocalyptica encourages the production of cross-disciplinary knowledge and debate on the apocalypse as a figure of thought, a discursive node, a historical experience of past and present, and an empirical phenomenon.
+            </p>               
+{{pass}}            
+         <div class="widget">            
+            <h5 class="widgetheading"></h5>            
+            <ul class="tags">
+              <li>              
+              <a href="{{=URL(myconf.take('web.application'),'journals','apoc')}}">{{=T('More')}}</a>              
+              </li>              
+             <!-- <li>              
+              <a href="https://heiup.uni-heidelberg.de/journals/index.php/bkgd/index">{{=T('View Journal')}}</a>              
+              </li>-->            
+            </ul>          
+          </div>        
+        </article>      
+      </div>    
+    </div> 
+
+
+    <div class="row">      
+      <div class="col-lg-2">        
+        <article>          
+          <div class="post-image">            
+		 	<img src="{{=URL(myconf.take('web.application'),'static','images/journals/cover_bkgd.jpg')}}">        
           </div>        
         </article>      
       </div>      
@@ -28,7 +70,7 @@
             <ul class="tags">
 			
               <li>              
-              <a href="{{=URL(myconf.take('web.application'),'journals','bkgd')}}">{{=T('More' )}}</a>              
+              <a href="{{=URL(myconf.take('web.application'),'journals','bkgd')}}">{{=T('More')}}</a>              
               </li>              
               <li>              
               <a href="https://heiup.uni-heidelberg.de/journals/index.php/bkgd/index">{{=T('View Journal')}}</a>              
@@ -43,7 +85,7 @@
       <div class="col-lg-2">        
         <article>          
           <div class="post-image">            
-            <img alt="" src="https://heiup.uni-heidelberg.de/journals/public/journals/157/cover_issue_2392_de_DE.jpg">          
+            <img alt="" src="https://heiup.uni-heidelberg.de/journals/public/journals/157/cover_issue_2404_de_DE.jpg">          
           </div>        
         </article>      
       </div>      
@@ -254,9 +296,9 @@ At least twice a year the journal publishes original research on teacher educati
               <li>
               <a href="{{=URL(myconf.take('web.application'),'journals','mial')}}">{{=T('More' )}}</a>
               </li>
-             <!-- <li>
+             <li>
               <a href="http://heiup.uni-heidelberg.de/journals/index.php/mial/index">{{=T('View Journal')}}</a>
-              </li>-->                        
+              </li>                        
             </ul>                    
           </div>              
         </article>            
@@ -301,7 +343,7 @@ At least twice a year the journal publishes original research on teacher educati
       <div class="col-lg-2">        
         <article>          
           <div class="post-image">            
-            <img alt="" src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/cover_02_2021.jpg')}}">          
+            <img alt="" src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/cover_02_2022.jpg')}}">          
           </div>        
         </article>      
       </div>      
@@ -338,7 +380,7 @@ At least twice a year the journal publishes original research on teacher educati
       <div class="col-lg-2">        
         <article>          
           <div class="post-image">            
-            <img alt="" src="{{=URL(myconf.take('web.application'),'static','images/journals/cover_studium-generale2020.jpg')}} ">          
+            <img alt="" src="{{=URL(myconf.take('web.application'),'static','images/journals/cover_studium-generale.jpg')}}">          
           </div>        
         </article>      
       </div>      

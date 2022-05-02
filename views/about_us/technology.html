@@ -10,10 +10,11 @@
             </h3>
 
 {{ if session.forced_language =='de': }}
+
         <div id="infoBoxRechts" class="col-lg-3">
 		  <div class="box">
 			<div class="box-gray" style="height: auto; padding-bottom: 20px;">
-			  <p class="boxText"><b>Frisch erschienen:</b><br>
+			  <p class="boxText"><b>Literaturhinweis:</b><br>
 
 				 Effinger, Maria; Krabbes, Frank; Withanage, Dulip: <a href="https://www.b-i-t-online.de/heft/2018-05-fachbeitrag-effinger.pdf" title="Artikel bei B.I.T.-Online">Crossmediales Publizieren bei Heidelberg University Publishing</a>. In: BIT online Bd. 21. Wiesbaden, b.i.t. Verlag.-GmbH (2018), Nr. 5, S. 393-403
 
@@ -21,6 +22,7 @@
 			</div>
 		  </div>
 		</div>
+
 		<p>Heidelberg University Publishing (heiUP) setzt auf Open-Source-Software und beteiligt sich an der Entwicklung von innovativen Publikationstechnologien. Hierzu zählt die Entwicklung von Software genauso wie die Kooperation mit Partnern wie dem <a class="extern" href="https://pkp.sfu.ca" title="Homepage Public Knowledge Project">Public Knowledge Project (PKP)&nbsp;<i class="fa fa-external-link"></i></a> und die aktive Mitwirkung in internationalen und nationalen Anwendernetzwerken (z.B. <a class="extern" href="http://ojs-de.net" title="Homepage OJS-Initiative ojs-de.net">OJS-de.net&nbsp;<i class="fa fa-external-link"></i></a>).</p>
 
 		<h5>Backend</h5>
@@ -44,29 +46,25 @@
 		  <li><a href="https://www.vgwort.de/startseite.html" title="Homepage VG Wort">VG Wort&nbsp;<i class="fa fa-external-link"></i></a></li>
 		</ul>
 
-		<h5>heiMPT &ndash; Medienneutraler Publikationsworkflow</h5>
-
-		<div class="col-lg-12" style="padding-left: 0;">
-		<div class="col-lg-9" style="padding-left: 0;">
-					  
-
-		<p><a href="https://github.com/withanage/heimpt" title="Homepage Github, Projekt heiMPT">heiMPT&nbsp;<i class="fa fa-external-link"></i></a> ermöglicht eine automatische Generierung von verlagsspezifischen Ausgabeformaten wie HTML, PDF und ePUB aus Eingabedateien im Microsoft Word- und LaTeX-Format. Als medienneutrales XML-Zwischenformat nutzt es <a href="http://www.tei-c.org/index.xml" title="Homepage TEI-Initiative">TEI&nbsp;<i class="fa fa-external-link"></i></a>, die <a href="https://jats.nlm.nih.gov/index.html" title="Homepage Journal Article Tag Suite">Journal Article Tag Suite (JATS)&nbsp;<i class="fa fa-external-link"></i></a>  sowie das <a href="https://jats.nlm.nih.gov/extensions/bits/" title="Homepage Book Interchange Tag Set">Book Interchange Tag Set (BITS)&nbsp;<i class="fa fa-external-link"></i></a>. heiMPT kann um weitere Ausgabeformate erweitert werden, die Integration in Open Monograph Press (OMP) und Open Journal Systems (OJS) ist ebenso leicht möglich. heiMPT kann sowohl als Kommandozeilen- als auch als Web-Anwendung genutzt werden und bietet eine webbasierte Metadatenverarbeitung. heiMPT wurde mit DFG-Förderung im Rahmen des Projekts &bdquo;Entwicklung eines Geschäftsmodells für Open-Access-Bücher&rdquo; entwickelt.</p>
-
-		</div>
-		<div class="col-lg-3">
-				 <a href="https://github.com/withanage/heimpt" title="Homepage Github, Projekt heiMPT"><img alt="heiMPT | Heidelberg Monograph Publishing Tool" src="{{=URL('static','images/about_us/technology/logo_heiMPT.png')}}" style="width: 100%; max-width: 275px;" /></a>
-		</div>
-		</div>
 
 		<h5>Satz und Layout</h5>
 		<ul>
 		 <li><a href="https://www.adobe.com/de/products/indesign.html" title="Homepage Adobe; Produktinformationen Adobe InDesign">Adobe InDesign&nbsp;<i class="fa fa-external-link"></i></a> für manuellen Satz und Covergestaltung</li>
+		 <li><a href="(https://www.antennahouse.com/formatter-v7" title="Homepage AntennaHouse">AntennaHouse Formatter&nbsp;<i class="fa fa-external-link"></i></a> für automatischen Satz im XML-First-Workflow</li>
 		</ul> 
+		
+		<h5>XML-Workflow</h5>
+		<ul>
+		   <li><a href="https://jats.nlm.nih.gov" title="Homepage JATS">Journal Article and Interchange Tag Set&nbsp;<i class="fa fa-external-link"></i></a> (JATS) und Book Interchange Tag Set JATS Extension (BITS)</li>
+           <li><a href="https://www.w3.org/TR/xsl/#fo-section" title="Link zu W3.org">XSL Formatting Objects&nbsp;<i class="fa fa-external-link"></i></a> (XSL-FO) mit <a href="https://www.docs.antennahouse.com/formatter/ahf-ext.html" title="Homnepage AntennaHouse">AntennaHouse-Erweiterungen&nbsp;<i class="fa fa-external-link"></i></a></li>
+           <li><a href="https://github.com/MartinPaulEve/meTypeset" title="Projekt auf Github">meTypeset&nbsp;<i class="fa fa-external-link"></i></a> für die XML-Konvertierung </li>
+		</ul>
+		
 {{elif session.forced_language =='en': }}
         <div id="infoBoxRechts" class="col-lg-3">
 		  <div class="box">
 			<div class="box-gray" style="height: auto; padding-bottom: 20px;">
-			  <p class="boxText"><b>Recently published:</b><br>
+			  <p class="boxText"><b>Further reference:</b><br>
 
 				 Effinger, Maria; Krabbes, Frank; Withanage, Dulip: <a href="https://www.b-i-t-online.de/heft/2018-05-fachbeitrag-effinger.pdf" title="Artikel bei B.I.T.-Online">Crossmediales Publizieren bei Heidelberg University Publishing</a>. In: BIT online Bd. 21. Wiesbaden, b.i.t. Verlag.-GmbH (2018), Nr. 5, S. 393-403
 
@@ -99,23 +97,18 @@
 		  <li><a href="https://www.vgwort.de/startseite.html" title="Homepage VG Wort">VG Wort&nbsp;<i class="fa fa-external-link"></i></a></li>
 		</ul>
 
-		<h5>heiMPT &ndash; Media neutral publication workflow</h5>
-
-		<div class="col-lg-12" style="padding-left: 0;">
-		<div class="col-lg-9" style="padding-left: 0;">
-					  
-		<p><a href="https://github.com/withanage/heimpt" title="Homepage Github, Projekt heiMPT">heiMPT&nbsp;<i class="fa fa-external-link"></i></a> allows for the automatic generation of publisher specific output formats such as HTML, PDF and ePUB, based on entry data in Microsoft Word and LaTeX formats. A media neutral XML interim format is provided by <a href="http://www.tei-c.org/index.xml" title="Homepage TEI-Initiative">TEI&nbsp;<i class="fa fa-external-link"></i></a>, the <a href="https://jats.nlm.nih.gov/index.html" title="Homepage Journal Article Tag Suite">Journal Article Tag Suite (JATS)&nbsp;<i class="fa fa-external-link"></i></a> and the <a href="https://jats.nlm.nih.gov/extensions/bits/" title="Homepage Book Interchange Tag Set">Book Interchange Tag Set (BITS)&nbsp;<i class="fa fa-external-link"></i></a>. It is possible to expand heiMPT to include other output formats and integration in Open Monograph Press (OMP) and Open Journal Systems (OJS) can be implemented quite simply. heiMPT can be used either as a command line or a web application and offers web-based processing of metadata.  heiMPT was developed with support from the DFG as part of the project “Development of a business model for open-access books” (“Entwicklung eines Geschäftsmodells für Open-Access-Bücher”).</p>
-
-		</div>
-		<div class="col-lg-3">
-				 <a href="https://github.com/withanage/heimpt" title="Homepage Github, Projekt heiMPT"><img alt="heiMPT | Heidelberg Monograph Publishing Tool" src="{{=URL('static','images/about_us/technology/logo_heiMPT.png')}}" style="width: 100%; max-width: 300px;" /></a>
-		</div>
-		</div>
-
 		<h5>Typesetting and Layout</h5>
 		<ul>
 		 <li><a href="https://www.adobe.com/de/products/indesign.html" title="Homepage Adobe; Product information Adobe InDesign">Adobe InDesign&nbsp;<i class="fa fa-external-link"></i></a> is used for manual typesetting and cover design.</li>
+		 <li><a href="(https://www.antennahouse.com/formatter-v7" title="Homepage AntennaHouse">AntennaHouse Formatter<i class="fa fa-external-link"></i></a> for automatic typesetting in XML-First-Workflow</li>
 		</ul> 
+		
+		<h5>XML workflow</h5>
+		<ul>
+		   <li><a href="https://jats.nlm.nih.gov" title="Homepage JATS">Journal Article and Interchange Tag Set&nbsp;<i class="fa fa-external-link"></i></a> (JATS) and Book Interchange Tag Set JATS Extension (BITS)</li>
+           <li><a href="https://www.w3.org/TR/xsl/#fo-section" title="Link zu W3.org">XSL Formatting Objects&nbsp;<i class="fa fa-external-link"></i></a> (XSL-FO) with <a href="https://www.docs.antennahouse.com/formatter/ahf-ext.html" title="Homnepage AntennaHouse">AntennaHouse-Erweiterungen&nbsp;<i class="fa fa-external-link"></i></a></li>
+           <li><a href="https://github.com/MartinPaulEve/meTypeset" title="Projekt auf Github">meTypeset&nbsp;<i class="fa fa-external-link"></i></a> for XML conversion </li>
+		</ul>
 {{pass}}
 </div>  
 

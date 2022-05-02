@@ -75,7 +75,7 @@ def getAuthorList(submission_id, chapter_id=0):
             & (sca.chapter_id == chapter_id)
             & (sca.author_id != 0)).select(sca.author_id, distinct=True).as_list()
     else:
-        contribs = db((aut.submission_id == submission_id) & (aut.user_group_id == ugs.user_group_id) & (ugs.setting_name=='abbrev') & (ugs.setting_value != "CA")).select(aut.author_id, distinct=True).as_list()    
+        contribs = db((aut.submission_id == submission_id) & (aut.user_group_id == ugs.user_group_id) & (ugs.setting_name=='abbrev') & (ugs.setting_value != "CA")).select(aut.author_id, distinct=True).as_list()
     authors = []
     for contrib in contribs:
         author = {}
@@ -276,7 +276,7 @@ def submission():
 
         chapters.append(ch)
     item["chapters"] = chapters
-    # cover image url    
+    # cover image url
     item["coverImageUrl"] = web_url + coverImageLink(request, context_id, submission_id)
     return response.json(item)
 
@@ -286,7 +286,7 @@ def createFile(e_file, pf):
     privateFields = ["vgWortPublic", "vgWortPrivate", "chapterid", "chapterId", "chapterID"]
 
     pdfObject = {"id": pf["publication_format_id"], "label": primaryFormat}
-    pdfObject["urlPublished"] = web_url + downloadLink(request, e_file, web_url, [], "")
+    pdfObject["urlPublished"] = web_url + downloadLink(e_file)
 
     pdfObject["file"] = {k: str(e_file.get(k)) for k in fileKeys}
     e_file_settings = ompdal.getSubmissionFileSettings(e_file["file_id"]).as_list()
@@ -308,7 +308,7 @@ def oastatistik():
     stats_id = myconf.take('statistik.id')
     db_submissions = db.submissions
     q = ((db_submissions.context_id == context_id) & (db_submissions.status == 3))
-    submissions = db(q).select(db_submissions.submission_id, orderby=(db_submissions.submission_id))
+    submissions = db(q).select(db_submissions.submission_id, db_submissions.locale, orderby=(db_submissions.submission_id))
     press_path = ompdal.getPress(context_id).get('path')
 
     series_list = ompdal.getSeriesByPress(context_id)
@@ -356,7 +356,7 @@ def oastatistik():
         series_norm_id = '{}:{}:{}'.format(stats_id, press_path, srs.get('path')) if srs else []
 
         for setting in submission_settings:
-            if setting["locale"] == locale and setting["setting_name"] == 'title':
+            if setting["locale"] == submission.locale and setting["setting_name"] == 'title':
                 volume["title"] = setting["setting_value"]
             if setting["setting_name"] == 'pub-id::doi':
                 volume["norm_id"] = setting["setting_value"]
@@ -378,7 +378,7 @@ def oastatistik():
             }
             chapter_settings = ompdal.getChapterSettings(chapter_id).as_list()
             for chapter_setting in chapter_settings:
-                if chapter_setting["locale"] == locale and chapter_setting["setting_name"] == 'title':
+                if chapter_setting["locale"] == submission.locale and chapter_setting["setting_name"] == 'title' and chapter_setting["setting_value"]:
                     chs_["title"] = chapter_setting["setting_value"]
                 if chapter_setting["setting_name"] == 'pub-id::doi':
                     chs_["norm_id"] = chapter_setting["setting_value"]

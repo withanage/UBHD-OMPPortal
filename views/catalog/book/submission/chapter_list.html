@@ -52,7 +52,7 @@
                     vgwPixelPublic = c_file.settings.getLocalizedValue("vgWortPublic", "")
                     onclick = "vgwPixelCall('" + vgwPixelPublic+ "')" if vgwPixelPublic else ""
                 }}
-                {{=A(I(_class=css_class),_target="_target",_onclick=onclick, _href=downloadLink(request, c_file.attributes, myconf.take('web.url')))}}
+                {{=A(I(_class=css_class),_target="_target",_onclick=onclick, _href=downloadLink(c_file.attributes))}}
                 </div>
             {{pass}}
             {{pass}}

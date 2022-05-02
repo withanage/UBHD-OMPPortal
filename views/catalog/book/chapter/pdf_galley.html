@@ -12,7 +12,7 @@ for pf in digital_publication_formats:
     if format_name.lower() == 'pdf' and c_file:
         vgwPixelPublic = c_file.settings.getLocalizedValue("vgWortPublic", "")
         onclick = "vgwPixelCall('" + vgwPixelPublic+ "')" if vgwPixelPublic else ""
-        file_url = downloadLink(request, c_file.attributes, myconf.take('web.url'))
+        file_url = downloadLink(c_file.attributes)
         c_pdf.append(LI(A(format_name,_href=file_url, _onclick=onclick, _target="_target")))
     pass
     pass

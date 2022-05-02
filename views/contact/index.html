@@ -13,15 +13,25 @@
             </p>
             
             <h4>{{=T('Order and Sales')}}</h4>
+			<p>Johanna Hildenbeutel<br>
+			Tel.: +49 6221 54 4877<br>
+			Fax: +49 6221 54 2623<br>
+			Email: <a href="mailto:heiup-orders@ub.uni-heidelberg.de">heiup-orders@ub.uni-heidelberg.de</a></p>
+			
             <p>Myriam Rausch<br>
               Tel.: +49 6221 54 2383<br>
               Fax: +49 6221 54 2623<br>
               Email: <a href="mailto:heiup-orders@ub.uni-heidelberg.de">heiup-orders@ub.uni-heidelberg.de</a>
             </p>  
+			
+			<h4>{{=T('Press and public relations')}}</h4>
+			<p>Rahel Bräuer<br>
+			Email: <a href="braeuer@ub.uni-heidelberg.de">braeuer@ub.uni-heidelberg.de</a></p>
+			
               {{if session.forced_language=='de':}}            
-            <p>Aufgrund der Corona-bedingten Einschränkungen und unterbrochenen Verkehrswege ist der Versand von Paketen in zahlreiche Länder außerhalb der EU gegenwärtig nicht oder nur mit sehr langen Lieferzeiten möglich. Wir versenden daher im Moment keine Bücher an Länder außerhalb der EU (Schweiz ausgenommen). Wir bitten um Ihr Verständnis.</p> 
+            <p>Bitte beachten Sie, dass Zahlungen nur per Überweisung möglich sind. Bei Auslandsüberweisungen können dafür hohe Gebühren anfallen.</p> 
               {{elif session.forced_language=='en':}}            
-            <p>Due to the corona-related restrictions we are currently not sending any books to countries outside the EU (with the exception of Switzerland). We apologize for any inconvenience.</p>
+            <p>Please note, that we can only accept payments by bank transfer and that high bank fees may apply.</p>
               {{pass}}
 
 
