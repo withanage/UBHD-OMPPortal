@@ -106,10 +106,12 @@
                     <ul class="standard">
                  {{if session.forced_language =='de': }}
                       <li><a href="{{=URL(myconf.take('web.application'),'static','medien/journals/cfp_apocalyptica_capas.pdf')}}">{{=T('Call for papers')}}</a></li>
+                      <li><a href="{{=URL(myconf.take('web.application'),'static','medien/journals/apocalyptica_styleguide.pdf')}}">Style Guide</a></li>                      
                  {{elif session.forced_language =='en': }}                      
                       <li><a href="{{=URL(myconf.take('web.application'),'static','medien/journals/cfp_apocalyptica_capas.pdf')}}">{{=T('Call for papers')}}</a></li>
+                      <li><a href="{{=URL(myconf.take('web.application'),'static','medien/journals/apocalyptica_styleguide.pdf')}}">Style Guide</a></li>                      
                  {{pass}}
-                      <li><a href="https://capas.pubpub.org/about-apocalyptica">{{if session.forced_language =='de': }}Weitere Informationen auf pubpub.org{{elif session.forced_language =='en': }}More information on pubpub.org{{pass}}</a>  			 
+                      <li><a href="https://capas.pubpub.org/about-apocalyptica">{{if session.forced_language =='de': }}Weitere Informationen auf pubpub.org{{elif session.forced_language =='en': }}More information on pubpub.org{{pass}}</a>			 
                     </ul>
                   </div>
                 </div>             
