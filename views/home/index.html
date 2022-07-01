@@ -41,9 +41,9 @@ $('.flexslider').flexslider();
               <img alt="" src="{{=URL('static','images/press/slideshow/03_wgd.jpg')}}" />
               <div class="flex-caption hidden-xs hidden-sm">
 {{if session.forced_language =='de': }}                  
-                <h3 style="font-size: 23px">Schneider, Schmidt, Šimek, Horstmann {{=T('Eds.')}}<br />Der &bdquo;Welsche Gast&ldquo; des Thomasin von Zerklaere</h3>
+                <h3 style="font-size: 23px">Schneider, Schmidt, Šimek, Horstmann ({{=T('Eds.')}})<br />Der &bdquo;Welsche Gast&ldquo; des Thomasin von Zerklaere</h3>
 {{elif session.forced_language =='en': }}   
-                <h3 style="font-size: 23px">Schneider, Schmidt, Šimek, Horstmann {{=T('Eds.')}}<br />Der &bdquo;Welsche Gast&ldquo; des Thomasin von Zerklaere</h3>
+                <h3 style="font-size: 23px">Schneider, Schmidt, Šimek, Horstmann ({{=T('Eds.')}})<br />Der &bdquo;Welsche Gast&ldquo; des Thomasin von Zerklaere</h3>
 {{pass}}                 
                 {{=A(T('More'),_href=URL('catalog','book/545'), _class='btn btn-theme')}}    
               </div>              
@@ -53,9 +53,9 @@ $('.flexslider').flexslider();
               <div class="flex-caption hidden-xs hidden-sm">
 {{if session.forced_language =='de': }}                
               
-              <h3 style="font-size: 23px">Peter König, Oliver Schlaudt {{=T('Eds.')}}<br />Visuelle Dimensionen des Antiziganismus</h3>
+              <h3 style="font-size: 23px">Peter König, Oliver Schlaudt ({{=T('Eds.')}})<br />Visuelle Dimensionen des Antiziganismus</h3>
 {{elif session.forced_language =='en': }}                 
-              <h3 style="font-size: 23px">Peter König, Oliver Schlaudt {{=T('Eds.')}}<br />Visuelle Dimensionen des Antiziganismus</h3>
+              <h3 style="font-size: 23px">Peter König, Oliver Schlaudt ({{=T('Eds.')}})<br />Visuelle Dimensionen des Antiziganismus</h3>
 {{pass}}               
                 {{=A(T('More'),_href=URL('catalog','preview#koenig'), _class='btn btn-theme')}} 
 
