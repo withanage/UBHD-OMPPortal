@@ -49,15 +49,15 @@ $('.flexslider').flexslider();
               </div>              
               </li> 
               <li>
-              <img alt="" src="{{=URL('static','images/press/slideshow/04_koenig.jpg')}}" />
+              <img alt="" src="{{=URL('static','images/press/slideshow/04_alt-epping.jpg')}}" />
               <div class="flex-caption hidden-xs hidden-sm">
 {{if session.forced_language =='de': }}                
               
-              <h3 style="font-size: 23px">Peter König, Oliver Schlaudt ({{=T('Eds.')}})<br />Kosmos. Vom Umgang mit der Welt zwischen Ausdruck und Ordnung</h3>
+              <h3 style="font-size: 23px">Bernd Alt-Epping<br />Palliativmedizin. Das Heidelberger Skript für Studierende der Medizin</h3>
 {{elif session.forced_language =='en': }}                 
-              <h3 style="font-size: 23px">Peter König, Oliver Schlaudt ({{=T('Eds.')}})<br />Kosmos. Vom Umgang mit der Welt zwischen Ausdruck und Ordnung</h3>
+              <h3 style="font-size: 23px">Bernd Alt-Epping <br />Palliativmedizin. Das Heidelberger Skript für Studierende der Medizin</h3>
 {{pass}}               
-                {{=A(T('More'),_href=URL('catalog','preview#koenig'), _class='btn btn-theme')}} 
+            {{=A(T('More'),_href=URL('catalog','book/944'), _class='btn btn-theme')}}  
 
               </div>
               </li>
