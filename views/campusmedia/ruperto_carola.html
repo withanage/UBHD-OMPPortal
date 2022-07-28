@@ -141,7 +141,9 @@
 
             
         <div class="col-xs-12  col-md-9">
-             <div class="btn-group" role="group" aria-label="1">
+	    <div class="row">
+		  <div class="col-xs-12  col-md-9">  
+                             <div class="btn-group" role="group" aria-label="1">
       				 <ul class="schaltflaeche">
 					 <li type="button" class="btn btn-default"><a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/current/showToc" title="{{=T('current issue')}}">{{=T('read current issue')}}</a></li>
                                          <li type="button" class="btn btn-default"><a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/archive" title="{{=T('Archive')}}">{{=T('Archive')}}</a></li>
@@ -184,7 +186,36 @@
                         </ul>
                 {{pass}}     
                     </div>
+		</div
 		
+               <div class="col-xs-12 col-md-3">
+                <div class="box">
+                  <div class="box-gray"  style="height: auto;">
+                 {{if session.forced_language =='de': }}
+                    <p class="boxText"><b>RSS für die aktuelle Ausgabe</b></p>
+                 {{elif session.forced_language =='en': }}
+                    <p class="boxText"><b>RSS for current issue</b></p>
+                  {{pass}}                                          
+                <a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/gateway/plugin/WebFeedGatewayPlugin/atom">
+                   <img alt="Logo Atom" src="{{=URL('static','images/journals/atom10_logo.gif')}}" />
+                </a>
+                <a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/gateway/plugin/WebFeedGatewayPlugin/rss2">
+                   <img alt="Logo RSS 2.0" src="{{=URL('static','images/journals/rss20_logo.gif')}}" />
+                </a>   
+                <a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/gateway/plugin/WebFeedGatewayPlugin/rss">
+                   <img alt="Logo RSS 2.0" src="{{=URL('static','images/journals/rss10_logo.gif')}}" />
+                </a>
+                  </div>
+                </div>
+                <div class="box">
+                  <div class="box-gray"  style="height: auto;">
+                   <p class="boxText"><b>{{=A(T('Contact'),_href=URL('campusmedia','ruperto_carola/contact'))}}</b></p>
+                  </div>
+                </div>                
+            </div>
+		</div>
+		<div class="row">
+		<div class="col-lg-12">
 	   <ul id="thumbs">
                 <li class="col-xs-3 col-lg-2 design">
                   <div class="item-thumbs">
@@ -422,34 +453,10 @@
           </li>           
         </ul>
 		
+			</div>
+		</div>
 
 
-
-            <div class="col-lg-3">
-                <div class="box">
-                  <div class="box-gray"  style="height: auto;">
-                 {{if session.forced_language =='de': }}
-                    <p class="boxText"><b>RSS für die aktuelle Ausgabe</b></p>
-                 {{elif session.forced_language =='en': }}
-                    <p class="boxText"><b>RSS for current issue</b></p>
-                  {{pass}}                                          
-                <a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/gateway/plugin/WebFeedGatewayPlugin/atom">
-                   <img alt="Logo Atom" src="{{=URL('static','images/journals/atom10_logo.gif')}}" />
-                </a>
-                <a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/gateway/plugin/WebFeedGatewayPlugin/rss2">
-                   <img alt="Logo RSS 2.0" src="{{=URL('static','images/journals/rss20_logo.gif')}}" />
-                </a>   
-                <a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/gateway/plugin/WebFeedGatewayPlugin/rss">
-                   <img alt="Logo RSS 2.0" src="{{=URL('static','images/journals/rss10_logo.gif')}}" />
-                </a>
-                  </div>
-                </div>
-                <div class="box">
-                  <div class="box-gray"  style="height: auto;">
-                   <p class="boxText"><b>{{=A(T('Contact'),_href=URL('campusmedia','ruperto_carola/contact'))}}</b></p>
-                  </div>
-                </div>                
-            </div>
                 
  
           </div><!-- ./col-xs-12 /md-9 -->  
