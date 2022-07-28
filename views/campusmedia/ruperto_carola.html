@@ -76,11 +76,12 @@
                             <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographische Angaben</h5>
                             <p>Ruperto Carola</p>
                             
-                            <p>Herausgeber<br />
-                            Universität Heidelberg<br />
-                              Der Rektor<br />
-                              Kommunikation und Marketing
-                            </p>
+		            <p>Herausgeber</p>
+                            <ul>
+				    <li>Universität Heidelberg</li>
+				    <li>Der Rektor</li>
+				    <li>Kommunikation und Marketing</li>
+                            </ul>
                             <p>Wissenschaftlicher Beirat</p>
                             <ul>
                               <li>Prof. Dr. Peter Comba (Vorsitz)</li>
@@ -108,11 +109,12 @@
                           <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographic details</h5>
                             <p>Ruperto Carola</p>
                             
-                            <p>Editors<br />
-                            Universität Heidelberg<br />
-                              Der Rektor<br />
-                              Communications and Marketing
-                            </p>
+			    <p>Editors</p>
+                            <ul>
+				    <li>Universität Heidelberg</li>
+                                    <li>Der Rektor</li>
+				    <li>Communications and Marketing</li>
+                            </ul>
                             <p>Advisory Board</p>
                             <ul>
                               <li>Prof. Dr. Peter Comba (Chair)</li>
@@ -185,6 +187,7 @@
                                    {{elif session.forced_language =='en': }}
                                         <p class="boxText"><b>RSS for current issue</b></p>
                                    {{pass}}                                          
+				   <p>
                                    <a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/gateway/plugin/WebFeedGatewayPlugin/atom">
                                         <img alt="Logo Atom" src="{{=URL('static','images/journals/atom10_logo.gif')}}" />
                                    </a>
@@ -194,6 +197,7 @@
                                    <a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/gateway/plugin/WebFeedGatewayPlugin/rss">
                                         <img alt="Logo RSS 2.0" src="{{=URL('static','images/journals/rss10_logo.gif')}}" />
                                    </a>
+				   </p>
 				   <p class="boxText"><b>{{=A(T('Contact'),_href=URL('campusmedia','ruperto_carola/contact'))}}</b></p>
                                </div>
                           </div>
