@@ -53,9 +53,9 @@ $('.flexslider').flexslider();
               <div class="flex-caption hidden-xs hidden-sm">
 {{if session.forced_language =='de': }}                
               
-              <h3 style="font-size: 23px">A. C. Cremer {{=T('Eds.')}}<br />Glas in der Frühen Neuzeit</h3>
+              <h3 style="font-size: 23px">A. C. Cremer ({{=T('Eds.')}})<br />Glas in der Frühen Neuzeit</h3>
 {{elif session.forced_language =='en': }}                 
-              <h3 style="font-size: 23px">A. C. Cremer {{=T('Eds.')}}<br />Glas in der Frühen Neuzeit</h3>
+              <h3 style="font-size: 23px">A. C. Cremer ({{=T('Ed.')}})<br />Glas in der Frühen Neuzeit</h3>
 {{pass}}               
             {{=A(T('More'),_href=URL('catalog','book/821'), _class='btn btn-theme')}}  
 
