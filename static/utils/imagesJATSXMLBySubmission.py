@@ -1,16 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-'''
-@author: wit
+"""
+@author: Dulip Withanage
 python /home/wit/software/web2py/web2py.py -R  /home/wit/software/web2py/applications/UBHD_OMPPortal/static/utils/imagesJATSXMLBySubmission.py   --shell UBHD_OMPPortal  -M
-'''
-import sys
-import os
-import pwd
-import grp
+"""
 
-from xlrd import open_workbook
-from gluon import DAL
+import os
+
 from ompdal import OMPDAL
 
 
@@ -43,7 +39,7 @@ def main():
                                            ]
                         file_name = '-'.join([str(i) for i in file_name_items]) + '.' + file_type
                         if os.path.isfile(file_path+file_name):
-                            xml_file.write('<fig-group><fig id="fig_{}_{}" position="float"><label> {} </label><graphic xlink:href="{}"/></fig></fig-group>\n'.format(f.submission_id, f.file_id,f.original_file_name, file_name))
+                            xml_file.write('<fig-group><fig id="fig_{}_{}" position="float"><label> {} </label><caption><p>CAPTION</p></caption><graphic xlink:href="{}"/></fig></fig-group>\n'.format(f.submission_id, f.file_id,f.original_file_name, file_name))
 
             xml_file.write('</all-images>\n')
             xml_file.close()
