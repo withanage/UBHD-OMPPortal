@@ -29,7 +29,7 @@ def insert_sfs(name, file_id, value):
             locale='')
         db.commit()
     else:
-        print(name, "already inserted", r)
+        print(name, "already inserted", value)
     return
 
 
