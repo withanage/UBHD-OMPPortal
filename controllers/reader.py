@@ -12,6 +12,7 @@ from ompdal import OMPDAL, OMPSettings, OMPItem
 import ompformat
 from os.path import exists
 import gluon
+import heiviewer
 
 locale = 'en_US' if session.forced_language == 'en' else 'de_DE'
 
@@ -34,7 +35,6 @@ def index():
         raise HTTP(404)
     submission_id = request.args[0]
     file_id = request.args[1]
-
     if str(file_id).endswith('.xml'):
         path = os.path.join(request.folder, 'static/files/presses', myconf.take('omp.press_id'), 'monographs',
                             submission_id, 'submission/proof', file_id)
@@ -62,9 +62,16 @@ def index():
     else:
         path = os.path.join(request.folder, 'static/files/presses', myconf.take('omp.press_id'), 'monographs',
                             submission_id, 'submission/', file_id)
-        return response.stream(path, chunk_size=1048576)
+        if os.path.exists(path):
+            return response.stream(path, chunk_size=1048576)
+        else:
+            if len(request.args) < 3 :
+                raise HTTP(404)
 
-
+            publication_format_id = file_id
+            file_id = request.args[2]
+            response.view = 'reader/heiviewer.html'
+            return heiviewer.prepare_heiviewer(submission_id, publication_format_id, file_id, ompdal)
 
 def get_setting_value(settings, name):
     val = []

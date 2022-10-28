@@ -4,7 +4,10 @@ FULL_HTML = DIV()
 
 for pf in digital_publication_formats:
     full_file = pf.associated_items.get('full_file')
-    if full_file and ("xml" in full_file.attributes.file_type or "html" in full_file.attributes.file_type):
+    heiviewer = pf.settings.getLocalizedValue('useHeiViewer','') == 'on'
+    if heiviewer:
+        = DIV(LI(A(T('Read (HTML)'), _href=URL(c='reader',f='index',args=[full_file.attributes.submission_id,pf.attributes.publication_format_id, "file_name"]), _target="_blank"), _type="button", _class="btn btn-default"), _class="btn-group", _role="group")
+    elif full_file and ("xml" in full_file.attributes.file_type or "html" in full_file.attributes.file_type):
         = DIV(LI(A(T('Read (HTML)'), _href=downloadLink(full_file.attributes), _target="_blank"), _type="button", _class="btn btn-default"), _class="btn-group", _role="group")
     pass
 pass
