@@ -18,22 +18,27 @@
 </head>
 <body class="loading" data-submission-id="{{=request.args[0]}}">
     <script src="https://www.ub.uni-heidelberg.de/cdn/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="//www.ub.uni-heidelberg.de/cdn/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//www.ub.uni-heidelberg.de/cdn/bootstrap/4.5.3/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="//www.ub.uni-heidelberg.de/cdn/handlebars/latest/handlebars.min.js"></script>
     <script type="text/javascript" src="//digi.ub.uni-heidelberg.de/diglit_pub/bundle.min.js"></script>
     <script type="text/javascript" src="//www.ub.uni-heidelberg.de/cdn/quill/1.2.4/quill.js"></script>
-    <script type="text/javascript" src="//www.ub.uni-heidelberg.de/cdn/vuex/2.3.1/vuex.js"></script>
-    <script type="text/javascript" src="//www.ub.uni-heidelberg.de/cdn/vue/2.3.1/vue.js"></script>
+    <!--<script type="text/javascript" src="//www.ub.uni-heidelberg.de/cdn/vuex/2.3.1/vuex.js"></script>
+    <script type="text/javascript" src="//www.ub.uni-heidelberg.de/cdn/vue/2.3.1/vue.js"></script>-->
     <script type="text/javascript" src="//www.ub.uni-heidelberg.de/cdn/axios/0.16.2/axios.js"></script>
     <script type="text/javascript" src="//www.ub.uni-heidelberg.de/cdn/semtonotes/latest/semtonotes.js"></script>
     <script type="text/javascript" src="//www.ub.uni-heidelberg.de/cdn/authorities-client/latest/authorities-client.js"></script>
     <script type="text/javascript" src="//www.ub.uni-heidelberg.de/cdn/xrx-utils/latest/xrx-utils.js"></script>
     <script type="text/javascript" src="//www.ub.uni-heidelberg.de/cdn/xrx-vue/latest/xrx-vue.js"></script>
-    <script type="text/javascript" src="//www.ub.uni-heidelberg.de/cdn/anno-common/0.0.4/anno-common.js"></script>
-    <script type="text/javascript" src="//www.ub.uni-heidelberg.de/cdn/anno-frontend/latest/anno-frontend.js"></script>
+    <script type="text/javascript" src="//www.ub.uni-heidelberg.de/cdn/anno-common/0.0.9/anno-common.js"></script>
+    <script type="text/javascript" src="//www.ub.uni-heidelberg.de/cdn/anno-frontend/20211215/anno-frontend.js"></script>
     <script src="//www.ub.uni-heidelberg.de/cdn/anno-frontend-snippets/latest/anno-snippet-heiViewer.js"></script>
-    <link href="//www.ub.uni-heidelberg.de/cdn/perfect-scrollbar/1.5.3/css/perfect-scrollbar.css" rel="stylesheet">
-    <script src="//www.ub.uni-heidelberg.de/cdn/perfect-scrollbar/1.5.3/dist/perfect-scrollbar.js"></script>
+    <!--<link href="//www.ub.uni-heidelberg.de/cdn/perfect-scrollbar/1.5.3/css/perfect-scrollbar.css" rel="stylesheet">-->
+    <!--<script src="//www.ub.uni-heidelberg.de/cdn/perfect-scrollbar/1.5.3/dist/perfect-scrollbar.js"></script>-->
+    <script type="text/javascript" src="//www.ub.uni-heidelberg.de/cdn/MathJax/2.7.7/MathJax.js?config=MML_HTMLorMML-full"></script>
+    <link  href="//www.ub.uni-heidelberg.de/cdn/viewer-js/latest/viewer.min.css" rel="stylesheet">
+    <script src="//www.ub.uni-heidelberg.de/cdn/viewer-js/latest/viewer.min.js"></script>
+    <script src="//www.ub.uni-heidelberg.de/cdn/viewer-js/latest/viewer.min.js"></script>
+    <script src="//www.ub.uni-heidelberg.de/cdn/jquery-waitForImages/jquery.waitforimages.min.js"></script>
     <script type="text/javascript">
     $(document).ready(function(){
         const {protocol, hostname, pathname, search} = window.location
@@ -53,7 +58,7 @@
             },
             tei: {
                 edition: '{{=edition_id}}',
-                sigle: '{{=submission_id}}',
+                sigle: '{{="{}_{}_{}".format(submission_id, publication_format_id, file_id)}}',
                 baseURLMedia: '{{=base_url_media}}',
                 mediaURLMap: {{=XML(media_mapping)}},
     },
