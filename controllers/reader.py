@@ -71,7 +71,10 @@ def index():
             publication_format_id = file_id
             file_id = request.args[2]
             response.view = 'reader/heiviewer.html'
-            return heiviewer.prepare_heiviewer(submission_id, publication_format_id, file_id, ompdal)
+            heiviewer_chapter_id = None
+            if len(request.args) > 3:
+                heiviewer_chapter_id = request.args[3]
+            return heiviewer.prepare_heiviewer(submission_id, publication_format_id, file_id, ompdal, chapter_id=heiviewer_chapter_id)
 
 def get_setting_value(settings, name):
     val = []

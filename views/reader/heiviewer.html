@@ -58,15 +58,15 @@
             },
             tei: {
                 edition: '{{=edition_id}}',
-                sigle: '{{="{}_{}_{}".format(submission_id, publication_format_id, file_id)}}',
+                sigle: '{{=content_id}}',
                 baseURLMedia: '{{=base_url_media}}',
                 mediaURLMap: {{=XML(media_mapping)}},
     },
         textgranularity: '{{=granularity}}',
             currentTextPartId: '{{=chapter_id}}',
             logo: '{{=logo_url}}',
-            logolink: '{{=URL(c='catalog',f='book',args=[submission_id])}}',
-            backlink: '{{=URL(c='catalog',f='book',args=[submission_id])}}',
+            logolink: '{{=backlink}}',
+            backlink: '{{=backlink}}',
             langlink: {
                 ger: window.location + '?lang=de',
                 eng: window.location + '?lang=en',
