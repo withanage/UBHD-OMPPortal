@@ -70,7 +70,7 @@ def index():
 
             publication_format_id = file_id
             file_id = request.args[2]
-            response.view = 'reader/heiviewer.html'
+            response.view = '../static/omp-resources/views/reader/heiviewer.html'
             heiviewer_chapter_id = None
             if len(request.args) > 3:
                 heiviewer_chapter_id = request.args[3]
