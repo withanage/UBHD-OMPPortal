@@ -5,7 +5,6 @@ FULL_HTML = DIV()
 for pf in digital_publication_formats:
     full_file = pf.associated_items.get('full_file')
     heiviewer = pf.settings.getLocalizedValue('useHeiViewer','')
-    print("heiviewer", heiviewer)
     if full_file and ("xml" in full_file.attributes.file_type or "html" in full_file.attributes.file_type):
         if heiviewer:
             href=URL(c='reader',f='index',args=[full_file.attributes.submission_id,pf.attributes.publication_format_id, full_file.attributes.file_id])
