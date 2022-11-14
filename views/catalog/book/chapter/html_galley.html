@@ -5,7 +5,7 @@ FULL_HTML = DIV()
 for pf in digital_publication_formats:
     c_file = c_files.get(pf.attributes.publication_format_id)
     full_file = pf.associated_items.get('full_file')
-    heiviewer = pf.settings.getLocalizedValue('useHeiViewer','') == 'on'
+    heiviewer = pf.settings.getLocalizedValue('useHeiViewer','')
     c_heiviewer_id = c.settings.getLocalizedValue('heiViewerChapterId', '')
     if heiviewer and c_heiviewer_id:
         path_args = [submission_id, pf.attributes.publication_format_id, full_file.attributes.file_id, c_heiviewer_id]
