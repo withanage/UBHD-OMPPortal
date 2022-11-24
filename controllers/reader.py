@@ -76,7 +76,7 @@ def index():
             if len(request.args) > 3:
                 heiviewer_chapter_id = request.args[3]
             return heiviewer.prepare_heiviewer(press_id, submission_id, publication_format_id, file_id, ompdal, locale,
-                                               chapter_id=heiviewer_chapter_id)
+                                               settings, chapter_id=heiviewer_chapter_id)
 
 def get_setting_value(settings, name):
     val = []
