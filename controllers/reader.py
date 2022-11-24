@@ -35,8 +35,9 @@ def index():
         raise HTTP(404)
     submission_id = request.args[0]
     file_id = request.args[1]
+    press_id = myconf.take('omp.press_id')
     if str(file_id).endswith('.xml'):
-        path = os.path.join(request.folder, 'static/files/presses', myconf.take('omp.press_id'), 'monographs',
+        path = os.path.join(request.folder, 'static/files/presses', press_id, 'monographs',
                             submission_id, 'submission/proof', file_id)
         if os.path.exists(path) is False:
             raise HTTP(404)
@@ -60,7 +61,7 @@ def index():
 
         return dict(json_list=XML(gluon.serializers.json(json_list)), authors=authors_string, font_family=font_family)
     else:
-        path = os.path.join(request.folder, 'static/files/presses', myconf.take('omp.press_id'), 'monographs',
+        path = os.path.join(request.folder, 'static/files/presses', press_id, 'monographs',
                             submission_id, 'submission/', file_id)
         if os.path.exists(path):
             return response.stream(path, chunk_size=1048576)
@@ -74,7 +75,8 @@ def index():
             heiviewer_chapter_id = None
             if len(request.args) > 3:
                 heiviewer_chapter_id = request.args[3]
-            return heiviewer.prepare_heiviewer(submission_id, publication_format_id, file_id, ompdal, chapter_id=heiviewer_chapter_id)
+            return heiviewer.prepare_heiviewer(press_id, submission_id, publication_format_id, file_id, ompdal, locale,
+                                               chapter_id=heiviewer_chapter_id)
 
 def get_setting_value(settings, name):
     val = []
