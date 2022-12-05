@@ -1819,3 +1819,10 @@ body[data-submission-id="862"] {
 body[data-submission-id="900"] {
   font-family: Junicode;
 }
+
+/** Hinzugefügt am 5.12.2022 von nw für die Veröffentlichung mit ID 545:
+ * Siehe https://gitlab.ub.uni-heidelberg.de/wit/verlag-portale/-/issues/423#note_37390
+ */
+body[data-submission-id="545"] {
+  font-family: Junicode;
+}
