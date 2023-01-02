@@ -38,8 +38,19 @@ $('.flexslider').flexslider();
               </div>
               </li>                            
               <li>
-              <img alt="" src="{{=URL('static','images/press/slideshow/03_hki-mueller.jpg')}}" />
+              <img alt="" src="{{=URL('static','images/press/slideshow/03_mittelalter.png')}}" />
               <div class="flex-caption hidden-xs hidden-sm">
+{{if session.forced_language =='de': }}                  
+                <h3 style="font-size: 23px">Das Mittelalter<br />Zeitschrift des Mediävistenverbandes</h3>
+{{elif session.forced_language =='en': }}   
+                <h3 style="font-size: 23px">Das Mittelalter<br />Zeitschrift des Mediävistenverbandes</h3>
+{{pass}}                 
+                <a class="btn btn-theme" href="https://heiup.uni-heidelberg.de/journals/index.php/mial/issue/view/2429" title="{{=T('current issue')}}">{{=T('More')}}</a>    
+              </div>              
+              </li> 
+              <li>
+              <img alt="" src="{{=URL('static','images/press/slideshow/03_hki-mueller.jpg')}}" />
+                    <div class="flex-caption hidden-xs hidden-sm">
 {{if session.forced_language =='de': }}                  
                 <h3 style="font-size: 23px">Marion Müller<br />Das Schloss als Zeichen des Aufstiegs</h3>
 {{elif session.forced_language =='en': }}   
@@ -47,22 +58,9 @@ $('.flexslider').flexslider();
 {{pass}}                 
                 {{=A(T('More'),_href=URL('catalog','book/819'), _class='btn btn-theme')}}    
               </div>              
-              </li> 
-              <li>
-              <img alt="" src="{{=URL('static','images/press/slideshow/04_weihnachten.png')}}" />
-<!--              <div class="flex-caption hidden-xs hidden-sm">
-{{if session.forced_language =='de': }}                
-              
-              <h3 style="font-size: 23px">A. C. Cremer ({{=T('Eds.')}})<br />Glas in der Frühen Neuzeit</h3>
-{{elif session.forced_language =='en': }}                 
-              <h3 style="font-size: 23px">A. C. Cremer ({{=T('Ed.')}})<br />Glas in der Frühen Neuzeit</h3>
-{{pass}}               
-            {{=A(T('More'),_href=URL('catalog','book/821'), _class='btn btn-theme')}}  
-
-              </div>-->
               </li>
               <li>
-              <img alt=""  src="{{=URL('static','images/press/slideshow/05_ub_treppenhaus.jpg')}}" />{{if session.forced_language =='de': }} 
+              <img alt="" src="{{=URL('static','images/press/slideshow/05_ub_treppenhaus.jpg')}}" />{{if session.forced_language =='de': }} 
               <div class="flex-caption hidden-xs hidden-sm"><h3>{{=T('UB Heidelberg Digitale Informations- versorgung')}}</h3>              
                 <a href="https://www.ub.uni-heidelberg.de/Welcome.html" class="btn btn-theme">Mehr</a>
               </div>{{elif session.forced_language =='en': }} 
