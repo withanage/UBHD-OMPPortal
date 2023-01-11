@@ -196,6 +196,7 @@
 'enter date and time as %(format)s': 'ein Datum und eine Uhrzeit als %(format)s eingeben',
 'Errors': 'Fehlermeldungen',
 'Erstverkaufstag': 'Erstverkaufstag',
+'Export control of publications': 'Exportkontrolle bei Publikationen',
 'export as csv file': 'als csv Datei exportieren',
 'FAQ': 'FAQ',
 'Farbraum': 'Farbraum',
