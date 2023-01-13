@@ -48,81 +48,40 @@
             </h4>
  
 
+
+		
+			<div class="container" id="beuerle" height="400px">
+				<div class="row">
+				<div class="col-lg-2">
+					<article>
+						<div class="post-image">
+					{{=IMG(_src=URL('static','files/presses/6/monographs/998/simple/cover.jpg'),_alt='',_class='bildrahmen')}}   
+						</div>
+					</article>
+				</div>
+				<div class="col-lg-10">
+					<article>
+						<div class="post-heading">
+							<b>Martin Bauer, Philip Booth, Susanna Fischer {{=T('(Eds.)')}}<br />
+								To Jerusalem and Beyond<br />
+								Interdisciplinary Approaches to the Study of Latin Travel Literature, c.1200-1500
+							</b><br />				  
+							<i>Das Mittelalter. Perspektiven mediävistischer Forschung. Beihefte, {{=T('Volume')}} 19</i>
+						</div>
+							{{if session.forced_language =='de': }}						
+			<p>Mit der Ausweitung von Handelsrouten, Pilgerfahrten und Missionsreisen im 13. Jahrhundert erlebte die lateinische Reiseliteratur einen nie gekannten Aufschwung. Um die Bedeutung dieser Gattung aufzuzeigen, präsentiert und evaluiert dieser Band aktuelle und zukünftige Wege der Forschung. Der Schwerpunkt liegt dabei auf der lateinischen Reiseliteratur von ca. 1200 bis 1500. Durch die Kombination digitaler, kodikologischer, literarischer, philologischer und anthropologischer Ansätze wird untersucht, wie die einzelnen Texte verfasst, verbreitet, rezipiert und gelesen wurden. Zugleich regen die Interpretationen dieses Bandes dazu an, vor dem Hintergrund moderner methodischer und theoretischer Ansätze zu einer Neubewertung der lateinischen Reiseliteratur zu gelangen.</p>
+			<p>Erscheint im Winter 2022/23</p>
 			
-	
-
-		
-		<div class="container" id="kaiser" height="400px">
-		     <div class="row">
-				<div class="col-lg-2">
-					<article>
-						<div class="post-image">
-                   {{=IMG(_src=URL('static','files/presses/6/monographs/440/simple/cover.jpg'),_alt='',_class='bildrahmen')}}   
-						</div>
-					</article>
-				</div>
-				<div class="col-lg-10">
-					<article>
-						<div class="post-heading">
-						  <b>Friedrich Carl Kaiser<br />
-						  Carl Stamitz (1745–1801).<br>
-                          Biographische Beiträge – Das symphonische Werk – Thematischer Katalog der Orchesterwerke. Herausgegeben von Johannes Knüchel 						  
-                          </b><br>
-                          <i>Schriften zur Südwestdeutschen Hofmusik, {{=T('Volume')}} 2</i>					  
-						</div>
-						    {{if session.forced_language =='de': }}						
-            <p>Musikinteressierten ist Carl Stamitz (1745–1801), der älteste Sohn von Johann Stamitz, durchaus ein Begriff, finden sich seine Kompositionen doch auf zahlreichen Tonträgern und Konzertprogrammen im heutigen Musikbetrieb. Die Musikwissenschaft hingegen schenkt diesem Komponisten aus den Reihen der kurpfälzischen Hofmusiker nicht in gleicher Weise Aufmerksamkeit. Nach wie vor ist die 1962 eingereichte Dissertation von Friedrich Carl Kaiser (1931–2008) die einzige Monographie, die sich mit Stamitz’ Leben und einem gewichtigen Teil seines schöpferischen Werkes, der Orchestermusik, systematisch beschäftigt. Sie ist ein Standardwerk, die zu Recht in jeder Bibliographie zum Thema erscheint. Bislang konnte die Dissertation nur in den auf wenige Bibliotheken verteilten Pflichtexemplaren in Typoskriptform eingesehen werden, welche noch dazu voneinander abweichen, da Kaiser über einen langen Zeitraum hinweg immer wieder Änderungen und Zusätze an seiner Stamitz-Monographie vorgenommen hat. Die vorliegende Ausgabe, die auch Kaisers Handexemplar aus dem Nachlass berücksichtigt, stellt nun der musikwissenschaftlichen Forschung eine verlässliche Leseausgabe dieses grundlegenden Textes zur Verfügung.</p>
-            <p>Erscheint im Winter 2022/23</p>
-            
-                {{elif session.forced_language =='en': }}
-						<p>Carl Stamitz (1745-1801), Johann Stamitz's eldest son, is well known for his works, as his compositions can be found on numerous recordings and concert programmes in today's music scene. Musicologists though do not pay the same attention to this composer, who came from the ranks of the court musicians of the Electoral Palatinate. The dissertation by Friedrich Carl Kaiser (1931-2008), submitted in 1962, is still the only monograph that systematically deals with his life and his orchestral music, which was a major part of his creative work. It is a standard work that rightly appears in every bibliography on the subject. Up to now it has only been possible to view the compulsory typescript copies of the dissertation, which are distributed among a few libraries and which differ in detail from one another. The reason for this is the somewhat unusual genesis of the text, as Kaiser repeatedly made changes and additions to his Stamitz monograph over a long period of time. The present edition, which also includes Kaiser's personal copy from his estate, now provides musicology researchers with a reliable edition of this fundamental text.</p>  
-             <p>Coming in Winter 2022/23</p>
-                        {{pass}}
+				{{elif session.forced_language =='en': }}
+						<p>With the expansion of trading routes, pilgrimage, and missionary endeavours in the 13th century, Latin travel literature emerged as a distinctive genre like never before. To highlight the importance of this genre, this volume outlines and explores current and future research trajectories with a focus on Latin travel literature from c. 1200–1500. Combining digital, codicological, literary, philological, and anthropological approaches the volume analyses the ways in which these texts were produced, distributed, received, read, and can be interpreted. It argues for the importance of re-evaluating these texts and revisiting their contents in light of new methodological and theoretical approaches.</p>
+				<p>Coming in Winter 2022/23</p>
+						{{pass}}
 					</article>
 				</div>
 			</div>
-		</div> 	
-
-		<div class="container" id="pagel" height="400px">
-		     <div class="row">
-				<div class="col-lg-2">
-					<article>
-						<div class="post-image">
-							{{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_pagel.jpg'),_alt='', _class='bildrahmen')}}
-						</div>
-					</article>
-				</div>
-				<div class="col-lg-10">
-					<article>
-						<div class="post-heading">
-						  <b>Steve Pagel<br />
-						  {{if session.forced_language =='de': }}
-							   Die Wurzeln der Kontaktlinguistik. 
-							   Zur Entstehung des Sprachkontaktparadigmas in der Sprachwissenschaft
-						  {{elif session.forced_language =='en': }}
-						       The roots of contact linguistics.
-							   On the emergence of the language contact paradigm in the science of language
-                          {{pass}}	
-                          </b>						  
-						</div>
-						    {{if session.forced_language =='de': }}						
-            <p>Das Nachdenken über Sprachkontakt und Sprachmischung ist von Anfang an Teil der europäisch-abendländischen Beschäftigung mit Sprache. Angefangen bei Platon, ist es lange ein recht unaufgeregtes Nachdenken, bis sich im 19. Jhd. der Blickwinkel radikal ändert: die Normalität ist weg, Kontakt und Mischung werden erst zu einem Forschungstabu und nur wenig später zum Forschungsfokus, aus dem eine eigene Disziplin, die Kontaktlinguistik hervorgeht. Dieses Buch erzählt erstmals die ganze Geschichte der Erforschung von Sprachkontakt bis an die Schwelle zum 20. Jhd. und zeigt, wie kritisch-historiografische Studien helfen können, aktuelle Debatten (z.B. in der Kreolistik) einzuordnen und voranzubringen.</p>
-            <p>Erscheint im Herbst 2022</p>
-            
-                {{elif session.forced_language =='en': }}
-						<p>Reflecting on language contact and language mixing is part of the European-Western occupation with language from the beginning. Starting with Plato, it is for a long time a rather unexcited reflection, until in the 19th century, the perspective changes radically: the normality of cases of contact and mixing is gone, they become a research taboo first and only a little later a research focus, from which a separate discipline, contact linguistics, emerges. This book, for the first time, tells the whole story of the study of language contact up to the 20th century, and shows how critical-historiographic studies can help to understand and advance current debates (for example, in creolistics).</p>  
-             <p>Coming in Winter 2022/23</p>
-                        {{pass}}
-					</article>
-				</div>
-			</div>
-		</div>
-		
- 
+			</div> 				
 
 
-
-		
 		
 		<div class="container" id="beuerle" height="400px">
 			<div class="row">
@@ -153,6 +112,107 @@
 			</div>
 		</div>
 		</div> 	
+
+		<div class="container" id="kaiser" height="400px">
+			<div class="row">
+			   <div class="col-lg-2">
+				   <article>
+					   <div class="post-image">
+				  {{=IMG(_src=URL('static','files/presses/6/monographs/440/simple/cover.jpg'),_alt='',_class='bildrahmen')}}   
+					   </div>
+				   </article>
+			   </div>
+			   <div class="col-lg-10">
+				   <article>
+					   <div class="post-heading">
+						 <b>Friedrich Carl Kaiser<br />
+						 Carl Stamitz (1745–1801).<br>
+						 Biographische Beiträge – Das symphonische Werk – Thematischer Katalog der Orchesterwerke. Herausgegeben von Johannes Knüchel 						  
+						 </b><br>
+						 <i>Schriften zur Südwestdeutschen Hofmusik, {{=T('Volume')}} 2</i>					  
+					   </div>
+						   {{if session.forced_language =='de': }}						
+		   <p>Musikinteressierten ist Carl Stamitz (1745–1801), der älteste Sohn von Johann Stamitz, durchaus ein Begriff, finden sich seine Kompositionen doch auf zahlreichen Tonträgern und Konzertprogrammen im heutigen Musikbetrieb. Die Musikwissenschaft hingegen schenkt diesem Komponisten aus den Reihen der kurpfälzischen Hofmusiker nicht in gleicher Weise Aufmerksamkeit. Nach wie vor ist die 1962 eingereichte Dissertation von Friedrich Carl Kaiser (1931–2008) die einzige Monographie, die sich mit Stamitz’ Leben und einem gewichtigen Teil seines schöpferischen Werkes, der Orchestermusik, systematisch beschäftigt. Sie ist ein Standardwerk, die zu Recht in jeder Bibliographie zum Thema erscheint. Bislang konnte die Dissertation nur in den auf wenige Bibliotheken verteilten Pflichtexemplaren in Typoskriptform eingesehen werden, welche noch dazu voneinander abweichen, da Kaiser über einen langen Zeitraum hinweg immer wieder Änderungen und Zusätze an seiner Stamitz-Monographie vorgenommen hat. Die vorliegende Ausgabe, die auch Kaisers Handexemplar aus dem Nachlass berücksichtigt, stellt nun der musikwissenschaftlichen Forschung eine verlässliche Leseausgabe dieses grundlegenden Textes zur Verfügung.</p>
+		   <p>Erscheint im Winter 2022/23</p>
+		   
+			   {{elif session.forced_language =='en': }}
+					   <p>Carl Stamitz (1745-1801), Johann Stamitz's eldest son, is well known for his works, as his compositions can be found on numerous recordings and concert programmes in today's music scene. Musicologists though do not pay the same attention to this composer, who came from the ranks of the court musicians of the Electoral Palatinate. The dissertation by Friedrich Carl Kaiser (1931-2008), submitted in 1962, is still the only monograph that systematically deals with his life and his orchestral music, which was a major part of his creative work. It is a standard work that rightly appears in every bibliography on the subject. Up to now it has only been possible to view the compulsory typescript copies of the dissertation, which are distributed among a few libraries and which differ in detail from one another. The reason for this is the somewhat unusual genesis of the text, as Kaiser repeatedly made changes and additions to his Stamitz monograph over a long period of time. The present edition, which also includes Kaiser's personal copy from his estate, now provides musicology researchers with a reliable edition of this fundamental text.</p>  
+			<p>Coming in Winter 2022/23</p>
+					   {{pass}}
+				   </article>
+			   </div>
+		   </div>
+	   </div> 	
+
+	   
+	   <div class="container" id="kaiser" height="400px">
+		<div class="row">
+		   <div class="col-lg-2">
+			   <article>
+				   <div class="post-image">
+			  {{=IMG(_src=URL('static','files/presses/6/monographs/1086/simple/cover.jpg'),_alt='',_class='bildrahmen')}}   
+				   </div>
+			   </article>
+		   </div>
+		   <div class="col-lg-10">
+			   <article>
+				   <div class="post-heading">
+					 <b>Christian Alexander Neumann {{=T('(Eds.)')}}<br />
+						Old Age before Modernity<br>
+						Case Studies and Methodological Perspectives, 500&nbsp;BC –&nbsp;1700&nbsp;AD 						  
+					 </b><br>
+					 <i>Online-Schriften des DHI Rom. Neue Reihe – Pubblicazioni online del DHI Roma. Nuova serie, {{=T('Volume')}} 8</i>					  
+				   </div>
+					   {{if session.forced_language =='de': }}						
+					<p>Dieser Band widmet sich dem Alter(n) in der Vormoderne mit einem Fokus auf dem Mittelalter. Gerontologische und geisteswissenschaftliche, vor allem geschichtswissenschaftliche Perspektiven werden miteinander kombiniert, um so zu neuen Einsichten zu gelangen. Die gerontologischen Beiträge legen zentrale Theorien und Methoden dar, die für die Analyse historischer Entwicklungen relevant sind, während die geisteswissenschaftlichen Beiträge Fallstudien präsentieren, welche historische Evidenz liefern.</p>
+					<p>Erscheint im Winter 2022/23</p>
+	   
+		   {{elif session.forced_language =='en': }}
+				   <p>This book investigates old age and ageing in premodern times, with a special focus on the Middle Ages. Perspectives from gerontology and the humanities, and above all from history, are combined to provide novel insights. The gerontological articles explain key theories and methods that are relevant for the analysis of historical developments, while the contributions from the humanities offer historical evidence complementary to these inputs.</p>
+					<p>Il presente volume esamina la vecchiaia e l’invecchiamento come appaiono nelle epoche premoderne e, in particolare, nel medioevo. Combinando prospettive provenienti dalla gerontologia da una parte e dalle discipline umanistiche, in particolare la ricerca storica, dall’altra, si cerca di aprire la strada a nuove conoscenze. I contributi gerontologici propongono teorie e metodi che sono fondamentali per analizzare gli sviluppi storici, mentre quelli umanistici offrono evidenza storica attraverso casi di studio.
+					</p>  
+		<p>Coming in Winter 2022/23</p>
+				   {{pass}}
+			   </article>
+		   </div>
+	   </div>
+   </div>
+
+	   
+		<div class="container" id="pagel" height="400px">
+			<div class="row">
+			   <div class="col-lg-2">
+				   <article>
+					   <div class="post-image">
+						   {{=IMG(_src=URL(myconf.take('web.application'),'static','/images/catalog/cover_pagel.jpg'),_alt='', _class='bildrahmen')}}
+					   </div>
+				   </article>
+			   </div>
+			   <div class="col-lg-10">
+				   <article>
+					   <div class="post-heading">
+						 <b>Steve Pagel<br />
+						 {{if session.forced_language =='de': }}
+							  Die Wurzeln der Kontaktlinguistik. 
+							  Zur Entstehung des Sprachkontaktparadigmas in der Sprachwissenschaft
+						 {{elif session.forced_language =='en': }}
+							  The roots of contact linguistics.
+							  On the emergence of the language contact paradigm in the science of language
+						 {{pass}}	
+						 </b>						  
+					   </div>
+						   {{if session.forced_language =='de': }}						
+		   <p>Das Nachdenken über Sprachkontakt und Sprachmischung ist von Anfang an Teil der europäisch-abendländischen Beschäftigung mit Sprache. Angefangen bei Platon, ist es lange ein recht unaufgeregtes Nachdenken, bis sich im 19. Jhd. der Blickwinkel radikal ändert: die Normalität ist weg, Kontakt und Mischung werden erst zu einem Forschungstabu und nur wenig später zum Forschungsfokus, aus dem eine eigene Disziplin, die Kontaktlinguistik hervorgeht. Dieses Buch erzählt erstmals die ganze Geschichte der Erforschung von Sprachkontakt bis an die Schwelle zum 20. Jhd. und zeigt, wie kritisch-historiografische Studien helfen können, aktuelle Debatten (z.B. in der Kreolistik) einzuordnen und voranzubringen.</p>
+		   <p>Erscheint im Winter 2022/23</p>
+		   
+			   {{elif session.forced_language =='en': }}
+					   <p>Reflecting on language contact and language mixing is part of the European-Western occupation with language from the beginning. Starting with Plato, it is for a long time a rather unexcited reflection, until in the 19th century, the perspective changes radically: the normality of cases of contact and mixing is gone, they become a research taboo first and only a little later a research focus, from which a separate discipline, contact linguistics, emerges. This book, for the first time, tells the whole story of the study of language contact up to the 20th century, and shows how critical-historiographic studies can help to understand and advance current debates (for example, in creolistics).</p>  
+			<p>Coming in Winter 2022/23</p>
+					   {{pass}}
+				   </article>
+			   </div>
+		   </div>
+	   </div>
 
 
    
