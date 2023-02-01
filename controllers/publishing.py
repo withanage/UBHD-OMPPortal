@@ -25,3 +25,6 @@ def conflict_interest():
 
 def export():
     return dict()
+    
+def vgwort():
+    return dict()
