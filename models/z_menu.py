@@ -46,7 +46,8 @@ publishing_dict = [['for_authors', T('Information for Authors')],
                    ['rights_and_licences', T('Rights and Licences')],
                    ['plagiarism', T('Plagiarism')],
                    ['data_privacy', T('Data Privacy')],
-                   ['export', T('Export control of publications')]
+                   ['export', T('Export control of publications')],
+                   ['vgwort', T('VG Wort')]
                    ]
 
 publishing_dict_list = [LI(A(i[1], _href=URL('publishing', i[0])))
