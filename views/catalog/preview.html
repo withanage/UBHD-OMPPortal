@@ -201,6 +201,35 @@
 		   </div>
 	   </div>
    </div> 	
+<!-- Sommer 2023 -->
+   <div class="container" id="menzel" height="400px">
+	<div class="row">
+	   <div class="col-lg-2">
+		   <article>
+			   <div class="post-image">
+		  {{=IMG(_src=URL('static','images/catalog/cover_menzel.jpg'),_alt='',_class='bildrahmen')}}   
+			   </div>
+		   </article>
+	   </div>
+	   <div class="col-lg-10">
+		   <article>
+			   <div class="post-heading">
+				 <b>Stefan Menzel<br />
+					Pforta, St. Afra, St. Augustin und die Transformation der mitteldeutschen Musiklandschaft (1543–1620)</b><br />	
+					<em>Heidelberger Schriften zur Musikwissenschaft, {{=T('Volume')}} 1</em>				  
+			   </div>
+				   {{if session.forced_language =='de': }}						
+   <p>Die albertinischen Fürstenschulen Pforta (bei Naumburg), St. Afra (Meißen) und St. Augustin (Grimma) waren von großer Bedeutung für die Konsolidierung der lutherischen Kirchenmusik. Die Schulen, ihre Lehrer und Absolventen trieben die Transformation Mitteldeutschlands in eine blühende Musiklandschaft voran. Diesen Prozess zeichnet das Buch detailliert nach und entwirft dabei ein musikhistorisches Panorama der Reformation, das vom 13. Jahrhundert bis zum Beginn des Dreißigjährigen Krieges reicht. Die Studie füllt damit nicht nur musikhistoriographische Lücken, sondern beschreibt auch eine der bedeutendsten musikalischen Kulturlandschaften des alten deutschen Sprachraums.</p>
+   <p>Erscheint im Sommer 2023</p>
+   
+	   {{elif session.forced_language =='en': }}
+			   <p>The Albertine Prince’s Schools Pforta, St. Afra, and St. Augustin considerably contributed to the consolidation of Lutheran church music. The three schools, their teachers, and their alumni transformed Central Germany into a flourishing musical landscape. This study traces this process in detail, thus filling the musico-historical gap between the Wittenberg Reformation and the Thirty Years’ War and describing one of the most significant musical landscapes of the German-speaking lands.</p>  
+	<p>Coming in Summer 2023</p>
+			   {{pass}}
+		   </article>
+	   </div>
+   </div>
+</div> 	   
 
 
     </div>
