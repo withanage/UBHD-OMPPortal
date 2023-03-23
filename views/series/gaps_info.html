@@ -1,0 +1,99 @@
+{{extend 'layout.html'}}
+
+  <section id="content">
+    <div class="container">
+        <div class="row">
+	
+            <div class="col-lg-3">
+                <!-- <article>
+                    <div class="post-image">
+					           {{=IMG(_src=URL('static','files/presses/6/monographs/481/simple/cover.jpg'))}}            
+                  </div>
+                </article>-->
+            </div>  
+
+            <div class="col-lg-6">
+             <article>
+               <div class="post-heading">
+                <h3>Anglophone Postcolonial Studies</h3>
+             </div>
+			  {{if session.forced_language =='de': }}
+			  <p><em>Anglophone Postcolonial Studies</em> untersucht transkulturelle Verhandlungen in historischen und gegenwärtigen Kontaktzonen in Afrika, der Karibik, Südasien, Südostasien und dem Pazifik, Kanada, den USA, Australien und Neuseeland sowie in diasporischen Kontexten in der gesamten anglophonen Welt. Postkoloniale Theorien stellen einen wichtigen Bezugspunkt der Reihe dar. Anglophone Postcolonial Studies ist für Forschungsergebnisse offen, die sich kritisch mit der Geschichte und den Hinterlassenschaften verschiedener Kolonialismen in vielfältigen Bezugsrahmen, von lokalen bis hin zu globalen Phänomenen, sowie mit darüber hinaus gehenden gesellschaftlichen und kulturellen Transformationsprozessen auseinandersetzen.</p> 
+
+        <p>Die Bände der Reihe erforschen eine Vielzahl an regionalen, kulturellen und historischen Gegenständen der World Anglophone and Postcolonial Studies und eröffnen einen weltweiten freien Zugang zu aktueller Forschung in diesen Bereichen.
+        </p>
+			  {{elif session.forced_language =='en': }}
+			  <p><em>Anglophone Postcolonial Studies</em> explores cross-cultural encounters and negotiations in historical and contemporary contact zones in Africa, the Caribbean, South Asia, Southeast Asia, and the Pacific, Canada, the USA, Australia, and New Zealand, and in diasporic contexts throughout the Anglophone world. Postcolonial theory constitutes an important frame of reference for the book series. Anglophone Postcolonial Studies is open to research that critically examines the history and legacies of colonialisms in various frames of reference, from local to global phenomena, as well as social and cultural processes of transformation that reach beyond this nexus.</p>
+        <p>The volumes in the series explore a wide range of regional, cultural, and historical issues in World Anglophone and Postcolonial Studies and provide free worldwide access to current research in these areas.</p>
+			  {{pass}}
+	  
+     
+
+                    <div class="widget">
+                        <h5 class="widgetheading"></h5>
+                        <ul class="tags">          
+                            <li>{{=A(T('Volumes'),_href=URL('catalog','series/einsichten'))}}
+                        </ul>
+                    </div>
+          </article>
+        </div> 
+
+        <div class="col-lg-3">
+          <article>
+            <div class="box">
+              <div class="box-gray alignleft" style="height: auto;">
+                 {{if session.forced_language =='de': }}
+                       <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographische Angaben</h5>
+                          <p><em>Anglophone Postcolonial Studies</em> ist eine Reihe der Gesellschaft für Anglophone Postkoloniale Studien e.V. (GAPS)<br>
+                            Association for Anglophone Postcolonial Studies </p>
+						  <p>Herausgeber:innen</p>
+						  <p>Christian Mair<br> 
+                Annika McPherson<br> 
+                Cecile Sandten<br> 
+                Katja Sarkowsky<br> 
+                Frank Schulze-Engler
+                </p>
+						  <!--<p>Kontakt</p>
+
+						<p>Dr. Maria Effinger<br>
+						Telefon: 06221-54 3561<br>
+            E-Mail: effinger@ub.uni-heidelberg.de</p>
+
+            <h5 style="color: #656565; margin-bottom: 0.5em;">ISSN</h5>
+            <p>ISSN 2628-5479 (Print)<br>
+            ISSN 2628-5495 (eISSN)</p> -->
+
+
+             {{elif session.forced_language =='en': }}
+             
+                            <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographic details</h5>
+                            <p><em>Anglophone Postcolonial Studies</em> is edited by the Gesellschaft für Anglophone Postkoloniale Studien e.V. (GAPS)<br>
+                              Association for Anglophone Postcolonial Studies </p>
+                <p>Editors</p>
+                <p>Christian Mair<br> 
+                  Annika McPherson<br> 
+                  Cecile Sandten<br> 
+                  Katja Sarkowsky<br> 
+                  Frank Schulze-Engler
+                  </p>
+                <!-- <p>Contact</p>
+						<p>Dr. Maria Effinger<br>
+						Phone: +49 6221-54 3561<br>
+            E-mail: effinger@ub.uni-heidelberg.de</p>
+
+            <h5 style="color: #656565; margin-bottom: 0.5em;">ISSN</h5>
+            <p>ISSN 2628-5479 (Print)<br>
+            ISSN 2628-5495 (eISSN)</p>  -->
+
+
+        	{{pass}}
+                  </div>   
+                </div>      
+              </article>                                     
+              </div>
+    
+    </div>   
+
+  
+   </div> 
+</section>
