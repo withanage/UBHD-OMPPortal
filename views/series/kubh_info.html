@@ -1,0 +1,87 @@
+{{extend 'layout.html'}}
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+	
+            <div class="col-lg-3">
+                <article>
+                    <div class="post-image">
+					<!--{{=IMG(_src=URL('static','files/presses/6/series/75-series.jpg'))}}-->
+            
+                  </div>
+
+                </article>
+            </div>   
+
+            <div class="col-lg-6">
+               <article>
+
+
+     <div class="post-heading">
+
+        <h3>Kataloge der Universitätsbibliothek Heidelberg</h3>
+        </div>
+      {{if session.forced_language =='de': }}
+<p>In der Reihe <i>Kataloge der Universitätsbibliothek Heidelberg</i> erscheinen wissenschaftlich erarbeitete Kataloge historischer Buchbestände, die entweder in der UB Heidelberg aufbewahrt werden oder von besonderer Bedeutung für die Geistesgeschichte der Universität und des Landes sind. Hierzu gehören vor allem mittelalterliche Buchhandschriften, Frühdrucke und Schriftzeugnisse der Frühen Neuzeit. Zu den eigenen Beständen kommen die Bände der historischen Bibliotheca Palatina, die sich heute nicht mehr in Heidelberg befinden, sondern zum größten Teil in der Biblioteca Apostolica Vaticana. </p>
+<p>Die bisher bei den Verlagen Reichert und Harrassowitz erschienenen 12 Bände erschließen die gesamten deutschsprachigen Palatinahandschriften <a href="https://digi.ub.uni-heidelberg.de/de/bpd/bibliotheca_palatina/literatur.html#cpgraec" title="Link zur Bibliotheca Palatina">Cod. Pal. germ. 1–848</a> in Heidelberg, lateinische Palatinahandschriften der Vaticana aus dem Signaturabschnitt <a href="https://digi.ub.uni-heidelberg.de/de/bpd/bibliotheca_palatina/literatur.html#cpl" title="Link zur Bibliotheca Palatina">Pal. lat. 922–1914</a>, die Inkunabeln der Universitätsbibliothek sowie <a href="https://digi.ub.uni-heidelberg.de/bsd/codices_salemitani/literatur.html" title="Link zur Bibliotheca Salemitana">Handschriften des ehemaligen Zisterzienserklosters Salem</a>, heute ebenfalls in der Universitätsbibliothek Heidelberg. Ab 2023 erscheinen die Bände bei heiBOOKS. </p>
+<p>Alle Kataloge der Reihe erschließen historische Buchbestände nach aktuellen wissenschaftlichen Standards, sowohl hinsichtlich der überlieferten Texte und ihrer Autoren, als auch hinsichtlich der Bände als historische Artefakte.</p>
+      
+      {{elif session.forced_language =='en': }}                 
+<p>In the series <i>Kataloge der Universitätsbibliothek Heidelberg</i>  (“Catalogues of Heidelberg University Library") are published scientifically compiled catalogues of historical book collections which are either kept at Heidelberg University Library or which are of particular importance for the intellectual history of the university and the country. These include, in particular, medieval manuscripts, early printed works and written testimonies from the early modern period. In addition to its own holdings, there are the volumes of the historical Bibliotheca Palatina, which are no longer in Heidelberg but for the most part in the Biblioteca Apostolica Vaticana.</p>
+<p>The 12 volumes published so far by Reichert and Harrassowitz include the entire German Palatina manuscripts <a href="https://digi.ub.uni-heidelberg.de/de/bpd/bibliotheca_palatina/literatur.html#cpgraec" title="Link to Bibliotheca Palatina">Cod. Pal. germ. 1–848</a>, Latin Palatina manuscripts of the Vaticana including the shelfmarks <a href="https://digi.ub.uni-heidelberg.de/de/bpd/bibliotheca_palatina/literatur.html#cpl" title="Link to Bibliotheca Palatina">Pal. lat. 922–1914</a>, the incunabula of the University Library as well as <a href="https://digi.ub.uni-heidelberg.de/bsd/codices_salemitani/literatur.html" title="Link to Bibliotheca Salemitana">manuscripts of the former Cistercian monastery of Salem</a>, which are now also part of the holdings of Heidelberg University Library. From 2023, the volumes are published by heiBOOKS.</p>
+<p>All catalogues of the series index historical book holdings according to current scholarly standards, both with regard to the texts and their authors, as well as the manuscripts as historical artifacts. </p>
+ {{pass}}
+<!--
+<div class="widget">
+                        <h5 class="widgetheading"></h5>
+                        <ul class="tags">          
+                            <li>{{=A(T('Volumes'),_href=URL('catalog','series/kubh'))}}
+                        </ul>
+                    </div>
+-->
+                </article>
+                
+            </div>
+			
+
+               <div class="col-lg-3">
+          <article>
+            <div class="box">
+
+			           <div class="box-gray alignleft" style="height: auto;">
+                 {{if session.forced_language =='de': }}
+                            <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographische Angaben</h5>
+                                                        
+                            <p>Herausgeberin<br>
+							Dr. Karin Zimmermann, UB Heidelberg</p>
+           
+                   <!--
+                            <h5 style="color: #656565; margin-bottom: 0.5em;">Kontakt</h5>
+                            E-Mail: <a href="mailto:ibaum@uni-kassel.de">ibaum@uni-kassel.de</a>
+                   
+                            <h5 style="color: #656565; margin-bottom: 0.5em;">ISSN</h5>
+                            <p>ISSN 2698-212 (Print)<br>ISSN 2748-3614 (online)</p>
+              -->
+
+             {{elif session.forced_language =='en': }}
+             
+             <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographic details</h5>                          
+                            <p>Editor<br>
+							Dr. Karin Zimmermann, UB Heidelberg</p>
+
+                   <!--
+                            <h5 style="color: #656565; margin-bottom: 0.5em;">Contact</h5>
+                            E-Mail: <a href="mailto:ibaum@uni-kassel.de">ibaum@uni-kassel.de</a>
+                   
+                            <h5 style="color: #656565; margin-bottom: 0.5em;">ISSN</h5>
+                            <p>ISSN 2698-212 (Print)<br>ISSN 2748-3614 (online)</p>
+							-->
+        	{{pass}}
+        </div>   
+      </div>     
+    </article>                                     
+    </div>
+    </div>   
+
+</section>
