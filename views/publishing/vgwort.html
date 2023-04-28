@@ -1,0 +1,23 @@
+{{extend 'layout.html'}}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>VG Wort</h3>
+
+                {{if session.forced_language =='de': }}
+                <p>Voraussetzung für eine Auszahlung von Tantiemen durch die VG Wort ist die Unterzeichnung eines sog. Wahrnehmungsvertrags. Dazu melden Sie sich im Registrierungsportal TOM auf der Website der <a href="https://tom.vgwort.de/portal/index" title="Webseite der VG Wort" class="extern">VG Wort</a> an, dort finden Sie auch den Wahrnehmungsvertrag zum Download. Sobald Sie bei der VG Wort registriert wurden, erhalten Sie eine Karteinummer. Diese benötigen Sie, um Ihre Publikationen dort zu melden; bitte geben Sie Ihre Karteikartennummer auch an uns weiter.  </p>
+				<p>Tantiemen für die Druckausgabe Ihres Buches erhalten Sie, indem Sie im <a href="https://tom.vgwort.de/portal/paperFormShow" title="Portal der VG Wort" class="extern">VG Wort-Portal</a> das „Meldeformular Wissenschaft“ herunterladen, ausfüllen und an die Verwertungsgesellschaft schicken. Eine Anleitung zum Ausfüllen des Formulars, Fristen und weitere Informationen erhalten Sie ebenfalls auf dieser Seite. </p>
+				<p>Um bei der Ausschüttung für Online-Publikationen durch die VG Wort berücksichtigt zu werden, müssen Sie zunächst nichts unternehmen. Wir bauen auf „Ihrer“ Buchseite Zählmarken der VG Wort ein. Ist die nötige Anzahl an Mindestzugriffen erreicht (innerhalb eines Kalenderjahres 1500 Zugriffe aus der Bundesrepublik Deutschland, bei Beiträgen von mehr als 10.000 Zeichen mindestens 750 Zugriffe), erhalten wir eine Nachricht von der VG Wort. Wir teilen der VG Wort dann Ihre Karteinummer mit und Sie erhalten Ihre Tantiemen direkt von dort.</p>
+                {{elif session.forced_language =='en': }}
+				<p>A prerequisite for the payment of royalties by VG Wort is the signing of a so-called Wahrnehmungsvertrag (“rights administration agreement” = a kind of membership agreement). To do this, register with the TOM registration portal on the <a href="https://tom.vgwort.de/portal/index" title="VG Wort website" class="extern">VG Wort website</a>, where you will also find the Wahrnehmungsvertrag for download. As soon as you have been registered with VG Wort, you will receive a card number. You will need this to register your publications there; please also pass on your index card number to us.</p>
+				<p>You can receive royalties for the print edition of your book by downloading the "Meldeformular Wissenschaft" from the <a href="https://tom.vgwort.de/portal/paperFormShowVG title="VG Wort portal" class="extern">Wort portal</a>, filling it out and sending it to the collecting society. Instructions on how to fill out the form, deadlines and further information are also available on this page.</p>
+				<p>To be considered for the distribution for online publications by VG Wort, you do not have to do anything at first. We install VG Wort counting marks on "your" book page. Once the required number of minimum hits has been reached (1,500 hits from the Federal Republic of Germany within one calendar year, at least 750 hits for contributions of more than 10,000 characters), we receive a message from VG Wort. We then inform VG Wort of your card number and you receive your royalties directly from them.</p>
+                {{pass}}
+
+
+        </div>
+    </div>
+</div>
+
+

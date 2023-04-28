@@ -197,6 +197,7 @@
 'Errors': 'Fehlermeldungen',
 'Erstverkaufstag': 'Erstverkaufstag',
 'export as csv file': 'als csv Datei exportieren',
+'Export control of publications': 'Exportkontrolle bei Publikationen',
 'FAQ': 'FAQ',
 'Farbraum': 'Farbraum',
 'February': 'Februar',

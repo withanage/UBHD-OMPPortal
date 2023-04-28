@@ -1,0 +1,30 @@
+{{extend 'layout.html'}}
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12" style="min-height: 20em;">
+            <h3>  {{if session.forced_language =='de': }}
+                Exportkontrolle bei Publikationen (Dual-Use)
+                {{elif session.forced_language =='en': }}
+                Export control of publications (Dual-Use)
+            {{pass}}
+            </h3>
+
+            <p>
+                {{if session.forced_language =='de': }}
+                Veröffentlichungen können Informationen enthalten, von denen eine erhebliche Bedrohung für die öffentliche Gesundheit, Sicherheit oder die Umwelt ausgeht, weil sie sowohl zu zivilen als auch zu militärischen oder terroristischen Zwecken verwendet werden können (Dual-Use). Es liegt in der Verantwortung der Wissenschaftler*innen, vor der Veröffentlichung die eigene Publikation kritisch daraufhin zu prüfen, ob sie derartige nicht bereits allgemein zugängliche oder nicht der Grundlagenforschung zugehörende Informationen enthält. Kann dies nicht sicher ausgeschlossen werden, ist vor der Veröffentlichung die <a href="https://www.uni-heidelberg.de/einrichtungen/verwaltung/recht/d1_exportkontrolle.html" title="Homepage Universität Heidelberg, Stabsstelle Exportkontrolle">Stabsstelle Exportkontrolle</a> hinzuzuziehen.
+                {{elif session.forced_language =='en': }}
+                Publications may contain information that poses a significant threat to public health, safety or the environment because it can be used for both civilian and military or terrorist purposes (dual use). It is the responsibility of the scientists and scholars to critically examine their own manuscript before publication to see whether it contains such information that is not already in the public domain or is relevant to fundamental research. If this cannot be ruled out with certainty, the <a href="https://www.uni-heidelberg.de/einrichtungen/verwaltung/recht/d1_exportkontrolle.html" title="Homepage Universität Heidelberg, Export Control Unit">Export Control Unit</a> should be consulted before publication.
+                {{pass}}
+
+
+            </p>
+
+        </div>
+    </div>
+</div>
+
+
