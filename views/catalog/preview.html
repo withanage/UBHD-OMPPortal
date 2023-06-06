@@ -205,7 +205,32 @@
    </div>
 </div> 	   
 
-   
+ 	   <div class="container" id="syrer" height="400px">
+		<div class="row">
+		   <div class="col-lg-2">
+			   <article>
+				   <div class="post-image">
+			  {{=IMG(_src=URL('static','images/catalog/cover_mittelalter.jpg'),_alt='',_class='bildrahmen')}}    
+				   </div>
+			   </article>
+		   </div>
+		   <div class="col-lg-10">
+			   <article>
+				   <div class="post-heading">
+					 <b>Das Mittelalter – Bd. 28, Nr. 1 (2023)</b>			  
+				   </div>
+					   {{if session.forced_language =='de': }}						
+	   <p>Das Themenheft stellt einen der am weitesten verbreiteten Erzählstoffe der Vormoderne in den Mittelpunkt: die ‚Seven Sages of Rome‘ oder ‚Sieben weisen Meister‘. Aus der Zeit vom 11. bis zum 19. Jahrhundert lassen sich im vormodernen Asien, Europa und Nahen Osten Versionen in 30 Sprachen nachweisen, die seine große Bekanntheit belegen. Doch dies ist in der Mediävistik wenig bekannt und wird kaum thematisiert. Die Herausgeberinnen vertreten die Auffassung, dass der Stoff in herausragender Weise geeignet ist, um aktuelle und interdisziplinär relevante Ansätze der Mediävistik und Frühneuzeitforschung aufzugreifen und zusammenzuführen. Dazu zählen Aspekte der Überlieferung, der globalen Literaturgeschichtsschreibung und der Intersektionalitätsforschung.</p>
+	   <p>Erscheint im Sommer 2023</p>
+	   
+		   {{elif session.forced_language =='en': }}
+				   <p>The ‘Seven Sages of Rome’ was one of the most widely distributed story matters of premodernity. It was transmitted in at least 30 languages from Arabic to Russian across Asia, Europe and the Middle and Near East from the 11th to the 19th centuries. Nevertheless, this tradition is still little known and rarely researched in Mediaeval Studies.  This special issue proposes that the ‘Seven Sages of Rome’ is ripe for rediscovery, and for bringing together and giving new perspectives on current and interdisciplinary approaches in Mediaeval and Early Modern Studies. This includes transmission studies, intersectional analysis and global approaches to literary history.</p>  
+		<p>Coming in Summer 2023</p>
+				   {{pass}}
+			   </article>
+		   </div>
+	   </div>
+   </div>   
 <!-- Herbst 2023 -->	   		
 		<div class="container" id="binder" height="400px">
 			<div class="row">
@@ -295,32 +320,7 @@
 	   </div>
    </div> 
 
-	   <div class="container" id="syrer" height="400px">
-		<div class="row">
-		   <div class="col-lg-2">
-			   <article>
-				   <div class="post-image">
-			  {{=IMG(_src=URL('static','images/catalog/cover_mittelalter.jpg'),_alt='',_class='bildrahmen')}}    
-				   </div>
-			   </article>
-		   </div>
-		   <div class="col-lg-10">
-			   <article>
-				   <div class="post-heading">
-					 <b>Das Mittelalter – Bd. 28, Nr. 1 (2023)</b>			  
-				   </div>
-					   {{if session.forced_language =='de': }}						
-	   <p>Das Themenheft stellt einen der am weitesten verbreiteten Erzählstoffe der Vormoderne in den Mittelpunkt: die ‚Seven Sages of Rome‘ oder ‚Sieben weisen Meister‘. Aus der Zeit vom 11. bis zum 19. Jahrhundert lassen sich im vormodernen Asien, Europa und Nahen Osten Versionen in 30 Sprachen nachweisen, die seine große Bekanntheit belegen. Doch dies ist in der Mediävistik wenig bekannt und wird kaum thematisiert. Die Herausgeberinnen vertreten die Auffassung, dass der Stoff in herausragender Weise geeignet ist, um aktuelle und interdisziplinär relevante Ansätze der Mediävistik und Frühneuzeitforschung aufzugreifen und zusammenzuführen. Dazu zählen Aspekte der Überlieferung, der globalen Literaturgeschichtsschreibung und der Intersektionalitätsforschung.</p>
-	   <p>Erscheint im Herbst 2023</p>
-	   
-		   {{elif session.forced_language =='en': }}
-				   <p>The ‘Seven Sages of Rome’ was one of the most widely distributed story matters of premodernity. It was transmitted in at least 30 languages from Arabic to Russian across Asia, Europe and the Middle and Near East from the 11th to the 19th centuries. Nevertheless, this tradition is still little known and rarely researched in Mediaeval Studies.  This special issue proposes that the ‘Seven Sages of Rome’ is ripe for rediscovery, and for bringing together and giving new perspectives on current and interdisciplinary approaches in Mediaeval and Early Modern Studies. This includes transmission studies, intersectional analysis and global approaches to literary history.</p>  
-		<p>Coming in Autumn 2023</p>
-				   {{pass}}
-			   </article>
-		   </div>
-	   </div>
-   </div> 
+
     </div>
 	</div>
 </div>
