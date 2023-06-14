@@ -27,36 +27,37 @@ $('.flexslider').flexslider();
               </div>{{pass}} 
               </li>
               <li>
-              <img alt="" src="{{=URL('static','images/press/slideshow/02_konradin.jpg')}}" />
+              <img alt="" src="{{=URL('static','images/press/slideshow/02_apocalyptica.jpg')}}" />
               <div class="flex-caption hidden-xs hidden-sm">
 {{if session.forced_language =='de': }}                 
-                <h3>Vitolo, Schwarz-Ricci (Hrsg.)<br />Konradin (1252–1268)</h3>
+                <h3>Folger, Stümer, Loest (Hrsg.)<br />Apocalyptica, Vol. 1 No. 2 (2022)</h3>
 {{elif session.forced_language =='en': }}                 
-                <h3>Vitolo, Schwarz-Ricci (Eds.)<br />Konradin (1252–1268)</h3>  
+                <h3>Folger, Stümer, Loest (Eds.)<br />Apocalyptica, Vol. 1 No. 2 (2022)</h3>  
 {{pass}}                               
-                {{=A(T('More'),_href=URL('catalog','book/1037'), _class='btn btn-theme')}}    
+                <a class="btn btn-theme" href="https://heiup.uni-heidelberg.de/journals/index.php/apocalyptica/issue/view/2440" title="{{=T('current issue')}}">{{=T('More')}}</a>                   
+  
               </div>
               </li>                            
               <li>
-              <img alt="" src="{{=URL('static','images/press/slideshow/03_mittelalter.png')}}" />
+              <img alt="" src="{{=URL('static','images/press/slideshow/03_dhi-rom.png')}}" />
               <div class="flex-caption hidden-xs hidden-sm">
 {{if session.forced_language =='de': }}                  
-                <h3 style="font-size: 23px">Das Mittelalter<br />Zeitschrift des Mediävisten- verbandes</h3>
+                <h3 style="font-size: 23px">Christian A. Neumann (Hrsg.)<br />Old Age before Modernity</h3>
 {{elif session.forced_language =='en': }}   
-                <h3 style="font-size: 23px">Das Mittelalter<br />Biannual magazine by the Mediävistenverband</h3>
+                <h3 style="font-size: 23px">Christian A. Neumann (Hrsg.)<br />Old Age before Modernity</h3>
 {{pass}}                 
-                <a class="btn btn-theme" href="https://heiup.uni-heidelberg.de/journals/index.php/mial/issue/view/2429" title="{{=T('current issue')}}">{{=T('More')}}</a>    
+              {{=A(T('More'),_href=URL('catalog','book/1086'), _class='btn btn-theme')}}  
               </div>              
               </li> 
               <li>
-              <img alt="" src="{{=URL('static','images/press/slideshow/04_hki-mueller.jpg')}}" />
+              <img alt="" src="{{=URL('static','images/press/slideshow/04_pagel.jpg')}}" />
                     <div class="flex-caption hidden-xs hidden-sm">
 {{if session.forced_language =='de': }}                  
-                <h3 style="font-size: 23px">Marion Müller<br />Das Schloss als Zeichen des Aufstiegs</h3>
+                <h3 style="font-size: 23px">Steve Pagel<br />Die Wurzeln der Kontaktlinguistik</h3>
 {{elif session.forced_language =='en': }}   
-                <h3 style="font-size: 23px">Marion Müller<br />Das Schloss als Zeichen des Aufstiegs</h3>
+                <h3 style="font-size: 23px">Steve Pagel<br />Die Wurzeln der Kontaktlinguistik</h3>
 {{pass}}                 
-                {{=A(T('More'),_href=URL('catalog','book/819'), _class='btn btn-theme')}}    
+                {{=A(T('More'),_href=URL('catalog','book/591'), _class='btn btn-theme')}}    
               </div>              
               </li>
               <li>
