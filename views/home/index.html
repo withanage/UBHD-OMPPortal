@@ -27,36 +27,37 @@ $('.flexslider').flexslider();
               </div>{{pass}} 
               </li>
               <li>
-              <img alt="" src="{{=URL('static','images/press/slideshow/02_konradin.jpg')}}" />
+              <img alt="" src="{{=URL('static','images/press/slideshow/02_apocalyptica.jpg')}}" />
               <div class="flex-caption hidden-xs hidden-sm">
 {{if session.forced_language =='de': }}                 
-                <h3>Vitolo, Schwarz-Ricci (Hrsg.)<br />Konradin (1252–1268)</h3>
+                <h3>Folger, Stümer, Loest (Hrsg.)<br />Apocalyptica, Vol. 1 No. 2 (2022)</h3>
 {{elif session.forced_language =='en': }}                 
-                <h3>Vitolo, Schwarz-Ricci (Eds.)<br />Konradin (1252–1268)</h3>  
+                <h3>Folger, Stümer, Loest (Eds.)<br />Apocalyptica, Vol. 1 No. 2 (2022)</h3>  
 {{pass}}                               
-                {{=A(T('More'),_href=URL('catalog','book/1037'), _class='btn btn-theme')}}    
+                <a class="btn btn-theme" href="https://heiup.uni-heidelberg.de/journals/index.php/apocalyptica/issue/view/2440" title="{{=T('current issue')}}">{{=T('More')}}</a>                   
+  
               </div>
               </li>                            
               <li>
-              <img alt="" src="{{=URL('static','images/press/slideshow/03_mittelalter.png')}}" />
+              <img alt="" src="{{=URL('static','images/press/slideshow/03_kemte.jpg')}}" />
               <div class="flex-caption hidden-xs hidden-sm">
 {{if session.forced_language =='de': }}                  
-                <h3 style="font-size: 23px">Das Mittelalter<br />Zeitschrift des Mediävisten- verbandes</h3>
+                <h3 style="font-size: 23px">S. Ardeleanu, J. C. Cubas Díaz (Hrsg.)<br />Funerary Landscapes of the Late Antique “oecumene”</h3>
 {{elif session.forced_language =='en': }}   
-                <h3 style="font-size: 23px">Das Mittelalter<br />Biannual magazine by the Mediävistenverband</h3>
+                <h3 style="font-size: 23px">S. Ardeleanu, J. C. Cubas Díaz (Eds.)<br />Funerary Landscapes of the Late Antique “oecumene”</h3>
 {{pass}}                 
-                <a class="btn btn-theme" href="https://heiup.uni-heidelberg.de/journals/index.php/mial/issue/view/2429" title="{{=T('current issue')}}">{{=T('More')}}</a>    
+              {{=A(T('More'),_href=URL('catalog','book/1176'), _class='btn btn-theme')}}  
               </div>              
               </li> 
               <li>
-              <img alt="" src="{{=URL('static','images/press/slideshow/04_hki-mueller.jpg')}}" />
+              <img alt="" src="{{=URL('static','images/press/slideshow/04_opfermann.jpg')}}" />
                     <div class="flex-caption hidden-xs hidden-sm">
 {{if session.forced_language =='de': }}                  
-                <h3 style="font-size: 23px">Marion Müller<br />Das Schloss als Zeichen des Aufstiegs</h3>
+                <h3 style="font-size: 23px">Ulrich F. Opfermann<br />„Stets korrekt und human“</h3>
 {{elif session.forced_language =='en': }}   
-                <h3 style="font-size: 23px">Marion Müller<br />Das Schloss als Zeichen des Aufstiegs</h3>
+                <h3 style="font-size: 23px">Ulrich F. Opfermann<br />„Stets korrekt und human“</h3>
 {{pass}}                 
-                {{=A(T('More'),_href=URL('catalog','book/819'), _class='btn btn-theme')}}    
+                {{=A(T('More'),_href=URL('catalog','book/949'), _class='btn btn-theme')}}    
               </div>              
               </li>
               <li>
@@ -104,29 +105,27 @@ $('.flexslider').flexslider();
               <div class="box">
                 <div class="box-gray aligncenter">
               <h4>{{=T('New Titles')}}</h4>
-              <a href="https://heiup.uni-heidelberg.de/journals/index.php/heied/issue/current" title="{{=T('current issue')}}"> <img src="{{=URL('static','images/journals/cover_heieducation.jpg')}}" style="width:145px" class="bildrahmen"></a> 
-              </div>
-                    <div class="box-bottom"><a href="https://heiup.uni-heidelberg.de/journals/index.php/heied/issue/current" title="{{=T('current issue')}}">{{=T('More Information')}}</a>
+              {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/1114/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/1114'))}} 
+			        </div>
+                <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/1114'))}}
                 </div>
               </div>
-            </div>     
+            </div>   
             <div class="col-lg-3">              
               <div class="box">
                 <div class="box-gray aligncenter">
               <h4>{{=T('New Titles')}}</h4>
-              <a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/current" title="{{=T('current issue')}}"> <img src="{{=URL('static','images/campusmedia/cover_01_2023.jpg')}}" style="width:145px" class="bildrahmen"></a> 
-              </div>
-                    <div class="box-bottom"><a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/current" title="{{=T('current issue')}}">{{=T('More Information')}}</a>
+              {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/1176/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/1176'))}} 
+			        </div>
+                <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/1176'))}}
                 </div>
               </div>
-            </div>                
+            </div>  
+
+                
 
 
 
-          
-
-            
-            
 
 
 
@@ -162,6 +161,7 @@ $('.flexslider').flexslider();
         <div class="row">
           <div class="col-lg-12">
             <div class="row"> 
+              
 			      <div class="col-lg-3">
               <div class="box">
                 <div class="box-gray aligncenter">{{if session.forced_language =='de': }} 
@@ -179,64 +179,60 @@ $('.flexslider').flexslider();
               <div class="box">
                 <div class="box-gray aligncenter">
               <h4>{{=T('New Titles')}}</h4>
-              {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/1086/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/1086'))}} 
+              {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/949/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/949'))}} 
 			        </div>
-                <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/1086'))}}
+                <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/949'))}}
                 </div>
               </div>
-            </div>  
+            </div>               
             <div class="col-lg-3">              
               <div class="box">
                 <div class="box-gray aligncenter">
               <h4>{{=T('New Titles')}}</h4>
-              {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/1094/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/1094'))}} 
-			        </div>
-                <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/1094'))}}
+              <a href="https://heiup.uni-heidelberg.de/journals/index.php/apocalyptica/issue/current" title="{{=T('current issue')}}"> <img src="{{=URL('static','images/journals/cover_apocalyptica.jpg')}}" style="width:145px" class="bildrahmen"></a> 
+              </div>
+                    <div class="box-bottom"><a href="https://heiup.uni-heidelberg.de/journals/index.php/apocalyptica/issue/current" title="{{=T('current issue')}}">{{=T('More Information')}}</a>
                 </div>
               </div>
-            </div>             
+            </div> 
 
             <div class="col-lg-3">              
               <div class="box">
                 <div class="box-gray aligncenter">
               <h4>{{=T('New Titles')}}</h4>
-              {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/591/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/591'))}} 
-			        </div>
-                <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/591'))}}
+              <a href="https://heiup.uni-heidelberg.de/journals/index.php/heied/issue/current" title="{{=T('current issue')}}"> <img src="{{=URL('static','images/journals/cover_heieducation.jpg')}}" style="width:145px" class="bildrahmen"></a> 
+              </div>
+                    <div class="box-bottom"><a href="https://heiup.uni-heidelberg.de/journals/index.php/heied/issue/current" title="{{=T('current issue')}}">{{=T('More Information')}}</a>
                 </div>
               </div>
+            </div>     
+               
+
+
             </div>              
 
 
               </div>
             </div>
-          </div>
+
           <!-- ./zweite Boxen-Reihe-->
+
           
         <div class="row">
 
           <div class="col-lg-12">
             <div class="row">
-
-             <div class="col-lg-3">              
-              <div class="box">
-                <div class="box-gray aligncenter">
-              <h4>{{=T('New Titles')}}</h4>
-              {{=A(IMG(_src=URL(myconf.take('web.application'),'static','files/presses/6/monographs/440/simple/cover.jpg'),_alt='',_style='width:145px', _class='bildrahmen'),_href=URL('catalog','book/440'))}} 
-			        </div>
-                <div class="box-bottom">{{=A(T('More Information'),_href=URL('catalog','book/440'))}}
+              <div class="col-lg-3">              
+                <div class="box">
+                  <div class="box-gray aligncenter">
+                <h4>{{=T('New Titles')}}</h4>
+                <a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/current" title="{{=T('current issue')}}"> <img src="{{=URL('static','images/campusmedia/cover_01_2023.jpg')}}" style="width:145px" class="bildrahmen"></a> 
                 </div>
-              </div>
-            </div>              
-          
-     
+                      <div class="box-bottom"><a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/current" title="{{=T('current issue')}}">{{=T('More Information')}}</a>
+                  </div>
+                </div>
+              </div>                   
 
-          
-   
-
-              
-              
-           
 
 
           <div class="col-lg-3">
@@ -268,9 +264,12 @@ $('.flexslider').flexslider();
                 </div>
               </div>
 
-             </div>
+
+
            </div>
+
           </div>
+        </div>  
 
 		  <!-- ./dritte Boxen-Reihe-->
   </section>      
