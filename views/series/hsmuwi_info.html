@@ -1,0 +1,91 @@
+{{extend 'layout.html'}}
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+	
+            <div class="col-lg-3">
+     
+                <article>
+                    <div class="post-image">
+		 	{{=IMG(_src=URL('static','files/presses/6/series/92-series.jpg'))}}
+                  </div>
+
+                </article>
+                  
+            </div>   
+
+            <div class="col-lg-6">
+               <article>
+
+
+     <div class="post-heading">
+      {{if session.forced_language =='de': }}
+        <h3>Heidelberger Schriften zur Musikwissenschaft</h3>
+
+      {{elif session.forced_language =='en': }}            
+        <h3>Heidelberger Schriften zur Musikwissenschaft</h3>
+      {{pass}}
+        </div>
+      {{if session.forced_language =='de': }}
+      <p>Die Heidelberger Schriften zur Musikwissenschaft sind eine Peer-Review-geprüfte Open-Access-Schriftenreihe, in der ausschließlich herausragende Monografien aus dem gesamten Fachgebiet der Musikwissenschaft von der Antike bis zur Moderne erscheinen.</p>
+
+      <p>Die 2023 begonnene Buchreihe wird von Christiane Wiesenfeldt und Christoph Flamm gemeinsam herausgegeben und ist am Musikwissenschaftlichem Seminar der Universität Heidelberg angesiedelt. Sie ist auch offen für externe Autorinnen und Autoren, die in einer Reihe mit hoher Qualitätssicherung publizieren möchten. Ein internationaler wissenschaftlicher Beirat, bestehend aus Friedrich Geiger (München), Inga Mai Groote (Zürich), Christian Leitmeir (Oxford) und Panja Mücke (Mannheim) steht den Herausgebern beratend zur Seite. </p>
+        
+      <p>Die Reihe ermöglicht neben deutsch- auch englischsprachigen Monographien eine qualitätsgesicherte Publikation und macht das Heidelberger Seminar als Ort internationaler Forschung sichtbar.</p>
+
+      
+      {{elif session.forced_language =='en': }}                 
+      <p>The Heidelberger Schriften zur Musikwissenschaft is a peer-reviewed open-access series in which only outstanding monographs from the entire field of musicology from antiquity to modern times are published.</p> 
+      <p>The new book series is co-edited by Christiane Wiesenfeldt and Christoph Flamm and is based at the Department of Musicology at Heidelberg University. It is open to external authors who wish to publish in a series with high quality assurance. An international scientific advisory board consisting of Friedrich Geiger (Munich), Inga Mai Groote (Zurich), Christian Leitmeir (Oxford) and Panja Mücke (Mannheim) supports the editors in ensuring scientific quality.</p> 
+      <p>In addition to the German- and English-language monographs, the series enables quality-assured publication and makes the Heidelberg Seminar visible as a place of international research.</p>
+   {{pass}}
+
+     <!--<div class="widget">
+                        <h5 class="widgetheading"></h5>
+                        <ul class="tags">          
+                            <li>{{=A(T('Volumes'),_href=URL('catalog','series/hsmuwi'))}}
+                        </ul>
+     </div>-->
+
+                </article>
+
+			</div>
+         <div class="col-lg-3">
+          <article>
+            <div class="box">
+
+			           <div class="box-gray alignleft" style="height: auto;">
+                 {{if session.forced_language =='de': }}
+				            <h5 style="color: #656565; margin-bottom: 0.5em;margin-top:1em;">Bibliographische Angaben</h5>
+                            <p>Heidelberger Schriften zur Musikwissenschaft</p>
+                            <p>Herausgeber</p>
+                            <ul>
+                              <li>Christiane Wiesenfeldt, Heidelberg</li>
+                              <li>Christoph Flamm, Heidelberg</li>
+                            </ul>
+							<h5 style="color: #656565; margin-bottom: 0.5em;margin-top:1em;">ISSN</h5>
+							<p>ISSN (online): 2941-5683<br>
+							ISSN (Print): 2941-5675 </p>
+
+				{{elif session.forced_language =='en': }}
+                            <h5 style="color: #656565; margin-bottom: 0.5em;margin-top:1em;">Bibliographic details</h5> 
+                            <p>Heidelberger Schriften zur Musikwissenschaft</p>
+                            <p>Editors</p>
+                            <ul>
+                              <li>Christiane Wiesenfeldt, Heidelberg</li>
+                              <li>Christoph Flamm, Heidelberg</li>
+                            </ul>
+							<h5 style="color: #656565; margin-bottom: 0.5em;margin-top:1em;">ISSN</h5>
+							<p>ISSN (online): 2941-5683<br>
+							ISSN (Print): 2941-5675 </p>
+
+        	{{pass}}
+        </div>   
+      </div>     
+    </article>                                     
+    </div>
+    </div>   
+
+
+</section>
