@@ -245,7 +245,10 @@ def index():
 
     ignored_submission_id = myconf.take('omp.ignore_submissions') if myconf.take(
         'omp.ignore_submissions') else -1
-
+    try:
+        current_page = int(request.vars.get('page_nr', 1)) - 1
+    except ValueError as e:
+        raise HTTP(400, "Error with value of page_nr: " + str(e)) from e
     submissions = []
     session.filters = request.vars.get('filter_by').strip('[').strip(']') if request.vars.get(
             'filter_by') else session.get('filters', '')
@@ -259,7 +262,6 @@ def index():
     else:
         session.sort_by = 'datePublished-2'
     '''
-    current_page = int(request.vars.get('page_nr', 1)) - 1
     page_begin = current_page * session.per_page
     page_end = (current_page+1) * session.per_page
 

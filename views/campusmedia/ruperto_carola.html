@@ -65,103 +65,23 @@
 
         <div class="row">
 	
-            <div class="col-xs-6 col-sm-3">
+            <div class="col-xs-12 col-md-3">
                   <div class="post-image">
-		 	              <img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/cover_02_2022.jpg')}}" />
+		 	              <img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/cover_02_2023.jpg')}}" />
                   </div>
-
-
-            </div>   
-
-            
-        <div class="col-lg-6">
-             <div class="btn-group" role="group" aria-label="1">
-      				 <ul class="schaltflaeche"><li type="button" class="btn btn-default"><a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/current/showToc" title="{{=T('current issue')}}">{{=T('read current issue')}}</a></li></ul>
-       			</div>
-			
-			       <div class="btn-group" role="group" aria-label="1">
-				      <ul class="schaltflaeche"><li type="button" class="btn btn-default"><a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/archive" title="{{=T('Archive')}}">{{=T('Archive')}}</a></li></ul>
-			      </div>
-			
-			
-           <div class="post-heading">
-                        <h3>Ruperto Carola</h3>
-           </div>
-
-                 {{if session.forced_language =='de': }}
-                 
-                        
-<p>Das Forschungsmagazin „Ruperto Carola“ berichtet über wissenschaftliche Erkenntnisse und laufende Forschungsvorhaben der Universität Heidelberg. Jede seiner Ausgaben ist einem gesellschaftlich relevanten Schwerpunktthema gewidmet, zu dem Heidelberger Forscherinnen und Forscher über Disziplinen und Fächer hinweg ihre wissenschaftliche Arbeit vorstellen. In allgemein verständlicher Sprache zeigen die Autoren, auf wie vielfältige Weise an der Universität geforscht wird.</p>
-<p>Mit dem Format des Themenmagazins will die Universität Heidelberg ihr besonderes Potential und ihren Anspruch erfahrbar machen, als Volluniversität einen wesentlichen Beitrag zum Verständnis der komplexen Herausforderungen und großen Fragestellungen unserer Zeit zu leisten.</p>
-<p>Die „Ruperto Carola“ erscheint zweimal jährlich in deutscher Sprache mit englischsprachigen Abstracts und wendet sich an die Mitglieder der Universität, an ihre Partner in Wissenschaft, Politik, Wirtschaft und Gesellschaft sowie insbesondere auch an Alumni, Freunde und eine interessierte Öffentlichkeit im In- und Ausland.</p>
-<p>Herausgeber des Magazins ist der Rektor der Universität Heidelberg, die redaktionelle Verantwortung liegt bei der Stabsstelle „Kommunikation und Marketing“. Die jeweils aktuelle Ausgabe ist in der Abteilung Kommunikation und Marketing der Universität Heidelberg (Alte Universität, Grabengasse 1) erhältlich.</p>
-
-             {{elif session.forced_language =='en': }}
-
-<p>The &ldquo;Ruperto Carola&rdquo; research journal reports on scientific findings and current research activities at Heidelberg University. Every issue is dedicated to a central theme of high social relevance, to which Heidelberg scholars contribute by presenting related research projects across the entire range of disciplines and subjects. In this way, the authors demonstrate the breadth of research at the University in terms that are easy to understand for academics and laypersons alike.</p>
-<p>The format of a theme-centred journal was chosen to show Heidelberg University's special potential and aspiration of contributing to a better understanding of the complex challenges and questions of our time.</p>
-<p>Published twice a year in German with English-language abstracts, &ldquo;Ruperto Carola&rdquo; is addressed to members of the University, its partners in science, politics, business and society and, of course, its alumni, friends and the wider public in Germany and abroad.</p>
-<p>The journal is published by the President of Heidelberg University and edited by the &ldquo;Communications and Marketing&rdquo; team. The latest issue is available at the Communications and Marketing department of Heidelberg University (Alte Universität, Grabengasse 1).</p>
-                       
-
-              {{pass}}     
-
-
-                    <div class="widget">
-                        <h5 class="widgetheading"></h5>
-                 {{if session.forced_language =='de': }}
-                        <ul class="tags">
-                    <li style="display: inline-block"><a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index">zur Zeitschrift</a></li>
-                        </ul> 
-                 {{elif session.forced_language =='en': }}
-                        <ul class="tags">
-                    <li style="display: inline-block"><a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index">View journal</a></li>
-                        </ul>
-                {{pass}}     
-                    </div>
-
-            </div>
-
-            <div class="col-lg-3">
-                <div class="box">
-                  <div class="box-gray"  style="height: auto;">
-                 {{if session.forced_language =='de': }}
-                    <p class="boxText"><b>RSS für die aktuelle Ausgabe</b></p>
-                 {{elif session.forced_language =='en': }}
-                    <p class="boxText"><b>RSS for current issue</b></p>
-                  {{pass}}                                          
-                <a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/gateway/plugin/WebFeedGatewayPlugin/atom">
-                   <img alt="Logo Atom" src="{{=URL('static','images/journals/atom10_logo.gif')}}" />
-                </a>
-                <a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/gateway/plugin/WebFeedGatewayPlugin/rss2">
-                   <img alt="Logo RSS 2.0" src="{{=URL('static','images/journals/rss20_logo.gif')}}" />
-                </a>   
-                <a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/gateway/plugin/WebFeedGatewayPlugin/rss">
-                   <img alt="Logo RSS 2.0" src="{{=URL('static','images/journals/rss10_logo.gif')}}" />
-                </a>
-                  </div>
-                </div>
-                <div class="box">
-                  <div class="box-gray"  style="height: auto;">
-                   <p class="boxText"><b>{{=A(T('Contact'),_href=URL('campusmedia','ruperto_carola/contact'))}}</b></p>
-                  </div>
-                </div>                
-            </div>
-        </div>
-                
-        <div class="row">
-        {{if session.forced_language =='de': }}                
-                <div class="col-xs-12 col-md-3">
-			             <div class="box-gray alignleft" style="height: auto;">
+		    
+		         {{if session.forced_language =='de': }}                
+			    <div class="box-gray alignleft" style="height: auto;">
 
                             <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographische Angaben</h5>
                             <p>Ruperto Carola</p>
                             
-                            <p>Herausgeber<br />
-                            Universität Heidelberg<br />
-                              Der Rektor<br />
-                              Kommunikation und Marketing
-                            </p>
+		            <p>Herausgeber</p>
+                            <ul>
+				    <li>Universität Heidelberg</li>
+				    <li>Der Rektor</li>
+				    <li>Kommunikation und Marketing</li>
+                            </ul>
                             <p>Wissenschaftlicher Beirat</p>
                             <ul>
                               <li>Prof. Dr. Peter Comba (Vorsitz)</li>
@@ -178,23 +98,25 @@
                                 <li>Marietta Fuhrmann-Koch (verantwortlich)</li>
                                 <li>Mirjam Mohr (Leitung)</li>
                               </ul>  
-                            <p>Heidelberg University Publishing, Heidelberg</p>
-                            <p>ISSN: 0035-998-X</p>  
+                            <p>Heidelberg University Publishing, Heidelberg</p>         
                             <p>Copyright: Universität Heidelberg</p>
-                     </div>
+				    
+			    <h5 style="color: #656565; margin-bottom: 0.5em;">ISSN</h5>
+			    <p>0035-998-X</p> 
                    </div>         
                              
           {{elif session.forced_language =='en': }}
-                <div class="col-xs-12 col-md-3">
+                
 			                 <div class="box-gray alignleft" style="height: auto;">
                           <h5 style="color: #656565; margin-bottom: 0.5em;">Bibliographic details</h5>
                             <p>Ruperto Carola</p>
                             
-                            <p>Editors<br />
-                            Universität Heidelberg<br />
-                              Der Rektor<br />
-                              Communications and Marketing
-                            </p>
+			    <p>Editors</p>
+                            <ul>
+				    <li>Universität Heidelberg</li>
+                                    <li>Der Rektor</li>
+				    <li>Communications and Marketing</li>
+                            </ul>
                             <p>Advisory Board</p>
                             <ul>
                               <li>Prof. Dr. Peter Comba (Chair)</li>
@@ -211,16 +133,82 @@
                                 <li>Marietta Fuhrmann-Koch (responsible)</li>
                                 <li>Mirjam Mohr (managing)</li>
                               </ul>  
-                            <p>Heidelberg University Publishing, Heidelberg</p>
-                            <p>ISSN: 0035-998-X</p>  
+                            <p>Heidelberg University Publishing, Heidelberg</p> 
                             <p>Copyright: University of Heidelberg</p>
-
+						 
+                            <h5 style="color: #656565; margin-bottom: 0.5em;">ISSN</h5>
+			    <p>0035-998-X</p> 
                       </div>
-                  </div>
-{{pass}}                  
-            <div class="col-xs-12 col-md-9">
+         {{pass}}                  
 
-              <ul id="thumbs">
+
+            </div>   
+
+            
+        <div class="col-xs-12  col-md-9">
+	    <div class="row">
+		  <div class="col-lg-9">  
+                             <div class="btn-group" role="group" aria-label="1">
+      				 <ul class="schaltflaeche">
+					 <li type="button" class="btn btn-default"><a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/current/showToc" title="{{=T('current issue')}}">{{=T('read current issue')}}</a></li>
+                                         <li type="button" class="btn btn-default"><a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/archive" title="{{=T('Archive')}}">{{=T('Archive')}}</a></li>
+		                 </ul>
+			      </div>
+						
+                              <div class="post-heading">
+                                   <h3>Ruperto Carola</h3>
+                              </div>
+
+                              {{if session.forced_language =='de': }}
+                                      <p>Das Forschungsmagazin „Ruperto Carola“ berichtet über wissenschaftliche Erkenntnisse und laufende Forschungsvorhaben der Universität Heidelberg. Jede seiner Ausgaben ist einem gesellschaftlich relevanten Schwerpunktthema gewidmet, zu dem Heidelberger Forscherinnen und Forscher über Disziplinen und Fächer hinweg ihre wissenschaftliche Arbeit vorstellen. In allgemein verständlicher Sprache zeigen die Autoren, auf wie vielfältige Weise an der Universität geforscht wird.</p>
+                                      <p>Mit dem Format des Themenmagazins will die Universität Heidelberg ihr besonderes Potential und ihren Anspruch erfahrbar machen, als Volluniversität einen wesentlichen Beitrag zum Verständnis der komplexen Herausforderungen und großen Fragestellungen unserer Zeit zu leisten.</p>
+                                      <p>Die „Ruperto Carola“ erscheint zweimal jährlich in deutscher Sprache mit englischsprachigen Abstracts und wendet sich an die Mitglieder der Universität, an ihre Partner in Wissenschaft, Politik, Wirtschaft und Gesellschaft sowie insbesondere auch an Alumni, Freunde und eine interessierte Öffentlichkeit im In- und Ausland.</p>
+                                      <p>Herausgeber des Magazins ist der Rektor der Universität Heidelberg, die redaktionelle Verantwortung liegt bei der Stabsstelle „Kommunikation und Marketing“. Die jeweils aktuelle Ausgabe ist in der Abteilung Kommunikation und Marketing der Universität Heidelberg (Alte Universität, Grabengasse 1) erhältlich.</p>
+                              {{elif session.forced_language =='en': }}
+                                      <p>The &ldquo;Ruperto Carola&rdquo; research journal reports on scientific findings and current research activities at Heidelberg University. Every issue is dedicated to a central theme of high social relevance, to which Heidelberg scholars contribute by presenting related research projects across the entire range of disciplines and subjects. In this way, the authors demonstrate the breadth of research at the University in terms that are easy to understand for academics and laypersons alike.</p>
+                                      <p>The format of a theme-centred journal was chosen to show Heidelberg University's special potential and aspiration of contributing to a better understanding of the complex challenges and questions of our time.</p>
+                                      <p>Published twice a year in German with English-language abstracts, &ldquo;Ruperto Carola&rdquo; is addressed to members of the University, its partners in science, politics, business and society and, of course, its alumni, friends and the wider public in Germany and abroad.</p>
+                                      <p>The journal is published by the President of Heidelberg University and edited by the &ldquo;Communications and Marketing&rdquo; team. The latest issue is available at the Communications and Marketing department of Heidelberg University (Alte Universität, Grabengasse 1).</p>
+                               {{pass}}     
+
+                               <div class="widget">
+			             <ul class="tags">
+                                         {{if session.forced_language =='de': }}
+                                              <li style="display: inline-block"><a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index">zur Zeitschrift</a></li>
+                                         {{elif session.forced_language =='en': }}
+                                              <li style="display: inline-block"><a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/index">View journal</a></li>                      
+                                         {{pass}}  
+		                     </ul>
+                               </div>
+		  </div>
+		
+                  <div class="col-lg-3">
+                         <div class="box">
+                              <div class="box-gray"  style="height: auto;">
+                                   {{if session.forced_language =='de': }}
+                                        <p class="boxText"><b>RSS für die aktuelle Ausgabe</b></p>
+                                   {{elif session.forced_language =='en': }}
+                                        <p class="boxText"><b>RSS for current issue</b></p>
+                                   {{pass}}                                          
+				   <p>
+                                   <a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/gateway/plugin/WebFeedGatewayPlugin/atom">
+                                        <img alt="Logo Atom" src="{{=URL('static','images/journals/atom10_logo.gif')}}" />
+                                   </a>
+                                   <a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/gateway/plugin/WebFeedGatewayPlugin/rss2">
+                                        <img alt="Logo RSS 2.0" src="{{=URL('static','images/journals/rss20_logo.gif')}}" />
+                                   </a>   
+                                   <a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/gateway/plugin/WebFeedGatewayPlugin/rss">
+                                        <img alt="Logo RSS 2.0" src="{{=URL('static','images/journals/rss10_logo.gif')}}" />
+                                   </a>
+				   </p>
+				   <p class="boxText"><b>{{=A(T('Contact'),_href=URL('campusmedia','ruperto_carola/contact'))}}</b></p>
+                               </div>
+                          </div>
+                  </div>
+	   </div>
+	   <div class="row">
+		<div class="col-lg-12">
+	        <ul id="thumbs">
                 <li class="col-xs-3 col-lg-2 design">
                   <div class="item-thumbs">
                   <a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/view/1134" title="Online-Ausgabe Ruperto Carola, 'Alt & Jung', Oktober 2012"><figure>
@@ -442,12 +430,66 @@
                </figcaption>
             </figure></a>
             </div>  
-    </li> 
+          </li> 
+          <li class="col-xs-3 col-lg-2 design">
+            <div class="item-thumbs">
+               <a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/view/2423" title="Online-Ausgabe Ruperto Carola, 'Raum & Zeit', Februar 2022"><figure>
+              <img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/cover_02_2022.jpg')}}" style="border: 1px solid #f5f5f5;">
+               <figcaption>
+               Raum & Zeit<br />
+               Ausgabe 19<br />
+               Februar 2022
+               </figcaption>
+            </figure></a>
+            </div>  
+          </li>     
+          <li class="col-xs-3 col-lg-2 design">
+            <div class="item-thumbs">
+               <a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/view/2426" title="Online-Ausgabe Ruperto Carola, 'Weich & Hart', Juni 2022"><figure>
+              <img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/cover_07_2022.jpg')}}" style="border: 1px solid #f5f5f5;">
+               <figcaption>
+               Weich & Hart<br />
+               Ausgabe 20<br />
+               Juni 2022
+               </figcaption>
+            </figure></a>
+            </div>  
+          </li>
+          <li class="col-xs-3 col-lg-2 design">
+            <div class="item-thumbs">
+               <a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/view/2438" title="Online-Ausgabe Ruperto Carola, 'Anfang & Ende', März 2023"><figure>
+              <img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/cover_01_2023.jpg')}}" style="border: 1px solid #f5f5f5;">
+               <figcaption>
+               Anfang & Ende<br />
+               Ausgabe 21<br />
+               März 2023
+               </figcaption>
+            </figure></a>
+            </div>  
+          </li> 
+          <li class="col-xs-3 col-lg-2 design">
+            <div class="item-thumbs">
+               <a href="https://heiup.uni-heidelberg.de/journals/index.php/rupertocarola/issue/view/2445" title="Online-Ausgabe Ruperto Carola, 'Schwach & Stark', August 2023"><figure>
+              <img src="{{=URL(myconf.take('web.application'),'static','images/campusmedia/cover_02_2023.jpg')}}" style="border: 1px solid #f5f5f5;">
+               <figcaption>
+               Schwach & Stark<br />
+               Ausgabe 22<br />
+               August 2023
+               </figcaption>
+            </figure></a>
+            </div>  
+          </li>                                    
         </ul>
+		
+			</div><!-- ./col-lg-12 -->  
+		</div><!-- ./row -->
 
-          </div><!-- ./col-xs-12 /md-9 -->  
-        </div><!-- ./row -->
+
+                
  
+          </div><!-- ./col-xs-12 /md-9 -->  
+
+       </div><!-- ./row -->
      </div><!-- ./id="content" -->
     </div><!-- ./container -->
 
